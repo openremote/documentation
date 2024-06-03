@@ -11,7 +11,7 @@ The edge gateway establishes the connection to the central manager using the Web
 
 An edge gateway connection is defined per edge gateway realm and only a single connection can be made to a central manager per realm.
 
-## Interaction
+## Interaction via the Gateway asset
 The edge gateway is the master and the central manager is a slave; when an edge gateway is not connected to the central manager then any attempt to interact with the edge gateway assets on the central manager will result in an error, when an edge gateway connects to a central manager the edge gateway assets are synchronised (uni-directional synchronisation from edge gateway to central manager), any change to an edge gateway asset is then also sent to the central manager to maintain synchronisation. When interacting with an edge gateway asset via the central manager the request is forwarded to the edge gateway and the edge gateway handles the request and any resulting asset changes are then also forwarded to the central manager.
 
 Depending on network connection there can be a delay between interacting with an edge gateway asset via the central manager and the interaction being completed and relayed back to the central manager.
@@ -37,6 +37,13 @@ Just create a new Asset of type Gateway and the manager will provision a Keycloa
       1. In the top right of the dialog the status should change to `CONNECTED`
 
 ![image](https://user-images.githubusercontent.com/7072278/83865817-af4ae500-a71e-11ea-9f6d-105922289b0a.png)
+
+## Interaction with Gateway Manager UI via Gateway tunnels
+
+On top of the Interaction via the Gateway, you can remotely access the full Manager UI of the Gateway instances of OpenRemote, by creating Gateway tunnels. Note that you first have to [technically configure the (edge) gateway and central instance of OpenRemote to enable the the tunnelling set-up](../../developer-guide/gateway-tunnelling-setup.md). Next you can acces the Manager UI of the Gateway instance via the 'Gateway Tunnels' (Settings) or via a 'Gateway Widget' on the Insights dashboards.
+
+<kbd>![](https://github.com/openremote/openremote/assets/11444149/fbdf5712-fefd-408e-acf0-e996cdb8ee3e)</kbd>
+_Creating a gateway tunnel and opening the manager UI of the remote instance which is connected as a gateway._
 
 ## Requirements
 ### Central Manager
