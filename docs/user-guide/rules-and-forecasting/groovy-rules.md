@@ -32,7 +32,7 @@ In this section you can find code templates and corresponding examples on how to
 * [Group Control Rule](https://github.com/openremote/openremote/blob/master/test/src/test/resources/org/openremote/test/rules/ChildAssetControl.groovy)
 * [Group Summation Rule](https://github.com/openremote/openremote/blob/master/test/src/test/resources/org/openremote/test/rules/GroupSummationRule.groovy)
 ### Example: Group Control
-![OpenRemote groovy group control example figure](https://github.com/openremote/openremote/assets/107846439/333f1aab-a9d9-40a8-a387-cfc4287b651a)
+![OpenRemote groovy group control example figure](img/groovy-group-control.png)
 _Example: Group Control. The asset group along with the attributes and configuration items used in this example._
 
 This example demonstrates how to control multiple child assets (lights) by the parent asset (lights controller) simultaneously. We will use a generic `Thing Asset` for demonstration purposes but you can replace it with your own asset type. If you already have an asset group with `Rule state` configuration, you can skip steps 1-3.
@@ -70,7 +70,7 @@ This example demonstrates how to control multiple child assets (lights) by the p
 After following the above steps, you should be able to control **Light 1** and **Light 2** simultaneously by clicking on the `On off` button of the **Lights Controller**. You can still control lights individually, but their value is overwritten each time the **Lights Controller** is used. You can use this rule as a starting point for your own custom group rules.
 
 ### Example: Group Summation
-![OpenRemote Wiki Group Summation rule](https://github.com/openremote/openremote/assets/107846439/6cb6d4b2-0fd0-48cc-b417-3b38171cedf3)
+![Group Summation Rule](img/group-summation-rule.png)
 _Example: Group Summation. The asset group along with the attributes and configuration items used in this example._
 
 This example demonstrates how to sum attribute values from child assets to the parent asset within a group. We will use a generic `Thing Asset` for demonstration purposes but you can replace it with your own asset type. If you already have an asset group with `Rule state` configuration, you can skip steps 1-3.

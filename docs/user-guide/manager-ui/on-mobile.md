@@ -6,7 +6,7 @@ sidebar_position: 2
 
 The OpenRemote Manager including the Insights dashboards, are responsive and can be used on mobile devices. We have an OpenRemote app in the Apple and Google stores which can be used as well. To make use of the services of mobile devices (e.g. location service and push notifications) you have to build your own app, using the project source code.
 
-![Creating dashboard apps OpenRemote](https://github.com/openremote/openremote/assets/11444149/bcd2dd9e-624f-425a-b5a9-74e76b3da068)
+![Creating dashboard apps OpenRemote](img/creating-dashboard-apps.png)
 
 ## OpenRemote iOS and Android App
 
@@ -22,7 +22,7 @@ OpenRemote includes consoles for iOS and Android. The current apps we are hostin
 
 You also can use the app for domains hosted by OpenRemote, e.g. the demo environment:
 
-![](https://user-images.githubusercontent.com/11444149/231217369-fa5480c4-555d-400f-959a-29c704a3794c.png)
+![](img/use-app-to-view-demo.png)
 _Use the OpenRemote app on the Appstore and Google Play Store to access the demo and try out rules with push notification. Passwords are identical to the Realm names. Note that you have to create the rules while logged in on desktop._
 
 Once you come to the login page, you are accessing the Manager UI or Insights dashboards and seeing the mobile version. Switching between domains, apps and realms can be done by long-pressing the app icon on your home screen.

@@ -9,7 +9,7 @@ Below is a short list of companies who actively offer and maintain integrations 
 As we are 100% open source we invite other companies to develop an integration. To be listed we only expect maintenance of these integrations. You can always [contact us](https://openremote.io/contact/) to get going.
 
 ## Teltonika Networks 
-![TELTONIKA-NETWORKS](https://github.com/openremote/openremote/assets/11444149/9db89a89-6b50-4be6-b2b6-fb991c61062c)
+![TELTONIKA-NETWORKS](img/teltonika-networks.png)
 
 [Teltonika Networks](https://teltonika-networks.com/?utm_source=iotplatform&utm_medium=referral&utm_content=openremote) offers a range of network products such as gateways, routers, modems and switches. With in-house R&D as well manufacturing facilities, it offers industrial grade solutions. Their solutions connect easily with OpenRemote, e.g. using the MQTT broker.
 
@@ -18,7 +18,7 @@ Documentation:
 - [OpenRemote Wiki - Manager APIs - MQTT Broker](../manager-apis/manager-apis.md#mqtt-api-mqtt-broker)
 
 ## Teltonika Vehicle Telematics
-![TELTONIKA-Telematics](https://github.com/openremote/openremote/assets/11444149/67c90fe1-2a69-4119-a2ce-5fb9d5476cb5)
+![TELTONIKA-Telematics](img/teltonika-telematics.png)
 
 [Teltonika Telematics](https://teltonika-gps.com/?utm_source=iotplatform&utm_medium=referral&utm_content=openremote) offers a range of vehicle telematics devices, like GPS trackers for road and sea vehicles, and more. With in-house R&D as well manufacturing facilities, it offers industrial grade solutions for any sort of fleet management requirement. Teltonika Telematics products can be connected seamlessly with OpenRemote, with industry-first complete, automatic payload recognition and full support for all Teltonika Telematics devices.
 

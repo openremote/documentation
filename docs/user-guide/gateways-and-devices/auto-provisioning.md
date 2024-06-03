@@ -43,7 +43,7 @@ Jump to:
 
 The following illustrates the connect process (through [MQTT topics](../manager-apis/manager-apis.md#mqtt-api-mqtt-broker)) which clients can use to auto provision a service user and optionally an asset whose ID is generated using a UNIQUE_ID provided by the client; the client is then authenticated and the asset is then returned to the client.
 
-<kbd>![Auto provisioning Connect flow](https://github.com/openremote/openremote/assets/11444149/f8f0eccf-e22e-4b3f-a410-b0d42e2b6a91)</kbd>
+<kbd>![Auto provisioning Connect flow](img/auto-provisioning-connect-flow.png)</kbd>
 
 **NOTE THAT THE 'WHITELIST/BLACKLIST FAILURE', IS NOT YET IMPLEMENTED. THIS FUNCTION ENHANCES SECURITY AS ONLY SPECIFIED DEVICES CAN CONNECT (WHITELIST) OR CAN BE EXLUCDED (BLACKLIST)**
 
@@ -253,7 +253,7 @@ awk ‘NF {sub(/\r/, “”); printf “%s\n”,$0;}’
 1. Create then select an asset of the same type that you want to use in the template then select the asset ID from the address bar (e.g. `https://staging.demo.openremote.io/manager/?realm=smartcity#/assets/false/2K3nSg148fnzlSlaem0kkh` -> `2K3nSg148fnzlSlaem0kkh`)
 1. Navigate to swagger UI (https://your_installation/swagger e.g. https://staging.demo.openremote.io/swagger)
 1. Click authorize then again on the popup dialog then login with a user from the master realm
-1. Once authenticated go to `Assets -> Get /asset/{assetId}` and paste the asset ID into the asset ID input then execute the query, you will then get the asset returned in `json` format: ![image](https://user-images.githubusercontent.com/7072278/145991791-e0a5cfd9-f989-4fe3-9d72-cc2178812202.png)
+1. Once authenticated go to `Assets -> Get /asset/{assetId}` and paste the asset ID into the asset ID input then execute the query, you will then get the asset returned in `json` format: ![image](img/get-asset-request.png)
 1. You can copy the returned `json` and paste that into the `Asset template` input field:
    1. Remove or set the the `parentId` to determine where in the asset tree the asset will be created
    1. remember to insert the `%UNIQUE_ID%` placeholder wherever you would like that to be used (in an attribute value, in the asset name, etc.)

@@ -8,7 +8,7 @@ Flow rules are mainly intended for attribute linking and processing existing att
 
 Flow rules can be created in a visual editor or written manually in their own JSON format.
 
-![Manager Flow Editor](https://github.com/openremote/openremote/assets/11444149/94e21ca8-4ba3-467e-b250-dada84647b01)
+![Manager Flow Editor](img/flow-editor.png)
 
 ## The Flow rules model
 

@@ -8,7 +8,7 @@ When-Then rules are used in combination with the or-rules UI component. They are
 
 Note that When-Then rules also support web hooks as the right hand side action. This allows you to connect to any other application based on an event. Options are endless, from connecting to your Maintenance or Messaging service to your ERP or CRM system.
 
-![Manager Rules Editor](https://user-images.githubusercontent.com/11444149/191290260-f64c619b-e595-4bf0-8235-e9ef21923544.png)
+![Manager Rules Editor](img/rules-editor.png)
 
 ## Guide to setting up your first When-Then rule
 To get familiar with the When-Then interface we will be creating a rule that turns on lights when the temperature drops below a certain threshold and just before sunset (makes sense right?). We only want this rule to be active on weekdays.

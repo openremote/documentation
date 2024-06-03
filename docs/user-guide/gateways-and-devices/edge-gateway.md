@@ -23,7 +23,7 @@ Depending on network connection there can be a delay between interacting with an
 ### 1. Provisioning in the central manager
 Just create a new Asset of type Gateway and the manager will provision a Keycloak client for it with Client Credentials grant type, the client ID and client Secret will then be stored in the clientId and clientSecret attributes of the gateway asset.
 
-![](https://github.com/openremote/Documentation/blob/master/manuscript/figures/Manager%20-%20Gateway%20Asset.png)
+![](img/manager-gateway-asset.png)
 
 ### 2. Entering credentials in the edge gateway
    1. On the edge gateway login to the manager UI and select the realm you wish to connect to the central manager (only applicable to super users).
@@ -36,13 +36,13 @@ Just create a new Asset of type Gateway and the manager will provision a Keycloa
       1. Click Save
       1. In the top right of the dialog the status should change to `CONNECTED`
 
-![image](https://user-images.githubusercontent.com/7072278/83865817-af4ae500-a71e-11ea-9f6d-105922289b0a.png)
+![image](img/manager-interconnect.png)
 
 ## Interaction with Gateway Manager UI via Gateway tunnels
 
 On top of the Interaction via the Gateway, you can remotely access the full Manager UI of the Gateway instances of OpenRemote, by creating Gateway tunnels. Note that you first have to [technically configure the (edge) gateway and central instance of OpenRemote to enable the the tunnelling set-up](../../developer-guide/gateway-tunnelling-setup.md). Next you can acces the Manager UI of the Gateway instance via the 'Gateway Tunnels' (Settings) or via a 'Gateway Widget' on the Insights dashboards.
 
-<kbd>![](https://github.com/openremote/openremote/assets/11444149/fbdf5712-fefd-408e-acf0-e996cdb8ee3e)</kbd>
+<kbd>![](img/create-gateway-tunnel.png)</kbd>
 _Creating a gateway tunnel and opening the manager UI of the remote instance which is connected as a gateway._
 
 ## Requirements

@@ -496,4 +496,4 @@ Set which assettypes are excluded from the list of asset types that can be selec
 }
 ```
 This is what the --or-app-colors look like in the demo deployment:
-![Default colors in OpenRemote](https://openremote.io/wp-content/uploads/2021/04/coloruse-04.jpg)
+![Default colors in OpenRemote](img/or-app-colors.jpg)

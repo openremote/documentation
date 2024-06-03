@@ -12,13 +12,13 @@ Currently we have several built-in widgets available:<br />
 
 | Widget | Description
 |---|---|
-|![image](https://github.com/openremote/openremote/assets/27913110/b0ee048a-998b-4fd7-b557-c41366fa965a)| An attribute field with the ability to edit its value within the dashboard itself.<br /> It works similar to the asset page, where the control changes depending on the attribute type. |
-|![image](https://github.com/openremote/openremote/assets/27913110/143f1148-40bb-4612-9719-c820dff22e46)| Measuring instrument to compare the current value of an attribute with some predefined thresholds. |
-|![image](https://github.com/openremote/openremote/assets/27913110/16a1a783-ada3-402f-b304-cfdbee6f4994)| Background image with attribute value labels that can be placed anywhere. |
-|![image](https://github.com/openremote/openremote/assets/27913110/d19d9352-d31a-4cdf-9598-8a14f260ca42)| Displays the current value of an attribute, and shows the trend in a chart. |
-|![image](https://github.com/openremote/openremote/assets/27913110/a8036ec9-7c24-4a20-ad53-94ba801aa26c)| Chart with history and/or predicted data of unlimited attributes.<br />Uses data decimation algorithms, and supports multi-axis. |
-|![image](https://github.com/openremote/openremote/assets/27913110/c4c2ac19-d0ba-497a-af32-073b23d9d79c)| Map with locations of all assets that correspond with the selected asset type.<br />Optionally it can show a color based on thresholds, or a label with the current value of an attribute. |
-|![image](https://github.com/openremote/openremote/assets/27913110/81978397-f8cc-4774-b8ff-60536560e8e5)| Table showing multiple attribute values of the assets you select.<br /> It is very useful for gaining insights in a larger number of assets with a single look. |
+|![image](img/attribute-widget.png)| An attribute field with the ability to edit its value within the dashboard itself.<br /> It works similar to the asset page, where the control changes depending on the attribute type. |
+|![image](img/gauge-widget.png)| Measuring instrument to compare the current value of an attribute with some predefined thresholds. |
+|![image](img/image-widget.png)| Background image with attribute value labels that can be placed anywhere. |
+|![image](img/kpi-widget.png)| Displays the current value of an attribute, and shows the trend in a chart. |
+|![image](img/line-chart-widget.png)| Chart with history and/or predicted data of unlimited attributes.<br />Uses data decimation algorithms, and supports multi-axis. |
+|![image](img/map-widget.png)| Map with locations of all assets that correspond with the selected asset type.<br />Optionally it can show a color based on thresholds, or a label with the current value of an attribute. |
+|![image](img/table-widget.png)| Table showing multiple attribute values of the assets you select.<br /> It is very useful for gaining insights in a larger number of assets with a single look. |
 
 
 We might add more widgets over time, so this list can become longer.<br />

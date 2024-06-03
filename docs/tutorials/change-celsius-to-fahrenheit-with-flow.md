@@ -13,12 +13,12 @@ First of all create the attribute you want to show the temperature in Fahrenheit
 * selected “Store data points” (so you can look back at historical values)
 * added the unit Fahrenheit
 
-<kbd>![Add Fahrenheit attribute](https://github.com/openremote/Documentation/blob/master/manuscript/figures/Flow%20-%20New%20attribute%20for%20flow.png)</kbd>
+<kbd>![Add Fahrenheit attribute](img/flow-new-attribute-for-flow.png)</kbd>
 
 Next create a flow in the flow editor, which looks like this:
 
-<kbd>![Flow from Celsius to Fahrenheit](https://github.com/openremote/Documentation/blob/master/manuscript/figures/Flow%20-%20Celcius%20to%20Fahrenheit.png)</kbd>
+<kbd>![Flow from Celsius to Fahrenheit](img/flow-celsius-to-fahrenheit.png)</kbd>
 
-You will now have the second temperature in Fahrenheit filled once the temperature in Celcius updates. It will look like this.
+You will now have the second temperature in Fahrenheit filled once the temperature in Celsius updates. It will look like this.
 
-<kbd>![Fahrenheit attribute as filled by the flow](https://github.com/openremote/Documentation/blob/master/manuscript/figures/Flow%20-%20the%20Fahrenheit%20result.png)</kbd>
+<kbd>![Fahrenheit attribute as filled by the flow](img/flow-the-fahrenheit-result.png)</kbd>

@@ -8,7 +8,7 @@ OpenRemote includes a time series forecasting method for attributes, based on we
 
 Additional energy domain specific forecasting for power generation of solar panels and wind turbines are explained in the [Tutorial: Create your Energy Management System](../domains/create-your-energy-management-system.md).
 
-![Screenshot 2023-05-30 at 14 40 22](https://github.com/openremote/openremote/assets/11444149/19f4e2c1-4549-4f83-adcd-07b35286fbd4)
+![Timeseries Forecasting](img/timeseries-forecasting.png)
 _Examples of time series forecasting which allows recognising patterns with a repetitive character, e.g per 24 hour or also per day of the week_
 
 ## Time series forecasting

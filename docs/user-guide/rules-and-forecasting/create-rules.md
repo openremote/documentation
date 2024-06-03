@@ -10,7 +10,7 @@ You can create global or realm rules. Global rules can access asset attributes a
 
 Rules include a scheduler that allows rules to be scheduled and events to be repeated. Rules can also be enabled or disabled manually.
 
-![Manager Rules Scheduler](https://github.com/openremote/openremote/assets/107846439/cc6310f0-6858-46f0-a3a9-6e1db18f8147)
+![Manager Rules Scheduler](img/rules-scheduler.png)
 
 ## When-Then Rules
 
