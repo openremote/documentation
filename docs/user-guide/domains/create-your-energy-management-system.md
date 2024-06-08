@@ -71,7 +71,7 @@ Another option is to turn on the attribute 'Set actual solar value with forecast
 
 #### Wind Turbine
 
-Your wind turbine asset is configured in a similar manner. First connect the 'Power' (note the negative value) and 'Energy Total Export' to an Agent which connects to your wind turbine system. See the PV Solar Asset example above, or check the different [Agent Protocol options in the Wiki](../agents-protocols/overview.md). 
+Your wind turbine asset is configured in a similar manner. First connect the 'Power' (note the negative value) and 'Energy Total Export' to an Agent which connects to your wind turbine system. See the PV Solar Asset example above, or check the different [Agent Protocol options in the documentation](../agents-protocols/overview.md).
 
 ##### Forecast service
 

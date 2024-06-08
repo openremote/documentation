@@ -17,7 +17,7 @@ A custom project is a way of extending OpenRemote to provide custom functionalit
 * Custom UI apps
 * Custom Android/iOS consoles
 
-The guide consists of the following sections and you will need to have a working environment in order to build, test etc. (please refer to the wiki for further details):
+The guide consists of the following sections and you will need to have a working environment in order to build, test etc. (please refer to the documentation for further details):
 
 * [Project Structure](#project-structure)
 * [OpenRemote Dependencies](#openremote-dependencies)

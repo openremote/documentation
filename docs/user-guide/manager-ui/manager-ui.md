@@ -6,13 +6,13 @@ sidebar_position: 1
 
 The Manager UI is the dashboard which gives you access to OpenRemote, and allows you to configure, monitor, and control your IoT platform. You can access it at `https://localhost` for the master realm, or at `https://localhost/manager/?realm=yourrealm`, for a specific realm. We'll explain the main features of the Manager UI, sometimes referring to examples from the [online Demo](https://openremote.io/demo/), for which you only have access in 'read' mode. To have full 'admin' access to all functionality you will first need to [install OpenRemote](https://github.com/openremote/openremote/blob/master/README.md). If you prefer watching a video, rather than reading, check out the [Introduction Videos](https://youtu.be/K28CQMKr-rQ).
 
-To access the Manager you will first need to login with the correct credentials (admin/secret for your local installation). Note that our account management and identity service includes features like a 'forgot password' flow. See [Realms](#realms), [Users and Roles](#users-and-access-configuration) for more details.  
+To access the Manager you will first need to login with the correct credentials (admin/secret for your local installation). Note that our account management and identity service includes features like a 'forgot password' flow. See [Realms](#realms), [Users and Roles](#users-and-access-configuration) for more details.
 
 If you open the application you will get four main pages: [Map](#map), [Assets](#assets), [Rules](#rules), and [Insights](#insights). In addition there are a series of [Settings](#settings-and-access) to interconnect managers, change language, edit your account, and create users, roles, or realms. Also the service users for the [Manager APIs](#manager-apis) can be set here.
 
 ## Map
 
-The `Map` page will show your map (see the [custom deployment](../deploying/custom-deployment.md) wiki if you like to change the map). You can pan, zoom, and tilt the map. On the map all assets are shown which have a location as well the configuration item `show on dashboard` set. Assets can both have static or dynamic locations (eg. a car, boat or plane). You will see the direction an asset is facing or moving if the asset includes an attribute called 'direction'. When selecting an asset, a panel will show its attributes and values. The `Asset details` button in this panel will bring you to the respective Asset page.
+The `Map` page will show your map (see the [custom deployment](../deploying/custom-deployment.md) documentation if you like to change the map). You can pan, zoom, and tilt the map. On the map all assets are shown which have a location as well the configuration item `show on dashboard` set. Assets can both have static or dynamic locations (eg. a car, boat or plane). You will see the direction an asset is facing or moving if the asset includes an attribute called 'direction'. When selecting an asset, a panel will show its attributes and values. The `Asset details` button in this panel will bring you to the respective Asset page.
 
 As part of the [configuring the manager UI](../deploying/configuring-the-manager-ui.md) you can also configure assets to change their colour based on an attribute value (number, boolean, or string) and show a label with or without units. 
 
@@ -77,11 +77,11 @@ While in `Edit asset` mode you can expand each attribute, which gives you the op
 | `Units` | Adds a unit to the attribute value, see [composition and options](../assets-and-attributes/assets-agents-and-attributes.md#attribute-descriptor) |
 | `User connected` | Shows all restricted users which have access to this asset, [see](../identity-and-security/realms-users-and-roles.md#restricted-user-realm-role) |
 
-See the wiki page [explaining all available configuration item options for assets and attributes, and references](../assets-and-attributes/assets-agents-and-attributes.md#asset-type-model). Don't forget to save the asset after making changes.
+See the documentation page [explaining all available configuration item options for assets and attributes, and references](../assets-and-attributes/assets-agents-and-attributes.md#asset-type-model). Don't forget to save the asset after making changes.
 
 ### Create an agent
 
-Agents are a specific type of asset used to connect to external sensors, actuators, gateways, or services using protocols. They are added in the same manner as assets by clicking the `+` in the header of the asset tree. This will open a modal that shows the available agent types at the top of the list. You will see the generic ones: [HTTP](../agents-protocols/http.md), [Websocket](../agents-protocols/websocket-agent.md), [MQTT](../agents-protocols/mqtt.md), [TCP](../agents-protocols/tcp.md), [UDP](../agents-protocols/udp.md) and [SNMP](../agents-protocols/snmp.md); as well as more specific ones like [Z-wave](../agents-protocols/z-wave), [KNX](../agents-protocols/knx) or [Velbus](https://github.com/openremote/openremote/wiki/User-Guide:-Velbus-Agent-(TCP-IP-or-Socket)).
+Agents are a specific type of asset used to connect to external sensors, actuators, gateways, or services using protocols. They are added in the same manner as assets by clicking the `+` in the header of the asset tree. This will open a modal that shows the available agent types at the top of the list. You will see the generic ones: [HTTP](../agents-protocols/http.md), [Websocket](../agents-protocols/websocket-agent.md), [MQTT](../agents-protocols/mqtt.md), [TCP](../agents-protocols/tcp.md), [UDP](../agents-protocols/udp.md) and [SNMP](../agents-protocols/snmp.md); as well as more specific ones like [Z-wave](../agents-protocols/z-wave), [KNX](../agents-protocols/knx) or [Velbus](../agents-protocols/velbus.md).
 Once you create an Agent, the agent page will display the relevant attributes, required to establish an actual connection to the external world.
 
 Some Agents have auto discovery (e.g. Z-wave) or use configuration files (e.g. KNX and Velbus). The Agent page will show a discovery button or a file selector. Once set correctly the Agent will also create an additional asset/attribute structure for all discovered or configured assets. 
@@ -131,11 +131,11 @@ The scheduler (right next to the name field of the rule) lets you set an occurre
 <kbd>![](img/time-scheduler-rules-trigger-frequency.png)</kbd>
 _Figure 8. The Rules trigger frequency (right) as well as time scheduler (left) defines when rules are triggered and active. The scheduled example sets the rule to be active until June 20 2022, only on weekdays._
 
-See the [When-Then rules](../rules-and-forecasting/when-then-rules.md) wiki for more details. 
+See the [When-Then rules](../rules-and-forecasting/when-then-rules.md) documentation for more details. 
 
 ### Flow Rules
 
-Flow rules can be used to fill (new) attributes with processed other attributes. In the visual editor you can use `Input` (blue), `Processor` (green), and `Output` (purple) nodes, and wire them up. See the wiki [Flow Rules](../rules-and-forecasting/flow-rules.md) for more details.
+Flow rules can be used to fill (new) attributes with processed other attributes. In the visual editor you can use `Input` (blue), `Processor` (green), and `Output` (purple) nodes, and wire them up. See the [Flow Rules](../rules-and-forecasting/flow-rules.md) documentation for more details.
 
 <kbd>![](img/flow-rules.png)</kbd>
 _Figure 9. Flow rules to process data_
@@ -239,7 +239,7 @@ Also see the userguide: [Realms, users and roles](../identity-and-security/realm
 
 ### Auto provisioning of devices
 
-If you are an OEM, developing and producing your own hardware, you can provision your devices and OpenRemote to automatically have your devices connecting, once they get online. Using certificates (we currently support X.509) your devices will register and automatically generate and connect to an asset of a defined type in the OpenRemote Manager (see figure 20). For details, check out the wiki about ['Auto provisioning'](../gateways-and-devices/auto-provisioning.md).
+If you are an OEM, developing and producing your own hardware, you can provision your devices and OpenRemote to automatically have your devices connecting, once they get online. Using certificates (we currently support X.509) your devices will register and automatically generate and connect to an asset of a defined type in the OpenRemote Manager (see figure 20). For details, check out the documentation about ['Auto provisioning'](../gateways-and-devices/auto-provisioning.md).
 
 <kbd>![](img/auto-provisioning-of-devices.png)</kbd>
 _Figure 20. Auto provisioning of devices_
@@ -269,7 +269,7 @@ The Manager API is compose of three APIs: HTTP, MQTT, and Websocket:
 * MQTT is a publish-subscribe API which allows connecting to our MQTT broker
 * Websocket API is a publish-subscribe API that is event based.
 
-More information on these APIs regarding formats and authentication can be found in the wiki for [Manager APIs](../manager-apis/manager-apis.md)
+More information on these APIs regarding formats and authentication can be found in the documentation for [Manager APIs](../manager-apis/manager-apis.md)
 
 ## See Also
 - [Custom Deployment](../deploying/custom-deployment.md)
