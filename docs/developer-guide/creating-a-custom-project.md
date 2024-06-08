@@ -31,7 +31,7 @@ It is recommended to put custom project code in directory/module called `deploym
 
 ## OpenRemote Dependencies
 Depending on what parts of the OpenRemote system are being customised will determine the code dependencies on the main OpenRemote code base; as the main OpenRemote code base is a monolith repo it is possible to add a `git submodule` to the main OpenRemote repo and directly reference the `gradle` projects within, this gives a very tight development process which is particularly useful if making code changes within the OpenRemote code base at the same time, to do this use the standard `git submodule` command (refer to git documentation for working with submodules):
-```
+```shell
 git submodule add -b master https://github.com/openremote/openremote.git openremote/
 ```
 

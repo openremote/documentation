@@ -7,7 +7,7 @@ sidebar_position: 10
 Connect to a Serial Server.
 
 Make sure that the device mapping for the `manager` docker container in the file `docker-compose.yml` looks like the following:
-```
+```yaml
 ...
 ...
   manager:

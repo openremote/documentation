@@ -15,7 +15,7 @@ This a basic MQTT example for connecting to the OpenRemote MQTT Broker. It consi
 <details>
 <summary>OpenRemoteESP32.ino</summary>
 
-```
+```cpp
 ##include "secret.h"
 //#include <ESP8266WiFi.h> // remove comment for ESP8266, and add comment at #include <WiFi.h> 
 ##include <WiFi.h>
@@ -109,7 +109,7 @@ It will reconnect to the server if the connection is lost using a blocking recon
 <details>
 <summary>secret.h</summary>
 
-```
+```cpp
 // Wifi 
 const char* ssid = "xxxxxxxxxx"; // Wifi SSID
 const char* password = "xxxxxxxxxx"; // Wifi Password

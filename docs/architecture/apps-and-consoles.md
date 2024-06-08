@@ -13,7 +13,7 @@ This is the application used to load the client and can be thought of as a wrapp
 
 ## Console/app interaction
 Apps and consoles exchange information using the API described below which consists of `providers`, a `provider` is a piece of functionality that the console provides to the app, messages can be sent bidirectionally between the console and app. The Android and iOS consoles implement a standard mechanism for this communication and when running an app in the Web Browser the `@openremote/core` component handles communication and also implements a limited subset of `providers` (e.g. `push`). The console is accessed via the `console` property on the `@openremote/core` component but it is also exported globally as `OpenRemoteConsole`:
-```
+```typescript
 import openremote from "@openremote/core";
 openremote.init(...).then(()=> {
    let console1 = openremote.console;
@@ -34,7 +34,7 @@ Console build and deployment will depend on the specific tools and platform used
 1. If the app has set `consoleAutoEnable: false` when initialising the `@openremote/core` component then the console must listen for the `OREvent.CONSOLE_INIT` event and then it can enable each `provider` that it is providing to the app; once all `providers` are enabled (excluding those that have been explicitly `disabled` by the user or some other mechanism) then the `OREvent.CONSOLE_READY` event is raised
 
 Once the console is ready it is automatically registered with the manager backend by sending a `ConsoleRegistration` object, for example:
-```
+```json
 {
    name: "ExampleConsole",
    version: "1.0.0",
@@ -79,14 +79,14 @@ Console loads app with the following query parameters in the URL to override des
 
 #### Initialise
 For each provider the `@openremote/core` component sends a message asking the console to initialise the provider:
-```
+```json
 {
    action: "PROVIDER_INIT",
    provider: "PROVIDER_NAME"
 }
 ```
 The console then does any required initialisation and sends a message back to the app:
-```
+```json
 {
    action: "PROVIDER_INIT",
    provider: "PROVIDER_NAME",
@@ -102,7 +102,7 @@ If a provider initialisation call returns `success: false` then it is automatica
 
 #### Enable
 Once all providers are initialised then the app is free to decide when to enable each provider (if `consoleAutoEnable: false` otherwise they will be auto enabled); where a provider returned `requiresPermission=true && hasPermission=false` then the client is best placed to decide when and how to ask for permissions and should use good UX principles to avoid users denying such permission requests (see [permission-ux](https://developers.google.com/web/fundamentals/push-notifications/permission-ux)). Providers that don't require permissions or already have permissions could be enabled immediately. The enable message structure is:
-```
+```json
 {
    action: "PROVIDER_ENABLE",
    provider: "PROVIDER_NAME",
@@ -111,7 +111,7 @@ Once all providers are initialised then the app is free to decide when to enable
 }
 ```
 The console then asks the user for the necessary permission(s) (if not done already) and enables the functionality of this provider then posts a message back to the app:
-```
+```json
 {
    action: "PROVIDER_ENABLE",
    provider: "PROVIDER_NAME",
@@ -122,14 +122,14 @@ The console then asks the user for the necessary permission(s) (if not done alre
 ```
 #### Disable
 The app can disable a provider by sending the following message to the console:
-```
+```json
 {
    action: "PROVIDER_DISABLE",
    provider: "PROVIDER_NAME"
 }
 ```
 The console then does any required disabling of the provider and posts a message back to the app:
-```
+```json
 {
    action: "PROVIDER_DISABLE",
    provider: "PROVIDER_NAME"
@@ -151,14 +151,14 @@ Allows data/notifications to be remotely pushed to the console. There are two ty
 
 #### Enabled message request data (App -> Console)
 Array of topics to subscribe to (optional):
-```
+```json
 {
    topics: ["update", "custom"]
 }
 ```
 
 #### Enabled message response data (Console -> App)
-```
+```json
 {
    token: "23123213ad2313b0897efd",
 }
@@ -175,7 +175,7 @@ NONE
 
 #### Enabled message response data (Console -> App)
 The data structure returned from the enabled message request is:
-```
+```json
 {
   "endpoint": "https://some.pushservice.com/something-unique",
   "keys": {
@@ -187,7 +187,7 @@ The data structure returned from the enabled message request is:
 
 #### Received message (Console -> App)
 Called for both types when a push notification is received:
-```
+```json
 {
    provider: "PROVIDER_NAME",
    action: "PUSH_RECEIVED",
@@ -214,7 +214,7 @@ NONE
 
 #### Refresh message (App -> Console)
 Tell the provider to fetch the latest geofence definitions and to update its local geofences.
-```
+```json
 {
    action: "GEOFENCE_REFRESH"
 }
@@ -237,7 +237,7 @@ NONE
 
 #### Store data message (App -> Console)
 Tell the provider to store the specified data.
-```
+```json
 {
    action: "STORE",
    key: "DATA_KEY",
@@ -247,7 +247,7 @@ Tell the provider to store the specified data.
 
 #### Retrieve data message request (App -> Console)
 Get data from the provider.
-```
+```json
 {
    action: "RETRIEVE",
    key: "DATA_KEY"
@@ -256,7 +256,7 @@ Get data from the provider.
 
 #### Retrieve data message response (Console -> App)
 Returns the requested data from the provider.
-```
+```json
 {
    action: "RETRIEVE",
    key: "DATA_KEY",
@@ -276,7 +276,7 @@ No data
 
 #### Show message (App -> Console)
 The client can show a notification by sending the following message to the console:
-```
+```json
 {
    action: "NOTIFICATION_SHOW",
    data: {
@@ -289,7 +289,7 @@ The client can show a notification by sending the following message to the conso
 
 #### Clicked message (Console -> App)
 The client can listen for notification click events by listening for the following messages:
-```
+```json
 {
    action: "NOTIFICATION_CLICKED",
    title: "Hello",
@@ -309,13 +309,13 @@ No data
 
 #### Scan QR Code (App -> Console)
 Start the camera and scan a QR code.
-```
+```json
 {
     action: "SCAN_QR"
 }
 ```
 #### Scan QR Code (Console -> App)
-```
+```json
 {
     action: "SCAN_QR",
     provider: "qr",

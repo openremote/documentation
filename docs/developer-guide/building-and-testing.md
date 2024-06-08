@@ -10,7 +10,7 @@ Ensure you have prepared your environment as described [here](preparing-the-envi
 
 Our build tooling is `gradle` and building the code is just a matter of executing the following gradle tasks:
 
-```
+```shell
 ./gradlew clean installDist
 ```
 
@@ -20,6 +20,6 @@ Our test suite is mostly integration tests and they require the `keycloak` and `
 
 If you want to run the tests, execute:
 
-```
+```shell
 ./gradlew test
 ```

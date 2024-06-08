@@ -75,7 +75,7 @@ An asset will use this adapter if it matches the following criteria:
 
 The geofence definitions returned by this adapter (returned by calling the `api/{realm}/rules/geofences/{assetId}`) endpoint are as follows:
 
-```
+```json
 [
    {
       id: "23123abd343fed23425d", [unique ID made up from assetId and hashcode of lat, lng and radius]

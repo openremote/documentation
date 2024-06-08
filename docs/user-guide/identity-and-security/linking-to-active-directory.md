@@ -19,7 +19,7 @@ In the package `org.openremote.manager.security` you'll find the `LDAPComponentB
 When the users from AD are imported, the existing users in Keycloak will still be available. To make this possible, it's necessary to add a `ComponentRepresentation` to the Realm used for you application.
 
 Example:
-```
+```java
 RealmResource realmResource = keycloakProvider.getRealms(accessToken).realm(tenant.getRealm());
 
 ComponentRepresentation componentRepresentation = new LDAPComponentBuilder()
@@ -71,7 +71,7 @@ It's possible to also sync the groups from AD to Keycloak and have the user's me
 
 To import groups, see the following example:
 
-```
+```java
 ComponentRepresentation groupMapperComponentRepresentation = new LDAPComponentBuilder()
     .setClientId(KEYCLOAK_CLIENT_ID)
     .setName("GroupMapper")
@@ -97,7 +97,7 @@ String mapperId = keycloakProvider.addLDAPMapper(new ClientRequestInfo(null, acc
 To have an user which is member of a certain group to get the correct roles from Keycloak, we need to give the group the correct roles.
 
 Example:
-```
+```java
 String clientId = getClientObjectId(realmResource.clients());//function to get the correct client id
 RolesResource rolesResource = realmResource.clients().get(clientId).roles();
 

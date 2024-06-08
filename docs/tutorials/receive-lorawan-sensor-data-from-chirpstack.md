@@ -8,12 +8,12 @@ sidebar_position: 3
 
 ## Install and start ChirpStack
 1. Make a copy of the ChirpStack Docker repository with the following commands:
-```
+```shell
 git clone https://github.com/brocaar/chirpstack-docker.git
 cd chirpstack-docker
 ```
 2. Start ChirpStack
-```
+```shell
 docker-compose up
 ```
 3. Login to the ChirpStack UI (`http://localhost:8080/` `admin/admin`)

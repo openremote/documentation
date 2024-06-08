@@ -18,7 +18,7 @@ The following describes the supported agent configuration attributes:
 | `requestTimeoutMillis` | Request timeout for all requests that go through this agent (ms) | Integer | N (Default = `10000` |
 
 ### Example multivalued Text Map
-```
+```json
 {
   "param1": [
     "value1",

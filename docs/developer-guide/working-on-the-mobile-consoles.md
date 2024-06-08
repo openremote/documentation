@@ -22,11 +22,11 @@ Open Xcode and create a new project. In the generals part, click on the plus sym
 
 
 Install cocoapods through a terminal window.
-```
+```shell
 sudo gem install cocoapods
 ```
 Navigate to your project directory and create a pod file.
-```
+```shell
 pod init
 ```
 
@@ -63,7 +63,7 @@ end
 ```
 Save and close the Podfile.
 In the terminal enter the following command
-```
+```shell
 pod install
 ```
 A xcworkspace file is created after installing the pod. Open this file and Xcode will start.
@@ -71,7 +71,7 @@ A xcworkspace file is created after installing the pod. Open this file and Xcode
 Click on the `Pods` icon in the project tree and then on ORLib in the targets pane. Search for Require Only App-Extension-Safe API and set it to `No`. A warning will appear which can be ignored.
 
 Open `AppDelegate` in your project and make it inherit from `ORAppDelegate`. Remove all the code and override `applicationDidFinishLaunchingWithOptions`. Set the right project values.
-```
+```cpp
 override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
         ORServer.hostURL = "example.com"

@@ -18,14 +18,16 @@ If you want to manage remote docker engines then you will also need to install `
 
 Ensure the following commands execute successfully:
 
-```
+```shell
 docker ps
 docker-compose version
 ```
 
 If you installed docker machine  then make sure the following command executes successfully:
 
-`docker-machine version`
+```shell
+docker-machine version
+```
 
 ## Development tooling
 For development you need the following in addition to the runtime tooling:
@@ -37,7 +39,7 @@ For development you need the following in addition to the runtime tooling:
 
 Ensure the following commands execute successfully:
 
-```
+```shell
 java -version
 git --version
 node -v

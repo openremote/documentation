@@ -7,7 +7,7 @@ sidebar_position: 13
 Connect to a [Velbus](https://www.velbus.eu/) network using either of the following implementations:
 
 * Direct RS232/Serial using `VMBRSUSB` or `VMB1USB` - [Velbus Serial Agent](https://github.com/openremote/openremote/blob/master/agent/src/main/java/org/openremote/agent/protocol/velbus/VelbusSerialAgent.java) (Requires a `device` mapping for `manager` docker container)
-* TCP/IP using [VelServ](https://github.com/jeroends/velserv) or similar - [Velbus TCP Agent](https://github.com/openremote/openremote/blob/master/agent/src/main/java/org/openremote/agent/protocol/velbus/VelbusTcpAgent.java)
+* TCP/IP using [VelServ](https://github.com/jeroends/velserv) or similar - [Velbus TCP Agent](https://github.com/openremote/openremote/blob/master/agent/src/main/java/org/openremote/agent/protocol/velbus/VelbusTCPAgent.java)
 
 
 ## Agent configuration

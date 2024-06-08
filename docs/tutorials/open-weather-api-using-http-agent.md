@@ -21,7 +21,7 @@ This tutorial explains how to connect to the [Open Weather Map](https://openweat
 4. The agent is now created with pre-configured attributes. We will set some of those to establish the connection and set our location of interest to Rotterdam:
    * Base URI: `https://api.openweathermap.org/data/2.5/` (Don't forget to send the value by clicking the send button on the right or pressing Enter)
    * Request query parameters (Input the API key from you openweathermap account): 
-   ```
+   ```json
    {
 	  "appid": ["YOUR_API_KEY"],
 	  "q": ["Rotterdam,nl"],
@@ -85,7 +85,7 @@ As you may have noticed we do two calls in the above example, one to get the hum
       * Polling millis: `60000`
 	  * Path: `weather`
 5. In the **Attribute link** configuration item add the following, using the ID copied from this assets URL (the asset that has the attributes you want to push the data to. E.g. `501p87wK1bhf6Dh2M5ZQZj` if URL is: `https://localhost/main/#!assets/false/501p87wK1bhf6Dh2M5ZQZj`):
-```
+```json
 [
   {
     "ref": {

@@ -227,7 +227,7 @@ Make sure to log in as a different user than the admin user to see all effects o
 
 **Map - Card:**
 You can set the attributes to exclude (or include) on the top right card of the map when an asset is selected. This can be done for all asset types (by using default), or per asset type (as shown for WeatherAsset).
-```JSON
+```json
 {
   "pages": {
     "map": {
@@ -252,7 +252,7 @@ You can set the attributes to exclude (or include) on the top right card of the 
 ```
 **Map - Marker config:**
 This configures how the markers behave. They can either change their colour based on an attribute value (number, boolean, or string), show a label with or without units, and/or show the direction an asset is facing. Note that this part of the config is not in the manager_config used in the manager demo yet.
-```JSON
+```json
 "markers": {
   "ElectricityProducerSolarAsset": {
     "attributeName": "energyExportTotal",
@@ -290,7 +290,7 @@ This configures how the markers behave. They can either change their colour base
 ```
 **Rules - Controls:** 
 Set which types of rules are available (for users with the correct permissions), and which actions a rule can perform. 
-```JSON
+```json
     "rules": {
       "rules": {
         "controls": {
@@ -309,7 +309,7 @@ Set which types of rules are available (for users with the correct permissions),
 ```
 **Rules - When-Then:** 
 Set which assettypes are excluded from the list of asset types that can be selected in the When-Then rule. Additionally you can set per asset (or all '*') which attributes should be excluded from the select list.
-```JSON
+```json
         "descriptors": {
           "all": {
             "excludeAssets": [
@@ -330,7 +330,7 @@ Set which assettypes are excluded from the list of asset types that can be selec
     },
 ```
 **Assets - tree:** Exclude asset types from the 'Add asset' dialog.
-```JSON
+```json
     "assets": {
       "tree": {
         "add": {
@@ -356,7 +356,7 @@ Set which assettypes are excluded from the list of asset types that can be selec
       },
 ```
 **Assets - viewer:** Configure which panels are shown on the assets page. You can include or exclude attributes to shown per panel. These panels can be set for all asset types, or specified per type. This is an overwrite of the default config of the [asset-viewer](https://github.com/openremote/openremote/blob/master/ui/component/or-asset-viewer/src/index.ts). In `historyConfig` an example is given on how to specify the columns shown in a table for an attribute that is not a number or boolean; if no config is given, it will automatically create columns.
-```JSON
+```json
       "viewer": {
         "assetTypes": {
           "WeatherAsset": {
@@ -463,7 +463,7 @@ Set which assettypes are excluded from the list of asset types that can be selec
       }
 ```
 **Realm configuration:** You can set the branding per realm. In the example below you can see how the page title, headers, colors, and logo's are set as default (for any new realm created through the UI), as well as for the 'master' and 'clienta' realms.
-```JSON
+```json
   "realms": {
     "default": {
       "appTitle": "ACME IoT",

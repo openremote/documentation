@@ -70,7 +70,7 @@ or deploy -a health --dnsname demo.openremote.io -v
 
 ### Configure manager
 
-```
+```bash
 > or manager --list-realms --login -q -t
 
 Listing realms

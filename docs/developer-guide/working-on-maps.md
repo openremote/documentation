@@ -12,7 +12,7 @@ The manager has built in support for `Mapbox GL` and can serve vector tile data.
 * `map/mapdata.mbtiles` - Contains the vector map data (adding it here will override the demo map for Rotterdam, located in the manager folder `src/map`) 
 
 If you have the map data and/or settings in a different location then please ensure that the manager environment variables are set also:
-```
+```shell
 MAP_TILES_PATH=../deployment/map/mapdata.mbtiles
 MAP_SETTINGS_PATH=../deployment/map/mapsettings.json
 ```
@@ -24,7 +24,7 @@ The container can be started by using the `dev-map.yml` profile (see [here](dock
 
 The manager acts as a reverse proxy for the `map` service and in order to configure the manager to serve raster tiles you need to set the following environment variables:
 
-```
+```shell
 MAP_TILESERVER_HOST=localhost
 MAP_TILESERVER_PORT=8082
 MAP_TILESERVER_REQUEST_TIMEOUT=10000

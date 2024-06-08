@@ -16,12 +16,12 @@ This is not necessary if you prefer [Working on the UI](working-on-ui-and-apps.m
 If you have successfully downloaded your custom-project, you can build the Docker container by running one of the following commands from your custom-project directory:
 
 ### Without SSL and proxy
-```
+```shell
 docker-compose -p openremote -f profile/dev-testing.yml up --build -d
 ```
 
 ### With SSL and proxy
-```
+```shell
 docker-compose -p openremote -f profile/dev-proxy.yml up --build -d
 ```
 
@@ -29,7 +29,7 @@ docker-compose -p openremote -f profile/dev-proxy.yml up --build -d
 
 You will need to add the following environment variables within your IDE for the manager to work behind the proxy with SSL:
 
-```
+```shell
 WEBSERVER_LISTEN_HOST=0.0.0.0
 IDENTITY_NETWORK_WEBSERVER_PORT=443
 IDENTITY_NETWORK_SECURE=true
@@ -59,7 +59,7 @@ The log messages of the running application can be colour-highlighted with the [
 - Choice the default or dark styling config
 - Copy the xml to your IntelliJ IDEA Config folder 
 
-```
+```shell
 cp ~/<PATH_TO_PROJECT>/openremote/tools/intellij/Theme-<Default|Darcula>-GrepConsole.xml \
 ~/.IntelliJIdea<VERSION>/config/options/GrepConsole.xml
 ```

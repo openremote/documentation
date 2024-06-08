@@ -14,13 +14,13 @@ Use `docker stats` to show CPU, memory, network read/writes, and total disk read
 
 Access the database:
 
-```
+```shell
 docker exec -it openremote_postgresql_1 psql -U openremote
 ```
 
 Get statistics for all tables and indices (note that these are collected statistics, not live data):
 
-```
+```sql
 SELECT
     t.tablename,
     indexname,
@@ -48,7 +48,7 @@ ORDER BY 1,2;
 
 Find transactions/queries waiting for more than 30 seconds:
 
-```
+```sql
 SELECT pid, client_addr, now() - query_start AS duration, query, state
     FROM pg_stat_activity
     WHERE now() - query_start > interval '30 seconds';
@@ -56,7 +56,7 @@ SELECT pid, client_addr, now() - query_start AS duration, query, state
 
 Kill them with:
 
-```
+```sql
 select pg_cancel_backend(pid);
 ```
 
@@ -71,7 +71,7 @@ More useful queries and maintenance operations can be found here:
 
 You can log all queries taking longer than 2 seconds:
 
-```
+```sql
 alter system set log_min_duration_statement=2000;
 select pg_reload_conf();
 show log_min_duration_statement;
@@ -85,7 +85,7 @@ Use `explain analyze <SQL query>` to obtain the query plan and display it in htt
 
 If the JVM was started with `-XX:NativeMemoryTracking=summary`, use this to get an overview (see [here](https://trustmeiamadeveloper.com/2016/03/18/where-is-my-memory-java/) for more details):
 
-```
+```shell
 docker exec -it openremote_manager_1 /usr/bin/jcmd 1 VM.native_memory summary
 ```
 
@@ -93,7 +93,7 @@ Otherwise, use [jstat](https://docs.oracle.com/javase/8/docs/technotes/tools/uni
 
 Get current memory configuration:
 
-```
+```shell
 docker exec -it openremote_manager_1 /usr/bin/jstat -gccapacity 1
 ```
 
@@ -122,7 +122,7 @@ FGC: Number of full GC events.
 
 The following command will connect to a Manager and print garbage collection statistics (polling 1000 times, waiting for 2.5 seconds):
 
-```
+```shell
 docker exec -it openremote_manager_1 /usr/bin/jstat -gcutil 1 2500 1000
 ```
 
@@ -144,13 +144,13 @@ GCT: Total garbage collection time.
 
 Force garbage collection with: 
 
-```
+```shell
 docker exec -it openremote_manager_1 /usr/bin/jcmd 1 GC.run
 ```
 
 ## Install the JDK
 By default the manager docker image only contains a JRE; many java profiling tools are available in the JDK so to install within a running manager container:
-```
+```shell
 docker exec or-manager-1 /bin/bash -c 'microdnf --setopt=install_weak_deps=0 --setopt=tsflags=nodocs install -y java-17-openjdk-devel && microdnf clean all && rpm -q java-17-openjdk-devel'
 ```
 
@@ -161,17 +161,17 @@ docker exec or-manager-1 /bin/bash -c 'microdnf --setopt=install_weak_deps=0 --s
 The `jmap` tool within the JDK can be used to create a heap dump of a running jvm.
 
 ### Create heap dump
-```
+```shell
 docker exec or-manager-1 /bin/bash -c 'jmap -dump:live,format=b,file=/dump.hprof 1'
 ```
 
 ### Copy to docker host
-```
+```shell
 docker cp or-manager-1:/dump.hprof ~
 ```
 
 ### Use scp to copy from docker host to local machine
-```
+```shell
 scp {HOST}:~/dump.hprof ~
 ```
 
@@ -181,17 +181,17 @@ You can then explore the heap dump with an IDE or other tool.
 The `jmap` tool within the JDK can be used to create a heap dump of a running jvm.
 
 ### Create thread dump
-```
+```shell
 docker exec or-manager-1 /bin/bash -c 'jstat -F -l 1 > /threads.txt'
 ```
 
 ### Copy to docker host
-```
+```shell
 docker cp or-manager-1:/threads.txt ~
 ```
 
 ### Use scp to copy from docker host to local machine
-```
+```shell
 scp {HOST}:~/thread.txt ~
 ```
 

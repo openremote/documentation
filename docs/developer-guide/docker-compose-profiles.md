@@ -26,18 +26,18 @@ This is a demo profile which starts all services and provides a quick start for 
 
 #### Prerequisites
 Docker images must have been pulled from Docker Hub:
-```
+```shell
 docker-compose pull
 ```
 
 Or the docker images must have been built locally (requires the full stack be built):
-```
+```shell
 ./gradlew clean installDist
 docker-compose build
 ```
 
 To start the containers:
-```
+```shell
 docker-compose up -d
 ```
 
@@ -46,18 +46,18 @@ This is for doing development work on the UI without having to run the manager i
 
 #### Prerequisites
 Docker images must have been pulled from Docker Hub:
-```
+```shell
 docker-compose -f profile/dev-ui.yml pull
 ```
 
 Or the docker images must have been built locally (requires the full stack be built):
-```
+```shell
 ./gradlew clean installDist
 docker-compose -f profile/dev-ui.yml build
 ```
 
 To start the containers:
-```
+```shell
 docker-compose -f profile/dev-ui.yml up -d
 ```
 

@@ -68,8 +68,8 @@ The provisioning message format for X.509 is as follows:
 
 ```json
     {
-      “type”: “x509”,
-      “cert”: “...”
+      "type": "x509",
+      "cert": "..."
     }
 ```
 
@@ -83,8 +83,8 @@ The provisioning message format for HMAC is as follows:
 
 ```json
     {
-      “type”: “hmac-sha256”,
-      “code”: “...”
+      "type": "hmac-sha256",
+      "code": "..."
     }
 ```
 
@@ -94,9 +94,9 @@ The code field should be the base64 encoded HMAC specific to this client.
 
 ```
     {
-      “type”: “success”,
-      “realm”: “REALM_NAME”,
-      “asset”: {...}
+      "type": "success",
+      "realm": "REALM_NAME",
+      "asset": {...}
     }
 ```
 
@@ -104,8 +104,8 @@ The code field should be the base64 encoded HMAC specific to this client.
 
 ```json
     {
-      “type”: “error”,
-      “error”: “ERROR_TYPE”
+      "type": "error",
+      "error": "ERROR_TYPE"
     }
 ```
 
@@ -140,15 +140,15 @@ The security of the CA private key(s) is essential, if compromised then the cert
 ##### Some useful commands:
 
 Generate self signed CA cert (inc. key):
-```
+```shell
 openssl req -x509 -sha256 -nodes -newkey rsa:4096 -keyout ca.key -days 730 -out ca.pem
 ```
 Generate CSR for device (inc. key):
-```
+```shell
 openssl req -nodes --newkey rsa:4096 -keyout deviceN.key -subj "/C=NL/ST=North Brabant/O=OpenRemote/CN=deviceN" -out deviceN.csr
 ```
 Generate signed cert for device:
-```
+```shell
 openssl x509 -req -in deviceN.csr -CA ca.pem -CAkey ca.key -CAcreateserial -out deviceN.pem -days 500 -sha256
 ```
 
@@ -244,8 +244,8 @@ qQ==
 </details>
 
 This must be formatted for use in the JSON payload by replacing new line characters with embedded new line characters, an example command to do this:
-```
-awk ‘NF {sub(/\r/, “”); printf “%s\n”,$0;}’
+```shell
+awk 'NF {sub(/\r/, ""); printf "%s\n",$0;}'
 ```
 
 ## Obtaining an asset template

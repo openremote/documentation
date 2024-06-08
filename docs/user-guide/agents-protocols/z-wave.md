@@ -7,7 +7,7 @@ sidebar_position: 15
 Connect to a Z Wave network via a USB stick (tested with [Aeotec Z-Stick Gen5](https://aeotec.com/z-wave-usb-stick)), this protocol requires a `device` mapping for the `manager` docker container to provide access to the USB stick.
 
 Make sure that the device mapping and the volume configuration for the `manager` docker container in the file `docker-compose.yml` looks like the following:
-```
+```yaml
 ...
 ...
 volumes:
@@ -98,11 +98,11 @@ Unfortunately, `Docker for Windows` and `Docker for Mac` do not support device p
 3. On Windows 10 open the `Windows Features` window and make sure that the following features have **not** been selected: `Hyper-V`, `Virtual Machine Platform`, `Windows Subsystem for Linux`.   
 4. Install [Docker Toolbox](https://docs.docker.com/toolbox). Select the following optional components: `Docker Compose for Windows` and `Git for Windows`. Do not select and install `VirtualBox`.
 5. Start `Git Bash` and type the following command:
-```
+```shell
 docker-machine create --driver virtualbox --virtualbox-boot2docker-url https://github.com/boot2docker/boot2docker/releases/download/v18.06.1-ce/boot2docker.iso default
 ```
 Note that if a virtual machine with the name `default` already exists you can delete it with the following command:
-```
+```shell
 docker-machine rm default
 ```         
 6. Start VirtualBox and select the virtual machine with the name `default` on the left side and go to Settings -> Network -> Adapter 1 -> Advanced -> Port Forwarding
@@ -122,7 +122,7 @@ docker-machine rm default
    * Select `USB 2.0 (EHCI) Controller`
    * Press the `Add USB-Filter` button and select the Aeotec Z-Stick device (Sigma Designs, Inc.)
 10. Find out the serial port name. In VirtualBox start the virtual machine with the name `default` on the left side and press the start button. In the boot2docker terminal window type the following command:
-```
+```shell
 ls -al /dev/tty* | more
 ```
 In case of a Aeotec Z-Stick Gen5 the USB device name is usually `/dev/ttyACM0`. The older Aeotec Z-Stick S2 has usually the name `/dev/ttyUSB0`.        
@@ -133,11 +133,11 @@ In case of a Aeotec Z-Stick Gen5 the USB device name is usually `/dev/ttyACM0`. 
 2. Download and install [VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads)
 3. Install [Docker Toolbox](https://docs.docker.com/toolbox).
 4. Start a terminal and execute the following command:
-```
+```shell
 docker-machine create --driver virtualbox --virtualbox-boot2docker-url https://github.com/boot2docker/boot2docker/releases/download/v18.06.1-ce/boot2docker.iso default
 ```
 Note that if a virtual machine with the name `default` already exists you can delete it with the following command:
-```
+```shell
 docker-machine rm default
 ```     
 5. Start VirtualBox and select the virtual machine with the name `default` on the left side and go to Settings -> Network -> Adapter 1 -> Advanced -> Port Forwarding
@@ -157,7 +157,7 @@ docker-machine rm default
    * Select `USB 2.0 (EHCI) Controller`
    * Press the `Add USB-Filter` button and select the Aeotec Z-Stick device (Sigma Designs, Inc.)
 9. Find out the USB device name in the boot2docker virtual machine. In VirtualBox start the virtual machine with the name `default` on the left side and press the start button. In the boot2docker terminal window type the following command:
-```
+```shell
 ls -al /dev/tty* | more
 ```
 In case of a Aeotec Z-Stick Gen5 the USB device name is usually `/dev/ttyACM0`. The older Aeotec Z-Stick S2 has usually the name `/dev/ttyUSB0`.        
@@ -182,7 +182,7 @@ In case of a Aeotec Z-Stick Gen5 the USB device name is usually `/dev/ttyACM0`. 
     * Select `USB 3.0 (xHCI) Controller`
     * Press the `Add Filter` button and select the Aeotec Z-Stick USB device (Sigma Designs, Inc.) 
 11. Find out the serial port name. Run the following command:
-```
+```shell
 dmesg -w
 ```
 You should see something like the following:
@@ -198,7 +198,7 @@ In this example the resulting serial port name would be:
 1. Install [Docker Engine](https://docs.docker.com/engine/install/)
 2. Install [Docker Compose](https://docs.docker.com/compose/install/) 
 3. Find out the serial port name. Connect the Aeotec Z-Stick to the PC and execute the following command:
-```
+```shell
 dmesg -w
 ```
 You should see something like the following:

@@ -12,13 +12,13 @@ For a local engine (developer workstation setup) simply installing [Docker Deskt
 
 Ensure the following commands work:
 
-```
+```shell
 docker -v
 docker-compose -v
 ```
 
 **If running Docker Toolbox Edition make sure the code you are working on is in your 'HOME' directory**, and please ensure the following command lists the output of your `HOME` directory (host volume mapping seems unreliable in versions &lt;= 19.03.01 which use VirtualBox 5.x):
-```
+```shell
 docker run --rm -v ~:/data alpine ls -al /data
 ```
 
@@ -69,7 +69,7 @@ The following steps are relevant for an `ODROID C2` but should be similar for ot
 
 To install a remote engine (hosted deployment), you need SSH public key access to a Linux host, and then Docker Machine can do the rest and install all required packages on the host and configure secure access:
 
-```
+```shell
 docker-machine create --driver generic \
     --generic-ip-address=<HOST> \
     --generic-ssh-port=<SSH PORT> \
@@ -94,7 +94,7 @@ Manually copy the client credentials of the remote engine from the secure locati
 
 Once the remote engine is installed ensure that `docker-machine ls` shows the new engine and that the State is `Running`:
 
-```
+```shell
 docker-machine ls
 eval $(docker-machine env or-host123)
 docker ps
@@ -122,7 +122,7 @@ Here are a few useful Docker Compose commands:
 
 When deploying profiles you can provide a project name to prefix the container names (by default Docker Compose will use the configuration profile's folder name); the project name can be specified with the -p argument using the CLI:
 
-```
+```shell
 docker-compose -p <your_project_name> -f <profile> -f <profile_override> up -d <service1> <service2> ...
 ```
 
@@ -155,7 +155,7 @@ To prepare your shell environment (variables), run `eval $(docker-machine env op
 ## Building images
 
 Run the following command to build the images with the proper tags:
-```
+```shell
 DATE_TAG=<some_date> docker-compose -f profile/deploy.yml build
 
 or
@@ -169,7 +169,7 @@ When the environment variable `DATE_TAG` is omitted, then the tag `latest` is us
 ## Labelling images
 
 To make it easy to track which version of the code was used to build the images,  the `GIT_COMMIT` label should be supplied when executing the docker compose build command e.g.:
-```
+```shell
 docker-compose -f profile/deploy.yml build --build-arg GIT_COMMIT=<commitSHA1>
 
 or
@@ -179,11 +179,11 @@ docker-compose -p my_custom_project \
  build --build-arg GIT_COMMIT=<commitSHA1>
 ```
 This information can then be viewed using the `docker inspect` command:
-```
+```shell
 docker inspect <IMAGE_NAME>
 ```
 Or to just output the GIT_COMMIT value:
-```
+```shell
 docker inspect -f '{{index .ContainerConfig.Labels "git-commit"}}' <IMAGE_NAME>
 ```
 For this to work the following lines must be included in the `Dockerfile` of each image:
@@ -195,7 +195,7 @@ LABEL git-commit=$GIT_COMMIT
 ## Publishing images
 Push images to [Docker Hub](https://hub.docker.com/u/openremote):
 
-```
+```shell
 docker login
 
 docker push openremote/proxy:latest
