@@ -42,7 +42,7 @@ Just create a new Asset of type Gateway and the manager will provision a Keycloa
 
 On top of the Interaction via the Gateway, you can remotely access the full Manager UI of the Gateway instances of OpenRemote, by creating Gateway tunnels. Note that you first have to [technically configure the (edge) gateway and central instance of OpenRemote to enable the the tunnelling set-up](../../developer-guide/gateway-tunnelling-setup.md). Next you can acces the Manager UI of the Gateway instance via the 'Gateway Tunnels' (Settings) or via a 'Gateway Widget' on the Insights dashboards.
 
-<kbd>![](img/create-gateway-tunnel.png)</kbd>
+![](img/create-gateway-tunnel.png)
 _Creating a gateway tunnel and opening the manager UI of the remote instance which is connected as a gateway._
 
 ## Requirements

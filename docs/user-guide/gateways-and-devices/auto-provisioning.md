@@ -43,7 +43,7 @@ Jump to:
 
 The following illustrates the connect process (through [MQTT topics](../manager-apis/manager-apis.md#mqtt-api-mqtt-broker)) which clients can use to auto provision a service user and optionally an asset whose ID is generated using a UNIQUE_ID provided by the client; the client is then authenticated and the asset is then returned to the client.
 
-<kbd>![Auto provisioning Connect flow](img/auto-provisioning-connect-flow.png)</kbd>
+![Auto provisioning Connect flow](img/auto-provisioning-connect-flow.png)
 
 **NOTE THAT THE 'WHITELIST/BLACKLIST FAILURE', IS NOT YET IMPLEMENTED. THIS FUNCTION ENHANCES SECURITY AS ONLY SPECIFIED DEVICES CAN CONNECT (WHITELIST) OR CAN BE EXLUCDED (BLACKLIST)**
 

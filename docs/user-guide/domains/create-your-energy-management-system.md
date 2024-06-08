@@ -10,7 +10,7 @@ OpenRemote can be used as an Energy Management System (EMS) for your own microgr
 
 In this electricity example, we will connect a series of electricity producers: solar panels and a wind turbine, an electricity consumer: an energy meter, a static battery, and a charger with an electric vehicle. We are adding the forecasting services for both production and consumption and connecting the agile supplier tariffs. Finally, the optimisation service will control the setpoint power of the battery, as well as the vehicle and calculate your savings. 
 
-<kbd>![Overview EMS](img/overview-ems.jpg)</kbd>
+![Overview EMS](img/overview-ems.jpg)
 _Figure 1. Overview of Energy Management System and all the elements._
 
 ### Set up OpenRemote and customisation
@@ -33,10 +33,10 @@ An optimisation asset represents the optimisation service. It will take into acc
 
 We are first adding the (renewable) energy production, by adding a PV solar Asset (Your solar) and a Wind turbine Asset (Your wind). Both need to be added as children of the Optimisation Asset. These assets include a series of standard attributes as shown in figure 2 and 3.
 
-<kbd>![Solar Asset](img/solar-asset.png)</kbd>
+![Solar Asset](img/solar-asset.png)
 _Figure 2. The PV Solar asset (Your solar) with the respective attributes._
 
-<kbd>![Wind Asset](img/wind-asset.png)</kbd>
+![Wind Asset](img/wind-asset.png)
 _Figure 3. The Wind Turbine Asset (Your wind) with the respective attributes._
 
 #### PV Solar Asset
@@ -44,13 +44,13 @@ _Figure 3. The Wind Turbine Asset (Your wind) with the respective attributes._
 To configure and connect your PV Solar asset to your own solar system you can use the Agents. Most importantly you need to connect the actual power (the attribute called power) and the energy meter value (the attribute called energy export total). In this example we connect a solar system from Solar Edge. 
 First add an HTTP Agent and configure the Base URI and the Request Headers to connect to your Solar Edge system (see figure 4). 
 
-<kbd>![SolarEdge HTTP Agent](img/solaredge-http-agent.png)</kbd>
+![SolarEdge HTTP Agent](img/solaredge-http-agent.png)
 _Figure 4. The HTTP Agent, configured to connect to Solar Edge._
 
 Secondly, select your solar asset, select 'Modify' (on the upper right of the asset page) and connect the power attribute of the PV Solar Asset to this Agent. To do this uncollapse the power attribute, add the configuration item 'agent link', and add the required parameters (see figure 5). Also add the configuration items 'Rule state' (so you can use the attribute in rules) and 'Read only' (so you can't accidentally write a value in the 'VIEW' mode). Note the +/- sign convention, relevant for the optimisation to work: we use + for consumption and - for production. So in this case, as we are looking at power production, the power values should be negative. 
 In a similar manner you can connect the 'Energy export total' attribute to the energy meter value.  
 
-<kbd>![Solar Agent link](img/solar-agent-link.png)</kbd>
+![Solar Agent link](img/solar-agent-link.png)
 _Figure 5. The connection of the power attribute in your solar asset, using 'Agent link'._
 
 ##### Forecast service
@@ -147,7 +147,7 @@ In some cases you also want to connect to your charger, and make the vehicle a c
 * In case you can't control the power setpoint on your vehicle. You will need to link the 'Power setpoint' of your charger to your charging system, using any of the existing [Agent Protocol options](../agents-protocols/overview.md). In addition you can use the 'Flow editor' to link the 'Power setpoint' of your vehicle to the 'Power setpoint' of your charger. The optimisation will now set the 'Power setpoint' of your vehicle, which will then be forwarded to the 'Power setpoint' of your charger.
 * In case you want the optimisation to consider both the 'Power import max' of your charger as well of the vehicle, to take the lowest of the two for the 'Power setpoint'. 
 
-<kbd>![Energy schedule JSON format](img/energy-schedule-json-format.png)</kbd>
+![Energy schedule JSON format](img/energy-schedule-json-format.png)
 
 _Figure 6. The Energy schedule is in a JSON format as shown. Each day of the week (seven days) specifies the required energy level percentage for each hour of the day, starting at midnight. So in the above example the vehicle battery needs to be charged to 90% at 8am on each day_
 
@@ -161,11 +161,11 @@ In this tutorial we just simulate values by adding a simulator profile. To do th
 * Add the Parameter 'Replay Data' to 'Agent link' (see figure 7) 
 * Fill in the prices you want to use per time stamp. Note these are costs, so usually positive for import tariffs and negative for export tariffs (see figure 8 for an example).
 
-<kbd>![Replay data within Agent link](img/replay-data-within-agent-link.png)</kbd>
+![Replay data within Agent link](img/replay-data-within-agent-link.png)
 
 _Figure 7. Selecting the parameter 'Replay data' within the 'Agent link' configuration item_
 
-<kbd>![Supplier tariff export](img/supplier-tariff-export.png)</kbd>
+![Supplier tariff export](img/supplier-tariff-export.png)
 
 _Figure 8. An example for the 'Replay data' for the Export tariff you want to use, indicating a tariff per timestamp (seconds). The negative value indicates you are earning money_
 
@@ -184,7 +184,7 @@ You have now set everything to run your optimisation. Once optimisation is enabl
 * Take the Energy level schedule of your vehicle into considerations as well as their Energy level percentage min, and always take care that the energy levels are met in time.
 * Prioritise the different batteries, in this case your static battery and your vehicle, based on the so called Levelised cost of Storage (LCOS). LCOS is the additional costs of charging or discharging a battery. It reflects the costs of your battery divided by the capacity times the maximum number of charging cycles, so representing an amortisation. This can be implemented by adding the optional attributes 'Tariff import' and 'Tariff export' to your Electric vehicle asset and your Battery. Note that you should keep the 'Tariff import' value for your vehicle at '0' as charging your vehicle is anyhow required to be able to drive, and the optimisation will not introduce extra charge cycles. We haven't included this in our tutorial and recommend to read-up expert articles before applying. 
 
-<kbd>![EMS asset tree](img/ems-asset-tree.png)</kbd>
+![EMS asset tree](img/ems-asset-tree.png)
 
 _Figure 9. The asset tree of your EMS on the left, with the Optimisation asset selected_
 

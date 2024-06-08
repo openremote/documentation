@@ -13,12 +13,12 @@ First of all create the attribute you want to show the temperature in Fahrenheit
 * selected “Store data points” (so you can look back at historical values)
 * added the unit Fahrenheit
 
-<kbd>![Add Fahrenheit attribute](img/flow-new-attribute-for-flow.png)</kbd>
+![Add Fahrenheit attribute](img/flow-new-attribute-for-flow.png)
 
 Next create a flow in the flow editor, which looks like this:
 
-<kbd>![Flow from Celsius to Fahrenheit](img/flow-celsius-to-fahrenheit.png)</kbd>
+![Flow from Celsius to Fahrenheit](img/flow-celsius-to-fahrenheit.png)
 
 You will now have the second temperature in Fahrenheit filled once the temperature in Celsius updates. It will look like this.
 
-<kbd>![Fahrenheit attribute as filled by the flow](img/flow-the-fahrenheit-result.png)</kbd>
+![Fahrenheit attribute as filled by the flow](img/flow-the-fahrenheit-result.png)

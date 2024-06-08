@@ -18,7 +18,7 @@ As part of the [configuring the manager UI](../deploying/configuring-the-manager
 
 If you want to add map layers, you can add GeoJSON based points, lines and shapes. You can directly add GeoJSON files in settings/appearance. For creating GeoJSON files, you can use e.g. https://geojson.io/. For searching existing GeoJSON map layers, you can use https://overpass-turbo.eu/
 
-<kbd>![OpenRemote Map](img/map-page.png)</kbd>
+![OpenRemote Map](img/map-page.png)
 _Figure 1. The Map view, here with the Demo Smart City, showing the map with different assets across the city as well as an additional map layer showing primary and secondary highways (GeoJSON). The ship is also showing its direction_
 
 ## Assets
@@ -27,14 +27,14 @@ The `Assets` page lets you view and modify assets and their attributes. You will
 
 The Info and Attribute panels will give an overview of all attributes and their value. These can hold meta-, sensor-, or control-data. For attributes of which the value can be changed via the UI, and for which you have the 'write' role as a user, you can type a value and press 'enter' or press the `send` arrow on the right (e.g. in below example the 'Manufacturer', 'Model' and 'Notes' attributes are manual inputs). Other attribute values could be live readings from sensors or are automatically updated by Rules.
 
-<kbd>![](img/assets-page.png)</kbd>
+![](img/assets-page.png)
 _Figure 2. An asset of the type 'environment'_
 
 ### Create an asset
 
 With the correct permissions (not available in the demo, you'll need your own [installation](https://github.com/openremote/openremote/blob/master/README.md)), you can create a new asset on the Assets page by clicking the `+` in the header of the asset tree. This will open a modal that shows the available asset types. When you select one you will see the attributes and optional attributes. Optional attributes can be added by selecting them in this modal. You can set or change its parent by selecting the upper right pencil and selecting an asset in the asset tree. Click `Add` to create the asset.
 
-<kbd>![](img/create-asset.png)</kbd>
+![](img/create-asset.png)
 _Figure 3. Creating an asset of the type 'environment' with the Building selected as parent_
 
 Often you will want to add or configure attributes to define how they are used in the system, e.g. get values through agent link, make the attribute available in rules, or format its value. We'll explain how that works next.
@@ -43,7 +43,7 @@ Often you will want to add or configure attributes to define how they are used i
 
 On the Assets page enable `Edit asset` (on the top middle of the page) which changes the view to a list of all the assets attributes. Click `+ Add attribute` at the bottom of the list of attributes. In the modal you can choose optional attributes already associated with the asset type of the asset, or you can create a `custom attribute`. The custom attributes should be given a `camelCase` name, which will automatically be translated to Sentence case with spaces. You can create attributes of prepared value types that are known by the system.
 
-<kbd>![](img/add-attribute.png)</kbd>
+![](img/add-attribute.png)
 _Figure 4. The Asset view in 'Edit mode' while adding an attribute_
 
 ### Configure attributes
@@ -86,8 +86,8 @@ Once you create an Agent, the agent page will display the relevant attributes, r
 
 Some Agents have auto discovery (e.g. Z-wave) or use configuration files (e.g. KNX and Velbus). The Agent page will show a discovery button or a file selector. Once set correctly the Agent will also create an additional asset/attribute structure for all discovered or configured assets. 
 
-<kbd>![](img/create-agent1.png)</kbd>
-<kbd>![](img/create-agent2.png)</kbd>
+![](img/create-agent1.png)
+![](img/create-agent2.png)
 _Figure 5. Creating an Agent, using the HTTP Agent (top) creates the Agent asset page (bottom)_
 
 Note that you can also connect to OpenRemote through the Manager APIs without using the UI, see the [paragraph: Manager APIs](#manager-apis).
@@ -100,7 +100,7 @@ If the Agent doesn't support discovery or configuration files, you will manually
 
 In the asset tree on the left, you can filter assets by typing their name. The advanced filter also allows selecting an asset type, typing the attribute name (without spaces) and filter on a value.
 
-<kbd>![Filtering assets](img/filtering-assets.png)</kbd>
+![Filtering assets](img/filtering-assets.png)
 _Figure 6. Asset filtering by typing the asset name (left) or by using the advanced filter, selecting an asset type, typing the attribute name (without spaces) and filter on an attribute value_
 
 ### Grouping assets and group control
@@ -121,14 +121,14 @@ Note that you need to add the configuration item 'Rule state' to both the attrib
 
 When-Then rules use conditions set for attributes to trigger an action for another attribute. The actions do not only include controlling assets, but can also be used to send e-mails or push notifications to mobile apps (using the OpenRemote consoles), or use web hooks. 
 
-<kbd>![](img/when-then-example.png)</kbd>
+![](img/when-then-example.png)
 _Figure 7. A When-Then example, which shows how, on the When-side an asset type can be selected, while on the Then-side the action, in this case a push notification, is defined._
 
 The frequency on which rules trigger as well as a timer schedule can be set. 
 The rule frequency, a dropdown on the upper right of each 'Then' panel defines how frequent a rule can trigger. For example 'Always' means every time the  condition is triggered, but only after the condition has been false (so not continuously on being true).
 The scheduler (right next to the name field of the rule) lets you set an occurrence period as well as repeat that occurrence.
 
-<kbd>![](img/time-scheduler-rules-trigger-frequency.png)</kbd>
+![](img/time-scheduler-rules-trigger-frequency.png)
 _Figure 8. The Rules trigger frequency (right) as well as time scheduler (left) defines when rules are triggered and active. The scheduled example sets the rule to be active until June 20 2022, only on weekdays._
 
 See the [When-Then rules](../rules-and-forecasting/when-then-rules.md) documentation for more details. 
@@ -137,14 +137,14 @@ See the [When-Then rules](../rules-and-forecasting/when-then-rules.md) documenta
 
 Flow rules can be used to fill (new) attributes with processed other attributes. In the visual editor you can use `Input` (blue), `Processor` (green), and `Output` (purple) nodes, and wire them up. See the [Flow Rules](../rules-and-forecasting/flow-rules.md) documentation for more details.
 
-<kbd>![](img/flow-rules.png)</kbd>
+![](img/flow-rules.png)
 _Figure 9. Flow rules to process data_
 
 ### Groovy Rules
 
 Groovy rules are intended for more advanced processing and automation (see an example in figure 10). For more information see [Groovy Rules](../rules-and-forecasting/groovy-rules.md).
 
-<kbd>![](img/groovy-rules.png)</kbd>
+![](img/groovy-rules.png)
 _Figure 10. Groovy rules for more advanced processing, logic or automation_
 
 ### Global versus Realm Rules
@@ -161,10 +161,10 @@ The Insights page (see figure 11) allows you to create multiple dashboards withi
 * Use eight types of widgets (or [extend with your own](../../developer-guide/adding-widgets-on-insights.md)): Chart, KPI, Gauge, Image, Map, Table, Attribute (with control) and Gateway.
 * The gateway widget allows for opening the Manager UI of OpenRemote instances connected as gateways to this instance. See [Gateway tunnelling setup](../../developer-guide/gateway-tunnelling-setup.md) for the technical configuration.
 
-<kbd>![](img/insights-dashboard.png)</kbd>
+![](img/insights-dashboard.png)
 _Figure 11. Example of an Insights dashboard, showing a dashboard with seven types of widgets._
 
-<kbd>![](img/insights-view.png)</kbd>
+![](img/insights-view.png)
 _Figure 12. The Insights view of the Manufacturer demo accessed via the consoles, showing how your dashboards easily turn into an app for your end users._
 
 ## Settings and access
@@ -176,14 +176,14 @@ Admin users of the 'Master' realm see the Realm selector on the top right to swi
 You can link multiple instances of OpenRemote (as Gateways) to a single Central instance of OpenRemote by creating a Gateway asset in the central instance and linking the Gateway instance of OpenRemote, using the 'Manager interconnect' function. The Gateway in the central instances will show the assets of the linked Gateway instance of OpenRemote, as children of the Gateway asset and will enable bidirectional communication with its attributes.
 See the [Edge Gateway documentation](../gateways-and-devices/edge-gateway.md) for more details.
 
-<kbd>![](img/manager-interconnect.png)</kbd>
+![](img/manager-interconnect.png)
 _Figure 13. Several OpenRemote instances can be interconnected, e.g. connecting multiple instances on edge gateways to one central cloud hosted instance. The Manager Interconnect page, used at the edge instances (left) uses the keys which are created on the central instance by adding Edge gateway Assets (right)._
 
 ### Gateway tunnels
 
 On top of the 'Manager Interconnect' functionality, you can remotely access the full Manager UI of the Gateway instances of OpenRemote, by creating Gateway tunnels. See the [Edge Gateway documentation](../gateways-and-devices/edge-gateway.md) for more details.  
 
-<kbd>![](img/create-gateway-tunnel.png)</kbd>
+![](img/create-gateway-tunnel.png)
 _Figure 14. Creating a gateway tunnel and opening the manager UI of the remote instance which is connected as a gateway._
 
 ### Languages
@@ -194,14 +194,14 @@ OpenRemote currently supports 8 languages: English, German, French, Spanish, Por
 
 The logs page shows information, warnings and errors of the different activities of OpenRemote. You can use it to understand the behaviour of the whole platform or debug issues, e.g. errors connecting agent with device.
 
-<kbd>![](img/logs-page.png)</kbd>
+![](img/logs-page.png)
 _Figure 15. The Logs page to evaluate system behaviour._
 
 ### Account
 
 On the Account page you can (re)set you personal information or password. You can also monitor your past sessions or enable 2FA via an Authenticator (default disabled).
 
-<kbd>![](img/edit-account-change-password.png)</kbd>
+![](img/edit-account-change-password.png)
 _Figure 16. The account page with contact details (left) and reset passwords (right)._
 
 ### Users and access configuration
@@ -216,14 +216,14 @@ By linking assets to users, the system will understand which users are connected
 
 When, next to linking an asset to a user, you also set the Realm role to 'Restricted User', users will only have access to the assets they are linked to. Note that you additionally have to indicate on the assets which attributes of the asset they have access to. To do that, set the configuration item 'Access restricted user read/write' on the attribute ([see 'Configure attributes'](#configure-attributes)). 
 
-<kbd>![](img/creating-users.png)</kbd>
+![](img/creating-users.png)
 _Figure 17. Creating users for a selected realm, assigning roles. In this example, the user is made a 'restricted user' linked to only 6 assets._
 
 ### Roles
 
 With the correct permissions, you can create and edit roles. These roles define which parts of the system a user is allowed to Read or Write, e.g. system settings, assets, attributes, map, or rules. Also see the userguide: [Realms, users and roles](../identity-and-security/realms-users-and-roles.md).
 
-<kbd>![](img/role-with-permissions.png)</kbd>
+![](img/role-with-permissions.png)
 _Figure 18. Roles are made of a set of permissions_
 
 ### Realms
@@ -232,7 +232,7 @@ Only the Master realm Admin user can create `Realms` by accessing the master rea
 
 You can create a realm by adding a `realmname` name (single word, lower case letters), and a `Friendly name`. You can (temporarily) disable realms, which blocks access for any user.    
 
-<kbd>![](img/realms.png)</kbd>
+![](img/realms.png)
 _Figure 19. Realms can be created to manage multiple independent projects within one OpenRemote instance_
 
 Also see the userguide: [Realms, users and roles](../identity-and-security/realms-users-and-roles.md).
@@ -241,14 +241,14 @@ Also see the userguide: [Realms, users and roles](../identity-and-security/realm
 
 If you are an OEM, developing and producing your own hardware, you can provision your devices and OpenRemote to automatically have your devices connecting, once they get online. Using certificates (we currently support X.509) your devices will register and automatically generate and connect to an asset of a defined type in the OpenRemote Manager (see figure 20). For details, check out the documentation about ['Auto provisioning'](../gateways-and-devices/auto-provisioning.md).
 
-<kbd>![](img/auto-provisioning-of-devices.png)</kbd>
+![](img/auto-provisioning-of-devices.png)
 _Figure 20. Auto provisioning of devices_
 
 ### Appearance
 
 You can restyle any realm in OpenRemote as well as adjust the map views (go to settings/appearance). You can change the logo's, use different colours, change the title and default language, or set and change the menu items. For adding map layers you can add GeoJSON files (created e.g. with https://geojson.io/). More advanced settings like visible asset and agent types on the asset and rules page, can be configured directly in a JSON file. For the options available in the JSON file and an example, check out [Configuring the Manager UI](../deploying/configuring-the-manager-ui.md). For the maps you can set the centerpoint, zoom levels and boundaries.
 
-<kbd>![](img/appearance-setings.png)</kbd>
+![](img/appearance-setings.png)
 _Figure 21. Appearance settings allow white labeling of your OpenRemote manager_
 
 ## Manager APIs
@@ -259,7 +259,7 @@ The Manager APIs let you interact with OpenRemote without using the UI. This can
 
 Service users can be created on the `Users` page, and selecting `Add user` in the `Service user` panel (see figure 22). The `Username` (ClientID) can be set using letters, dashes, and numbers, while the `Secret` will be generated automatically once saved. Note that you also select the role(s).
 
-<kbd>![](img/creating-service-users.png)</kbd>
+![](img/creating-service-users.png)
 _Figure 22. Creating service users, with Username, Secret and Roles for a selected Realm_
 
 ### HTTP, MQTT, and Websocket
