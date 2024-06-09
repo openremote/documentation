@@ -56,7 +56,7 @@ target 'NotificationService' do
 end
 
 target 'ORLib' do
-  project 'path_to/openremote/console/iOS/ORLib/ORLib'
+  project 'path_to/console-ios/ORLib/ORLib'
   shared_pods
 end
 
