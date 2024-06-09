@@ -1,6 +1,10 @@
-# Website
+# OpenRemote Documentation
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+[![GitHub Actions Status](https://github.com/openremote/documentation/actions/workflows/ci_cd.yml/badge.svg?branch=main)](https://github.com/openremote/documentation/actions/workflows/ci_cd.yml)
+
+This repository contains the OpenRemote documentation hosted on https://docs.openremote.io/ as Markdown files in the [docs directory](docs).
+
+The documentation website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
 ### Installation
 
