@@ -2,19 +2,19 @@
 sidebar_position: 7
 ---
 
-# Docker compose profiles
+# Docker Compose profiles
 
 ## Docker services
 The following services are used by the main OpenRemote code base:
 
-* proxy - Reverse SSL proxy (HAProxy) for the web services with auto SSL certificate generation (letsencrypt)
-* manager - Runs the OpenRemote Manager (by default depends on postgresql and keycloak)
+* proxy - Reverse SSL proxy (HAProxy) for the web services with auto SSL certificate generation (Let's Encrypt)
+* manager - Runs the OpenRemote Manager (by default depends on PostgreSQL and Keycloak)
 * postgresql - PostgreSQL DB
 * keycloak - Keycloak identity provider service
 * map - tileserver-gl service that is used for serving raster map tiles (only needed for UI components/apps that use mapbox-js)
 
-## Docker compose profiles
-Docker compose profiles (Docker Compose `.yml` files) are used to configure and start required services; the standard profiles are located in the profile folder of the main [OpenRemote repository](https://github.com/openremote/openremote/tree/master/profile) although the `demo` profile is in the root of the repo.
+## Docker Compose profiles
+Docker Compose profiles (Docker Compose `.yml` files) are used to configure and start required services; the standard profiles are located in the profile folder of the main [OpenRemote repository](https://github.com/openremote/openremote/tree/master/profile) although the `demo` profile is in the root of the repo.
 
 The standard profiles are:
 
@@ -30,7 +30,7 @@ Docker images must have been pulled from Docker Hub:
 docker-compose pull
 ```
 
-Or the docker images must have been built locally (requires the full stack be built):
+Or the Docker images must have been built locally (requires the full stack be built):
 ```shell
 ./gradlew clean installDist
 docker-compose build

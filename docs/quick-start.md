@@ -14,9 +14,9 @@ You can quickly try the online demo with restricted access, login credentials ar
 
 [Online demo](https://demo.openremote.app/manager/?realm=smartcity)
 
-The quickest way to get your own environment with full access is to make use of our docker images (both `amd64` and `arm64` are supported). 
+The quickest way to get your own environment with full access is to make use of our Docker images (both `amd64` and `arm64` are supported). 
 1. Make sure you have [Docker Desktop](https://www.docker.com/products/docker-desktop) installed (v18+). 
-2. Download the docker compose file:
+2. Download the Docker Compose file:
 [OpenRemote Stack](https://raw.githubusercontent.com/openremote/openremote/master/docker-compose.yml) (Right click 'Save link as...')
 3. In a terminal `cd` to where you just saved the compose file and then run:
 ```shell
@@ -28,7 +28,7 @@ certificate, see [here](https://www.technipages.com/google-chrome-bypass-your-co
 
 
 ### Login credentials
-Username: admin  
+Username: admin
 Password: secret
 
 ### Changing host and/or port
@@ -56,7 +56,7 @@ Try creating assets, agents, rules, users, realms, etc. using the Manager UI, so
 - [Creating a custom project](developer-guide/creating-a-custom-project.md) - Create a project with custom protocols, asset types and setup code
 
 ## Where's the data stored?
-Persistent data is stored in a PostgreSQL DB which is stored in the `openremote_postgresql-data` docker volume which is durably stored independently of the running containers (see all with `docker volume ls`).
+Persistent data is stored in a PostgreSQL DB which is stored in the `openremote_postgresql-data` Docker volume which is durably stored independently of the running containers (see all with `docker volume ls`).
 Note that historical attribute data is purged daily based on value of `OR_DATA_POINTS_MAX_AGE_DAYS`; this value can also be overridden for individual attributes by using the `dataPointsMaxAgeDays` configuration item.
 See the [Developer Guide](developer-guide/useful-commands-and-queries.md#backuprestore-openremote-db) for details on making backups of the database.
 

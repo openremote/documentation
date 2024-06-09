@@ -4,9 +4,9 @@ sidebar_position: 15
 
 # Z-Wave
 
-Connect to a Z Wave network via a USB stick (tested with [Aeotec Z-Stick Gen5](https://aeotec.com/z-wave-usb-stick)), this protocol requires a `device` mapping for the `manager` docker container to provide access to the USB stick.
+Connect to a Z-Wave network via a USB stick (tested with [Aeotec Z-Stick Gen5](https://aeotec.com/z-wave-usb-stick)), this protocol requires a `device` mapping for the `manager` Docker container to provide access to the USB stick.
 
-Make sure that the device mapping and the volume configuration for the `manager` docker container in the file `docker-compose.yml` looks like the following:
+Make sure that the device mapping and the volume configuration for the `manager` Docker container in the file `docker-compose.yml` looks like the following:
 ```yaml
 ...
 ...
@@ -30,7 +30,7 @@ volumes:
 ...
 ...      
 ```
-In this example the serial port `/dev/ttyACM0` of the host is mapped to the serial port `/dev/ttyS0` of the `manager` docker container.
+In this example the serial port `/dev/ttyACM0` of the host is mapped to the serial port `/dev/ttyS0` of the `manager` Docker container.
 
 ## Agent configuration
 The following describes the supported agent configuration attributes:
@@ -125,7 +125,7 @@ docker-machine rm default
 ```shell
 ls -al /dev/tty* | more
 ```
-In case of a Aeotec Z-Stick Gen5 the USB device name is usually `/dev/ttyACM0`. The older Aeotec Z-Stick S2 has usually the name `/dev/ttyUSB0`.        
+In case of a Aeotec Z-Stick Gen5 the USB device name is usually `/dev/ttyACM0`. The older Aeotec Z-Stick S2 has usually the name `/dev/ttyUSB0`.
 
 ### Mac - Option 1 (Docker Toolbox) 
 
@@ -160,15 +160,15 @@ docker-machine rm default
 ```shell
 ls -al /dev/tty* | more
 ```
-In case of a Aeotec Z-Stick Gen5 the USB device name is usually `/dev/ttyACM0`. The older Aeotec Z-Stick S2 has usually the name `/dev/ttyUSB0`.        
+In case of a Aeotec Z-Stick Gen5 the USB device name is usually `/dev/ttyACM0`. The older Aeotec Z-Stick S2 has usually the name `/dev/ttyUSB0`.
 
 ### Windows & Mac - Option 2 (Ubuntu VM)
 
 1. Download and install [VirtualBox](https://www.virtualbox.org/wiki/Downloads) 
-2. Download and install [VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads)     
+2. Download and install [VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads)
 3. Download [Ubuntu Desktop](https://ubuntu.com/download/desktop)
-4. Start VirtualBox and create a new virtual machine by clicking the `New` button on the top toolbar.    
-5. Make the following changes as VirtualBox guides you through a wizard:   
+4. Start VirtualBox and create a new virtual machine by clicking the `New` button on the top toolbar.
+5. Make the following changes as VirtualBox guides you through a wizard:
    * Type: `Linux`
    * Version: `Ubuntu (64-bit)`
    * Memory size: Minimum `4096 MB`

@@ -17,7 +17,7 @@ This guide describes the steps necessary to setup the gateway tunnelling functio
 * `mv server_key deployment/sish/keys`
 
 ### Docker envrionment variables
-* Set keycloak container environment variables:
+* Set Keycloak container environment variables:
   * `KEYCLOAK_ISSUER_BASE_URI: https://${OR_HOSTNAME}/auth`
   * `KC_HOSTNAME:` This must be blank or completely removed (i.e. do not set this environment variable)
   * `KC_HOSTNAME_STRICT: false`
@@ -30,7 +30,7 @@ This guide describes the steps necessary to setup the gateway tunnelling functio
 * Set AWS_ROUTE53_ROLE on proxy container (this can be left as empty string to inherit from AWS EC2 instance provided the instance is using a cloudformation template that sets this value in `/etc/environment`)
 * Set `DOMAINNAMES` to include wildcard certificate e.g. `*.example.openremote.app`
 * Add wildcard DNS A/AAAA record(s) e.g. `*.example.openremote.app`
-* Uncomment/add sish service in docker compose profile
+* Uncomment/add sish service in Docker Compose profile
 * Set `SISH_HOST` and `SISH_PORT` on proxy container
 * Set TCP port range in sish service (to allow raw TCP tunnelling)
 * Allow inbound access to port `2222` and to the TCP port range exposed on the instance

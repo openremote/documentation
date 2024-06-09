@@ -6,7 +6,7 @@ sidebar_position: 3
 
 The CloudFormation template can be found at [cloudformation-create-vpc.yml](https://github.com/openremote/openremote/blob/master/.ci_cd/aws/cloudformation-create-vpc.yml).
 
-At OpenRemote we use AWS for hosting our deployments, this guide explains how to create and configure AWS EC2 hosts using CloudFormation for running the OpenRemote started with docker compose; it is written from the OpenRemote organisation perspective but can be used to assist in setting up your own AWS hosted infrastructure. Please refer to the AWS documentation for more details on the services/tools mentioned (we don't generally offer AWS support but some kind person may be able to help on the [forum](https://forum.openremote.io).
+At OpenRemote we use AWS for hosting our deployments, this guide explains how to create and configure AWS EC2 hosts using CloudFormation for running the OpenRemote started with Docker Compose; it is written from the OpenRemote organisation perspective but can be used to assist in setting up your own AWS hosted infrastructure. Please refer to the AWS documentation for more details on the services/tools mentioned (we don't generally offer AWS support but some kind person may be able to help on the [forum](https://forum.openremote.io).
 
 ## AWS services/tools used
 To manage the OpenRemote deployments we use the following AWS services/tools:

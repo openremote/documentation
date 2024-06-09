@@ -47,7 +47,7 @@ Assuming all the above is working and correct then if you are using Docker Toolb
 
 ## ARM SBC (RPi, ODROID, etc.) installation steps
 
-The following steps are relevant for an `ODROID C2` but should be similar for other SBCs (note that armbian don't support the RPi at the time of writing so use the Raspbian 64bit OS or similar), the important thing is that you have a 64bit OS which is required to use our docker images because the OpenJDK at the time of writing doesn't have a JIT compiler 32bit JDK for ARM - one is in progress though):
+The following steps are relevant for an `ODROID C2` but should be similar for other SBCs (note that armbian don't support the RPi at the time of writing so use the Raspbian 64bit OS or similar), the important thing is that you have a 64bit OS which is required to use our Docker images because the OpenJDK at the time of writing doesn't have a JIT compiler 32bit JDK for ARM - one is in progress though):
 
 1. Download Armbian (https://www.armbian.com/odroid-c2/) and flash to SD card using Etcher
 1. Power on and SSH into ODROID then follow Armbian prompts to change root password and Ctrl-C to skip/abort creating a new user
@@ -168,7 +168,7 @@ When the environment variable `DATE_TAG` is omitted, then the tag `latest` is us
 
 ## Labelling images
 
-To make it easy to track which version of the code was used to build the images,  the `GIT_COMMIT` label should be supplied when executing the docker compose build command e.g.:
+To make it easy to track which version of the code was used to build the images,  the `GIT_COMMIT` label should be supplied when executing the Docker Compose build command e.g.:
 ```shell
 docker-compose -f profile/deploy.yml build --build-arg GIT_COMMIT=<commitSHA1>
 
@@ -217,7 +217,7 @@ docker push openremote/deployment:$DATE_TAG
 ```
 
 ## Exporting and importing images
-The docker images created from the docker-compose files can be exported and sent to another machine to import them.
+The Docker images created from the docker-compose files can be exported and sent to another machine to import them.
 
 ## Buildx (Cross platform build tool)
 Buildx allows cross platform image compilation (i.e. build ARM64 image on an AMD64 machine):

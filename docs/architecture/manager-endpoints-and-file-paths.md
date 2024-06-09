@@ -15,7 +15,7 @@ The OpenRemote Manager exposes the following endpoints:
 * `/shared` - Shared UI resources (fonts, locale files, map sprites, icons, etc.) (loaded from `$APP_DOCROOT` see paths below)
 * `/api` - HTTP API (see swagger endpoint for live documentation)
 * `/auth` - Keycloak reverse proxy endpoint
-* `/websocket` - Websocket endpoint
+* `/websocket` - WebSocket endpoint
 * `/*` - Any other path is resolved against `$CUSTOM_APP_DOCROOT` (see paths below)
 * `/manager_config.json` - File that is loaded by the Manager UI to apply custom configuration to the Manager UI (white labelling, menu config, etc.)  (loaded from `$CUSTOM_APP_DOCROOT`) (see [here](../user-guide/deploying/configuring-the-manager-ui.md) for more details)
 * `/locales` - Path used by Manager UI to find custom `i18n` locale files, each locale should be in it's own directory with a file named `app.json` (e.g. `/locales/en/app.json`) (loaded from `$CUSTOM_APP_DOCROOT`)
@@ -27,7 +27,7 @@ e.g.  `/manager/?realm=smartcity`
 
 ## File paths
 
-The following list shows the file paths used by our docker containers; these can be customised by changing environment variable values (where a file path is controlled by an environment variable) and/or by using volume mapping, this is how we provide customised instances of our system for specific projects. The default values shown below are the defaults as used by our docker containers.
+The following list shows the file paths used by our Docker containers; these can be customised by changing environment variable values (where a file path is controlled by an environment variable) and/or by using volume mapping, this is how we provide customised instances of our system for specific projects. The default values shown below are the defaults as used by our Docker containers.
 
 ### Manager
 

@@ -60,7 +60,7 @@ Kill them with:
 select pg_cancel_backend(pid);
 ```
 
-Pay attention to shared memory setting of postgres container; docker sets this very low by default and this will cause problems for any reasonable size DB, see here for info:
+Pay attention to shared memory setting of postgres container; Docker sets this very low by default and this will cause problems for any reasonable size DB, see here for info:
 
 * https://www.instaclustr.com/blog/postgresql-docker-and-shared-memory/#:~:text=Docker%20and%20SHM%2DSize&text=This%20means%20that%20instead%20of,default%2C%20this%20limit%20is%2064MB.
 
@@ -149,7 +149,7 @@ docker exec -it openremote_manager_1 /usr/bin/jcmd 1 GC.run
 ```
 
 ## Install the JDK
-By default the manager docker image only contains a JRE; many java profiling tools are available in the JDK so to install within a running manager container:
+By default the manager Docker image only contains a JRE; many java profiling tools are available in the JDK so to install within a running manager container:
 ```shell
 docker exec or-manager-1 /bin/bash -c 'microdnf --setopt=install_weak_deps=0 --setopt=tsflags=nodocs install -y java-17-openjdk-devel && microdnf clean all && rpm -q java-17-openjdk-devel'
 ```
@@ -165,12 +165,12 @@ The `jmap` tool within the JDK can be used to create a heap dump of a running jv
 docker exec or-manager-1 /bin/bash -c 'jmap -dump:live,format=b,file=/dump.hprof 1'
 ```
 
-### Copy to docker host
+### Copy to Docker host
 ```shell
 docker cp or-manager-1:/dump.hprof ~
 ```
 
-### Use scp to copy from docker host to local machine
+### Use scp to copy from Docker host to local machine
 ```shell
 scp {HOST}:~/dump.hprof ~
 ```
@@ -185,12 +185,12 @@ The `jmap` tool within the JDK can be used to create a heap dump of a running jv
 docker exec or-manager-1 /bin/bash -c 'jstat -F -l 1 > /threads.txt'
 ```
 
-### Copy to docker host
+### Copy to Docker host
 ```shell
 docker cp or-manager-1:/threads.txt ~
 ```
 
-### Use scp to copy from docker host to local machine
+### Use scp to copy from Docker host to local machine
 ```shell
 scp {HOST}:~/thread.txt ~
 ```

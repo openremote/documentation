@@ -116,7 +116,7 @@ Go to [Working on the UI](working-on-ui-and-apps.md#working-on-an-app-eg-manager
 ## VisualVM
 To inspect the threads, analyzing CPU and memory allocation you should running a VisualVM.
 
-- Download and install VisualVM from the [visualvm](https://visualvm.github.io/) website.
+- Download and install VisualVM from the [VisualVM](https://visualvm.github.io/) website.
 - Install the [VisualVM Launcher](https://plugins.jetbrains.com/plugin/7115-visualvm-launcher) for IntelliJ IDEA
 
 ## Executing tests

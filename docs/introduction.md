@@ -19,7 +19,7 @@ Networked things and devices are connected to the manager via [Agents](https://g
 The manager provides APIs for monitoring and administrating the system:
 
 * JAX-RS based HTTP API
-* Websockets event API
+* WebSockets event API
 * MQTT event API
 
 The OpenRemote [Frontend](developer-guide/working-on-ui-and-apps.md) simplifies the creation and deployment of user interfaces such as:

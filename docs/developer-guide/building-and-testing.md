@@ -16,7 +16,7 @@ Our build tooling is `gradle` and building the code is just a matter of executin
 
 ## Testing
 
-Our test suite is mostly integration tests and they require the `keycloak` and `postgres` services to be running on `localhost`, you can start these using the `/profile/dev-testing.yml` docker compose profile.
+Our test suite is mostly integration tests and they require the `keycloak` and `postgres` services to be running on `localhost`, you can start these using the `/profile/dev-testing.yml` Docker Compose profile.
 
 If you want to run the tests, execute:
 

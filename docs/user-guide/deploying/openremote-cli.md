@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # OpenRemote CLI
 
-The ```openremote-cli``` (or ```or``` for short) is a command line tool that can be used for deploying the OpenRemote stack, note that this tool is still in `beta`.
+The `openremote-cli` (or `or` for short) is a command line tool that can be used for deploying the OpenRemote stack, note that this tool is still in `beta`.
 
 Prerequisites: 
 
@@ -13,7 +13,7 @@ Prerequisites:
 - `docker-compose`
 - `aws-cli`
 
-In case of using the prebuilt `openremote/openremote-cli` docker image, only `docker` is needed.  
+In case of using the prebuilt `openremote/openremote-cli` Docker image, only `docker` is needed.
 
 ### Install
 ```bash
@@ -21,20 +21,20 @@ pip3 install -U openremote-cli
 openremote-cli -V
 ```
 
-There is also docker image provided:
+There is also Docker image provided:
 
 ```bash
 docker run --rm -ti openremote/openremote-cli <command>
 ```
 
-Note that the image ENTRYPOINT is set to the openremote-cli command (the same way as amazon/aws-cli docker image) therefore ```docker run --rm -ti openremote/openremote-cli -V``` is equivalent to ```openremote-cli -V```.
+Note that the image ENTRYPOINT is set to the openremote-cli command (the same way as amazon/aws-cli Docker image) therefore `docker run --rm -ti openremote/openremote-cli -V` is equivalent to `openremote-cli -V`.
 
 ### Deploy on localhost
 
 ```bash
 or deploy --action create
 ```
-using docker
+using Docker
 ```bash
 docker run --rm -ti -v /var/run/docker.sock:/var/run/docker.sock openremote/openremote-cli deploy
 ```
@@ -51,7 +51,7 @@ Prerequisites:
   ```bash
   aws configure --profile=openremote-cli
   ```
-  
+
 Deploy the stack:
 ```bash
 or deploy --provider aws --dnsname test.mvp.openremote.io -v

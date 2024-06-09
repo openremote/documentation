@@ -6,7 +6,7 @@ sidebar_position: 14
 
 ## Docker
 Replace `<PROJECT_NAME>` with value used when creating the container with `docker-compose up` (`docker ps` will show the actual names).
-### Restart manager docker container
+### Restart manager Docker container
 
 ```shell
 docker restart <PROJECT_NAME>_manager_1
@@ -25,9 +25,9 @@ docker cp <PROJECT_NAME>_postgresql_1:/deployment/datapoints.csv ./
 ### Backup/Restore OpenRemote DB
 
 * Create backup: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak`
-* Copy to the docker host: `docker cp or-postgresql-1:/tmp/db.bak ~/`
+* Copy to the Docker host: `docker cp or-postgresql-1:/tmp/db.bak ~/`
 * SCP the backup off the source server onto the destination server
-* On the destination server stop the manager and keycloak containers and any project specific containers that are using the DB: `docker stop or-manager-1 or-keycloak-1`
+* On the destination server stop the manager and Keycloak containers and any project specific containers that are using the DB: `docker stop or-manager-1 or-keycloak-1`
 * Copy backup into the postgresql container: `docker cp db.bak or-postgresql-1:/tmp/`
 * Drop existing DB: `docker exec or-postgresql-1 dropdb openremote`
 * Create new DB: `docker exec or-postgresql-1 createdb openremote`

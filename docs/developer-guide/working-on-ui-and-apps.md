@@ -18,8 +18,8 @@ The following environment variables can be set when running `npm run serve` usin
 * config - To apply a custom `manager_config.json` you can set the `config` environment variable on the `npm run serve` command using a path relative to the `app/manager` directory e.g. 
    * Windows: `npm run serve -- --env config=..\..\..\..\deployment\manager\app`
    * Mac: `npm run serve -- --env config=../../../../deployment/manager/app`
-* managerUrl - By default webpack dev server expects the manager to be available at `http://localhost:8080` but this can be configured for example when running the manager docker image (e.g. `npm run serve -- --env managerUrl=https://localhost`)
-* keycloakUrl - By default keycloak expects to be available at `managerUrl/auth` but this can be configured for example when running the manager docker image (e.g. `npm run serve -- --env keycloakUrl=https://keycloak/auth`)
+* managerUrl - By default webpack dev server expects the manager to be available at `http://localhost:8080` but this can be configured for example when running the manager Docker image (e.g. `npm run serve -- --env managerUrl=https://localhost`)
+* keycloakUrl - By default Keycloak expects to be available at `managerUrl/auth` but this can be configured for example when running the manager Docker image (e.g. `npm run serve -- --env keycloakUrl=https://keycloak/auth`)
 
 
 ## Consuming UI components

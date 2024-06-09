@@ -13,7 +13,7 @@ A custom project is a way of extending OpenRemote to provide custom functionalit
 * Custom protocols (to interface with some service/device in a customised way)
 * Custom setup code (to automatically provision realms, users, assets, rules, etc. during a clean install)
 * Custom asset types
-* Custom docker compose profiles
+* Custom Docker Compose profiles
 * Custom UI apps
 * Custom Android/iOS consoles
 
@@ -25,12 +25,12 @@ The guide consists of the following sections and you will need to have a working
 
 ## Project Structure
 
-It is recommended to put custom project code in directory/module called `deployment` this can then be built as a docker image and used as a docker volume to map into our `manager` and `keycloak` containers to override/enhance their behaviour; if there is a large amount of code then multiple directories/modules might be desired to logically separate the code, in this case it is advised to follow the same naming convention as the main OpenRemote repo and to ensure the `gradle` build `installDist` task is configured in order to copy the compiled code into the `deployment` `build` directory in preparation for building the `deployment` docker image.
+It is recommended to put custom project code in directory/module called `deployment` this can then be built as a Docker image and used as a Docker volume to map into our `manager` and `keycloak` containers to override/enhance their behaviour; if there is a large amount of code then multiple directories/modules might be desired to logically separate the code, in this case it is advised to follow the same naming convention as the main OpenRemote repo and to ensure the `gradle` build `installDist` task is configured in order to copy the compiled code into the `deployment` `build` directory in preparation for building the `deployment` Docker image.
 
 
 
 ## OpenRemote Dependencies
-Depending on what parts of the OpenRemote system are being customised will determine the code dependencies on the main OpenRemote code base; as the main OpenRemote code base is a monolith repo it is possible to add a `git submodule` to the main OpenRemote repo and directly reference the `gradle` projects within, this gives a very tight development process which is particularly useful if making code changes within the OpenRemote code base at the same time, to do this use the standard `git submodule` command (refer to git documentation for working with submodules):
+Depending on what parts of the OpenRemote system are being customised will determine the code dependencies on the main OpenRemote code base; as the main OpenRemote code base is a monolith repo it is possible to add a `git submodule` to the main OpenRemote repo and directly reference the `gradle` projects within, this gives a very tight development process which is particularly useful if making code changes within the OpenRemote code base at the same time, to do this use the standard `git submodule` command (refer to Git documentation for working with submodules):
 ```shell
 git submodule add -b master https://github.com/openremote/openremote.git openremote/
 ```
@@ -55,19 +55,19 @@ The [custom-project](https://github.com/openremote/custom-project) repo acts as 
 * `LICENSE.txt` - Copy of `LICENSE.txt` from main OpenRemote repo
 
 ### Deployment directory/module
-This module is used to generate a `deployment` docker image which can be volume mapped into the manager and/or keycloak containers to customise their behaviour. The `installDist` gradle task of this module will generate output in the `/deployment/build` directory in particular:
+This module is used to generate a `deployment` Docker image which can be volume mapped into the manager and/or Keycloak containers to customise their behaviour. The `installDist` gradle task of this module will generate output in the `/deployment/build` directory in particular:
 
-* `/deployment/build/image` - Content to be added to the deployment docker image at `/deployment`
-* `/deployment/build/Dockerfile` - Docker build file used to build `deployment` docker image (copied from `/deployment` during `installDist`) 
+* `/deployment/build/image` - Content to be added to the deployment Docker image at `/deployment`
+* `/deployment/build/Dockerfile` - Docker build file used to build `deployment` Docker image (copied from `/deployment` during `installDist`) 
 
 ### Adding new modules
-Create directory with appropriate name and copy `/deployment/build.gradle` into it, customise this new `build.gradle` as required and start adding your code/files, ensuring that the `installDist` gradle task copies any output into the appropriate location within the deployment docker image build directory (see the [Manager endpoints and file paths](../architecture/manager-endpoints-and-file-paths.md)).
+Create directory with appropriate name and copy `/deployment/build.gradle` into it, customise this new `build.gradle` as required and start adding your code/files, ensuring that the `installDist` gradle task copies any output into the appropriate location within the deployment Docker image build directory (see the [Manager endpoints and file paths](../architecture/manager-endpoints-and-file-paths.md)).
 
 ### Adding UI apps/components
 It is recommended to use the same directory layout as found in the `openremote` submodule, and put all UI code in a directory called `ui`; as our UI code uses `yarn workspaces` you will need to copy the `/openremote/package.json` into the root of the custom project and then modify the workspace paths within this new file (adding `openremote/` in front of existing paths and also adding new paths for any components or apps created in the custom project).
 
-### Custom keycloak themes
-It's possible to provide custom keycloak themes see [custom-project](https://github.com/openremote/custom-project/blob/main/deployment/keycloak/themes/README.md) for details.
+### Custom Keycloak themes
+It's possible to provide custom Keycloak themes see [custom-project](https://github.com/openremote/custom-project/blob/main/deployment/keycloak/themes/README.md) for details.
 
 
 ## Setup code

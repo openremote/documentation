@@ -81,7 +81,7 @@ See the documentation page [explaining all available configuration item options 
 
 ### Create an agent
 
-Agents are a specific type of asset used to connect to external sensors, actuators, gateways, or services using protocols. They are added in the same manner as assets by clicking the `+` in the header of the asset tree. This will open a modal that shows the available agent types at the top of the list. You will see the generic ones: [HTTP](../agents-protocols/http.md), [Websocket](../agents-protocols/websocket-agent.md), [MQTT](../agents-protocols/mqtt.md), [TCP](../agents-protocols/tcp.md), [UDP](../agents-protocols/udp.md) and [SNMP](../agents-protocols/snmp.md); as well as more specific ones like [Z-wave](../agents-protocols/z-wave), [KNX](../agents-protocols/knx) or [Velbus](../agents-protocols/velbus.md).
+Agents are a specific type of asset used to connect to external sensors, actuators, gateways, or services using protocols. They are added in the same manner as assets by clicking the `+` in the header of the asset tree. This will open a modal that shows the available agent types at the top of the list. You will see the generic ones: [HTTP](../agents-protocols/http.md), [WebSocket](../agents-protocols/websocket-agent.md), [MQTT](../agents-protocols/mqtt.md), [TCP](../agents-protocols/tcp.md), [UDP](../agents-protocols/udp.md) and [SNMP](../agents-protocols/snmp.md); as well as more specific ones like [Z-wave](../agents-protocols/z-wave), [KNX](../agents-protocols/knx) or [Velbus](../agents-protocols/velbus.md).
 Once you create an Agent, the agent page will display the relevant attributes, required to establish an actual connection to the external world.
 
 Some Agents have auto discovery (e.g. Z-wave) or use configuration files (e.g. KNX and Velbus). The Agent page will show a discovery button or a file selector. Once set correctly the Agent will also create an additional asset/attribute structure for all discovered or configured assets. 
@@ -253,7 +253,7 @@ _Figure 21. Appearance settings allow white labeling of your OpenRemote manager_
 
 ## Manager APIs
 
-The Manager APIs let you interact with OpenRemote without using the UI. This can be used to e.g synchronize attribute data with external clients, accessing configurations, or creating new assets. To authenticate you'll need to create a service user first on the Users page. We have three types of APIs to choose from: HTTP, MQTT, and Websocket. 
+The Manager APIs let you interact with OpenRemote without using the UI. This can be used to e.g synchronize attribute data with external clients, accessing configurations, or creating new assets. To authenticate you'll need to create a service user first on the Users page. We have three types of APIs to choose from: HTTP, MQTT, and WebSocket.
 
 ### Service users
 
@@ -262,12 +262,12 @@ Service users can be created on the `Users` page, and selecting `Add user` in th
 ![](img/creating-service-users.png)
 _Figure 22. Creating service users, with Username, Secret and Roles for a selected Realm_
 
-### HTTP, MQTT, and Websocket
+### HTTP, MQTT, and WebSocket
 
-The Manager API is compose of three APIs: HTTP, MQTT, and Websocket: 
+The Manager API is compose of three APIs: HTTP, MQTT, and WebSocket:
 * HTTP API is the traditional request response API with live documentation available via Swagger UI (see `https://youraddress/swagger/`) or you can look at the [demo environment swagger](https://demo.openremote.app/swagger/).
 * MQTT is a publish-subscribe API which allows connecting to our MQTT broker
-* Websocket API is a publish-subscribe API that is event based.
+* WebSocket API is a publish-subscribe API that is event based.
 
 More information on these APIs regarding formats and authentication can be found in the documentation for [Manager APIs](../manager-apis/manager-apis.md)
 

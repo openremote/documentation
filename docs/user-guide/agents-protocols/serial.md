@@ -6,7 +6,7 @@ sidebar_position: 10
 
 Connect to a Serial Server.
 
-Make sure that the device mapping for the `manager` docker container in the file `docker-compose.yml` looks like the following:
+Make sure that the device mapping for the `manager` Docker container in the file `docker-compose.yml` looks like the following:
 ```yaml
 ...
 ...
@@ -19,7 +19,7 @@ Make sure that the device mapping for the `manager` docker container in the file
 ...
 ...      
 ```
-In this example the serial port `/dev/ttyACM0` of the host is mapped to the serial port `/dev/ttyS0` of the `manager` docker container.
+In this example the serial port `/dev/ttyACM0` of the host is mapped to the serial port `/dev/ttyS0` of the `manager` Docker container.
 
 ## Agent configuration
 The following describes the supported agent configuration attributes:

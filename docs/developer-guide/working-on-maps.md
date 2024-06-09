@@ -18,7 +18,7 @@ MAP_SETTINGS_PATH=../deployment/map/mapsettings.json
 ```
 
 ## Raster maps (Mapbox JS)
-If you are working on raster maps (Mapbox JS) then you will need to have the `map` docker container running, this container serves the raster map tiles from the vector map data. 
+If you are working on raster maps (Mapbox JS) then you will need to have the `map` Docker container running, this container serves the raster map tiles from the vector map data. 
 
 The container can be started by using the `dev-map.yml` profile (see [here](docker-compose-profiles.md)) or you can add a `map` service to an existing custom project profile (copy the `dev-map.yml` as a template).
 
@@ -42,7 +42,7 @@ We currently do not have our own pipeline for extracting/converting OSM data int
 From that mbtiles file you can extract smaller tilesets with the following procedure:
 
 1. Rename the source tileset file `input.mbtiles`
-1. Create docker container with `node` and `python` with dir containing `input.mbtiles` volume mapped: `docker run -it --rm -v PATH_TO_INPUT_MBTILES_DIR:/mapdata nikolaik/python-nodejs:python3.8-nodejs12 bash`
+1. Create Docker container with `node` and `python` with dir containing `input.mbtiles` volume mapped: `docker run -it --rm -v PATH_TO_INPUT_MBTILES_DIR:/mapdata nikolaik/python-nodejs:python3.8-nodejs12 bash`
 1. Install tilelive converter: 
     `npm install -g --unsafe @mapbox/mbtiles @mapbox/tilelive`
 1. Select and copy boundary box coordinates of desired region (these are the BOUNDS used in the next command; they must be in format [W,S,E,N] e.g. `4.91, 51.27, 5.84, 51.77`): 

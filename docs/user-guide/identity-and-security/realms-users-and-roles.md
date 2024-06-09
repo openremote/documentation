@@ -16,7 +16,7 @@ There are two basic types of user within OpenRemote, all can be managed within t
 These are users that login interactively by filling in their username and password on the login page, in OAuth 2.0 terminology this is the `authorizationCode` grant type.
 
 ### Service users
-These are users that login programmatically using a client ID and secret and is designed for confidential clients to connect to the `Manager APIs` (i.e. `MQTT`, `Websockets` and/or `HTTP`) without user interaction, in OAuth 2.0 terminology this is the `client_credentials` grant type.
+These are users that login programmatically using a client ID and secret and is designed for confidential clients to connect to the `Manager APIs` (i.e. `MQTT`, `WebSockets` and/or `HTTP`) without user interaction, in OAuth 2.0 terminology this is the `client_credentials` grant type.
 
 ## Roles
 Roles (technically composite roles or role groups) can be defined by selecting the various 'read' and 'write' access rights for the various functions of the system. Each realm has it's own set of roles and a user can be assigned zero or more of these roles within their realm and they are composite as they combine together to form the overall authorization/permissions for a user. Roles used by OpenRemote are defined in [ClientRole](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/security/ClientRole.java).

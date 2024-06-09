@@ -7,7 +7,7 @@ sidebar_position: 1
 ## Overview
 An Edge Gateway is an OpenRemote Manager that connects to another OpenRemote Manager (referred to as central manager here on); and is intended for scenarios where a Manager is required within a LAN without being exposed directly to the internet and is quite often running on constrained hardware.
 
-The edge gateway establishes the connection to the central manager using the Websocket API and the Edge Gateway must be provisioned in the central Manager to generate OAuth client credentials which can then be used by the edge gateway to authenticate.
+The edge gateway establishes the connection to the central manager using the WebSocket API and the Edge Gateway must be provisioned in the central Manager to generate OAuth client credentials which can then be used by the edge gateway to authenticate.
 
 An edge gateway connection is defined per edge gateway realm and only a single connection can be made to a central manager per realm.
 

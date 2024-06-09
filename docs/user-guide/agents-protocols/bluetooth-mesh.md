@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Bluetooth Mesh
 
-Connect to a Bluetooth Mesh network via a Bluetooth Mesh proxy. Note that only linux docker host systems with a `bluez` protocol stack is supported.
+Connect to a Bluetooth Mesh network via a Bluetooth Mesh proxy. Note that only Linux Docker host systems with a `bluez` protocol stack is supported.
 
 Make sure that the file `docker-compose.yml` contains the following configuration settings:
 ```yaml

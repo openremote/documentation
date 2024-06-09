@@ -29,7 +29,7 @@ Now you can make customizations to your custom deployment. Each section will hav
 - [Setup code](#setup-code-setup)
 - [Map](#map-deploymentmap)
 - [Apps](#apps-uiapp)
-- [Setting environment variables and docker volume mappings for services](#setting-environment-variables-and-docker-volume-mappings-for-services)
+- [Setting environment variables and Docker volume mappings for services](#setting-environment-variables-and-docker-volume-mappings-for-services)
 - [Custom domain](#custom-domain)
 
 ### Manager app configuration (/deployment/manager/app)
@@ -60,18 +60,18 @@ If you want to fully customize styling, you can use [Mapbox Studio](https://www.
 ### Apps (/ui/app)
 Here you can add your own custom applications. You can use the Manager app as a template to get started. View this page for more information on [working on the UI](../../developer-guide/working-on-ui-and-apps.md) and using components.
 
-### Setting environment variables and docker volume mappings for services
-The following docker compose file details all of the environment variables (e.g. for e-mail or push notifications) and common volume mappings that you may want to use:
+### Setting environment variables and Docker volume mappings for services
+The following Docker Compose file details all of the environment variables (e.g. for e-mail or push notifications) and common volume mappings that you may want to use:
 https://github.com/openremote/openremote/blob/master/profile/deploy.yml
 
 ### Custom domain
-If you want to deploy the OpenRemote stack on a custom domain then all that is needed is to ensure that the docker host where the stack is running is reachable using the custom domain name on the following ports:
+If you want to deploy the OpenRemote stack on a custom domain then all that is needed is to ensure that the Docker host where the stack is running is reachable using the custom domain name on the following ports:
 
 - `80` HTTP (needed for SSL generation)
 - `443` HTTPS
 - `8883` MQTT
 
-The `proxy` service uses `letsencrypt` to auto generate the SSL certificate for the domain and it will also auto renew the certificates; if you already have an SSL certificate for the domain then this can be volume mapped into the `proxy` service.
+The `proxy` service uses Let's Encrypt to auto generate the SSL certificate for the domain and it will also auto renew the certificates; if you already have an SSL certificate for the domain then this can be volume mapped into the `proxy` service.
 
 ## See Also
 

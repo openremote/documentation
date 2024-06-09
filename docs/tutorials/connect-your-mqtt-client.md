@@ -30,8 +30,8 @@ The service user will give programmatic access to the MQTT client.
 ## Establish a connection from client to broker
 In your MQTT client set up a new connection:
 - host: `mqtt://localhost` (or URL of your hosted environment e.g. demo.openremote.io)
-- Port: `8883` with TLS/SSL enabled; most clients will work with our self generated letsencrypt certificates, but if using a self signed certificate or your client isn't able to validate the cert chain then you may need to explicitly load the cert into your client or disable/relax the client's TLS verification settings (refer to your specific client's documentation). It is possible to expose the broker un-encrypted on port `1883` by creating a port mapping for that on the `manager` service in your docker compose file
-- password: the secret generated for the mqtt service user (you can find it on the mqttuser users page)
+- Port: `8883` with TLS/SSL enabled; most clients will work with our self generated Let's Encrypt certificates, but if using a self signed certificate or your client isn't able to validate the cert chain then you may need to explicitly load the cert into your client or disable/relax the client's TLS verification settings (refer to your specific client's documentation). It is possible to expose the broker un-encrypted on port `1883` by creating a port mapping for that on the `manager` service in your Docker Compose file
+- password: the secret generated for the MQTT service user (you can find it on the mqttuser users page)
 - username: `master:mqttuser` (`{realm}:{user}`)
 - clientID: `client123` (this can be anything you like but must be unique - Any existing connection with the same client ID will be replaced. Make sure this clientID remains identical.)
 

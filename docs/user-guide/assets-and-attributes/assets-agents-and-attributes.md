@@ -62,7 +62,7 @@ A meta item descriptor has a name which refers to the name of the meta item and 
 * `units` - same as attribute descriptor above
 
 For details on the built in meta item descriptors available see [here](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/MetaItemType.java), 
-for asset/agent specific configuration items check their documentation pages and/or javadoc.
+for asset/agent specific configuration items check their documentation pages and/or Javadoc.
 
 ### Value descriptors
 A value descriptor has a name which must be unique within the `OpenRemote` instance, it ultimately describes the shape of the data for serialisation/deserialisation purposes and it also contains the following information:
