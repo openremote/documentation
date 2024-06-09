@@ -248,7 +248,7 @@ _Figure 20. Auto provisioning of devices_
 
 You can restyle any realm in OpenRemote as well as adjust the map views (go to settings/appearance). You can change the logo's, use different colours, change the title and default language, or set and change the menu items. For adding map layers you can add GeoJSON files (created e.g. with https://geojson.io/). More advanced settings like visible asset and agent types on the asset and rules page, can be configured directly in a JSON file. For the options available in the JSON file and an example, check out [Configuring the Manager UI](../deploying/configuring-the-manager-ui.md). For the maps you can set the centerpoint, zoom levels and boundaries.
 
-![](img/appearance-setings.png)
+![](img/appearance-settings.png)
 _Figure 21. Appearance settings allow white labeling of your OpenRemote manager_
 
 ## Manager APIs

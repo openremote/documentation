@@ -77,7 +77,7 @@ The working directory in your IDE however must always be set to the **OpenRemote
 
 We recommend you set this as the default directory in your IDE for all *Run Configurations*. To improve creation and execution of ad-hoc tests in the IDE you should set the default working directory for JUnit Run Configurations:
 
-[[resources/Intellij - Run configuration default settings.png]]
+![](img/intellij-run-configuration-default-settings.png)
 
 :::note
 
