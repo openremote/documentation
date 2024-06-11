@@ -186,7 +186,7 @@ You have now set everything to run your optimisation. Once optimisation is enabl
 
 ![EMS asset tree](img/ems-asset-tree.png)
 
-_Figure 9. The asset tree of your EMS on the left, with the Optimisation asset selected_
+_Figure 9. The asset tree of your EMS on the left, with the Optimisation asset selected. Note that the Electricity Supplier is not shown but also needs to be added (for adding the dynamic tariffs)_
 
 #### Financial and carbon savings
 
