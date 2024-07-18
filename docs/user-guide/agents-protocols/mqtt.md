@@ -37,7 +37,7 @@ openssl pkcs12 -export -in OpenRemoteAWSCertificate.pem.crt -inkey OpenRemoteAWS
 ```
 - Import the keypair into the existing keystore. Take note of the input for the `alias` parameter, we'll need it later:
 ```shell
-keytool -importkeystore -destkeystore <storage dir>/<realm>.client_keystore -srckeystore OpenRemoteAWSKeyPair.p12 -srcstoretype PKCS12 -alias <realm name of your choice>.OpenRemoteAwsIoTClientCertificate
+keytool -importkeystore -destkeystore <storage dir>/client_keystore.p12 -srckeystore OpenRemoteAWSKeyPair.p12 -srcstoretype PKCS12 -alias <realm name of your choice>.OpenRemoteAwsIoTClientCertificate
 ```
 - Import the Amazon Root CA certificate into the truststore;
 ```shell
@@ -46,7 +46,7 @@ keytool -importcert -file AmazonRootCA1.pem -keystore <storage dir>/<realm>.clie
 
 Now, we are ready to start OpenRemote again, and create a new MQTT Agent.
 
-**Make sure** that the Agent is situated in the realm that is specified in the Alias, or else OpenRemote will not be able to retrieve the correct certificate.
+**Make sure** that the Agent is situated in the realm that is specified in the Alias from the command above, or else OpenRemote will not be able to retrieve the correct certificate.
 
 In that agent, ensure that you have set:
 - The correct host and port (AWS IoT Core MQTT broker is set to `8883`)
