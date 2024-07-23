@@ -65,6 +65,27 @@ The following standard NPM scripts are used throughout the components and apps f
 
 The above script names should be used in `package.json` files and then appropriate `build.gradle` files should be added, see existing components, apps, demos for examples. Typically only the `apps` need to be built by `gradle` tasks as typescript should follow project references and compile any dependent components.
 
+### Running Manager UI against remote instance
+
+* Add `https://localhost/*` to Valid redirect URIs of openremote client in master realm of remote instance keycloak
+* Ensure remote instance manager container has `localhost` listed in `OR_ADDITIONAL_HOSTNAMES` (note this variable is comma separated list of hostnames)
+* Run the `dev-proxy.yml` compose profile locally
+* Access shell in proxy container: `docker exec -it <PROXY_CONTAINER_NAME> ash`
+* Add the following snippets to the proxy config (Press i for insert mode, when finished press Esc then : then wq): `vi /etc/haproxy/haproxy.cfg`
+  * Above the `use_backend manager_backend` line
+```
+    acl webpack path_beg /manager
+    use_backend webpack_backend if webpack
+```
+  * Above the `backend manager_backend` line:
+```
+backend webpack_backend
+  server webpack host.docker.internal:9000
+```
+
+* Ctrl/Cmd-D to exit the proxy container shell
+* Start the webpack dev server in the `ui/app/manager`: `npm run serve -- --env managerUrl=https://demo.openremote.app` 
+
 ### Components
 Components can be developed and tested in isolation (with dependencies on other components and/or public npm modules as required). Some components have no visuals and provide standard OpenRemote functionality e.g. `@openremote/core`, whilst others provide visuals that allow interaction with the Manager backend.
 
