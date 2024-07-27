@@ -46,9 +46,9 @@ administrator from the CLI/from the BalenaCloud dashboard.
 To create a new release, you can push this directory to the fleet using the included shell file in ``balena/run_balena_build.sh``.
 
 ## Parameters:
-*	--dry-run: This flag enables the dry-run mode. When this mode is enabled, the script will build the Docker images and bring up the containers locally using docker-compose instead of pushing to the Balena fleet.
-*	--skip-build: This flag skips the build process. When enabled, the script will not remove the existing manager-build directory or rebuild the project.
-*	<balena_fleet_slug>: This is a required argument specifying the Balena fleet slug to which the application will be pushed.
+* `--dry-run`: This flag enables the dry-run mode. When this mode is enabled, the script will build the Docker images and bring up the containers locally using docker-compose instead of pushing to the Balena fleet.
+* `--skip-build`: This flag skips the build process. When enabled, the script will not remove the existing manager-build directory or rebuild the project.
+* `<balena_fleet_slug>`: This is a required argument specifying the Balena fleet slug to which the application will be pushed.
 
 ## Script outline:
 * Initialize Variables: The script initializes three variables: DRY_RUN (default: false), SKIP_BUILD (default: false), and BALENA_FLEET_SLUG (default: empty string).
