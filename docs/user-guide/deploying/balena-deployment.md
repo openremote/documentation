@@ -31,7 +31,7 @@ Additional services can be added/modified as normal.
 
 # Required tooling
 
-I recommend going through the [balena CLI masterclass](https://docs.balena.io/learn/more/masterclasses/cli-masterclass/).
+We recommend going through the [balena CLI masterclass](https://docs.balena.io/learn/more/masterclasses/cli-masterclass/).
 
 To manually manage the devices using the terminal, install ``balena-cli`` to your machine. You can use the CLI to
 perform the same actions as with BalenaCloud. Specifically, you can ``push`` a new release to a device. This is what
