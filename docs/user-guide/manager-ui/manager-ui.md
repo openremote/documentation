@@ -180,7 +180,7 @@ See the [Edge Gateway documentation](../gateways-and-devices/edge-gateway.md) fo
 _Figure 13. Several OpenRemote instances can be interconnected, e.g. connecting multiple instances on edge gateways to one central cloud hosted instance. The Manager Interconnect page, used at the edge instances (left) uses the keys which are created on the central instance by adding Edge gateway Assets (right)._
 
 ![](img/manager-interconnect-rate-limiting.png)
-_Figure 14. Next to interconnecting you can choose which asset attributes are actually linked as well as the rate at which data is excahnged._
+_Figure 14. Next to interconnecting you can choose which asset attributes are actually linked as well as the rate at which data is exchanged._
 
 ### Gateway tunnels
 
