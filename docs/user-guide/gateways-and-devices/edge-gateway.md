@@ -36,9 +36,9 @@ Just create a new Asset of type Gateway and the manager will provision a Keycloa
       1. Click Save
       1. In the top right of the dialog the status should change to `CONNECTED`
 
-### 3. Limit data rate with which edge gateway synchronises
-   1. On the Manager interconnect page select the asset typ and attributes which you like to link and synchronise with the central instance
-   2. Select whether you want to limit the data rate and, if so, set the time interval
+### 3. Limit data rate at which edge gateway synchronises
+   1. On the Manager interconnect page select the asset type and attributes which you want to synchronise with the central instance.
+   2. Select whether you want to limit the data rate and set the time interval.
       
 ![image](img/manager-interconnect-rate.png)
 
