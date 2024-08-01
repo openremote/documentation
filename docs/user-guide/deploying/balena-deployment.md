@@ -18,9 +18,12 @@ Balena is the totality of the product. Look at [balena.io](https://balena.io).
 
 ## OpenRemote and BalenaOS
 
-> [!CAUTION]
-> Issues with bootup could potentially corrupt migrations being performed from Keycloak or the manager, leading to
-> data loss. Please be aware of actions and perform backups.
+:::warning
+
+Issues with bootup could potentially corrupt migrations being performed from Keycloak or the manager, leading to
+data loss. Please be aware of actions and perform backups.
+
+:::
 
 OpenRemote is a multi-container platform that normally requires multiple containers to start in the correct sequence to
 properly start its services (Deployment, Postgres, Keycloak, Manager, Proxy).
