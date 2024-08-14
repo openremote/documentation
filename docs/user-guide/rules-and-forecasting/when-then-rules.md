@@ -11,8 +11,25 @@ Note that When-Then rules also support web hooks as the right hand side action. 
 ![Manager Rules Editor](img/rules-editor.png)
 
 ## Guide to setting up your first When-Then rule
-To get familiar with the When-Then interface we will be creating a rule that turns on lights when the temperature drops below a certain threshold and just before sunset (makes sense right?). We only want this rule to be active on weekdays.
+
+To get familiar with the When-Then interface we will be creating a rule that turns on lights when the temperature drops below a certain threshold and just before sunset (makes sense right?).
+We only want this rule to be active on weekdays.
 This guide assumes you are using the [Demo](https://openremote.io/demo/). Otherwise you need to create some assets first.
+
+To create an asset and configure an attribute so it can be used in rules do the following:
+
+Creating an asset:
+   * Go to the `Assets` page and click the `+` icon
+   * Select the `Weather Asset` and name it **Weather**
+   * Click `ADD` to create the asset
+
+Enabling the rule state on an attribute so it can be used in rules:
+   * Select the **Weather** asset and click on `MODIFY`
+   * Click on the `>` icon of the `temperature` attribute and click on `+ ADD CONFIGURATION ITEMS`
+   * Select `Rule state` and click `ADD`
+   * Click `SAVE` to save the changes
+
+The remainder of the guide assumes you are using the [Demo](https://openremote.io/demo/) where all assets and attributes have already been created and configured:
 
 1. Switch from the `master` realm to the `Smart city` realm in the top. You will see the assets we use a demo setup. 
 2. Navigate to the `Rules` page, here you will find some demo rules that are running at the moment. We will add our own.
