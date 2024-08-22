@@ -56,7 +56,7 @@ You can download the [IntelliJ Community Edition](https://www.jetbrains.com/idea
 - Run `./gradlew clean installDist` in a terminal in IntelliJ to be sure everything compiles.
 
 ##### Recommended Plugins
-- 
+
 - [Grep Console](https://plugins.jetbrains.com/plugin/7125-grep-console)
 - [Markdown Navigator](https://plugins.jetbrains.com/plugin/7896-markdown-navigator)
 

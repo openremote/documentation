@@ -58,7 +58,9 @@ const config: Config = {
     ],
   ],
 
-  plugins: [require.resolve('docusaurus-lunr-search')],
+  plugins: [[require.resolve('docusaurus-lunr-search'), {
+    disableVersioning: true
+  }]],
 
   themeConfig: {
     // Replace with your project's social card
