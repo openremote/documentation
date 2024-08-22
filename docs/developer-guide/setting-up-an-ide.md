@@ -9,18 +9,22 @@ This guide helps you set up an environment with an IDE when you are done [Prepar
 This is not necessary if you prefer [Working on the UI](working-on-ui-and-apps.md) only, any file manager and text editor will suffice.
 
 ## Download custom-project
+ 
 1. Using Git, clone the [custom-project](https://github.com/openremote/custom-project) repo
 2. `cd` into the custom-project directory, and add the [openremote](https://github.com/openremote/openremote) submodule, using the `git submodule init` and `git submodule update` commands
 
 ## Run Docker container
+
 If you have successfully downloaded your custom-project, you can build the Docker container by running one of the following commands from your custom-project directory:
 
 ### Without SSL and proxy
+
 ```shell
 docker-compose -p openremote -f profile/dev-testing.yml up --build -d
 ```
 
 ### With SSL and proxy
+
 ```shell
 docker-compose -p openremote -f profile/dev-proxy.yml up --build -d
 ```
@@ -45,14 +49,19 @@ You can download the [IntelliJ Community Edition](https://www.jetbrains.com/idea
 
 - Choose the 'Open' option in the startup screen and open the root directory of the OpenRemote codebase.
 - Note that IntelliJ might time out if a background Gradle process (for example, running the GWT compiler server) blocks the Gradle import. Stop and start the background process to unblock.
-- Verify build settings: Settings/Preferences -> Build,Execution,Deployment -> Build Tools -> Gradle. Choose for the options 'Build and run using' and 'Run tests using' the option 'IntelliJ IDEA' and click on 'Apply'.
+- Verify the build settings: Settings/Preferences -> Build,Execution,Deployment -> Build Tools -> Gradle:
+  - Configure for 'Build and run using' the option 'IntelliJ IDEA'
+  - Configure for 'Run tests using' the option 'Gradle'
+  - Click on 'Apply'
 - Run `./gradlew clean installDist` in a terminal in IntelliJ to be sure everything compiles.
 
 ##### Recommended Plugins
+- 
 - [Grep Console](https://plugins.jetbrains.com/plugin/7125-grep-console)
 - [Markdown Navigator](https://plugins.jetbrains.com/plugin/7896-markdown-navigator)
 
 ##### Grep Console Styling
+
 The log messages of the running application can be colour-highlighted with the [GrepConsole plugin](https://plugins.jetbrains.com/plugin/7125-grep-console) and our [configuration](https://github.com/openremote/openremote/tree/master/tools/intellij).
 
 - Locate XML style config for Grep Console in openremote/tools/intellij
@@ -81,7 +90,10 @@ We recommend you set this as the default directory in your IDE for all *Run Conf
 
 :::note
 
-In newer versions of IntelliJ you need to change some run options. Go to Preferences -> Build,Execution,Deployment -> Build Tools -> Gradle. Choose for the options 'Build and run using' and 'Run tests using' the option 'IntelliJ' and click on 'Apply'.
+In newer versions of IntelliJ you need to change some run options. Go to Preferences -> Build,Execution,Deployment -> Build Tools -> Gradle:
+- Configure for 'Build and run using' the option 'IntelliJ IDEA'
+- Configure for 'Run tests using' the option 'Gradle'
+- Click on 'Apply'
 
 :::
 
@@ -99,6 +111,7 @@ If you are using the custom project repository as starting point the run configu
 - Any environment variables that customise deployment (usually custom projects have some)
 
 ## Accessing the Manager UI
+
 The manager UI web application isn't compiled until build time. \
 To run the manager app run `npm run serve` from the `/openremote/ui/app/manager` directory.\
 You can then access the manager UI at: http://localhost:9000/manager/ (NOTE: the trailing slash is required here) \
@@ -114,6 +127,7 @@ The web server binds to only localhost interface (i.e. `127.0.0.1`). You can ove
 Go to [Working on the UI](working-on-ui-and-apps.md#working-on-an-app-eg-manager-ui) for more information.
 
 ## VisualVM
+
 To inspect the threads, analyzing CPU and memory allocation you should running a VisualVM.
 
 - Download and install VisualVM from the [VisualVM](https://visualvm.github.io/) website.
