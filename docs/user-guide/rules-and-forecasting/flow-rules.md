@@ -24,6 +24,10 @@ A node is an entity that receives, manipulates, or outputs data via its sockets.
 
 **Processors** receive information from other nodes, process it, then output it to other nodes. These nodes generally don't interact with anything outside the Flow editor. An example of a processor is a math node that outputs the sum of its inputs.
 
+:::note
+Processor inputs are executed from top to bottom; e.g. for a division top input is numerator and bottom is denominator and for poweroperator top is the base and bottom the exponent.
+:::
+
 **Output** nodes receive information from other nodes and send it somewhere else. Generally, output nodes send information to the Manager. An example of this is a node that sets an asset attribute to a specific value.
 
 Connections are laid by the user from socket to socket, allowing data to flow through. Connections define the interactions between each individual node, and so define the behaviour of the entire rule.
