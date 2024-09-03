@@ -28,7 +28,7 @@ Download the Device Certificate and activate it, download the private key file, 
 
 Make sure that OpenRemote has been started at least once before proceeding, so that the required keystore files are generated.
 
-The password of everything keystore-related is ``OR_ADMIN_PASSWORD``, for when it is requested.
+The password of everything keystore-related is `OR_ADMIN_PASSWORD`, for when it is requested.
 
 After doing so, we need to:
 - Combine the certificate and Private Key into a PKCS#12 keypair file, so that it can be easily imported into the KeyStore:
