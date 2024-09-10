@@ -167,6 +167,19 @@ _Figure 11. Example of an Insights dashboard, showing a dashboard with seven typ
 ![](img/insights-view.png)
 _Figure 12. The Insights view of the Manufacturer demo accessed via the consoles, showing how your dashboards easily turn into an app for your end users._
 
+## Alarms
+
+The alarms functionality (top right) allows you to automatically generate alarms, assign them to users, and track their status. You can also see an overview of alarms assigned to you, and high priority alarms are automatically send to assigned persons. These features are supported:
+* Generate alarms with rules: Alarms can be created by When-Then rules.
+* Severity: High severity alarms are automatically emailed to the assigned person.
+* Assigning alarms to users: Assignees always have an overview of alarms assigned to them.
+* Status: The status indicates the steps in a typical workflow: Open - Acknowleged - In progress - Resolved - Closed.
+* Linked assets: Assets which triggered an alarm rule will be displayed to make it easier to resolve problems.
+* Ordering and filtering alarms.
+
+![](img/alarms-overview.png)
+_Figure 13. The alarms page with an overview of all alarms._
+
 ## Settings and access
 
 Admin users of the 'Master' realm see the Realm selector on the top right to switch between Realms. Next to that the dots give you access to a series of general settings as well as account access related settings. We will explain these here:
@@ -177,35 +190,35 @@ You can link multiple instances of OpenRemote (as Gateways) to a single Central 
 See the [Edge Gateway documentation](../gateways-and-devices/edge-gateway.md) for more details.
 
 ![](img/manager-interconnect.png)
-_Figure 13. Several OpenRemote instances can be interconnected, e.g. connecting multiple instances on edge gateways to one central cloud hosted instance. The Manager Interconnect page, used at the edge instances (left) uses the keys which are created on the central instance by adding Edge gateway Assets (right)._
+_Figure 14. Several OpenRemote instances can be interconnected, e.g. connecting multiple instances on edge gateways to one central cloud hosted instance. The Manager Interconnect page, used at the edge instances (left) uses the keys which are created on the central instance by adding Edge gateway Assets (right)._
 
 ![](img/manager-interconnect-rate-limiting.png)
-_Figure 14. Next to interconnecting you can choose which asset attributes are actually linked as well as the rate at which data is exchanged._
+_Figure 15. Next to interconnecting you can choose which asset attributes are actually linked as well as the rate at which data is exchanged._
 
 ### Gateway tunnels
 
 On top of the 'Manager Interconnect' functionality, you can remotely access the full Manager UI of the Gateway instances of OpenRemote, by creating Gateway tunnels. See the [Edge Gateway documentation](../gateways-and-devices/edge-gateway.md) for more details.  
 
 ![](img/create-gateway-tunnel.png)
-_Figure 15. Creating a gateway tunnel and opening the manager UI of the remote instance which is connected as a gateway._
+_Figure 16. Creating a gateway tunnel and opening the manager UI of the remote instance which is connected as a gateway._
 
 ### Languages
 
-OpenRemote currently supports 8 languages: English, German, French, Spanish, Portuguese, Italian, Chinese, and Dutch.
+OpenRemote currently supports 9 languages: English, German, French, Spanish, Portuguese, Italian, Chinese, Ukrainian, and Dutch.
 
 ### Logs
 
 The logs page shows information, warnings and errors of the different activities of OpenRemote. You can use it to understand the behaviour of the whole platform or debug issues, e.g. errors connecting agent with device.
 
 ![](img/logs-page.png)
-_Figure 16. The Logs page to evaluate system behaviour._
+_Figure 17. The Logs page to evaluate system behaviour._
 
 ### Account
 
 On the Account page you can (re)set you personal information or password. You can also monitor your past sessions or enable 2FA via an Authenticator (default disabled).
 
 ![](img/edit-account-change-password.png)
-_Figure 17. The account page with contact details (left) and reset passwords (right)._
+_Figure 18. The account page with contact details (left) and reset passwords (right)._
 
 ### Users and access configuration
 
@@ -220,14 +233,14 @@ By linking assets to users, the system will understand which users are connected
 When, next to linking an asset to a user, you also set the Realm role to 'Restricted User', users will only have access to the assets they are linked to. Note that you additionally have to indicate on the assets which attributes of the asset they have access to. To do that, set the configuration item 'Access restricted user read/write' on the attribute ([see 'Configure attributes'](#configure-attributes)). 
 
 ![](img/creating-users.png)
-_Figure 18. Creating users for a selected realm, assigning roles. In this example, the user is made a 'restricted user' linked to only 6 assets._
+_Figure 19. Creating users for a selected realm, assigning roles. In this example, the user is made a 'restricted user' linked to only 6 assets._
 
 ### Roles
 
 With the correct permissions, you can create and edit roles. These roles define which parts of the system a user is allowed to Read or Write, e.g. system settings, assets, attributes, map, or rules. Also see the userguide: [Realms, users and roles](../identity-and-security/realms-users-and-roles.md).
 
 ![](img/role-with-permissions.png)
-_Figure 19. Roles are made of a set of permissions_
+_Figure 20. Roles are made of a set of permissions_
 
 ### Realms
 
@@ -236,7 +249,7 @@ Only the Master realm Admin user can create `Realms` by accessing the master rea
 You can create a realm by adding a `realmname` name (single word, lower case letters), and a `Friendly name`. You can (temporarily) disable realms, which blocks access for any user.    
 
 ![](img/realms.png)
-_Figure 20. Realms can be created to manage multiple independent projects within one OpenRemote instance_
+_Figure 21. Realms can be created to manage multiple independent projects within one OpenRemote instance_
 
 Also see the userguide: [Realms, users and roles](../identity-and-security/realms-users-and-roles.md).
 
@@ -245,14 +258,14 @@ Also see the userguide: [Realms, users and roles](../identity-and-security/realm
 If you are an OEM, developing and producing your own hardware, you can provision your devices and OpenRemote to automatically have your devices connecting, once they get online. Using certificates (we currently support X.509) your devices will register and automatically generate and connect to an asset of a defined type in the OpenRemote Manager (see figure 21). For details, check out the documentation about ['Auto provisioning'](../gateways-and-devices/auto-provisioning.md).
 
 ![](img/auto-provisioning-of-devices.png)
-_Figure 21. Auto provisioning of devices_
+_Figure 22. Auto provisioning of devices_
 
 ### Appearance
 
 You can restyle any realm in OpenRemote as well as adjust the map views (go to settings/appearance). You can change the logo's, use different colours, change the title and default language, or set and change the menu items. For adding map layers you can add GeoJSON files (created e.g. with https://geojson.io/). More advanced settings like visible asset and agent types on the asset and rules page, can be configured directly in a JSON file. For the options available in the JSON file and an example, check out [Configuring the Manager UI](../deploying/configuring-the-manager-ui.md). For the maps you can set the centerpoint, zoom levels and boundaries.
 
 ![](img/appearance-settings.png)
-_Figure 22. Appearance settings allow white labeling of your OpenRemote manager_
+_Figure 23. Appearance settings allow white labeling of your OpenRemote manager_
 
 ## Manager APIs
 
@@ -263,7 +276,7 @@ The Manager APIs let you interact with OpenRemote without using the UI. This can
 Service users can be created on the `Users` page, and selecting `Add user` in the `Service user` panel (see figure 23). The `Username` (ClientID) can be set using letters, dashes, and numbers, while the `Secret` will be generated automatically once saved. Note that you also select the role(s).
 
 ![](img/creating-service-users.png)
-_Figure 23. Creating service users, with Username, Secret and Roles for a selected Realm_
+_Figure 24. Creating service users, with Username, Secret and Roles for a selected Realm_
 
 ### HTTP, MQTT, and WebSocket
 
