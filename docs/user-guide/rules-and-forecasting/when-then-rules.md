@@ -6,7 +6,7 @@ sidebar_position: 2
 
 When-Then rules are used in combination with the or-rules UI component. They are meant to be used to allow application users to define 'When this, then that' statements. For example "During weekdays, when it's cold, turn on the lights 5 minutes before sunset" or "send push notification to anybody who reaches the stadium".
 
-Note that When-Then rules also support web hooks as the right hand side action. This allows you to connect to any other application based on an event. Options are endless, from connecting to your Maintenance or Messaging service to your ERP or CRM system.
+Note that, next to changing other attribute values, When-Then rules support sending notifications, generating alarms and linking to external systems using web hooks. Web hooks allow you to connect to any other application based on an event. Options are endless, from connecting to your Maintenance or Messaging service to your ERP or CRM system.
 
 ![Manager Rules Editor](img/rules-editor.png)
 
