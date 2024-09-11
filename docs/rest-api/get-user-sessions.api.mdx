@@ -1,0 +1,237 @@
+---
+id: get-user-sessions
+title: "Retrieve sessions for a user in a realm"
+description: "Retrieve sessions for a user in a realm"
+sidebar_label: "Retrieve sessions for a user in a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVt1r20gQ/1eWeWpBkUJ73IOeLvT6EbhyJnHgwPhhI42tbVe729lRXNfofz9mJTl24kKSwnF6kubjN98z2gHrdYRyATcRCZYZ+ICk2Xh3WUMJa2RhXGOMxrsIGQRNukVGEq0dON0ilHDRcePJ/EiakIFxUEKDukaCDGLVYKuh3AFvg4hHJuPW0PfZHuGfsw+eNppqrM9m5Nn/MsonH/lFIITatpNm0NxABoTfOkNYQ8nU4dNwuoh0Wb8YaCnCMXgXMQq/xpXuLA+vsSITUrLLiaEmacig8o7RJVkdgjVVKkzxJYrC7rFRTaS34iljGw/o/vYLVpLFQNIYbAZXLv884XCWAh5iP8GMrInnpsXPxlpzaMQ4xnWqzspTq3kg/f6baBG2nvGirgljPJluYMNWSAeNCn16sgeJukImg3eo4tjPauVJaSV+K+OUVlPpW+TGjwOQmp4bKKEQwWKXhPr0MQ1GsRuK3UuLId1N49GRle5jDrEsihpbn/uAbogqN77QwewBIYM7TUbf2iHLgzOHlYdWR0aS8JZiqOrI8DZZElhTQ7lYHrKupdAD2iRwX1vdcfNGsm79JolU1qDjd4Q1OjbaDgn3X9HdpDgK0SiSW7EYXCmCzGrlbTHgn1XeOay4SGqp31eEsXk5QKx8GCII5FcmlXp6kxLrw9Xzztep+46Iz7ctopD9z0NPDW7cyqcqjUPwd0B3lbpLfdZOr5HU1fvrubqYXcLDcZg3JioTFTeoal91LTpOCUtjIdQTaJ/m89keMldqZlFHmShMGosjoOWrfev7Kh63/utkpfWESoLIx62lq7S1sNXGpkWw8n8c6clWsKZCWXTl/QH6OPtLvc3PIXswc5vNJl+7Lve0Lka1WOh1sGdv8/McXd5wawVTZnbIizDOhRR85Fa7AzNP3yBHqd7PHON3LoLVxqV9KZ7uxu2ySOsTMigniO748pbjPVlm0MhpKxew293qiDdk+17I3zok2QbL+0WSdkNtorzXUK60jfjIuf21gFdX43l6raT/Tzk9XQy3TfvKdvIFGXzF7f52yhH8D42OiemXfTZd+ueF/TOzA/ypX5O9D88L9emGxr+XIzuD1EVVYTjkPbrwcgH2F+zj+zn0/b/Qc25D
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve sessions for a user in a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/{realm}/userSessions/{userId}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve sessions for a user in a realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"realm","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"userId","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={false}
+                        name={"ID"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"username"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"startTimeMillis"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"remoteAddress"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"ID\": \"string\",\n    \"username\": \"string\",\n    \"startTimeMillis\": 0,\n    \"remoteAddress\": \"string\"\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

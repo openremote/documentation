@@ -1,0 +1,396 @@
+---
+id: create-realm
+title: "Create a new realm"
+description: "Create a new realm"
+sidebar_label: "Create a new realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFv2zYQ/ivCPW2AYgXNm56WBtkaoF0Nx8UGBH44S2eJLUUyJBXXM/zfhyOlSIrtBN0wYH6S7777jkcev+MePFYO8gdYEMoGViloQxa90OquhBwKS+gpOlMwaLEhT5ZD9qCwIcjhuvW1tuKvEAUpCAU51IQlWUjBFTU1CPke/M4w3HkrVAWHQ/rM8OfFr9pu0ZZUXsyt9vpfs3zQzv8AySoFS48tOf9elztGFFp5Up4/0RgpilBd9tVpxbYjKr3+SgWnNJZ30Aty7BXliXRpt+ITjlI4I3H3+zk/KVxLGpOutZaEKrBq/5422o5DVdusQ/EbbRv0kEOp27Ukxlty5Ofo3Fbb8lpKvT3HXLZxC+i2QSHdq1hLDXHOT3TOXwnnY4+9QTQAQ95r98WRfbF3o4AnsmKzC9DTAKkrof4Qvn4Ls6zpzAFgUehW+VcAZfNaPHHmV+nJuaX+Ruqj2JAzqEY4oTxV09MUyl+9i7uFslloGfuuVeKxpTtPjYPc25bSngOtxR1fjeh7q4HPdyq5wgoT7vypawleeMmmRb8wOByZ2RQb0WjlYsaSNthKHz9HOXpH0qMhfeOWRvIpyU0QtAQTRdvEdrrWkK81y52JsmHQ15BD1vsd2ade9ForWVO8Ny7PspIaPdOGlKVGe5oJnaER2T5EHjJI4Qmt4DsbaouE4yKhQefJ8kasOFHRWuF3IRPTsn48rMaue1aeyNYDhjPE1tfvuD2k3gZIIQUpf2OpJOUFynji3F5fQh0ZR8Q6XRaXkhlW4ELLLPJfFFopKnwWwoBPa2PJ1f+cwBXaxAqM1RsR2qH/4hPD8UC50WVowInxx3MzFNL/eemhX7l5F8Mwuv2OjZHUD5P+hvUzZPg/GR2D+XliRBUYzYjLcxMgIs9pfvSOVb63nND1Y9eRkkfIRLuj6aVaj6ydgA5VTmV5ZB+p8WhPRiI84TjW3supsg6vnmHfJ/rSC+DqwK+PjQ73rZO8z4bUIuhE8gkVVmSTxe39Mrme3x3xLGvhEuESX1NS6qJtSPmwf8lG22A9wfZhuZw/U86SZC4JHSWOKEQ8TIhWPz2LmC7cVMR+DlkabSnhImad1GIRpJbieYT6fpnEhQEqCmJ1zocH4m/zj8nV7BLSF+q53W5nlWpn2lZZF+YyrIy8uJpdzkjNat/IbrK7uC/suGQTS3UTp2OX5qS0nx5Tnr77zEgUYeSHRe071X/oRHqVQs3TIH+A/X6Njr5YeTiw+bElywq9GsQ9iHTavzS5S0rhunu3QenoaCHPkwsgPb2qb7Q78zR+QtkyHvjx+18k6l7PkzwRdRPZLpZMNCCOhu8QcV0UZPyr2NVoAs8/3y8hhXX3DG+C+oPFLasvbmMZOlQXJyrb9iBRVS1WjI2c/PsbSp9+9w==
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a new realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/realm"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create a new realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"name"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"displayName"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"enabled"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"notBefore"}
+          required={false}
+          schemaName={"double"}
+          qualifierMessage={undefined}
+          schema={{"type":"number","format":"double"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"resetPasswordAllowed"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"duplicateEmailsAllowed"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"rememberMe"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"registrationAllowed"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"registrationEmailAsUsername"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"verifyEmail"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"loginWithEmail"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"loginTheme"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"accountTheme"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"adminTheme"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"emailTheme"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"accessTokenLifespan"}
+          required={false}
+          schemaName={"int32"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","format":"int32"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={true}
+          className={"schemaItem"}
+        >
+          <details
+            style={{}}
+            className={"openapi-markdown__details"}
+          >
+            <summary
+              style={{}}
+            >
+              <span
+                className={"openapi-schema__container"}
+              >
+                <strong
+                  className={"openapi-schema__property"}
+                >
+                  realmRoles
+                </strong><span
+                  className={"openapi-schema__name"}
+                >
+                   object[]
+                </span>
+              </span>
+            </summary><div
+              style={{"marginLeft":"1rem"}}
+            >
+              <li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                >
+                  Array [
+                </div>
+              </li><SchemaItem
+                collapsible={false}
+                name={"name"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string"}}
+              >
+                
+              </SchemaItem><SchemaItem
+                collapsible={false}
+                name={"description"}
+                required={false}
+                schemaName={"string"}
+                qualifierMessage={undefined}
+                schema={{"type":"string"}}
+              >
+                
+              </SchemaItem><li>
+                <div
+                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                >
+                  ]
+                </div>
+              </li>
+            </div>
+          </details>
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

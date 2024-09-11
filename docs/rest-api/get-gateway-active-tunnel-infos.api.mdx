@@ -1,0 +1,273 @@
+---
+id: get-gateway-active-tunnel-infos
+title: "Retrieve the active gateway tunnel information of gateway in a realm"
+description: "Retrieve the active gateway tunnel information of gateway in a realm"
+sidebar_label: "Retrieve the active gateway tunnel information of gateway in a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk1v3DYQ/SvCnBJAloz4plMNI3UMtOjC3gAFjD2MpVmJCUUy5Mjb7UL/vRjqYz+8BWK3COKLtZyZNyTnvRnugLEOUDzCLTJtcAurFKwjj6ysuauggJp4tF2XrJ5p2RlD+s6sbYAUHHpsickLyA4MtgQFXHfcWK/+jiiQgjJQQENYkYcUQtlQi1DsgLdO3AN7ZWro+3RG+PPiV+s36CuqLhbesv3PKJ9s4DeBeELdTpEOuYEUPH3rlKcKCvYdfR+Oqt4MshLn4KwJFMRe0Ro7zcNnKL1y8aKLyZBM3pBCaQ2Tib7onFZlLEr+JUjA7mVS9B63slOmNhys26cvVMoNOi8EYTVsZbidl3tOoR5YIyQ6Y2X0NfHCej4wK8NUx8KsrW+Rh6WrD/uAs1gYgqoNVa9Aa2zgoS7n9hYXTg0pkOla0cqn5XLxAGn8Dyksbxaw6lMp8DkCACvWsjTKaC8g6ONfelLEe2Kv6JkSbijBKLpkvMyEY3CizHAkZU1i17NVmQSTia8tcWNHBUelcgMF5KNvPiDlu+je5ztV9SII8s+TmDuvRSvMLhR5XlFrM+vIeGotU6Zsjk7N8ZDCM3qFT/qEFzNXocXA5OXQK0lUdl7xNmYSWLm9x9Wh6UGoOaBNDns2YsfNBymttpvoUmpFhm88VWRYoR64a7+S+RzPkUtEHrcV8mEruZPOUlqdD/gXpTWGSs5jWFTo2lNo3g4QSuuGEzhv1yrSYPqSwuNho7yxVaTd0eLrc4srpD/50SPthcWxSqNA/nBk7iO7kt/RYE0+uf/4sEyuF3dwKpJlo0KiQtRIZcuuJcODHtbWx9UzaCLYGTJLkoUmDJQEGrT2eAS0ejdT35bhmPrvY5bWeopSzMY+i2XsP9Si0rHbrO0vR3HSXbQqSVpzsR+Xt4vfkqvsEtITzW02m6w2XWZ9nY9hIcfa6Yur7DIjkzXcasEUzQ73IoZLWXI2cIvmIM3/1FeO6jALkukvzp1GZSR5PMZu7DmP0ygQVsY8kEIxwRWqkkeHNGRx3e2eMNBnr/telr915KVHrPbtJXaMSgX5rqBYow70Ylfz1IN39+OYfZ9Aen630+Qz29jFdCe/IIWvtJ3nvwzyH5hUVdDLTBlfKq878r+lHKDPPa3m/K875vcnGl9fR3kGr+uyJHdoe/FKkZkwD7Pbj0vo+38AaLy0Bg==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the active gateway tunnel information of gateway in a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/gateway/tunnel/{realm}/{id}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the active gateway tunnel information of gateway in a realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"realm","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"id","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={false}
+                        name={"realm"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"gatewayId"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"targetPort"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"target"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"assignedPort"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"hostname"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"type"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`HTTPS`, `HTTP`, `TCP`]"}
+                        schema={{"type":"string","enum":["HTTPS","HTTP","TCP"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"realm\": \"string\",\n    \"gatewayId\": \"string\",\n    \"targetPort\": 0,\n    \"target\": \"string\",\n    \"assignedPort\": 0,\n    \"hostname\": \"string\",\n    \"type\": \"HTTPS\",\n    \"id\": \"string\"\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
