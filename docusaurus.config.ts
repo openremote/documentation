@@ -1,6 +1,7 @@
-import {themes as prismThemes} from 'prism-react-renderer';
 import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
+import type * as Plugin from "@docusaurus/types/src/plugin";
+import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
 
 const config: Config = {
   title: 'OpenRemote Documentation',
@@ -39,6 +40,7 @@ const config: Config = {
           // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/openremote/documentation/edit/main/',
+          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
         },
         blog: {
           showReadingTime: true,
@@ -48,7 +50,10 @@ const config: Config = {
             'https://github.com/openremote/documentation/edit/main/',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: [
+            './src/css/styles.css',
+            './src/css/openapi-docs.css',
+          ]
         },
         gtag: {
           trackingID: "GTM-MWP6C7F",
@@ -58,9 +63,35 @@ const config: Config = {
     ],
   ],
 
-  plugins: [[require.resolve('docusaurus-lunr-search'), {
-    disableVersioning: true
-  }]],
+  plugins: [
+    [
+      require.resolve('docusaurus-lunr-search'), {
+        disableVersioning: true
+    }],
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "openapi",
+        docsPluginId: "classic",
+        config: {
+          restapi: {
+            specPath: "api/openapi.yaml",
+            outputDir: "docs/rest-api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
+            template: "api.mustache", // Customize API MDX with mustache template
+            downloadUrl: "https://demo.openremote.io/api/master/openapi.yaml",
+            hideSendButton: false,
+            showSchemas: true,
+          } satisfies OpenApiPlugin.Options,
+        } satisfies Plugin.PluginOptions,
+      },
+    ],
+  ],
+
+  themes: ["docusaurus-theme-openapi-docs"],
 
   themeConfig: {
     // Replace with your project's social card
@@ -79,22 +110,6 @@ const config: Config = {
           dropdownActiveClassDisabled: false,
         },
         */
-        {
-          type: 'docSidebar',
-          sidebarId: 'orSidebar',
-          position: 'left',
-          label: 'Documentation',
-        },
-        {
-          to: 'https://www.javadoc.io/doc/io.openremote', 
-          label: 'JavaDoc',
-          position: 'left'
-        },
-        {
-          to: 'https://demo.openremote.io/swagger/#/', 
-          label: 'REST API',
-          position: 'left'
-        },
         {
           href: 'https://forum.openremote.io/',
           label: 'Forum',
@@ -206,10 +221,37 @@ const config: Config = {
       ],
       copyright: `© ${new Date().getFullYear()} OpenRemote, Inc. All Rights Reserved.`,
     },
+    languageTabs: [
+      {
+        language: "curl",
+      },
+      {
+        language: "nodejs",
+      },
+      {
+        language: "java",
+      },
+      {
+        language: "python",
+      },
+      {
+        language: "ruby",
+      },
+      {
+        language: "csharp",
+      },
+      {
+        language: "go",
+      },
+      {
+        language: "php",
+      },
+      {
+        language: "powershell",
+      },
+    ],
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'cpp', 'docker', 'groovy', 'java', 'javascript', 'json'],
+      additionalLanguages: ['bash', 'cpp', 'csharp', 'docker', 'groovy', 'java', 'javascript', 'json', 'python', 'ruby'],
     },
   } satisfies Preset.ThemeConfig,
 };
