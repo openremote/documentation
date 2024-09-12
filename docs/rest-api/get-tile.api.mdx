@@ -1,0 +1,158 @@
+---
+id: get-tile
+title: "Retrieve the vector tile data for Mapbox GL"
+description: "Retrieve the vector tile data for Mapbox GL"
+sidebar_label: "Retrieve the vector tile data for Mapbox GL"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1v3DgM/SsGTy3gWEFz82mDIsgWaLBBOj0Fc1BkzlioJKoSPdOp4f++oDzjZtIe2sVusT7JFPlI8eNxBNbbDO0j3OkI6xooYtJsKbzroIUt8so6hBqiTtojYxLlEYL2CC18JfJQgw3QQtTcQw0JPw82YQctpwFryKZHr6EdgQ9RbGxg3GKCGjaUvOZZdPUGpqlegA25wYf/BDrR/l/EXYt5jhQyZrHocKMHx/Mxm2SjJBPa00V10oYaDAXGUHR1jM6akni1C13jdXyiLxc7NEzpgqUG7fh9YJmTDdvncT0dGGGSr34RwANysrjDinusZuBKgKtOs642lKq74rS6fQ81eOSeji1Qys89tKC8jkqM1Ciln9Q4F2pSY6L9BDVkTLtTkwzJQQs9c8ytUh16aihiSOiJsbGkdLRqTKidnxTUsNPJ6ic3J7KIzzIKXmfGJK9biyMzJMuH4klgbQft4/r51QdJ14x2UlgyR3rg/o1kztG+qBhnMfDbhB0GttoVIdMnDB/LO5RYqBJWVnMoKiZiMuTUjH9hKAQ0rIpZ6axNwtz/c4BsKM4viIk2pQ2Wk5RYICnZr6Vz3lJX2uRM+Ou+RRXq//nTS4PbsKFSJcvl+q+I4aF0V3Wng95iqh5uPqyq6/t38HIcVr3Nlc1lGjoyg8fAJWFlFET6A7Q/V6v7BbKpqnuHOmOVcZ6qxzOg9aul9cnk89Z/Xbx4SljJI5ojG2hT2AC9tq6QzIb+OLODqQZnDQqBtAulXd/ev6+umkuoX8zcfr9vtmFoKG3V0SwrvY3u4qq5bDA0PXsnmDKzc17k4lJEkTJ7HZ65+TUGOUv3MneMX1hFp20QHyXa8cguj+B1lMabN057XC7tsgtaoe51DT1lFvVxfNIZPyY3TSL+PGASOlh/Y5JCDp3Ncu6g3WiX8bvIFhqGVw/HTfC6kjh+FPFRqMOhEJYb5A9q+ISH0z6UXfMbfR7T85u9Simm9VRDj7rDVBI931wbg5Gf2fzEbhPWXjbO7c0Kpulvg3/5UQ==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the vector tile data for Mapbox GL"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/map/tile/{zoom}/{column}/{row}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the vector tile data for Mapbox GL
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"zoom","in":"path","required":true,"schema":{"type":"integer","format":"int32"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"column","in":"path","required":true,"schema":{"type":"integer","format":"int32"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"row","in":"path","required":true,"schema":{"type":"integer","format":"int32"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/vnd.mapbox-vector-tile"}
+              value={"application/vnd.mapbox-vector-tile"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <div
+                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                      >
+                        
+                        
+                        string
+                        
+                        
+                      </div>
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

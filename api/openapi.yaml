@@ -1,0 +1,6677 @@
+openapi: 3.0.1
+info:
+  title: OpenRemote Manager REST API
+  description: "This is the documentation for the OpenRemote Manager HTTP REST API.\
+    \  Please see the [documentation](https://docs.openremote.io) for more info."
+  contact:
+    email: info@openremote.io
+  license:
+    name: AGPL 3.0
+    url: https://www.gnu.org/licenses/agpl-3.0.en.html
+  version: 3.0.0
+servers:
+- url: "https://demo.openremote.io/api/{realm}/"
+  variables:
+    realm:
+      default: master
+security:
+- openid: []
+tags:
+- name: Agent
+  description: Operations on agents
+- name: Alarm
+  description: Operations on alarms
+- name: Configuration
+  description: Operations on configurations
+- name: UI Apps
+  description: Operations on UI apps
+- name: Asset Model
+  description: Operations on asset model resources
+- name: Asset
+  description: Operations on assets
+- name: Console
+  description: Operations on consoles
+- name: Dashboard
+  description: Operations on dashboards
+- name: Asset Datapoint
+  description: Operations on asset datapoints
+- name: Asset Predicted Datapoint
+  description: Operations on asset predicted datapoints
+- name: Gateway
+  description: Operations on gateways
+- name: Map
+  description: Operations on maps
+- name: Notification
+  description: Operations on notifications
+- name: Provisioning
+  description: Operations on provisioning configurations
+- name: Rule
+  description: Operations on rules
+- name: Flow
+  description: Operations on flows
+- name: Realm
+  description: Operations on realms
+- name: User
+  description: Operations on users
+- name: Syslog
+  description: Operations on syslog events
+- name: Status
+  description: Operations on system status
+paths:
+  /agent/assetDiscovery/{agentId}:
+    get:
+      tags:
+      - Agent
+      summary: Do protocol asset discovery
+      operationId: doProtocolAssetDiscovery
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: agentId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: realm
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssetTreeNode'
+  /agent/assetImport/{agentId}:
+    post:
+      tags:
+      - Agent
+      summary: Do protocol asset import
+      operationId: doProtocolAssetImport
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: agentId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: realm
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssetTreeNode'
+  /agent/instanceDiscovery/{agentType}:
+    get:
+      tags:
+      - Agent
+      summary: Do protocol instance discovery
+      operationId: doProtocolInstanceDiscovery
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: parentId
+        in: query
+        schema:
+          type: string
+      - name: agentType
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: realm
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AgentObjectObjectObject'
+  /alarm:
+    get:
+      tags:
+      - Alarm
+      summary: Retrieve all alarms or a subset using filter criteria
+      operationId: getAlarms
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: query
+        schema:
+          type: string
+      - name: status
+        in: query
+        schema:
+          type: string
+          enum:
+          - OPEN
+          - ACKNOWLEDGED
+          - IN_PROGRESS
+          - RESOLVED
+          - CLOSED
+      - name: assetId
+        in: query
+        schema:
+          type: string
+      - name: assigneeId
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SentAlarm'
+    post:
+      tags:
+      - Alarm
+      summary: Create an alarm
+      operationId: createAlarm
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetIds
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SentAlarm'
+    delete:
+      tags:
+      - Alarm
+      summary: Remove alarms
+      operationId: removeAlarms
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /alarm/{alarmId}:
+    get:
+      tags:
+      - Alarm
+      summary: Retrieve an alarm
+      operationId: getAlarm
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: alarmId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SentAlarm'
+    put:
+      tags:
+      - Alarm
+      summary: Update an alarm
+      operationId: updateAlarm
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: alarmId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+    delete:
+      tags:
+      - Alarm
+      summary: Remove an alarm
+      operationId: removeAlarm
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: alarmId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /alarm/{alarmId}/assets:
+    get:
+      tags:
+      - Alarm
+      summary: Retrieve the asset links of an alarm
+      operationId: getAssetLinks
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: alarmId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      - name: realm
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AlarmAssetLink'
+  /alarm/assets:
+    put:
+      tags:
+      - Alarm
+      summary: Set the asset links of an alarm
+      operationId: setAssetLinks
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /configuration/manager/file:
+    post:
+      tags:
+      - Configuration
+      summary: Upload a file
+      operationId: fileUpload
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: path
+        in: query
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FileInfo'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: string
+  /configuration/manager:
+    put:
+      tags:
+      - Configuration
+      summary: Update manager configuration
+      operationId: updateConfiguration
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: object
+  /apps/info:
+    get:
+      tags:
+      - UI Apps
+      summary: Retrieve the info of the available applications
+      operationId: getAppInfos
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /apps:
+    get:
+      tags:
+      - UI Apps
+      summary: Retrieve a list of the available applications
+      operationId: getApps
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+  /apps/consoleConfig:
+    get:
+      tags:
+      - UI Apps
+      summary: Retrieve the console configuration
+      operationId: getConsoleConfig
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /model/assetDescriptors:
+    get:
+      tags:
+      - Asset Model
+      summary: Retrieve the available asset descriptors
+      operationId: getAssetDescriptors
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: parentId
+        in: query
+        schema:
+          type: string
+      - name: parentType
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssetDescriptorObject'
+  /model/assetInfo/{assetType}:
+    get:
+      tags:
+      - Asset Model
+      summary: Retrieve the asset type information of an asset type
+      operationId: getAssetInfo
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: parentId
+        in: query
+        schema:
+          type: string
+      - name: assetType
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetTypeInfo'
+  /model/assetInfos:
+    get:
+      tags:
+      - Asset Model
+      summary: Retrieve the asset type information of each available asset type
+      operationId: getAssetInfos
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: parentId
+        in: query
+        schema:
+          type: string
+      - name: parentType
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssetTypeInfo'
+  /model/metaItemDescriptors:
+    get:
+      tags:
+      - Asset Model
+      summary: Retrieve the available meta item descriptors
+      operationId: getMetaItemDescriptors
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: parentId
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/MetaItemDescriptorObject'
+  /model/valueDescriptors:
+    get:
+      tags:
+      - Asset Model
+      summary: Retrieve the available value descriptors
+      operationId: getValueDescriptors
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: parentId
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  $ref: '#/components/schemas/ValueDescriptorObject'
+  /asset:
+    post:
+      tags:
+      - Asset
+      summary: Create an asset
+      operationId: createAsset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetObject'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetObject'
+    delete:
+      tags:
+      - Asset
+      summary: Delete assets
+      operationId: deleteAsset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetId
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /asset/user/link:
+    get:
+      tags:
+      - Asset
+      summary: Retrieve links between assets and users
+      operationId: getUserAssetLinks
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: query
+        schema:
+          type: string
+      - name: userId
+        in: query
+        schema:
+          type: string
+      - name: assetId
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserAssetLink'
+    post:
+      tags:
+      - Asset
+      summary: Create links between users and assets
+      operationId: createUserAssetLinks
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UserAssetLink'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /asset/user/link/{realm}/{userId}:
+    delete:
+      tags:
+      - Asset
+      summary: Delete all user asset links
+      operationId: deleteAllUserAssetLinks
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /asset/user/link/{realm}/{userId}/{assetId}:
+    delete:
+      tags:
+      - Asset
+      summary: Delete a link between an asset and user
+      operationId: deleteUserAssetLink
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /asset/user/link/delete:
+    post:
+      tags:
+      - Asset
+      summary: Delete user asset links
+      operationId: deleteUserAssetLinks
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/UserAssetLink'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /asset/{assetId}:
+    get:
+      tags:
+      - Asset
+      summary: Retrieve an asset
+      operationId: getAsset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetObject'
+    put:
+      tags:
+      - Asset
+      summary: Update an asset
+      operationId: updateAsset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetObject'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetObject'
+  /asset/user/current:
+    get:
+      tags:
+      - Asset
+      summary: Retrieve the linked assets of the currently authenticated user
+      operationId: getCurrentUserAssets
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssetObject'
+  /asset/partial/{assetId}:
+    get:
+      tags:
+      - Asset
+      summary: Retrieve a partially loaded asset (no attributes or path)
+      operationId: getPartialAsset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetObject'
+  /asset/query:
+    post:
+      tags:
+      - Asset
+      summary: Retrieve assets using a query
+      operationId: queryAssets
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetQuery'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssetObject'
+  /asset/parent:
+    delete:
+      tags:
+      - Asset
+      summary: Delete the parent of assets
+      operationId: deleteAssetsParent
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetIds
+        in: query
+        schema:
+          maxItems: 2147483647
+          minItems: 1
+          type: array
+          items:
+            type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /asset/{parentAssetId}/child:
+    put:
+      tags:
+      - Asset
+      summary: Update the parent of assets
+      operationId: updateAssetParent
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: parentAssetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: assetIds
+        in: query
+        schema:
+          maxItems: 2147483647
+          minItems: 1
+          type: array
+          items:
+            type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /asset/{assetId}/attribute/{attributeName}:
+    put:
+      tags:
+      - Asset
+      summary: Write to a single attribute
+      operationId: writeAttributeValue
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: attributeName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        default:
+          description: The result of the write operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AttributeWriteResult'
+  /asset/attributes:
+    put:
+      tags:
+      - Asset
+      summary: Update attribute values
+      operationId: writeAttributeValues
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/AttributeState'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AttributeWriteResult'
+  /console/register:
+    post:
+      tags:
+      - Console
+      summary: Create or update the registration for a console
+      operationId: register
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ConsoleRegistration'
+        required: true
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConsoleRegistration'
+  /dashboard:
+    put:
+      tags:
+      - Dashboard
+      summary: Update a dashboard
+      operationId: updateDashboard
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dashboard'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dashboard'
+    post:
+      tags:
+      - Dashboard
+      summary: Create a dashboard
+      operationId: createDashboard
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Dashboard'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dashboard'
+  /dashboard/{realm}/{dashboardId}:
+    get:
+      tags:
+      - Dashboard
+      summary: Retrieve a dashboard
+      operationId: getDashboard
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dashboardId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Dashboard'
+    delete:
+      tags:
+      - Dashboard
+      summary: Delete a dashboard
+      operationId: deleteDashboard
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dashboardId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /dashboard/all/{realm}:
+    get:
+      tags:
+      - Dashboard
+      summary: Retrieve all accessible dashboards
+      operationId: getAllRealmDashboards
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Dashboard'
+  /dashboard/query:
+    post:
+      tags:
+      - Dashboard
+      summary: Retrieve dashboards using a query
+      operationId: queryDashboards
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DashboardQuery'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Dashboard'
+  /asset/datapoint/export:
+    get:
+      tags:
+      - Asset Datapoint
+      summary: Retrieve a datapoint export of an asset attribute
+      operationId: getDatapointExport
+      parameters:
+      - name: attributeRefs
+        in: query
+        schema:
+          type: string
+      - name: fromTimestamp
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: toTimestamp
+        in: query
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: default response
+          content:
+            application/zip: {}
+  /asset/datapoint/periods:
+    get:
+      tags:
+      - Asset Datapoint
+      summary: Retrieve a datapoint period of an asset attribute
+      operationId: getDatapointPeriod
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetId
+        in: query
+        schema:
+          type: string
+      - name: attributeName
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/DatapointPeriod'
+  /asset/datapoint/{assetId}/{attributeName}:
+    post:
+      tags:
+      - Asset Datapoint
+      summary: Retrieve the historical datapoints of an asset attribute
+      operationId: getDatapoints
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: attributeName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetDatapointQuery'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ValueDatapointObject'
+  /asset/predicted/{assetId}/{attributeName}:
+    put:
+      tags:
+      - Asset Predicted Datapoint
+      summary: Write the predicted datapoints of an asset attribute
+      operationId: writePredictedDatapoints
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: attributeName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/ValueDatapointObject'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+    post:
+      tags:
+      - Asset Predicted Datapoint
+      summary: Retrieve the predicted datapoints of an asset attribute
+      operationId: getPredictedDatapoints
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: attributeName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetDatapointQuery'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ValueDatapointObject'
+  /gateway/connection/{realm}:
+    get:
+      tags:
+      - Gateway
+      summary: Retrieve the gateway connection of a realm
+      operationId: getConnection
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayConnection'
+    put:
+      tags:
+      - Gateway
+      summary: Update the gateway connection of a realm
+      operationId: setConnection
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GatewayConnection'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+    delete:
+      tags:
+      - Gateway
+      summary: Delete the gateway connection of a realm
+      operationId: deleteConnection
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /gateway/connection:
+    get:
+      tags:
+      - Gateway
+      summary: Retrieve the gateway connections of all realms
+      operationId: getConnections
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GatewayConnection'
+    delete:
+      tags:
+      - Gateway
+      summary: Delete the gateway connections of multiple realms
+      operationId: deleteConnections
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /gateway/status/{realm}:
+    get:
+      tags:
+      - Gateway
+      summary: Retrieve the gateway connection status of a realm
+      operationId: getConnectionStatus
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: string
+                enum:
+                - DISCONNECTED
+                - CONNECTING
+                - DISCONNECTING
+                - CONNECTED
+                - DISABLED
+                - WAITING
+                - ERROR
+                - STOPPED
+  /gateway/tunnel/{realm}/{id}/{target}/{targetPort}:
+    get:
+      tags:
+      - Gateway
+      summary: Retrieve the gateway tunnel information of tunnel for a gateway in
+        a realm
+      operationId: getActiveTunnelInfo
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: target
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: targetPort
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayTunnelInfo'
+  /gateway/tunnel/{realm}:
+    get:
+      tags:
+      - Gateway
+      summary: Retrieve all active gateway tunnel information of a realm
+      operationId: getAllActiveTunnelInfos
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GatewayTunnelInfo'
+  /gateway/tunnel/{realm}/{id}:
+    get:
+      tags:
+      - Gateway
+      summary: Retrieve the active gateway tunnel information of gateway in a realm
+      operationId: getGatewayActiveTunnelInfos
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GatewayTunnelInfo'
+  /gateway/tunnel:
+    post:
+      tags:
+      - Gateway
+      summary: Start a tunnel for a gateway
+      operationId: startTunnel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GatewayTunnelInfo'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GatewayTunnelInfo'
+    delete:
+      tags:
+      - Gateway
+      summary: Stop a tunnel for a gateway
+      operationId: stopTunnel
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GatewayTunnelInfo'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /map:
+    get:
+      tags:
+      - Map
+      summary: Retrieve the style used for Mapbox GL
+      operationId: getSettings
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectNode'
+    put:
+      tags:
+      - Map
+      summary: Update map settings
+      operationId: saveSettings
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties:
+                $ref: '#/components/schemas/MapRealmConfig'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: object
+  /map/js:
+    get:
+      tags:
+      - Map
+      summary: Retrieve the tileJSON object used for Mapbox GL
+      operationId: getSettingsJs
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ObjectNode'
+  /map/tile/{zoom}/{column}/{row}:
+    get:
+      tags:
+      - Map
+      summary: Retrieve the vector tile data for Mapbox GL
+      operationId: getTile
+      parameters:
+      - name: zoom
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: column
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: row
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        default:
+          description: default response
+          content:
+            application/vnd.mapbox-vector-tile:
+              schema:
+                type: string
+                format: byte
+  /notification:
+    get:
+      tags:
+      - Notification
+      summary: Retrieve all sent notifications by targets
+      operationId: getNotifications
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: type
+        in: query
+        schema:
+          type: string
+      - name: from
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: to
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: realmId
+        in: query
+        schema:
+          type: string
+      - name: userId
+        in: query
+        schema:
+          type: string
+      - name: assetId
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/SentNotification'
+    delete:
+      tags:
+      - Notification
+      summary: Delete all sent notifications by targets
+      operationId: removeNotifications
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: type
+        in: query
+        schema:
+          type: string
+      - name: from
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: to
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: realmId
+        in: query
+        schema:
+          type: string
+      - name: userId
+        in: query
+        schema:
+          type: string
+      - name: assetId
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /notification/{notificationId}/acknowledged:
+    put:
+      tags:
+      - Notification
+      summary: Update a notification as acknowledged
+      operationId: notificationAcknowledged
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: targetId
+        in: query
+        schema:
+          type: string
+      - name: notificationId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/JsonNode'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /notification/{notificationId}/delivered:
+    put:
+      tags:
+      - Notification
+      summary: Update a notification as delivered
+      operationId: notificationDelivered
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: targetId
+        in: query
+        schema:
+          type: string
+      - name: notificationId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /notification/{notificationId}:
+    delete:
+      tags:
+      - Notification
+      summary: Delete a sent notification
+      operationId: removeNotification
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: notificationId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /notification/alert:
+    post:
+      tags:
+      - Notification
+      summary: Send a notification to one or more targets
+      operationId: sendNotification
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Notification'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /provisioning:
+    get:
+      tags:
+      - Provisioning
+      summary: Retrieve all provisioning configurations
+      operationId: getProvisioningConfigs
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ProvisioningConfigObjectObject'
+    post:
+      tags:
+      - Provisioning
+      summary: Create a provisioning configuration
+      operationId: createProvisioningConfig
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProvisioningConfigObjectObject'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+  /provisioning/{id}:
+    put:
+      tags:
+      - Provisioning
+      summary: Update a provisioning configuration
+      operationId: updateProvisioningConfig
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProvisioningConfigObjectObject'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+    delete:
+      tags:
+      - Provisioning
+      summary: Delete a provisioning configuration
+      operationId: deleteProvisioningConfig
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /rules/asset:
+    post:
+      tags:
+      - Rule
+      summary: Create an asset ruleset
+      operationId: createAssetRuleset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetRuleset'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+  /rules:
+    get:
+      tags:
+      - Rule
+      summary: ' Retrieve the global rules'
+      operationId: getGlobalRulesets
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: language
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - JAVASCRIPT
+            - GROOVY
+            - JSON
+            - FLOW
+      - name: fullyPopulate
+        in: query
+        schema:
+          type: boolean
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GlobalRuleset'
+    post:
+      tags:
+      - Rule
+      summary: Create a global ruleset
+      operationId: createGlobalRuleset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GlobalRuleset'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int64
+  /rules/realm:
+    post:
+      tags:
+      - Rule
+      summary: Create a realm ruleset
+      operationId: createRealmRuleset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RealmRuleset'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*':
+              schema:
+                type: integer
+                format: int64
+  /rules/asset/{id}:
+    get:
+      tags:
+      - Rule
+      summary: Retrieve an asset ruleset
+      operationId: getAssetRuleset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AssetRuleset'
+    put:
+      tags:
+      - Rule
+      summary: Update an asset ruleset
+      operationId: updateAssetRuleset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AssetRuleset'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+    delete:
+      tags:
+      - Rule
+      summary: Delete an asset ruleset
+      operationId: deleteAssetRuleset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /rules/{id}:
+    get:
+      tags:
+      - Rule
+      summary: Retrieve a global ruleset
+      operationId: getGlobalRuleset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GlobalRuleset'
+    put:
+      tags:
+      - Rule
+      summary: Update a global ruleset
+      operationId: updateGlobalRuleset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GlobalRuleset'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+    delete:
+      tags:
+      - Rule
+      summary: Delete a global ruleset
+      operationId: deleteGlobalRuleset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /rules/realm/{id}:
+    get:
+      tags:
+      - Rule
+      summary: Retrieve a realm ruleset
+      operationId: getRealmRuleset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RealmRuleset'
+    put:
+      tags:
+      - Rule
+      summary: Update a realm ruleset
+      operationId: updateRealmRuleset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RealmRuleset'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+    delete:
+      tags:
+      - Rule
+      summary: Delete a realm ruleset
+      operationId: deleteRealmRuleset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /rules/info/asset/{assetId}:
+    get:
+      tags:
+      - Rule
+      summary: Retrieve information about an asset rules engine
+      operationId: getAssetEngineInfo
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RulesEngineInfo'
+  /rules/geofences/{assetId}:
+    get:
+      tags:
+      - Rule
+      summary: Get the geofences of an asset
+      operationId: getAssetGeofences
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/GeofenceDefinition'
+  /rules/asset/for/{assetId}:
+    get:
+      tags:
+      - Rule
+      summary: Retrieve the rules of an asset
+      operationId: getAssetRulesets
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: language
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - JAVASCRIPT
+            - GROOVY
+            - JSON
+            - FLOW
+      - name: fullyPopulate
+        in: query
+        schema:
+          type: boolean
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/AssetRuleset'
+  /rules/info/global:
+    get:
+      tags:
+      - Rule
+      summary: Retrieve information about the global rules engine
+      operationId: getGlobalEngineInfo
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RulesEngineInfo'
+  /rules/info/realm/{realm}:
+    get:
+      tags:
+      - Rule
+      summary: Retrieve information about a realm rules engine
+      operationId: getRealmEngineInfo
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RulesEngineInfo'
+  /rules/realm/for/{realm}:
+    get:
+      tags:
+      - Rule
+      summary: Retrieve the rules of a realm
+      operationId: getRealmRulesets
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: language
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - JAVASCRIPT
+            - GROOVY
+            - JSON
+            - FLOW
+      - name: fullyPopulate
+        in: query
+        schema:
+          type: boolean
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RealmRuleset'
+  /flow:
+    get:
+      tags:
+      - Flow
+      summary: Retrieve all node definitions
+      operationId: getAllNodeDefinitions
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Node'
+  /flow/{type}:
+    get:
+      tags:
+      - Flow
+      summary: Retrieve all node definitions by type
+      operationId: getAllNodeDefinitionsByType
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: type
+        in: path
+        required: true
+        schema:
+          type: string
+          enum:
+          - INPUT
+          - PROCESSOR
+          - OUTPUT
+          - THEN
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Node'
+  /flow/{name}:
+    get:
+      tags:
+      - Flow
+      summary: Retrieve a node definition by name
+      operationId: getNodeDefinition
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Node'
+  /realm:
+    get:
+      tags:
+      - Realm
+      summary: Retrieve all realms
+      operationId: getAllRealms
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Realm'
+    post:
+      tags:
+      - Realm
+      summary: Create a new realm
+      operationId: createRealm
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Realm'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /realm/{name}:
+    get:
+      tags:
+      - Realm
+      summary: Retrieve details about the currently authenticated and active realm
+      operationId: getRealm
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Realm'
+    put:
+      tags:
+      - Realm
+      summary: Update a realm
+      operationId: updateRealm
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Realm'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+    delete:
+      tags:
+      - Realm
+      summary: Delete a realm
+      operationId: deleteRealm
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: name
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /realm/accessible:
+    get:
+      tags:
+      - Realm
+      summary: Retrieve accessible realms for the authenticated user
+      operationId: getAccessibleRealms
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Realm'
+  /user/{realm}/users:
+    put:
+      tags:
+      - User
+      summary: Update a user in a realm
+      operationId: updateUser
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+    post:
+      tags:
+      - User
+      summary: Create a new user in a realm
+      operationId: createUser
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /user/{realm}/users/{userId}:
+    delete:
+      tags:
+      - User
+      summary: Delete a user from a realm
+      operationId: deleteUser
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /user/{realm}/disconnect/{sessionID}:
+    get:
+      tags:
+      - User
+      summary: Disconnect a user session using a session ID
+      operationId: disconnectUserSession
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: sessionID
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /user/{realm}/{userId}:
+    get:
+      tags:
+      - User
+      summary: Retrieve a user in a realm
+      operationId: getUser
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /user/{realm}/{clientId}/roles:
+    get:
+      tags:
+      - User
+      summary: Retrieve client roles for a realm and client
+      operationId: getClientRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: clientId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+    put:
+      tags:
+      - User
+      summary: Update client roles for a realm and client
+      operationId: updateClientRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: clientId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Role'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /user/user:
+    get:
+      tags:
+      - User
+      summary: Retrieve the currently authenticated user
+      operationId: getCurrentUser
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /user/userRoles/{clientId}:
+    get:
+      tags:
+      - User
+      summary: Retrieve client roles for the currently authenticated user using a
+        client ID
+      operationId: getCurrentUserClientRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: clientId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+  /user/userRealmRoles:
+    get:
+      tags:
+      - User
+      summary: Retrieve realm roles for the currently authenticated user
+      operationId: getCurrentUserRealmRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+  /user/userRoles:
+    get:
+      tags:
+      - User
+      summary: Retrieve client roles for the currently authenticated user
+      operationId: getCurrentUserRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+  /user/{realm}/roles:
+    get:
+      tags:
+      - User
+      summary: Retrieve roles for a realm
+      operationId: getRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+    put:
+      tags:
+      - User
+      summary: Update roles for a realm
+      operationId: updateRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Role'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /user/{realm}/userRoles/{userId}/{clientId}:
+    get:
+      tags:
+      - User
+      summary: Retrieve client roles for a user using a client ID in a realm
+      operationId: getUserClientRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: clientId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+    put:
+      tags:
+      - User
+      summary: Update client roles for a user in a realm using a client ID
+      operationId: updateUserClientRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: clientId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Role'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /user/{realm}/userRealmRoles/{userId}:
+    get:
+      tags:
+      - User
+      summary: Retrieve realm roles for a user in a realm
+      operationId: getUserRealmRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+    put:
+      tags:
+      - User
+      summary: Update realm roles for a user in a realm
+      operationId: updateUserRealmRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Role'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /user/{realm}/userRoles/{userId}:
+    get:
+      tags:
+      - User
+      summary: Retrieve client roles for a user in a realm
+      operationId: getUserRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Role'
+    put:
+      tags:
+      - User
+      summary: Update client roles for a user in a realm
+      operationId: updateUserRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/Role'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /user/{realm}/userSessions/{userId}:
+    get:
+      tags:
+      - User
+      summary: Retrieve sessions for a user in a realm
+      operationId: getUserSessions
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/UserSession'
+  /user/query:
+    post:
+      tags:
+      - User
+      summary: Query users based on criteria
+      operationId: queryUsers
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserQuery'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+  /user/{realm}/reset-password/{userId}:
+    put:
+      tags:
+      - User
+      summary: Reset the password for a user in a realm
+      operationId: resetPassword
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Credential'
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+  /user/{realm}/reset-secret/{userId}:
+    get:
+      tags:
+      - User
+      summary: Reset the secret for a user in a realm
+      operationId: resetSecret
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: string
+  /syslog/event:
+    get:
+      tags:
+      - Syslog
+      summary: Retrieve the syslog events
+      operationId: getEvents
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: level
+        in: query
+        schema:
+          type: string
+          enum:
+          - INFO
+          - WARN
+          - ERROR
+      - name: per_page
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: page
+        in: query
+        schema:
+          type: integer
+          format: int32
+      - name: from
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: to
+        in: query
+        schema:
+          type: integer
+          format: int64
+      - name: category
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - ASSET
+            - AGENT
+            - NOTIFICATION
+            - ALARM
+            - RULES
+            - PROTOCOL
+            - GATEWAY
+            - MODEL_AND_VALUES
+            - API
+            - DATA
+      - name: subCategory
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json: {}
+    delete:
+      tags:
+      - Syslog
+      summary: Clear the syslog events
+      operationId: clearEvents
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /syslog/config:
+    get:
+      tags:
+      - Syslog
+      summary: Retrieve the syslog configuration
+      operationId: getConfig
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SyslogConfig'
+    put:
+      tags:
+      - Syslog
+      summary: Update the syslog configuration
+      operationId: updateConfig
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SyslogConfig'
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /health:
+    get:
+      tags:
+      - Status
+      summary: Retrieve the health status of the system
+      operationId: getHealthStatus
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+  /info:
+    get:
+      tags:
+      - Status
+      summary: Retrieve the system information
+      operationId: getInfo
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
+components:
+  schemas:
+    AllowedValues:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValueConstraint'
+      - type: object
+        properties:
+          allowedValueNames:
+            type: array
+            items:
+              type: string
+          allowedValues:
+            type: array
+            items:
+              type: object
+    AssetObject:
+      required:
+      - name
+      - realm
+      type: object
+      properties:
+        id:
+          pattern: "^[0-9A-Za-z]{22}$"
+          type: string
+        version:
+          minimum: 0
+          type: integer
+          format: int64
+        createdOn:
+          type: string
+          format: date-time
+        name:
+          maxLength: 1023
+          minLength: 1
+          type: string
+        accessPublicRead:
+          type: boolean
+        parentId:
+          pattern: "^[0-9A-Za-z]{22}$"
+          type: string
+        realm:
+          maxLength: 255
+          minLength: 1
+          type: string
+        type:
+          type: string
+        path:
+          type: array
+          items:
+            type: string
+        attributes:
+          type: object
+          properties:
+            delegate:
+              type: object
+              additionalProperties:
+                $ref: '#/components/schemas/AttributeObject'
+          additionalProperties:
+            $ref: '#/components/schemas/AttributeObject'
+      discriminator:
+        propertyName: type
+    AssetTreeNode:
+      type: object
+      properties:
+        asset:
+          $ref: '#/components/schemas/AssetObject'
+        children:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssetTreeNode'
+    AttributeMap:
+      type: object
+      properties:
+        delegate:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/AttributeObject'
+      additionalProperties:
+        $ref: '#/components/schemas/AttributeObject'
+    AttributeObject:
+      required:
+      - name
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ValueDescriptorObject'
+        value:
+          type: object
+          writeOnly: true
+        name:
+          pattern: ^\w+$
+          type: string
+        meta:
+          type: object
+          properties:
+            delegate:
+              type: object
+              additionalProperties:
+                $ref: '#/components/schemas/MetaItemObject'
+          additionalProperties:
+            $ref: '#/components/schemas/MetaItemObject'
+        timestamp:
+          type: integer
+          format: int64
+    Future:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValueConstraint'
+    FutureOrPresent:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValueConstraint'
+    Max:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValueConstraint'
+      - type: object
+        properties:
+          max:
+            type: number
+    MetaItemObject:
+      required:
+      - name
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/ValueDescriptorObject'
+        value:
+          type: object
+          writeOnly: true
+        name:
+          pattern: ^\w+$
+          type: string
+    MetaMap:
+      type: object
+      properties:
+        delegate:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/MetaItemObject'
+      additionalProperties:
+        $ref: '#/components/schemas/MetaItemObject'
+    Min:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValueConstraint'
+      - type: object
+        properties:
+          min:
+            type: number
+    NotBlank:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValueConstraint'
+    NotEmpty:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValueConstraint'
+    NotNull:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValueConstraint'
+    Past:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValueConstraint'
+    PastOrPresent:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValueConstraint'
+    Pattern:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValueConstraint'
+      - type: object
+        properties:
+          regexp:
+            type: string
+          flags:
+            type: array
+            items:
+              type: string
+              enum:
+              - UNIX_LINES
+              - CASE_INSENSITIVE
+              - COMMENTS
+              - MULTILINE
+              - DOTALL
+              - UNICODE_CASE
+              - CANON_EQ
+    Size:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValueConstraint'
+      - type: object
+        properties:
+          min:
+            type: integer
+            format: int32
+          max:
+            type: integer
+            format: int32
+    ValueConstraint:
+      required:
+      - type
+      type: object
+      properties:
+        message:
+          type: string
+        type:
+          type: string
+      discriminator:
+        propertyName: type
+    ValueDescriptorObject:
+      type: object
+      properties:
+        name:
+          pattern: "^\\w+(\\[\\])?$"
+          type: string
+        constraints:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValueConstraint'
+        format:
+          $ref: '#/components/schemas/ValueFormat'
+        units:
+          type: array
+          items:
+            type: string
+        arrayDimensions:
+          type: integer
+          format: int32
+        metaUseOnly:
+          type: boolean
+        jsonType:
+          type: string
+    ValueFormat:
+      type: object
+      properties:
+        useGrouping:
+          type: boolean
+        minimumIntegerDigits:
+          type: integer
+          format: int32
+        minimumFractionDigits:
+          type: integer
+          format: int32
+        maximumFractionDigits:
+          type: integer
+          format: int32
+        minimumSignificantDigits:
+          type: integer
+          format: int32
+        maximumSignificantDigits:
+          type: integer
+          format: int32
+        asBoolean:
+          type: boolean
+        asDate:
+          type: boolean
+        asSlider:
+          type: boolean
+        resolution:
+          type: number
+        dateStyle:
+          type: string
+          enum:
+          - numeric
+          - 2-digit
+          - full
+          - long
+          - medium
+          - short
+          - narrow
+        timeStyle:
+          type: string
+          enum:
+          - numeric
+          - 2-digit
+          - full
+          - long
+          - medium
+          - short
+          - narrow
+        dayPeriod:
+          type: string
+          enum:
+          - numeric
+          - 2-digit
+          - full
+          - long
+          - medium
+          - short
+          - narrow
+        hour12:
+          type: boolean
+        iso8601:
+          type: boolean
+        weekday:
+          type: string
+          enum:
+          - numeric
+          - 2-digit
+          - full
+          - long
+          - medium
+          - short
+          - narrow
+        era:
+          type: string
+          enum:
+          - numeric
+          - 2-digit
+          - full
+          - long
+          - medium
+          - short
+          - narrow
+        year:
+          type: string
+          enum:
+          - numeric
+          - 2-digit
+          - full
+          - long
+          - medium
+          - short
+          - narrow
+        month:
+          type: string
+          enum:
+          - numeric
+          - 2-digit
+          - full
+          - long
+          - medium
+          - short
+          - narrow
+        week:
+          type: string
+          enum:
+          - numeric
+          - 2-digit
+          - full
+          - long
+          - medium
+          - short
+          - narrow
+        day:
+          type: string
+          enum:
+          - numeric
+          - 2-digit
+          - full
+          - long
+          - medium
+          - short
+          - narrow
+        hour:
+          type: string
+          enum:
+          - numeric
+          - 2-digit
+          - full
+          - long
+          - medium
+          - short
+          - narrow
+        minute:
+          type: string
+          enum:
+          - numeric
+          - 2-digit
+          - full
+          - long
+          - medium
+          - short
+          - narrow
+        second:
+          type: string
+          enum:
+          - numeric
+          - 2-digit
+          - full
+          - long
+          - medium
+          - short
+          - narrow
+        fractionalSecondDigits:
+          type: integer
+          format: int32
+        timeZoneName:
+          type: string
+          enum:
+          - numeric
+          - 2-digit
+          - full
+          - long
+          - medium
+          - short
+          - narrow
+        momentJsFormat:
+          type: string
+        asNumber:
+          type: boolean
+        asOnOff:
+          type: boolean
+        asPressedReleased:
+          type: boolean
+        asOpenClosed:
+          type: boolean
+        asMomentary:
+          type: boolean
+        multiline:
+          type: boolean
+    FileInfo:
+      type: object
+      properties:
+        name:
+          type: string
+        contents:
+          type: string
+        binary:
+          type: boolean
+    AgentObjectObjectObject:
+      required:
+      - name
+      - realm
+      type: object
+      properties:
+        id:
+          pattern: "^[0-9A-Za-z]{22}$"
+          type: string
+        version:
+          minimum: 0
+          type: integer
+          format: int64
+        createdOn:
+          type: string
+          format: date-time
+        name:
+          maxLength: 1023
+          minLength: 1
+          type: string
+        accessPublicRead:
+          type: boolean
+        parentId:
+          pattern: "^[0-9A-Za-z]{22}$"
+          type: string
+        realm:
+          maxLength: 255
+          minLength: 1
+          type: string
+        type:
+          type: string
+        path:
+          type: array
+          items:
+            type: string
+        attributes:
+          type: object
+          properties:
+            delegate:
+              type: object
+              additionalProperties:
+                $ref: '#/components/schemas/AttributeObject'
+          additionalProperties:
+            $ref: '#/components/schemas/AttributeObject'
+    SentAlarm:
+      required:
+      - realm
+      - severity
+      - source
+      - status
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        realm:
+          type: string
+        title:
+          type: string
+        content:
+          type: string
+        severity:
+          type: string
+          enum:
+          - LOW
+          - MEDIUM
+          - HIGH
+        status:
+          type: string
+          enum:
+          - OPEN
+          - ACKNOWLEDGED
+          - IN_PROGRESS
+          - RESOLVED
+          - CLOSED
+        source:
+          type: string
+          enum:
+          - MANUAL
+          - CLIENT
+          - GLOBAL_RULESET
+          - REALM_RULESET
+          - ASSET_RULESET
+          - AGENT
+        sourceId:
+          type: string
+        sourceUsername:
+          type: string
+        createdOn:
+          type: string
+          format: date-time
+        acknowledgedOn:
+          type: string
+          format: date-time
+        lastModified:
+          type: string
+          format: date-time
+        assigneeId:
+          type: string
+        assigneeUsername:
+          type: string
+        asset:
+          type: array
+          items:
+            $ref: '#/components/schemas/AssetObject'
+    Alarm:
+      required:
+      - realm
+      - severity
+      - source
+      - sourceId
+      - status
+      - title
+      type: object
+      properties:
+        title:
+          type: string
+        content:
+          type: string
+        severity:
+          type: string
+          enum:
+          - LOW
+          - MEDIUM
+          - HIGH
+        assigneeId:
+          type: string
+        realm:
+          type: string
+        status:
+          type: string
+          enum:
+          - OPEN
+          - ACKNOWLEDGED
+          - IN_PROGRESS
+          - RESOLVED
+          - CLOSED
+        sourceId:
+          type: string
+        source:
+          type: string
+          enum:
+          - MANUAL
+          - CLIENT
+          - GLOBAL_RULESET
+          - REALM_RULESET
+          - ASSET_RULESET
+          - AGENT
+    AlarmAssetLink:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        createdOn:
+          type: string
+          format: date-time
+        assetName:
+          type: string
+        parentAssetName:
+          type: string
+    Id:
+      type: object
+      properties:
+        realm:
+          type: string
+        userId:
+          type: string
+        assetId:
+          type: string
+    AgentDescriptor:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AssetDescriptorObject'
+      - type: object
+        properties:
+          assetDiscovery:
+            type: boolean
+          assetImport:
+            type: boolean
+          agentLinkType:
+            type: string
+    AssetDescriptorObject:
+      required:
+      - descriptorType
+      type: object
+      properties:
+        name:
+          pattern: ^\w+$
+          type: string
+        icon:
+          type: string
+        colour:
+          type: string
+        dynamic:
+          type: boolean
+        descriptorType:
+          type: string
+      discriminator:
+        propertyName: descriptorType
+    AssetTypeInfo:
+      type: object
+      properties:
+        assetDescriptor:
+          $ref: '#/components/schemas/AssetDescriptorObject'
+        attributeDescriptors:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeDescriptorObject'
+        metaItemDescriptors:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetaItemDescriptorObject'
+        valueDescriptors:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValueDescriptorObject'
+    AttributeDescriptorObject:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/ValueDescriptorObject'
+        constraints:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValueConstraint'
+        format:
+          $ref: '#/components/schemas/ValueFormat'
+        units:
+          type: array
+          items:
+            type: string
+        meta:
+          type: object
+          properties:
+            delegate:
+              type: object
+              additionalProperties:
+                $ref: '#/components/schemas/MetaItemObject'
+          additionalProperties:
+            $ref: '#/components/schemas/MetaItemObject'
+        optional:
+          type: boolean
+    MetaItemDescriptorObject:
+      type: object
+      properties:
+        name:
+          type: string
+        type:
+          $ref: '#/components/schemas/ValueDescriptorObject'
+        constraints:
+          type: array
+          items:
+            $ref: '#/components/schemas/ValueConstraint'
+        format:
+          $ref: '#/components/schemas/ValueFormat'
+        units:
+          type: array
+          items:
+            type: string
+    UserAssetLink:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/Id'
+        createdOn:
+          type: string
+          format: date-time
+        assetName:
+          type: string
+        parentAssetName:
+          type: string
+        userFullName:
+          type: string
+    ArrayPredicate:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValuePredicate'
+      - type: object
+        properties:
+          value:
+            type: object
+          index:
+            type: integer
+            format: int32
+          lengthEquals:
+            type: integer
+            format: int32
+          lengthGreaterThan:
+            type: integer
+            format: int32
+          lengthLessThan:
+            type: integer
+            format: int32
+          negated:
+            type: boolean
+    AssetQuery:
+      type: object
+      properties:
+        recursive:
+          type: boolean
+        select:
+          $ref: '#/components/schemas/Select'
+        access:
+          type: string
+          enum:
+          - PRIVATE
+          - PROTECTED
+          - PUBLIC
+        ids:
+          type: array
+          items:
+            type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringPredicate'
+        parents:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParentPredicate'
+        paths:
+          type: array
+          items:
+            $ref: '#/components/schemas/PathPredicate'
+        realm:
+          $ref: '#/components/schemas/RealmPredicate'
+        userIds:
+          type: array
+          items:
+            type: string
+        types:
+          type: array
+          items:
+            type: string
+        attributes:
+          $ref: '#/components/schemas/LogicGroupAttributePredicate'
+        orderBy:
+          $ref: '#/components/schemas/OrderBy'
+        limit:
+          type: integer
+          format: int32
+    AttributePredicate:
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/StringPredicate'
+        negated:
+          type: boolean
+        path:
+          type: array
+          items:
+            type: object
+        value:
+          $ref: '#/components/schemas/ValuePredicate'
+        meta:
+          type: array
+          items:
+            $ref: '#/components/schemas/NameValuePredicate'
+        previousValue:
+          $ref: '#/components/schemas/ValuePredicate'
+    BooleanPredicate:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValuePredicate'
+      - type: object
+        properties:
+          value:
+            type: boolean
+    CalendarEventPredicate:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValuePredicate'
+      - type: object
+        properties:
+          timestamp:
+            type: string
+            format: date-time
+    DateTimePredicate:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValuePredicate'
+      - type: object
+        properties:
+          value:
+            type: string
+          rangeValue:
+            type: string
+          operator:
+            type: string
+            enum:
+            - EQUALS
+            - GREATER_THAN
+            - GREATER_EQUALS
+            - LESS_THAN
+            - LESS_EQUALS
+            - BETWEEN
+          negate:
+            type: boolean
+    LogicGroupAttributePredicate:
+      type: object
+      properties:
+        operator:
+          type: string
+          enum:
+          - AND
+          - OR
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributePredicate'
+        groups:
+          type: array
+          items:
+            $ref: '#/components/schemas/LogicGroupAttributePredicate'
+    NameValuePredicate:
+      type: object
+      properties:
+        name:
+          $ref: '#/components/schemas/StringPredicate'
+        negated:
+          type: boolean
+        path:
+          type: array
+          items:
+            type: object
+        value:
+          $ref: '#/components/schemas/ValuePredicate'
+    NumberPredicate:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValuePredicate'
+      - type: object
+        properties:
+          value:
+            type: number
+          rangeValue:
+            type: number
+          operator:
+            type: string
+            enum:
+            - EQUALS
+            - GREATER_THAN
+            - GREATER_EQUALS
+            - LESS_THAN
+            - LESS_EQUALS
+            - BETWEEN
+          negate:
+            type: boolean
+    OrderBy:
+      type: object
+      properties:
+        property:
+          type: string
+          enum:
+          - CREATED_ON
+          - FIRST_NAME
+          - LAST_NAME
+          - USERNAME
+          - EMAIL
+        descending:
+          type: boolean
+    ParentPredicate:
+      type: object
+      properties:
+        id:
+          type: string
+    PathPredicate:
+      type: object
+      properties:
+        path:
+          type: array
+          items:
+            type: string
+    RadialGeofencePredicate:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValuePredicate'
+      - type: object
+        properties:
+          radius:
+            type: integer
+            format: int32
+          lat:
+            type: number
+            format: double
+          lng:
+            type: number
+            format: double
+          negated:
+            type: boolean
+    RealmPredicate:
+      type: object
+      properties:
+        name:
+          type: string
+    RectangularGeofencePredicate:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValuePredicate'
+      - type: object
+        properties:
+          latMin:
+            type: number
+            format: double
+          lngMin:
+            type: number
+            format: double
+          latMax:
+            type: number
+            format: double
+          lngMax:
+            type: number
+            format: double
+          negated:
+            type: boolean
+    Select:
+      type: object
+      properties:
+        basic:
+          type: boolean
+    StringPredicate:
+      type: object
+      properties:
+        match:
+          type: string
+          enum:
+          - EXACT
+          - BEGIN
+          - END
+          - CONTAINS
+        caseSensitive:
+          type: boolean
+        value:
+          type: string
+        negate:
+          type: boolean
+    ValueAnyPredicate:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValuePredicate'
+    ValueEmptyPredicate:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ValuePredicate'
+      - type: object
+        properties:
+          negate:
+            type: boolean
+    ValuePredicate:
+      required:
+      - predicateType
+      type: object
+      properties:
+        predicateType:
+          type: string
+      discriminator:
+        propertyName: predicateType
+    AttributeRef:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          pattern: "^[0-9A-Za-z]{22}$"
+          type: string
+        name:
+          pattern: ^\w+$
+          type: string
+    AttributeWriteResult:
+      type: object
+      properties:
+        ref:
+          $ref: '#/components/schemas/AttributeRef'
+        failure:
+          type: string
+          enum:
+          - ASSET_NOT_FOUND
+          - ATTRIBUTE_NOT_FOUND
+          - INSUFFICIENT_ACCESS
+          - INVALID_VALUE
+          - INTERCEPTOR_FAILURE
+          - STATE_STORAGE_FAILED
+          - CANNOT_PROCESS
+          - QUEUE_FULL
+          - UNKNOWN
+    AttributeState:
+      type: object
+      properties:
+        ref:
+          $ref: '#/components/schemas/AttributeRef'
+        value:
+          type: object
+    ConsoleProvider:
+      type: object
+      properties:
+        version:
+          type: string
+        requiresPermission:
+          type: boolean
+        hasPermission:
+          type: boolean
+        success:
+          type: boolean
+        enabled:
+          type: boolean
+        disabled:
+          type: boolean
+        data:
+          type: object
+          additionalProperties:
+            type: object
+    ConsoleRegistration:
+      required:
+      - name
+      - platform
+      - providers
+      - version
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        version:
+          type: string
+        platform:
+          type: string
+        providers:
+          type: object
+          additionalProperties:
+            $ref: '#/components/schemas/ConsoleProvider'
+        model:
+          type: string
+        apps:
+          type: array
+          items:
+            type: string
+    Dashboard:
+      required:
+      - displayName
+      - realm
+      - template
+      type: object
+      properties:
+        id:
+          type: string
+        createdOn:
+          type: string
+          format: date-time
+        realm:
+          maxLength: 255
+          minLength: 1
+          type: string
+        version:
+          type: integer
+          format: int64
+        ownerId:
+          type: string
+        viewAccess:
+          type: string
+          enum:
+          - PUBLIC
+          - SHARED
+          - PRIVATE
+        editAccess:
+          type: string
+          enum:
+          - PUBLIC
+          - SHARED
+          - PRIVATE
+        displayName:
+          type: string
+        template:
+          $ref: '#/components/schemas/DashboardTemplate'
+    DashboardGridItem:
+      type: object
+      properties:
+        id:
+          type: string
+        x:
+          type: integer
+          format: int32
+        "y":
+          type: integer
+          format: int32
+        w:
+          minimum: 1
+          type: integer
+          format: int32
+        h:
+          minimum: 1
+          type: integer
+          format: int32
+        minH:
+          type: integer
+          format: int32
+        minW:
+          type: integer
+          format: int32
+        minPixelH:
+          type: integer
+          format: int32
+        minPixelW:
+          type: integer
+          format: int32
+        noResize:
+          type: boolean
+        noMove:
+          type: boolean
+        locked:
+          type: boolean
+    DashboardScreenPreset:
+      required:
+      - displayName
+      - scalingPreset
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        breakpoint:
+          minimum: 1
+          type: integer
+          format: int32
+        scalingPreset:
+          type: string
+          enum:
+          - WRAP_TO_SINGLE_COLUMN
+          - KEEP_LAYOUT
+          - REDIRECT
+          - BLOCK_DEVICE
+        redirectDashboardId:
+          type: string
+    DashboardTemplate:
+      required:
+      - screenPresets
+      type: object
+      properties:
+        id:
+          type: string
+        columns:
+          minimum: 1
+          type: integer
+          format: int32
+        maxScreenWidth:
+          minimum: 1
+          type: integer
+          format: int32
+        refreshInterval:
+          type: string
+          enum:
+          - "OFF"
+          - ONE_MIN
+          - FIVE_MIN
+          - QUARTER
+          - ONE_HOUR
+        screenPresets:
+          type: array
+          items:
+            $ref: '#/components/schemas/DashboardScreenPreset'
+        widgets:
+          type: array
+          items:
+            $ref: '#/components/schemas/DashboardWidget'
+    DashboardWidget:
+      required:
+      - displayName
+      - gridItem
+      - widgetTypeId
+      type: object
+      properties:
+        id:
+          type: string
+        displayName:
+          type: string
+        gridItem:
+          $ref: '#/components/schemas/DashboardGridItem'
+        widgetTypeId:
+          type: string
+        widgetConfig:
+          type: object
+    AssetConditions:
+      type: object
+      properties:
+        access:
+          type: array
+          items:
+            type: string
+            enum:
+            - RESTRICTED
+            - LINKED
+            - REALM
+        minAmount:
+          type: string
+          enum:
+          - AT_LEAST_ONE
+          - ALL
+          - NONE
+        parents:
+          type: array
+          items:
+            $ref: '#/components/schemas/ParentPredicate'
+    Conditions:
+      type: object
+      properties:
+        dashboard:
+          $ref: '#/components/schemas/DashboardConditions'
+        asset:
+          $ref: '#/components/schemas/AssetConditions'
+    DashboardConditions:
+      type: object
+      properties:
+        viewAccess:
+          type: array
+          items:
+            type: string
+            enum:
+            - PUBLIC
+            - SHARED
+            - PRIVATE
+        editAccess:
+          type: array
+          items:
+            type: string
+            enum:
+            - PUBLIC
+            - SHARED
+            - PRIVATE
+        minWidgets:
+          type: integer
+          format: int32
+    DashboardQuery:
+      type: object
+      properties:
+        select:
+          $ref: '#/components/schemas/Select'
+        conditions:
+          $ref: '#/components/schemas/Conditions'
+        ids:
+          type: array
+          items:
+            type: string
+        names:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringPredicate'
+        userIds:
+          type: array
+          items:
+            type: string
+        realm:
+          $ref: '#/components/schemas/RealmPredicate'
+        start:
+          type: integer
+          format: int32
+        limit:
+          type: integer
+          format: int32
+    DatapointPeriod:
+      type: object
+      properties:
+        assetId:
+          type: string
+        attributeName:
+          type: string
+        oldestTimestamp:
+          type: integer
+          format: int64
+        latestTimestamp:
+          type: integer
+          format: int64
+    ValueDatapointObject:
+      type: object
+      properties:
+        x:
+          type: integer
+          format: int64
+        "y":
+          type: object
+    AssetDatapointAllQuery:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AssetDatapointQuery'
+    AssetDatapointIntervalQuery:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AssetDatapointQuery'
+      - type: object
+        properties:
+          interval:
+            type: string
+          gapFill:
+            type: boolean
+          formula:
+            type: string
+            enum:
+            - MIN
+            - AVG
+            - MAX
+    AssetDatapointLTTBQuery:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AssetDatapointQuery'
+      - type: object
+        properties:
+          amountOfPoints:
+            type: integer
+            format: int32
+    AssetDatapointQuery:
+      required:
+      - type
+      type: object
+      properties:
+        fromTimestamp:
+          type: integer
+          format: int64
+        toTimestamp:
+          type: integer
+          format: int64
+        fromTime:
+          type: string
+          format: date-time
+        toTime:
+          type: string
+          format: date-time
+        type:
+          type: string
+      discriminator:
+        propertyName: type
+    GatewayAttributeFilter:
+      type: object
+      properties:
+        matcher:
+          $ref: '#/components/schemas/AssetQuery'
+        duration:
+          type: string
+        delta:
+          type: number
+          format: double
+        valueChange:
+          type: boolean
+        skipAlways:
+          type: boolean
+        durationParsedMillis:
+          type: integer
+          format: int64
+    GatewayConnection:
+      required:
+      - clientId
+      - clientSecret
+      - host
+      type: object
+      properties:
+        localRealm:
+          type: string
+        host:
+          maxLength: 255
+          minLength: 1
+          type: string
+        port:
+          maximum: 65536
+          minimum: 1
+          type: integer
+          format: int32
+        realm:
+          type: string
+        clientId:
+          maxLength: 255
+          minLength: 1
+          type: string
+        clientSecret:
+          maxLength: 36
+          minLength: 36
+          type: string
+        secured:
+          type: boolean
+        attributeFilters:
+          type: array
+          items:
+            $ref: '#/components/schemas/GatewayAttributeFilter'
+        disabled:
+          type: boolean
+    GatewayTunnelInfo:
+      type: object
+      properties:
+        realm:
+          type: string
+        gatewayId:
+          type: string
+        targetPort:
+          type: integer
+          format: int32
+        target:
+          type: string
+        assignedPort:
+          type: integer
+          format: int32
+        hostname:
+          type: string
+        type:
+          type: string
+          enum:
+          - HTTPS
+          - HTTP
+          - TCP
+        id:
+          type: string
+    ObjectNode:
+      type: object
+    GeoJsonConfig:
+      type: object
+      properties:
+        source:
+          type: object
+        layers:
+          type: array
+          items:
+            type: object
+    MapRealmConfig:
+      type: object
+      properties:
+        center:
+          type: array
+          items:
+            type: number
+            format: float
+        bounds:
+          type: array
+          items:
+            type: number
+            format: float
+        zoom:
+          type: integer
+          format: int32
+        minZoom:
+          type: integer
+          format: int32
+        maxZoom:
+          type: integer
+          format: int32
+        boxZoom:
+          type: boolean
+        geocodeUrl:
+          type: string
+        geoJson:
+          $ref: '#/components/schemas/GeoJsonConfig'
+    AbstractNotificationMessage:
+      type: object
+      properties:
+        type:
+          type: string
+      discriminator:
+        propertyName: type
+    EmailNotificationMessage:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractNotificationMessage'
+      - type: object
+        properties:
+          from:
+            $ref: '#/components/schemas/Recipient'
+          replyTo:
+            $ref: '#/components/schemas/Recipient'
+          subject:
+            type: string
+          text:
+            type: string
+          html:
+            type: string
+          to:
+            type: array
+            items:
+              $ref: '#/components/schemas/Recipient'
+          cc:
+            type: array
+            items:
+              $ref: '#/components/schemas/Recipient'
+          bcc:
+            type: array
+            items:
+              $ref: '#/components/schemas/Recipient'
+    PushNotificationAction:
+      type: object
+      properties:
+        url:
+          type: string
+        data:
+          type: object
+        silent:
+          type: boolean
+        openInBrowser:
+          type: boolean
+        httpMethod:
+          type: string
+    PushNotificationButton:
+      type: object
+      properties:
+        title:
+          type: string
+        action:
+          $ref: '#/components/schemas/PushNotificationAction'
+    PushNotificationMessage:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractNotificationMessage'
+      - type: object
+        properties:
+          title:
+            type: string
+          body:
+            type: string
+          action:
+            $ref: '#/components/schemas/PushNotificationAction'
+          buttons:
+            type: array
+            items:
+              $ref: '#/components/schemas/PushNotificationButton'
+          data:
+            type: object
+            additionalProperties:
+              type: object
+          priority:
+            type: string
+            enum:
+            - NORMAL
+            - HIGH
+          targetType:
+            type: string
+            enum:
+            - DEVICE
+            - TOPIC
+            - CONDITION
+          target:
+            type: string
+          expiration:
+            type: integer
+            format: int64
+    Recipient:
+      type: object
+      properties:
+        name:
+          type: string
+        address:
+          type: string
+    SentNotification:
+      required:
+      - source
+      - target
+      - targetId
+      - type
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        type:
+          type: string
+        target:
+          type: string
+          enum:
+          - REALM
+          - USER
+          - ASSET
+          - CUSTOM
+        targetId:
+          type: string
+        source:
+          type: string
+          enum:
+          - INTERNAL
+          - CLIENT
+          - GLOBAL_RULESET
+          - REALM_RULESET
+          - ASSET_RULESET
+        sourceId:
+          type: string
+        message:
+          $ref: '#/components/schemas/AbstractNotificationMessage'
+        error:
+          type: string
+        sentOn:
+          type: string
+          format: date-time
+        deliveredOn:
+          type: string
+          format: date-time
+        acknowledgedOn:
+          type: string
+          format: date-time
+        acknowledgement:
+          type: string
+    JsonNode:
+      type: object
+    Notification:
+      type: object
+      properties:
+        name:
+          type: string
+        message:
+          $ref: '#/components/schemas/AbstractNotificationMessage'
+        targets:
+          type: array
+          items:
+            $ref: '#/components/schemas/Target'
+        repeatFrequency:
+          type: string
+          enum:
+          - ALWAYS
+          - ONCE
+          - HOURLY
+          - DAILY
+          - WEEKLY
+          - MONTHLY
+          - ANNUALLY
+        repeatInterval:
+          type: string
+    Target:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - REALM
+          - USER
+          - ASSET
+          - CUSTOM
+        id:
+          type: string
+        data:
+          type: object
+    ProvisioningConfigObjectObject:
+      required:
+      - name
+      type: object
+      properties:
+        id:
+          minimum: 1
+          type: integer
+          format: int64
+        createdOn:
+          type: string
+          format: date-time
+        lastModified:
+          type: string
+          format: date-time
+        name:
+          maxLength: 255
+          minLength: 1
+          type: string
+        type:
+          maxLength: 100
+          minLength: 3
+          type: string
+        realm:
+          type: string
+        assetTemplate:
+          type: string
+        restrictedUser:
+          type: boolean
+        userRoles:
+          type: array
+          items:
+            type: string
+            enum:
+            - read:admin
+            - read:logs
+            - read:users
+            - read:map
+            - read:assets
+            - read:rules
+            - read:insights
+            - read:alarms
+            - write:user
+            - write:admin
+            - write:logs
+            - write:assets
+            - write:attributes
+            - write:rules
+            - write:insights
+            - write:alarms
+            - read
+            - write
+        disabled:
+          type: boolean
+        data:
+          type: object
+      discriminator:
+        propertyName: type
+    X509ProvisioningConfig:
+      required:
+      - name
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/ProvisioningConfigObjectObject'
+      - type: object
+        properties:
+          data:
+            $ref: '#/components/schemas/X509ProvisioningData'
+    X509ProvisioningData:
+      type: object
+      properties:
+        CACertPEM:
+          type: string
+        ignoreExpiryDate:
+          type: boolean
+    AssetRuleset:
+      required:
+      - lang
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        version:
+          type: integer
+          format: int64
+        createdOn:
+          type: string
+          format: date-time
+        lastModified:
+          type: string
+          format: date-time
+        name:
+          maxLength: 255
+          minLength: 3
+          type: string
+        enabled:
+          type: boolean
+        rules:
+          type: string
+        lang:
+          type: string
+          enum:
+          - JAVASCRIPT
+          - GROOVY
+          - JSON
+          - FLOW
+        meta:
+          type: object
+          additionalProperties:
+            type: object
+        status:
+          type: string
+          enum:
+          - READY
+          - DEPLOYED
+          - COMPILATION_ERROR
+          - VALIDITY_PERIOD_ERROR
+          - EXECUTION_ERROR
+          - LOOP_ERROR
+          - DISABLED
+          - PAUSED
+          - EXPIRED
+          - REMOVED
+          - EMPTY
+        error:
+          type: string
+        assetId:
+          type: string
+        accessPublicRead:
+          type: boolean
+        realm:
+          type: string
+    GlobalRuleset:
+      required:
+      - lang
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        version:
+          type: integer
+          format: int64
+        createdOn:
+          type: string
+          format: date-time
+        lastModified:
+          type: string
+          format: date-time
+        name:
+          maxLength: 255
+          minLength: 3
+          type: string
+        enabled:
+          type: boolean
+        rules:
+          type: string
+        lang:
+          type: string
+          enum:
+          - JAVASCRIPT
+          - GROOVY
+          - JSON
+          - FLOW
+        meta:
+          type: object
+          additionalProperties:
+            type: object
+        status:
+          type: string
+          enum:
+          - READY
+          - DEPLOYED
+          - COMPILATION_ERROR
+          - VALIDITY_PERIOD_ERROR
+          - EXECUTION_ERROR
+          - LOOP_ERROR
+          - DISABLED
+          - PAUSED
+          - EXPIRED
+          - REMOVED
+          - EMPTY
+        error:
+          type: string
+    RealmRuleset:
+      required:
+      - lang
+      - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        version:
+          type: integer
+          format: int64
+        createdOn:
+          type: string
+          format: date-time
+        lastModified:
+          type: string
+          format: date-time
+        name:
+          maxLength: 255
+          minLength: 3
+          type: string
+        enabled:
+          type: boolean
+        rules:
+          type: string
+        lang:
+          type: string
+          enum:
+          - JAVASCRIPT
+          - GROOVY
+          - JSON
+          - FLOW
+        meta:
+          type: object
+          additionalProperties:
+            type: object
+        status:
+          type: string
+          enum:
+          - READY
+          - DEPLOYED
+          - COMPILATION_ERROR
+          - VALIDITY_PERIOD_ERROR
+          - EXECUTION_ERROR
+          - LOOP_ERROR
+          - DISABLED
+          - PAUSED
+          - EXPIRED
+          - REMOVED
+          - EMPTY
+        error:
+          type: string
+        realm:
+          type: string
+        accessPublicRead:
+          type: boolean
+    RulesEngineInfo:
+      type: object
+      properties:
+        status:
+          type: string
+          enum:
+          - STOPPED
+          - RUNNING
+          - ERROR
+        compilationErrorCount:
+          type: integer
+          format: int32
+        executionErrorCount:
+          type: integer
+          format: int32
+    GeofenceDefinition:
+      type: object
+      properties:
+        id:
+          type: string
+        lat:
+          type: number
+          format: double
+        lng:
+          type: number
+          format: double
+        radius:
+          type: integer
+          format: int32
+        httpMethod:
+          type: string
+        url:
+          type: string
+    Node:
+      type: object
+      properties:
+        id:
+          type: string
+        type:
+          type: string
+          enum:
+          - INPUT
+          - PROCESSOR
+          - OUTPUT
+          - THEN
+        name:
+          type: string
+        position:
+          $ref: '#/components/schemas/NodePosition'
+        size:
+          $ref: '#/components/schemas/NodePosition'
+        internals:
+          type: array
+          items:
+            $ref: '#/components/schemas/NodeInternal'
+        inputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/NodeSocket'
+        outputs:
+          type: array
+          items:
+            $ref: '#/components/schemas/NodeSocket'
+        displayCharacter:
+          type: string
+    NodeInternal:
+      type: object
+      properties:
+        name:
+          type: string
+        picker:
+          $ref: '#/components/schemas/Picker'
+        value:
+          type: object
+    NodePosition:
+      type: object
+      properties:
+        x:
+          type: number
+          format: float
+        "y":
+          type: number
+          format: float
+    NodeSocket:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - NUMBER
+          - STRING
+          - BOOLEAN
+          - TRIGGER
+          - COLOR
+          - ANY
+        nodeId:
+          type: string
+        index:
+          type: integer
+          format: int32
+    Option:
+      type: object
+      properties:
+        name:
+          type: string
+        value:
+          type: object
+    Picker:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+          - TEXT
+          - MULTILINE
+          - NUMBER
+          - DROPDOWN
+          - DOUBLE_DROPDOWN
+          - CHECKBOX
+          - ASSET_ATTRIBUTE
+          - COLOR
+        options:
+          type: array
+          items:
+            $ref: '#/components/schemas/Option'
+    Realm:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        displayName:
+          type: string
+        enabled:
+          type: boolean
+        notBefore:
+          type: number
+          format: double
+        resetPasswordAllowed:
+          type: boolean
+        duplicateEmailsAllowed:
+          type: boolean
+        rememberMe:
+          type: boolean
+        registrationAllowed:
+          type: boolean
+        registrationEmailAsUsername:
+          type: boolean
+        verifyEmail:
+          type: boolean
+        loginWithEmail:
+          type: boolean
+        loginTheme:
+          type: string
+        accountTheme:
+          type: string
+        adminTheme:
+          type: string
+        emailTheme:
+          type: string
+        accessTokenLifespan:
+          type: integer
+          format: int32
+        realmRoles:
+          uniqueItems: true
+          type: array
+          items:
+            $ref: '#/components/schemas/RealmRole'
+    RealmRole:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+    User:
+      type: object
+      properties:
+        realm:
+          type: string
+        realmId:
+          type: string
+        id:
+          type: string
+        firstName:
+          type: string
+        lastName:
+          type: string
+        email:
+          type: string
+        enabled:
+          type: boolean
+        createdOn:
+          type: string
+          format: date-time
+        secret:
+          type: string
+        attributes:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        serviceAccount:
+          type: boolean
+        username:
+          maxLength: 255
+          minLength: 3
+          pattern: "[A-Za-z0-9\\-_@.]+"
+          type: string
+    Role:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        composite:
+          type: boolean
+        assigned:
+          type: boolean
+        compositeRoleIds:
+          type: array
+          items:
+            type: string
+    UserSession:
+      type: object
+      properties:
+        ID:
+          type: string
+        username:
+          type: string
+        startTimeMillis:
+          type: integer
+          format: int64
+        remoteAddress:
+          type: string
+    AttributeValuePredicate:
+      type: object
+      properties:
+        negated:
+          type: boolean
+        name:
+          $ref: '#/components/schemas/StringPredicate'
+        value:
+          $ref: '#/components/schemas/StringPredicate'
+    UserQuery:
+      type: object
+      properties:
+        realmPredicate:
+          $ref: '#/components/schemas/RealmPredicate'
+        assets:
+          type: array
+          items:
+            type: string
+        pathPredicate:
+          $ref: '#/components/schemas/PathPredicate'
+        ids:
+          type: array
+          items:
+            type: string
+        select:
+          $ref: '#/components/schemas/Select'
+        usernames:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringPredicate'
+        attributes:
+          type: array
+          items:
+            $ref: '#/components/schemas/AttributeValuePredicate'
+        clientRoles:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringPredicate'
+        realmRoles:
+          type: array
+          items:
+            $ref: '#/components/schemas/StringPredicate'
+        serviceUsers:
+          type: boolean
+        limit:
+          type: integer
+          format: int32
+        offset:
+          type: integer
+          format: int32
+        orderBy:
+          $ref: '#/components/schemas/OrderBy'
+    Credential:
+      type: object
+      properties:
+        type:
+          type: string
+        value:
+          type: string
+        temporary:
+          type: boolean
+    SyslogConfig:
+      required:
+      - storedCategories
+      - storedLevel
+      - storedMaxAgeMinutes
+      type: object
+      properties:
+        storedLevel:
+          type: string
+          enum:
+          - INFO
+          - WARN
+          - ERROR
+        storedCategories:
+          type: array
+          items:
+            type: string
+            enum:
+            - ASSET
+            - AGENT
+            - NOTIFICATION
+            - ALARM
+            - RULES
+            - PROTOCOL
+            - GATEWAY
+            - MODEL_AND_VALUES
+            - API
+            - DATA
+        storedMaxAgeMinutes:
+          type: integer
+          format: int32
+  securitySchemes:
+    openid:
+      type: oauth2
+      flows:
+        clientCredentials:
+          tokenUrl: /auth/realms/master/protocol/openid-connect/token
+          refreshUrl: /auth/realms/master/protocol/openid-connect/token
+          scopes:
+            profile: profile
+        authorizationCode:
+          authorizationUrl: /auth/realms/master/protocol/openid-connect/auth
+          tokenUrl: /auth/realms/master/protocol/openid-connect/token
+          refreshUrl: /auth/realms/master/protocol/openid-connect/token
+          scopes:
+            profile: profile

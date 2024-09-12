@@ -1,0 +1,211 @@
+---
+id: get-asset-engine-info
+title: "Retrieve information about an asset rules engine"
+description: "Retrieve information about an asset rules engine"
+sidebar_label: "Retrieve information about an asset rules engine"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFv4zYM/isGn+4A1Squb35a0ct6AbY2cFNgQJAH1WZi3cmSTqKb6wz/94GykyZtN+A6DFieFIr8SJEfSfdAahuhWEHZGYS1AOcxKNLOzmsoYIt0GSPSzG61xbndOBDgVVAtEgY27MGqFqGAy44aF/SfyRgEaAsFNKhqDCAgVg22Cooe6MmzeqSg7RaGQRwQ/jj71YWdCjXWZ4vgyP1rlC8u0rtAFD96Xu9tvaIGBAT83umANRQUOvwnpDUrR+9sxMj3NW5UZ2g8xipon7JU7C+yvTYIqJwltElXeW90lTIqv0Y26F87dQ9fseJn+sDFIz26jKSoi6+DE4C2a7nkd8vbxWL2GQSU9zc385trEDAry9sS1gOH0Xptku9ZCC5cuW4MaoLTlnCbErpxoVU0ii4+wSAAf2DVvcNyEECaDCsxH+MR7Qb+iRfZK5GCxkfMtB2htLOZenAdZcpmqYhZYKAMExIIaJEaN1E7cZkaKEAmLckwMpnJfqLAwIzB8LhnexcMk4nIx0LKGluXO482YOsIc+2k8lr2AZVpBwkCHlXQ6sGMNUniEz5AqyJh4Oet2VHVBU1PyRPD6hqK1fr46o7LP6LtFZ6ZoDpqPnFejdsllcpotHQVsEZLWpmRD+4b2vv0DskWMoUV5RiK9Nx6lTNyxD+rnLVYkUxmqQs2AWPzfoBYOT++wAe30anc+xPXWB1PkitXY2qFY+HP+2ZVEP/zpyeGMwdTlaZGuPVoy8Su7Hdl1RZDVs7ultnlYg4v+2HZ6JjpmFGDWe2qrkVLY1NsXEjSN9C+LJeLA2SeZQuDKmIWEZPF6gRo/eFAfVfFU+p/TF5aF8Z+zKdZpqrU/NgqbVKrb9wvJ3Y8MYyukMdf8bxPrhe/ZRf5OYgXPbfb7fKt7XIXtnIyi1JtvTm7yM9ztHlDrWFM7tkxL3xxziLvIrXKHrl5xwg5yfmh+Qh/kPRGacuOUsj9NF5WkBBgKq4Y1wsIKPZ7Zi2g4V1VrKDvH1TE+2CGgcXfOww8D9bPoyRNh1pHPtdQbJSJ+CqqwxaBD+W0tj5m3AFvRTsJlX1KE8t0/A8EfMOno2U48FqY1ujPhfB3fkf8t/b+IQheyv+Fo+nT4MTPqHVZVeiP715tYZ7Hhz1yPVvCMPwFGgw4qw==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve information about an asset rules engine"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rules/info/asset/{assetId}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve information about an asset rules engine
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"assetId","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`STOPPED`, `RUNNING`, `ERROR`]"}
+                        schema={{"type":"string","enum":["STOPPED","RUNNING","ERROR"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"compilationErrorCount"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"executionErrorCount"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"status\": \"STOPPED\",\n  \"compilationErrorCount\": 0,\n  \"executionErrorCount\": 0\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

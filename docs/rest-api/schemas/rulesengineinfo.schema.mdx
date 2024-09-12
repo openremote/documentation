@@ -1,0 +1,58 @@
+---
+id: rulesengineinfo
+title: "RulesEngineInfo"
+description: ""
+sidebar_label: "RulesEngineInfo"
+hide_title: true
+schema: true
+custom_edit_url: null
+---
+
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"RulesEngineInfo"}
+>
+</Heading>
+
+
+
+
+
+<ul>
+  <SchemaItem
+    collapsible={false}
+    name={"status"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={"**Possible values:** [`STOPPED`, `RUNNING`, `ERROR`]"}
+    schema={{"type":"string","enum":["STOPPED","RUNNING","ERROR"]}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"compilationErrorCount"}
+    required={false}
+    schemaName={"int32"}
+    qualifierMessage={undefined}
+    schema={{"type":"integer","format":"int32"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"executionErrorCount"}
+    required={false}
+    schemaName={"int32"}
+    qualifierMessage={undefined}
+    schema={{"type":"integer","format":"int32"}}
+  >
+    
+  </SchemaItem>
+</ul>
+            

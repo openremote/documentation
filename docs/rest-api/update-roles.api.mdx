@@ -1,0 +1,277 @@
+---
+id: update-roles
+title: "Update roles for a realm"
+description: "Update roles for a realm"
+sidebar_label: "Update roles for a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVl2v2zYM/SsGn9rCsS/WNz/t9qJbL7BhQZoAA4I8MDYTq5UllZKbZkH++0ApdpIlK9YOA5Ynhx+HpEQe6gABtx6qJSw8MaxysI4Yg7LmuYEKetdgoJnV5CEHh4wdBWLxOIDBjqCCxz60ltUf0QtyUAYqaAkbYsjB1y11CNUBwt6JuQ+szBaOx3xE+H3yk+UdckPNZMo22H+N8s768F0gTKi7wdNhaCEHpk+9YmqgCtzT13BWyZh8eGObvVjU1gQyQT7ROa3qeErlB2+NyG6gkBn3Ej9Q5y/kdv2BainJsdxQUBS1qrmTRn4q5o6iIV+zcvGm7ulr2znrVbj0XlurCY2o0Xu1NdTc147O0i/Pjf8HZY0nd8whqKBFJt4iERmTd9b4VGxDG+x1SJ8XdQyKbLCG/PLcX5WvoDokvGu/RezujKW9s43lDLPh/jsKrZUJcH08demECsreE5eHaHQs+TQWnvjzMBM9a2m5EJyvyrKhzhbWkWHqbKBC2RKdGgEgh8/ICtc6FZiCX1YKHfpALMexkkB1zyrsYySBletfri5V76WhEtpgcO4h7EP7A+Sw0XYXTWqtyIQnpoZMUKjT1diPZBaxjlI8ypiWL1MqpZMBra0uE/6ktsZQHcroFqdlw+Tb7wfwtXWpAsd2o2JPDF9yh3jJN0+2ib16Jfz22GIK+f+89NjBwhyzM8e8/YKdE7tlIoNhogYOOP+/bv1RfDHxid3OM57+3071cvCOnafMxsa2OY3vb47MLLZ79isa3BJns7fv59nj9Pkmi3mrfKZ8FlrKGlv3HZkQbzBOo0jvoL2bz6cjZJFlU03oKfNE0WN5BbR6Mc6irf31LL6MUTrLlEkRxYk2sI60QR0quUdR/XjlJ1ynVU3CNNV5Df48/SV7XTxA/hcS2O12xdb0heVteXLzJW6dnrwuHgoyRRs6LZhCIulcRPEgImd96NBchPkKZ90n90BfQuk0qsjRMbXDic+WIHwGOVQDRKK0VQ6tLNBqCYfDGj0tWB+PIv7UEwv9rM7MFVuvUV6+G6g2qD3d5DLSMbyYnbbpy0wG7l6Ow84w+0iQupd/kMNH2o8b+rg65sNm/7YE/i5qQr/3FBlTkHfCfxHo9Fq5ipOsnhLaZC5AZ4ubp8TZ47GuyV2iyfqTOR032nQxhxzWpwdKFwkUGHdy/bhLidtYT1pKIjuARrPtcSu2KaL8/gSQzYsT
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update roles for a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/user/{realm}/roles"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update roles for a realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"realm","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3><span
+          style={{"opacity":"0.6"}}
+        >
+           array
+        </span>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <li>
+          <div
+            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+          >
+            Array [
+          </div>
+        </li><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"name"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"description"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"composite"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"assigned"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"compositeRoleIds"}
+          required={false}
+          schemaName={"string[]"}
+          qualifierMessage={undefined}
+          schema={{"type":"array","items":{"type":"string"}}}
+        >
+          
+        </SchemaItem><li>
+          <div
+            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+          >
+            ]
+          </div>
+        </li>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"*/*"}
+              value={"*/*"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

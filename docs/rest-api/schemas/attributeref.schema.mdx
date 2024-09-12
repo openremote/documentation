@@ -1,0 +1,49 @@
+---
+id: attributeref
+title: "AttributeRef"
+description: ""
+sidebar_label: "AttributeRef"
+hide_title: true
+schema: true
+custom_edit_url: null
+---
+
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AttributeRef"}
+>
+</Heading>
+
+
+
+
+
+<ul>
+  <SchemaItem
+    collapsible={false}
+    name={"id"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={"**Possible values:** Value must match regular expression `^[0-9A-Za-z]{22}$`"}
+    schema={{"pattern":"^[0-9A-Za-z]{22}$","type":"string"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"name"}
+    required={true}
+    schemaName={"string"}
+    qualifierMessage={"**Possible values:** Value must match regular expression `^\\w+$`"}
+    schema={{"pattern":"^\\w+$","type":"string"}}
+  >
+    
+  </SchemaItem>
+</ul>
+            

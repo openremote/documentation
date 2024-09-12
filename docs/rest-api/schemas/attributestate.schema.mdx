@@ -1,0 +1,88 @@
+---
+id: attributestate
+title: "AttributeState"
+description: ""
+sidebar_label: "AttributeState"
+hide_title: true
+schema: true
+custom_edit_url: null
+---
+
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AttributeState"}
+>
+</Heading>
+
+
+
+
+
+<ul>
+  <SchemaItem
+    collapsible={true}
+    className={"schemaItem"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details"}
+    >
+      <summary
+        style={{}}
+      >
+        <span
+          className={"openapi-schema__container"}
+        >
+          <strong
+            className={"openapi-schema__property"}
+          >
+            ref
+          </strong><span
+            className={"openapi-schema__name"}
+          >
+             object
+          </span>
+        </span>
+      </summary><div
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={"**Possible values:** Value must match regular expression `^[0-9A-Za-z]{22}$`"}
+          schema={{"pattern":"^[0-9A-Za-z]{22}$","type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"name"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={"**Possible values:** Value must match regular expression `^\\w+$`"}
+          schema={{"pattern":"^\\w+$","type":"string"}}
+        >
+          
+        </SchemaItem>
+      </div>
+    </details>
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"value"}
+    required={false}
+    schemaName={"object"}
+    qualifierMessage={undefined}
+    schema={{"type":"object"}}
+  >
+    
+  </SchemaItem>
+</ul>
+            

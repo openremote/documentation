@@ -1,0 +1,67 @@
+---
+id: stringpredicate
+title: "StringPredicate"
+description: ""
+sidebar_label: "StringPredicate"
+hide_title: true
+schema: true
+custom_edit_url: null
+---
+
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"StringPredicate"}
+>
+</Heading>
+
+
+
+
+
+<ul>
+  <SchemaItem
+    collapsible={false}
+    name={"match"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={"**Possible values:** [`EXACT`, `BEGIN`, `END`, `CONTAINS`]"}
+    schema={{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"caseSensitive"}
+    required={false}
+    schemaName={"boolean"}
+    qualifierMessage={undefined}
+    schema={{"type":"boolean"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"value"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={undefined}
+    schema={{"type":"string"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"negate"}
+    required={false}
+    schemaName={"boolean"}
+    qualifierMessage={undefined}
+    schema={{"type":"boolean"}}
+  >
+    
+  </SchemaItem>
+</ul>
+            
