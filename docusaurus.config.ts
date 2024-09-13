@@ -252,7 +252,7 @@ const config: Config = {
     algolia: {
       apiKey: '18c8ff9992cf5a0b37acb9b008fa7cd9',
       appId: 'TVHZ0YEM1U',
-      indexName: 'documentation',
+      indexName: 'openremote',
     },
   } satisfies Preset.ThemeConfig,
 };
