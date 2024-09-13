@@ -65,10 +65,6 @@ const config: Config = {
 
   plugins: [
     [
-      require.resolve('docusaurus-lunr-search'), {
-        disableVersioning: true
-    }],
-    [
       "docusaurus-plugin-openapi-docs",
       {
         id: "openapi",
@@ -252,6 +248,11 @@ const config: Config = {
     ],
     prism: {
       additionalLanguages: ['bash', 'cpp', 'csharp', 'docker', 'groovy', 'java', 'javascript', 'json', 'python', 'ruby'],
+    },
+    algolia: {
+      apiKey: '18c8ff9992cf5a0b37acb9b008fa7cd9',
+      appId: 'TVHZ0YEM1U',
+      indexName: 'documentation',
     },
   } satisfies Preset.ThemeConfig,
 };
