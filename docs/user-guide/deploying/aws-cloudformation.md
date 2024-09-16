@@ -6,7 +6,7 @@ sidebar_position: 3
 
 The CloudFormation template can be found at [cloudformation-create-vpc.yml](https://github.com/openremote/openremote/blob/master/.ci_cd/aws/cloudformation-create-vpc.yml).
 
-At OpenRemote we use AWS for hosting our deployments, this guide explains how to create and configure AWS EC2 hosts using CloudFormation for running the OpenRemote started with Docker Compose; it is written from the OpenRemote organisation perspective but can be used to assist in setting up your own AWS hosted infrastructure. Please refer to the AWS documentation for more details on the services/tools mentioned (we don't generally offer AWS support but some kind person may be able to help on the [forum](https://forum.openremote.io).
+At OpenRemote we use AWS for hosting our deployments, this guide explains how to create and configure AWS EC2 hosts using CloudFormation for running the OpenRemote started with Docker Compose; it is written from the OpenRemote organisation perspective but can be used to assist in setting up your own AWS hosted infrastructure. Please refer to the AWS documentation for more details on the services/tools mentioned (we don't generally offer AWS support but some kind person may be able to help on the [forum](https://forum.openremote.io)).
 
 ## AWS services/tools used
 To manage the OpenRemote deployments we use the following AWS services/tools:
@@ -27,7 +27,7 @@ For interactive (UI login) it is recommended to use the [single sign on portal](
 For CLI login then an AWS access key ID and secret is needed.
 
 ## AWS Region
-AWS resources are siloed into datacentre regions; this guide focuses on a single region setup specifically `eu-west-1`; in the UI the region can be selected in the top right.
+AWS resources are siloed into datacenter regions; this guide focuses on a single region setup specifically `eu-west-1`; in the UI the region can be selected in the top right.
 
 ## Pre-requisites
 

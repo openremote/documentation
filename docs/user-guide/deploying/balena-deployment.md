@@ -12,7 +12,7 @@ Balena is the totality of the product. Look at [balena.io](https://balena.io).
 * BalenaOS is the Operating System which runs on edge devices (Raspberry Pis, Intel NUCs, etc.). BalenaOS is able to
   run Docker containers (with a limited feature-set), and allows management by OpenBalena/BalenaCloud.
 * OpenBalena is the open-source backend software that can manage fleets (groups) of devices. It can push new versions of
-  images to devices, manage those devices (power management, resource management, environment variables, etc)
+  images to devices, manage those devices (power management, resource management, environment variables, etc.)
 * BalenaCloud is (the company) Balena's SaaS product, which uses OpenBalena for their core part of the backend, like the
   device API, the image registry, etc. BalenaCloud uses part of openBalena for its backend services.
 

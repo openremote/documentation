@@ -15,7 +15,7 @@ As we are 100% open source we invite other companies to develop an integration. 
 
 Documentation: 
 - [Teltonika Wiki - Integrating with OpenRemote](https://wiki.teltonika-networks.com/view/OpenRemote?utm_source=partner&utm_medium=referral&utm_campaign=teltonika-networks-openremote-wiki)
-- [OpenRemote Documentation - Manager APIs - MQTT Broker](../manager-apis/manager-apis.md#mqtt-api-mqtt-broker)
+- [OpenRemote Documentation - Manager APIs - MQTT Broker](../manager-apis.md#mqtt-api-mqtt-broker)
 
 ## Teltonika Vehicle Telematics
 ![TELTONIKA-Telematics](img/teltonika-telematics.png)

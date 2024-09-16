@@ -12,7 +12,7 @@ If you open the application you will get four main pages: [Map](#map), [Assets](
 
 ## Map
 
-The `Map` page will show your map (see the [custom deployment](../deploying/custom-deployment.md) documentation if you like to change the map). You can pan, zoom, and tilt the map. On the map all assets are shown which have a location as well the configuration item `show on dashboard` set. Assets can both have static or dynamic locations (eg. a car, boat or plane). You will see the direction an asset is facing or moving if the asset includes an attribute called 'direction'. When selecting an asset, a panel will show its attributes and values. The `Asset details` button in this panel will bring you to the respective Asset page.
+The `Map` page will show your map (see the [custom deployment](../deploying/custom-deployment.md) documentation if you like to change the map). You can pan, zoom, and tilt the map. On the map all assets are shown which have a location as well the configuration item `show on dashboard` set. Assets can both have static or dynamic locations (e.g. a car, boat or plane). You will see the direction an asset is facing or moving if the asset includes an attribute called 'direction'. When selecting an asset, a panel will show its attributes and values. The `Asset details` button in this panel will bring you to the respective Asset page.
 
 As part of the [configuring the manager UI](../deploying/configuring-the-manager-ui.md) you can also configure assets to change their colour based on an attribute value (number, boolean, or string) and show a label with or without units. 
 
@@ -69,22 +69,22 @@ While in `Edit asset` mode you can expand each attribute, which gives you the op
 | `Read only` | Data can not be filled via UI, only by agents or rules |
 | `Rule event` | Events are stored in rule to allow evaluation of change history of an attribute  |
 | `Rule event expires` | Set lifetime of event triggers and facts |
-| `Rule state` | Add this attribute as option to select in rules, on lefthand side |
+| `Rule state` | Add this attribute as option to select in rules, on left-hand side |
 | `Rule reset immediate` | Allows rule to re-trigger immediately. Can be useful for event based data |
 | `Secret` | Marks the value as secret indicating clients to display this in a concealed manner |
 | `Show on dashboard` | Used in combination with 'location' will display asset on the Map view |
 | `Store data points` | Stores data points in the database, default for one month |
-| `Units` | Adds a unit to the attribute value, see [composition and options](../assets-and-attributes/assets-agents-and-attributes.md#attribute-descriptor) |
+| `Units` | Adds a unit to the attribute value, see [composition and options](../assets-agents-and-attributes.md#attribute-descriptor) |
 | `User connected` | Shows all restricted users which have access to this asset, [see](../identity-and-security/realms-users-and-roles.md#restricted-user-realm-role) |
 
-See the documentation page [explaining all available configuration item options for assets and attributes, and references](../assets-and-attributes/assets-agents-and-attributes.md#asset-type-model). Don't forget to save the asset after making changes.
+See the documentation page [explaining all available configuration item options for assets and attributes, and references](../assets-agents-and-attributes.md#asset-type-model). Don't forget to save the asset after making changes.
 
 ### Create an agent
 
-Agents are a specific type of asset used to connect to external sensors, actuators, gateways, or services using protocols. They are added in the same manner as assets by clicking the `+` in the header of the asset tree. This will open a modal that shows the available agent types at the top of the list. You will see the generic ones: [HTTP](../agents-protocols/http.md), [WebSocket](../agents-protocols/websocket-agent.md), [MQTT](../agents-protocols/mqtt.md), [TCP](../agents-protocols/tcp.md), [UDP](../agents-protocols/udp.md) and [SNMP](../agents-protocols/snmp.md); as well as more specific ones like [Z-wave](../agents-protocols/z-wave), [KNX](../agents-protocols/knx) or [Velbus](../agents-protocols/velbus.md).
+Agents are a specific type of asset used to connect to external sensors, actuators, gateways, or services using protocols. They are added in the same manner as assets by clicking the `+` in the header of the asset tree. This will open a modal that shows the available agent types at the top of the list. You will see the generic ones: [HTTP](../agents-protocols/http.md), [WebSocket](../agents-protocols/websocket-agent.md), [MQTT](../agents-protocols/mqtt.md), [TCP](../agents-protocols/tcp.md), [UDP](../agents-protocols/udp.md) and [SNMP](../agents-protocols/snmp.md); as well as more specific ones like [Z-Wave](../agents-protocols/z-wave), [KNX](../agents-protocols/knx) or [Velbus](../agents-protocols/velbus.md).
 Once you create an Agent, the agent page will display the relevant attributes, required to establish an actual connection to the external world.
 
-Some Agents have auto discovery (e.g. Z-wave) or use configuration files (e.g. KNX and Velbus). The Agent page will show a discovery button or a file selector. Once set correctly the Agent will also create an additional asset/attribute structure for all discovered or configured assets. 
+Some Agents have auto discovery (e.g. Z-Wave) or use configuration files (e.g. KNX and Velbus). The Agent page will show a discovery button or a file selector. Once set correctly the Agent will also create an additional asset/attribute structure for all discovered or configured assets.
 
 ![](img/create-agent1.png)
 ![](img/create-agent2.png)
@@ -94,7 +94,7 @@ Note that you can also connect to OpenRemote through the Manager APIs without us
 
 ### Link agents and assets
 
-If the Agent doesn't support discovery or configuration files, you will manually need to link data coming in through your agents to the attributes of your assets. We use [configuration items](../assets-and-attributes/assets-agents-and-attributes.md) on attributes such as `Agent link` and `Attribute link` for that. See the tutorial for connecting to [OpenWeatherMap via an HTTP Agent to a Weather asset](../../tutorials/open-weather-api-using-http-agent.md).
+If the Agent doesn't support discovery or configuration files, you will manually need to link data coming in through your agents to the attributes of your assets. We use [configuration items](../assets-agents-and-attributes.md) on attributes such as `Agent link` and `Attribute link` for that. See the tutorial for connecting to [OpenWeatherMap via an HTTP Agent to a Weather asset](../../tutorials/open-weather-api-using-http-agent.md).
 
 ### Filtering assets and agents
 
@@ -173,7 +173,7 @@ The alarms functionality (top right) allows you to automatically generate alarms
 * Generate alarms with rules: Alarms can be created by When-Then rules.
 * Severity: High severity alarms are automatically emailed to the assigned person.
 * Assigning alarms to users: Assignees always have an overview of alarms assigned to them.
-* Status: The status indicates the steps in a typical workflow: Open - Acknowleged - In progress - Resolved - Closed.
+* Status: The status indicates the steps in a typical workflow: Open - Acknowledged - In progress - Resolved - Closed.
 * Linked assets: Assets which triggered an alarm rule will be displayed to make it easier to resolve problems.
 * Ordering and filtering alarms.
 
@@ -186,7 +186,7 @@ Admin users of the 'Master' realm see the Realm selector on the top right to swi
 
 ### Manager interconnect
 
-You can link multiple instances of OpenRemote (as Gateways) to a single Central instance of OpenRemote by creating a Gateway asset in the central instance and linking the Gateway instance of OpenRemote, using the 'Manager interconnect' function. The Gateway in the central instances will show the assets of the linked Gateway instance of OpenRemote, as children of the Gateway asset and will enable bidirectional communication with its attributes. Moreover, to limit traffic, you can slect and limit the attributes shown as well as the rate at which they are synchronised with the Central instance.
+You can link multiple instances of OpenRemote (as Gateways) to a single Central instance of OpenRemote by creating a Gateway asset in the central instance and linking the Gateway instance of OpenRemote, using the 'Manager interconnect' function. The Gateway in the central instances will show the assets of the linked Gateway instance of OpenRemote, as children of the Gateway asset and will enable bidirectional communication with its attributes. Moreover, to limit traffic, you can select and limit the attributes shown as well as the rate at which they are synchronised with the Central instance.
 See the [Edge Gateway documentation](../gateways-and-devices/edge-gateway.md) for more details.
 
 ![](img/manager-interconnect.png)
@@ -262,14 +262,14 @@ _Figure 22. Auto provisioning of devices_
 
 ### Appearance
 
-You can restyle any realm in OpenRemote as well as adjust the map views (go to settings/appearance). You can change the logo's, use different colours, change the title and default language, or set and change the menu items. For adding map layers you can add GeoJSON files (created e.g. with https://geojson.io/). More advanced settings like visible asset and agent types on the asset and rules page, can be configured directly in a JSON file. For the options available in the JSON file and an example, check out [Configuring the Manager UI](../deploying/configuring-the-manager-ui.md). For the maps you can set the centerpoint, zoom levels and boundaries.
+You can restyle any realm in OpenRemote as well as adjust the map views (go to settings/appearance). You can change the logo's, use different colours, change the title and default language, or set and change the menu items. For adding map layers you can add GeoJSON files (created e.g. with https://geojson.io/). More advanced settings like visible asset and agent types on the asset and rules page, can be configured directly in a JSON file. For the options available in the JSON file and an example, check out [Configuring the Manager UI](../deploying/configuring-the-manager-ui.md). For the maps you can set the center point, zoom levels and boundaries.
 
 ![](img/appearance-settings.png)
 _Figure 23. Appearance settings allow white labeling of your OpenRemote manager_
 
 ## Manager APIs
 
-The Manager APIs let you interact with OpenRemote without using the UI. This can be used to e.g synchronize attribute data with external clients, accessing configurations, or creating new assets. To authenticate you'll need to create a service user first on the Users page. We have three types of APIs to choose from: HTTP, MQTT, and WebSocket.
+The Manager APIs let you interact with OpenRemote without using the UI. This can be used to e.g. synchronize attribute data with external clients, accessing configurations, or creating new assets. To authenticate you'll need to create a service user first on the Users page. We have three types of APIs to choose from: HTTP, MQTT, and WebSocket.
 
 ### Service users
 
@@ -281,11 +281,11 @@ _Figure 24. Creating service users, with Username, Secret and Roles for a select
 ### HTTP, MQTT, and WebSocket
 
 The Manager API is compose of three APIs: HTTP, MQTT, and WebSocket:
-* HTTP API is the traditional request response API with live documentation available via Swagger UI (see `https://youraddress/swagger/`) or you can look at the [demo environment swagger](https://demo.openremote.app/swagger/).
+* HTTP API is the traditional request response API which is documented in the [REST API](/docs/category/rest-api) chapter. Live documentation is also available via Swagger UI (see `https://youraddress/swagger/`) or you can look at the [demo environment Swagger UI](https://demo.openremote.app/swagger/).
 * MQTT is a publish-subscribe API which allows connecting to our MQTT broker
 * WebSocket API is a publish-subscribe API that is event based.
 
-More information on these APIs regarding formats and authentication can be found in the documentation for [Manager APIs](../manager-apis/manager-apis.md)
+More information on these APIs regarding formats and authentication can be found in the documentation for [Manager APIs](../manager-apis.md)
 
 ## See Also
 - [Custom Deployment](../deploying/custom-deployment.md)

@@ -9,10 +9,9 @@ T.B.D.
 Here we will explain how to configure your apps to be used in the OpenRemote mobile app. You have the option to show/not show on mobile, and for which realms the app is available. Also you can define whether realm options are shown as a list or input field (if you don't want to reveal all available realms).
 
 Mobile apps can be found in the 
-[Apple Appstore](https://apps.apple.com/nl/app/openremote-app/id1526315885?mt=8) and [Google Playstore](https://play.google.com/store/apps/details?id=io.openremote.app&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1)
+[Apple App Store](https://apps.apple.com/nl/app/openremote-app/id1526315885?mt=8) and on [Google Play](https://play.google.com/store/apps/details?id=io.openremote.app&pcampaignid=pcampaignidMKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1).
 
-The first time opening the app you will be asked three things: 'App Domain', 'Select an app' and 'Enter the Realm'. Switching between domains, apps and realms can be done by long-pressing the app icon on your home screen. If you are hosting an OpenRemote instance at https://yourhost.com use the following: 'App Domain' is 'yourhost.com'.<br />
-<br />
+The first time opening the app you will be asked three things: 'App Domain', 'Select an app' and 'Enter the Realm'. Switching between domains, apps and realms can be done by long-pressing the app icon on your home screen. If you are hosting an OpenRemote instance at https://yourhost.com use the following: 'App Domain' is 'yourhost.com'.
 
 ## Configure apps which can be selected
 
@@ -25,8 +24,7 @@ The `allowedApps` field allows you to customize the list of apps that is visible
 For example: `{ allowedApps: ['manager', 'custom'] }`
 
 Both of these options only impact the consoles, the URLs are still available on the web.<br />
-If during use only one App is present, the consoles will automatically skip the 'app selection'-menu, and go straight to the app.<br />
-<br />
+If during use only one App is present, the consoles will automatically skip the 'app selection'-menu, and go straight to the app.
 
 ## Configure for which realms the app can be used
 

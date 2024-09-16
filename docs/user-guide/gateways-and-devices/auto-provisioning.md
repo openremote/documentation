@@ -41,11 +41,11 @@ Jump to:
 ## Implementation
 ### Connect flow
 
-The following illustrates the connect process (through [MQTT topics](../manager-apis/manager-apis.md#mqtt-api-mqtt-broker)) which clients can use to auto provision a service user and optionally an asset whose ID is generated using a UNIQUE_ID provided by the client; the client is then authenticated and the asset is then returned to the client.
+The following illustrates the connect process (through [MQTT topics](../manager-apis.md#mqtt-api-mqtt-broker)) which clients can use to auto provision a service user and optionally an asset whose ID is generated using a UNIQUE_ID provided by the client; the client is then authenticated and the asset is then returned to the client.
 
 ![Auto provisioning Connect flow](img/auto-provisioning-connect-flow.png)
 
-**NOTE THAT THE 'WHITELIST/BLACKLIST FAILURE', IS NOT YET IMPLEMENTED. THIS FUNCTION ENHANCES SECURITY AS ONLY SPECIFIED DEVICES CAN CONNECT (WHITELIST) OR CAN BE EXLUCDED (BLACKLIST)**
+**NOTE THAT THE 'WHITELIST/BLACKLIST FAILURE', IS NOT YET IMPLEMENTED. THIS FUNCTION ENHANCES SECURITY AS ONLY SPECIFIED DEVICES CAN CONNECT (WHITELIST) OR CAN BE EXCLUDED (BLACKLIST)**
 
 #### X.509 Client Certificate Validation
 
@@ -126,10 +126,10 @@ The code field should be the base64 encoded HMAC specific to this client.
 Client certificate generation is done using standard tooling e.g. openssl:
 
 1. A unique client private key and X.509 certificate should be generated with the client’s unique ID stored in the CN attribute of the certificate.
-1. The certificate should then be signed by an intermediate CA (can be self signed or signed by a CA)
+1. The certificate should then be signed by an intermediate CA (can be self-signed or signed by a CA)
 1. The intermediate CA certificate is then uploaded into OpenRemote within a Realm config instance
 
-When the client publishes its’ certificate to OpenRemote it must be in the PEM format. Client certificate generation can take place within the manufacturing environment without any external dependencies. 
+When the client publishes its certificate to OpenRemote it must be in the PEM format. Client certificate generation can take place within the manufacturing environment without any external dependencies.
 
 :::note
 
@@ -139,7 +139,7 @@ The security of the CA private key(s) is essential, if compromised then the cert
 
 ##### Some useful commands:
 
-Generate self signed CA cert (inc. key):
+Generate self-signed CA cert (inc. key):
 ```shell
 openssl req -x509 -sha256 -nodes -newkey rsa:4096 -keyout ca.key -days 730 -out ca.pem
 ```
@@ -164,7 +164,7 @@ The type of the asset generated must be an asset type that exists in the system;
 
 
 ## Configuration
-Configuration of auto provisioning is done via the `Manager UI` -> Auto Provisioning (top right menu); the menu item is only present for super users.
+Configuration of auto provisioning is done via the `Manager UI` -> Auto Provisioning (top right menu); the menu item is only present for superusers.
 
 
 ### Provisioning Configuration
@@ -251,11 +251,11 @@ awk 'NF {sub(/\r/, ""); printf "%s\n",$0;}'
 ## Obtaining an asset template
 1. Log into the `Manager UI` and navigate to the asset viewer
 1. Create then select an asset of the same type that you want to use in the template then select the asset ID from the address bar (e.g. `https://staging.demo.openremote.io/manager/?realm=smartcity#/assets/false/2K3nSg148fnzlSlaem0kkh` -> `2K3nSg148fnzlSlaem0kkh`)
-1. Navigate to swagger UI (https://your_installation/swagger e.g. https://staging.demo.openremote.io/swagger)
+1. Navigate to Swagger UI (https://your_installation/swagger e.g. https://staging.demo.openremote.io/swagger)
 1. Click authorize then again on the popup dialog then login with a user from the master realm
 1. Once authenticated go to `Assets -> Get /asset/{assetId}` and paste the asset ID into the asset ID input then execute the query, you will then get the asset returned in `json` format: ![image](img/get-asset-request.png)
 1. You can copy the returned `json` and paste that into the `Asset template` input field:
-   1. Remove or set the the `parentId` to determine where in the asset tree the asset will be created
+   1. Remove or set the `parentId` to determine where in the asset tree the asset will be created
    1. remember to insert the `%UNIQUE_ID%` placeholder wherever you would like that to be used (in an attribute value, in the asset name, etc.)
 
 

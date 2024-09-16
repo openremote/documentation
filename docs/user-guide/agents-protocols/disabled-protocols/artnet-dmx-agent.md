@@ -95,7 +95,7 @@ This step-by-step guide requires the use of the OpenRemote Manager.
 To import light assets, a ArtNet Agent must have been added to the asset tree.  
 From there, edit the ArtNet Agent's asset.  
 By collapsing the "ArtnetProtocolAgent" protocol configuration, you will be able to import Light assets in the "Protocol link import/discovery" attribute.  
-Before importing the JSON, an 'parent' asset must be targeted to where the lights will be appended to. We recommend to choose the same asset to were the ArtNet Agent resides.  
+Before importing the JSON, a 'parent' asset must be targeted to where the lights will be appended to. We recommend to choose the same asset to were the ArtNet Agent resides.  
 Finally the JSON can be imported by making use of the "Upload & import links from file" button.
  
 

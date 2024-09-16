@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Connect ESP32 or ESP8266 using MQTT
 
-ESP32 and ESP8266 are some of the most popular and well established boards for devices by Espressif. ESP32 and ESP8266 (and other types) can be easily linked to an OpenRemote instance using our MQTT Broker. If you have larger numbers of devices connecting you might want to use the auto provisioning flow. This allows you to provision your devices in such a way that they automatically connect your devices to OpenRemote, create an asset of the type you have defined, and link the attributes over the right topics. ESP32 and and ESP8266 are perfectly suitable to make use of it.
+ESP32 and ESP8266 are some of the most popular and well established boards for devices by Espressif. ESP32 and ESP8266 (and other types) can be easily linked to an OpenRemote instance using our MQTT Broker. If you have larger numbers of devices connecting you might want to use the auto provisioning flow. This allows you to provision your devices in such a way that they automatically connect your devices to OpenRemote, create an asset of the type you have defined, and link the attributes over the right topics. ESP32 and ESP8266 are perfectly suitable to make use of it.
 
 Here are some practical tips and code samples to get you going.
 
@@ -90,7 +90,7 @@ void reconnect() {
 
 </details>
 
-This Code is for an ESP32. In case you use an ESP8266, change the WiFi Library. #include &lt;ESP8266WiFi.h> (see code)
+This Code is for an ESP32. In case you use an ESP8266, change the Wi-Fi Library. #include &lt;ESP8266WiFi.h> (see code)
 
 For ESP8266 SSL Connection, you need a fingerprint of your Server Certificate Example: 
 `"static const char *fingerprint PROGMEM = "00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00";"` 
@@ -172,5 +172,5 @@ Note you need to add a CA certificate and add the code to locate the appropriate
 
 ## See Also
 - [Tutorial: Connect your MQTT Client](../../tutorials/connect-your-mqtt-client.md)
-- [User Guide: Manager APIs](../manager-apis/manager-apis.md)
+- [User Guide: Manager APIs](../manager-apis.md)
 - [User Guide: Auto Provisioning](../gateways-and-devices/auto-provisioning.md)

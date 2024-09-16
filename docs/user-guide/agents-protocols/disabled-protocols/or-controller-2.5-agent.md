@@ -14,7 +14,7 @@ Controller Protocol is intended to connect an OpenRemote Controller 2.5 to an Op
 We'll explain how you can connect your own controller, or the existing Home Example Demo Controller.
 
 ## Connect an OpenRemote Controller
-In the following example, you link your own controller by using the its controller address `http://my.controller:8688/controller`.
+In the following example, you link your own controller by using the controller address `http://my.controller:8688/controller`.
 
 1. Login to the manager UI (`https://localhost/manager` as `admin/secret`)
 2. Select the Assets tab and click `Create asset` at the top of the Asset list on the left
