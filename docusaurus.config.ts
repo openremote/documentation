@@ -134,16 +134,16 @@ const config: Config = {
               to: '/docs/introduction',
             },
             {
-              label: 'Get Started',
-              to: 'https://openremote.io/get-started-iot-platform/', 
-            },
-            {
-              label: 'JavaDoc',
-              to: 'https://www.javadoc.io/doc/io.openremote', 
+              label: 'Quick Start',
+              to: '/docs/quick-start',
             },
             {
               label: 'REST API',
-              to: 'https://demo.openremote.io/swagger/#/', 
+              to: '/docs/category/rest-api',
+            },
+            {
+              label: 'JavaDoc',
+              href: 'https://www.javadoc.io/doc/io.openremote',
             },
           ],
         },
@@ -199,7 +199,6 @@ const config: Config = {
               label: 'Source Code',
               href: 'https://github.com/openremote/openremote/',
             },
-
             {
               label: 'OSS Licensing',
               href: 'https://openremote.io/open-source/',

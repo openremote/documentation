@@ -4,7 +4,7 @@ sidebar_position: 6
 
 # LoRa
 
-OpenRemote supports LoRa integration. You can connect OpenRemote to the most popular LoRa network servers (eg. ChirpStack and TTN), using their documented APIs. As example we have worked out this [Tutorial: connecting to LoRaWAN sensor data from Chirpstack](../../tutorials/receive-lorawan-sensor-data-from-chirpstack.md).
+OpenRemote supports LoRa integration. You can connect OpenRemote to the most popular LoRa network servers (e.g. ChirpStack and TTN), using their documented APIs. As example we have worked out this [Tutorial: connecting to LoRaWAN sensor data from Chirpstack](../../tutorials/receive-lorawan-sensor-data-from-chirpstack.md).
 
 ## Proof of concept for LoRa mesh network for GPS trackers
 

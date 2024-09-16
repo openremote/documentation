@@ -26,7 +26,7 @@ Just create a new Asset of type Gateway and the manager will provision a Keycloa
 ![](img/manager-gateway-asset.png)
 
 ### 2. Entering credentials in the edge gateway
-   1. On the edge gateway login to the manager UI and select the realm you wish to connect to the central manager (only applicable to super users).
+   1. On the edge gateway login to the manager UI and select the realm you wish to connect to the central manager (only applicable to superusers).
    1. Go to the Manager interconnect page (top right menu)
       1. Enter the host (e.g. `demo.openremote.io`)
       1. Enter port if not using default `80` or `443`
@@ -44,7 +44,7 @@ Just create a new Asset of type Gateway and the manager will provision a Keycloa
 
 ## Interaction with Gateway Manager UI via Gateway tunnels
 
-On top of the Interaction via the Gateway, you can remotely access the full Manager UI of the Gateway instances of OpenRemote, by creating Gateway tunnels. Note that you first have to [technically configure the (edge) gateway and central instance of OpenRemote to enable the the tunnelling set-up](../../developer-guide/gateway-tunnelling-setup.md). Next you can acces the Manager UI of the Gateway instance via the 'Gateway Tunnels' (Settings) or via a 'Gateway Widget' on the Insights dashboards.
+On top of the Interaction via the Gateway, you can remotely access the full Manager UI of the Gateway instances of OpenRemote, by creating Gateway tunnels. Note that you first have to [technically configure the (edge) gateway and central instance of OpenRemote to enable the tunnelling set-up](../../developer-guide/gateway-tunnelling-setup.md). Next you can access the Manager UI of the Gateway instance via the 'Gateway Tunnels' (Settings) or via a 'Gateway Widget' on the Insights dashboards.
 
 ![](img/create-gateway-tunnel.png)
 _Creating a gateway tunnel and opening the manager UI of the remote instance which is connected as a gateway._
@@ -56,4 +56,4 @@ _Creating a gateway tunnel and opening the manager UI of the remote instance whi
 ### Edge Gateway
 - Processor: AMD64 or ARM64
 - RAM: 4GB (if using Keycloak identity provider) 2GB (if using basic identity provider)
-- Disk: 1.5GB (preferrably SATA or eMMC)
+- Disk: 1.5GB (preferably SATA or eMMC)
