@@ -1,0 +1,198 @@
+---
+id: notification-delivered
+title: "Update a notification as delivered"
+description: "Update a notification as delivered"
+sidebar_label: "Update a notification as delivered"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUuP1DgQ/itRnQBl4tGCOOS0I/bBSAu0hh5ppVYfiqTSsXBsY1emaSL/d2Sn05P09krACmlvST2+en8egHHnodzAW8OykRWyNBq2ORhLLv3c1lCCnml/IyUfyFENOVh02BGTixgDaOwISrjpuTVOfhnBcpAaSmgJa3KQg69a6hDKAfhgo7lnJ/UOQshPCH9f/WHcHl1N9dXKGTb/GeW18fxDIIxuR3xbT86fenKHb/Sdt+0RwSK3kIOjT72MbSzZ9XQBUGqmXcqzMa5DHkUvX0AI2+jurdGefPSoqcFe8fjpKydtan05KbLJGnKojGbSyfaZeAblEEII+Znfva2RKcNsXkKGPqtn0++IWxPXw/acloFbKEHMXcSw7EEQcwBP7mHand6pOBpm60shaupMYSxpR51hKqQRaKUYHKHqgoAcHtBJ/KDG+pN40Qjo0DM5CKlZnqreST6kSBFW1lButnPV+9j+EW0yOE3CYM/tL3EQyuyTSaUkaX7lqCbNElUSsvlI+j7VIaKHSGl5MaYibFzkyigx4l9VRmuqWCS3tBCNI9/+OICvjB0rsM40UsXUp684Ypzf5StTUzRdCL8/djSF/H9eelpwqRuTpiQ5qd9Z0ndpu7I3qHFHLrv7/f06u1ndwvk5rFvpM+kzbimrTdV3pHk8ica4JL2A9nq9Xp0giyxbKUJPmSdKHpsF0PbJafVN5Zer/zRF6YyjLBZRHI8Yq3TE1KFUiRsa8+vCD0IOSlYU7758ZOc/V39lz4tryM9ubr/fFzvdF8btxNHNC9xZdfW8uC5IFy13KmLGmx37EhXXUWSN5w71LMw3Mciiy6dzY/rMwiqUOkKnJIcju2wWnAo5lP/g2Ef8bQ5tpP1yA8PwAT3dOxVCFI8kHsmglj6ySA1lg8pTDh/psGT9B1R9zAoiW0ysc9n3rJwT08KTuyPZP83isVwq8yhEfZjHnPI5qzJsQz49Y9+Xyb+FH8Ncencf689/TqDj07yIM1rdVBXZuS4+WHEMp5dndb+GEL4CGtQLrQ==
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a notification as delivered"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/notification/{notificationId}/delivered"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update a notification as delivered
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"notificationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"targetId","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"*/*"}
+              value={"*/*"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

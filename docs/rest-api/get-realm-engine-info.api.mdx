@@ -1,0 +1,211 @@
+---
+id: get-realm-engine-info
+title: "Retrieve information about a realm rules engine"
+description: "Retrieve information about a realm rules engine"
+sidebar_label: "Retrieve information about a realm rules engine"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk1v2zgQ/SvCnFqAkYLmptMGqTcNsJsYigMsYPjASGOLLUWy5Chu1tB/XwwpK3aSLZAUC6wvpsmZN19vZrwDkpsA5RKqXiOsBFiHXpKy5qqBEjZIFUrdzcxGGbwyawsCnPSyQ0LPijswskMo4byn1nr1d1QGAcpACS3KBj0ICHWLnYRyB/ToWDyQV2YDwyAmhL9Ofrd+K32DzcncW7K/jPLFBnoXiOeg95pOUgsCPH7vlccGSvI9/gxnxcLBWRMw8HuDa9lrSsdQe+Vijsr9Q7aXBgG1NYQmykrntKpjPouvgRV2L43a+69Yc5DOc+lIJZOBJPXhpXMC0PQdF/x2cTOfzz6DgOru+vrq+hIEzKrqpoLVwG50Tuloe+a99Re2T06NcMoQbmI619Z3ktLV2ScYBOAPrPt3aA4CSJFmIWZjOCDdwB/xLHsVklf4gJkyCUpZk8l721Mms1jBzDNOhhEIBHRIrR15HYlMLZRQRKmCUYqoVuzi18BkQf+wJ3rvNfOIyIWyKBrsbG4dGo+dJcyVLaRTe9UCBDxIr+S9TgVJjDokA3QyEHqObcWG6t4reoyWGFY1UC5Xh0+3XPuEthd4ooHsqf3ESdV2G0VqrdDQhccGDSmpExnsNzR3MY6CNVK8oUiuFI67rra6SPgntTUGayqiWmyBtcfQvh8g1NalCJy3axVrvT9xgeXhELmwDcY+OLx8u20WBfE/Dz3SmxkYqzR2wY1DU0V2ZX9KIzfos2p2u8jO51fwvBkWrQqZChm1mDW27js0lDpibX28fQXty2IxnyDzLJtrlAGzgBg1lkdAqw8T9W0djqn/MVrprE/NmI+DTNax87GTSsc+X9vfjvR4XGhVI8++8mmVXM7/yM7yUxDPem673eYb0+fWb4pRLRRy4/TJWX6ao8lb6jRjcs+mvPDDKV85G6iT5sDM2+fHUcqn3iP8QYXTUhm2Ez3ejbNlCREBxtqKabGU6bAS0PKOKpew293LgHdeDwNff+/R8zBYPc2ROBoaFfjcQLmWOuALn6b9AR+qcWF9zJj+r/k6XkrzGMeV7vkXCPiGj9MSHHgdjMvzbQ78m9WE/tq2n1zgVfxfGBr/EBzZSVLndY3u8O3F9uVRPC2Qy9kChuEfAEs0lA==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve information about a realm rules engine"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rules/info/realm/{realm}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve information about a realm rules engine
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"realm","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"status"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`STOPPED`, `RUNNING`, `ERROR`]"}
+                        schema={{"type":"string","enum":["STOPPED","RUNNING","ERROR"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"compilationErrorCount"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"executionErrorCount"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"status\": \"STOPPED\",\n  \"compilationErrorCount\": 0,\n  \"executionErrorCount\": 0\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

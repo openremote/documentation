@@ -10,7 +10,7 @@ In this user guide we will use an example JSON manager_config and give a short d
 
 :::note
 
-If you are logged in as the default 'admin' user (a super user) most of these styling changes will _not_ be shown. This is to make sure the 'admin' user has all functionality available to them.
+If you are logged in as the default 'admin' user (a superuser) most of these styling changes will _not_ be shown. This is to make sure the 'admin' user has all functionality available to them.
 
 :::
 
@@ -462,7 +462,7 @@ Set which assettypes are excluded from the list of asset types that can be selec
         }
       }
 ```
-**Realm configuration:** You can set the branding per realm. In the example below you can see how the page title, headers, colors, and logo's are set as default (for any new realm created through the UI), as well as for the 'master' and 'clienta' realms.
+**Realm configuration:** You can set the branding per realm. In the example below you can see how the page title, headers, colors, and logos are set as default (for any new realm created through the UI), as well as for the 'master' and 'clienta' realms.
 ```json
   "realms": {
     "default": {

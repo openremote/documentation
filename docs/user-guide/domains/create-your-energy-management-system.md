@@ -82,7 +82,7 @@ To be able to forecast the wind power, you have to fill in the following attribu
 * Wind speed max (also called cut-off speed, the maximum speed at which a turbine is normally operating; above it will be turned down; in m/s)
 * Wind speed min (also called cut-in speed, the minimum speed required to operate the wind turbine; in m/s)
 * Wind speed reference (also called nominal or rated speed; in m/s)
-* Location. You can do this in the 'MODIFY' mode by opening the map modal next to the location attribute and setting the location by double clicking on the map.
+* Location. You can do this in the 'MODIFY' mode by opening the map modal next to the location attribute and setting the location by double-clicking on the map.
 
 Now can turn on the attribute 'Include forecast wind service' on your wind turbine asset (see Figure 3). Once saved the forecast service is running. To see it in action you can go to the 'Insights' page and select the power attribute in a chart. The dotted line will represent the forecasted data. 
 
@@ -110,7 +110,7 @@ Turn on the attributes 'Supports import' and 'Supports' export. This is an indic
 
 If you don't have a battery but want to simulate it and see what you can achieve in terms of financial or carbon savings, you can use the 'Storage Simulator Agent'. In this tutorial we use that option. 
 
-Add the 'Storage Simulator Agent' first. Than add the configuration item 'Agent link' and link to the 'Storage Simulator Agent', for six attributes:
+Add the 'Storage Simulator Agent' first. Then add the configuration item 'Agent link' and link to the 'Storage Simulator Agent', for six attributes:
 * Energy level
 * Energy level percentage
 * Power
@@ -140,8 +140,8 @@ There is a series of attributes on the vehicle you need or can use the make the 
 * Power import max, required to set the maximum charge power the vehicle can handle
 * Power export max, required to set the maximum discharge power the vehicle can handle
 * Energy level schedule. This sets the hour of the day, for each day of the week, at which the battery needs to be charged at the indicated percentage (see figure 6). It is not required but prevents an empty battery while you need your car to drive somewhere!
-* Energy level percentage max. The optimisation will never charge beyond. Without setting it it will assume 100%
-* Energy level percentage min. If a vehicle get's connected with a lower level, it will immediately start charging until it reaches the minimum level. If not set it will assume 0%.
+* Energy level percentage max. The optimisation will never charge beyond. Without setting it, it will assume 100%
+* Energy level percentage min. If a vehicle gets connected with a lower level, it will immediately start charging until it reaches the minimum level. If not set it will assume 0%.
 
 In some cases you also want to connect to your charger, and make the vehicle a child of the charger, e.g.:
 * In case you can't control the power setpoint on your vehicle. You will need to link the 'Power setpoint' of your charger to your charging system, using any of the existing [Agent Protocol options](../agents-protocols/overview.md). In addition you can use the 'Flow editor' to link the 'Power setpoint' of your vehicle to the 'Power setpoint' of your charger. The optimisation will now set the 'Power setpoint' of your vehicle, which will then be forwarded to the 'Power setpoint' of your charger.
@@ -152,7 +152,7 @@ In some cases you also want to connect to your charger, and make the vehicle a c
 _Figure 6. The Energy schedule is in a JSON format as shown. Each day of the week (seven days) specifies the required energy level percentage for each hour of the day, starting at midnight. So in the above example the vehicle battery needs to be charged to 90% at 8am on each day_
 
 ### Electricity Supplier
-The optimisation will also take into account the 'Tariff import' and 'Tariff export' for your electricity. To enable this, first add an 'Electricity supplier asset' as a child of the Optimisation asset. Note that the tariffs are defined as costs. So the 'Tariff import' is normally positive as you pay, while the 'Tariff export' is negative as you earn. You can either set a fixed value for both tariffs, or connect to an API of your supplier, using any of the existing [Agent Protocol options](../agents-protocols/overview.md). 
+The optimisation will also take into account the 'Tariff import' and 'Tariff export' for your electricity. To enable this, first add an 'Electricity supplier asset' as a child of the Optimisation asset. Note that the tariffs are defined as costs. So the 'Tariff import' is normally positive as you pay, while the 'Tariff export' is negative as you earn. You can either set a fixed value for both tariffs, or connect to an API of your supplier, using any of the existing [Agent Protocol options](../agents-protocols/overview.md). For electricity tariffs you can e.g. use the ENTSOE data https://transparency.entsoe.eu/ (for optimising on carbon footprint you can consider https://www.electricitymaps.com/ , see 'Optimisation' for a further explanation).
 
 In this tutorial we just simulate values by adding a simulator profile. To do that, take the following steps:
 * Add a 'Simulator Agent' at the root of your asset tree. 

@@ -1,0 +1,184 @@
+---
+id: delete-user-asset-link
+title: "Delete a link between an asset and user"
+description: "Delete a link between an asset and user"
+sidebar_label: "Delete a link between an asset and user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFv2zgM/isCn7ZBtYrtTU8rtm4r0OGCLgUOCPKg2kwsVJY0SV6uM/TfD5RjN+n1gHYbhr05EvmR+kh+zABJbSPIFZzFiAnWHJzHoJJ29qIBCQ0aTHgdMRSDS21vgYNXQXWYMJDrAFZ1CBLO+tS6oL8Xb+CgLUhoUTUYgEOsW+wUyAHSnSfzmIK2W8iZzwh/n3xwYadCg83JIrjkfhrlk4vph0ACKtNNnl6lFjgE/NrrgA3IFHp8Gk4fMVw0vwBIEf8/gbQm4+idjRjpvsGN6k0aP2MdtC9lk9MFm6yBQ+1sQltsX4lXIIecc+YP/N6XVmGKGW1v2Q2mHaJlyrKSOVO2YUQGcOgwte6+u0pDpRYkiGIqyEwQihhKGbIYRhqzGPY0ZCojhm9TC/bBUIVT8lEK0WDnKufRBuxcwko7obye0YDDNxW0ujEjFWOtDzmBTsWEAXLhLWLdB53uSiSC1Q3I1frw6gvxPqJNBnMJnOpT+xo4bIzbFZPaaLTpXcAGbdLKlMPkbtFel3cI8hAlrSjGVISneaidESP+Se2sxTqJ4lY6YRMwtj8OEGvnxxf44DbaUOrTF1VbHY73O9cgmR4dPj82mQL/w59eel3bjStV0qlc/+XRXpXuYp+VVVsM7Or8y5KdLS7g4WQsWx2Zjiy1yBpX9x3aVAhjGxfK6SNon5bLxQxZMbYwqCKyiFg8VkdA6xdz67s6Hrf+yxKlcwEZPaLaz7OqyzxjpzTRRldvj/wgczC6RpIAeS/yHxeX7E11CvzBzO12u2pr+8qFrdi7RaG23py8qU4rtFWbOkOYNLMjL3RxSkfexdQpexDm6WJyRPU8cwn/ScIbpS3hl0yHvcqsRimlB4wIZlxqcpJ8OWu2nER3zaGlTSJXMAw3KuJ1MDnT8dceAwnD+l5Tikw0OtJ3A3KjTMT/5DlLKry42mv4S0aj8Fj++0Nl74p0mZ5+AYdbvJtXFa2K3xh0z9FvjjrVI68zn/b589j+v7gj/mN/QOYknvfWpwfa/0c5ijNandU1+sM72r60duYN+v788nx5Djn/C461XLY=
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a link between an asset and user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/asset/user/link/{realm}/{userId}/{assetId}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete a link between an asset and user
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"realm","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"userId","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"assetId","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"*/*"}
+              value={"*/*"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

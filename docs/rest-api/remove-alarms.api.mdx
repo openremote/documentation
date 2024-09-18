@@ -1,0 +1,150 @@
+---
+id: remove-alarms
+title: "Remove alarms"
+description: "Remove alarms"
+sidebar_label: "Remove alarms"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVE1v2zAM/SsGTxvgWMV682lBl60FOixoU2BAkAMrM7FWWdIkOVln+L8PlJM0SbtDNwzYTeDHI/lEvg4irgKUcxhr9A0scrCOPEZlzVUFJXhq7JqSM0AODj02FMlzTgcGG4ISxm2srVc/UxrkoAyUUBNW5CGHIGtqEMoO4qPj8BC9Mivo+3yP8HX00foN+oqq0dTbaP8a5dKG+AqQRQ6egrMmUGB/RUtsdRyeQXrl0mzlzpHtoiEHaU0kk2LROa1k4kF8C5zQ9X3f5ycgN4nVDHe0NhRrWyV0TZES0bGGEkQK4c7Jr3est17zUDG6UApRUWML68jwV0UqlBXolOg8oW56ATms0Su818NgyXw0ITQYInnoEwuBZOtVfEyVGFZVUM4Xh65bZnFA2wXsCbXYxvod5LDUdpNCpFZk4oWnikxUqJMx2gcyd2kOwRkitRXE0IpwvALSajHgj6Q1hmQUKQ34q5aeQv3nAEFaN0zgvF0qza3vXvxdeLjRF7ai9LmHxtfX5lDI//PR07Iqs7Tpl1RM7i+OzE3aruwzGlyRz24mt7NsPL2C09We1SpkKmSxpqyysm3IxERYtrQ+WV9Au5zNpnvIIsummjBQFohSxvwIaPFmv/pWhuPVf5uqNNZTxkMU2+tEma6TGlRMG7veH+VBn4NWkvigyydd+zS9zs6LM8hPbm6z2RQr0xbWr8Q2LQhcOT06L84KMkUdG82YfLMDL+w4Y5OzITZoDsqcqsERofvLivQjCqdRGUZJ/XRbmZgD7tS7Ztkr59B19xjozuu+Z/P3ljyf9OJJDdJV5ztt5GuvVGBHBeUSdaBnjex1DniNX+rqgR5/I+Zr1C3HA8v1vyi01fujOkPUWEpyh75nIs3itpfgD5PryWwCff8L8Dp5sQ==
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove alarms"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/alarm"}
+>
+  
+</MethodEndpoint>
+
+
+
+Remove alarms
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

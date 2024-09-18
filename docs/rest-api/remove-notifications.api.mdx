@@ -1,0 +1,204 @@
+---
+id: remove-notifications
+title: "Delete all sent notifications by targets"
+description: "Delete all sent notifications by targets"
+sidebar_label: "Delete all sent notifications by targets"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk2P00AM/SsjnwBlkxUgDjmxggVW4qOCroRU9TCbOM2IyTjMOFtKlf+OPOm3CnSXPXBrPc/PY4+fnSWwngXIJ/CR2FSm0GzIwTQBatHHP1cl5OCxoVvcxQRIoNVeN8johWEJTjcIOVx0XJM3PweqBIyDHGrUJXpIIBQ1NhryJfCiFXhgb9wM+j7ZMHw9e0N+rn2J5dnIE9M/s7yjwPciMeXa7XuHfnHMyzjGWSSsyDeaB9OL53s8Efs3piPxK0/NA92AHobHo7bN1d/LciSZLqC/n6cOAfkurtMEPIaWXMAg5yVWurM8/AyFN23sznx9oNZoSKAgx+gi9kn2BPJl3/d9cuD3Gi0yKm2tCuhYuV1tqJuFYu1nyCKTBrmmMsYSnygcriGHbNdJ0kF/uxZT5630KnMb8iwrsaGUWnQiRMbUUKZbky3jY/QZJHCrvdE3dsg2mvfShkYHRg99LE3AovOGFzGS0JoS8sl09+iLlHZgWwM2VSbdcf1U2sTSPEIKa9DxK48lOjbaRiPTN3TXMY9MPLJ4rZANV8laUXZBNhv4zwpyDgvOohvI+1UeQ31/glBQO2TQeqqMlauvf8mD6t1B9YpKFOie8e6xBQrJf556bGfjKoqvZDgef2rRfY7dpT5op2fo1efLL2N1MbqCw+Yf1yYoExTXqEoqugYdx4Kpiny0HmF7Nx6PNpSpUiOLOqAKiNFjskc0fbRpfSrCfus/jlEa8qgkiXQlWV1EyWKjjY2Tq6KXe37QJ2BNgaLyfLuu3o7eq2fpOSQHmpvP5+nMdSn5WbZyC5metfbsWXqeoktrbqxwimaHusjBuZhaCtxotxPmDvNir9Yb0TH+4Ky12jgJEK+6XA2SCbiD7V3LvssnsFze6IDX3va9mIe5KaIvTZBpUUJeaRswgW+4WK+7W207iQgygH8DXO2zU6CrFXYSK50I3C6hU9CbvXMKeLtqtujpdr7GOZmsPyKOlvLg/TbrBGQwHHvMIfCxr54/X/gBAq0+jPbiDKiLosB290x2oVRis85eX76/HF9C3/8CwnqCeg==
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete all sent notifications by targets"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/notification"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete all sent notifications by targets
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"id","in":"query","schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"type","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"from","in":"query","schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"to","in":"query","schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"realmId","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"userId","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"assetId","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"*/*"}
+              value={"*/*"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

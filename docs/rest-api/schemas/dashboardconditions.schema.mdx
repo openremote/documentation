@@ -1,0 +1,58 @@
+---
+id: dashboardconditions
+title: "DashboardConditions"
+description: ""
+sidebar_label: "DashboardConditions"
+hide_title: true
+schema: true
+custom_edit_url: null
+---
+
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"DashboardConditions"}
+>
+</Heading>
+
+
+
+
+
+<ul>
+  <SchemaItem
+    collapsible={false}
+    name={"viewAccess"}
+    required={false}
+    schemaName={"string[]"}
+    qualifierMessage={"**Possible values:** [`PUBLIC`, `SHARED`, `PRIVATE`]"}
+    schema={{"type":"array","items":{"type":"string","enum":["PUBLIC","SHARED","PRIVATE"]}}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"editAccess"}
+    required={false}
+    schemaName={"string[]"}
+    qualifierMessage={"**Possible values:** [`PUBLIC`, `SHARED`, `PRIVATE`]"}
+    schema={{"type":"array","items":{"type":"string","enum":["PUBLIC","SHARED","PRIVATE"]}}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"minWidgets"}
+    required={false}
+    schemaName={"int32"}
+    qualifierMessage={undefined}
+    schema={{"type":"integer","format":"int32"}}
+  >
+    
+  </SchemaItem>
+</ul>
+            

@@ -35,7 +35,7 @@ DATABASE_CONNECTION_URL: jdbc:postgresql://localhost/openremote
   
 ## Connect an IKEA TRÅDFRI Gateway
 
-In the following example, you link your existing IKEA TRÅDFRI Gateway by using its IP address, eg. `192.163.1.2`.
+In the following example, you link your existing IKEA TRÅDFRI Gateway by using its IP address, e.g. `192.163.1.2`.
 
 1. Login to the manager UI (`https://localhost/manager` as `admin/secret`)
 2. Select the Assets tab and click `Create asset` at the top of the Asset list on the left

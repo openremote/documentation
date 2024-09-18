@@ -1,0 +1,256 @@
+---
+id: create-provisioning-config
+title: "Create a provisioning configuration"
+description: "Create a provisioning configuration"
+sidebar_label: "Create a provisioning configuration"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVktv20YQ/ivEnFqAFmU5blqe6hpBGyCpBVu+VNBhRI7ITfbB7C4tK4L+ezG7pEQqRur2VB2Endl578w33IPHykG+hLk1T8IJo4WuYJWCaciiF0a/LyGHwhJ6GsrcGr0RFaRg6UtLzv9myh3keyiM9qQ9H7FppCiCkeyTM5p5rqhJIZ9YT1gq2blGRezU7xqCHMz6ExUeUmgsh+EFOdYQJf8roYVqFeSXR3mhPVVkIYWNsQp9ZP30Bg5pF3l5F7x38s5bznIgXqKnCy8UsYpE5z+aUmwEla/XCjlwfPj8gXTla8hn19cpx9vTp4g7W4eeMVK7nE5HalcvqFlCqb4N7pACOkd+QaqR6OlFCUt8LjyVj47sQGRtjCTULNM6svdGxsJ312gt7iAF4Um5lwpDmt9lycGVOZZK6NAfWObSVK4/s+kjobDpjyHw44Vt2XlHCO1EVZ8uUaJVTG2t8BQsHoneb6Q6x91V76Ejvbdi3Xo6sXqvkRq47TR6vxxFz4XV4ZBCKRyu5ahhBuUs0ePgpmvwTq+wQgmN3oS36Hp+92fop6jBfSK8ZPrbGbwLxu56k4f4wo3RLr5eSRtspY9HdtbwRHL7xoukl4b09dP7j5MXAxk7vA2zmGDSDJJIipBFG9EGUlDka8Og0xgXQAB5CCAbKkEKjuwTN1K+3ENrJeRQe9+4PMtKUmZiGtKWlPE0ESbDRmT7MDOHDFJ4Qiv4tVwEom6UjoUChc6T5SRW7KhorfC74InNMg4tV8OrB65LtNYLnN4aW1/PuELSbINIIQVpf2upJO0FyjhL5jPpx5BHxhpZCMtlMRRO3pvCyCzavyiM1lT4LKiFhtxYcvV/N+AK08QMGms2IvRaf+KXZJPGiq/hlW5NGaBlxPz3vlkU0v956qGPeQDuT4vu3TOqRlK/lKajNQOz6ezNxfTtxeyXxeV1fn2Zz36eTN9e/gXnq+V7knGdnLD1HGu7rj0xznB/KDmGe29bGgH8CLBXQyiLoh14cR2E3pjQrR0a3TWk78OUJR9RY0U2uX/3sEhu5u/hfPoXtXCJcImvKSlN0SrSPjROsjE2cF+w9sdiMT+anCTJXBI6ShxR0FiODK1+OEKAKdwYAn4MXpSxlHASkw7ssAhgRwqFDOC1Mb+O9MIHgSiI8THf989y8/v8Q3I1mUJ6hj3b7XZS6XZibJV1ai7DqpEXV5PphPSk9kqyTcauWBe+mDKL8U6hHrh5HWCOynzEHU/PPmskirjPOcp9h6VLaM6+9mqG2nwJ+/0aHT1aeTgw+0tLlnFvdYLMAH0p1IQlN9NyD59px6HGzXGxYO8sLtvwzXC+RQ5pr3FTFNT478quBttgfvewgBTW3XemChAEFrfc4riFHIC/Wlk7wjrz9iBRVy1WLBtt8u9v1yLOJg==
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a provisioning configuration"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/provisioning"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create a provisioning configuration
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={false}
+          schemaName={"int64"}
+          qualifierMessage={"**Possible values:** `>= 1`"}
+          schema={{"minimum":1,"type":"integer","format":"int64"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"createdOn"}
+          required={false}
+          schemaName={"date-time"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","format":"date-time"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"lastModified"}
+          required={false}
+          schemaName={"date-time"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","format":"date-time"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"name"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={"**Possible values:** `non-empty` and `<= 255 characters`"}
+          schema={{"maxLength":255,"minLength":1,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"type"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={"**Possible values:** `>= 3 characters` and `<= 100 characters`"}
+          schema={{"maxLength":100,"minLength":3,"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"realm"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"assetTemplate"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"restrictedUser"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"userRoles"}
+          required={false}
+          schemaName={"string[]"}
+          qualifierMessage={"**Possible values:** [`read:admin`, `read:logs`, `read:users`, `read:map`, `read:assets`, `read:rules`, `read:insights`, `read:alarms`, `write:user`, `write:admin`, `write:logs`, `write:assets`, `write:attributes`, `write:rules`, `write:insights`, `write:alarms`, `read`, `write`]"}
+          schema={{"type":"array","items":{"type":"string","enum":["read:admin","read:logs","read:users","read:map","read:assets","read:rules","read:insights","read:alarms","write:user","write:admin","write:logs","write:assets","write:attributes","write:rules","write:insights","write:alarms","read","write"]}}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"disabled"}
+          required={false}
+          schemaName={"boolean"}
+          qualifierMessage={undefined}
+          schema={{"type":"boolean"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"data"}
+          required={false}
+          schemaName={"object"}
+          qualifierMessage={undefined}
+          schema={{"type":"object"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <div
+                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                      >
+                        
+                        
+                        integer
+                        
+                        
+                      </div>
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

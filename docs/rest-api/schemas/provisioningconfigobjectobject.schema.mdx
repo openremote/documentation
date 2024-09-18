@@ -1,0 +1,130 @@
+---
+id: provisioningconfigobjectobject
+title: "ProvisioningConfigObjectObject"
+description: ""
+sidebar_label: "ProvisioningConfigObjectObject"
+hide_title: true
+schema: true
+custom_edit_url: null
+---
+
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ProvisioningConfigObjectObject"}
+>
+</Heading>
+
+
+
+
+
+<ul>
+  <SchemaItem
+    collapsible={false}
+    name={"id"}
+    required={false}
+    schemaName={"int64"}
+    qualifierMessage={"**Possible values:** `>= 1`"}
+    schema={{"minimum":1,"type":"integer","format":"int64"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"createdOn"}
+    required={false}
+    schemaName={"date-time"}
+    qualifierMessage={undefined}
+    schema={{"type":"string","format":"date-time"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"lastModified"}
+    required={false}
+    schemaName={"date-time"}
+    qualifierMessage={undefined}
+    schema={{"type":"string","format":"date-time"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"name"}
+    required={true}
+    schemaName={"string"}
+    qualifierMessage={"**Possible values:** `non-empty` and `<= 255 characters`"}
+    schema={{"maxLength":255,"minLength":1,"type":"string"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"type"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={"**Possible values:** `>= 3 characters` and `<= 100 characters`"}
+    schema={{"maxLength":100,"minLength":3,"type":"string"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"realm"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={undefined}
+    schema={{"type":"string"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"assetTemplate"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={undefined}
+    schema={{"type":"string"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"restrictedUser"}
+    required={false}
+    schemaName={"boolean"}
+    qualifierMessage={undefined}
+    schema={{"type":"boolean"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"userRoles"}
+    required={false}
+    schemaName={"string[]"}
+    qualifierMessage={"**Possible values:** [`read:admin`, `read:logs`, `read:users`, `read:map`, `read:assets`, `read:rules`, `read:insights`, `read:alarms`, `write:user`, `write:admin`, `write:logs`, `write:assets`, `write:attributes`, `write:rules`, `write:insights`, `write:alarms`, `read`, `write`]"}
+    schema={{"type":"array","items":{"type":"string","enum":["read:admin","read:logs","read:users","read:map","read:assets","read:rules","read:insights","read:alarms","write:user","write:admin","write:logs","write:assets","write:attributes","write:rules","write:insights","write:alarms","read","write"]}}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"disabled"}
+    required={false}
+    schemaName={"boolean"}
+    qualifierMessage={undefined}
+    schema={{"type":"boolean"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"data"}
+    required={false}
+    schemaName={"object"}
+    qualifierMessage={undefined}
+    schema={{"type":"object"}}
+  >
+    
+  </SchemaItem>
+</ul>
+            
