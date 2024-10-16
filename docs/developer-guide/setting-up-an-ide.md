@@ -78,6 +78,33 @@ cp ~/<PATH_TO_PROJECT>/openremote/tools/intellij/Theme-<Default|Darcula>-GrepCon
 - Run `./gradlew eclipse`
 - In Eclipse go to `File` > `Import` and import the project as `Existing Projects into Workspace`
 
+### VSCode
+
+1. Install Visual Studio Code.
+2. Install extensions:
+    - Java Extension Pack
+    - Gradle for Java
+    - Docker
+    - Remote - Containers
+3. Open the project: `File` > `Open Folder` > select OpenRemote project root
+4. Configure Java:
+    - Set "java.home" in settings if not auto-detected
+5. Setup Gradle:
+    - The Gradle plugin should auto-detect the project structure
+    - If not, run "Java: Import Java projects into workspace" from command palette
+6. Build and Run:
+    - Terminal: `./gradlew clean installDist`
+    - Use Run and Debug view (Ctrl+Shift+D) to run OpenRemote Manager
+
+
+Ensure Docker services are running before launching the Manager. For UI work, run `npm run serve` in `/openremote/ui/app/manager`.
+
+:::note
+
+For custom working directory or launch settings, you may need to configure `.vscode/settings.json` and `.vscode/launch.json`. Refer to VSCode Java documentation for advanced configuration options.
+
+:::
+
 ## Setting the working directory
 
 All Docker and Gradle commands **must be executed in the project root directory**. If you are working on the main OpenRemote repository, this means the root of the repository. If you are [Creating a custom project](creating-a-custom-project.md), this means the root of your project's repository.
