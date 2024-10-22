@@ -101,7 +101,7 @@ Ensure Docker services are running before launching the Manager. For UI work, ru
 
 :::note
 
-For custom working directory or launch settings, you may need to configure `.vscode/settings.json` and `.vscode/launch.json`. Refer to VSCode Java documentation for advanced configuration options.
+For custom working directory or launch settings, you may need to configure `.vscode/settings.json` and `.vscode/launch.json`. Refer to VS Code Java documentation for advanced configuration options.
 
 :::
 
