@@ -78,7 +78,7 @@ cp ~/<PATH_TO_PROJECT>/openremote/tools/intellij/Theme-<Default|Darcula>-GrepCon
 - Run `./gradlew eclipse`
 - In Eclipse go to `File` > `Import` and import the project as `Existing Projects into Workspace`
 
-### VSCode
+### Visual Studio Code
 
 1. Install Visual Studio Code.
 2. Install extensions:
