@@ -17,6 +17,22 @@ docker restart <PROJECT_NAME>_manager_1
 docker exec -it <PROJECT_NAME>_postgresql_1 psql -U postgres
 ```
 
+### Insert a different manager_config.json file
+```shell
+docker exec <PROJECT_NAME>_manager_1 mkdir -p /deployment/manager/app
+docker cp ./manager_config.json <PROJECT_NAME>_manager_1:/deployment/manager/app/manager_config.json
+
+# Make sure to restart the containers for applying the changes
+```
+
+### Insert an .mbtiles file for applying a different map
+```shell
+docker exec <PROJECT_NAME>_manager_1 mkdir -p /deployment/map
+docker cp ./<FILE_NAME>.mbtiles <PROJECT_NAME>_manager_1:/deployment/map/mapdata.mbtiles
+
+# Make sure to restart the containers for applying the changes
+```
+
 ### Copy exported data point file to local machine (exported using query below)
 ```shell
 docker cp <PROJECT_NAME>_postgresql_1:/deployment/datapoints.csv ./
