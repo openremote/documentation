@@ -6,9 +6,24 @@ sidebar_position: 2
 
 When-Then rules are used in combination with the or-rules UI component. They are meant to be used to allow application users to define 'When this, then that' statements. For example "During weekdays, when it's cold, turn on the lights 5 minutes before sunset" or "send push notification to anybody who reaches the stadium".
 
-Note that, next to changing other attribute values, When-Then rules support sending notifications, generating alarms and linking to external systems using web hooks. Web hooks allow you to connect to any other application based on an event. Options are endless, from connecting to your Maintenance or Messaging service to your ERP or CRM system.
-
 ![Manager Rules Editor](img/rules-editor.png)
+
+## Supported actions:
+
+- ### Update attribute values
+- ### Send push- and email notifications
+  Send a notification to a set of users, for example to ones linked to the triggered asset. <br />
+  Note: we also support sending 'multi language' notifications, personalized to the preferred language of a user. <br />
+  Once the supported languages are selected on the [Appearance page](../manager-ui/manager-ui.md#appearance), they will be configurable in the Rules UI.
+
+- ### Generate alarms
+  Once the rule is triggered, a new alarm will be created based on the title and description you configure. <br />
+  You can automatically assign a user, so they get notified immediately. See more details in the [Alarms documentation](../manager-ui/manager-ui.md#alarms).
+
+- ### Link to an external system with webhooks
+- ### ... and much more!
+  Options are endless, from connecting to your Maintenance or Messaging service to your ERP or CRM system.
+
 
 ## Guide to setting up your first When-Then rule
 
