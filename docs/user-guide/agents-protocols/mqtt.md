@@ -26,7 +26,7 @@ They are all provided after accessing that thing's dashboard and creating a new 
 
 Download the Device Certificate and activate it, download the private key file, and the Amazon Trust Services endpoint RSA 2048 bit key.
 
-The password of everything keystore-related is ``OR_ADMIN_PASSWORD``, for when it is requested.
+The password of everything keystore-related is `OR_ADMIN_PASSWORD`, for when it is requested.
 
 Make sure that OpenRemote has been started at least once before proceeding, so that the required keystore files are created automatically. If you have a pre-existing keystore file, make sure to provide the file's location using `OR_SSL_CLIENT_KEYSTORE_FILE`, `OR_SSL_CLIENT_TRUSTSTORE_FILE`, and `OR_SSL_CLIENT_KEYSTORE_PASSWORD` or `OR_SSL_CLIENT_TRUSTSTORE_PASSWORD` for their passwords.
 

@@ -36,9 +36,9 @@ Additional services can be added/modified as normal.
 
 We recommend going through the [balena CLI masterclass](https://docs.balena.io/learn/more/masterclasses/cli-masterclass/).
 
-To manually manage the devices using the terminal, install ``balena-cli`` to your machine. You can use the CLI to
-perform the same actions as with BalenaCloud. Specifically, you can ``push`` a new release to a device. This is what
-we will use to push new versions. Make sure to ``balena login`` before proceeding.
+To manually manage the devices using the terminal, install `balena-cli` to your machine. You can use the CLI to
+perform the same actions as with BalenaCloud. Specifically, you can `push` a new release to a device. This is what
+we will use to push new versions. Make sure to `balena login` before proceeding.
 
 # Development and Deployment
 
@@ -46,7 +46,7 @@ Balena follows a git-like deployment lifecycle, with some more features being sp
 devices or the entire fleet can track the latest release or pin to a specific release, which can be changed by the
 administrator from the CLI/from the BalenaCloud dashboard.
 
-To create a new release, you can push this directory to the fleet using the included shell file in ``balena/run_balena_build.sh``.
+To create a new release, you can push this directory to the fleet using the included shell file in `balena/run_balena_build.sh`.
 
 ## Parameters:
 * `--dry-run`: This flag enables the dry-run mode. When this mode is enabled, the script will build the Docker images and bring up the containers locally using docker-compose instead of pushing to the Balena fleet.
@@ -74,8 +74,8 @@ To create a new release, you can push this directory to the fleet using the incl
 
 In general, Balena CLI/Balena API/BalenaCloud do things their own way. Some examples:
 
-* You cannot set a ``docker-compose.yml`` file to be used specifically for balena, it NEEDS to use``docker-compose.yml``.
-* ``balena push`` **does not** build the image locally. All folders/files referenced in the Dockerfiles/docker-compose
+* You cannot set a `docker-compose.yml` file to be used specifically for balena, it NEEDS to use `docker-compose.yml`.
+* `balena push` **does not** build the image locally. All folders/files referenced in the Dockerfiles/docker-compose
   files are uploaded to their own builder platform and are built on their premises. This is done to allow building
   the images in all of the different architectures that you might use the release in.
 * You cannot use environment variables in the way you usually do. Using default/error values in environment variables
@@ -84,7 +84,7 @@ In general, Balena CLI/Balena API/BalenaCloud do things their own way. Some exam
   environment variables in Balena environments are set using the CLI or the dashboard, and there are fleet-level and
   device-level variables. You would set an environment variable in the docker-compose file specifically when it's an
   environment variable that applies for ALL devices that may run this in BalenaOS (or for debugging locally of course).
-  All environment variables of a device/fleet are included in ALL services. So ``OR_MAIN_THREAD_WAIT_MS`` WILL end up on
+  All environment variables of a device/fleet are included in ALL services. So `OR_MAIN_THREAD_WAIT_MS` WILL end up on
   the proxy container, and Keycloak, and the manager, etc.
   A script to allow for environment variables of a file to be uploaded to a fleet will be added later on.
 
