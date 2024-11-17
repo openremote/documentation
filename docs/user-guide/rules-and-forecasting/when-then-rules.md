@@ -16,6 +16,16 @@ When-Then rules are used in combination with the or-rules UI component. They are
   Note: we also support sending 'multi language' notifications, personalized to the preferred language of a user. <br />
   Once the supported languages are selected on the [Appearance page](../manager-ui/manager-ui.md#appearance), they will be configurable in the Rules UI.
 
+  ##### Using Placeholders in Notifications
+  When configuring notifications in your rules, you can use the following placeholders to include dynamic information:
+
+- `%TRIGGER_ASSETS%` - Includes details about the assets that triggered the rule
+- `%RULESET_NAME%` - Inserts the name of the current ruleset 
+- `%RULESET_ID%` - Inserts the ID of the current ruleset
+- `%ASSET_ID%` - Includes the ID of the triggering asset (when used in notification actions)
+
+These placeholders are automatically replaced with actual values when the rule executes, making it easy to create dynamic, context-aware notifications.
+
 - ### Generate alarms
   Once the rule is triggered, a new alarm will be created based on the title and description you configure. <br />
   You can automatically assign a user, so they get notified immediately. See more details in the [Alarms documentation](../manager-ui/manager-ui.md#alarms).
