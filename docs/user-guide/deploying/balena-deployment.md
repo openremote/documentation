@@ -14,7 +14,7 @@ Balena is the totality of the product. Look at [balena.io](https://balena.io).
 * OpenBalena is the open-source backend software that can manage fleets (groups) of devices. It can push new versions of
   images to devices, manage those devices (power management, resource management, environment variables, etc.)
 * BalenaCloud is (the company) Balena's SaaS product, which uses OpenBalena for their core part of the backend, like the
-  device API, the image registry, etc. BalenaCloud uses part of openBalena for its backend services.
+  device API, the image registry, etc. BalenaCloud uses part of OpenBalena for its backend services.
 
 ## OpenRemote and BalenaOS
 
@@ -79,7 +79,7 @@ In general, Balena CLI/Balena API/BalenaCloud do things their own way. Some exam
   files are uploaded to their own builder platform and are built on their premises. This is done to allow building
   the images in all of the different architectures that you might use the release in.
 * You cannot use environment variables in the way you usually do. Using default/error values in environment variables
-  do not work.
+  does not work.
 * For the above point, the concept of environment variables in a `docker-compose.yml` file doesn't quite exist;
   environment variables in Balena environments are set using the CLI or the dashboard, and there are fleet-level and
   device-level variables. You would set an environment variable in the docker-compose file specifically when it's an
