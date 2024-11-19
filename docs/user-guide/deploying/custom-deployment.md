@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Custom deployment
 
-You can use our [Custom project repository template](https://github.com/openremote/custom-project) as a starting point for you own project. A custom project is a way of extending OpenRemote to provide custom functionality without modifying the main OpenRemote code, thus the custom code can be separately version controlled possibly in a private repo. With it you can change the look of the Manager app, create your own asset types, change map settings, and set up realms, users, and asset on project initialization. 
+You can use our [Custom project repository template](https://github.com/openremote/custom-project) as a starting point for your own project. A custom project is a way of extending OpenRemote to provide custom functionality without modifying the main OpenRemote code, thus the custom code can be separately version controlled possibly in a private repo. With it you can change the look of the Manager app, create your own asset types, change map settings, and set up realms, users, and asset on project initialization. 
 
 The template has the recommended project structure and readme files in various places to provide details on the customization of each part. If you do not want to use the Custom project template, you can set it up yourself following this [video](https://www.youtube.com/watch?v=_u2IgdioQR8).
 
@@ -33,7 +33,7 @@ Now you can make customizations to your custom deployment. Each section will hav
 - [Custom domain](#custom-domain)
 
 ### Manager app configuration (/deployment/manager/app)
-The manager app can be customised to fit you brand. You can for example change the colours and logos (white labeling), exclude asset types from the Add asset dialog and Rules page, make map markers react to attribute changes, and rearrange attributes in separate panels on the Assets page. These settings are also available directly in the manager app, under 'settings/appearance'. For more details view ['Configuring the Manager UI'](configuring-the-manager-ui.md).
+The manager app can be customised to fit your brand. You can for example change the colours and logos (white labeling), exclude asset types from the Add asset dialog and Rules page, make map markers react to attribute changes, and rearrange attributes in separate panels on the Assets page. These settings are also available directly in the manager app, under 'settings/appearance'. For more details view ['Configuring the Manager UI'](configuring-the-manager-ui.md).
 
 :::note
 
@@ -42,7 +42,7 @@ Most of the changes made in the manager_config.json will not be visible to the d
 :::
 
 ### Asset type (/model)
-Create your own asset type that fits your product. In the asset type you define its name, icon, and color, and set its attributes with configuration items (called meta items in the code). If you need some inspiration, you can look at OpenRemote's [default asset types](https://github.com/openremote/openremote/tree/master/model/src/main/java/org/openremote/model/asset/impl).
+Create your own asset type that fits your product. In the asset type you define its name, icon, and colour, and set its attributes with configuration items (called meta items in the code). If you need some inspiration, you can look at OpenRemote's [default asset types](https://github.com/openremote/openremote/tree/master/model/src/main/java/org/openremote/model/asset/impl).
 
 ### Agents & Protocols (/agent)
 Protocols are a main extension point of OpenRemote, they translate the messages from and to external systems into reads and writes of the assets and attribute values used by OpenRemote. When creating an [agent asset](../../developer-guide/connecting-protocol-adaptors-with-agents.md), you can create protocol configurations, which are a special type of attribute. Each agent attribute that is a protocol configuration then automatically gets its own instance of the protocol you have selected.
