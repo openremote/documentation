@@ -8,15 +8,14 @@ When-Then rules are used in combination with the or-rules UI component. They are
 
 ![Manager Rules Editor](img/rules-editor.png)
 
-## Supported actions:
 
-- ### Update attribute values
-- ### Send push- and email notifications
-  Send a notification to a set of users, for example to ones linked to the triggered asset. <br />
-  Note: we also support sending 'multi language' notifications, personalized to the preferred language of a user. <br />
-  Once the supported languages are selected on the [Appearance page](../manager-ui/manager-ui.md#appearance), they will be configurable in the Rules UI.
+## Supported actions
 
-  ##### Using Placeholders in Notifications
+On the right hand side you can trigger different types of actions:
+- Update attribute values
+- Send push- and email notifications to users, assets, or users linked to the asset triggering the rule. Notifications support multi-language notification based on the users preferred language. For details see [Appearance page](../manager-ui/manager-ui.md#appearance).
+
+##### Using Placeholders in Notifications
   When configuring notifications in your rules, you can use the following placeholders to include dynamic information:
 
 - `%TRIGGER_ASSETS%` - Includes details about the assets that triggered the rule
@@ -26,14 +25,8 @@ When-Then rules are used in combination with the or-rules UI component. They are
 
 These placeholders are automatically replaced with actual values when the rule executes, making it easy to create dynamic, context-aware notifications.
 
-- ### Generate alarms
-  Once the rule is triggered, a new alarm will be created based on the title and description you configure. <br />
-  You can automatically assign a user, so they get notified immediately. See more details in the [Alarms documentation](../manager-ui/manager-ui.md#alarms).
-
-- ### Link to an external system with webhooks
-- ### ... and much more!
-  Options are endless, from connecting to your Maintenance or Messaging service to your ERP or CRM system.
-
+- Generate alarm, including assigned user, severity, status, title and message with linked assets. See more details in the [Alarms documentation](../manager-ui/manager-ui.md#alarms).
+- Link to an external system with webhooks. This can be used for e.g. for connecting to your Maintenance or Messaging service, using your ERP or CRM system.
 
 ## Guide to setting up your first When-Then rule
 
