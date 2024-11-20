@@ -8,11 +8,23 @@ When-Then rules are used in combination with the or-rules UI component. They are
 
 ![Manager Rules Editor](img/rules-editor.png)
 
+
 ## Supported actions
 
 On the right hand side you can trigger different types of actions:
 - Update attribute values
 - Send push- and email notifications to users, assets, or users linked to the asset triggering the rule. Notifications support multi-language notification based on the users preferred language. For details see [Appearance page](../manager-ui/manager-ui.md#appearance).
+
+##### Using Placeholders in Notifications
+  When configuring notifications in your rules, you can use the following placeholders to include dynamic information:
+
+- `%TRIGGER_ASSETS%` - Includes details about the assets that triggered the rule
+- `%RULESET_NAME%` - Inserts the name of the current ruleset 
+- `%RULESET_ID%` - Inserts the ID of the current ruleset
+- `%ASSET_ID%` - Includes the ID of the triggering asset (when used in notification actions)
+
+These placeholders are automatically replaced with actual values when the rule executes, making it easy to create dynamic, context-aware notifications.
+
 - Generate alarm, including assigned user, severity, status, title and message with linked assets. See more details in the [Alarms documentation](../manager-ui/manager-ui.md#alarms).
 - Link to an external system with webhooks. This can be used for e.g. for connecting to your Maintenance or Messaging service, using your ERP or CRM system.
 
