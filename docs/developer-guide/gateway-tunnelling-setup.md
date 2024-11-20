@@ -25,11 +25,12 @@ This guide describes the steps necessary to setup the gateway tunnelling functio
   * `KC_HOSTNAME_STRICT: false`
 * Set manager environment variables:
   * `OR_WEBSERVER_ALLOWED_ORIGINS: *`
-  * `OR_GATEWAY_TUNNEL_SSH_KEY_FILE=<PATH_TO_PUBLIC_SISH_KEY>` (/deployment/sish/client/cert)
+  * `OR_GATEWAY_TUNNEL_SSH_KEY_FILE: <PATH_TO_PUBLIC_SISH_KEY>` (/deployment/sish/client/cert)
+  * `OR_GATEWAY_TUNNEL_AUTO_CLOSE_MINUTES: <MINUTES>` This optional variable can be set to automatically close tunnels after the specified number of minutes. When it is set to 0 (or not set) tunnels remain open until they are manually closed.
 
 ## Central Instance Setup
 
-* Set AWS_ROUTE53_ROLE on proxy container (this can be left as empty string to inherit from AWS EC2 instance provided the instance is using a cloudformation template that sets this value in `/etc/environment`)
+* Set `AWS_ROUTE53_ROLE` on proxy container (this can be left as empty string to inherit from AWS EC2 instance provided the instance is using a cloudformation template that sets this value in `/etc/environment`)
 * Set `DOMAINNAMES` to include wildcard certificate e.g. `*.example.openremote.app`
 * Add wildcard DNS A/AAAA record(s) e.g. `*.example.openremote.app`
 * Uncomment/add sish service in Docker Compose profile
