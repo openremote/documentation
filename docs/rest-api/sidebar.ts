@@ -934,6 +934,12 @@ const sidebar: SidebarsConfig = {
           label: "Reset the secret for a user in a realm",
           className: "api-method get",
         },
+        {
+          type: "doc",
+          id: "rest-api/update-current-user-locale",
+          label: "Update locale for the current user in a realm",
+          className: "api-method put",
+        },
       ],
     },
     {
@@ -1480,6 +1486,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "rest-api/schemas/emailnotificationmessage",
           label: "EmailNotificationMessage",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/localizednotificationmessage",
+          label: "LocalizedNotificationMessage",
           className: "schema",
         },
         {

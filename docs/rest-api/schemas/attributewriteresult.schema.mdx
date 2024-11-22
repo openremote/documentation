@@ -59,7 +59,7 @@ import TabItem from "@theme/TabItem";
           required={false}
           schemaName={"string"}
           qualifierMessage={"**Possible values:** Value must match regular expression `^[0-9A-Za-z]{22}$`"}
-          schema={{"pattern":"^[0-9A-Za-z]{22}$","type":"string"}}
+          schema={{"pattern":"^[0-9A-Za-z]{22}$","type":"string","description":"The asset identifier","example":"7Bt8M3cXEP6BHPh8r47DYf"}}
         >
           
         </SchemaItem><SchemaItem
@@ -68,7 +68,7 @@ import TabItem from "@theme/TabItem";
           required={true}
           schemaName={"string"}
           qualifierMessage={"**Possible values:** Value must match regular expression `^\\w+$`"}
-          schema={{"pattern":"^\\w+$","type":"string"}}
+          schema={{"pattern":"^\\w+$","type":"string","description":"The attribute name","example":"location"}}
         >
           
         </SchemaItem>
@@ -79,8 +79,8 @@ import TabItem from "@theme/TabItem";
     name={"failure"}
     required={false}
     schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`ASSET_NOT_FOUND`, `ATTRIBUTE_NOT_FOUND`, `INSUFFICIENT_ACCESS`, `INVALID_VALUE`, `INTERCEPTOR_FAILURE`, `STATE_STORAGE_FAILED`, `CANNOT_PROCESS`, `QUEUE_FULL`, `UNKNOWN`]"}
-    schema={{"type":"string","enum":["ASSET_NOT_FOUND","ATTRIBUTE_NOT_FOUND","INSUFFICIENT_ACCESS","INVALID_VALUE","INTERCEPTOR_FAILURE","STATE_STORAGE_FAILED","CANNOT_PROCESS","QUEUE_FULL","UNKNOWN"]}}
+    qualifierMessage={"**Possible values:** [`ASSET_NOT_FOUND`, `ATTRIBUTE_NOT_FOUND`, `INSUFFICIENT_ACCESS`, `INVALID_VALUE`, `INTERCEPTOR_FAILURE`, `STATE_STORAGE_FAILED`, `CANNOT_PROCESS`, `QUEUE_FULL`, `UNKNOWN`, `ASSET_ID_MISSING`, `ATTRIBUTE_NAME_MISSING`]"}
+    schema={{"type":"string","enum":["ASSET_NOT_FOUND","ATTRIBUTE_NOT_FOUND","INSUFFICIENT_ACCESS","INVALID_VALUE","INTERCEPTOR_FAILURE","STATE_STORAGE_FAILED","CANNOT_PROCESS","QUEUE_FULL","UNKNOWN","ASSET_ID_MISSING","ATTRIBUTE_NAME_MISSING"]}}
   >
     
   </SchemaItem>

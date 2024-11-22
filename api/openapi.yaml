@@ -4238,6 +4238,35 @@ paths:
             application/json:
               schema:
                 type: string
+  /user/locale:
+    put:
+      tags:
+      - User
+      summary: Update locale for the current user in a realm
+      operationId: updateCurrentUserLocale
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: string
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
   /syslog/event:
     get:
       tags:
@@ -5412,9 +5441,13 @@ components:
         id:
           pattern: "^[0-9A-Za-z]{22}$"
           type: string
+          description: The asset identifier
+          example: 7Bt8M3cXEP6BHPh8r47DYf
         name:
           pattern: ^\w+$
           type: string
+          description: The attribute name
+          example: location
     AttributeWriteResult:
       type: object
       properties:
@@ -5432,6 +5465,8 @@ components:
           - CANNOT_PROCESS
           - QUEUE_FULL
           - UNKNOWN
+          - ASSET_ID_MISSING
+          - ATTRIBUTE_NAME_MISSING
     AttributeState:
       type: object
       properties:
@@ -5853,6 +5888,9 @@ components:
           - HTTPS
           - HTTP
           - TCP
+        autoCloseTime:
+          type: string
+          format: date-time
         id:
           type: string
     ObjectNode:
@@ -5929,6 +5967,18 @@ components:
             type: array
             items:
               $ref: '#/components/schemas/Recipient'
+    LocalizedNotificationMessage:
+      type: object
+      allOf:
+      - $ref: '#/components/schemas/AbstractNotificationMessage'
+      - type: object
+        properties:
+          defaultLanguage:
+            type: string
+          languages:
+            type: object
+            additionalProperties:
+              $ref: '#/components/schemas/AbstractNotificationMessage'
     PushNotificationAction:
       type: object
       properties:
@@ -6078,6 +6128,13 @@ components:
           - CUSTOM
         id:
           type: string
+        locale:
+          type: string
+        allowedLocales:
+          uniqueItems: true
+          type: array
+          items:
+            type: string
         data:
           type: object
     ProvisioningConfigObjectObject:
