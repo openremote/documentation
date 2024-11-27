@@ -16,9 +16,9 @@ The MQTT Gateway API offers a comprehensive suite of device management controls 
 
 ## Authentication
 Authentication requires a 'Service User' username and secret, using the standard MQTT username and password mechanism to connect to the OpenRemote MQTT Broker.
-- Host: Host of the manager (e.g., `demo.openremote.io`)
+- Host: Host of the manager (e.g., `demo.openremote.io`).
 - Port: 8883 for secure connections (SSL/TLS) or 1883 for non-secure connections.
-- Encryption/TLS: Set to true for secure connections (SSL/TLS) or false for non-secure connections.
+- Encryption/TLS: Set to 'true' for secure connections (SSL/TLS) or 'false' for non-secure connections.
 - Username: `{realm}:{username}`
 - Password: `{secret}`
 - ClientId: A unique identifier for the client. Avoid using the same ClientId for simultaneous connections.
