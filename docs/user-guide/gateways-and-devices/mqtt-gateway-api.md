@@ -130,10 +130,10 @@ This section provides examples of the payloads and responses for the MQTT Gatewa
 >{
 >  "type": "PresenceSensorAsset",
 >  "name":"Hallway A Presence Sensor",
->  "location":"",
 >  "attributes": {
->    "presence": 0,
->    "notes": ""
+>    "presence": {},
+>    "notes": {},
+>    "location": {}
 >  }
 >}
 >```
