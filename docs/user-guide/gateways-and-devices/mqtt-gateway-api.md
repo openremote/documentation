@@ -12,7 +12,7 @@ This feature is currently under development and is a work in progress. It has no
 ![image](img/mqtt-gateway-communication-flow.png)
 
 
-The MQTT Gateway API offers a comprehensive suite of device management controls and event subscriptions. It is designed to enable users and developers to create their own custom IoT gateways that are tailored to their specific situations and use cases, facilitating communication over MQTT.
+The MQTT Gateway API offers a comprehensive suite of device management controls and event subscriptions. It is designed to enable users and developers to create their own custom IoT gateways that are tailored to their specific situations and use cases.
 
 ## Authentication
 Authentication requires a 'Service User' username and secret, using the standard MQTT username and password mechanism to connect to the OpenRemote MQTT Broker.
