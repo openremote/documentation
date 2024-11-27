@@ -55,13 +55,13 @@ Operations are publish topics that provide asset management functionality. Each 
 
 ##### [Assets](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/asset/Asset.java)
 - `{realm}/{clientId}/operations/assets/{responseIdentifier}/create` 
-Creates an asset, requiring a valid [asset template](#asset-templates) as the payload. The response identifier is used to correlate the response to the request, requiring a subscription to the response topic to receive the response.
+Creates an asset, requiring a valid [asset template](#asset-templates) as the payload. The response identifier is used to correlate the response to the request, requiring a subscription to the response topic to receive the response. [Asset Create Response](#asset-create-response).
 - `{realm}/{clientId}/operations/assets/{assetId}/get`
-Requests the data of the specified assetId, requiring subscription to the response topic to receive the data.
+Requests the data of the specified assetId, requiring subscription to the response topic to receive the data. [Asset Get Response](#asset-get-response).
 - `{realm}/{clientId}/operations/assets/{assetId}/update`
-Updates the specified asset, requiring a valid [asset template](#asset-templates) as the payload.
+Updates the specified asset, requiring a valid [asset template](#asset-templates) as the payload. [Asset Update Response](#asset-update-response).
 - `{realm}/{clientId}/operations/assets/{assetId}/delete`
-Deletes the specified asset.
+Deletes the specified asset. [Asset Delete Response](#asset-delete-response).
 
 ##### [Attributes](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/attribute/Attribute.java)
 - `{realm}/{clientId}/operations/assets/{assetId}/attributes/{attributeName}/update` 
@@ -155,13 +155,203 @@ Exact Asset Templates can be retrieved from the Swagger API by retrieving the as
 
 ### Response Examples
 
+
+#### [Attribute Update Response](#attribute-update-response)
+> - The attribute update response is a JSON representation of an [AttributeEvent](#attributeevent) that contains the event type, reference, value and timestamp. The value is the updated value of the attribute.
+> - A multi attribute update will return an array of attribute events
+> ```json
+> {
+>   "eventType": "attribute",
+>   "ref": {
+>     "id": "4Y1FoulaL6ocSwl5ukKl4R",
+>     "name": "presence"
+>   },
+>   "value": "1",
+>   "timestamp": 0,
+>   "deleted": false
+> }
+> ```
+
+#### [Asset Create Response](#asset-create-response)
+> - The asset create response is a JSON representation of an [AssetEvent](#assetevent) that contains details about the newly created asset, including its ID, version, name, and attributes.
+> - The cause will always be CREATE.
+> ```json
+> {
+>   "eventType" : "asset",
+>   "cause" : "CREATE",
+>   "asset" : {
+>     "id" : "2Ps3YZyzUP6X7iasABFmnR",
+>     "version" : 0,
+>     "name" : "Hallway B Presence Sensor",
+>     "accessPublicRead" : false,
+>     "parentId" : "3vaPqDQUesMznXSOO7PDps",
+>     "realm" : "master",
+>     "type" : "PresenceSensorAsset",
+>     "attributes" : {
+>       "notes" : {
+>         "name" : "notes",
+>         "type" : "text",
+>         "meta" : { },
+>         "value" : null,
+>         "timestamp" : 1732716480547
+>       },
+>       "location" : {
+>         "name" : "location",
+>         "type" : "GEO_JSONPoint",
+>         "meta" : { },
+>         "value" : null,
+>         "timestamp" : 1732716480547
+>       },
+>       "presence" : {
+>         "name" : "presence",
+>         "type" : "boolean",
+>         "meta" : { },
+>         "value" : null,
+>         "timestamp" : 1732716480547
+>       }
+>     }
+>   },
+>   "timestamp" : 0
+> }
+> ```
+
+#### [Asset Get Response](#asset-get-response)
+> - The asset get response is a JSON representation of an asset that contains details about the asset, including its ID, version, name, and attributes.
+> ```json
+> {
+>   "id" : "4gPRAyQLKpr41k1e0OztGu",
+>   "version" : 0,
+>   "createdOn" : 1732719696525,
+>   "name" : "Hallway B Presence Sensor",
+>   "accessPublicRead" : false,
+>   "parentId" : "3fwzx7lRFLyAYvjIYjTf0b",
+>   "realm" : "gateway",
+>   "type" : "PresenceSensorAsset",
+>   "path" : [ "3fwzx7lRFLyAYvjIYjTf0b", "4gPRAyQLKpr41k1e0OztGu" ],
+>   "attributes" : {
+>     "notes" : {
+>       "name" : "notes",
+>       "type" : "text",
+>       "meta" : { },
+>       "value" : null,
+>       "timestamp" : 1732719696521
+>     },
+>     "location" : {
+>       "name" : "location",
+>       "type" : "GEO_JSONPoint",
+>       "meta" : { },
+>       "value" : null,
+>       "timestamp" : 1732719696521
+>     },
+>     "presence" : {
+>       "name" : "presence",
+>       "type" : "boolean",
+>       "meta" : { },
+>       "value" : null,
+>       "timestamp" : 1732719696521
+>     }
+>   }
+> }
+> ```
+
+#### [Asset Update Response](#asset-update-response)
+> - The asset update response is a JSON representation of an [AssetEvent](#assetevent) that contains details about the updated asset, including its ID, version, name, and attributes.
+> - The cause will always be UPDATE.
+> ```json
+> {
+>   "eventType" : "asset",
+>   "cause" : "UPDATE",
+>   "asset" : {
+>     "id" : "4Y1FoulaL6ocSwl5ukKl4R",
+>     "version" : 0,
+>     "createdOn" : 1732715882398,
+>     "name" : "Hallway B Presence Sensor",
+>     "accessPublicRead" : false,
+>     "realm" : "master",
+>     "type" : "PresenceSensorAsset",
+>     "path" : [ "3vaPqDQUesMznXSOO7PDps", "4Y1FoulaL6ocSwl5ukKl4R" ],
+>     "attributes" : {
+>       "notes" : {
+>         "name" : "notes",
+>         "type" : "text",
+>         "meta" : { },
+>         "value" : null,
+>         "timestamp" : 1732718925522
+>       },
+>       "location" : {
+>         "name" : "location",
+>         "type" : "GEO_JSONPoint",
+>         "meta" : { },
+>         "value" : null,
+>         "timestamp" : 1732718925522
+>       },
+>       "presence" : {
+>         "name" : "presence",
+>         "type" : "boolean",
+>         "meta" : { },
+>         "value" : null,
+>         "timestamp" : 1732716480547
+>       }
+>     }
+>   },
+>   "timestamp" : 0
+> }
+> ```
+
+#### [Asset Delete Response](#asset-delete-response)
+> - The asset delete response is a JSON representation of an [AssetEvent](#assetevent) that contains details about the deleted asset, including its ID, version, name, and attributes.
+> - The cause will always be DELETE.
+> ```json
+> {
+>   "eventType" : "asset",
+>   "cause" : "DELETE",
+>   "asset" : {
+>     "id" : "2Ps3YZyzUP6X7iasABFmnR",
+>     "version" : 0,
+>     "createdOn" : 1732716480550,
+>     "name" : "Hallway B Presence Sensor",
+>     "accessPublicRead" : false,
+>     "parentId" : "3vaPqDQUesMznXSOO7PDps",
+>     "realm" : "master",
+>     "type" : "PresenceSensorAsset",
+>     "path" : [ "3vaPqDQUesMznXSOO7PDps", "2Ps3YZyzUP6X7iasABFmnR" ],
+>     "attributes" : {
+>       "notes" : {
+>         "name" : "notes",
+>         "type" : "text",
+>         "meta" : { },
+>         "value" : null,
+>         "timestamp" : 1732716480547
+>       },
+>       "location" : {
+>         "name" : "location",
+>         "type" : "GEO_JSONPoint",
+>         "meta" : { },
+>         "value" : null,
+>         "timestamp" : 1732716480547
+>       },
+>       "presence" : {
+>         "name" : "presence",
+>         "type" : "boolean",
+>         "meta" : { },
+>         "value" : null,
+>         "timestamp" : 1732716480547
+>       }
+>     }
+>   },
+>   "timestamp" : 0
+> }
+> ```
+
 #### [Operation Error Response](#response-error-codes)
 > - When an error occurs during an MQTT operation, the response will include an error code and a message.
 > - The error response is encoded in JSON.
+> - Below is an example of an error response for a failed asset creation.
 > ```json
 > {
+>   "type": "error",
 >   "error": "BAD_REQUEST",
->   "message": "Invalid asset template."
+>   "message": "Asset validation failed: attributes.notes: required attribute is missing, attributes.presence: required attribute is missing, attributes.location: required attribute is missing, : Asset is not valid"
 > }
 > ```
 
@@ -171,5 +361,4 @@ Exact Asset Templates can be retrieved from the Swagger API by retrieving the as
 - **NOT_FOUND**: The requested resource could not be found. This error can be due to a non-existent asset or attribute.
 - **UNAUTHORIZED**: The request could not be authorized due to insufficient permissions.
 - **INTERNAL_SERVER_ERROR**: An unexpected condition was encountered, and no more specific message is suitable.
-
 
