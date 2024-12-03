@@ -114,6 +114,13 @@ All attribute events for descendants of the specified asset with the specified a
 - `{realm}/{clientId}/events/assets/{assetId}/attributes/{attributeName}/+`
 All attribute events for direct children of the specified asset with the specified attribute name.
 
+
+:::note
+
+`attributes-value` topic prefix can be used in place of `attributes` to only return the value of the [AttributeEvent](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/attribute/AttributeEvent.java) rather than the entire event.
+
+:::
+
 ***
 
 
