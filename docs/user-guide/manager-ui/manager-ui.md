@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Manager UI
 
-The Manager UI is the dashboard which gives you access to OpenRemote, and allows you to configure, monitor, and control your IoT platform. You can access it at `https://localhost` for the master realm, or at `https://localhost/manager/?realm=yourrealm`, for a specific realm. We'll explain the main features of the Manager UI, sometimes referring to examples from the [online Demo](https://openremote.io/demo/), for which you only have access in 'read' mode. To have full 'admin' access to all functionality you will first need to [install OpenRemote](https://github.com/openremote/openremote/blob/master/README.md). If you prefer watching a video, rather than reading, check out the [Introduction Videos](https://youtu.be/K28CQMKr-rQ).
+The Manager UI is the dashboard which gives you access to OpenRemote, and allows you to configure, monitor, and control your IoT platform. You can access it at `https://localhost` for the master realm, or at `https://localhost/manager/?realm=yourrealm`, for a specific realm. We'll explain the main features of the Manager UI, sometimes referring to examples from the [online Demo](https://openremote.io/demo/), for which you only have access in 'read' mode. To have full 'admin' access to all functionality you will first need to [install OpenRemote](https://github.com/openremote/openremote/blob/master/README.md). If you prefer watching a video, rather than reading, check out the [Introduction Videos](https://youtu.be/4MhxwfbOao8).
 
 To access the Manager you will first need to login with the correct credentials (admin/secret for your local installation). Note that our account management and identity service includes features like a 'forgot password' flow. See [Realms](#realms), [Users and Roles](#users-and-access-configuration) for more details.
 
@@ -12,7 +12,7 @@ If you open the application you will get four main pages: [Map](#map), [Assets](
 
 ## Map
 
-The `Map` page will show your map (see the [custom deployment](../deploying/custom-deployment.md) documentation if you like to change the map). You can pan, zoom, and tilt the map. On the map all assets are shown which have a location as well the configuration item `show on dashboard` set. Assets can both have static or dynamic locations (e.g. a car, boat or plane). You will see the direction an asset is facing or moving if the asset includes an attribute called 'direction'. When selecting an asset, a panel will show its attributes and values. The `Asset details` button in this panel will bring you to the respective Asset page.
+The `Map` page will show your map (see the [custom deployment](../deploying/custom-deployment.md) documentation if you would like to change the map). You can pan, zoom, and tilt the map. On the map all assets are shown which have a location as well the configuration item `show on dashboard` set. Assets can both have static or dynamic locations (e.g. a car, boat or plane). You will see the direction an asset is facing or moving if the asset includes an attribute called 'direction'. When selecting an asset, a panel will show its attributes and values. The `Asset details` button in this panel will bring you to the respective Asset page.
 
 As part of the [configuring the manager UI](../deploying/configuring-the-manager-ui.md) you can also configure assets to change their colour based on an attribute value (number, boolean, or string) and show a label with or without units. 
 
@@ -48,7 +48,7 @@ _Figure 4. The Asset view in 'Edit mode' while adding an attribute_
 
 ### Configure attributes
 
-While in `Edit asset` mode you can expand each attribute, which gives you the option to add configuration items or change existing ones. You can use configuration items for to arrange access permission, parse and store data points, allow data to be used in rules, or define whether and how to show data. The available configuration items are:
+While in `Edit asset` mode you can expand each attribute, which gives you the option to add configuration items or change existing ones. You can use configuration items to arrange access permission, parse and store data points, allow data to be used in rules, or define whether and how to show data. The available configuration items are:
 
 | Configuration items | Description |
 | :--- | :--- |
@@ -75,7 +75,7 @@ While in `Edit asset` mode you can expand each attribute, which gives you the op
 | `Show on dashboard` | Used in combination with 'location' will display asset on the Map view |
 | `Store data points` | Stores data points in the database, default for one month |
 | `Units` | Adds a unit to the attribute value, see [composition and options](../assets-agents-and-attributes.md#attribute-descriptor) |
-| `User connected` | Shows all restricted users which have access to this asset, [see](../identity-and-security/realms-users-and-roles.md#restricted-user-realm-role) |
+| `User connected` | Shows all restricted users which have access to this asset, see [Restricted user realm role](../identity-and-security/realms-users-and-roles.md#restricted-user-realm-role) |
 
 See the documentation page [explaining all available configuration item options for assets and attributes, and references](../assets-agents-and-attributes.md#asset-type-model). Don't forget to save the asset after making changes.
 
@@ -84,7 +84,7 @@ See the documentation page [explaining all available configuration item options 
 Agents are a specific type of asset used to connect to external sensors, actuators, gateways, or services using protocols. They are added in the same manner as assets by clicking the `+` in the header of the asset tree. This will open a modal that shows the available agent types at the top of the list. You will see the generic ones: [HTTP](../agents-protocols/http.md), [WebSocket](../agents-protocols/websocket-agent.md), [MQTT](../agents-protocols/mqtt.md), [TCP](../agents-protocols/tcp.md), [UDP](../agents-protocols/udp.md) and [SNMP](../agents-protocols/snmp.md); as well as more specific ones like [Z-Wave](../agents-protocols/z-wave), [KNX](../agents-protocols/knx) or [Velbus](../agents-protocols/velbus.md).
 Once you create an Agent, the agent page will display the relevant attributes, required to establish an actual connection to the external world.
 
-Some Agents have auto discovery (e.g. Z-Wave) or use configuration files (e.g. KNX and Velbus). The Agent page will show a discovery button or a file selector. Once set correctly the Agent will also create an additional asset/attribute structure for all discovered or configured assets.
+Some Agents have auto discovery (e.g. Z-Wave) or use configuration files (e.g. KNX and Velbus). The Agent page will show a discovery button or a file selector. Once set correctly, the Agent will also create an additional asset/attribute structure for all discovered or configured assets.
 
 ![](img/create-agent1.png)
 ![](img/create-agent2.png)
@@ -98,10 +98,10 @@ If the Agent doesn't support discovery or configuration files, you will manually
 
 ### Filtering assets and agents
 
-In the asset tree on the left, you can filter assets by typing their name. The advanced filter also allows selecting an asset type, typing the attribute name (without spaces) and filter on a value.
+In the asset tree on the left, you can filter assets by typing their name. The advanced filter also allows selecting an asset type, typing the attribute name (without spaces) and filtering on a value.
 
 ![Filtering assets](img/filtering-assets.png)
-_Figure 6. Asset filtering by typing the asset name (left) or by using the advanced filter, selecting an asset type, typing the attribute name (without spaces) and filter on an attribute value_
+_Figure 6. Asset filtering by typing the asset name (left) or by using the advanced filter, selecting an asset type, typing the attribute name (without spaces) and filtering on an attribute value_
 
 ### Grouping assets and group control
 
@@ -125,7 +125,7 @@ When-Then rules use conditions set for attributes to trigger an action for anoth
 _Figure 7. A When-Then example, which shows how, on the When-side an asset type can be selected, while on the Then-side the action, in this case a push notification, is defined._
 
 The frequency on which rules trigger as well as a timer schedule can be set. 
-The rule frequency, a dropdown on the upper right of each 'Then' panel defines how frequent a rule can trigger. For example 'Always' means every time the  condition is triggered, but only after the condition has been false (so not continuously on being true).
+The rule frequency, a dropdown on the upper right of each 'Then' panel defines how frequently a rule can trigger. For example 'Always' means every time the  condition is triggered, but only after the condition has been false (so not continuously on being true).
 The scheduler (right next to the name field of the rule) lets you set an occurrence period as well as repeat that occurrence.
 
 ![](img/time-scheduler-rules-trigger-frequency.png)
@@ -255,7 +255,7 @@ Also see the userguide: [Realms, users and roles](../identity-and-security/realm
 
 ### Auto provisioning of devices
 
-If you are an OEM, developing and producing your own hardware, you can provision your devices and OpenRemote to automatically have your devices connecting, once they get online. Using certificates (we currently support X.509) your devices will register and automatically generate and connect to an asset of a defined type in the OpenRemote Manager (see figure 21). For details, check out the documentation about ['Auto provisioning'](../gateways-and-devices/auto-provisioning.md).
+If you are an OEM, developing and producing your own hardware, you can provision your devices and OpenRemote to automatically have your devices connecting, once they get online. Using certificates (we currently support X.509) your devices will register and automatically generate and connect to an asset of a defined type in the OpenRemote Manager (see figure 22). For details, check out the documentation about ['Auto provisioning'](../gateways-and-devices/auto-provisioning.md).
 
 ![](img/auto-provisioning-of-devices.png)
 _Figure 22. Auto provisioning of devices_
@@ -277,16 +277,16 @@ The Manager APIs let you interact with OpenRemote without using the UI. This can
 
 ### Service users
 
-Service users can be created on the `Users` page, and selecting `Add user` in the `Service user` panel (see figure 23). The `Username` (ClientID) can be set using letters, dashes, and numbers, while the `Secret` will be generated automatically once saved. Note that you also select the role(s).
+Service users can be created on the `Users` page, and selecting `Add user` in the `Service user` panel (see figure 24). The `Username` (ClientID) can be set using letters, dashes, and numbers, while the `Secret` will be generated automatically once saved. Note that you also need to select the role(s).
 
 ![](img/creating-service-users.png)
 _Figure 24. Creating service users, with Username, Secret and Roles for a selected Realm_
 
 ### HTTP, MQTT, and WebSocket
 
-The Manager API is compose of three APIs: HTTP, MQTT, and WebSocket:
+The Manager API is composed of three APIs: HTTP, MQTT, and WebSocket:
 * HTTP API is the traditional request response API which is documented in the [REST API](/docs/category/rest-api) chapter. Live documentation is also available via Swagger UI (see `https://youraddress/swagger/`) or you can look at the [demo environment Swagger UI](https://demo.openremote.app/swagger/).
-* MQTT is a publish-subscribe API which allows connecting to our MQTT broker
+* MQTT is a publish-subscribe API which allows connecting to our MQTT broker.
 * WebSocket API is a publish-subscribe API that is event based.
 
 More information on these APIs regarding formats and authentication can be found in the documentation for [Manager APIs](../manager-apis.md)
