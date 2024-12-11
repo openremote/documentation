@@ -10,13 +10,7 @@ In this user guide we will use an example JSON manager_config and give a short d
 
 :::note
 
-If you are logged in as the default 'admin' user (a superuser) most of these styling changes will _not_ be shown. This is to make sure the 'admin' user has all functionality available to them.
-
-:::
-
-:::warning
-
-Make sure to log in as a different user than the admin user to see all effects of the manager_config. For more details, see [Realms](../manager-ui/manager-ui.md#realms).
+By default Superusers (e.g. the 'admin' user of the master realm) will see these styling changes. However, if ```"manager":{"applyConfigToAdmin":false}``` is set in the manager_config, most styling changes will _not_ show. This option can be set so that the 'admin' user is not limited by what is set in the config.
 
 :::
 
