@@ -57,8 +57,8 @@ The remainder of the guide assumes you are using the [Demo](https://openremote.i
    * Name it `Cold and sunset: lights on`.
 4. Create the When side of the rule:
    * Click the `+`, a list of asset types will appear.
-   * Select `Weather Asset`, the next condition will appear showing `Any of this type`.
-   * Switch to the asset named `Weather`.
+   * Select `Weather Asset`, a condition will get added for this asset type.
+   * Switch the asset from `Any of this type` to `Weather`.
    * In the next field select the attribute of interest: `temperature`.
    * In the next field select the operator: `less than`.
    * Finally set a value of `10`. You have now finished the first condition. This can be combined through `AND` or `OR` with other conditions.
