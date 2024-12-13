@@ -16,7 +16,7 @@ OpenRemote includes consoles for iOS and Android. The current apps we are hostin
  
 2. Before [deploying OpenRemote](../deploying/custom-deployment.md), you have the possibility to define which apps are ignored for the consoles. Apps reside in [the ui/app folder](https://github.com/openremote/openremote/tree/master/ui/app). By adding an empty `.appignore` file (like in the 'swagger' and 'console_loader' folders), these apps get ignored.
 
-3. Once OpenRemote is deployed and you open the app, on first launh the app asks for 'App Domain', 'Select an app' and 'Enter the Realm'. If you are e.g. hosting an OpenRemote instance and Realm at https://yourhost.com/manager/?realm=yourrealm use the following: 'App Domain' is 'yourhost.com', App is 'manager' or 'insights' and 'Realm' is 'yourrealm'. Switching between domains, apps and realms can be done by long-pressing the app icon on your home screen.
+3. Once OpenRemote is deployed and you open the app, on first launch the app asks for 'App Domain', 'Select an app' and 'Enter the Realm'. If you are e.g. hosting an OpenRemote instance and Realm at https://yourhost.com/manager/?realm=yourrealm use the following: 'App Domain' is 'yourhost.com', App is 'manager' or 'insights' and 'Realm' is 'yourrealm'. Switching between domains, apps and realms can be done by long-pressing the app icon on your home screen.
 
 ## Using the mobile apps on OpenRemote hosted environments
 
