@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Create Rules
 
-OpenRemote has its own rules engine that can be utilized for a broad spectrum of tasks, ranging from simple attribute linking to complex algorithms, such as predictive models. There are three different types of rules you can choose from: When-Then Rules , Flow Rules and Groovy Rules. On this page you will find a brief description of each type, along with references to their dedicated pages for more details and examples.
+OpenRemote has its own rules engine that can be utilized for a broad spectrum of tasks, ranging from simple attribute linking to complex algorithms, such as predictive models. There are three different types of rules you can choose from: When-Then Rules, Flow Rules and Groovy Rules. On this page you will find a brief description of each type, along with references to their dedicated pages for more details and examples.
 
 You can create global or realm rules. Global rules can access asset attributes across different realms, while realm rules can only access asset attributes within the realm they are created in.
 
