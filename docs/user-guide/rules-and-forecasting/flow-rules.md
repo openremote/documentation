@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Flow Rules
 
-Flow rules are mainly intended for attribute linking and processing existing attributes, translating them into new virtual attributes. They can also function as regular event rules. They're useful for users who want to create rules in a visual manner but also need to define rules more complex than is possible in the WHEN-THEN (JSON) rules UI editor.
+Flow rules are mainly intended for attribute linking and processing existing attributes, translating them into new virtual attributes. They can also function as regular event rules. They're useful for users who want to create rules in a visual manner but also need to define rules more complex than is possible in the When-Then (JSON) rules UI editor.
 
 Flow rules can be created in a visual editor or written manually in their own JSON format.
 
@@ -25,7 +25,7 @@ A node is an entity that receives, manipulates, or outputs data via its sockets.
 **Processors** receive information from other nodes, process it, then output it to other nodes. These nodes generally don't interact with anything outside the Flow editor. An example of a processor is a math node that outputs the sum of its inputs.
 
 :::note
-Processor inputs are executed from top to bottom; e.g. for a division top input is numerator and bottom is denominator and for poweroperator top is the base and bottom the exponent.
+Processor inputs are executed from top to bottom; e.g. for a division top input is numerator and bottom is denominator and for power operator top is the base and bottom the exponent.
 :::
 
 **Output** nodes receive information from other nodes and send it somewhere else. Generally, output nodes send information to the Manager. An example of this is a node that sets an asset attribute to a specific value.
