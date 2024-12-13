@@ -26,7 +26,7 @@ On the right hand side you can trigger different types of actions:
 These placeholders are automatically replaced with actual values when the rule executes, making it easy to create dynamic, context-aware notifications.
 
 - Generate alarm, including assigned user, severity, status, title and message with linked assets. See more details in the [Alarms documentation](../manager-ui/manager-ui.md#alarms).
-- Link to an external system with webhooks. This can be used for e.g. for connecting to your Maintenance or Messaging service, using your ERP or CRM system.
+- Link to an external system with webhooks. This can be used e.g. for connecting to your Maintenance or Messaging service, using your ERP or CRM system.
 
 ## Guide to setting up your first When-Then rule
 
@@ -49,7 +49,7 @@ Enabling the rule state on an attribute so it can be used in rules:
 
 The remainder of the guide assumes you are using the [Demo](https://openremote.io/demo/) where all assets and attributes have already been created and configured:
 
-1. Switch from the `master` realm to the `Smart city` realm in the top. You will see the assets we use a demo setup. 
+1. Switch from the `master` realm to the `Smart city` realm in the top. You will see the assets used in the demo setup. 
 2. Navigate to the `Rules` page, here you will find some demo rules that are running at the moment. We will add our own.
 3. Add a new rule:
    * Click the `+`.
@@ -57,12 +57,12 @@ The remainder of the guide assumes you are using the [Demo](https://openremote.i
    * Name it `Cold and sunset: lights on`.
 4. Create the When side of the rule:
    * Click the `+`, a list of asset types will appear.
-   * Select `Weather Asset`, the next will appear showing `Any of this type`.
-   * Switch to the asset named `Weather`.
+   * Select `Weather Asset`, a condition will get added for this asset type.
+   * Switch the asset from `Any of this type` to `Weather`.
    * In the next field select the attribute of interest: `temperature`.
    * In the next field select the operator: `less than`.
    * Finally set a value of `10`. You have now finished the first condition. This can be combined through `AND` or `OR` with other conditions.
-5. Create a second condition to monitor the humidity:
+5. Create a second condition to take the time into account:
    * Click the `+` in the section below where it says `ADD CONDITION` and select `Time`.
    * Select Trigger Type `Sunset`.
    * Set the value `-5` for the `Offset in minutes`.
@@ -80,7 +80,7 @@ The remainder of the guide assumes you are using the [Demo](https://openremote.i
    * Leave the `Repetition ends` at `Never`
    * Click `Apply` and save the rule in the top right.
 
-Your rule is finished! Every weekday the rule will check if both conditions are met and if so, turns on the lights of Noordereiland. 
+Your rule is finished! Every weekday the rule will check if both conditions are met and if so, turn on the lights of Noordereiland. 
 
 ## See Also
 
