@@ -49,7 +49,7 @@ Enabling the rule state on an attribute so it can be used in rules:
 
 The remainder of the guide assumes you are using the [Demo](https://openremote.io/demo/) where all assets and attributes have already been created and configured:
 
-1. Switch from the `master` realm to the `Smart city` realm in the top. You will see the assets used a demo setup. 
+1. Switch from the `master` realm to the `Smart city` realm in the top. You will see the assets used in the demo setup. 
 2. Navigate to the `Rules` page, here you will find some demo rules that are running at the moment. We will add our own.
 3. Add a new rule:
    * Click the `+`.
