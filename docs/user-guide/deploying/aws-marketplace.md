@@ -1,3 +1,7 @@
+---
+unlisted: true
+---
+
 # AWS Marketplace
 
 We have created an app for the AWS Marketplace to make deployment easier. This guide describes how to configure the instance using the special AWS CloudFormation template.
