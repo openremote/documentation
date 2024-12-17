@@ -86,7 +86,7 @@ The OpenRemote Manager and Android/iOS Console projects are released using a Git
 
 When the release workflow is started it will:
 
-1. Create a tag for the relase
+1. Create a tag for the release
 2. Create a release with release notes
 3. Trigger a CI/CD build to publish all the release artifacts (i.e. Docker images, JARs, NPMs, CocoaPods)
 
