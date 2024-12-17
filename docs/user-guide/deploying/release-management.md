@@ -23,7 +23,7 @@ When using a [custom deployment](custom-deployment) you need to specify what Ope
 A custom project always depends on the following versioned OpenRemote Manager artifacts:
 
 * Docker images (published to [Docker Hub](https://hub.docker.com/u/openremote))
-* Java code (packaged as JARs, published to [Maven Central](https://search.maven.org/search?q=io.openremote))
+* Java code (packaged as JARs, published to [Maven Central](https://search.maven.org/search?q=g:io.openremote))
 * TypeScript code (packaged as NPMs, published to [npmjs.com](https://www.npmjs.com/settings/openremote/packages))
 
 All these artifacts share the same version number as they are all created by the [openremote/openremote](https://github.com/openremote/openremote) repository.
