@@ -14,7 +14,7 @@ When using the `openremote/manager` Docker image in production, it is recommende
 Besides the version tags you can also use the "latest" and "develop" tags which are convenient during testing:
 
 * **latest**: this tag is updated to always contain the most recent release.
-* **develop**: this tag is used during development for testing changes before an actual release is created. A new "develop" image is build for every commit pushed to the "master" branch. It is not recommended to use this tag in production because it can be unstable.
+* **develop**: this tag is used during development for testing changes before an actual release is created. A new "develop" image is built for every commit pushed to the "master" branch. It is not recommended to use this tag in production because it can be unstable.
 
 ## Custom Projects
 
