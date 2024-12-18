@@ -1,0 +1,230 @@
+---
+id: stop-tunnel
+title: "Stop a tunnel for a gateway"
+description: "Stop a tunnel for a gateway"
+sidebar_label: "Stop a tunnel for a gateway"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk2P2zYQ/SvCnBpAlrzeBml1ytY10gVS1NhVLl34wJXGEhOKZMhRHNfwfy+GlFeya6RIT/XFxHy8GXLePOgAJBoPxRO8E4Q7sYdNCsaiEySNvq+hAE/Glr3WqCAFh5979PSLqfdQHKAymlATH4W1SlYhLf/ojWabr1rsBJ9obxEKMM8fsSJIwTouQhI9ex0K1U3CPDmpGzim0MSuuJErXhKuQVobRxO31IQNOkhha1wnKJpuF2PCVSzhvWw01t+B1hpPWnR4vbdguHSkgLrv+L1/K8v1I6ThH1Iol2vYcBs9maUyHkt5DXjSRi0IZ8RRxxTktQfiLiQpNg3TjXO811sDxyP7HXprtI9jqHErekXx6CsnLU+TS0VHcoqG9F8mH8HPQR7J2EQkFFpItsYlIhnGCyl0SK2pQy2FxBWsoBYKyIeYnE4c9Oi+oGPSHqB3Cgpoiawv8rzGzmTGonbYGcJMmlxYmR8Cv445pPBFOCme1QXtXi4OnfCEjh9nw4Wq3knah0oMy6/8tJm6HpnhEe0UMJJd9NQueGTK7EJIpSRqWjqsUZMUKhjJfEL9Idwj54w8tOXz2EpunSFTGZVH/FlltMaK8pAWNnLr0Lf/HcBXxsYbWGe2MtDldDpGRrbGyb/CgJemDqw8M35/bQ6F9H9+9cBhJvTDKHqrr6KzCifsGTdzolWjcSpR81GAxoBz3ZlPVWWCEhl10owLkYDFfPHjbP5mtvi5vHldvL4pFj9l8zc3f0IUhokqSV59Jt2gC39Y1A9hWZLfhRYNuuRh9Vgmd+t7uFzgspU+kT6hFpPaVH2HmsL8wzKz9Qoat/wCmSXJWqHwmHjEkPF0BrT54WWTTeXPN/lVqNIZhwlfIhs0SFRBg7ATUgVt3pq3Z3l8ayUrZNkqDjC87N279fvkNptDeiEhu90ua3SfGdfkQ5rPRWPV7DabZ6izljrFmCxB8V3YMWeTNZ46oSdlvq15Z8/7IhuEXym3SkjNmKG7wyCGTzAmD3K4iYRh3+HwLDx+cOp4ZPPnHh1L12ZUvaBeKbQoanRB1T7hHgpYRjGfldwBh6ueO/mHsB/TU8ZdVaGlb8ZuJqL+6+r9qlxBCs/Dh0MXdASc2PEeix0UAPzhwflRm9l2ACV004uGYyMq//4GFz4D6A==
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stop a tunnel for a gateway"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/gateway/tunnel"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stop a tunnel for a gateway
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"realm"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"gatewayId"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"targetPort"}
+          required={false}
+          schemaName={"int32"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","format":"int32"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"target"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"assignedPort"}
+          required={false}
+          schemaName={"int32"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","format":"int32"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"hostname"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"type"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={"**Possible values:** [`HTTPS`, `HTTP`, `TCP`]"}
+          schema={{"type":"string","enum":["HTTPS","HTTP","TCP"]}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"autoCloseTime"}
+          required={false}
+          schemaName={"date-time"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","format":"date-time"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

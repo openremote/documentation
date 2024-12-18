@@ -1,0 +1,321 @@
+---
+id: start-tunnel
+title: "Start a tunnel for a gateway"
+description: "Start a tunnel for a gateway"
+sidebar_label: "Start a tunnel for a gateway"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk2P2zYQ/SvCnFpAlrzeBml16sYIkgVSxFgrly58mJXGEhOKVMhRHNfQfy+Gkteya7RITy0QX0zMN2fmPeoAjJWH7BHeINMO97CJwbbkkJU19yVk4Bkd550xpCEGR5878vzKlnvIDlBYw2RYjti2WhXBL/3orRGZL2pqUE68bwkysE8fqWCIoXWShRV50TpC3UzMPDtlKuhjqIaypJIrWkZXEa+s44laGaaKHMSwta5BHkS3i5PD1VjovaoMld8QrbaeDTZ0vbYguFTEQKZrpOFv83y1hjj8Qwz5cgUbKaNju9TWU66uBZ6UUSLTjMWqj0Fda5BUoViLaBzvMMd7s7XQ96J35Ftr/DCGkrbYaR6OvnCqlWlKqkERHa0h/j75//fk+/hixGuBeYQRB7toa12E0TgDiKEhrq3QQWt9mCJyDRmko0XKR4Lw5L6QE0o5QOc0ZFAztz5L05Iam9iWjKPGMiXKptiq9BBWoE8hhi/oFD7pi8143kpo0DM5qX8jiYrOKd6HTBJWGvG4marWsoRDtKPBaR+x43ohXdV2F0wKrcjw0lFJhhXqIGT7icyHcI9UPNJQlk+HUtLWWbaF1ekQf1ZYY6jgNLgFutw68vW/D+AL2w43aJ3dqjDR46kflqa2Tv0R0Le0ZVicM+G35xZTiP/jVw8rLGzzcHqRXn/FptU02Z4TeCZ0chJOWWR+4oiTwTk1zKfAn0QZNuoI6wscw2K++Gk2fzlb/JLfvMhe3GSLn5P5y5vfYcDuhDiUoFOWboTu+5bMQwBL9BsarMhFD6/XeXS3uodL/Oa18pHyEdcUlbboGjIc5h+gLNIr0aTk55BJFK00oafIEwWPx7NAmx+ekWwLf47kH0OWxjqK5BLJ+EBgEQiVGlQ60OfW/nrmJ7fWqiB5U7IDjJ29e7N6F90mc4gvKGS32yWV6RLrqnR08ylWrZ7dJvOETFJzoyWmUNDQF1HMRSTE1aCZpPkHyjvr7zNvMH3ltNWojAQN5R1GNnyEk/PIh5thY0R3ODyhpw9O972IP3fkhLs2J9oL9BVDTViSC7T2ifaQwXJ4ame5VCDmupNK/vLs9vHR464oqOW/td1MOH31fp1DDE/jR10TaAQc7gTGuIMMQL4KxXugZpEdQKOpOqzEdogpvz8Bik2PmA==
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start a tunnel for a gateway"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/gateway/tunnel"}
+>
+  
+</MethodEndpoint>
+
+
+
+Start a tunnel for a gateway
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"realm"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"gatewayId"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"targetPort"}
+          required={false}
+          schemaName={"int32"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","format":"int32"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"target"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"assignedPort"}
+          required={false}
+          schemaName={"int32"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","format":"int32"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"hostname"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"type"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={"**Possible values:** [`HTTPS`, `HTTP`, `TCP`]"}
+          schema={{"type":"string","enum":["HTTPS","HTTP","TCP"]}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"autoCloseTime"}
+          required={false}
+          schemaName={"date-time"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","format":"date-time"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"id"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"realm"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"gatewayId"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"targetPort"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"target"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"assignedPort"}
+                        required={false}
+                        schemaName={"int32"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int32"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"hostname"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"type"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** [`HTTPS`, `HTTP`, `TCP`]"}
+                        schema={{"type":"string","enum":["HTTPS","HTTP","TCP"]}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"autoCloseTime"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"realm\": \"string\",\n  \"gatewayId\": \"string\",\n  \"targetPort\": 0,\n  \"target\": \"string\",\n  \"assignedPort\": 0,\n  \"hostname\": \"string\",\n  \"type\": \"HTTPS\",\n  \"autoCloseTime\": \"2024-07-29T15:51:28.071Z\",\n  \"id\": \"string\"\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

@@ -1,0 +1,225 @@
+---
+id: get-datapoint-period
+title: "Retrieve a datapoint period of an asset attribute"
+description: "Retrieve a datapoint period of an asset attribute"
+sidebar_label: "Retrieve a datapoint period of an asset attribute"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVkuP2zYQ/ivEnFqAKy2aogedukjTZIE+jI0DFDB8mJXGFhOKZMnRultD/70YytLaXrdItj1UJ2k43zect/bAuE1QreAmJWL1AzIGbxzDWoMPFJGNd7cNVLAlnk8XFI1vQEPAiB0xReHYg8OOoIKbnlsfzZ8ZDBqMgwpawoYiaEh1Sx1CtQd+DKKeOBq3hWHQM8NvVz/6uMPYUHO1iJ79v2Z55xO/iAQlMLfNhP29p/j4uVDmaO57pl/k+7MJ1hoipeBdoiTnDW2wtzy+pjqakONaTQdq0gYNtXdMLutiCNbUOQflxySA/XOj/v4j1RKYECXdbEaTk9PPb6fPvLqk4W1DiZemo8TYhSMd45i2OfQbHzvkUfTdt4KyyF+MGjSwYStK58U5yKPPInZHHA09kELVTPoqZIDyG4VOZc/V7CNo6Ihbf+iAXPLcQgVlVixnlnJkSZJZig9TR/TRSsExh1SVZUOdL3wgF6nzTIXxJQZT7iOh7YYSNDxgNHhvxyxk8UkFQIeJKYpzazFU99HwY7YktKaBarU+PnovCR/ZJoWn3GPP7TcSVet3WaW2hhy/jtSQY4M2C9l/Ivch+1EKoszXSuV4lTJIe9beliP/Ve2do5rLDAMp5U2k1L6cINU+jB6E6DcmJ3t6kwzj8bR57ZtckyfCL7ctqqD/567n+jZu43OWDm3wayB3l6tL/YwOtxTV3Zv3S3WzuIXzbli2JimTFLekGl/3HTnOAVMbH7P0Atu75XIxUxZKLSxhIpWIMmJ1QrT+ai59X6fT0v86W+l8JCVOFIfphXWeXtShsbnRN/77E1yeFaYmGXjV0855u/hJvSquQZ/13G63K7auL3zclgdYKnEb7NWr4rogV7TcWeGUnh3jIgfXIgo+cYfuyMxLBshJ0OfuY/qDy2DROLGU77w/DJfVOH8FOu9jDdOAWWtoZZlVK9jv7zHRh2iHQcTjapFh0JgkU6SBaoM2kYZP9Hiyyx7Q9nILkHX1d9pn6+sJs34aVHng6GmlXrR95v+8okA67FIwRvOX/gH++dr/gaHDb8KJnVHrpq4pHJ89268SlnlZvH2zhGH4C+svQ5A=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve a datapoint period of an asset attribute"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/asset/datapoint/periods"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve a datapoint period of an asset attribute
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"assetId","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"attributeName","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <SchemaItem
+                        collapsible={false}
+                        name={"assetId"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"attributeName"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"oldestTimestamp"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"latestTimestamp"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{\n  \"assetId\": \"string\",\n  \"attributeName\": \"string\",\n  \"oldestTimestamp\": 0,\n  \"latestTimestamp\": 0\n}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

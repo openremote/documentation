@@ -1,0 +1,239 @@
+---
+id: notification-acknowledged
+title: "Update a notification as acknowledged"
+description: "Update a notification as acknowledged"
+sidebar_label: "Update a notification as acknowledged"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVktv20YQ/ivEnJKAEo2m6IGnukbauGhTwZGBAoIOY3JEbrzc3ewOragE/3sxSz1IWQHyQIH6RM/OfPP8ZtQBYxUgX8E7y2qjCmRlDaxTsI58/Oe2hBzM6PW6eDR2q6msqIQUHHpsiMkLTAcGG4IcrluurVf/DHgpKAM51IQleUghFDU1CHkHvHOiHtgrU0Hfp0eEv2e/Wr9FX1I5W3jL9rtR3trA3wTC6Cvi2/Jg/LElv/tC23HlTggOuYYUPH1slacScvYtXQBUhqmKcW6sb5AH0U8/Qt+vB3MK/Istd2JTWMNkWD7ROb13mn0I1ojsGbh9+ECFVIQVaxH8Hqx5Z0uCvu97gQ/OmkBBbEraYKt5+AyFVy52Nj88JAdtSMeBvMpeQd4NeFO7e1ciU4LJuEIJhgSn89UQ11Zm0LUcx41ryCEbW2XdtMp9doYRyD8dBrT1WvrP7EKeZSU1dm4dGU+NZZorm6FTWecJddNnkMITeoUPeqhCFE/KAQ0GJi8lW4ujovWKd9GTwKoS8tV6/PRe2jCgHRROHcGW6x+k29puo0qhFRm+8VSSYYU6Ctk+krmPeWRikcWwQjaEkjlhS2F1NuDPCmsMFZxFszh1G0+h/naAUFg3ZOC83ag4O4cvaTSOyX8jAyUjORZ+vW9RlVH9X6cex1z4dndi5ptP2DjR63oh/8bGDu4Z95cjcxcnL/kTDVbkk7s375fJ9eIWzgmzrFVIVEi4pqS0RduQ4YE0G+uj9ALa2+VycYScJ8lCEwZKAlG0WE2A1i+OtLBFmNLiZfTSWE+JJDHf0xyLSHNqUOm4nDb254kd9CloVZBshvx0Hn5b/JG8nl9BesbH7XY7r0w7t77K9mYhw8rp2ev51ZzMvOZGC6bweaiLPFyJyNnADZqRmy/dMZNCH9nI9Ikzp1EZQY9xdvv9s5rsdUghf7bnJy7WKdRyffIVdN0DBrr3uu9FPNwSWRelCrJnSsg3qAOl8Ei76fF5Qt1KYCD75LCXLtueZXTcyPDibn9zXiZCp0uZ7oVodmOfh3jOEu3XfXq4pl8XyefcD24unf9T/ul/42j/C2HiZ9C6GdBmSwE6aTy7syeL66IgN0aTUyiNOx60xf0SUnjYX+8m7knwuJU9hdshcBvzGW6PyDrQaKoWK9EdPMrfvwN0Zcc=
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a notification as acknowledged"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/notification/{notificationId}/acknowledged"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update a notification as acknowledged
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"notificationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"targetId","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <div
+          style={{"marginTop":".5rem","marginBottom":".5rem"}}
+        >
+          
+          
+          object
+          
+          
+        </div>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"*/*"}
+              value={"*/*"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

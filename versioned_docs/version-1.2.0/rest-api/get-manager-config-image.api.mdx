@@ -1,0 +1,158 @@
+---
+id: get-manager-config-image
+title: "Retrieve manager configuration images"
+description: "Retrieve manager configuration images"
+sidebar_label: "Retrieve manager configuration images"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1P3DAQ/SvRnAo1MSq3nIoQokitimA5oT0YZzZxcWxjT9jSVf57NU72I7SHtqfuZZ3xzJuZl5mXDZBqElQPcOHdyjR9VGS8g6UAH3B8uK6hggbpi3KqwTg6XneqQRAQVFQdEkYG2YBTHUIFK2MxHwUYBxUERS0IiPjcm4g1VBR7FJB0i52CasMOhJFdy/cggF4DwySKxjUwDEuOTcG7hInda1yp3tJ4TDqakKuuthfF1hsEaO8IXfY9lsf8t0875fGP31ATDPwTbxBvkaLBFyy6sf1CHxJVGOYhgYAOqfUTU5kXaqECOfOWE4bMUXKzpWkAAQnjy5bFPlqooCUKqZKyxs6XPqCL2HnC0nipgpGbiMp2gwQBLyoa9WhHbrJ5RhJ0KhFG7m/JiXQfDb3mTAxraqgelodXd0zQiLZ12HOlemo/gICV9evsoq1BRxcRa3RklM1G8k/o7nMfkiNkLivJsRQZoievvZUj/on2zqEmmcPypKwipvbfAZL2YewgRM888xROJ37JDOmj+ZHfy4WvkV1nxr/Pza48vP9163nEjVv5/JYM5euvAd1tnq5i2vLi9vJuUZzfXMPbhVi0JhUmFdRiUXvdd+ho3IWVj9n6G7RPi8XNDrIsihuLKmGREHPEwwxo+W43+l6n+egf5Sydj1hwE+W04ErnBcdOGaaNrz7O4mAQYI1G1oRqp1PnVzefi7PyFMSbnVuv12Xj+tLHRk5hSaom2JOz8rREV7bUWcbknR154YtTNgWfqFPuIM2fasiM6N3GEX4nGawyjtFznZtJXx5ghsQyNGZg4Z0UutqJ8VJA6xNx2GbzqBLeRzsMbH7uMbIgLPdakuWhNonPNVQrZRP+UuFOW+Hd7aTtR8Vev+eVT0blXrNk2Z6fQMATvh5+MoblIKBFVWPMNYzX51pjoINA1nLWrJ3uXl0uYBh+AsAuYsY=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve manager configuration images"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/configuration/manager/image/{filename}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve manager configuration images
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"filename","in":"path","required":true,"schema":{"pattern":".+","type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"*/*"}
+              value={"*/*"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <div
+                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                      >
+                        
+                        
+                        object
+                        
+                        
+                      </div>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"{}"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
