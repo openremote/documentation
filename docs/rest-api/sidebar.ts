@@ -108,9 +108,21 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "rest-api/get-manager-config",
+          label: "Retrieve the manager configuration JSON",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "rest-api/update-configuration",
           label: "Update manager configuration",
           className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "rest-api/get-manager-config-image",
+          label: "Retrieve manager configuration images",
+          className: "api-method get",
         },
       ],
     },
@@ -276,8 +288,20 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "rest-api/write-attribute-events",
+          label: "Update attribute values with timestamps",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
           id: "rest-api/write-attribute-value",
           label: "Write to a single attribute",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "rest-api/write-attribute-value-1",
+          label: "Write to a single attribute with a timestamp",
           className: "api-method put",
         },
         {
@@ -1166,6 +1190,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "rest-api/schemas/objectnode",
+          label: "ObjectNode",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "rest-api/schemas/agentdescriptor",
           label: "AgentDescriptor",
           className: "schema",
@@ -1334,8 +1364,20 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "rest-api/schemas/attributeevent",
+          label: "AttributeEvent",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "rest-api/schemas/attributestate",
           label: "AttributeState",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/valuedescriptor",
+          label: "ValueDescriptor",
           className: "schema",
         },
         {
@@ -1456,12 +1498,6 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "rest-api/schemas/gatewaytunnelinfo",
           label: "GatewayTunnelInfo",
-          className: "schema",
-        },
-        {
-          type: "doc",
-          id: "rest-api/schemas/objectnode",
-          label: "ObjectNode",
           className: "schema",
         },
         {
