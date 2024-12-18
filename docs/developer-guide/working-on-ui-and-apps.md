@@ -5,7 +5,7 @@ sidebar_position: 5
 # Working on UI and apps
 
 ## Overview
-Front end applications are [webcomponent](https://www.webcomponents.org/) based using the [lit](https://lit.dev/) library and [Material Design](https://material.io/components?platform=web) for styling. We use a combination of Polymer LIT, Material Design and our own OpenRemote elements. The UI components are [published on NPM](https://www.npmjs.com/~openremote). The applications themselves are composed of our re-usable modular UI components which can be found in the code base in the [ui/component](https://github.com/openremote/openremote/tree/master/ui/component) folder, these are also published to [NPM](https://www.npmjs.com/~openremotedeveloper).
+Front end applications are [webcomponent](https://www.webcomponents.org/) based using the [lit](https://lit.dev/) library and [Material Design](https://material.io/components?platform=web) for styling. We use a combination of Polymer LIT, Material Design and our own OpenRemote elements. The UI components are [published on NPM](https://www.npmjs.com/org/openremote). The applications themselves are composed of our re-usable modular UI components which can be found in the code base in the [ui/component](https://github.com/openremote/openremote/tree/master/ui/component) folder, these are also published to [NPM](https://www.npmjs.com/org/openremote).
 
 ## Working on an app (e.g. Manager UI)
 To work on an app for example the `Manager UI` then `cd` into the app directory e.g. `ui/app/manager` and run the following `npm` script:
@@ -97,16 +97,4 @@ Apps bring together components and/or public NPM modules and can be written usin
 compatible with web components (see [here](https://custom-elements-everywhere.com/)).
 
 ### Demos
-These are apps for development purposes Generally a 1-1 mapping between components and demos; they provide a simple harness for the components that can be used during development and optionally can be deployed to offer component demos. 
-
-## Publishing to NPM
-Publishing is done using lockstep versioning; we use yarn version plugin to manage workspace package version incrementing as follows:
-
-1. The public packages are marked for version bump:
-`yarn workspaces foreach --no-private --topological version --deferred <patch | minor | major>`
-1. The new versions are applied:
-`yarn version apply --all`
-1. The components are prepared:
-`yarn workspaces foreach --no-private --topological npm prepublishOnly`
-1. The public packages are packed and published:
-`yarn workspaces foreach --no-private --topological npm publish`
+These are apps for development purposes Generally a 1-1 mapping between components and demos; they provide a simple harness for the components that can be used during development and optionally can be deployed to offer component demos.
