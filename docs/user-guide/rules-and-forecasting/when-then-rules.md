@@ -8,8 +8,12 @@ When-Then rules are used in combination with the or-rules UI component. They are
 
 ![Manager Rules Editor](img/rules-editor.png)
 
-
 ## Supported actions
+
+On the left hand side you can have conditions for triggering:
+- Attribute value conditions
+- Timer, inluding time of day, sunset, sunrise twilight.
+- Duration: the number of minutes the attribute value condition or timer condition needs to be true
 
 On the right hand side you can trigger different types of actions:
 - Update attribute values
