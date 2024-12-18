@@ -95,7 +95,7 @@ To undo this, either comment the `mavenLocal()` repository or remove your local 
 
 ### Version resolution
 
-The manager build version is resolved based on tags and commits of the Git repository using the Gradle [axion-release-plugin](https://axion-release-plugin.readthedocs.io/en/latest/) plug-in.
+The manager build version is resolved based on tags and commits of the Git repository using the Gradle [axion-release-plugin](https://axion-release-plugin.readthedocs.io/en/latest/).
 For this to work correctly it is important your local Git repository has all published tags (i.e. use `git pull --tags`).
 
 You can also configure Git to always fetch tags using:
