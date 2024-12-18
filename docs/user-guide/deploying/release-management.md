@@ -82,6 +82,8 @@ If you have additional questions regarding this migration, we encourage you to r
 
 ## Local development practices
 
+### Local artifacts
+
 When developing a custom project you may also need to test changes you make to the manager code before your code gets merged.
 You can test your local changes in a custom project by first publishing them to the local Maven repository using:
 
@@ -90,6 +92,16 @@ You can test your local changes in a custom project by first publishing them to 
 Note that the custom project build first resolves artifacts from `mavenLocal()` which is defined in the `project.gradle` file.
 So once you publish snapshot artifacts to your local Maven repository these will no longer be downloaded from the https://s01.oss.sonatype.org/content/repositories/snapshots repository.
 To undo this, either comment the `mavenLocal()` repository or remove your local artifacts in `~/.m2/repository/io/openremote`.
+
+### Version resolution
+
+The manager build version is resolved based on tags and commits of the Git repository using the Gradle [axion-release-plugin](https://axion-release-plugin.readthedocs.io/en/latest/) plug-in.
+For this to work correctly it is important your local Git repository has all published tags (i.e. use `git pull --tags`).
+
+You can also configure Git to always fetch tags using:
+
+* Per repository: `git config remote.origin.tagOpt --tags`
+* Globally: `git config --global fetch.tagOpt --tags`
 
 ## Creating releases
 
