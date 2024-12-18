@@ -67,7 +67,7 @@ Using submodules for versioning is no longer supported.
 
 If you have an exising custom project using submodules, the easiest way to apply all the changes is to create a new custom project using the [template](https://github.com/openremote/custom-project) and add your customizations to it.
 
-Another way to migrate an existing project is to manually apply all changes of the [commit](https://github.com/openremote/custom-project/commit/...) used for migrating the custom project template.
+Another way to migrate an existing project is to manually apply all changes of the [commit](https://github.com/openremote/custom-project/commit/6f4870c3ae81c7eb00c5b283afe0240790e8b1e6) used for migrating the custom project template.
 
 As you can see in the commit the manual migration steps are:
 
