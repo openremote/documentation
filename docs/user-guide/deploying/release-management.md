@@ -80,6 +80,17 @@ As you can see in the commit the manual migration steps are:
 
 If you have additional questions regarding this migration, we encourage you to reach out to our [forum](https://forum.openremote.io/).
 
+## Local development practices
+
+When developing a custom project you may also need to test changes you make to the manager code before your code gets merged.
+You can test your local changes in a custom project by first publishing them to the local Maven repository using:
+
+`./gradlew clean installDist publishToMavenLocal`
+
+Note that the custom project build first resolves artifacts from `mavenLocal()` which is defined in the `project.gradle` file.
+So once you publish snapshot artifacts to your local Maven repository these will no longer be downloaded from the https://s01.oss.sonatype.org/content/repositories/snapshots repository.
+To undo this, either comment the `mavenLocal()` repository or remove your local artifacts in `~/.m2/repository/io/openremote`.
+
 ## Creating releases
 
 The OpenRemote Manager and Android/iOS Console projects are released using a GitHub Actions "Release" workflow (release.yml).
