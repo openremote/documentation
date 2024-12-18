@@ -15,7 +15,7 @@ Use `docker stats` to show CPU, memory, network read/writes, and total disk read
 Access the database:
 
 ```shell
-docker exec -it openremote_postgresql_1 psql -U openremote
+docker exec -it openremote_postgresql_1 psql -U postgres
 ```
 
 Get statistics for all tables and indices (note that these are collected statistics, not live data):
