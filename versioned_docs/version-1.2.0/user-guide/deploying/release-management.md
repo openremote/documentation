@@ -76,7 +76,8 @@ As you can see in the commit the manual migration steps are:
 3. Add the new "model" and "rest" UI component module code
 4. Update the TypeScript code so classes are loaded from the new modules:
    1. Add `import rest from "rest";` to your imports if necessary
-   2. Replace `manager.rest.api` with `rest.api` where applicable
+   2. Replace `import ... from '@openremote/model';` with `import ... from 'model';` if necessary
+   3. Replace `manager.rest.api` with `rest.api` where applicable
 
 If you have additional questions regarding this migration, we encourage you to reach out to our [forum](https://forum.openremote.io/).
 
