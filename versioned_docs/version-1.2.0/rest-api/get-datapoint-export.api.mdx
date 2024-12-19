@@ -1,0 +1,150 @@
+---
+id: get-datapoint-export
+title: "Retrieve a datapoint export of an asset attribute"
+description: "Retrieve a datapoint export of an asset attribute"
+sidebar_label: "Retrieve a datapoint export of an asset attribute"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFu3DYQ/RViTg3AiEZS9KBTjdRIArSo4WxOxh7G0mhFhOSw5MiOs9C/F6R2Fe8iQdogh9yI4bzH4TzO4x4EdxnaW7jMmUT9gYKRbRDYauBICcVyeNtDCzuSdffqY+QkoCFiQk9CqXDsIaAnaAFFkr2bhG5oyKDBBmjhn4nSI2jI3Ugeod2DPMaSnSXZsIN51ivBkNhvrKcs6OM3CWwQ2lECDQMnj7KEfvv1hFL4hxBuNSTKkUOmXBA9DTg5WZa5SzaWhkF73FDHbNDQcRAKNRdjdLarzTWfbIR2P8/zrM84bkiSpXtSqPpj6xXV3iseFAaFVbW136DBk4x80KsKJCO0YGqiWVkMHRXMlO6P8k3JQQujSMytMT15bjhSSORZqLFsMFqzT4TOzwY03GOyeOeWTtTwSUvAYxZKMNe2ZeqmZOWxnlRobQ/t7fbp1rsixMJ2TFg1YZxkfFEkcfxQUzpnKcirRD0FsehqUPgDhff1HqYgTC0rm6UUExMLd+zMwv+84xCoE1NhULQdEuXx+wlyx3G5QUw8WFdKP66KwIWSk/1UpX/FPdXX8DT4/88uqaB/8qvX523DwFUlK3X770jhpr4u9RcG3FFSN1fvNury+i2cD8NmtFnZrGQk1XM3eQpSG6YGTjX6BbY3m831Stkode0IM6lMVBG3J0TbX9anz10+ffrP6imeE6lyieYwztjVcSaP1lWXGPj3ExzMGpztqDhAu5rR5evrP9XL5gL02cw9PDw0uzA1nHbmAMsGd9E9f9lcNBSaUbwrnGVml76UjYsSipzFY3hyzPf4x0nT1+kT+igmOrShnFRr3h+85RYqSYGun4eGg79sNYycpWTt93eY6X1y81zCi/kWL+htLibSQzugy6ThAz1+4RO5RzeVUqCY+lcw5//Gf8GcfgyfEdvP/lZ9SsNI2FOqNS/Qy66jKE9Q57ZeSFZDfn21gXn+F6BXm+0=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve a datapoint export of an asset attribute"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/asset/datapoint/export"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve a datapoint export of an asset attribute
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"attributeRefs","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"fromTimestamp","in":"query","schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"toTimestamp","in":"query","schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/zip"}
+              value={"application/zip"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

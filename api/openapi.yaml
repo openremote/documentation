@@ -94,7 +94,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AssetTreeNode'
+                  $ref: "#/components/schemas/AssetTreeNode"
   /agent/assetImport/{agentId}:
     post:
       tags:
@@ -127,7 +127,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/FileInfo'
+              $ref: "#/components/schemas/FileInfo"
       responses:
         default:
           description: default response
@@ -136,7 +136,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AssetTreeNode'
+                  $ref: "#/components/schemas/AssetTreeNode"
   /agent/instanceDiscovery/{agentType}:
     get:
       tags:
@@ -177,7 +177,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AgentObjectObjectObject'
+                  $ref: "#/components/schemas/AgentObjectObjectObject"
   /alarm:
     get:
       tags:
@@ -227,7 +227,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/SentAlarm'
+                  $ref: "#/components/schemas/SentAlarm"
     post:
       tags:
       - Alarm
@@ -258,7 +258,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SentAlarm'
+                $ref: "#/components/schemas/SentAlarm"
     delete:
       tags:
       - Alarm
@@ -313,7 +313,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SentAlarm'
+                $ref: "#/components/schemas/SentAlarm"
     put:
       tags:
       - Alarm
@@ -409,7 +409,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AlarmAssetLink'
+                  $ref: "#/components/schemas/AlarmAssetLink"
   /alarm/assets:
     put:
       tags:
@@ -461,7 +461,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/FileInfo'
+              $ref: "#/components/schemas/FileInfo"
       responses:
         default:
           description: default response
@@ -470,6 +470,18 @@ paths:
               schema:
                 type: string
   /configuration/manager:
+    get:
+      tags:
+      - Configuration
+      summary: Retrieve the manager configuration JSON
+      operationId: getManagerConfig
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ObjectNode"
     put:
       tags:
       - Configuration
@@ -492,12 +504,32 @@ paths:
         content:
           application/json:
             schema:
-              type: object
+              $ref: "#/components/schemas/ObjectNode"
       responses:
         default:
           description: default response
           content:
             application/json:
+              schema:
+                $ref: "#/components/schemas/ObjectNode"
+  /configuration/manager/image/{filename}:
+    get:
+      tags:
+      - Configuration
+      summary: Retrieve manager configuration images
+      operationId: getManagerConfigImage
+      parameters:
+      - name: filename
+        in: path
+        required: true
+        schema:
+          pattern: .+
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*':
               schema:
                 type: object
   /apps/info:
@@ -611,7 +643,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AssetDescriptorObject'
+                  $ref: "#/components/schemas/AssetDescriptorObject"
   /model/assetInfo/{assetType}:
     get:
       tags:
@@ -646,7 +678,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AssetTypeInfo'
+                $ref: "#/components/schemas/AssetTypeInfo"
   /model/assetInfos:
     get:
       tags:
@@ -682,7 +714,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AssetTypeInfo'
+                  $ref: "#/components/schemas/AssetTypeInfo"
   /model/metaItemDescriptors:
     get:
       tags:
@@ -714,7 +746,7 @@ paths:
               schema:
                 type: object
                 additionalProperties:
-                  $ref: '#/components/schemas/MetaItemDescriptorObject'
+                  $ref: "#/components/schemas/MetaItemDescriptorObject"
   /model/valueDescriptors:
     get:
       tags:
@@ -746,7 +778,7 @@ paths:
               schema:
                 type: object
                 additionalProperties:
-                  $ref: '#/components/schemas/ValueDescriptorObject'
+                  $ref: "#/components/schemas/ValueDescriptorObject"
   /asset:
     post:
       tags:
@@ -770,14 +802,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AssetObject'
+              $ref: "#/components/schemas/AssetObject"
       responses:
         default:
           description: default response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AssetObject'
+                $ref: "#/components/schemas/AssetObject"
     delete:
       tags:
       - Asset
@@ -846,7 +878,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserAssetLink'
+                  $ref: "#/components/schemas/UserAssetLink"
     post:
       tags:
       - Asset
@@ -871,7 +903,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/UserAssetLink'
+                $ref: "#/components/schemas/UserAssetLink"
       responses:
         default:
           description: default response
@@ -975,7 +1007,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/UserAssetLink'
+                $ref: "#/components/schemas/UserAssetLink"
       responses:
         default:
           description: default response
@@ -1011,7 +1043,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AssetObject'
+                $ref: "#/components/schemas/AssetObject"
     put:
       tags:
       - Asset
@@ -1039,14 +1071,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AssetObject'
+              $ref: "#/components/schemas/AssetObject"
       responses:
         default:
           description: default response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AssetObject'
+                $ref: "#/components/schemas/AssetObject"
   /asset/user/current:
     get:
       tags:
@@ -1074,7 +1106,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AssetObject'
+                  $ref: "#/components/schemas/AssetObject"
   /asset/partial/{assetId}:
     get:
       tags:
@@ -1105,7 +1137,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AssetObject'
+                $ref: "#/components/schemas/AssetObject"
   /asset/query:
     post:
       tags:
@@ -1129,7 +1161,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AssetQuery'
+              $ref: "#/components/schemas/AssetQuery"
       responses:
         default:
           description: default response
@@ -1138,7 +1170,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AssetObject'
+                  $ref: "#/components/schemas/AssetObject"
   /asset/parent:
     delete:
       tags:
@@ -1208,6 +1240,41 @@ paths:
           description: default response
           content:
             application/json: {}
+  /asset/attributes/timestamp:
+    put:
+      tags:
+      - Asset
+      summary: Update attribute values with timestamps
+      operationId: writeAttributeEvents
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/AttributeEvent"
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/AttributeWriteResult"
   /asset/{assetId}/attribute/{attributeName}:
     put:
       tags:
@@ -1248,7 +1315,54 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AttributeWriteResult'
+                $ref: "#/components/schemas/AttributeWriteResult"
+  /asset/{assetId}/attribute/{attributeName}/{timestamp}:
+    put:
+      tags:
+      - Asset
+      summary: Write to a single attribute with a timestamp
+      operationId: writeAttributeValue_1
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: assetId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: attributeName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: timestamp
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int64
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        default:
+          description: The result of the write operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AttributeWriteResult"
   /asset/attributes:
     put:
       tags:
@@ -1274,7 +1388,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/AttributeState'
+                $ref: "#/components/schemas/AttributeState"
       responses:
         default:
           description: default response
@@ -1283,7 +1397,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AttributeWriteResult'
+                  $ref: "#/components/schemas/AttributeWriteResult"
   /console/register:
     post:
       tags:
@@ -1307,7 +1421,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ConsoleRegistration'
+              $ref: "#/components/schemas/ConsoleRegistration"
         required: true
       responses:
         default:
@@ -1315,7 +1429,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ConsoleRegistration'
+                $ref: "#/components/schemas/ConsoleRegistration"
   /dashboard:
     put:
       tags:
@@ -1339,14 +1453,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Dashboard'
+              $ref: "#/components/schemas/Dashboard"
       responses:
         default:
           description: default response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Dashboard'
+                $ref: "#/components/schemas/Dashboard"
     post:
       tags:
       - Dashboard
@@ -1369,14 +1483,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Dashboard'
+              $ref: "#/components/schemas/Dashboard"
       responses:
         default:
           description: default response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Dashboard'
+                $ref: "#/components/schemas/Dashboard"
   /dashboard/{realm}/{dashboardId}:
     get:
       tags:
@@ -1412,7 +1526,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Dashboard'
+                $ref: "#/components/schemas/Dashboard"
     delete:
       tags:
       - Dashboard
@@ -1478,7 +1592,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Dashboard'
+                  $ref: "#/components/schemas/Dashboard"
   /dashboard/query:
     post:
       tags:
@@ -1502,7 +1616,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/DashboardQuery'
+              $ref: "#/components/schemas/DashboardQuery"
       responses:
         default:
           description: default response
@@ -1511,7 +1625,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Dashboard'
+                  $ref: "#/components/schemas/Dashboard"
   /asset/datapoint/export:
     get:
       tags:
@@ -1571,7 +1685,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/DatapointPeriod'
+                $ref: "#/components/schemas/DatapointPeriod"
   /asset/datapoint/{assetId}/{attributeName}:
     post:
       tags:
@@ -1605,7 +1719,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AssetDatapointQuery'
+              $ref: "#/components/schemas/AssetDatapointQuery"
       responses:
         default:
           description: default response
@@ -1614,7 +1728,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ValueDatapointObject'
+                  $ref: "#/components/schemas/ValueDatapointObject"
   /asset/predicted/{assetId}/{attributeName}:
     put:
       tags:
@@ -1650,7 +1764,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/ValueDatapointObject'
+                $ref: "#/components/schemas/ValueDatapointObject"
       responses:
         default:
           description: default response
@@ -1688,7 +1802,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AssetDatapointQuery'
+              $ref: "#/components/schemas/AssetDatapointQuery"
       responses:
         default:
           description: default response
@@ -1697,7 +1811,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ValueDatapointObject'
+                  $ref: "#/components/schemas/ValueDatapointObject"
   /gateway/connection/{realm}:
     get:
       tags:
@@ -1728,7 +1842,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GatewayConnection'
+                $ref: "#/components/schemas/GatewayConnection"
     put:
       tags:
       - Gateway
@@ -1756,7 +1870,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/GatewayConnection'
+              $ref: "#/components/schemas/GatewayConnection"
       responses:
         default:
           description: default response
@@ -1817,7 +1931,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GatewayConnection'
+                  $ref: "#/components/schemas/GatewayConnection"
     delete:
       tags:
       - Gateway
@@ -1934,7 +2048,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GatewayTunnelInfo'
+                $ref: "#/components/schemas/GatewayTunnelInfo"
   /gateway/tunnel/{realm}:
     get:
       tags:
@@ -1967,7 +2081,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GatewayTunnelInfo'
+                  $ref: "#/components/schemas/GatewayTunnelInfo"
   /gateway/tunnel/{realm}/{id}:
     get:
       tags:
@@ -2005,7 +2119,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GatewayTunnelInfo'
+                  $ref: "#/components/schemas/GatewayTunnelInfo"
   /gateway/tunnel:
     post:
       tags:
@@ -2016,14 +2130,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/GatewayTunnelInfo'
+              $ref: "#/components/schemas/GatewayTunnelInfo"
       responses:
         default:
           description: default response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GatewayTunnelInfo'
+                $ref: "#/components/schemas/GatewayTunnelInfo"
     delete:
       tags:
       - Gateway
@@ -2033,7 +2147,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/GatewayTunnelInfo'
+              $ref: "#/components/schemas/GatewayTunnelInfo"
       responses:
         default:
           description: default response
@@ -2064,7 +2178,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ObjectNode'
+                $ref: "#/components/schemas/ObjectNode"
     put:
       tags:
       - Map
@@ -2089,7 +2203,7 @@ paths:
             schema:
               type: object
               additionalProperties:
-                $ref: '#/components/schemas/MapRealmConfig'
+                $ref: "#/components/schemas/MapRealmConfig"
       responses:
         default:
           description: default response
@@ -2122,7 +2236,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/ObjectNode'
+                $ref: "#/components/schemas/ObjectNode"
   /map/tile/{zoom}/{column}/{row}:
     get:
       tags:
@@ -2214,7 +2328,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/SentNotification'
+                  $ref: "#/components/schemas/SentNotification"
     delete:
       tags:
       - Notification
@@ -2302,7 +2416,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/JsonNode'
+              $ref: "#/components/schemas/JsonNode"
       responses:
         default:
           description: default response
@@ -2395,7 +2509,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Notification'
+              $ref: "#/components/schemas/Notification"
       responses:
         default:
           description: default response
@@ -2415,7 +2529,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/ProvisioningConfigObjectObject'
+                  $ref: "#/components/schemas/ProvisioningConfigObjectObject"
     post:
       tags:
       - Provisioning
@@ -2425,7 +2539,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProvisioningConfigObjectObject'
+              $ref: "#/components/schemas/ProvisioningConfigObjectObject"
       responses:
         default:
           description: default response
@@ -2463,7 +2577,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/ProvisioningConfigObjectObject'
+              $ref: "#/components/schemas/ProvisioningConfigObjectObject"
       responses:
         default:
           description: default response
@@ -2521,7 +2635,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AssetRuleset'
+              $ref: "#/components/schemas/AssetRuleset"
       responses:
         default:
           description: default response
@@ -2572,7 +2686,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GlobalRuleset'
+                  $ref: "#/components/schemas/GlobalRuleset"
     post:
       tags:
       - Rule
@@ -2595,7 +2709,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/GlobalRuleset'
+              $ref: "#/components/schemas/GlobalRuleset"
       responses:
         default:
           description: default response
@@ -2627,7 +2741,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RealmRuleset'
+              $ref: "#/components/schemas/RealmRuleset"
       responses:
         default:
           description: default response
@@ -2667,7 +2781,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AssetRuleset'
+                $ref: "#/components/schemas/AssetRuleset"
     put:
       tags:
       - Rule
@@ -2696,7 +2810,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AssetRuleset'
+              $ref: "#/components/schemas/AssetRuleset"
       responses:
         default:
           description: default response
@@ -2762,7 +2876,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/GlobalRuleset'
+                $ref: "#/components/schemas/GlobalRuleset"
     put:
       tags:
       - Rule
@@ -2791,7 +2905,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/GlobalRuleset'
+              $ref: "#/components/schemas/GlobalRuleset"
       responses:
         default:
           description: default response
@@ -2857,7 +2971,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RealmRuleset'
+                $ref: "#/components/schemas/RealmRuleset"
     put:
       tags:
       - Rule
@@ -2886,7 +3000,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/RealmRuleset'
+              $ref: "#/components/schemas/RealmRuleset"
       responses:
         default:
           description: default response
@@ -2951,7 +3065,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RulesEngineInfo'
+                $ref: "#/components/schemas/RulesEngineInfo"
   /rules/geofences/{assetId}:
     get:
       tags:
@@ -2984,7 +3098,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/GeofenceDefinition'
+                  $ref: "#/components/schemas/GeofenceDefinition"
   /rules/asset/for/{assetId}:
     get:
       tags:
@@ -3032,7 +3146,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/AssetRuleset'
+                  $ref: "#/components/schemas/AssetRuleset"
   /rules/info/global:
     get:
       tags:
@@ -3058,7 +3172,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RulesEngineInfo'
+                $ref: "#/components/schemas/RulesEngineInfo"
   /rules/info/realm/{realm}:
     get:
       tags:
@@ -3089,7 +3203,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/RulesEngineInfo'
+                $ref: "#/components/schemas/RulesEngineInfo"
   /rules/realm/for/{realm}:
     get:
       tags:
@@ -3137,7 +3251,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/RealmRuleset'
+                  $ref: "#/components/schemas/RealmRuleset"
   /flow:
     get:
       tags:
@@ -3165,7 +3279,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Node'
+                  $ref: "#/components/schemas/Node"
   /flow/{type}:
     get:
       tags:
@@ -3203,7 +3317,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Node'
+                  $ref: "#/components/schemas/Node"
   /flow/{name}:
     get:
       tags:
@@ -3234,7 +3348,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Node'
+                $ref: "#/components/schemas/Node"
   /realm:
     get:
       tags:
@@ -3262,7 +3376,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Realm'
+                  $ref: "#/components/schemas/Realm"
     post:
       tags:
       - Realm
@@ -3285,7 +3399,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Realm'
+              $ref: "#/components/schemas/Realm"
       responses:
         default:
           description: default response
@@ -3321,7 +3435,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Realm'
+                $ref: "#/components/schemas/Realm"
     put:
       tags:
       - Realm
@@ -3349,7 +3463,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Realm'
+              $ref: "#/components/schemas/Realm"
       responses:
         default:
           description: default response
@@ -3410,7 +3524,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Realm'
+                  $ref: "#/components/schemas/Realm"
   /user/{realm}/users:
     put:
       tags:
@@ -3439,14 +3553,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
       responses:
         default:
           description: default response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: "#/components/schemas/User"
     post:
       tags:
       - User
@@ -3474,14 +3588,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/User'
+              $ref: "#/components/schemas/User"
       responses:
         default:
           description: default response
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: "#/components/schemas/User"
   /user/{realm}/users/{userId}:
     delete:
       tags:
@@ -3585,7 +3699,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: "#/components/schemas/User"
   /user/{realm}/{clientId}/roles:
     get:
       tags:
@@ -3623,7 +3737,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Role'
+                  $ref: "#/components/schemas/Role"
     put:
       tags:
       - User
@@ -3658,7 +3772,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Role'
+                $ref: "#/components/schemas/Role"
       responses:
         default:
           description: default response
@@ -3689,7 +3803,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: "#/components/schemas/User"
   /user/userRoles/{clientId}:
     get:
       tags:
@@ -3723,7 +3837,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Role'
+                  $ref: "#/components/schemas/Role"
   /user/userRealmRoles:
     get:
       tags:
@@ -3751,7 +3865,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Role'
+                  $ref: "#/components/schemas/Role"
   /user/userRoles:
     get:
       tags:
@@ -3779,7 +3893,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Role'
+                  $ref: "#/components/schemas/Role"
   /user/{realm}/roles:
     get:
       tags:
@@ -3812,7 +3926,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Role'
+                  $ref: "#/components/schemas/Role"
     put:
       tags:
       - User
@@ -3842,7 +3956,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Role'
+                $ref: "#/components/schemas/Role"
       responses:
         default:
           description: default response
@@ -3890,7 +4004,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Role'
+                  $ref: "#/components/schemas/Role"
     put:
       tags:
       - User
@@ -3930,7 +4044,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Role'
+                $ref: "#/components/schemas/Role"
       responses:
         default:
           description: default response
@@ -3973,7 +4087,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Role'
+                  $ref: "#/components/schemas/Role"
     put:
       tags:
       - User
@@ -4008,7 +4122,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Role'
+                $ref: "#/components/schemas/Role"
       responses:
         default:
           description: default response
@@ -4051,7 +4165,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Role'
+                  $ref: "#/components/schemas/Role"
     put:
       tags:
       - User
@@ -4086,7 +4200,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: '#/components/schemas/Role'
+                $ref: "#/components/schemas/Role"
       responses:
         default:
           description: default response
@@ -4129,7 +4243,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/UserSession'
+                  $ref: "#/components/schemas/UserSession"
   /user/query:
     post:
       tags:
@@ -4153,7 +4267,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/UserQuery'
+              $ref: "#/components/schemas/UserQuery"
       responses:
         default:
           description: default response
@@ -4162,7 +4276,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/User'
+                  $ref: "#/components/schemas/User"
   /user/{realm}/reset-password/{userId}:
     put:
       tags:
@@ -4196,7 +4310,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Credential'
+              $ref: "#/components/schemas/Credential"
       responses:
         default:
           description: default response
@@ -4390,7 +4504,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/SyslogConfig'
+                $ref: "#/components/schemas/SyslogConfig"
     put:
       tags:
       - Syslog
@@ -4413,7 +4527,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/SyslogConfig'
+              $ref: "#/components/schemas/SyslogConfig"
       responses:
         default:
           description: default response
@@ -4454,7 +4568,7 @@ components:
     AllowedValues:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValueConstraint'
+      - $ref: "#/components/schemas/ValueConstraint"
       - type: object
         properties:
           allowedValueNames:
@@ -4506,36 +4620,36 @@ components:
             delegate:
               type: object
               additionalProperties:
-                $ref: '#/components/schemas/AttributeObject'
+                $ref: "#/components/schemas/AttributeObject"
           additionalProperties:
-            $ref: '#/components/schemas/AttributeObject'
+            $ref: "#/components/schemas/AttributeObject"
       discriminator:
         propertyName: type
     AssetTreeNode:
       type: object
       properties:
         asset:
-          $ref: '#/components/schemas/AssetObject'
+          $ref: "#/components/schemas/AssetObject"
         children:
           type: array
           items:
-            $ref: '#/components/schemas/AssetTreeNode'
+            $ref: "#/components/schemas/AssetTreeNode"
     AttributeMap:
       type: object
       properties:
         delegate:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/AttributeObject'
+            $ref: "#/components/schemas/AttributeObject"
       additionalProperties:
-        $ref: '#/components/schemas/AttributeObject'
+        $ref: "#/components/schemas/AttributeObject"
     AttributeObject:
       required:
       - name
       type: object
       properties:
         type:
-          $ref: '#/components/schemas/ValueDescriptorObject'
+          $ref: "#/components/schemas/ValueDescriptorObject"
         value:
           type: object
           writeOnly: true
@@ -4548,24 +4662,24 @@ components:
             delegate:
               type: object
               additionalProperties:
-                $ref: '#/components/schemas/MetaItemObject'
+                $ref: "#/components/schemas/MetaItemObject"
           additionalProperties:
-            $ref: '#/components/schemas/MetaItemObject'
+            $ref: "#/components/schemas/MetaItemObject"
         timestamp:
           type: integer
           format: int64
     Future:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValueConstraint'
+      - $ref: "#/components/schemas/ValueConstraint"
     FutureOrPresent:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValueConstraint'
+      - $ref: "#/components/schemas/ValueConstraint"
     Max:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValueConstraint'
+      - $ref: "#/components/schemas/ValueConstraint"
       - type: object
         properties:
           max:
@@ -4576,7 +4690,7 @@ components:
       type: object
       properties:
         type:
-          $ref: '#/components/schemas/ValueDescriptorObject'
+          $ref: "#/components/schemas/ValueDescriptorObject"
         value:
           type: object
           writeOnly: true
@@ -4589,13 +4703,13 @@ components:
         delegate:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/MetaItemObject'
+            $ref: "#/components/schemas/MetaItemObject"
       additionalProperties:
-        $ref: '#/components/schemas/MetaItemObject'
+        $ref: "#/components/schemas/MetaItemObject"
     Min:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValueConstraint'
+      - $ref: "#/components/schemas/ValueConstraint"
       - type: object
         properties:
           min:
@@ -4603,27 +4717,27 @@ components:
     NotBlank:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValueConstraint'
+      - $ref: "#/components/schemas/ValueConstraint"
     NotEmpty:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValueConstraint'
+      - $ref: "#/components/schemas/ValueConstraint"
     NotNull:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValueConstraint'
+      - $ref: "#/components/schemas/ValueConstraint"
     Past:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValueConstraint'
+      - $ref: "#/components/schemas/ValueConstraint"
     PastOrPresent:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValueConstraint'
+      - $ref: "#/components/schemas/ValueConstraint"
     Pattern:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValueConstraint'
+      - $ref: "#/components/schemas/ValueConstraint"
       - type: object
         properties:
           regexp:
@@ -4643,7 +4757,7 @@ components:
     Size:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValueConstraint'
+      - $ref: "#/components/schemas/ValueConstraint"
       - type: object
         properties:
           min:
@@ -4672,9 +4786,9 @@ components:
         constraints:
           type: array
           items:
-            $ref: '#/components/schemas/ValueConstraint'
+            $ref: "#/components/schemas/ValueConstraint"
         format:
-          $ref: '#/components/schemas/ValueFormat'
+          $ref: "#/components/schemas/ValueFormat"
         units:
           type: array
           items:
@@ -4915,9 +5029,9 @@ components:
             delegate:
               type: object
               additionalProperties:
-                $ref: '#/components/schemas/AttributeObject'
+                $ref: "#/components/schemas/AttributeObject"
           additionalProperties:
-            $ref: '#/components/schemas/AttributeObject'
+            $ref: "#/components/schemas/AttributeObject"
     SentAlarm:
       required:
       - realm
@@ -4978,7 +5092,7 @@ components:
         asset:
           type: array
           items:
-            $ref: '#/components/schemas/AssetObject'
+            $ref: "#/components/schemas/AssetObject"
     Alarm:
       required:
       - realm
@@ -5026,7 +5140,7 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/Id'
+          $ref: "#/components/schemas/Id"
         createdOn:
           type: string
           format: date-time
@@ -5043,10 +5157,12 @@ components:
           type: string
         assetId:
           type: string
+    ObjectNode:
+      type: object
     AgentDescriptor:
       type: object
       allOf:
-      - $ref: '#/components/schemas/AssetDescriptorObject'
+      - $ref: "#/components/schemas/AssetDescriptorObject"
       - type: object
         properties:
           assetDiscovery:
@@ -5077,32 +5193,32 @@ components:
       type: object
       properties:
         assetDescriptor:
-          $ref: '#/components/schemas/AssetDescriptorObject'
+          $ref: "#/components/schemas/AssetDescriptorObject"
         attributeDescriptors:
           type: array
           items:
-            $ref: '#/components/schemas/AttributeDescriptorObject'
+            $ref: "#/components/schemas/AttributeDescriptorObject"
         metaItemDescriptors:
           type: array
           items:
-            $ref: '#/components/schemas/MetaItemDescriptorObject'
+            $ref: "#/components/schemas/MetaItemDescriptorObject"
         valueDescriptors:
           type: array
           items:
-            $ref: '#/components/schemas/ValueDescriptorObject'
+            $ref: "#/components/schemas/ValueDescriptorObject"
     AttributeDescriptorObject:
       type: object
       properties:
         name:
           type: string
         type:
-          $ref: '#/components/schemas/ValueDescriptorObject'
+          $ref: "#/components/schemas/ValueDescriptorObject"
         constraints:
           type: array
           items:
-            $ref: '#/components/schemas/ValueConstraint'
+            $ref: "#/components/schemas/ValueConstraint"
         format:
-          $ref: '#/components/schemas/ValueFormat'
+          $ref: "#/components/schemas/ValueFormat"
         units:
           type: array
           items:
@@ -5113,9 +5229,9 @@ components:
             delegate:
               type: object
               additionalProperties:
-                $ref: '#/components/schemas/MetaItemObject'
+                $ref: "#/components/schemas/MetaItemObject"
           additionalProperties:
-            $ref: '#/components/schemas/MetaItemObject'
+            $ref: "#/components/schemas/MetaItemObject"
         optional:
           type: boolean
     MetaItemDescriptorObject:
@@ -5124,13 +5240,13 @@ components:
         name:
           type: string
         type:
-          $ref: '#/components/schemas/ValueDescriptorObject'
+          $ref: "#/components/schemas/ValueDescriptorObject"
         constraints:
           type: array
           items:
-            $ref: '#/components/schemas/ValueConstraint'
+            $ref: "#/components/schemas/ValueConstraint"
         format:
-          $ref: '#/components/schemas/ValueFormat'
+          $ref: "#/components/schemas/ValueFormat"
         units:
           type: array
           items:
@@ -5139,7 +5255,7 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/Id'
+          $ref: "#/components/schemas/Id"
         createdOn:
           type: string
           format: date-time
@@ -5152,7 +5268,7 @@ components:
     ArrayPredicate:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValuePredicate'
+      - $ref: "#/components/schemas/ValuePredicate"
       - type: object
         properties:
           value:
@@ -5177,7 +5293,7 @@ components:
         recursive:
           type: boolean
         select:
-          $ref: '#/components/schemas/Select'
+          $ref: "#/components/schemas/Select"
         access:
           type: string
           enum:
@@ -5191,17 +5307,17 @@ components:
         names:
           type: array
           items:
-            $ref: '#/components/schemas/StringPredicate'
+            $ref: "#/components/schemas/StringPredicate"
         parents:
           type: array
           items:
-            $ref: '#/components/schemas/ParentPredicate'
+            $ref: "#/components/schemas/ParentPredicate"
         paths:
           type: array
           items:
-            $ref: '#/components/schemas/PathPredicate'
+            $ref: "#/components/schemas/PathPredicate"
         realm:
-          $ref: '#/components/schemas/RealmPredicate'
+          $ref: "#/components/schemas/RealmPredicate"
         userIds:
           type: array
           items:
@@ -5211,9 +5327,9 @@ components:
           items:
             type: string
         attributes:
-          $ref: '#/components/schemas/LogicGroupAttributePredicate'
+          $ref: "#/components/schemas/LogicGroupAttributePredicate"
         orderBy:
-          $ref: '#/components/schemas/OrderBy'
+          $ref: "#/components/schemas/OrderBy"
         limit:
           type: integer
           format: int32
@@ -5221,7 +5337,7 @@ components:
       type: object
       properties:
         name:
-          $ref: '#/components/schemas/StringPredicate'
+          $ref: "#/components/schemas/StringPredicate"
         negated:
           type: boolean
         path:
@@ -5229,17 +5345,17 @@ components:
           items:
             type: object
         value:
-          $ref: '#/components/schemas/ValuePredicate'
+          $ref: "#/components/schemas/ValuePredicate"
         meta:
           type: array
           items:
-            $ref: '#/components/schemas/NameValuePredicate'
+            $ref: "#/components/schemas/NameValuePredicate"
         previousValue:
-          $ref: '#/components/schemas/ValuePredicate'
+          $ref: "#/components/schemas/ValuePredicate"
     BooleanPredicate:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValuePredicate'
+      - $ref: "#/components/schemas/ValuePredicate"
       - type: object
         properties:
           value:
@@ -5247,7 +5363,7 @@ components:
     CalendarEventPredicate:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValuePredicate'
+      - $ref: "#/components/schemas/ValuePredicate"
       - type: object
         properties:
           timestamp:
@@ -5256,7 +5372,7 @@ components:
     DateTimePredicate:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValuePredicate'
+      - $ref: "#/components/schemas/ValuePredicate"
       - type: object
         properties:
           value:
@@ -5285,16 +5401,16 @@ components:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/AttributePredicate'
+            $ref: "#/components/schemas/AttributePredicate"
         groups:
           type: array
           items:
-            $ref: '#/components/schemas/LogicGroupAttributePredicate'
+            $ref: "#/components/schemas/LogicGroupAttributePredicate"
     NameValuePredicate:
       type: object
       properties:
         name:
-          $ref: '#/components/schemas/StringPredicate'
+          $ref: "#/components/schemas/StringPredicate"
         negated:
           type: boolean
         path:
@@ -5302,11 +5418,11 @@ components:
           items:
             type: object
         value:
-          $ref: '#/components/schemas/ValuePredicate'
+          $ref: "#/components/schemas/ValuePredicate"
     NumberPredicate:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValuePredicate'
+      - $ref: "#/components/schemas/ValuePredicate"
       - type: object
         properties:
           value:
@@ -5352,7 +5468,7 @@ components:
     RadialGeofencePredicate:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValuePredicate'
+      - $ref: "#/components/schemas/ValuePredicate"
       - type: object
         properties:
           radius:
@@ -5374,7 +5490,7 @@ components:
     RectangularGeofencePredicate:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValuePredicate'
+      - $ref: "#/components/schemas/ValuePredicate"
       - type: object
         properties:
           latMin:
@@ -5415,11 +5531,11 @@ components:
     ValueAnyPredicate:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValuePredicate'
+      - $ref: "#/components/schemas/ValuePredicate"
     ValueEmptyPredicate:
       type: object
       allOf:
-      - $ref: '#/components/schemas/ValuePredicate'
+      - $ref: "#/components/schemas/ValuePredicate"
       - type: object
         properties:
           negate:
@@ -5452,7 +5568,7 @@ components:
       type: object
       properties:
         ref:
-          $ref: '#/components/schemas/AttributeRef'
+          $ref: "#/components/schemas/AttributeRef"
         failure:
           type: string
           enum:
@@ -5467,13 +5583,74 @@ components:
           - UNKNOWN
           - ASSET_ID_MISSING
           - ATTRIBUTE_NAME_MISSING
+    AttributeEvent:
+      type: object
+      properties:
+        attributeState:
+          $ref: "#/components/schemas/AttributeState"
+        ref:
+          $ref: "#/components/schemas/AttributeRef"
+        value:
+          type: object
+        timestamp:
+          type: integer
+          format: int64
+        messageID:
+          type: string
+        deleted:
+          type: boolean
+        realm:
+          type: string
+        parentId:
+          type: string
+        oldValue:
+          type: object
+        oldValueTimestamp:
+          type: integer
+          format: int64
+        path:
+          type: array
+          items:
+            type: string
+        assetName:
+          type: string
+        assetType:
+          type: string
+        createdOn:
+          type: string
+          format: date-time
+        type:
+          $ref: "#/components/schemas/ValueDescriptor"
     AttributeState:
       type: object
       properties:
         ref:
-          $ref: '#/components/schemas/AttributeRef'
+          $ref: "#/components/schemas/AttributeRef"
         value:
           type: object
+    ValueDescriptor:
+      type: object
+      properties:
+        name:
+          pattern: "^\\w+(\\[\\])?$"
+          type: string
+        constraints:
+          type: array
+          items:
+            $ref: "#/components/schemas/ValueConstraint"
+        format:
+          $ref: "#/components/schemas/ValueFormat"
+        units:
+          type: array
+          items:
+            type: string
+        arrayDimensions:
+          type: integer
+          format: int32
+        metaUseOnly:
+          type: boolean
+        jsonType:
+          type: string
     ConsoleProvider:
       type: object
       properties:
@@ -5512,7 +5689,7 @@ components:
         providers:
           type: object
           additionalProperties:
-            $ref: '#/components/schemas/ConsoleProvider'
+            $ref: "#/components/schemas/ConsoleProvider"
         model:
           type: string
         apps:
@@ -5555,7 +5732,7 @@ components:
         displayName:
           type: string
         template:
-          $ref: '#/components/schemas/DashboardTemplate'
+          $ref: "#/components/schemas/DashboardTemplate"
     DashboardGridItem:
       type: object
       properties:
@@ -5642,11 +5819,11 @@ components:
         screenPresets:
           type: array
           items:
-            $ref: '#/components/schemas/DashboardScreenPreset'
+            $ref: "#/components/schemas/DashboardScreenPreset"
         widgets:
           type: array
           items:
-            $ref: '#/components/schemas/DashboardWidget'
+            $ref: "#/components/schemas/DashboardWidget"
     DashboardWidget:
       required:
       - displayName
@@ -5659,7 +5836,7 @@ components:
         displayName:
           type: string
         gridItem:
-          $ref: '#/components/schemas/DashboardGridItem'
+          $ref: "#/components/schemas/DashboardGridItem"
         widgetTypeId:
           type: string
         widgetConfig:
@@ -5684,14 +5861,14 @@ components:
         parents:
           type: array
           items:
-            $ref: '#/components/schemas/ParentPredicate'
+            $ref: "#/components/schemas/ParentPredicate"
     Conditions:
       type: object
       properties:
         dashboard:
-          $ref: '#/components/schemas/DashboardConditions'
+          $ref: "#/components/schemas/DashboardConditions"
         asset:
-          $ref: '#/components/schemas/AssetConditions'
+          $ref: "#/components/schemas/AssetConditions"
     DashboardConditions:
       type: object
       properties:
@@ -5718,9 +5895,9 @@ components:
       type: object
       properties:
         select:
-          $ref: '#/components/schemas/Select'
+          $ref: "#/components/schemas/Select"
         conditions:
-          $ref: '#/components/schemas/Conditions'
+          $ref: "#/components/schemas/Conditions"
         ids:
           type: array
           items:
@@ -5728,13 +5905,13 @@ components:
         names:
           type: array
           items:
-            $ref: '#/components/schemas/StringPredicate'
+            $ref: "#/components/schemas/StringPredicate"
         userIds:
           type: array
           items:
             type: string
         realm:
-          $ref: '#/components/schemas/RealmPredicate'
+          $ref: "#/components/schemas/RealmPredicate"
         start:
           type: integer
           format: int32
@@ -5765,11 +5942,11 @@ components:
     AssetDatapointAllQuery:
       type: object
       allOf:
-      - $ref: '#/components/schemas/AssetDatapointQuery'
+      - $ref: "#/components/schemas/AssetDatapointQuery"
     AssetDatapointIntervalQuery:
       type: object
       allOf:
-      - $ref: '#/components/schemas/AssetDatapointQuery'
+      - $ref: "#/components/schemas/AssetDatapointQuery"
       - type: object
         properties:
           interval:
@@ -5785,7 +5962,7 @@ components:
     AssetDatapointLTTBQuery:
       type: object
       allOf:
-      - $ref: '#/components/schemas/AssetDatapointQuery'
+      - $ref: "#/components/schemas/AssetDatapointQuery"
       - type: object
         properties:
           amountOfPoints:
@@ -5816,7 +5993,7 @@ components:
       type: object
       properties:
         matcher:
-          $ref: '#/components/schemas/AssetQuery'
+          $ref: "#/components/schemas/AssetQuery"
         duration:
           type: string
         delta:
@@ -5862,7 +6039,7 @@ components:
         attributeFilters:
           type: array
           items:
-            $ref: '#/components/schemas/GatewayAttributeFilter'
+            $ref: "#/components/schemas/GatewayAttributeFilter"
         disabled:
           type: boolean
     GatewayTunnelInfo:
@@ -5893,8 +6070,6 @@ components:
           format: date-time
         id:
           type: string
-    ObjectNode:
-      type: object
     GeoJsonConfig:
       type: object
       properties:
@@ -5931,7 +6106,7 @@ components:
         geocodeUrl:
           type: string
         geoJson:
-          $ref: '#/components/schemas/GeoJsonConfig'
+          $ref: "#/components/schemas/GeoJsonConfig"
     AbstractNotificationMessage:
       type: object
       properties:
@@ -5942,13 +6117,13 @@ components:
     EmailNotificationMessage:
       type: object
       allOf:
-      - $ref: '#/components/schemas/AbstractNotificationMessage'
+      - $ref: "#/components/schemas/AbstractNotificationMessage"
       - type: object
         properties:
           from:
-            $ref: '#/components/schemas/Recipient'
+            $ref: "#/components/schemas/Recipient"
           replyTo:
-            $ref: '#/components/schemas/Recipient'
+            $ref: "#/components/schemas/Recipient"
           subject:
             type: string
           text:
@@ -5958,19 +6133,19 @@ components:
           to:
             type: array
             items:
-              $ref: '#/components/schemas/Recipient'
+              $ref: "#/components/schemas/Recipient"
           cc:
             type: array
             items:
-              $ref: '#/components/schemas/Recipient'
+              $ref: "#/components/schemas/Recipient"
           bcc:
             type: array
             items:
-              $ref: '#/components/schemas/Recipient'
+              $ref: "#/components/schemas/Recipient"
     LocalizedNotificationMessage:
       type: object
       allOf:
-      - $ref: '#/components/schemas/AbstractNotificationMessage'
+      - $ref: "#/components/schemas/AbstractNotificationMessage"
       - type: object
         properties:
           defaultLanguage:
@@ -5978,7 +6153,7 @@ components:
           languages:
             type: object
             additionalProperties:
-              $ref: '#/components/schemas/AbstractNotificationMessage'
+              $ref: "#/components/schemas/AbstractNotificationMessage"
     PushNotificationAction:
       type: object
       properties:
@@ -5998,11 +6173,11 @@ components:
         title:
           type: string
         action:
-          $ref: '#/components/schemas/PushNotificationAction'
+          $ref: "#/components/schemas/PushNotificationAction"
     PushNotificationMessage:
       type: object
       allOf:
-      - $ref: '#/components/schemas/AbstractNotificationMessage'
+      - $ref: "#/components/schemas/AbstractNotificationMessage"
       - type: object
         properties:
           title:
@@ -6010,11 +6185,11 @@ components:
           body:
             type: string
           action:
-            $ref: '#/components/schemas/PushNotificationAction'
+            $ref: "#/components/schemas/PushNotificationAction"
           buttons:
             type: array
             items:
-              $ref: '#/components/schemas/PushNotificationButton'
+              $ref: "#/components/schemas/PushNotificationButton"
           data:
             type: object
             additionalProperties:
@@ -6077,7 +6252,7 @@ components:
         sourceId:
           type: string
         message:
-          $ref: '#/components/schemas/AbstractNotificationMessage'
+          $ref: "#/components/schemas/AbstractNotificationMessage"
         error:
           type: string
         sentOn:
@@ -6099,11 +6274,11 @@ components:
         name:
           type: string
         message:
-          $ref: '#/components/schemas/AbstractNotificationMessage'
+          $ref: "#/components/schemas/AbstractNotificationMessage"
         targets:
           type: array
           items:
-            $ref: '#/components/schemas/Target'
+            $ref: "#/components/schemas/Target"
         repeatFrequency:
           type: string
           enum:
@@ -6200,11 +6375,11 @@ components:
       - name
       type: object
       allOf:
-      - $ref: '#/components/schemas/ProvisioningConfigObjectObject'
+      - $ref: "#/components/schemas/ProvisioningConfigObjectObject"
       - type: object
         properties:
           data:
-            $ref: '#/components/schemas/X509ProvisioningData'
+            $ref: "#/components/schemas/X509ProvisioningData"
     X509ProvisioningData:
       type: object
       properties:
@@ -6429,21 +6604,21 @@ components:
         name:
           type: string
         position:
-          $ref: '#/components/schemas/NodePosition'
+          $ref: "#/components/schemas/NodePosition"
         size:
-          $ref: '#/components/schemas/NodePosition'
+          $ref: "#/components/schemas/NodePosition"
         internals:
           type: array
           items:
-            $ref: '#/components/schemas/NodeInternal'
+            $ref: "#/components/schemas/NodeInternal"
         inputs:
           type: array
           items:
-            $ref: '#/components/schemas/NodeSocket'
+            $ref: "#/components/schemas/NodeSocket"
         outputs:
           type: array
           items:
-            $ref: '#/components/schemas/NodeSocket'
+            $ref: "#/components/schemas/NodeSocket"
         displayCharacter:
           type: string
     NodeInternal:
@@ -6452,7 +6627,7 @@ components:
         name:
           type: string
         picker:
-          $ref: '#/components/schemas/Picker'
+          $ref: "#/components/schemas/Picker"
         value:
           type: object
     NodePosition:
@@ -6509,7 +6684,7 @@ components:
         options:
           type: array
           items:
-            $ref: '#/components/schemas/Option'
+            $ref: "#/components/schemas/Option"
     Realm:
       type: object
       properties:
@@ -6524,6 +6699,10 @@ components:
         notBefore:
           type: number
           format: double
+        passwordPolicy:
+          type: array
+          items:
+            type: string
         resetPasswordAllowed:
           type: boolean
         duplicateEmailsAllowed:
@@ -6553,7 +6732,7 @@ components:
           uniqueItems: true
           type: array
           items:
-            $ref: '#/components/schemas/RealmRole'
+            $ref: "#/components/schemas/RealmRole"
     RealmRole:
       type: object
       properties:
@@ -6631,42 +6810,42 @@ components:
         negated:
           type: boolean
         name:
-          $ref: '#/components/schemas/StringPredicate'
+          $ref: "#/components/schemas/StringPredicate"
         value:
-          $ref: '#/components/schemas/StringPredicate'
+          $ref: "#/components/schemas/StringPredicate"
     UserQuery:
       type: object
       properties:
         realmPredicate:
-          $ref: '#/components/schemas/RealmPredicate'
+          $ref: "#/components/schemas/RealmPredicate"
         assets:
           type: array
           items:
             type: string
         pathPredicate:
-          $ref: '#/components/schemas/PathPredicate'
+          $ref: "#/components/schemas/PathPredicate"
         ids:
           type: array
           items:
             type: string
         select:
-          $ref: '#/components/schemas/Select'
+          $ref: "#/components/schemas/Select"
         usernames:
           type: array
           items:
-            $ref: '#/components/schemas/StringPredicate'
+            $ref: "#/components/schemas/StringPredicate"
         attributes:
           type: array
           items:
-            $ref: '#/components/schemas/AttributeValuePredicate'
+            $ref: "#/components/schemas/AttributeValuePredicate"
         clientRoles:
           type: array
           items:
-            $ref: '#/components/schemas/StringPredicate'
+            $ref: "#/components/schemas/StringPredicate"
         realmRoles:
           type: array
           items:
-            $ref: '#/components/schemas/StringPredicate'
+            $ref: "#/components/schemas/StringPredicate"
         serviceUsers:
           type: boolean
         limit:
@@ -6676,7 +6855,7 @@ components:
           type: integer
           format: int32
         orderBy:
-          $ref: '#/components/schemas/OrderBy'
+          $ref: "#/components/schemas/OrderBy"
     Credential:
       type: object
       properties:

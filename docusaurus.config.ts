@@ -99,13 +99,11 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        /* Uncomment to show versions
         {
           type: 'docsVersionDropdown',
           position: 'left',
           dropdownActiveClassDisabled: false,
         },
-        */
         {
           href: 'https://forum.openremote.io/',
           label: 'Forum',

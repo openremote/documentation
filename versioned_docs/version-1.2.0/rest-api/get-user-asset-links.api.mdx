@@ -1,0 +1,299 @@
+---
+id: get-user-asset-links
+title: "Retrieve links between assets and users"
+description: "Retrieve links between assets and users"
+sidebar_label: "Retrieve links between assets and users"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVkuP2zYQ/ivCnFpAlhbJTacaQR4LpI2x8QIFDB9mqbHFLEWy5GjdreH/XgxlyY91ks22h+gkcL55cB7fcAuM6wjVAqYxEsMyB+cpIGtnr2uoYE18Gykk6Udt7yPk4DFgS0xBFLdgsSWoYNpx44L+J+lCDtpCBQ1hTQFyiKqhFqHaAj96gUcO2q5ht8tHC39O3rmwwVBTPZkFx+4/W/ngIr/ISCA07aD5V0fh8ZmKXaRwXb9EEyXFP6K6zCFQ9M5GiiKvaYWd4f43qqB9qkQ1CLIBDTkoZ5lswqL3RqtUtfJLFIXtU6cYAko0mqmNR+fu7gspSbEP0jes+1B0/X1Mn+Kn98qHHF4SDUm6lElgzUaOrmuBqkDIVH+yT8E5rFxokSU3yDRh3dJo/Y9Ujgu+PQayPP0mRkJ/1xnzFcBRkCdTBbv05WeFuyEOmh4oMzJ52R3xhshmKcyYoa0z8Scj2RI3bj+vaUK5gQrKhCwFVIoJaScKD8PgdsHIXDD7WJVlTa0rnCcbqHVMhXYlel1uU512JeTwgEHjnTkr39h20GJkCnKXpThSXdD8mDyJWemJxfJY9Fm6rLc2AA5Ngx03r6RSxm0SRBlNlt8EqsmyRtO3obsne5vuUYpGmcKKZR9K6YVFlDNlb3+inLWkuExqIPOzChSblxuIyvn+Bj64lU6VHf6knnhMim9cnZri5PDHfQsU8p/86qmbtV25VKV9z3/yZG9Sd2W/o8U1hezm7ed5Np1dw3nvzxsdMx0zbiirnepaspwSlq1cSKcXrH2Yz2ejySLLZoYwUhaJksbixNDyl7H1nYqnrf9r8tK6QJlcothTJqpEmdSilrSJ6LcTPeEAoxUJy1aH1fh+9jF7XVxBfjZzm82mWNuucGFd7tViiWtvJq+Lq4Js0XBrxKbMbJ8XEVwlOnKRW7RHbp5PFyepHmeO6W8uvUFtE5VJpNs9lSx6boSe4UAuae/ltdDIhq0WsN3eYaTbYHY7Oe63l4x+raNwRg3VCk2kHO7p8WjBPqDpxDfIJvwKdtypzwEf1ugBvTxwV+KgfHgMXAzwLDnjqgQZukuZ6h1fer18O+D/wdH+gXPip0dNlSJ/LHuy5yUt4954/3YOu92/NYB6TQ==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve links between assets and users"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/asset/user/link"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve links between assets and users
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"realm","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"userId","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"assetId","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={true}
+                        className={"schemaItem"}
+                      >
+                        <details
+                          style={{}}
+                          className={"openapi-markdown__details"}
+                        >
+                          <summary
+                            style={{}}
+                          >
+                            <span
+                              className={"openapi-schema__container"}
+                            >
+                              <strong
+                                className={"openapi-schema__property"}
+                              >
+                                id
+                              </strong><span
+                                className={"openapi-schema__name"}
+                              >
+                                 object
+                              </span>
+                            </span>
+                          </summary><div
+                            style={{"marginLeft":"1rem"}}
+                          >
+                            <SchemaItem
+                              collapsible={false}
+                              name={"realm"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"userId"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem><SchemaItem
+                              collapsible={false}
+                              name={"assetId"}
+                              required={false}
+                              schemaName={"string"}
+                              qualifierMessage={undefined}
+                              schema={{"type":"string"}}
+                            >
+                              
+                            </SchemaItem>
+                          </div>
+                        </details>
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"createdOn"}
+                        required={false}
+                        schemaName={"date-time"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string","format":"date-time"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"assetName"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"parentAssetName"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"userFullName"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"id\": {\n      \"realm\": \"string\",\n      \"userId\": \"string\",\n      \"assetId\": \"string\"\n    },\n    \"createdOn\": \"2024-07-29T15:51:28.071Z\",\n    \"assetName\": \"string\",\n    \"parentAssetName\": \"string\",\n    \"userFullName\": \"string\"\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

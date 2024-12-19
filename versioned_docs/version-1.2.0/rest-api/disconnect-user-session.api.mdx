@@ -1,0 +1,179 @@
+---
+id: disconnect-user-session
+title: "Disconnect a user session using a session ID"
+description: "Disconnect a user session using a session ID"
+sidebar_label: "Disconnect a user session using a session ID"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVd1P2zAQ/1esexrITdB4y9MQMEDatAqKNKnqg0muiYVjG9uh66L879M5TdoyJlEmTXtL7uN3dz/fRwtBlB6yOdx7dLDgYCw6EaTRNwVkUEifG60xD6S/Q++l0cDBCidqDOjItwUtaoQMzppQGSd/Rn/gIDVkUKEo0AEHn1dYC8haCGtL5j44qUvoOj4ifJ98Nm4lXIHFZOpMMH+Ncm18eBeIQ6HqwdOKUAEHh0+NdFhAFlyDb8PxPWk3F+/GWpCxt0Z79KQvcCkaFfpPnztpI9/ZoGCDNXDIjQ6oo+1xegxZ23Vdx1/4XYyvzARrPDq2SZo1XuqSifE/VlFjqAx1R4kh9kKoIIOUHNM20tal28ZJ25GBjqhH9zy0TeMUvUoI1mdpWmBtEmNRO6xNwESaVFg5IgKHZ+GkeFA9C/377NIBtfABHXSRMo9542RYx0gEKwvI5otd1R1R3qMNBiP7RjSh+ggclsqsokmuJOpw7rBAHaRQURjMI+r7WEdKHmlMy6d9KqmlHs6NSnv8ycBJdItNsHToq/cD+NzYvgLrzFIqSn34oocWuyN5bgok0z3h4bHJFPh/Xnpsc6mXJr6SDFH9zaK+jd3FvgotSnTs9vJuxs6mN/ByKGaV9Ex6FipkhcmbGnWIhLGlcVH6Ctr1bDYdIRPGpgqFR+YRo8d8D2jxYWx9k/v91j+KUWrjkFERyWaURR5HGWshiTZSfdrzg46DkjnS9GfbxXw1/cJOkxPgL2ZutVolpW4S48p04+ZTUVo1OU1OEtRJFWpFmDSzPS+kOCGRNT7UQu+EOXCP7PE9Dl7AHyG1SkhNQWK67WbHzIFAgUM2LOftmiHpdtUuOFS0+LM5tO2D8HjvVNeR+KlBRzthsV0ncUMU0tN3AdlSKI+/ZTcuUvhwu9ncR4ym4LWsN0Kh13FrqYb+gMMjrsfLQifiHwbdctMtOj6cwsMq/1PkPsJrt3tM47Bq3x5oc9734vRWZ3mOdldH94+2/3i+ri5n0HW/ABnmHLg=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Disconnect a user session using a session ID"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/{realm}/disconnect/{sessionID}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Disconnect a user session using a session ID
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"realm","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"sessionID","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"*/*"}
+              value={"*/*"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

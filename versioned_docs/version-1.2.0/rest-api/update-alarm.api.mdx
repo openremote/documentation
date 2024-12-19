@@ -1,0 +1,174 @@
+---
+id: update-alarm
+title: "Update an alarm"
+description: "Update an alarm"
+sidebar_label: "Update an alarm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUuP0zAQ/ivRnABl4xUgDjmxQjxWAlEtXQmp6mFIpo2FYxt7Qlki/3c0TtNtl+UACIlbMo9v3p9HYNxGqFdwYTD0sC7BeQrI2tnLFmoYfItMk7IEjwF7YgriMoLFnqCGi4E7F/T37AUlaAs1dIQtBSghNh31CPUIfOPFPHLQdgsplQeEj2evXNhhaKk9WwTH7q9R3rjIfwSCUuplO/t65A5KCPRl0IFaqDkMdA+StkzbHGTjQo88iZ49hZTW4h69s5GieLS0wcHw9BmboH3uWz0ritkaSmicZbLZ9pF6BPWYUkrlHb/rPKMCbYH7OfXEnZPx+YHz2LiDGlRWq3FfYpKOUPg6T3MIRprF7GOtVEu9q5wnG6h3TJV2Cr1WYyA0fVJQwlcMGj+ZqagsPqkOeoxMAVLuQKRmCJpvciSB1S3Uq/Wx6oP0dEKbDQ7tdThw91i6a9wumzRGk+UXgVqyrNFkIbvPZK9zHUo8VE4rqikV5WW1GmfUhH/WOGupYZXd8pQ3gWL35wCxcX6qwAe30UZSn79kbnh8KS9cS2J6Ivz92GIK5X9eet5abTcuT0lzVr/3ZK/ydhXv0OKWQnH18sOyuFhcwt0dX3Y6FjoW3FHRumboyXJuWLFxIUvvQXuzXC4OkFVRLAxhpCISZY/VCdD6wWH1XRNPV/9hjtK7QIUUUe0vE5t8mdSjNvngN+75iR+kEoxuSI65vuXL14u3xZPqHMo7N7fb7aqtHSoXtmrvFhVuvTl7Up1XZKuOeyOYcrNTX0RxLiLvIvdoj8L8TAsnLT3cFtM3Vt6gtoKTMxr3lLGC2bWeeXFdQifcWq9gHD9hpOtgUhLxl4GC3Pf6lhrytbc6yncL9QZNpJ/SOHAcPLja0+zDQjb6vvT2QrQ3mYHMIH9Qwme6OSLvtE7lTPu/l8Kv4k74971ThyTkEfkXgfZP2Umcyeqiacgf6+SNEEo98P/iegkp/QAdYLjb
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update an alarm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/alarm/{alarmId}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update an alarm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"alarmId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"*/*"}
+              value={"*/*"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

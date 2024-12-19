@@ -1,0 +1,150 @@
+---
+id: get-console-config
+title: "Retrieve the console configuration"
+description: "Retrieve the console configuration"
+sidebar_label: "Retrieve the console configuration"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVVFr20AM/itGTxs4vrK++WmldG1hY6FNYRDycD3L9q3n0+3unKwL/u9D5yRN0g7WjcGeEk7SJ+mT9HkNUTYByjncXWdnzgVY5EAOvYya7HUFJTQYz8kGMnhOttYN5OCklx1G9By5Bis7hBLO+tiS1z9SKOSgLZTQoqzQQw5BtdhJKNcQHx27h+i1bWAY8h3Cl8kH8ivpK6wmU0+R/hrlikJ8BcgiB4/BkQ0Y2F5hLXsTx79Bee1Sb+XWkG29IQdFNqJNvtI5o1XiQXwNHLAehmHIj0BuMHqNS8xii5kaOebfWje937LYYWxpM4dEfWyhBCGdC0IdzSWgX26H0nvDPcfoQilEhR0V5NB67ChioUlIp8XaozTdICCHpfRa3pux7/R8QAB0MkT0MCSSAqre6/iYMjGsrqCcL/ZNt0zyiLZ12PFNso/tO8ihNrRKLspotPHcY4U2amnSY6QHtHepD8ERIpUVxFiKcLwhiowY8SeKrEUVRQoDnmTtMbR/DhAUubED56nWhkvf/uNpyv2FP6cK0+z3H1+fm10h/89bT7usbU1pSjom82eH9iZtV/ZJWtmgz24ubmfZ2fQajjd/1uqQ6ZAWvyLVd2hjIiyryafXF9CuZrPpDrLIsqlBGTALOB7Q/ABo8Wa3+qTC4eq/TVk68phxE8XmeKVKx4ud1Ewbm94fxMGQg9EK+d7LJ9m7nH7MTosTyI9ubrVaFY3tC/KN2IQFIRtnJqfFSYG2aGNnGJNvduSFDSf85CjETtq9NL8lFgcs784t4vconJHaMnQqcr0RkjlrVRgJ2JOSRQ4tK2c5h/X6Xga882YY+Plbj57PfvGkGOny8628siJUOrChgrKWJuCzunZSCbzqLxX5gI+/+B4spenZH1jx/0WizSfjIM/odaYUun3bM51nAdwJ9uXFDIbhJ0dvlJI=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the console configuration"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/apps/consoleConfig"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the console configuration
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
