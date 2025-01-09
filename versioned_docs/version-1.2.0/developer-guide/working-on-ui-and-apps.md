@@ -8,9 +8,18 @@ sidebar_position: 5
 Front end applications are [webcomponent](https://www.webcomponents.org/) based using the [lit](https://lit.dev/) library and [Material Design](https://material.io/components?platform=web) for styling. We use a combination of Polymer LIT, Material Design and our own OpenRemote elements. The UI components are [published on NPM](https://www.npmjs.com/org/openremote). The applications themselves are composed of our re-usable modular UI components which can be found in the code base in the [ui/component](https://github.com/openremote/openremote/tree/master/ui/component) folder, these are also published to [NPM](https://www.npmjs.com/org/openremote).
 
 ## Working on an app (e.g. Manager UI)
-To work on an app for example the `Manager UI` then `cd` into the app directory e.g. `ui/app/manager` and run the following `npm` script:
-
-- `npm run serve` - Compiles the typescript model from java code and then starts webpack dev server and serves the web app which can then be accessed at `http://localhost:9000/manager/` (**NOTE: trailing `/` is required**)
+To work on an app for example the `Manager UI` :
+- From the main directory, start the required containers, use dev-ui.yml for example:
+  ```shell
+  docker-compose -f profile/dev-ui.yml up -d
+   ```
+  By default, this makes the manager container serve the apps present in the latest docker image on port 8080 e.g. `http://localhost:8080/manager/` . While these apps are not necessary for this case, the included manager container webservice is.
+  
+- `cd` into the app directory e.g. `ui/app/manager` and run the following `npm` script:
+   ```shell
+   npm run serve
+   ```
+Compiles the typescript model from java code and then starts webpack dev server and serves the web app which can then be accessed at `http://localhost:9000/manager/` (**NOTE: trailing `/` is required**)
 
 ### Webpack dev server environment variables
 The following environment variables can be set when running `npm run serve` using the syntax `npm run serve -- --env ENV_NAME=ENV_VALUE`:
