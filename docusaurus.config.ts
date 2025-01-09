@@ -36,18 +36,13 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/openremote/documentation/edit/main/',
+          editCurrentVersion: true,
+          editUrl: 'https://github.com/openremote/documentation/edit/main/',
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
         },
         blog: {
           showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/openremote/documentation/edit/main/',
+          editUrl: 'https://github.com/openremote/documentation/edit/main/',
         },
         theme: {
           customCss: [
