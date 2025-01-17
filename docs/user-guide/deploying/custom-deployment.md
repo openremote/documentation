@@ -13,7 +13,7 @@ In this guide we will go through the first time setting up your [custom project]
 ## Follow these steps to run your custom project
 1. Prepare your [environment](../../developer-guide/preparing-the-environment.md)
 2. Clone your repository from the [custom-project template](https://github.com/openremote/custom-project).\
-Then initialize and update the openremote submodule with `git submodule init` and `git submodule update --rebase --remote` from your custom project directory after cloning the repo. This is easiest if you have an [SSH-key in your Github account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+This is easiest if you have an [SSH-key in your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 3. [Set up your IDE](../../developer-guide/setting-up-an-ide.md). Note that Application run configurations are already prepared when using this template. \
 Use `docker-compose -f profile\dev-testing.yml up --build -d` and run the 'Custom Deployment' configuration. You should have two containers running in Docker, and the manager through your IDE.
 4. Run the modelWatch gradle task to build the typescript model `./gradlew modelWatch`
