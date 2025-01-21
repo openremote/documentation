@@ -10,8 +10,7 @@ This is not necessary if you prefer [Working on the UI](working-on-ui-and-apps.m
 
 ## Download custom-project
  
-1. Using Git, clone the [custom-project](https://github.com/openremote/custom-project) repo
-2. `cd` into the custom-project directory, and add the [openremote](https://github.com/openremote/openremote) submodule, using the `git submodule init` and `git submodule update` commands
+Using Git, clone the [custom-project](https://github.com/openremote/custom-project) repository.
 
 ## Run Docker container
 
@@ -109,7 +108,7 @@ For custom working directory or launch settings, you may need to configure `.vsc
 
 All Docker and Gradle commands **must be executed in the project root directory**. If you are working on the main OpenRemote repository, this means the root of the repository. If you are [Creating a custom project](creating-a-custom-project.md), this means the root of your project's repository.
 
-The working directory in your IDE however must always be set to the **OpenRemote project directory**. All configuration settings in source code default to this location. This means if you are [Creating a custom project](creating-a-custom-project.md), your IDE will work in the `openremote` submodule directory.
+The working directory in your IDE must also always be set to your project root directory.
 
 We recommend you set this as the default directory in your IDE for all *Run Configurations*. To improve creation and execution of ad-hoc tests in the IDE you should set the default working directory for JUnit Run Configurations:
 
