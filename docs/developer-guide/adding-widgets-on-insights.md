@@ -19,7 +19,7 @@ Currently we have several built-in widgets available:<br />
 |![image](img/line-chart-widget.png)| Chart with history and/or predicted data of unlimited attributes.<br />Uses data decimation algorithms, and supports multi-axis. |
 |![image](img/map-widget.png)| Map with locations of all assets that correspond with the selected asset type.<br />Optionally it can show a color based on thresholds, or a label with the current value of an attribute. |
 |![image](img/table-widget.png)| Table showing multiple attribute values of the assets you select.<br /> It is very useful for gaining insights in a larger number of assets with a single look. |
-
+|![image](img/gateway-widget.png)| A button to setup a tunnel to a preconfigured target address & port via a gateway.<br />When protocol is set to HTTP(S), it will open a new tab to display the webcontent served on that location.<br />Requires an operational gateway tunneling setup, [see](./gateway-tunnelling-setup.md). |
 
 We might add more widgets over time, so this list can become longer.<br />
 Feel free to develop new widgets yourself; there is functionality to create them with ease.<br />
