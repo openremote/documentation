@@ -71,7 +71,7 @@ Another way to migrate an existing project is to manually apply all changes of t
 
 As you can see in the commit the manual migration steps are:
 
-1. Remove the submodule(s)
+1. Remove the directories of the submodule(s)
 2. Add dependencies to the new artifacts in your build.gradle and package.json files
 3. Add the new "model" and "rest" UI component module code
 4. Update the TypeScript code so classes are loaded from the new modules:
