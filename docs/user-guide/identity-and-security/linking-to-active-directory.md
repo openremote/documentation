@@ -4,7 +4,7 @@ sidebar_position: 3
 
 # Linking to Active Directory
 
-Keycloak is the identity manager provider for the OpenRemote platform. It default uses its own Database with the Roles defined in the code for start up.
+Keycloak is the identity manager provider for the OpenRemote platform. By default, it uses its own Database with the Roles defined in the code for start up.
 
 It's also possible to hook up Keycloak with Active Directory and login with the users that come from AD. Getting the groups is also a possibility and applying the Keycloak roles to the groups.
 
@@ -12,11 +12,11 @@ To read more about Keycloak and LDAP please visit the [Keycloak documentation pa
 
 ## LDAPComponentBuilder
 
-In the package `org.openremote.manager.security` you'll find the `LDAPComponentBuilder` class. This class is all you need to build a `org.keycloak.representations.idm.ComponentRepresentation` which will contain the config to let key cloak communicate with the LDAP.
+In the package `org.openremote.manager.security` you'll find the `LDAPComponentBuilder` class. This class is all you need to build a `org.keycloak.representations.idm.ComponentRepresentation` which will contain the config to let Keycloak communicate with the LDAP.
 
 
 ### Importing users
-When the users from AD are imported, the existing users in Keycloak will still be available. To make this possible, it's necessary to add a `ComponentRepresentation` to the Realm used for you application.
+When the users from AD are imported, the existing users in Keycloak will still be available. To make this possible, it's necessary to add a `ComponentRepresentation` to the Realm used for your application.
 
 Example:
 ```java
@@ -94,7 +94,7 @@ String mapperId = keycloakProvider.addLDAPMapper(new ClientRequestInfo(null, acc
 ```
 
 ### Adding Keycloak Roles to Groups
-To have an user which is member of a certain group to get the correct roles from Keycloak, we need to give the group the correct roles.
+To have an user which is a member of a certain group to get the correct roles from Keycloak, we need to give the group the correct roles.
 
 Example:
 ```java
