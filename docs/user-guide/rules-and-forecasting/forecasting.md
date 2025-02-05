@@ -18,7 +18,7 @@ In many cases you have data with a repeating daily or weekly pattern. Examples a
 To add this forecast and store it, you can add the two configuration items 'Has predicted data points' and 'Forecast'. For the 'Forecast' you will need to add five parameters in a JSON format:
 - Type: the method applied, currently only weighted exponential averaging is available ("wea")
 - Past period: the length of the period(s) in the past of which values are used to calculate the forecast ("P1D" for 24 hours or "P7D" for 7 days)
-- Past count": the number past periods taken into account (can be an integer of 1 or higher, 1 means it takes the value of one 'past period' back)
+- Past count: the number of past periods taken into account (can be an integer of 1 or higher, 1 means it takes the value of one 'past period' back)
 - Forecast period: the periodic intervals at which the forecasted values are calculated ("PT1H" calculates a data point for every hour in the future)
 - Forecast count: the number of data points calculated (can be an integer of 1 or higher, 24 means 24 hours if the 'forecast period' is 1)
 
