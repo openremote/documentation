@@ -18,7 +18,7 @@ Besides the version tags you can also use the "latest" and "develop" tags which 
 
 ## Custom Projects
 
-When using a [custom deployment](custom-deployment) you need to specify what OpenRemote version it customizes.
+When using a [custom-deployment](https://docs.openremote.io/docs/user-guide/deploying/custom-deployment/) you need to specify what OpenRemote version it customizes.
 
 A custom project always depends on the following versioned OpenRemote Manager artifacts:
 
