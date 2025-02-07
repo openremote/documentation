@@ -63,7 +63,7 @@ To be able to forecast the solar power, you have to fill in the following attrib
 * Power export max (the installed peak capacity in kW)
 * Location. You can do this in the 'MODIFY' mode by opening the map modal next to the location attribute and setting the location by long-pressing on the map.
 
-Now can turn on the attribute 'Include forecast solar service' on your solar asset. Once saved the forecast service is running. To see it in action you can go to the 'Insights' page and select the 'Power' attribute in a chart. The dotted line will represent the forecasted data. 
+Now you can turn on the attribute 'Include forecast solar service' on your solar asset. Once saved the forecast service is running. To see it in action you can go to the 'Insights' page and select the 'Power' attribute in a chart. The dotted line will represent the forecasted data. 
 
 If you also want to store the data for forecasted power to compare it with the actual values, take care you add the configuration items 'Has predicted data points', 'Read only', 'Rule state', and 'Store data points' for the attribute 'Power forecast'.
 
@@ -84,7 +84,7 @@ To be able to forecast the wind power, you have to fill in the following attribu
 * Wind speed reference (also called nominal or rated speed; in m/s)
 * Location. You can do this in the 'MODIFY' mode by opening the map modal next to the location attribute and setting the location by double-clicking on the map.
 
-Now can turn on the attribute 'Include forecast wind service' on your wind turbine asset (see Figure 3). Once saved the forecast service is running. To see it in action you can go to the 'Insights' page and select the power attribute in a chart. The dotted line will represent the forecasted data. 
+Now you can turn on the attribute 'Include forecast wind service' on your wind turbine asset (see Figure 3). Once saved the forecast service is running. To see it in action you can go to the 'Insights' page and select the power attribute in a chart. The dotted line will represent the forecasted data. 
 
 If you also want to store the data for forecasted power to compare it with the actual values, take care you add the configuration items 'Has predicted data points', 'Read only', 'Rule state', and 'Store data points' for the attribute 'Power forecast'.
 
@@ -104,7 +104,7 @@ One of the devices the optimisation can actively control is a static battery. Yo
 * Energy level
 * Power setpoint
 
-Turn on the attributes 'Supports import' and 'Supports' export. This is an indication for the optimisation that it's allowed to control the power setpoint, both for charging and discharging.
+Turn on the attributes 'Supports import' and 'Supports export'. This is an indication for the optimisation that it's allowed to control the power setpoint, both for charging and discharging.
 
 #### Battery Simulator
 
@@ -134,7 +134,7 @@ So to make the optimisation work the following attributes need to be connected f
 * Energy level
 * Power setpoint
 
-There is a series of attributes on the vehicle you need or can use the make the optimisation work. We'll discuss them one-by-one:
+There is a series of attributes on the vehicle you need or can use to make the optimisation work. We'll discuss them one-by-one:
 * Supports import, required for the optimisation to actively control the setpoint power for charging
 * Supports export, required for the optimisation to actively control the setpoint power for discharging. Only to be set when the vehicle and charger support discharging of course.
 * Power import max, required to set the maximum charge power the vehicle can handle
@@ -181,7 +181,7 @@ You have now set everything to run your optimisation. Once optimisation is enabl
 * Take into account the forecasted power, both for electricity consumers and producers, to forecast when there is a net surplus towards the grid or a net shortage of electricity.
 * Take into account the future export tariffs, as it is preferred to charge batteries or vehicles at the time of lowest export tariffs. At that time you would be earning the least by selling, so better store energy.
 * Take into account the future import tariffs, as it is preferred to discharge batteries or vehicles at the time of highest import tariffs. You would pay the highest tariffs if you buy electricity, so better use your stored energy.
-* Take the Energy level schedule of your vehicle into considerations as well as their Energy level percentage min, and always take care that the energy levels are met in time.
+* Take the Energy level schedule of your vehicle into consideration as well as their Energy level percentage min, and always take care that the energy levels are met in time.
 * Prioritise the different batteries, in this case your static battery and your vehicle, based on the so called Levelised cost of Storage (LCOS). LCOS is the additional costs of charging or discharging a battery. It reflects the costs of your battery divided by the capacity times the maximum number of charging cycles, so representing an amortisation. This can be implemented by adding the optional attributes 'Tariff import' and 'Tariff export' to your Electric vehicle asset and your Battery. Note that you should keep the 'Tariff import' value for your vehicle at '0' as charging your vehicle is anyhow required to be able to drive, and the optimisation will not introduce extra charge cycles. We haven't included this in our tutorial and recommend to read-up expert articles before applying. 
 
 ![EMS asset tree](img/ems-asset-tree.png)
