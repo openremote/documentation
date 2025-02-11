@@ -18,7 +18,7 @@ Besides the version tags you can also use the "latest" and "develop" tags which 
 
 ## Custom Projects
 
-When using a [custom deployment](custom-deployment) you need to specify what OpenRemote version it customizes.
+When using a [custom deployment](custom-deployment.md) you need to specify what OpenRemote version it customizes.
 
 A custom project always depends on the following versioned OpenRemote Manager artifacts:
 
@@ -50,7 +50,7 @@ E.g. if the next version will be 1.3.0 use the following versions:
 
 ### Using ORLib
 
-Optionally you can also add a custom Android or iOS App using the [mobile consoles](../../developer-guide/working-on-the-mobile-consoles) to your custom project.
+Optionally you can also add a custom Android or iOS App using the [mobile consoles](../../developer-guide/working-on-the-mobile-consoles.md) to your custom project.
 For this you can use the ORLib library which simplifies integrating OpenRemote into your App.
 ORLib has its own release cycle because it is maintained in separate repositories and is only released when there are changes.
 

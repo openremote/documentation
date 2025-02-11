@@ -7,7 +7,7 @@ unlisted: true
 We have created an app for the AWS Marketplace to make deployment of OpenRemote easier. This guide describes how to configure the instance using the special AWS CloudFormation template.
 
 # Architecture Diagram
-![image](./img/or-aws-marketplace-architecture.png)
+![image](img/or-aws-marketplace-architecture.png)
 
 ## Subscribe to the AWS Marketplace app
 1. Search for OpenRemote on the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?searchTerms=openremote) and click on the listing.

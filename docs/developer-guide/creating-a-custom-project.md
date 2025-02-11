@@ -39,7 +39,7 @@ A custom project always depends on the following released OpenRemote artefacts:
 * Java modules - see [Maven Central](https://search.maven.org/search?q=g:io.openremote)
 * UI components - see [npmjs](https://www.npmjs.com/~openremotedeveloper)
 
-The [Release Management](../user-guide/deploying/release-management) documentation describes how to update the OpenRemote version of these artefacts.
+The [Release Management](../user-guide/deploying/release-management.md) documentation describes how to update the OpenRemote version of these artefacts.
 
 ## Custom Project Template
 
