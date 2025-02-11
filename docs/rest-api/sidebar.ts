@@ -1190,8 +1190,32 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "rest-api/schemas/objectnode",
-          label: "ObjectNode",
+          id: "rest-api/schemas/managerappconfig",
+          label: "ManagerAppConfig",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/managerapprealmconfig",
+          label: "ManagerAppRealmConfig",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/managerapprealmnotificationconfig",
+          label: "ManagerAppRealmNotificationConfig",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/managerconfig",
+          label: "ManagerConfig",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/usernamepassword",
+          label: "UsernamePassword",
           className: "schema",
         },
         {
@@ -1478,6 +1502,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "rest-api/schemas/assetdatapointnearestquery",
+          label: "AssetDatapointNearestQuery",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "rest-api/schemas/assetdatapointquery",
           label: "AssetDatapointQuery",
           className: "schema",
@@ -1498,6 +1528,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "rest-api/schemas/gatewaytunnelinfo",
           label: "GatewayTunnelInfo",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/objectnode",
+          label: "ObjectNode",
           className: "schema",
         },
         {

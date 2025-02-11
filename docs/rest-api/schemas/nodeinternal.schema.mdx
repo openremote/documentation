@@ -67,8 +67,8 @@ import TabItem from "@theme/TabItem";
           name={"type"}
           required={false}
           schemaName={"string"}
-          qualifierMessage={"**Possible values:** [`TEXT`, `MULTILINE`, `NUMBER`, `DROPDOWN`, `DOUBLE_DROPDOWN`, `CHECKBOX`, `ASSET_ATTRIBUTE`, `COLOR`]"}
-          schema={{"type":"string","enum":["TEXT","MULTILINE","NUMBER","DROPDOWN","DOUBLE_DROPDOWN","CHECKBOX","ASSET_ATTRIBUTE","COLOR"]}}
+          qualifierMessage={"**Possible values:** [`TEXT`, `MULTILINE`, `NUMBER`, `DROPDOWN`, `DOUBLE_DROPDOWN`, `CHECKBOX`, `ASSET_ATTRIBUTE`, `COLOR`, `DATE`]"}
+          schema={{"type":"string","enum":["TEXT","MULTILINE","NUMBER","DROPDOWN","DOUBLE_DROPDOWN","CHECKBOX","ASSET_ATTRIBUTE","COLOR","DATE"]}}
         >
           
         </SchemaItem><SchemaItem
@@ -141,6 +141,15 @@ import TabItem from "@theme/TabItem";
     schemaName={"object"}
     qualifierMessage={undefined}
     schema={{"type":"object"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"breakType"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={"**Possible values:** [`NEW_LINE`, `SPACER`]"}
+    schema={{"type":"string","enum":["NEW_LINE","SPACER"]}}
   >
     
   </SchemaItem>

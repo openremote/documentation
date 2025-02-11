@@ -481,7 +481,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectNode"
+                $ref: "#/components/schemas/ManagerAppConfig"
     put:
       tags:
       - Configuration
@@ -504,14 +504,14 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/ObjectNode"
+              $ref: "#/components/schemas/ManagerAppConfig"
       responses:
         default:
           description: default response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ObjectNode"
+                $ref: "#/components/schemas/ManagerAppConfig"
   /configuration/manager/image/{filename}:
     get:
       tags:
@@ -5157,8 +5157,120 @@ components:
           type: string
         assetId:
           type: string
-    ObjectNode:
+    ManagerAppConfig:
       type: object
+      properties:
+        loadLocales:
+          type: boolean
+        languages:
+          type: object
+          additionalProperties:
+            type: string
+        realms:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/ManagerAppRealmConfig"
+        pages:
+          type: object
+          additionalProperties:
+            type: object
+        manager:
+          $ref: "#/components/schemas/ManagerConfig"
+    ManagerAppRealmConfig:
+      type: object
+      properties:
+        appTitle:
+          type: string
+        styles:
+          type: string
+        logo:
+          type: string
+        logoMobile:
+          type: string
+        favicon:
+          type: string
+        language:
+          type: string
+        headers:
+          type: array
+          items:
+            type: string
+        notifications:
+          $ref: "#/components/schemas/ManagerAppRealmNotificationConfig"
+    ManagerAppRealmNotificationConfig:
+      type: object
+      properties:
+        languages:
+          type: array
+          items:
+            type: string
+        defaultLanguage:
+          type: string
+    ManagerConfig:
+      type: object
+      properties:
+        managerUrl:
+          type: string
+        keycloakUrl:
+          type: string
+        appVersion:
+          type: string
+        realm:
+          type: string
+        clientId:
+          type: string
+        autoLogin:
+          type: boolean
+        consoleAutoEnable:
+          type: boolean
+        loadIcons:
+          type: boolean
+        pollingIntervalMillis:
+          type: integer
+          format: int32
+        loadTranslations:
+          type: array
+          items:
+            type: string
+        loadDescriptors:
+          type: boolean
+        translationsLoadPath:
+          type: string
+        skipFallbackToBasicAuth:
+          type: boolean
+        applyConfigToAdmin:
+          type: boolean
+        auth:
+          type: string
+          enum:
+          - KEYCLOAK
+          - BASIC
+          - NONE
+        credentials:
+          $ref: "#/components/schemas/UsernamePassword"
+        eventProviderType:
+          type: string
+          enum:
+          - WEBSOCKET
+          - POLLING
+        mapType:
+          type: string
+          enum:
+          - VECTOR
+          - RASTER
+        configureTranslationsOptions:
+          type: object
+        basicLoginProvider:
+          type: object
+        defaultLanguage:
+          type: string
+    UsernamePassword:
+      type: object
+      properties:
+        username:
+          type: string
+        password:
+          type: string
     AgentDescriptor:
       type: object
       allOf:
@@ -5352,6 +5464,8 @@ components:
             $ref: "#/components/schemas/NameValuePredicate"
         previousValue:
           $ref: "#/components/schemas/ValuePredicate"
+        timestampOlderThan:
+          type: string
     BooleanPredicate:
       type: object
       allOf:
@@ -5968,6 +6082,10 @@ components:
           amountOfPoints:
             type: integer
             format: int32
+    AssetDatapointNearestQuery:
+      type: object
+      allOf:
+      - $ref: "#/components/schemas/AssetDatapointQuery"
     AssetDatapointQuery:
       required:
       - type
@@ -6070,6 +6188,8 @@ components:
           format: date-time
         id:
           type: string
+    ObjectNode:
+      type: object
     GeoJsonConfig:
       type: object
       properties:
@@ -6601,6 +6721,9 @@ components:
           - PROCESSOR
           - OUTPUT
           - THEN
+        priority:
+          type: integer
+          format: int32
         name:
           type: string
         position:
@@ -6630,6 +6753,11 @@ components:
           $ref: "#/components/schemas/Picker"
         value:
           type: object
+        breakType:
+          type: string
+          enum:
+          - NEW_LINE
+          - SPACER
     NodePosition:
       type: object
       properties:
@@ -6650,6 +6778,7 @@ components:
           type: string
           enum:
           - NUMBER
+          - NUMBER_ARRAY
           - STRING
           - BOOLEAN
           - TRIGGER
@@ -6681,6 +6810,7 @@ components:
           - CHECKBOX
           - ASSET_ATTRIBUTE
           - COLOR
+          - DATE
         options:
           type: array
           items:
@@ -6773,7 +6903,8 @@ components:
         username:
           maxLength: 255
           minLength: 3
-          pattern: "[A-Za-z0-9\\-_@.]+"
+          pattern: "^(?=[\\p{IsLatin}|\\p{IsCommon}]+$)(?=[^<>&\"'\\s\\v\\h$%!#?§\
+            ,;:*~/\\\\|^=\\[\\]{}()`\\p{Cntrl}]+$).*$"
           type: string
     Role:
       type: object

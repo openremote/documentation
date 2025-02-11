@@ -201,8 +201,8 @@ import TabItem from "@theme/TabItem";
     name={"username"}
     required={false}
     schemaName={"string"}
-    qualifierMessage={"**Possible values:** `>= 3 characters` and `<= 255 characters`, Value must match regular expression `[A-Za-z0-9\\-_@.]+`"}
-    schema={{"maxLength":255,"minLength":3,"pattern":"[A-Za-z0-9\\-_@.]+","type":"string"}}
+    qualifierMessage={"**Possible values:** `>= 3 characters` and `<= 255 characters`, Value must match regular expression `^(?=[\\p{IsLatin}|\\p{IsCommon}]+$)(?=[^<>&\"'\\s\\v\\h$%!#?§,;:*~/\\\\|^=\\[\\]{}()`\\p{Cntrl}]+$).*$`"}
+    schema={{"maxLength":255,"minLength":3,"pattern":"^(?=[\\p{IsLatin}|\\p{IsCommon}]+$)(?=[^<>&\"'\\s\\v\\h$%!#?§,;:*~/\\\\|^=\\[\\]{}()`\\p{Cntrl}]+$).*$","type":"string"}}
   >
     
   </SchemaItem>

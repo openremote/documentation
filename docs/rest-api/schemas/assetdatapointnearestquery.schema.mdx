@@ -1,8 +1,8 @@
 ---
-id: nodesocket
-title: "NodeSocket"
+id: assetdatapointnearestquery
+title: "AssetDatapointNearestQuery"
 description: ""
-sidebar_label: "NodeSocket"
+sidebar_label: "AssetDatapointNearestQuery"
 hide_title: true
 schema: true
 custom_edit_url: null
@@ -17,7 +17,7 @@ import TabItem from "@theme/TabItem";
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"NodeSocket"}
+  children={"AssetDatapointNearestQuery"}
 >
 </Heading>
 
@@ -28,47 +28,47 @@ import TabItem from "@theme/TabItem";
 <ul>
   <SchemaItem
     collapsible={false}
-    name={"id"}
+    name={"fromTimestamp"}
     required={false}
-    schemaName={"string"}
+    schemaName={"int64"}
     qualifierMessage={undefined}
-    schema={{"type":"string"}}
+    schema={{"type":"integer","format":"int64"}}
   >
     
   </SchemaItem><SchemaItem
     collapsible={false}
-    name={"name"}
+    name={"toTimestamp"}
     required={false}
-    schemaName={"string"}
+    schemaName={"int64"}
     qualifierMessage={undefined}
-    schema={{"type":"string"}}
+    schema={{"type":"integer","format":"int64"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"fromTime"}
+    required={false}
+    schemaName={"date-time"}
+    qualifierMessage={undefined}
+    schema={{"type":"string","format":"date-time"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"toTime"}
+    required={false}
+    schemaName={"date-time"}
+    qualifierMessage={undefined}
+    schema={{"type":"string","format":"date-time"}}
   >
     
   </SchemaItem><SchemaItem
     collapsible={false}
     name={"type"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`NUMBER`, `NUMBER_ARRAY`, `STRING`, `BOOLEAN`, `TRIGGER`, `COLOR`, `ANY`]"}
-    schema={{"type":"string","enum":["NUMBER","NUMBER_ARRAY","STRING","BOOLEAN","TRIGGER","COLOR","ANY"]}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"nodeId"}
-    required={false}
+    required={true}
     schemaName={"string"}
     qualifierMessage={undefined}
     schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"index"}
-    required={false}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
   >
     
   </SchemaItem>
