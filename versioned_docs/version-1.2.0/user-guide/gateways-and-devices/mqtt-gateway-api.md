@@ -191,7 +191,7 @@ This section provides examples of the payloads and responses for the MQTT Gatewa
 Exact Asset Templates can be retrieved from the Swagger API by retrieving the asset data of an existing asset. [Swagger API](https://staging.demo.openremote.io/swagger)
 ***
 
-#### [Multi-Attribute Update Payload](#multi-attribute-update-payload)
+#### Multi-Attribute Update Payload
 - The multi-attribute update payload is a JSON object that contains the attribute names and values to be updated.
 - The attribute names and values are key-value pairs.
 - The attribute names must match the attribute names of the asset.
@@ -206,7 +206,7 @@ Exact Asset Templates can be retrieved from the Swagger API by retrieving the as
 
 ### Response Examples
 
-#### [Operation Error Response](#response-errors)
+#### Operation Error Response
 - When an error occurs during an MQTT operation, the response will include an error code and a message.
 - The error response is encoded in JSON.
 > - Below is an example of an error response for a failed asset creation.
@@ -225,4 +225,3 @@ Exact Asset Templates can be retrieved from the Swagger API by retrieving the as
 - **NOT_FOUND**: The requested resource could not be found. This error can be due to a non-existent asset or attribute.
 - **UNAUTHORIZED**: The request could not be authorized due to insufficient permissions.
 - **INTERNAL_SERVER_ERROR**: An unexpected condition was encountered, and no more specific message is suitable.
-
