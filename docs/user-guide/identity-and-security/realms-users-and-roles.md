@@ -26,7 +26,7 @@ There are two additional realm roles for users within OpenRemote.
 
 ### Restricted user realm role
 
-User set with realm role 'Restricted user' and linked to one or mores assets will only have visibility to those assets. Note that they will only see the attributes of that asset which have been set to 'restricted access read -or write'. Restricted users will also have the roles they are assigned to.
+User set with realm role 'Restricted user' and linked to one or more assets will only have visibility to those assets. Note that they will only see the attributes of that asset which have been set to 'restricted access read -or write'. Restricted users will also have the roles they are assigned to.
 
 ### Super admin realm role
 
