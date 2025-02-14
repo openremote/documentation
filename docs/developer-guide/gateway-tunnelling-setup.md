@@ -30,7 +30,7 @@ This guide describes the steps necessary to setup the gateway tunnelling functio
 
 ## Central Instance Setup
 
-* Set `AWS_ROUTE53_ROLE` on proxy container (this can be left as empty string to inherit from AWS EC2 instance provided the instance is using a cloudformation template that sets this value in `/etc/environment`)
+* Proxy container must be able to read/write Route53 DNS TXT record (see https://certbot-dns-route53.readthedocs.io/), this requires the instance to have the required permissions to the Route53 account where the DNS zone is hosted, if the hosted zone is in the same account as the EC2 instance then the standard `ec2-access` IAM profile that is attached to all our EC2 instances already contains the required permissions so no action is needed, alternatively if the hosted zone is in a different account to the EC2 instance then it is important that the EC2 instance cloudformation template parameter `DNSHostedZoneRoleArn` was correctly set, this will then get set as `AWS_ROUTE53_ROLE` in `/etc/environment` and the proxy container will output this to `~/.aws/config` during startup which will allow the plugin to assume that role for Route53 calls. The `AWS_ROUTE53_ROLE` can alternatively be defined via env file or within the docker compose file itself (NOTE: this role must be assumable by the `ec2-access` policy)
 * Set `DOMAINNAMES` to include wildcard certificate e.g. `*.example.openremote.app`
 * Add wildcard DNS A/AAAA record(s) e.g. `*.example.openremote.app`
 * Uncomment/add sish service in Docker Compose profile
