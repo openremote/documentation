@@ -35,6 +35,7 @@ This guide describes the steps necessary to setup the gateway tunnelling functio
 * Add wildcard DNS A/AAAA record(s) e.g. `*.example.openremote.app`
 * Uncomment/add sish service in Docker Compose profile
 * Set `SISH_HOST` and `SISH_PORT` on proxy container
+* Set `OR_GATEWAY_TUNNEL*` environment variables on manager container
 * Set TCP port range in sish service (to allow raw TCP tunnelling)
 * Allow inbound access to port `2222` and to the TCP port range exposed on the instance
 * Generate or select existing SSH private key and add this to the deployment image and set SISH variable: `--private-keys-directory`
