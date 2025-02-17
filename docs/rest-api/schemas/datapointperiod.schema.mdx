@@ -4,15 +4,14 @@ title: "DatapointPeriod"
 description: ""
 sidebar_label: "DatapointPeriod"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"assetId":"string","attributeName":"string","oldestTimestamp":0,"latestTimestamp":0}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,43 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"assetId"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"attributeName"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"oldestTimestamp"}
-    required={false}
-    schemaName={"int64"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int64"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"latestTimestamp"}
-    required={false}
-    schemaName={"int64"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int64"}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"type":"object","properties":{"assetId":{"type":"string"},"attributeName":{"type":"string"},"oldestTimestamp":{"type":"integer","format":"int64"},"latestTimestamp":{"type":"integer","format":"int64"}},"title":"DatapointPeriod"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             

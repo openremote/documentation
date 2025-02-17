@@ -4,15 +4,14 @@ title: "SentNotification"
 description: ""
 sidebar_label: "SentNotification"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"id":0,"name":"string","type":"string","target":"REALM","targetId":"string","source":"INTERNAL","sourceId":"string","message":{"type":"string"},"error":"string","sentOn":"2024-07-29T15:51:28.071Z","deliveredOn":"2024-07-29T15:51:28.071Z","acknowledgedOn":"2024-07-29T15:51:28.071Z","acknowledgement":"string"}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,154 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"id"}
-    required={false}
-    schemaName={"int64"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int64"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"name"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"type"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"target"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`REALM`, `USER`, `ASSET`, `CUSTOM`]"}
-    schema={{"type":"string","enum":["REALM","USER","ASSET","CUSTOM"]}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"targetId"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"source"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`INTERNAL`, `CLIENT`, `GLOBAL_RULESET`, `REALM_RULESET`, `ASSET_RULESET`]"}
-    schema={{"type":"string","enum":["INTERNAL","CLIENT","GLOBAL_RULESET","REALM_RULESET","ASSET_RULESET"]}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"sourceId"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={true}
-    className={"schemaItem"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details"}
-    >
-      <summary
-        style={{}}
-      >
-        <span
-          className={"openapi-schema__container"}
-        >
-          <strong
-            className={"openapi-schema__property"}
-          >
-            message
-          </strong><span
-            className={"openapi-schema__name"}
-          >
-             object
-          </span>
-        </span>
-      </summary><div
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"type"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string"}}
-        >
-          
-        </SchemaItem>
-      </div>
-    </details>
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"error"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"sentOn"}
-    required={false}
-    schemaName={"date-time"}
-    qualifierMessage={undefined}
-    schema={{"type":"string","format":"date-time"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"deliveredOn"}
-    required={false}
-    schemaName={"date-time"}
-    qualifierMessage={undefined}
-    schema={{"type":"string","format":"date-time"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"acknowledgedOn"}
-    required={false}
-    schemaName={"date-time"}
-    qualifierMessage={undefined}
-    schema={{"type":"string","format":"date-time"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"acknowledgement"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"required":["source","target","targetId","type"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"name":{"type":"string"},"type":{"type":"string"},"target":{"type":"string","enum":["REALM","USER","ASSET","CUSTOM"]},"targetId":{"type":"string"},"source":{"type":"string","enum":["INTERNAL","CLIENT","GLOBAL_RULESET","REALM_RULESET","ASSET_RULESET"]},"sourceId":{"type":"string"},"message":{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"},"error":{"type":"string"},"sentOn":{"type":"string","format":"date-time"},"deliveredOn":{"type":"string","format":"date-time"},"acknowledgedOn":{"type":"string","format":"date-time"},"acknowledgement":{"type":"string"}},"title":"SentNotification"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             

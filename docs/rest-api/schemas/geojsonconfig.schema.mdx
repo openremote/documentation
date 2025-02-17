@@ -4,15 +4,14 @@ title: "GeoJsonConfig"
 description: ""
 sidebar_label: "GeoJsonConfig"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"source":{},"layers":[{}]}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,25 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"source"}
-    required={false}
-    schemaName={"object"}
-    qualifierMessage={undefined}
-    schema={{"type":"object"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"layers"}
-    required={false}
-    schemaName={"object[]"}
-    qualifierMessage={undefined}
-    schema={{"type":"array","items":{"type":"object"}}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"type":"object","properties":{"source":{"type":"object"},"layers":{"type":"array","items":{"type":"object"}}},"title":"GeoJsonConfig"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             

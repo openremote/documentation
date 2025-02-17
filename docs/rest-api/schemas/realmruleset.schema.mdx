@@ -4,15 +4,14 @@ title: "RealmRuleset"
 description: ""
 sidebar_label: "RealmRuleset"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"id":0,"version":0,"createdOn":"2024-07-29T15:51:28.071Z","lastModified":"2024-07-29T15:51:28.071Z","name":"string","enabled":true,"rules":"string","lang":"JAVASCRIPT","meta":{},"status":"READY","error":"string","realm":"string","accessPublicRead":true}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,145 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"id"}
-    required={false}
-    schemaName={"int64"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int64"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"version"}
-    required={false}
-    schemaName={"int64"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int64"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"createdOn"}
-    required={false}
-    schemaName={"date-time"}
-    qualifierMessage={undefined}
-    schema={{"type":"string","format":"date-time"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"lastModified"}
-    required={false}
-    schemaName={"date-time"}
-    qualifierMessage={undefined}
-    schema={{"type":"string","format":"date-time"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"name"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** `>= 3 characters` and `<= 255 characters`"}
-    schema={{"maxLength":255,"minLength":3,"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"enabled"}
-    required={false}
-    schemaName={"boolean"}
-    qualifierMessage={undefined}
-    schema={{"type":"boolean"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"rules"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"lang"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`JAVASCRIPT`, `GROOVY`, `JSON`, `FLOW`]"}
-    schema={{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={true}
-    className={"schemaItem"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details"}
-    >
-      <summary
-        style={{}}
-      >
-        <span
-          className={"openapi-schema__container"}
-        >
-          <strong
-            className={"openapi-schema__property"}
-          >
-            meta
-          </strong><span
-            className={"openapi-schema__name"}
-          >
-             object
-          </span>
-        </span>
-      </summary><div
-        style={{"marginLeft":"1rem"}}
-      >
-        
-      </div>
-    </details>
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"status"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`READY`, `DEPLOYED`, `COMPILATION_ERROR`, `VALIDITY_PERIOD_ERROR`, `EXECUTION_ERROR`, `LOOP_ERROR`, `DISABLED`, `PAUSED`, `EXPIRED`, `REMOVED`, `EMPTY`]"}
-    schema={{"type":"string","enum":["READY","DEPLOYED","COMPILATION_ERROR","VALIDITY_PERIOD_ERROR","EXECUTION_ERROR","LOOP_ERROR","DISABLED","PAUSED","EXPIRED","REMOVED","EMPTY"]}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"error"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"realm"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"accessPublicRead"}
-    required={false}
-    schemaName={"boolean"}
-    qualifierMessage={undefined}
-    schema={{"type":"boolean"}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"required":["lang","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"version":{"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":3,"type":"string"},"enabled":{"type":"boolean"},"rules":{"type":"string"},"lang":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]},"meta":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"string","enum":["READY","DEPLOYED","COMPILATION_ERROR","VALIDITY_PERIOD_ERROR","EXECUTION_ERROR","LOOP_ERROR","DISABLED","PAUSED","EXPIRED","REMOVED","EMPTY"]},"error":{"type":"string"},"realm":{"type":"string"},"accessPublicRead":{"type":"boolean"}},"title":"RealmRuleset"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             

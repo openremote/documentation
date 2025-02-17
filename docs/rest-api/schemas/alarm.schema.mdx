@@ -4,15 +4,14 @@ title: "Alarm"
 description: ""
 sidebar_label: "Alarm"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"title":"string","content":"string","severity":"LOW","assigneeId":"string","realm":"string","status":"OPEN","sourceId":"string","source":"MANUAL"}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,79 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"title"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"content"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"severity"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`LOW`, `MEDIUM`, `HIGH`]"}
-    schema={{"type":"string","enum":["LOW","MEDIUM","HIGH"]}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"assigneeId"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"realm"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"status"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`OPEN`, `ACKNOWLEDGED`, `IN_PROGRESS`, `RESOLVED`, `CLOSED`]"}
-    schema={{"type":"string","enum":["OPEN","ACKNOWLEDGED","IN_PROGRESS","RESOLVED","CLOSED"]}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"sourceId"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"source"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`MANUAL`, `CLIENT`, `GLOBAL_RULESET`, `REALM_RULESET`, `ASSET_RULESET`, `AGENT`]"}
-    schema={{"type":"string","enum":["MANUAL","CLIENT","GLOBAL_RULESET","REALM_RULESET","ASSET_RULESET","AGENT"]}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"required":["realm","severity","source","sourceId","status","title"],"type":"object","properties":{"title":{"type":"string"},"content":{"type":"string"},"severity":{"type":"string","enum":["LOW","MEDIUM","HIGH"]},"assigneeId":{"type":"string"},"realm":{"type":"string"},"status":{"type":"string","enum":["OPEN","ACKNOWLEDGED","IN_PROGRESS","RESOLVED","CLOSED"]},"sourceId":{"type":"string"},"source":{"type":"string","enum":["MANUAL","CLIENT","GLOBAL_RULESET","REALM_RULESET","ASSET_RULESET","AGENT"]}},"title":"Alarm"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             
