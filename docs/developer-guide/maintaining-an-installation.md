@@ -151,7 +151,7 @@ docker exec -it openremote_manager_1 /usr/bin/jcmd 1 GC.run
 ## Install the JDK
 By default the manager Docker image only contains a JRE; many java profiling tools are available in the JDK so to install within a running manager container:
 ```shell
-docker exec or-manager-1 /bin/bash -c 'microdnf --setopt=install_weak_deps=0 --setopt=tsflags=nodocs install -y java-17-openjdk-devel && microdnf clean all && rpm -q java-17-openjdk-devel'
+docker exec or-manager-1 /bin/bash -c 'microdnf --setopt=install_weak_deps=0 --setopt=tsflags=nodocs install -y java-21-openjdk-devel && microdnf clean all && rpm -q java-21-openjdk-devel'
 ```
 
 
