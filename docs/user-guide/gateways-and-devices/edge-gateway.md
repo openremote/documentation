@@ -25,7 +25,7 @@ Just create a new Asset of type Gateway and the manager will provision a Keycloa
 
 ![](img/manager-gateway-asset.png)
 
-### 2. Entering credentials in the edge gateway
+### 2. Entering credentials in the edge gateway (Connection details)
    1. On the edge gateway login to the manager UI and select the realm you wish to connect to the central manager (only applicable to superusers).
    1. Go to the Manager interconnect page (top right menu)
       1. Enter the host (e.g. `demo.openremote.io`)
@@ -36,11 +36,38 @@ Just create a new Asset of type Gateway and the manager will provision a Keycloa
       1. Click Save
       1. In the top right of the dialog the status should change to `CONNECTED`
 
-### 3. Limit data rate at which edge gateway synchronises
-   1. On the Manager interconnect page select the asset type and attributes which you want to synchronise with the central instance.
-   2. Select whether you want to limit the data rate and set the time interval.
-      
+### 3. Limit data rate at which edge gateway synchronises (Data sharing)
+   1. Select the asset type and attributes which you want to synchronise with the central instance
+   1. Select whether you want to limit the data rate and set the time interval
+
 ![image](img/manager-interconnect-rate.png)
+
+### 4. Add/remove attributes and/or configuration items during synchronisation (Asset synchronization)
+   1. Allows customisation of the attributes and/or configuration items that are sent to the central instance on a per asset & attribute basis (wildcards can also be used)
+   1. Until we have a UI to do this configuration you will need to write/copy/paste JSON into the textarea using the following schema:
+```
+   {
+   "*": { <-- Applies to all assets
+      "excludeAttributes": ["notes"],
+      "excludeAttributeMeta": {
+          "*": ["accessPublicRead"],
+          "location": [] <-- Don't exclude any meta items for location attribute
+      },
+      "addAttributeMeta": {
+          "*": { <-- MetaMap
+             "accessRestrictedRead": true
+          },
+      }
+   },
+   "CityAsset": {
+      "excludeAttributes": ["city"]
+   }
+}
+```
+   3. If a definition exists for a specific asset type or attribute then that should be used instead of any * wildcard definition
+   4. If a definition exists for a specific attribute within `excludeMetaItems` then that should be used instead of any * wildcard definition
+
+![image](img/manager-asset-synchronisation.png)
 
 ## Interaction with Gateway Manager UI via Gateway tunnels
 
