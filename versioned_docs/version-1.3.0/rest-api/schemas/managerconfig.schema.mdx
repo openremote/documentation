@@ -1,0 +1,259 @@
+---
+id: managerconfig
+title: "ManagerConfig"
+description: ""
+sidebar_label: "ManagerConfig"
+hide_title: true
+schema: true
+custom_edit_url: null
+---
+
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ManagerConfig"}
+>
+</Heading>
+
+
+
+
+
+<ul>
+  <SchemaItem
+    collapsible={false}
+    name={"managerUrl"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={undefined}
+    schema={{"type":"string"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"keycloakUrl"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={undefined}
+    schema={{"type":"string"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"appVersion"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={undefined}
+    schema={{"type":"string"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"realm"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={undefined}
+    schema={{"type":"string"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"clientId"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={undefined}
+    schema={{"type":"string"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"autoLogin"}
+    required={false}
+    schemaName={"boolean"}
+    qualifierMessage={undefined}
+    schema={{"type":"boolean"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"consoleAutoEnable"}
+    required={false}
+    schemaName={"boolean"}
+    qualifierMessage={undefined}
+    schema={{"type":"boolean"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"loadIcons"}
+    required={false}
+    schemaName={"boolean"}
+    qualifierMessage={undefined}
+    schema={{"type":"boolean"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"pollingIntervalMillis"}
+    required={false}
+    schemaName={"int32"}
+    qualifierMessage={undefined}
+    schema={{"type":"integer","format":"int32"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"loadTranslations"}
+    required={false}
+    schemaName={"string[]"}
+    qualifierMessage={undefined}
+    schema={{"type":"array","items":{"type":"string"}}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"loadDescriptors"}
+    required={false}
+    schemaName={"boolean"}
+    qualifierMessage={undefined}
+    schema={{"type":"boolean"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"translationsLoadPath"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={undefined}
+    schema={{"type":"string"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"skipFallbackToBasicAuth"}
+    required={false}
+    schemaName={"boolean"}
+    qualifierMessage={undefined}
+    schema={{"type":"boolean"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"applyConfigToAdmin"}
+    required={false}
+    schemaName={"boolean"}
+    qualifierMessage={undefined}
+    schema={{"type":"boolean"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"auth"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={"**Possible values:** [`KEYCLOAK`, `BASIC`, `NONE`]"}
+    schema={{"type":"string","enum":["KEYCLOAK","BASIC","NONE"]}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={true}
+    className={"schemaItem"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details"}
+    >
+      <summary
+        style={{}}
+      >
+        <span
+          className={"openapi-schema__container"}
+        >
+          <strong
+            className={"openapi-schema__property"}
+          >
+            credentials
+          </strong><span
+            className={"openapi-schema__name"}
+          >
+             object
+          </span>
+        </span>
+      </summary><div
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"username"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"password"}
+          required={false}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem>
+      </div>
+    </details>
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"eventProviderType"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={"**Possible values:** [`WEBSOCKET`, `POLLING`]"}
+    schema={{"type":"string","enum":["WEBSOCKET","POLLING"]}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"mapType"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={"**Possible values:** [`VECTOR`, `RASTER`]"}
+    schema={{"type":"string","enum":["VECTOR","RASTER"]}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"configureTranslationsOptions"}
+    required={false}
+    schemaName={"object"}
+    qualifierMessage={undefined}
+    schema={{"type":"object"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"basicLoginProvider"}
+    required={false}
+    schemaName={"object"}
+    qualifierMessage={undefined}
+    schema={{"type":"object"}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"defaultLanguage"}
+    required={false}
+    schemaName={"string"}
+    qualifierMessage={undefined}
+    schema={{"type":"string"}}
+  >
+    
+  </SchemaItem>
+</ul>
+            

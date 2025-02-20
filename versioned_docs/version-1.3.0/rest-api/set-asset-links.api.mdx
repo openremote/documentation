@@ -1,0 +1,150 @@
+---
+id: set-asset-links
+title: "Set the asset links of an alarm"
+description: "Set the asset links of an alarm"
+sidebar_label: "Set the asset links of an alarm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVd9r2zAQ/lfEPW1Fscr65qeFsq2FjoU1hUHIg2pfYlFZ0qRzs874fx8nJ2nSdYxuDPZm7sd3d5/uPvdAep2gXMDU6tjCUoIPGDUZ7y5rKCEhTVNCujLuLoGEoKNukTByUg9OtwglTDtqfDTfcx5IMA5KaFDXGEFCqhpsNZQ90EPg8ETRuDUMg9wjfJm893GjY431ZBY9+b9GufCJXgCylBAxBe8SJvbXuNKdpfEzVdGEPFu5c4hdNEiovCN0OfZEnUDZD8MwyCd510iCGhSa6RSW+RR+JbQTOlMvoUVqPJMeOspUUwMlqOxWOY1fIGG839HfRcvTEYVUKlVj6wsf0EVsPWFhvNLBqD6itu2gQMK9jkbf2nHCbD4aFVqdCCMMmY6EVRcNPeRKDGtqKBfLQ9c10zmi7QL2zHrdUfMGJKys3+SQyhp0dB6xRkdG22wkf4fuJs+hOEPltpIaW1GBd6HyVo34k8o7hxWpnAb8ZquIqflzgFT5ME4Qol8Zy63vvvgR9eFqn/saOfTI+PLaHAryPx89r7BxK59fyVB2fwroPuftEh+102uM4vO767mYzi7h6cLPG5OESXnpa191LTrKhImVj9n6DNrFfD7bQxZCzCzqhCIh5ozFEdDy1X71fZWOV/91rtL6iIKHKLZnqqt8pthqw7Sx6+1RHgwSrKmQL7t8FLgPsytxVpyCfHJzm82mWLuu8HGttmlJ6XWwk7PitEBXNNRaxuSbHXlhxymbgk/UandQ5vcacUTx/tYIv5EKVhvHuLnDfqsfC9ilbhVkKaFhaSwX0Pe3OuFNtMPA5q8dRr725aNQ5IOXO/1kIahNYkcN5UrbhD91tNdC4A1/rr07fPiF4N9r23E8sKT/i0Lbf8JRnTFqWlUYDn0s5Cx1e1Ge3cxhGH4ACMh+Lw==
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Set the asset links of an alarm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/alarm/assets"}
+>
+  
+</MethodEndpoint>
+
+
+
+Set the asset links of an alarm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"*/*"}
+              value={"*/*"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

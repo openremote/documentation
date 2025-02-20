@@ -1,0 +1,255 @@
+---
+id: get-client-roles
+title: "Retrieve client roles for a realm and client"
+description: "Retrieve client roles for a realm and client"
+sidebar_label: "Retrieve client roles for a realm and client"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVktvGzcQ/ivEnBKA3jWa255qGGlioEUFRQYKCDrQ3JGWCZdkhlyrqrD/vRjuw1KsArYLFL3tct7Db77hEZLaRajWcB+RYCPBBySVjHd3NVSww3RrDbq09BYjSAiKVIsJiY2O4FSLUMFNlxpP5q9sCBKMgwoaVDUSSIi6wVZBdYR0CKweExm3g76Xs4c/rn7xtFdUY321IJ/8v/by2cf0JieEyraTZVCpAQmE3ztDWEOVqMOX+dG5cXf1m11tWDkG7yJGlte4VZ1Nw2fUZEJudzUJxKQNErR3CV3WVSFYo/PVlF8jGxyfB1VE6sCZJmzjybl/+Iqa+xiIkZHMkIqpLyQsx8ovCM7yvSDXvg0+mnRq/eC9ReVYrGI0O4f1ZelszCC9q+MLypp73EtIJlk+Y2s+yYfnDV5iIoOPKIY7FcTTILaehBIZLkK5ehSChBZT48fxyTOTGqig7CJSecz6fXmc4NGXNM5WRHqcBqsjy7hNKcSqLGtsfeEDOsLWJyyML1Uwsy+Q8KjIqAc73M6A4FPEQKtiQuLyNhxId2TSIUdit3yd682p6AsDZPA2KTxhQnWp+QkkbK3fZ5WhllvCGl0yyg6t9t/Q3ec6SrYoc1qxHFIpA0+59rYc/F9p7xzqVGazPCdbwti83UHUPgwVBPJbk+94+uIrVqekdevrjL2zw9fHZlWQ//PSM8CN2/p8SyP6fw/olhld4jfl1A5JLD9+WYmbxR38OA6rxkRhokgNitrrrkWXcsPySPDpBW+fV6vF7LIQYmFRRRQRMVuszxxt3s3Q9zqeQ/99jtJ6QsFFFCPbKZ3ZDltluG0s+vnMjqnCGo1MkNXT6vq0+FV8KK5B/jBz+/2+2Lmu8LQrR7NYql2wVx+K6wJd0aTWsk+e2aEvLLjmo+BjapU7CfNKBrnMlwn/TGWwymTay+keR3ZZA7MLSKim9VWd7J+BYTYSGl6K1RqOxwcV8Z5s3/Px9w6J2WDzRCSZG2oT+buGaqtsxGd5zVsG3i3HtfZeMP4v5TtRsjtkvrId/4GEb3iYty6vz/8w6NyiftPL6ZXwusL/KfAQ4NKzZs7idcW+PND48jmLM2jdaI3hVPbsbcA7YF5fnz6uoO//BoJtgfA=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve client roles for a realm and client"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/{realm}/{clientId}/roles"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve client roles for a realm and client
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"realm","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"clientId","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={false}
+                        name={"id"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"name"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"description"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"composite"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"assigned"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"compositeRoleIds"}
+                        required={false}
+                        schemaName={"string[]"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"array","items":{"type":"string"}}}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"id\": \"string\",\n    \"name\": \"string\",\n    \"description\": \"string\",\n    \"composite\": true,\n    \"assigned\": true,\n    \"compositeRoleIds\": [\n      \"string\"\n    ]\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

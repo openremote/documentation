@@ -1,0 +1,297 @@
+---
+id: get-datapoints
+title: "Retrieve the historical datapoints of an asset attribute"
+description: "Retrieve the historical datapoints of an asset attribute"
+sidebar_label: "Retrieve the historical datapoints of an asset attribute"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFv2zYQ/ivCPbWAbDlpu256WpZ1a4Gt8RJ3GBb44SKdLbYSyZKnOJ6h/z4cactWkhZJCgzzk0x+9x3vjvfxNsC49JBfwon3xMnPyGiN0gzzFIwlh6yMfldCDkviftdDChYdNsTkxHwDGhuCHE5aroxT/wQ7SEFpyKEiLMlBCr6oqEHIN8BrK3DPTukldF3aM/w1+sW4FbqSytHUGTbfzPLWeH4SCUpO3pU7W4tcQQqOPrfKUQk5u5YeyMTs1FXL9F7+P5VvHsHk+SdTrgVRGM2kWT7R2loVIe/ZR2+0rO2p9k4uI+083dGbq49USIKsk4qzIi8WC2eamWrIMzb24DRKMy1DChfGNchx6buX0KXA5rEWOy93wz1Al8g0YkH1Ph6BD6h7igOl8oVTjdLIxglkm4D1+1i0YCEMiutwt+U69D3wR0tuDV0nTI68NdrHxJW0wLbm+CkebOiFfLeR7NCQPrx+29Ojc7iW+8PU+IP1L9Tw5oFVWN+l6g4C/xPrlvrAz3aAGPswxnNip+iaEq4oqZRn41SBdVL20pGYRYI6Cb2V9H0BKTTElRGlsbFfQ3vkkAVk1hNkm21bdtlm0FaddDW5650ita6Whme2Ps+ykhozNpa0o8YwjZXJ0Kps4wjrpssghWt0Cq/qmLmwPKgmNOiZnMQ9F0dF6xSvgyehVdJa88OtCyleZNsB9knGlqtjqUVtVgFS1Io0nzoqSbPCOlbXfCL9IcSRiUUWjuWzeJTMijwWps4i/6gwWlPBWTALyrJw5KunE/jC2BiBdWahwmXYfUnt8VDtT00ZGm2w+HjfAoX0fx56uPnSped7PX5zg42t6R7tnNxSxsmh7sHx5PjlaPJ6dPzD7OhV/uooP/5+PHl99Dfste6rmKGuyduyMOHybLv3zJI+D5c++R01Lskl528uZsnJ9B3cbt9ZpXyifOje0hRtQ5pDHZOFcWH1Hra3s9m0pxwnybQm9JR4iipwOSCaP+s70hR+2JHPg5fGOEokiPFWILEIAkkNqjqo1sL8OLCTqGtVkGhqvh9Ffp3+lrwYTyC9JQWr1Wq81O3YuGW2NfMZLm09ejGejEmPK25q4RQpiXmRjYksiTY1qA/cfIPiDXLfawPTDWe2RqXFYTj6ZiuGl3EkEdN+UEsh388p+XDQmKdQiZjml7DZXKGnD67uOln+HF6v/HK+170gZaXy8l1CvsDa050z9g8WPDvfjhTPk/0tHJ5992jpdZDXupV/kMInWh9MVzIm/ZduBxnq5l26GwofF/+XvEcv902x/VEeF/HDHW0H3YGfiDqNbKOZEO0Rd2aOvcVJUZDlr2LnB2/29OxiBilcbefSJrwF4HAlWoyrGIYJ0cX3VdY2UKNetrgUbOSU37/ioVdE
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the historical datapoints of an asset attribute"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/asset/datapoint/{assetId}/{attributeName}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the historical datapoints of an asset attribute
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"assetId","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"attributeName","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><MimeTabs
+  className={"openapi-tabs__mime"}
+>
+  <TabItem
+    label={"application/json"}
+    value={"application/json-schema"}
+  >
+    <details
+      style={{}}
+      className={"openapi-markdown__details mime"}
+      data-collapsed={false}
+      open={true}
+    >
+      <summary
+        style={{}}
+        className={"openapi-markdown__details-summary-mime"}
+      >
+        <h3
+          className={"openapi-markdown__details-summary-header-body"}
+        >
+          Body
+        </h3>
+      </summary><div
+        style={{"textAlign":"left","marginLeft":"1rem"}}
+      >
+        
+      </div><ul
+        style={{"marginLeft":"1rem"}}
+      >
+        <SchemaItem
+          collapsible={false}
+          name={"fromTimestamp"}
+          required={false}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","format":"int64"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"toTimestamp"}
+          required={false}
+          schemaName={"int64"}
+          qualifierMessage={undefined}
+          schema={{"type":"integer","format":"int64"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"fromTime"}
+          required={false}
+          schemaName={"date-time"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","format":"date-time"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"toTime"}
+          required={false}
+          schemaName={"date-time"}
+          qualifierMessage={undefined}
+          schema={{"type":"string","format":"date-time"}}
+        >
+          
+        </SchemaItem><SchemaItem
+          collapsible={false}
+          name={"type"}
+          required={true}
+          schemaName={"string"}
+          qualifierMessage={undefined}
+          schema={{"type":"string"}}
+        >
+          
+        </SchemaItem>
+      </ul>
+    </details>
+  </TabItem>
+</MimeTabs><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={false}
+                        name={"x"}
+                        required={false}
+                        schemaName={"int64"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"integer","format":"int64"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"y"}
+                        required={false}
+                        schemaName={"object"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"object"}}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"x\": 0,\n    \"y\": {}\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

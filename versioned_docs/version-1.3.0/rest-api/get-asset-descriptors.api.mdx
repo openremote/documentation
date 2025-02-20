@@ -1,0 +1,246 @@
+---
+id: get-asset-descriptors
+title: "Retrieve the available asset descriptors"
+description: "Retrieve the available asset descriptors"
+sidebar_label: "Retrieve the available asset descriptors"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVt+P2zYM/lcMYg8dprMP65ufdmi79oB1Da4pMOCaATyZidXKkirRybIg/3tBOcnFSVDsuj0sT4FIfvz5kd4A4yJBfQ83KREXb31DFmYKfKCIbLy7baCGBXGWv6SkownsYwIFASN2xBQFYAMOO4IabnpufTR/Z2tQYBzU0BI2FEFB0i11CPUGeB1EPXE0bgHbrTog/HH1q48rjA01V5Po2f9rlDc+8XeBBIzk+LbZG3/pKa6fZDsV+T+2nimIlIJ3iZLIG5pjb3n4O9ReqlrvBcVeGxRo75hc1sUQrNG5A9WnJAabc6cYI0o0hqnLziJ96U2kRsahOXQ6JzBTeyv/8Im0FDNEmRE2Q6BDzhsIyExRIvzz48fVTz+AOs1RgdFDRGcC7a3v40VRs3bYGX0ke/DeErosHAd7qSvQGNHpjEP22cUu/vXvQ7dOMLYK2LDNAz2e/HdDAbb5p07ackccDS2p4JYKXKKx+GCpwEyuZsSejrj1O3JlMnELNVSdMLDCc7Yliss91fpoZZKZQ6qrqqHOlz6Qi9R5ptL4CoOpNpHQdtsKFCwxGglk12a03Wi4oMPEFCWnmTjSfTS8zp4E1shEzI5F72WWBrS9wqHmHntufwYFc+tXWUVbQ45fRGrIsUGbH9l/Jvch51GJRZXDStUQShWE99rbasC/0t450lxlMxCWzCOl9vsBkvZhyCBEPze50/t/0lc8XmMvfJPHavT4dN+iKoT4X6eep9q4uc9d2nHgXSB3l6ereIsOFxSLu1fvp8XN5BZOOTBtTSpMyhRovO47cpwLVsx9zK8X0N5Mp5MDZFkUE0uYqEg0UOl+BDR7dhh9r9N49H/MXjofqZAkyt1iRJ0XI3VopGwi+mVkJ4y3RpPs0vrxmL2e/FY8L69BnXButVqVC9eXPi6qnVmqcBHs1fPyuiRXttxZwRTODnURwbU8BZ+4Q3fk5glrY1TrA+mY/uIqWDR5H+ZQN7uVcg95pYCCs6UyU9DKZazvYbN5wEQfot1u5Xm4VLIAGpMklgbqOdpECj7TenwYl2h7iQHk9n1TfXcLHw1mj6sprxi1v84XPZ+kfrh38HhkxnUYfF/6nPh2zP+Bo90Xx8jPoHWjNYVj2dmxlrIcrsPrV1PYbr8CQMZekA==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the available asset descriptors"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/model/assetDescriptors"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the available asset descriptors
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"parentId","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"parentType","in":"query","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
+                        >
+                          Array [
+                        </div>
+                      </li><SchemaItem
+                        collapsible={false}
+                        name={"name"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={"**Possible values:** Value must match regular expression `^\\w+$`"}
+                        schema={{"pattern":"^\\w+$","type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"icon"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"colour"}
+                        required={false}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"dynamic"}
+                        required={false}
+                        schemaName={"boolean"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"boolean"}}
+                      >
+                        
+                      </SchemaItem><SchemaItem
+                        collapsible={false}
+                        name={"descriptorType"}
+                        required={true}
+                        schemaName={"string"}
+                        qualifierMessage={undefined}
+                        schema={{"type":"string"}}
+                      >
+                        
+                      </SchemaItem><li>
+                        <div
+                          style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
+                        >
+                          ]
+                        </div>
+                      </li>
+                    </ul>
+                  </details>
+                </TabItem><TabItem
+                  label={"Example (from schema)"}
+                  value={"Example (from schema)"}
+                >
+                  <ResponseSamples
+                    responseExample={"[\n  {\n    \"name\": \"string\",\n    \"icon\": \"string\",\n    \"colour\": \"string\",\n    \"dynamic\": true,\n    \"descriptorType\": \"string\"\n  }\n]"}
+                    language={"json"}
+                  >
+                    
+                  </ResponseSamples>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

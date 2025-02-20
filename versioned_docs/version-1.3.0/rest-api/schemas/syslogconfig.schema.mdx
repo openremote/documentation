@@ -1,0 +1,58 @@
+---
+id: syslogconfig
+title: "SyslogConfig"
+description: ""
+sidebar_label: "SyslogConfig"
+hide_title: true
+schema: true
+custom_edit_url: null
+---
+
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"SyslogConfig"}
+>
+</Heading>
+
+
+
+
+
+<ul>
+  <SchemaItem
+    collapsible={false}
+    name={"storedLevel"}
+    required={true}
+    schemaName={"string"}
+    qualifierMessage={"**Possible values:** [`INFO`, `WARN`, `ERROR`]"}
+    schema={{"type":"string","enum":["INFO","WARN","ERROR"]}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"storedCategories"}
+    required={true}
+    schemaName={"string[]"}
+    qualifierMessage={"**Possible values:** [`ASSET`, `AGENT`, `NOTIFICATION`, `ALARM`, `RULES`, `PROTOCOL`, `GATEWAY`, `MODEL_AND_VALUES`, `API`, `DATA`]"}
+    schema={{"type":"array","items":{"type":"string","enum":["ASSET","AGENT","NOTIFICATION","ALARM","RULES","PROTOCOL","GATEWAY","MODEL_AND_VALUES","API","DATA"]}}}
+  >
+    
+  </SchemaItem><SchemaItem
+    collapsible={false}
+    name={"storedMaxAgeMinutes"}
+    required={true}
+    schemaName={"int32"}
+    qualifierMessage={undefined}
+    schema={{"type":"integer","format":"int32"}}
+  >
+    
+  </SchemaItem>
+</ul>
+            

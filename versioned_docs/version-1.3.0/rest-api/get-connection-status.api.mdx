@@ -1,0 +1,190 @@
+---
+id: get-connection-status
+title: "Retrieve the gateway connection status of a realm"
+description: "Retrieve the gateway connection status of a realm"
+sidebar_label: "Retrieve the gateway connection status of a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUuP2zgM/isCTy2gsQbtzafNZrLTAN2ZIEnRAkEOqs3E2sqSKsmTzQb+7wXlR5PpdIFOUaA+yXx8pMhP5Ami3AfIN3ArIx7kEbYcrEMvo7JmXkIOe4xTawwWJFlFGZsAHJz0ssaInpxPYGSNkMOkiZX16r/kDRyUgRwqlCV64BCKCmsJ+Qni0ZF5iF6ZPbQtHxE+XP1l/UH6EsurhbfR/jTKGxvis0A8Sl0Pnk7GCjh4/NwojyXk0Tf4fzhbMg7OmoCB9CXuZKNjdwyFVy7VKB8UbLAGDoU1EU2ylc5pVaR6in8COZy+G5QDmqamZt7MV9P7u7vZdD27AQ79eX53C/xM1/2fG97MV5M/36bj+8m8N5gtl/dL4LBa3y8WsxvYtvTxR9dYYvQKH5DFCtm+IxMrRuKwkJjD7I5JNlS2xljZnmOJU7GCHETvLToXcUrmLXUN/cPAuMZramiMLuRClFjbzDo0HmsbMVNWSKcGVwEcHqRX8qPumtElcN4VqGWI6KFNnQtYNF7FY4pEsKqEfLM9V62oCR3aYDD2w8omVq+Aw07bQzIptEITpx5LNFFJnYTRfkLzLt1DkIdIaQXRpSIc0b+wWnT4V30xRXJLXNx5DNXzAUJhXXcD5+1OaUp9OFGD5flrntoSEyHPhT8em0yB/+ZXT/RWZmdTl1RM6nuHZpnYxf6WRu7Rs+VstWaTxRweP4Z1pQJTIb2F0hZNjSamgrGd9Un6BNqb9XoxQmaMLTTKgCxg96Y2F0DbFyP1bREuqf8yRamtR0aXyPqJIos0UbCWispGqj8u/KDloFWBNITyrzP9dvGWvc6ugT96c4fDIdubJrN+L3q3IOTe6avX2XWGJqtirQmT3mxXF1Jck8jZEGtpzsI8Z35cFH18fRH/jcJpqQxFSjmf+tmygR6ZKDCssryD23KoaFXkGzidPsqA77xuWxJ/btDTKNh+nSJpMJQq0LmEfCd1wG/yGcc4vFj2e+MlI/I/lWcvlOaYhpVu6A84fMLjuIvabcuHHfZjCXwvaof+1NIdU6CN+CsC9Xv5Ik5nNSkKdOe6b5YgDeJxedzO1tC2XwDNQgaA
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the gateway connection status of a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/gateway/status/{realm}"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the gateway connection status of a realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"realm","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      <div
+                        style={{"marginTop":".5rem","marginBottom":".5rem"}}
+                      >
+                        
+                        
+                        string
+                        
+                        <div
+                          style={{"paddingTop":"1rem"}}
+                        >
+                          
+                          
+                          **Possible values:** [`DISCONNECTED`, `CONNECTING`, `DISCONNECTING`, `CONNECTED`, `DISABLED`, `WAITING`, `ERROR`, `STOPPED`]
+                          
+                          
+                        </div>
+                      </div>
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>

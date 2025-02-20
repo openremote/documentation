@@ -1,0 +1,198 @@
+---
+id: update-asset-parent
+title: "Update the parent of assets"
+description: "Update the parent of assets"
+sidebar_label: "Update the parent of assets"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVd+L3DYQ/lfMPCWgsy65oyl+6hHS5CCly2UPCss+TOzZtRpZUqTxbbbG/3uQtN6sN9fSpBTyJjQz3/z+ZgDGbYBqBTchEMNagHXkkZU1tw1U0LsGmZJwgZ4MgwCHHjti8tFwAIMdQQU3PbfWq7+SLQhQBipoCRvyICDULXUI1QC8d1E9sFdmC+Mojgh/XPxq/Q59Q83Fwlu2/xnljQ38XSAu5ZrSvm0mBIfcggBPH3vlqYGKfU//Dg8zUpigPvbk97NYOvx0y9QFqJ4/u35x/fPVT9cvBHTKHH6fiQkevcdoq7Lga7fjOgYZnDWBkkJDG+w152eovXKpR9UkKCZtEFBbw7HN1QDonFZ16qf8M0SDYRzHUZyB3KcRKbilIpetsJsiJRzT7YhbGyfJ9Xl2uIUKZJLLYVbnUdat0rHcgfzDNF6917F7zC5UUjbU2dI6Mp46y1QqK9EpOXhC3Y0SBDygV/he58zT96wE0GFg8ocyBap7r3ifPEVY1UC1Wp+K3sUWZbRJ4Vhyiz23z0HARttdUqm1IsMvPTVkWKHODbIfyNynPGS0kCmsIHMo0sVZr62WGf+itsZQzTKZpYHbeArt9wOE2rqcgfN2o3Sa8MMr9hNPV/elbSh1//Tz231HVRA/eOppmpXZ2NQlxUn8uyNzl6ar+A0NbskXd6/eLYubxS2cz/6yVaFQIQ1/Y+u+I8OpYMXG+vT7CNqb5XJxhCyLYqEJAxWB8hKtZkDrJ8fRt3WYj/7T5KWznoqYRHlYX6zT+lKHKpYtin6Z2cEoQKua4sZXXwj89eJtcVVegjjbud1uV25NX1q/lQezIHHr9MVVeVmSKVvudMSMO5vrEgWX8cvZwB2aEzf/TBez8h73jOkTS6dRmYiZohsOVLLK3AoCqnPSzmyyFtDGM1CtYBjeY6B7r8cxfmcSjpvfqBApo4FqgzqQgA+0n7P2A+o+RgKRGiaKedz2LIUjocKTu8PleFqAeDy1ieLN/tTnFM88wXE9iumqfVsgf+c9e3nsDH9JX/w/jg6XeuYna93UNblT2VdnKbbkeGYW90sYx88QjQ+N
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import ApiTabs from "@theme/ApiTabs";
+import DiscriminatorTabs from "@theme/DiscriminatorTabs";
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import SecuritySchemes from "@theme/ApiExplorer/SecuritySchemes";
+import MimeTabs from "@theme/MimeTabs";
+import ParamsItem from "@theme/ParamsItem";
+import ResponseSamples from "@theme/ResponseSamples";
+import SchemaItem from "@theme/SchemaItem";
+import SchemaTabs from "@theme/SchemaTabs";
+import Heading from "@theme/Heading";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update the parent of assets"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/asset/{parentAssetId}/child"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update the parent of assets
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Path Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"parentAssetId","in":"path","required":true,"schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Query Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"assetIds","in":"query","schema":{"maxItems":2147483647,"minItems":1,"type":"array","items":{"type":"string"}}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><details
+  style={{"marginBottom":"1rem"}}
+  className={"openapi-markdown__details"}
+  data-collapsed={false}
+  open={true}
+>
+  <summary
+    style={{}}
+  >
+    <h3
+      className={"openapi-markdown__details-summary-header-params"}
+    >
+      Header Parameters
+    </h3>
+  </summary><div>
+    <ul>
+      <ParamsItem
+        className={"paramsItem"}
+        param={{"name":"Authorization","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem><ParamsItem
+        className={"paramsItem"}
+        param={{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}}
+      >
+        
+      </ParamsItem>
+    </ul>
+  </div>
+</details><div>
+  <div>
+    <ApiTabs
+      label={undefined}
+      id={undefined}
+    >
+      <TabItem
+        label={"default"}
+        value={"default"}
+      >
+        <div>
+          
+          
+          default response
+          
+          
+        </div><div>
+          <MimeTabs
+            className={"openapi-tabs__mime"}
+            schemaType={"response"}
+          >
+            <TabItem
+              label={"application/json"}
+              value={"application/json"}
+            >
+              <SchemaTabs
+                className={"openapi-tabs__schema"}
+              >
+                <TabItem
+                  label={"Schema"}
+                  value={"Schema"}
+                >
+                  <details
+                    style={{}}
+                    className={"openapi-markdown__details response"}
+                    data-collapsed={false}
+                    open={true}
+                  >
+                    <summary
+                      style={{}}
+                      className={"openapi-markdown__details-summary-response"}
+                    >
+                      <strong>
+                        Schema
+                      </strong>
+                    </summary><div
+                      style={{"textAlign":"left","marginLeft":"1rem"}}
+                    >
+                      
+                    </div><ul
+                      style={{"marginLeft":"1rem"}}
+                    >
+                      any
+                    </ul>
+                  </details>
+                </TabItem>
+              </SchemaTabs>
+            </TabItem>
+          </MimeTabs>
+        </div>
+      </TabItem>
+    </ApiTabs>
+  </div>
+</div>
