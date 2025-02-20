@@ -1514,6 +1514,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "rest-api/schemas/gatewayassetsyncrule",
+          label: "GatewayAssetSyncRule",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "rest-api/schemas/gatewayattributefilter",
           label: "GatewayAttributeFilter",
           className: "schema",

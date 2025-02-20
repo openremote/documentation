@@ -6107,6 +6107,23 @@ components:
           type: string
       discriminator:
         propertyName: type
+    GatewayAssetSyncRule:
+      type: object
+      properties:
+        excludeAttributes:
+          type: array
+          items:
+            type: string
+        excludeAttributeMeta:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        addAttributeMeta:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/MetaMap"
     GatewayAttributeFilter:
       type: object
       properties:
@@ -6158,6 +6175,10 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/GatewayAttributeFilter"
+        assetSyncRules:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/GatewayAssetSyncRule"
         disabled:
           type: boolean
     GatewayTunnelInfo:
