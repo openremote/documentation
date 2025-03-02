@@ -1,0 +1,45 @@
+.image {
+    border: 1px solid #E0E0E0;
+}
+
+.menu_item:before {
+    content: '';
+    width: 22px;
+    height: 22px;
+    margin: auto 8px auto 0;
+}
+
+.menu_item_desktop:before {
+    background: url("/icon/remote-desktop.svg");
+}
+
+.menu_item_commandline:before {
+    background: url("/icon/console.svg");
+}
+
+.menu_item_demoversion:before {
+    background: url("/icon/openremote.svg");
+}
+
+.menu_item_productionready:before {
+    background: url("/icon/package-variant-closed.svg");
+}
+
+.menu_item_customproject:before {
+    background: url("/icon/tools.svg");
+}
+
+.bottom_navigation_container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.bottom_navigation_container > * {
+    flex: 1;
+}
+
+/*
+.theme-code-block {
+    background: blue;
+}*/

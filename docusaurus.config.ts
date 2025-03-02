@@ -2,6 +2,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import type * as Plugin from "@docusaurus/types/src/plugin";
 import type * as OpenApiPlugin from "docusaurus-plugin-openapi-docs";
+import {themes as prismThemes} from 'prism-react-renderer';
 
 const config: Config = {
   title: 'OpenRemote Documentation',
@@ -47,7 +48,7 @@ const config: Config = {
         theme: {
           customCss: [
             './src/css/styles.css',
-            './src/css/openapi-docs.css',
+            './src/css/openapi-docs.css'
           ]
         },
         gtag: {
@@ -240,6 +241,8 @@ const config: Config = {
     ],
     prism: {
       additionalLanguages: ['bash', 'cpp', 'csharp', 'docker', 'groovy', 'java', 'javascript', 'json', 'python', 'ruby'],
+      theme: prismThemes.github,
+      darkTheme: prismThemes.dracula
     },
     algolia: {
       apiKey: '18c8ff9992cf5a0b37acb9b008fa7cd9',
