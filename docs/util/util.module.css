@@ -1,0 +1,80 @@
+.download_file_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--ifm-code-background);
+    border-radius: 2px;
+    padding: 16px 24px;
+    width: fit-content;
+    font-weight: bold;
+    transition: background-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+    cursor: pointer;
+    color: var(--ifm-heading-color);
+    text-decoration: none;
+    border-left: 4px solid var(--ifm-color-primary);
+    --ifm-link-hover-color: black;
+}
+
+.download_file_container:hover {
+    background-color: #E0E0E0;
+    text-decoration: none;
+}
+
+.download_file_container > * {
+    height: 24px;
+}
+
+.download_icon {
+    margin: 4px 0 0 32px;
+}
+
+.card_container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--ifm-code-background);
+    transition: background-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+    padding: 16px 24px;
+    border-left: 4px solid var(--ifm-color-primary);
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    --ifm-heading-color: black;
+    --ifm-link-hover-color: black;
+}
+
+.card_container:hover {
+    background-color: #E0E0E0;
+    text-decoration: none;
+}
+
+.card_container > .card_icon_prefix {
+    height: 24px;
+}
+
+.card_container > .card_icon_suffix {
+    margin-left: 48px;
+    height: 24px;
+}
+
+.card_container > .card_content {
+    flex: 1;
+}
+
+.card_content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card_content > .card_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--ifm-heading-color);
+}
+
+.card_content > .card_subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ifm-heading-color);
+}
