@@ -4,15 +4,14 @@ title: "Notification"
 description: ""
 sidebar_label: "Notification"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"name":"string","message":{"type":"string"},"targets":[{"type":"REALM","id":"string","locale":"string","allowedLocales":["string"],"data":{}}],"repeatFrequency":"ALWAYS","repeatInterval":"string"}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,160 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"name"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={true}
-    className={"schemaItem"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details"}
-    >
-      <summary
-        style={{}}
-      >
-        <span
-          className={"openapi-schema__container"}
-        >
-          <strong
-            className={"openapi-schema__property"}
-          >
-            message
-          </strong><span
-            className={"openapi-schema__name"}
-          >
-             object
-          </span>
-        </span>
-      </summary><div
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"type"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string"}}
-        >
-          
-        </SchemaItem>
-      </div>
-    </details>
-  </SchemaItem><SchemaItem
-    collapsible={true}
-    className={"schemaItem"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details"}
-    >
-      <summary
-        style={{}}
-      >
-        <span
-          className={"openapi-schema__container"}
-        >
-          <strong
-            className={"openapi-schema__property"}
-          >
-            targets
-          </strong><span
-            className={"openapi-schema__name"}
-          >
-             object[]
-          </span>
-        </span>
-      </summary><div
-        style={{"marginLeft":"1rem"}}
-      >
-        <li>
-          <div
-            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
-          >
-            Array [
-          </div>
-        </li><SchemaItem
-          collapsible={false}
-          name={"type"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={"**Possible values:** [`REALM`, `USER`, `ASSET`, `CUSTOM`]"}
-          schema={{"type":"string","enum":["REALM","USER","ASSET","CUSTOM"]}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"id"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string"}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"locale"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string"}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"allowedLocales"}
-          required={false}
-          schemaName={"string[]"}
-          qualifierMessage={undefined}
-          schema={{"uniqueItems":true,"type":"array","items":{"type":"string"}}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"data"}
-          required={false}
-          schemaName={"object"}
-          qualifierMessage={undefined}
-          schema={{"type":"object"}}
-        >
-          
-        </SchemaItem><li>
-          <div
-            style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
-          >
-            ]
-          </div>
-        </li>
-      </div>
-    </details>
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"repeatFrequency"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`ALWAYS`, `ONCE`, `HOURLY`, `DAILY`, `WEEKLY`, `MONTHLY`, `ANNUALLY`]"}
-    schema={{"type":"string","enum":["ALWAYS","ONCE","HOURLY","DAILY","WEEKLY","MONTHLY","ANNUALLY"]}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"repeatInterval"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"type":"object","properties":{"name":{"type":"string"},"message":{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"},"targets":{"type":"array","items":{"type":"object","properties":{"type":{"type":"string","enum":["REALM","USER","ASSET","CUSTOM"]},"id":{"type":"string"},"locale":{"type":"string"},"allowedLocales":{"uniqueItems":true,"type":"array","items":{"type":"string"}},"data":{"type":"object"}},"title":"Target"}},"repeatFrequency":{"type":"string","enum":["ALWAYS","ONCE","HOURLY","DAILY","WEEKLY","MONTHLY","ANNUALLY"]},"repeatInterval":{"type":"string"}},"title":"Notification"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             

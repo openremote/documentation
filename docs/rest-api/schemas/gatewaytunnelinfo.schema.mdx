@@ -4,15 +4,14 @@ title: "GatewayTunnelInfo"
 description: ""
 sidebar_label: "GatewayTunnelInfo"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"realm":"string","gatewayId":"string","targetPort":0,"target":"string","assignedPort":0,"hostname":"string","type":"HTTPS","autoCloseTime":"2024-07-29T15:51:28.071Z","id":"string"}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,88 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"realm"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"gatewayId"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"targetPort"}
-    required={false}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"target"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"assignedPort"}
-    required={false}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"hostname"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"type"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`HTTPS`, `HTTP`, `TCP`]"}
-    schema={{"type":"string","enum":["HTTPS","HTTP","TCP"]}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"autoCloseTime"}
-    required={false}
-    schemaName={"date-time"}
-    qualifierMessage={undefined}
-    schema={{"type":"string","format":"date-time"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"id"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"type":"object","properties":{"realm":{"type":"string"},"gatewayId":{"type":"string"},"targetPort":{"type":"integer","format":"int32"},"target":{"type":"string"},"assignedPort":{"type":"integer","format":"int32"},"hostname":{"type":"string"},"type":{"type":"string","enum":["HTTPS","HTTP","TCP"]},"autoCloseTime":{"type":"string","format":"date-time"},"id":{"type":"string"}},"title":"GatewayTunnelInfo"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             

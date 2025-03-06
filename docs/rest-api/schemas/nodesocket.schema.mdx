@@ -4,15 +4,14 @@ title: "NodeSocket"
 description: ""
 sidebar_label: "NodeSocket"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"id":"string","name":"string","type":"NUMBER","nodeId":"string","index":0}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,52 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"id"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"name"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"type"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`NUMBER`, `NUMBER_ARRAY`, `STRING`, `BOOLEAN`, `TRIGGER`, `COLOR`, `ANY`]"}
-    schema={{"type":"string","enum":["NUMBER","NUMBER_ARRAY","STRING","BOOLEAN","TRIGGER","COLOR","ANY"]}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"nodeId"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"index"}
-    required={false}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string","enum":["NUMBER","NUMBER_ARRAY","STRING","BOOLEAN","TRIGGER","COLOR","ANY"]},"nodeId":{"type":"string"},"index":{"type":"integer","format":"int32"}},"title":"NodeSocket"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             

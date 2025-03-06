@@ -4,15 +4,14 @@ title: "ConsoleProvider"
 description: ""
 sidebar_label: "ConsoleProvider"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"version":"string","requiresPermission":true,"hasPermission":true,"success":true,"enabled":true,"disabled":true,"data":{}}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,91 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"version"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"requiresPermission"}
-    required={false}
-    schemaName={"boolean"}
-    qualifierMessage={undefined}
-    schema={{"type":"boolean"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"hasPermission"}
-    required={false}
-    schemaName={"boolean"}
-    qualifierMessage={undefined}
-    schema={{"type":"boolean"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"success"}
-    required={false}
-    schemaName={"boolean"}
-    qualifierMessage={undefined}
-    schema={{"type":"boolean"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"enabled"}
-    required={false}
-    schemaName={"boolean"}
-    qualifierMessage={undefined}
-    schema={{"type":"boolean"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"disabled"}
-    required={false}
-    schemaName={"boolean"}
-    qualifierMessage={undefined}
-    schema={{"type":"boolean"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={true}
-    className={"schemaItem"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details"}
-    >
-      <summary
-        style={{}}
-      >
-        <span
-          className={"openapi-schema__container"}
-        >
-          <strong
-            className={"openapi-schema__property"}
-          >
-            data
-          </strong><span
-            className={"openapi-schema__name"}
-          >
-             object
-          </span>
-        </span>
-      </summary><div
-        style={{"marginLeft":"1rem"}}
-      >
-        
-      </div>
-    </details>
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"type":"object","properties":{"version":{"type":"string"},"requiresPermission":{"type":"boolean"},"hasPermission":{"type":"boolean"},"success":{"type":"boolean"},"enabled":{"type":"boolean"},"disabled":{"type":"boolean"},"data":{"type":"object","additionalProperties":{"type":"object"}}},"title":"ConsoleProvider"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             
