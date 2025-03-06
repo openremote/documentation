@@ -4,15 +4,14 @@ title: "MapRealmConfig"
 description: ""
 sidebar_label: "MapRealmConfig"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"center":[0],"bounds":[0],"zoom":0,"minZoom":0,"maxZoom":0,"boxZoom":true,"geocodeUrl":"string","geoJson":{"source":{},"layers":[{}]}}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,118 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"center"}
-    required={false}
-    schemaName={"float[]"}
-    qualifierMessage={undefined}
-    schema={{"type":"array","items":{"type":"number","format":"float"}}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"bounds"}
-    required={false}
-    schemaName={"float[]"}
-    qualifierMessage={undefined}
-    schema={{"type":"array","items":{"type":"number","format":"float"}}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"zoom"}
-    required={false}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"minZoom"}
-    required={false}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"maxZoom"}
-    required={false}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"boxZoom"}
-    required={false}
-    schemaName={"boolean"}
-    qualifierMessage={undefined}
-    schema={{"type":"boolean"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"geocodeUrl"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={true}
-    className={"schemaItem"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details"}
-    >
-      <summary
-        style={{}}
-      >
-        <span
-          className={"openapi-schema__container"}
-        >
-          <strong
-            className={"openapi-schema__property"}
-          >
-            geoJson
-          </strong><span
-            className={"openapi-schema__name"}
-          >
-             object
-          </span>
-        </span>
-      </summary><div
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"source"}
-          required={false}
-          schemaName={"object"}
-          qualifierMessage={undefined}
-          schema={{"type":"object"}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"layers"}
-          required={false}
-          schemaName={"object[]"}
-          qualifierMessage={undefined}
-          schema={{"type":"array","items":{"type":"object"}}}
-        >
-          
-        </SchemaItem>
-      </div>
-    </details>
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"type":"object","properties":{"center":{"type":"array","items":{"type":"number","format":"float"}},"bounds":{"type":"array","items":{"type":"number","format":"float"}},"zoom":{"type":"integer","format":"int32"},"minZoom":{"type":"integer","format":"int32"},"maxZoom":{"type":"integer","format":"int32"},"boxZoom":{"type":"boolean"},"geocodeUrl":{"type":"string"},"geoJson":{"type":"object","properties":{"source":{"type":"object"},"layers":{"type":"array","items":{"type":"object"}}},"title":"GeoJsonConfig"}},"title":"MapRealmConfig"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             

@@ -4,15 +4,14 @@ title: "RulesEngineInfo"
 description: ""
 sidebar_label: "RulesEngineInfo"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"status":"STOPPED","compilationErrorCount":0,"executionErrorCount":0}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,34 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"status"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`STOPPED`, `RUNNING`, `ERROR`]"}
-    schema={{"type":"string","enum":["STOPPED","RUNNING","ERROR"]}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"compilationErrorCount"}
-    required={false}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"executionErrorCount"}
-    required={false}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"type":"object","properties":{"status":{"type":"string","enum":["STOPPED","RUNNING","ERROR"]},"compilationErrorCount":{"type":"integer","format":"int32"},"executionErrorCount":{"type":"integer","format":"int32"}},"title":"RulesEngineInfo"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             

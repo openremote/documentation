@@ -4,15 +4,14 @@ title: "SyslogConfig"
 description: ""
 sidebar_label: "SyslogConfig"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"storedLevel":"INFO","storedCategories":["ASSET"],"storedMaxAgeMinutes":0}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,34 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"storedLevel"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`INFO`, `WARN`, `ERROR`]"}
-    schema={{"type":"string","enum":["INFO","WARN","ERROR"]}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"storedCategories"}
-    required={true}
-    schemaName={"string[]"}
-    qualifierMessage={"**Possible values:** [`ASSET`, `AGENT`, `NOTIFICATION`, `ALARM`, `RULES`, `PROTOCOL`, `GATEWAY`, `MODEL_AND_VALUES`, `API`, `DATA`]"}
-    schema={{"type":"array","items":{"type":"string","enum":["ASSET","AGENT","NOTIFICATION","ALARM","RULES","PROTOCOL","GATEWAY","MODEL_AND_VALUES","API","DATA"]}}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"storedMaxAgeMinutes"}
-    required={true}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"required":["storedCategories","storedLevel","storedMaxAgeMinutes"],"type":"object","properties":{"storedLevel":{"type":"string","enum":["INFO","WARN","ERROR"]},"storedCategories":{"type":"array","items":{"type":"string","enum":["ASSET","AGENT","NOTIFICATION","ALARM","RULES","PROTOCOL","GATEWAY","MODEL_AND_VALUES","API","DATA"]}},"storedMaxAgeMinutes":{"type":"integer","format":"int32"}},"title":"SyslogConfig"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             

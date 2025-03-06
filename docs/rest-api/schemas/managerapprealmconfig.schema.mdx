@@ -4,15 +4,14 @@ title: "ManagerAppRealmConfig"
 description: ""
 sidebar_label: "ManagerAppRealmConfig"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"appTitle":"string","styles":"string","logo":"string","logoMobile":"string","favicon":"string","language":"string","headers":["string"],"notifications":{"languages":["string"],"defaultLanguage":"string"}}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,118 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"appTitle"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"styles"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"logo"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"logoMobile"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"favicon"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"language"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"headers"}
-    required={false}
-    schemaName={"string[]"}
-    qualifierMessage={undefined}
-    schema={{"type":"array","items":{"type":"string"}}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={true}
-    className={"schemaItem"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details"}
-    >
-      <summary
-        style={{}}
-      >
-        <span
-          className={"openapi-schema__container"}
-        >
-          <strong
-            className={"openapi-schema__property"}
-          >
-            notifications
-          </strong><span
-            className={"openapi-schema__name"}
-          >
-             object
-          </span>
-        </span>
-      </summary><div
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"languages"}
-          required={false}
-          schemaName={"string[]"}
-          qualifierMessage={undefined}
-          schema={{"type":"array","items":{"type":"string"}}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={false}
-          name={"defaultLanguage"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={undefined}
-          schema={{"type":"string"}}
-        >
-          
-        </SchemaItem>
-      </div>
-    </details>
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"type":"object","properties":{"appTitle":{"type":"string"},"styles":{"type":"string"},"logo":{"type":"string"},"logoMobile":{"type":"string"},"favicon":{"type":"string"},"language":{"type":"string"},"headers":{"type":"array","items":{"type":"string"}},"notifications":{"type":"object","properties":{"languages":{"type":"array","items":{"type":"string"}},"defaultLanguage":{"type":"string"}},"title":"ManagerAppRealmNotificationConfig"}},"title":"ManagerAppRealmConfig"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             

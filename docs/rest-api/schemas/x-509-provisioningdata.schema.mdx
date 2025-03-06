@@ -4,15 +4,14 @@ title: "X509ProvisioningData"
 description: ""
 sidebar_label: "X509ProvisioningData"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"CACertPEM":"string","ignoreExpiryDate":true}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,25 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"CACertPEM"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"ignoreExpiryDate"}
-    required={false}
-    schemaName={"boolean"}
-    qualifierMessage={undefined}
-    schema={{"type":"boolean"}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"type":"object","properties":{"CACertPEM":{"type":"string"},"ignoreExpiryDate":{"type":"boolean"}},"title":"X509ProvisioningData"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             
