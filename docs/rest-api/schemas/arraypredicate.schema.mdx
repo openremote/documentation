@@ -4,15 +4,14 @@ title: "ArrayPredicate"
 description: ""
 sidebar_label: "ArrayPredicate"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"predicateType":"string","value":{},"index":0,"lengthEquals":0,"lengthGreaterThan":0,"lengthLessThan":0,"negated":true}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,70 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"predicateType"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"value"}
-    required={false}
-    schemaName={"object"}
-    qualifierMessage={undefined}
-    schema={{"type":"object"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"index"}
-    required={false}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"lengthEquals"}
-    required={false}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"lengthGreaterThan"}
-    required={false}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"lengthLessThan"}
-    required={false}
-    schemaName={"int32"}
-    qualifierMessage={undefined}
-    schema={{"type":"integer","format":"int32"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"negated"}
-    required={false}
-    schemaName={"boolean"}
-    qualifierMessage={undefined}
-    schema={{"type":"boolean"}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"type":"object","allOf":[{"required":["predicateType"],"type":"object","properties":{"predicateType":{"type":"string"}},"discriminator":{"propertyName":"predicateType"},"title":"ValuePredicate"},{"type":"object","properties":{"value":{"type":"object"},"index":{"type":"integer","format":"int32"},"lengthEquals":{"type":"integer","format":"int32"},"lengthGreaterThan":{"type":"integer","format":"int32"},"lengthLessThan":{"type":"integer","format":"int32"},"negated":{"type":"boolean"}}}],"title":"ArrayPredicate"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             
