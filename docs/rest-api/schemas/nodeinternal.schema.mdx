@@ -4,15 +4,14 @@ title: "NodeInternal"
 description: ""
 sidebar_label: "NodeInternal"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"name":"string","picker":{"type":"TEXT","options":[{"name":"string","value":{}}]},"value":{},"breakType":"NEW_LINE"}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,133 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"name"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={undefined}
-    schema={{"type":"string"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={true}
-    className={"schemaItem"}
-  >
-    <details
-      style={{}}
-      className={"openapi-markdown__details"}
-    >
-      <summary
-        style={{}}
-      >
-        <span
-          className={"openapi-schema__container"}
-        >
-          <strong
-            className={"openapi-schema__property"}
-          >
-            picker
-          </strong><span
-            className={"openapi-schema__name"}
-          >
-             object
-          </span>
-        </span>
-      </summary><div
-        style={{"marginLeft":"1rem"}}
-      >
-        <SchemaItem
-          collapsible={false}
-          name={"type"}
-          required={false}
-          schemaName={"string"}
-          qualifierMessage={"**Possible values:** [`TEXT`, `MULTILINE`, `NUMBER`, `DROPDOWN`, `DOUBLE_DROPDOWN`, `CHECKBOX`, `ASSET_ATTRIBUTE`, `COLOR`, `DATE`]"}
-          schema={{"type":"string","enum":["TEXT","MULTILINE","NUMBER","DROPDOWN","DOUBLE_DROPDOWN","CHECKBOX","ASSET_ATTRIBUTE","COLOR","DATE"]}}
-        >
-          
-        </SchemaItem><SchemaItem
-          collapsible={true}
-          className={"schemaItem"}
-        >
-          <details
-            style={{}}
-            className={"openapi-markdown__details"}
-          >
-            <summary
-              style={{}}
-            >
-              <span
-                className={"openapi-schema__container"}
-              >
-                <strong
-                  className={"openapi-schema__property"}
-                >
-                  options
-                </strong><span
-                  className={"openapi-schema__name"}
-                >
-                   object[]
-                </span>
-              </span>
-            </summary><div
-              style={{"marginLeft":"1rem"}}
-            >
-              <li>
-                <div
-                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem","paddingBottom":".5rem"}}
-                >
-                  Array [
-                </div>
-              </li><SchemaItem
-                collapsible={false}
-                name={"name"}
-                required={false}
-                schemaName={"string"}
-                qualifierMessage={undefined}
-                schema={{"type":"string"}}
-              >
-                
-              </SchemaItem><SchemaItem
-                collapsible={false}
-                name={"value"}
-                required={false}
-                schemaName={"object"}
-                qualifierMessage={undefined}
-                schema={{"type":"object"}}
-              >
-                
-              </SchemaItem><li>
-                <div
-                  style={{"fontSize":"var(--ifm-code-font-size)","opacity":"0.6","marginLeft":"-.5rem"}}
-                >
-                  ]
-                </div>
-              </li>
-            </div>
-          </details>
-        </SchemaItem>
-      </div>
-    </details>
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"value"}
-    required={false}
-    schemaName={"object"}
-    qualifierMessage={undefined}
-    schema={{"type":"object"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"breakType"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** [`NEW_LINE`, `SPACER`]"}
-    schema={{"type":"string","enum":["NEW_LINE","SPACER"]}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"type":"object","properties":{"name":{"type":"string"},"picker":{"type":"object","properties":{"type":{"type":"string","enum":["TEXT","MULTILINE","NUMBER","DROPDOWN","DOUBLE_DROPDOWN","CHECKBOX","ASSET_ATTRIBUTE","COLOR","DATE"]},"options":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"value":{"type":"object"}},"title":"Option"}}},"title":"Picker"},"value":{"type":"object"},"breakType":{"type":"string","enum":["NEW_LINE","SPACER"]}},"title":"NodeInternal"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             

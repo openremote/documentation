@@ -4,15 +4,14 @@ title: "AttributeRef"
 description: ""
 sidebar_label: "AttributeRef"
 hide_title: true
+hide_table_of_contents: true
 schema: true
+sample: {"id":"7Bt8M3cXEP6BHPh8r47DYf","name":"location"}
 custom_edit_url: null
 ---
 
-import DiscriminatorTabs from "@theme/DiscriminatorTabs";
-import SchemaItem from "@theme/SchemaItem";
-import SchemaTabs from "@theme/SchemaTabs";
+import Schema from "@theme/Schema";
 import Heading from "@theme/Heading";
-import TabItem from "@theme/TabItem";
 
 <Heading
   as={"h1"}
@@ -25,25 +24,10 @@ import TabItem from "@theme/TabItem";
 
 
 
-<ul>
-  <SchemaItem
-    collapsible={false}
-    name={"id"}
-    required={false}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** Value must match regular expression `^[0-9A-Za-z]{22}$`"}
-    schema={{"pattern":"^[0-9A-Za-z]{22}$","type":"string","description":"The asset identifier","example":"7Bt8M3cXEP6BHPh8r47DYf"}}
-  >
-    
-  </SchemaItem><SchemaItem
-    collapsible={false}
-    name={"name"}
-    required={true}
-    schemaName={"string"}
-    qualifierMessage={"**Possible values:** Value must match regular expression `^\\w+$`"}
-    schema={{"pattern":"^\\w+$","type":"string","description":"The attribute name","example":"location"}}
-  >
-    
-  </SchemaItem>
-</ul>
+<Schema
+  schema={{"required":["name"],"type":"object","properties":{"id":{"pattern":"^[0-9A-Za-z]{22}$","type":"string","description":"The asset identifier","example":"7Bt8M3cXEP6BHPh8r47DYf"},"name":{"pattern":"^\\w+$","type":"string","description":"The attribute name","example":"location"}},"title":"AttributeRef"}}
+  schemaType={"response"}
+>
+  
+</Schema>
             
