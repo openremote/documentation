@@ -91,12 +91,13 @@ Examples:
 :::
 
 ### Publish
-It is possible to publish attribute events to specific assets using the following topic and payload:
+It is possible to publish attribute events to specific assets using the following topics and payload:
 
 * `{realm}/{clientId}/writeattributevalue/{attributeName}/{assetId}` - Payload: `JSON` of attribute value
+* `{realm}/{clientId}/writeattribute/{attributeName}/{assetId}` - Payload: `{"value": <VALUE>, "timestamp": <TIMESTAMP>}` where `<VALUE>` is `JSON` of attribute value and `<TIMESTAMP>` is timestamp of event in epoch milliseconds
 
 #### Last will publishing
-Clients can configure a last will topic and payload as defined in the MQTT specification; the topic and payload can use the standard attribute publish topic/payload so it is possible to update an attribute when the client connection is closed un-expectedly; the client must have permission to access to the specified attribute.
+Clients can configure a last will topic and payload as defined in the MQTT specification; the topic and payload can use the standard attribute publish topic/payload so it is possible to update an attribute when the client connection is closed un-expectedly; the client must have permission to access the specified attribute.
 
 ### MQTT custom handlers
 It is possible to inject custom handlers for MQTT messages by implementing the [MQTTHandler](https://github.com/openremote/openremote/blob/master/manager/src/main/java/org/openremote/manager/mqtt/MQTTHandler.java) abstract class and registering it using the standard Service Loader mechanism (i.e. add it to `resources/META-INF/services/org.openremote.manager.mqtt.MQTTHandler`). The custom handler can choose to intercept messages based on topic, user and/or whether it is a pub or sub request, see Javadoc of `MQTTHandler` for more details.
