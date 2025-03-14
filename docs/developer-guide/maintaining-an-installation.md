@@ -89,7 +89,7 @@ If the JVM was started with `-XX:NativeMemoryTracking=summary`, use this to get 
 docker exec -it openremote_manager_1 /usr/bin/jcmd 1 VM.native_memory summary
 ```
 
-Otherwise, use [jstat](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html) to monitor a running system/JVM. 
+Otherwise, use [](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html) to monitor a running system/JVM. 
 
 Get current memory configuration:
 
@@ -182,7 +182,7 @@ The `jmap` tool within the JDK can be used to create a heap dump of a running jv
 
 ### Create thread dump
 ```shell
-docker exec or-manager-1 /bin/bash -c 'jstat -F -l 1 > /threads.txt'
+docker exec or-manager-1 /bin/bash -c 'jstack 1 > /threads.txt'
 ```
 
 ### Copy to Docker host
