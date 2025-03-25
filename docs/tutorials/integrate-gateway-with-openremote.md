@@ -39,4 +39,5 @@ Within OpenHAB....
 
 
 **IGNORE: Example to add a figure.**
+
 ![Fahrenheit attribute as filled by the flow](img/flow-the-fahrenheit-result.png)
