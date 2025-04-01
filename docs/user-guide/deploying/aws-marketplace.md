@@ -4,172 +4,109 @@ unlisted: true
 
 # AWS Marketplace
 
-We have created an app for the AWS Marketplace to make deployment of OpenRemote easier. This guide describes how to configure the instance using the special AWS CloudFormation template.
+This guide explains how to provision/configure OpenRemote via the AWS Marketplace. <br/>
+The CloudFormation template can be found at [cloudformation-aws-marketplace.yml.](https://github.com/openremote/openremote/blob/master/.ci_cd/aws/cloudformation-aws-marketplace.yml)
 
 # Architecture Diagram
 ![image](img/or-aws-marketplace-architecture.png)
 
-## Subscribe to the AWS Marketplace app
-1. Search for OpenRemote on the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?searchTerms=openremote) and click on the listing.
-2. Click on the orange button 'View purchase options'.
-3. Accept the EULA by pressing the 'Accept Terms' button
-4. You're now subscribed to the free OpenRemote Marketplace app. It will take a couple of minutes to process your subscription. After that, the 'Continue to Configuration' button becomes available.
-5. When the subscription is fully processed, click on the 'Continue to Configuration' button.
-6. Select a software version (By default, the latest version is already selected) and choose in which AWS region you want to deploy the software.
-7. After selecting the options, press the 'Continue to Launch' button
-8. Review your choices and press the 'Launch' button. You will now be redirected to the AWS CloudFormation page.
-9. Then the AWS CloudFormation page is displayed, press the 'Next' button.
+## Subscribe to the AWS Marketplace
+To use OpenRemote through the AWS Marketplace, you need an active subscription. Follow the steps below to subscribe.
+
+- Search for OpenRemote on the [AWS Marketplace](https://aws.amazon.com/marketplace/search/results?searchTerms=openremote) and click on the listing.
+- Click the `View purchase` options button.
+- Accept the EULA by selecting `Accept Terms`.
+- You are now subscribed to the free OpenRemote Marketplace `app`. The subscription process will take a few minutes. Once completed, the `Continue to Configuration` button will become available.
+- Click `Continue to Configuration` once the subscription is processed.
+- Choose a software version (the latest version is selected by default) and select your preferred AWS `region` for deployment.
+- Click `Continue to Launch` after making your selections.
+- Review your selections and click `Launch to proceed`. You will be redirected to the AWS `CloudFormation` page.
+- On the AWS `CloudFormation` page, click `Next` to continue.
 
 ## Instance Configuration
-Now we're successfully subscribed to the OpenRemote marketplace app, we can start configuring it. In the section below, you will find a detailed description of each AWS CloudFormation parameter that's available in the template.
+If you are successfully subscribed to the OpenRemote marketplace 'app', you can start configuring it. Below, you will find a detailed description of each parameter available in the template.
 
-#### `Name`
-This can be anything and is used for recognizing the CloudFormation Stack. The Stack name must be 1 to 128 characters, start with a letter, and only contain alphanumeric characters.
+- **Would you like to use your own domain name? If so, please enter it here.** <br/>
+You can specify the `FQDN (Fully Qualified Domain Name)` you want to use for this OpenRemote instance.  
+If no value is provided, you can access OpenRemote using the public `IPv4` address of the `EC2` instance.
 
-#### `InstanceName`
-This name is used for recognizing the (OpenRemote) EC2 instance on the overview page.
+- **Which instance would you like to use?** <br/>
+You can choose from the following `t4g` and `m6g` instance types.
+  - `t4g.small`
+     - vCPU: 2 
+     - Memory: 2GB
+  - `t4g.medium` 
+     - vCPU: 2 
+     - Memory: 4GB
+  - `t4g.large` 
+     - vCPU: 2 
+     - Memory: 8GB
+  - `m6g.large` 
+     - vCPU: 2 
+     - Memory: 8GB
+  - `m6g.xlarge` 
+     - vCPU: 4 
+     - Memory: 16GB
+  
+   Prices vary based on the selected instance. All instances are using the `ARM` architecture. <br/>
+   For detailed pricing information, visit the pricing pages for [t4g](https://aws.amazon.com/ec2/instance-types/t4/) and [m6g](https://aws.amazon.com/ec2/instance-types/m6g/).
 
-#### `InstanceType`
-You can choose an instance based on your monthly budget. There are three options available:
-- `t4g.small` - `2 vCPU` / `2 GB RAM` - around $10 dollars per month AWS running costs
-- `t4g.medium` - `2 vCPU` / `4 GB RAM` - around $25 dollars per month AWS running costs
-- `t4g.large` - `2 vCPU` / `8 GB RAM` - around $50 dollars per month AWS running costs
+- **How much storage would you like to allocate to the virtual machine?** <br/>
+You can specify the amount of block storage to provision for this OpenRemote instance, with options of `8GB`, `16GB`, `32GB`, `48GB` and `64GB`. <br/>
+It is possible to expand the volume after instance creation, but a reboot will be required.
 
-#### `Hostname`
-You can fill in the `FQDN (Fully Qualified Domain Name)` that you want to use for this OpenRemote instance. 
-If no value is submitted, you can access the software via the public `IPv4 address` from the EC2 instance.
+- **Which keypair would you like to use for this instance?** <br/>
+Choose a `Keypair` for this OpenRemote instance. With the selected `Keypair` you can `SSH` into the machine. <br/>
+You can only select an `Keypair` that were created in the **same** region as where you want to deploy the OpenRemote instance.
 
-> :::note
-> The software is not using `Amazon Route53` for DNS management. This means that – when you want to
-> use a custom hostname,  you must add an A-record pointing to the `IPv4` address of the EC2 instance. 
+   :::tip
+   
+   To create a new Keypair, follow the steps provided [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html).
 
-> :::tip
-> Leave the `hostname` field blank for initial deployment. Once deployed and you have updated your DNS with 
-> an A-Record pointing to the Static IP, update the CloudFormation stack via the AWS console and add the hostname. 
-> Then run the **Clear Proxy Configuration** script as described below so that the proxy container will generate 
-> a new [Lets Encrypt SSL certificate](https://letsencrypt.org/). If the hostname entered is not pointing to the 
-> Static IP when the proxy container is started, a will fail certificate retrieval, and you will be unable 
-> to access the site via the domain name. 
+   :::
 
-#### `Keypair`
-Choose a `keypair` for SSH Access. The `keypair` must exist in the same AWS region where you want to deploy the software. 
-Information on how to create a new `keypair` can be found [here](https://eu-central-1.console.aws.amazon.com/ec2/home?region=REGION#KeyPairs:).
+   :::danger
 
-> :::tip
-> Create a keypair first and save it somewhere safe and secure. You will need this to SSH into the EC2 instance associated with this deployment.
+   After creating the Keypair, you will receive a private key.  <br/>
+   Make sure to save this file on a secure location, as you will not be able to SSH into the machine without it. <br/><br/>
+   If you accidentally lose your key, follow the steps provided [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replacing-key-pair.html) to recover access to your instance.
 
-#### `SSHLocation`
-For security reasons, SSH is blocked by default on all IP addresses. In this field, you can fill in an `IPv4 address` on which you want to enable SSH access.
+   :::
 
-Please make sure you are using the following notation:
-`0.0.0.0/32` allow one specific IP address access, or `0.0.0.0/0` allows all IP address access.
+- **Would you like to assign an Elastic IP?** <br/>
+You can choose whether to assign an `Elastic IP` to your OpenRemote instance. Enabling this option ensures that your `IPv4` address remains the same even after `rebooting` or `stopping` the instance. <br/><br/>
+Additional charges may apply, visit the pricing page [here](https://aws.amazon.com/vpc/pricing/).
 
-#### `CIDRBlock`
-The default (web) ports `80` and `443` are blocked by default for security reasons.
-In this field, you can fill in an `IPv4` address on which you want to enable these ports.
+## OpenRemote Configuration (Optional)
 
-Please make sure you are using CIDR notation:
-`x.x.x.x/32` allow one specific IP address access, or `0.0.0.0/0` allows all IP address access.
+- **Password** <br/>
+You can override the default password for the OpenRemote instance by providing a custom password here. <br/> There are no specific requirements for this password.
 
-## OpenRemote Configuration
+## E-mail Configuration (Optional)
 
-#### `Password`
-Create a password for your OpenRemote instance. This password is used for the administrator account.
-The password must meet the following conditions:
-- The minimum length is eight characters
-- Must have at least one special character
+- **SMTP Hostname** <br/>
+You can specify the `Hostname` that will be used for sending e-mails. (e.g. mail.example.com).
 
-## E-mail Configuration
+- **SMTP Username** <br/>
+You can specify The username for authenticating with the `SMTP` server. In most cases this is the e-mail address of the sending account.
 
-The email configuration is not mandatory. All fields can be left blank / default if email is not required. 
+- **SMTP Password** <br/>
+You can specify the password for authenticating with the `SMTP` server.
 
-#### `SMTPHost`
-Provide the `SMTP` hostname that you want to use for sending e-mails.
+- **SMTP Sending Address** <br/>
+You can specify the e-mail address that will be used as the sending address. The e-mail address is visible for the receivers. (e.g. noreply@example.com).
 
-#### `SMTPUser`
-Provide the `SMTP` username that you want to use for sending e-mails.
+## Unsubscribe from the AWS Marketplace
+To stop using the OpenRemote AWS Marketplace `app`, you can unsubscribe by following the steps down below.
 
-#### `SMTPPassword`
-Provide the `SMTP` password that corresponds to the hostname and user.
+-  Visit the AWS Markerplace subscriptions page by clicking [here](https://us-east-1.console.aws.amazon.com/marketplace/home#/subscriptions).
+-  Find the OpenRemote subscription in the list and click on it.
+-  Click the `Actions` button, then select `Cancel Subscription`.
+-  A modal pops up asking you to confirm the cancellation of the subscription.
+-  To confirm cancellation, type `confirm` in the designated input field and click the `Cancel Subscription` button.
 
-#### `SMTPPort`
-The system is using port `587 (TLS)` by default for sending e-mails. If you want to use something else, for example, `465 (SSL)`, You can change it here.
+:::note
 
-#### `SMTPTLS`
-Select if you want to use TLS for sending e-mails. Choose between `true` or `false`.
+To cancel the subscription, you must first delete any stacks created with it.
 
-#### `SMTPFrom`
-Provide the e-mail address that you want to use for sending e-mails. The e-mail address must be usable by the `SMTP` host.
-
-#### `SMTPProtocol`
-Select the SMTP protocol you want to use for sending e-mails. Choose between `smtp` or `smtps` (smtps = SSL).
-
-# Updating 
-
-## Update OpenRemote Images
-
-1. Access the AWS Systems Manager via your AWS Console (note the region)
-2. Under Node Tools, press **Run Command**, then **Run command** again
-3. Search for `docker` and select the **OpenRemote-updateDockerImagesDocument-xxxxxxxxxxxx**
-4. Scroll down to the **Target** selection section, select **Choose instances manually**, and select the OpenRemote instance
-5. Press the **Run** button at the bottom of the page
-6. The next page will show the status of the command, and the below once the command has run successfully and any messages
-7. Clicking on the Instance ID will show the output of the commands
-
-## Update Packages
-
-1. Access the AWS Systems Manager via your AWS Console (note the region)
-2. Under Node Tools, press **Run Command**, then **Run command** again
-3. Search for `packages` and select the **OpenRemote-updatePackagesDocument-xxxxxxxxxxxx**
-4. Scroll down to the **Target** selection section, select **Choose instances manually**, and select the OpenRemote instance
-5. Press the **Run** button at the bottom of the page
-6. The next page will show the status of the command, and the below once the command has run successfully and any messages
-7. Clicking on the Instance ID will show the output of the commands
-
-## Update EC2 Instance OS
-
-1. Access the AWS Systems Manager via your AWS Console (note the region)
-2. Under Node Tools, press **Run Command**, then **Run command** again
-3. Search for `aws` and select the **OpenRemote-updateAWSLinuxDocument-xxxxxxxxxxxx**
-4. Scroll down to the **Target** selection section, select **Choose instances manually**, and select the OpenRemote instance
-5. Press the **Run** button at the bottom of the page
-6. The next page will show the status of the command, and the below once the command has run successfully and any messages
-7. Clicking on the Instance ID will show the output of the commands
-
-## Clear Proxy Configuration
-
-If a change is made to the hostname field, this script will need to be run to clear the proxy data and prompt it to re-request
-a certificate for the specified domain. Run this script if:
-
-1. You want to add, change, or remove domain name to the OpenRemote instance.
-2. You receive an `Invalid parameter: redirect_url` error
-3. You receive a `ERR_TOO_MANY_REDIRECTS` error in Chrome or a `The page isn't redirecting properly` error in Firefox 
-
-If adding or changing the hostname, run this script after the DNS A-record has been pointed to the Static IP and the record has propagated. 
-
-1. Access the AWS Systems Manager via your AWS Console (note the region)
-2. Under Node Tools, press **Run Command**, then **Run command** again
-3. Search for `proxy` and select the **OpenRemote-clearProxyDataDocument-xxxxxxxxxxxx**
-4. Scroll down to the **Target** selection section, select **Choose instances manually**, and select the OpenRemote instance
-5. Press the **Run** button at the bottom of the page
-6. The next page will show the status of the command, and the below once the command has run successfully and any messages
-7. Clicking on the Instance ID will show the output of the commands
-
-
-# Troubleshooting
-For further troubleshooting, SSH into the EC2 instance. You will need to have added an SSH key to the deployment to do this.
-
-## Service Logs
-To see the OpenRemote service logs run the below commands:
-
-`sudo systemctl status openremote.service`
-
-`journalctl -u openremote.service`
-
-## Docker Logs
-OpenRemote runs in a Docker environment. This means you can use standard Docker commands:
-See the Containers section of the [Docker CLI Cheat Sheet](https://docs.docker.com/get-started/docker_cheatsheet.pdf)
-
-For example, use `sudo docker ps` to see all of the running containers.
-
-Then use `sudo docker logs <CONTAINER_ID>` to check the logs of each container.
+:::
