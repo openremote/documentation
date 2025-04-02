@@ -74,13 +74,13 @@ You can only select an `key pair` that were created in the **same** region as wh
    :::
 
 - **Would you like to assign an Elastic IP?** <br/>
-You can choose whether to assign an `Elastic IP` to your OpenRemote instance. Enabling this option ensures that your `IPv4` address remains the same even after `rebooting` or `stopping` the instance. <br/><br/>
+You can choose whether to assign an `Elastic IP` to this OpenRemote instance. Enabling this option ensures that your `IPv4` address remains the same even after `rebooting` or `stopping` the instance. <br/><br/>
 Additional charges may apply, visit the pricing page [here](https://aws.amazon.com/vpc/pricing/).
 
 ## OpenRemote Configuration (Optional)
 
 - **Password** <br/>
-You can override the default password for the OpenRemote instance by providing a custom password here. <br/> There are no specific requirements for this password.
+You can override the default password for this OpenRemote instance by providing a custom password. <br/> There are no specific requirements for this password.
 
 ## E-mail Configuration (Optional)
 
@@ -88,13 +88,13 @@ You can override the default password for the OpenRemote instance by providing a
 You can specify the `Hostname` that will be used for sending e-mails. (e.g. mail.example.com).
 
 - **SMTP Username** <br/>
-You can specify The username for authenticating with the `SMTP` server. In most cases this is the e-mail address of the sending account.
+You can specify the username for authenticating with the `SMTP` server. In most cases this is the e-mail address of the sending account.
 
 - **SMTP Password** <br/>
 You can specify the password for authenticating with the `SMTP` server.
 
 - **SMTP Sending Address** <br/>
-You can specify the e-mail address that will be used as the sending address. The e-mail address is visible for the receivers. (e.g. noreply@example.com).
+You can specify the e-mail address that will be used as the sending address. The e-mail address is visible for the receivers. (e.g. no-reply@example.com).
 
 ## Unsubscribe from the AWS Marketplace
 To stop using the OpenRemote AWS Marketplace `app`, you can unsubscribe by following the steps down below.
