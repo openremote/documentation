@@ -18,13 +18,13 @@ To use OpenRemote through the AWS Marketplace, you need an active subscription. 
 - Accept the EULA by selecting `Accept Terms`.
 - You are now subscribed to the free OpenRemote Marketplace `app`. The subscription process will take a few minutes. Once completed, the `Continue to Configuration` button will become available.
 - Click `Continue to Configuration` once the subscription is processed.
-- Choose a software version (the latest version is selected by default) and select your preferred AWS `region` for deployment.
+- Choose a template version (the latest version is selected by default) and select your preferred AWS `region` for deployment.
 - Click `Continue to Launch` after making your selections.
 - Review your selections and click `Launch to proceed`. You will be redirected to the AWS `CloudFormation` page.
 - On the AWS `CloudFormation` page, click `Next` to continue.
 
 ## Instance Configuration
-If you are successfully subscribed to the OpenRemote marketplace 'app', you can start configuring it. Below, you will find a detailed description of each parameter available in the template.
+If you are successfully subscribed to the OpenRemote marketplace `app`, you can start configuring it. Below, you will find a detailed description of each parameter available in the template.
 
 - **Would you like to use your own domain name? If so, please enter it here.** <br/>
 You can specify the `FQDN (Fully Qualified Domain Name)` you want to use for this OpenRemote instance.  
@@ -61,14 +61,14 @@ You can only select an `key pair` that were created in the **same** region as wh
 
    :::tip
    
-   To create a new key pair, follow the steps provided [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html).
+   To create a new `key pair`, follow the steps provided [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html).
 
    :::
 
    :::danger
 
-   After creating the key pair, you will receive a private key.  <br/>
-   Make sure to save this file on a secure location, as you will not be able to SSH into the machine without it. <br/><br/>
+   After creating the `key pair`, you will receive a private key.  <br/>
+   Make sure to save this file on a secure location, as you will not be able to `SSH` into the machine without it. <br/><br/>
    If you accidentally lose your key, follow the steps provided [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replacing-key-pair.html) to recover access to your instance.
 
    :::
@@ -97,7 +97,7 @@ You can specify the password for authenticating with the `SMTP` server.
 You can specify the e-mail address that will be used as the sending address. The e-mail address is visible for the receivers. (e.g. no-reply@example.com).
 
 ## Unsubscribe from the AWS Marketplace
-To stop using the OpenRemote AWS Marketplace `app`, you can unsubscribe by following the steps down below.
+To stop using the OpenRemote AWS Marketplace `app`, you can unsubscribe by following the steps below.
 
 -  Visit the AWS Markerplace subscriptions page by clicking [here](https://us-east-1.console.aws.amazon.com/marketplace/home#/subscriptions).
 -  Find the OpenRemote subscription in the list and click on it.
