@@ -55,19 +55,19 @@ You can choose from the following `t4g` and `m6g` instance types.
 You can specify the amount of block storage to provision for this OpenRemote instance, with options of `8GB`, `16GB`, `32GB`, `48GB` and `64GB`. <br/>
 It is possible to expand the volume after instance creation, but a reboot will be required.
 
-- **Which keypair would you like to use for this instance?** <br/>
-Choose a `Keypair` for this OpenRemote instance. With the selected `Keypair` you can `SSH` into the machine. <br/>
-You can only select an `Keypair` that were created in the **same** region as where you want to deploy the OpenRemote instance.
+- **Which key pair would you like to use for this instance?** <br/>
+Choose a `key pair` for this OpenRemote instance. With the selected `key pair` you can `SSH` into the machine. <br/>
+You can only select an `key pair` that were created in the **same** region as where you want to deploy the OpenRemote instance.
 
    :::tip
    
-   To create a new Keypair, follow the steps provided [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html).
+   To create a new key pair, follow the steps provided [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/create-key-pairs.html).
 
    :::
 
    :::danger
 
-   After creating the Keypair, you will receive a private key.  <br/>
+   After creating the key pair, you will receive a private key.  <br/>
    Make sure to save this file on a secure location, as you will not be able to SSH into the machine without it. <br/><br/>
    If you accidentally lose your key, follow the steps provided [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replacing-key-pair.html) to recover access to your instance.
 
