@@ -2,7 +2,7 @@
 sidebar_position: 4
 ---
 
-# Integrate a gateway or controller with a central OpenRemote instance
+# Connect your gateway or controller to OpenRemote
 
 An example for connecting your personal gateway or controller to OpenRemote.
 This tutorial explains how to link an individual user's gateway (e.g. Home Asistant, openHAB, Smappee) to an OpenRemote central instance.
