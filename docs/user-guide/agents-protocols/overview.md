@@ -55,9 +55,9 @@ Dynamic injection of the current time is supported in generic protocols by using
 
 ### Value filter known types
 
-* [RegexValueFilter](https://github.com/openremote/openremote/blob/a58951f6780176163bad7f58f79ba2a12eb75eb6/model/src/main/java/org/openremote/model/value/RegexValueFilter.java)
-* [SubStringValueFilter](https://github.com/openremote/openremote/blob/a58951f6780176163bad7f58f79ba2a12eb75eb6/model/src/main/java/org/openremote/model/value/SubStringValueFilter.java)
-* [JSONPathFilter](https://github.com/openremote/openremote/blob/a58951f6780176163bad7f58f79ba2a12eb75eb6/model/src/main/java/org/openremote/model/value/JsonPathFilter.java)
+* [RegexValueFilter](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/RegexValueFilter.java)
+* [SubStringValueFilter](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/SubStringValueFilter.java)
+* [JSONPathFilter](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/JsonPathFilter.java)
 
 
 ```json
