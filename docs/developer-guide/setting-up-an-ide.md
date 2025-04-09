@@ -90,19 +90,68 @@ cp ~/<PATH_TO_PROJECT>/openremote/tools/intellij/Theme-<Default|Darcula>-GrepCon
     - Set "java.home" in settings if not auto-detected
 5. Setup Gradle:
     - The Gradle plugin should auto-detect the project structure
-    - If not, run "Java: Import Java projects into workspace" from command palette
+    - If not, run "Java: Import Java projects into workspace" from command palette (Ctrl+Shift+P)
 6. Build and Run:
     - Terminal: `./gradlew clean installDist`
     - Use Run and Debug view (Ctrl+Shift+D) to run OpenRemote Manager
-
 
 Ensure Docker services are running before launching the Manager. For UI work, run `npm run serve` in `/openremote/ui/app/manager`.
 
 :::note
 
-For custom working directory or launch settings, you may need to configure `.vscode/settings.json` and `.vscode/launch.json`. Refer to VS Code Java documentation for advanced configuration options.
+For custom working directory or launch settings, you may need to configure `.vscode/settings.json` and `.vscode/launch.json`. We have provided an example of the `launch.json` file below. 
+
+For advanced configuration options, refer to the [VS Code Java documentation](https://code.visualstudio.com/docs/languages/java).
 
 :::
+
+
+#### Launch Settings
+Below you can find an example of the `.vscode/launch.json` file that can be used to run the Manager with different setups. The configurations are based on our IntelliJ launch profiles.
+
+```json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Empty Setup",
+            "request": "launch",
+            "mainClass": "org.openremote.manager.Main",
+            "projectName": "manager",
+        },
+        {
+            "type": "java",
+            "name": "Demo Setup",
+            "request": "launch",
+            "mainClass": "org.openremote.manager.Main",
+            "projectName": "manager",
+            "env": {
+                "OR_SETUP_TYPE": "demo"
+            }
+        },
+        {
+            "type": "java",
+            "name": "Test Setup",
+            "request": "launch",
+            "mainClass": "org.openremote.manager.Main",
+            "projectName": "setup",
+        },
+    ]
+}
+```
+
+:::note
+
+Sometimes the projectName differs, e.g. `manager` vs `manager_`. It depends on how VS Code interprets the project structure. 
+
+You can specify the module by setting the `projectName` to the name of the module you want to run. See the `Test Setup` configuration as an example.
+
+:::
+
+
+
+
 
 ## Setting the working directory
 
