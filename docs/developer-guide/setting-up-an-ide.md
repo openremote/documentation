@@ -105,7 +105,6 @@ For advanced configuration options, refer to the [VS Code Java documentation](ht
 
 :::
 
-
 #### Launch Settings
 Below you can find an example of the `.vscode/launch.json` file that can be used to run the Manager with different setups. The configurations are based on our IntelliJ launch profiles.
 
@@ -148,10 +147,6 @@ Sometimes the projectName differs, e.g. `manager` vs `manager_`. It depends on h
 You can specify the module by setting the `projectName` to the name of the module you want to run. See the `Test Setup` configuration as an example.
 
 :::
-
-
-
-
 
 ## Setting the working directory
 
