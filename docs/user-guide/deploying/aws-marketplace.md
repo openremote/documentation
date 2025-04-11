@@ -5,7 +5,7 @@ sidebar_position: 4
 # AWS Marketplace
 
 This guide explains how to provision/configure OpenRemote via the AWS Marketplace.
-The CloudFormation template can be found at [cloudformation-aws-marketplace.yml](https://github.com/openremote/openremote/blob/master/.ci_cd/aws/cloudformation-aws-marketplace.yml)
+The CloudFormation template can be found at [cloudformation-aws-marketplace.yml](https://github.com/openremote/openremote/blob/master/.ci_cd/aws/cloudformation-aws-marketplace.yml).
 
 # Architecture Diagram
 ![image](img/or-aws-marketplace-architecture.png)
