@@ -1,11 +1,11 @@
 ---
-unlisted: true
+sidebar_position: 4
 ---
 
 # AWS Marketplace
 
-This guide explains how to provision/configure OpenRemote via the AWS Marketplace. <br/>
-The CloudFormation template can be found at [cloudformation-aws-marketplace.yml.](https://github.com/openremote/openremote/blob/master/.ci_cd/aws/cloudformation-aws-marketplace.yml)
+This guide explains how to provision/configure OpenRemote via the AWS Marketplace.
+The CloudFormation template can be found at [cloudformation-aws-marketplace.yml](https://github.com/openremote/openremote/blob/master/.ci_cd/aws/cloudformation-aws-marketplace.yml)
 
 # Architecture Diagram
 ![image](img/or-aws-marketplace-architecture.png)
@@ -26,12 +26,10 @@ To use OpenRemote through the AWS Marketplace, you need an active subscription. 
 ## Instance Configuration
 If you are successfully subscribed to the OpenRemote marketplace `app`, you can start configuring it. Below, you will find a detailed description of each parameter available in the template.
 
-- **Would you like to use your own domain name? If so, please enter it here.** <br/>
-You can specify the `FQDN (Fully Qualified Domain Name)` you want to use for this OpenRemote instance.  
-If no value is provided, you can access OpenRemote using the public `IPv4` address of the `EC2` instance.
+* `Hostname` - You can specify the `FQDN (Fully Qualified Domain Name)` you want to use for this OpenRemote instance.  
+   If no value is provided, you can access OpenRemote using the public `IPv4` address of the `EC2` instance.
 
-- **Which instance would you like to use?** <br/>
-You can choose from the following `t4g` and `m6g` instance types.
+* `Instance Type` - You can choose from the following `t4g` and `m6g` instance types:
   - `t4g.small`
      - vCPU: 2 
      - Memory: 2GB
@@ -48,16 +46,14 @@ You can choose from the following `t4g` and `m6g` instance types.
      - vCPU: 4 
      - Memory: 16GB
   
-   Prices vary based on the selected instance. All instances are using the `ARM` architecture. <br/>
+   Prices vary based on the selected instance. All instances are using the `ARM` architecture.
    For detailed pricing information, visit the pricing pages for [t4g](https://aws.amazon.com/ec2/instance-types/t4/) and [m6g](https://aws.amazon.com/ec2/instance-types/m6g/).
 
-- **How much storage would you like to allocate to the virtual machine?** <br/>
-You can specify the amount of block storage to provision for this OpenRemote instance, with options of `8GB`, `16GB`, `32GB`, `48GB` and `64GB`. <br/>
-It is possible to expand the volume after instance creation, but a reboot will be required.
+* `Storage` - You can specify the amount of block storage to provision for this OpenRemote instance, with options of `8GB`, `16GB`, `32GB`, `48GB` and `64GB`.
+   It is possible to expand the volume after instance creation, but a reboot will be required.
 
-- **Which key pair would you like to use for this instance?** <br/>
-Choose a `key pair` for this OpenRemote instance. With the selected `key pair` you can `SSH` into the machine. <br/>
-You can only select an `key pair` that were created in the **same** region as where you want to deploy the OpenRemote instance.
+* `key pair` - Choose a `key pair` for this OpenRemote instance. With the selected `key pair` you can `SSH` into the machine.
+  You can only select an `key pair` that were created in the **same** region as where you want to deploy the OpenRemote instance.
 
    :::tip
    
@@ -67,34 +63,27 @@ You can only select an `key pair` that were created in the **same** region as wh
 
    :::danger
 
-   After creating the `key pair`, you will receive a private key.  <br/>
-   Make sure to save this file on a secure location, as you will not be able to `SSH` into the machine without it. <br/><br/>
+   After creating the `key pair`, you receive a private key. \
+   Make sure to save this file on a secure location, as you will not be able to `SSH` into the machine without it.
+
    If you accidentally lose your key, follow the steps provided [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replacing-key-pair.html) to recover access to your instance.
 
    :::
 
-- **Would you like to assign an Elastic IP?** <br/>
-You can choose whether to assign an `Elastic IP` to this OpenRemote instance. Enabling this option ensures that your `IPv4` address remains the same even after `rebooting` or `stopping` the instance. <br/><br/>
-Additional charges may apply, visit the pricing page [here](https://aws.amazon.com/vpc/pricing/).
+* `Elastic IP` - You can choose whether to assign an `Elastic IP` to this OpenRemote instance. Enabling this option ensures that your `IPv4` address remains the same after `rebooting` or `stopping` the instance. 
+   Additional charges may apply, visit the pricing page [here](https://aws.amazon.com/vpc/pricing/).
 
 ## OpenRemote Configuration (Optional)
 
-- **Password** <br/>
-You can override the default password for this OpenRemote instance by providing a custom password. <br/> There are no specific requirements for this password.
+* `Password` - You can override the default password for this OpenRemote instance by providing a custom password. \
+  There are no specific requirements for this password.
 
 ## E-mail Configuration (Optional)
 
-- **SMTP Hostname** <br/>
-You can specify the `Hostname` that will be used for sending e-mails. (e.g. mail.example.com).
-
-- **SMTP Username** <br/>
-You can specify the username for authenticating with the `SMTP` server. In most cases this is the e-mail address of the sending account.
-
-- **SMTP Password** <br/>
-You can specify the password for authenticating with the `SMTP` server.
-
-- **SMTP Sending Address** <br/>
-You can specify the e-mail address that will be used as the sending address. The e-mail address is visible for the receivers. (e.g. no-reply@example.com).
+* `SMTP Hostname` - You can specify the `Hostname` that will be used for sending e-mails. (e.g. mail.example.com).
+* `SMTP Username` - You can specify the username for authenticating with the `SMTP` server. In most cases this is the e-mail address of the sending account.
+* `SMTP Password` - You can specify the password for authenticating with the `SMTP` server.
+* `SMTP Sending address` - You can specify the e-mail address that will be used as the sending address. The e-mail address is visible for the receivers. (e.g. no-reply@example.com).
 
 ## Unsubscribe from the AWS Marketplace
 To stop using the OpenRemote AWS Marketplace `app`, you can unsubscribe by following the steps below.
