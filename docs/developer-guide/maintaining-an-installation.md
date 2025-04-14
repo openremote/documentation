@@ -178,7 +178,7 @@ scp {HOST}:~/dump.hprof ~
 You can then explore the heap dump with an IDE or other tool.
 
 ## Performing a thread dump (`jstack`)
-The `jstack` tool within the JDK can be used to create a heap dump of a running JVM.
+The `jstack` tool within the JDK can be used to create a thread dump of a running JVM.
 
 ### Create thread dump
 ```shell
