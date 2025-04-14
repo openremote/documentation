@@ -182,7 +182,7 @@ The [`jstack`](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jstack.h
 
 ### Create thread dump
 ```shell
-docker exec or-manager-1 /bin/bash -c 'jstack 1 > /threads.txt'
+docker exec or-manager-1 /bin/bash -c 'jstack -l 1 > /threads.txt'
 ```
 
 ### Copy to Docker host
