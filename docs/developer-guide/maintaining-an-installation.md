@@ -89,7 +89,7 @@ If the JVM was started with `-XX:NativeMemoryTracking=summary`, use this to get 
 docker exec -it or-manager-1 /usr/bin/jcmd 1 VM.native_memory summary
 ```
 
-Otherwise, use [jstat](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jstat.html) to monitor a running system/JVM. 
+Otherwise, use [`jstat`](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jstat.html) to monitor a running system/JVM. 
 
 Get current memory configuration:
 
