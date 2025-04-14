@@ -158,7 +158,7 @@ docker exec or-manager-1 /bin/bash -c 'microdnf --setopt=install_weak_deps=0 --s
 
 ## Performing a heap dump (`jmap`)
 
-The `jmap` tool within the JDK can be used to create a heap dump of a running JVM.
+The [`jmap`](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jmap.html) tool within the JDK can be used to create a heap dump of a running JVM.
 
 ### Create heap dump
 ```shell
