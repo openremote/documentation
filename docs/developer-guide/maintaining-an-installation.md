@@ -86,15 +86,15 @@ Use `explain analyze <SQL query>` to obtain the query plan and display it in htt
 If the JVM was started with `-XX:NativeMemoryTracking=summary`, use this to get an overview (see [here](https://trustmeiamadeveloper.com/2016/03/18/where-is-my-memory-java/) for more details):
 
 ```shell
-docker exec -it openremote_manager_1 /usr/bin/jcmd 1 VM.native_memory summary
+docker exec -it or-manager-1 /usr/bin/jcmd 1 VM.native_memory summary
 ```
 
-Otherwise, use [](https://docs.oracle.com/javase/8/docs/technotes/tools/unix/jstat.html) to monitor a running system/JVM. 
+Otherwise, use [`jstat`](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jstat.html) to monitor a running system/JVM. 
 
 Get current memory configuration:
 
 ```shell
-docker exec -it openremote_manager_1 /usr/bin/jstat -gccapacity 1
+docker exec -it or-manager-1 /usr/bin/jstat -gccapacity 1
 ```
 
 Output contains:
@@ -123,7 +123,7 @@ FGC: Number of full GC events.
 The following command will connect to a Manager and print garbage collection statistics (polling 1000 times, waiting for 2.5 seconds):
 
 ```shell
-docker exec -it openremote_manager_1 /usr/bin/jstat -gcutil 1 2500 1000
+docker exec -it or-manager-1 /usr/bin/jstat -gcutil 1 2500 1000
 ```
 
 The output contains:
@@ -158,7 +158,7 @@ docker exec or-manager-1 /bin/bash -c 'microdnf --setopt=install_weak_deps=0 --s
 
 ## Performing a heap dump (`jmap`)
 
-The `jmap` tool within the JDK can be used to create a heap dump of a running jvm.
+The [`jmap`](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jmap.html) tool within the JDK can be used to create a heap dump of a running JVM.
 
 ### Create heap dump
 ```shell
@@ -178,11 +178,11 @@ scp {HOST}:~/dump.hprof ~
 You can then explore the heap dump with an IDE or other tool.
 
 ## Performing a thread dump (`jstack`)
-The `jmap` tool within the JDK can be used to create a heap dump of a running jvm.
+The [`jstack`](https://docs.oracle.com/en/java/javase/21/docs/specs/man/jstack.html) tool within the JDK can be used to create a thread dump of a running JVM.
 
 ### Create thread dump
 ```shell
-docker exec or-manager-1 /bin/bash -c 'jstack 1 > /threads.txt'
+docker exec or-manager-1 /bin/bash -c 'jstack -l 1 > /threads.txt'
 ```
 
 ### Copy to Docker host
