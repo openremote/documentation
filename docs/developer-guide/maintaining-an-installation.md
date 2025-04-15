@@ -192,7 +192,7 @@ docker cp or-manager-1:/threads.txt ~
 
 ### Use scp to copy from Docker host to local machine
 ```shell
-scp {HOST}:~/thread.txt ~
+scp {HOST}:~/threads.txt ~
 ```
 
 You can then explore the thread dump with an IDE or other tool.
