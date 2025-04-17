@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"required":["name","platform","providers","version"],"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"version":{"type":"string"},"platform":{"type":"string"},"providers":{"type":"object","additionalProperties":{"type":"object","properties":{"version":{"type":"string"},"requiresPermission":{"type":"boolean"},"hasPermission":{"type":"boolean"},"success":{"type":"boolean"},"enabled":{"type":"boolean"},"disabled":{"type":"boolean"},"data":{"type":"object","additionalProperties":{"type":"object"}}},"title":"ConsoleProvider"}},"model":{"type":"string"},"apps":{"type":"array","items":{"type":"string"}}},"title":"ConsoleRegistration"}}
+  schema={{"required":["providers"],"type":"object","properties":{"id":{"type":"string"},"name":{"minLength":1,"type":"string"},"version":{"minLength":1,"type":"string"},"platform":{"minLength":1,"type":"string"},"providers":{"type":"object","additionalProperties":{"type":"object","properties":{"version":{"type":"string"},"requiresPermission":{"type":"boolean"},"hasPermission":{"type":"boolean"},"success":{"type":"boolean"},"enabled":{"type":"boolean"},"disabled":{"type":"boolean"},"data":{"type":"object","additionalProperties":{"type":"object"}}},"title":"ConsoleProvider"}},"model":{"type":"string"},"apps":{"type":"array","items":{"type":"string"}}},"title":"ConsoleRegistration"}}
   schemaType={"response"}
 >
   
