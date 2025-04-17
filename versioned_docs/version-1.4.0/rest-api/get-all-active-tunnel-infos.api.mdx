@@ -1,0 +1,70 @@
+---
+id: get-all-active-tunnel-infos
+title: "Retrieve all active gateway tunnel information of a realm"
+description: "Retrieve all active gateway tunnel information of a realm"
+sidebar_label: "Retrieve all active gateway tunnel information of a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk1v2zgQ/SvEnFpAloLmptMaQZsG2EWNxAUWCHxgpLHEliJZchTXa+i/L4aU/BW3QFossLlEno83Q/LNI3dAsglQPsKtJNzILawysA69JGXNXQ0lNEhzrecVqWdc9sagvjNrGyADJ73skNAzwA6M7BBKmPfUWq/+iQiQgTJQQouyRg8ZhKrFTkK5A9o6Dg/klWlgGLI9wt+zD9ZvpK+xni28JfvbKB9toF8C8Sh1N2U6SS1k4PFbrzzWUJLv8Wc4Kw4OzpqAgf01rmWvKX2GyisX96icHGKKhgwqawhNjJXOaVXF/Sy+BE7YvSwqvZdb7pSwC0d2+/QFK16883yupFIraWEve86gSUTgs7/gJekbpIX1dORWhrCJe7q2vpOUTNfvDgkXsWQIqjFYvwKttYHS0VzqLRrOHRmg6Tum+MflcvEAWfwPGSxvFrDiNnqyN9oGXKpLwEdt1JJwRhw1ZKAubRB3oUizaRyow8jAEP+ys7O/R/IKn1FIrYWMYybGMxAUk4UyqQVljbBrIcVEyw6pteOQxoGkFkooxvQipRe7GD4w5dE/T+Pae83TQORCWRQ1dja3Do3HzhLmyhbSqSm1gAyepVfySZ/RZ09p6GQg9LzIFReqeq9oGysxLO/W4+rY9cAMTmhTwIG0sqf2HW+9tpsYUmmFhm481mhISZ0obr+i+RzXUXBGEdsKRWqlcKwdldVFwp9V1hisqIhpcZDXHkP76wChsi6twHm7VvHYp68hMesghTe2juw6Mb6+NodC9j9feqQ5szae0jgQnxya+8gu8Zc0skEv7t8/LMV8cQfnQ7FsVRAqCGpR1LbqOzSU+L+2PlovoPFc7yFzIRYaZUAREGPG4wnQ6s2e+rYKp9R/G6t01mMcvXyUY1lFmcJOKh1FaW3/OMljWdCqQlbw8nAh3i7+FNf5FWRnM7fZbPLG9Ln1TTGmhUI2Ts+u86scTd5SpxmTZzbtCzuu2ORsoE6aozK/oyMnm7+fQsLvVDgtleGKsffdqDGP0zXBVIzgkEGZ4FZJpjlot3uSAT97PQxs/tajZ0lYHdQkCkStAn/XUK6lDviin/1dCG/ux8v3rYDscp/TfWi2UbR0z78gg6+43V/oA+v++BB4XQM/qprQL71c9i3ws+K/KDQ+bk7qpKh5VaE79r14SbAg7y+R2/dLGIZ/AR9ZfZQ=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve all active gateway tunnel information of a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/gateway/tunnel/{realm}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve all active gateway tunnel information of a realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"realm":{"type":"string"},"gatewayId":{"type":"string"},"targetPort":{"type":"integer","format":"int32"},"target":{"type":"string"},"assignedPort":{"type":"integer","format":"int32"},"hostname":{"type":"string"},"type":{"type":"string","enum":["HTTPS","HTTP","TCP"]},"autoCloseTime":{"type":"string","format":"date-time"},"id":{"type":"string"}},"title":"GatewayTunnelInfo"}}}}}}}
+>
+  
+</StatusCodes>
+
+
