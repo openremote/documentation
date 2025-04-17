@@ -1,0 +1,70 @@
+---
+id: create-asset-ruleset
+title: "Create an asset ruleset"
+description: "Create an asset ruleset"
+sidebar_label: "Create an asset ruleset"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNll9v2zYQwL+KcE8bQFtO0qydn+Y6buvCqQTZyZIFRsFIZ5utRKokFScz/N2Ho2RZSpwu3TBgfpKP94/H4++4AcuXBvo3EBUpwpyBylFzK5QcJ9CHWCO3ODAGLSkYtMAg55pnaFGT4QYkzxD6MCjsSmnxpzMGBkJCH1bIE9TAwMQrzDj0N2AfclI3Vgu5hO2W1R6uOu+UXnOdYNIJtbLqX3v5oIz9ASdzBhq/FWjsW5U8kEaspEVp6ZPneSpitzv/i1GSZHtXZCc0JlTKlMslsDKfOdtFUbdfMHbl01RjK9CQoUgamQhpcemSXCidcVuKfnkFWwZ3qI0ow75Auzy4JJBP99lQT7jFjhUZkknKjT1XiVgITF5uVVZ9Axm/n6Bc2hX0j09PGWRC7v6fsMeVZoCS36atOLdKpcglLWpqtQMHxMrSHsgNZZFR6T8OLgfTYTQOZ8DgfRQEl9fA4OM0+AQM3k2C32G+ZZChbZ5/fTI8SQSdL0/D1hm19bZbBsZyWxxIcZ9JNBqcUeyzUTgJrkdnwGAYnIfjyWA2Dj59HkVREAGDy8FkfDaeXX8OR9E4OKvlo6vR8KKlOQmCsP5zNp4O3k6c13BwMXUfo6twHLmvaHQeXJay83B27faMWit9sKacbvf4wJHTWhyjMWFxm4o4Qv7ceSFPs4O3EqywqaNDEyHb7dZZmVxJU5Y4wQUvUlt+mliL3GGkv1vwdtrAXn4p//aelIm0Aw7dzfG49FxhPF1zL0O7UkTFvMRKzqm7wXcavtMmvKC+26Gx0CmRx9rc9H0/wUx1VY5SY6YsdoXyeS78jSvf1gcGd1wLuhemREpV1bo2kHFjUVPecwoUF1rYBxeJ3BJKbubNpSmVovS2U9h3My/s6piKkqq1U4lTgdIONSYoreBp2d/qK8oLtw+fLHyXlvHLVPycOB2r1C/9d2IlJcbWd2ZAh7zQaFb/3IGJVV7uINdqIVwz7b7o8Hhz7AxV4mDUEv54bFIF9j/fumtd6vloP7JG9zzLU9zNlV5javRaMwGOe8evOr3XneNfZ0en/dOj/vGbbu/10R/weA58T7OauA32VVC3usAa4/v1kt5tSFcsbjC1RmeFrL19TaqG6Amgqtjl5WmgTMiFcg1dESnIUUbuInrnXPIlai8aTWfeIBzDYybMVsJ4wnh2hV6i4iJDaV1veQulnfSAtw+zWVi77HpemCI36BlEZ3HTcjT/qaaEik2bEj+7KJnS6NEmuhUCeewQiBkXqUPaQv3WsnMDU8RI1Ozv32nvw4l30u0Be4Sn9XrdXcqiq/TSr8yMz5d52jnp9roouyubpa2XCNBCj0RExIzLRpjnMdoqbY0ji/fWz1Mu3ERxmW0qwt5UnVQ1AL2pVkTg/g1sNrfc4IVOt1sSfytQEw/ne5Q6JLLd649QmQhTtemCpwafJFSPFwB2OLuv+PDMc/WOpwXpAz1I/4tA1Yu2FafUGpbeOjNytNd4MiH3FoM4xtx+V3femHphMKULe1s9jTPHWtB8Tazj63Ibyu2unF8k27hLX/Al6ZY+6fcXS3g2hw==
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create an asset ruleset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/rules/asset"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create an asset ruleset
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"required":["lang","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"version":{"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":3,"type":"string"},"enabled":{"type":"boolean"},"rules":{"type":"string"},"lang":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]},"meta":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"string","enum":["READY","DEPLOYED","COMPILATION_ERROR","VALIDITY_PERIOD_ERROR","EXECUTION_ERROR","LOOP_ERROR","DISABLED","PAUSED","EXPIRED","REMOVED","EMPTY"]},"error":{"type":"string"},"assetId":{"type":"string"},"accessPublicRead":{"type":"boolean"},"realm":{"type":"string"}},"title":"AssetRuleset"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"integer","format":"int64"}}}}}}
+>
+  
+</StatusCodes>
+
+
