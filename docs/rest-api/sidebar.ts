@@ -882,24 +882,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "rest-api/get-current-user-roles",
-          label: "Retrieve client roles for the currently authenticated user",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "rest-api/get-roles",
-          label: "Retrieve roles for a realm",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "rest-api/update-roles",
-          label: "Update roles for a realm",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
           id: "rest-api/get-user-client-roles",
           label: "Retrieve client roles for a user using a client ID in a realm",
           className: "api-method get",
@@ -920,18 +902,6 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "rest-api/update-user-realm-roles",
           label: "Update realm roles for a user in a realm",
-          className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "rest-api/get-user-roles",
-          label: "Retrieve client roles for a user in a realm",
-          className: "api-method get",
-        },
-        {
-          type: "doc",
-          id: "rest-api/update-user-roles",
-          label: "Update client roles for a user in a realm",
           className: "api-method put",
         },
         {
@@ -962,6 +932,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "rest-api/update-current-user-locale",
           label: "Update locale for the current user in a realm",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "rest-api/update-roles",
+          label: "Update roles for a realm",
           className: "api-method put",
         },
       ],
