@@ -22,10 +22,10 @@ To work on an app for example the `Manager UI` :
 Compiles the typescript model from java code and then starts webpack dev server and serves the web app which can then be accessed at `http://localhost:9000/manager/` (**NOTE: trailing `/` is required**)
 
 ### Webpack dev server environment variables
-The following environment variables can be set when running `npm run serve` using the syntax `npm run serve -- --env ENV_NAME=ENV_VALUE`:
+The following environment variables can be set when running `npm run serve` using the syntax `npm run serve "--" --env ENV_NAME=ENV_VALUE`:
 
-* managerUrl - By default webpack dev server expects the manager to be available at `http://localhost:8080` but this can be configured for example when running the manager Docker image (e.g. `npm run serve -- --env managerUrl=https://localhost`)
-* keycloakUrl - By default Keycloak expects to be available at `managerUrl/auth` but this can be configured for example when running the manager Docker image (e.g. `npm run serve -- --env keycloakUrl=https://keycloak/auth`)
+* managerUrl - By default webpack dev server expects the manager to be available at `http://localhost:8080` but this can be configured for example when running the manager Docker image (e.g. `npm run serve "--" --env managerUrl=https://localhost`)
+* keycloakUrl - By default Keycloak expects to be available at `managerUrl/auth` but this can be configured for example when running the manager Docker image (e.g. `npm run serve "--" --env keycloakUrl=https://keycloak/auth`)
 
 
 ## Consuming UI components
@@ -90,7 +90,7 @@ backend webpack_backend
 ```
 
 * Ctrl/Cmd-D to exit the proxy container shell
-* Start the webpack dev server in the `ui/app/manager`: `npm run serve -- --env managerUrl=https://demo.openremote.app` 
+* Start the webpack dev server in the `ui/app/manager`: `npm run serve "--" --env managerUrl=https://demo.openremote.app` 
 
 ### Components
 Components can be developed and tested in isolation (with dependencies on other components and/or public npm modules as required). Some components have no visuals and provide standard OpenRemote functionality e.g. `@openremote/core`, whilst others provide visuals that allow interaction with the Manager backend.
