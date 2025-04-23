@@ -17,7 +17,7 @@ This is easiest if you have an [SSH-key in your GitHub account](https://docs.git
 3. [Set up your IDE](../../developer-guide/setting-up-an-ide.md). Note that Application run configurations are already prepared when using this template. \
 Use `docker-compose -f profile\dev-testing.yml up --build -d` and run the 'Custom Deployment' configuration. You should have two containers running in Docker, and the manager through your IDE.
 4. Run the modelWatch gradle task to build the typescript model `./gradlew modelWatch`
-5. Next we serve the Manager UI from the `/openremote/ui/app/manager` directory with `npm run serve -- --env config=..\..\..\..\deployment\manager\app`.
+5. Next we serve the Manager UI from the `/openremote/ui/app/manager` directory with `npm run serve "--" --env config=..\..\..\..\deployment\manager\app`.
 
 With that done you should be looking at the manager on http://localhost:9000/manager/ (log in with admin/secret)
 
