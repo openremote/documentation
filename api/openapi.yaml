@@ -3837,7 +3837,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Role"
+                  type: string
   /user/userRealmRoles:
     get:
       tags:
@@ -3865,103 +3865,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Role"
-  /user/userRoles:
-    get:
-      tags:
-      - User
-      summary: Retrieve client roles for the currently authenticated user
-      operationId: getCurrentUserRoles
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
-      responses:
-        default:
-          description: default response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Role"
-  /user/{realm}/roles:
-    get:
-      tags:
-      - User
-      summary: Retrieve roles for a realm
-      operationId: getRoles
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
-      - name: realm
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        default:
-          description: default response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Role"
-    put:
-      tags:
-      - User
-      summary: Update roles for a realm
-      operationId: updateRoles
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
-      - name: realm
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: "#/components/schemas/Role"
-      responses:
-        default:
-          description: default response
-          content:
-            '*/*': {}
+                  type: string
   /user/{realm}/userRoles/{userId}/{clientId}:
     get:
       tags:
@@ -4004,7 +3908,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Role"
+                  type: string
     put:
       tags:
       - User
@@ -4044,7 +3948,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: "#/components/schemas/Role"
+                type: string
       responses:
         default:
           description: default response
@@ -4087,7 +3991,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Role"
+                  type: string
     put:
       tags:
       - User
@@ -4122,85 +4026,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: "#/components/schemas/Role"
-      responses:
-        default:
-          description: default response
-          content:
-            '*/*': {}
-  /user/{realm}/userRoles/{userId}:
-    get:
-      tags:
-      - User
-      summary: Retrieve client roles for a user in a realm
-      operationId: getUserRoles
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
-      - name: realm
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: userId
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        default:
-          description: default response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Role"
-    put:
-      tags:
-      - User
-      summary: Update client roles for a user in a realm
-      operationId: updateUserRoles
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
-      - name: realm
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: userId
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: "#/components/schemas/Role"
+                type: string
       responses:
         default:
           description: default response
@@ -4376,6 +4202,42 @@ paths:
           application/json:
             schema:
               type: string
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /user/{realm}/roles:
+    put:
+      tags:
+      - User
+      summary: Update roles for a realm
+      operationId: updateRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/Role"
       responses:
         default:
           description: default response
@@ -4580,9 +4442,6 @@ components:
             items:
               type: object
     AssetObject:
-      required:
-      - name
-      - realm
       type: object
       properties:
         id:
@@ -4644,8 +4503,6 @@ components:
       additionalProperties:
         $ref: "#/components/schemas/AttributeObject"
     AttributeObject:
-      required:
-      - name
       type: object
       properties:
         type:
@@ -4654,6 +4511,7 @@ components:
           type: object
           writeOnly: true
         name:
+          minLength: 1
           pattern: ^\w+$
           type: string
         meta:
@@ -4685,8 +4543,6 @@ components:
           max:
             type: number
     MetaItemObject:
-      required:
-      - name
       type: object
       properties:
         type:
@@ -4695,6 +4551,7 @@ components:
           type: object
           writeOnly: true
         name:
+          minLength: 1
           pattern: ^\w+$
           type: string
     MetaMap:
@@ -4989,9 +4846,6 @@ components:
         binary:
           type: boolean
     AgentObjectObjectObject:
-      required:
-      - name
-      - realm
       type: object
       properties:
         id:
@@ -5664,8 +5518,6 @@ components:
       discriminator:
         propertyName: predicateType
     AttributeRef:
-      required:
-      - name
       type: object
       properties:
         id:
@@ -5674,6 +5526,7 @@ components:
           description: The asset identifier
           example: 7Bt8M3cXEP6BHPh8r47DYf
         name:
+          minLength: 1
           pattern: ^\w+$
           type: string
           description: The attribute name
@@ -5786,19 +5639,19 @@ components:
             type: object
     ConsoleRegistration:
       required:
-      - name
-      - platform
       - providers
-      - version
       type: object
       properties:
         id:
           type: string
         name:
+          minLength: 1
           type: string
         version:
+          minLength: 1
           type: string
         platform:
+          minLength: 1
           type: string
         providers:
           type: object
@@ -5812,8 +5665,6 @@ components:
             type: string
     Dashboard:
       required:
-      - displayName
-      - realm
       - template
       type: object
       properties:
@@ -5844,6 +5695,7 @@ components:
           - SHARED
           - PRIVATE
         displayName:
+          minLength: 1
           type: string
         template:
           $ref: "#/components/schemas/DashboardTemplate"
@@ -5886,13 +5738,13 @@ components:
           type: boolean
     DashboardScreenPreset:
       required:
-      - displayName
       - scalingPreset
       type: object
       properties:
         id:
           type: string
         displayName:
+          minLength: 1
           type: string
         breakpoint:
           minimum: 1

@@ -1,0 +1,70 @@
+---
+id: start-tunnel
+title: "Start a tunnel for a gateway"
+description: "Start a tunnel for a gateway"
+sidebar_label: "Start a tunnel for a gateway"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVk2P2zYQ/SvCnFpAlrzeBml16sYIkgVSxFgrly58mJXGEhOKVMhRHNfQfy+Gkteya7RITy0QX0zMN2fmPeoAjJWH7BHeINMO97CJwbbkkJU19yVk4Bkd550xpCEGR5878vzKlnvIDlBYw2RYjti2WhXBL/3orRGZL2pqUE68bwkysE8fqWCIoXWShRV50TpC3UzMPDtlKuhjqIaypJIrWkZXEa+s44laGaaKHMSwta5BHkS3i5PD1VjovaoMld8QrbaeDTZ0vbYguFTEQKZrpOFv83y1hjj8Qwz5cgUbKaNju9TWU66uBZ6UUSLTjMWqj0Fda5BUoViLaBzvMMd7s7XQ96J35Ftr/DCGkrbYaR6OvnCqlWlKqkERHa0h/j75//fk+/hixGuBeYQRB7toa12E0TgDiKEhrq3QQWt9mCJyDRmko0XKR4Lw5L6QE0o5QOc0ZFAztz5L05Iam9iWjKPGMiXKptiq9BBWoE8hhi/oFD7pi8143kpo0DM5qX8jiYrOKd6HTBJWGvG4marWsoRDtKPBaR+x43ohXdV2F0wKrcjw0lFJhhXqIGT7icyHcI9UPNJQlk+HUtLWWbaF1ekQf1ZYY6jgNLgFutw68vW/D+AL2w43aJ3dqjDR46kflqa2Tv0R0Le0ZVicM+G35xZTiP/jVw8rLGzzcHqRXn/FptU02Z4TeCZ0chJOWWR+4oiTwTk1zKfAn0QZNuoI6wscw2K++Gk2fzlb/JLfvMhe3GSLn5P5y5vfYcDuhDiUoFOWboTu+5bMQwBL9BsarMhFD6/XeXS3uodL/Oa18pHyEdcUlbboGjIc5h+gLNIr0aTk55BJFK00oafIEwWPx7NAmx+ekWwLf47kH0OWxjqK5BLJ+EBgEQiVGlQ60OfW/nrmJ7fWqiB5U7IDjJ29e7N6F90mc4gvKGS32yWV6RLrqnR08ylWrZ7dJvOETFJzoyWmUNDQF1HMRSTE1aCZpPkHyjvr7zNvMH3ltNWojAQN5R1GNnyEk/PIh5thY0R3ODyhpw9O972IP3fkhLs2J9oL9BVDTViSC7T2ifaQwXJ4ame5VCDmupNK/vLs9vHR464oqOW/td1MOH31fp1DDE/jR10TaAQc7gTGuIMMQL4KxXugZpEdQKOpOqzEdogpvz8Bik2PmA==
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Start a tunnel for a gateway"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/gateway/tunnel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Start a tunnel for a gateway
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"realm":{"type":"string"},"gatewayId":{"type":"string"},"targetPort":{"type":"integer","format":"int32"},"target":{"type":"string"},"assignedPort":{"type":"integer","format":"int32"},"hostname":{"type":"string"},"type":{"type":"string","enum":["HTTPS","HTTP","TCP"]},"autoCloseTime":{"type":"string","format":"date-time"},"id":{"type":"string"}},"title":"GatewayTunnelInfo"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"realm":{"type":"string"},"gatewayId":{"type":"string"},"targetPort":{"type":"integer","format":"int32"},"target":{"type":"string"},"assignedPort":{"type":"integer","format":"int32"},"hostname":{"type":"string"},"type":{"type":"string","enum":["HTTPS","HTTP","TCP"]},"autoCloseTime":{"type":"string","format":"date-time"},"id":{"type":"string"}},"title":"GatewayTunnelInfo"}}}}}}
+>
+  
+</StatusCodes>
+
+
