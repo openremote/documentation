@@ -510,6 +510,18 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
+          id: "rest-api/delete-map",
+          label: "Removes mbtiles file",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "rest-api/get-custom-map-info",
+          label: "Retrieve if the map is custom and custom map limit",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
           id: "rest-api/get-settings",
           label: "Retrieve the style used for Mapbox GL",
           className: "api-method get",
@@ -531,6 +543,12 @@ const sidebar: SidebarsConfig = {
           id: "rest-api/get-tile",
           label: "Retrieve the vector tile data for Mapbox GL",
           className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "rest-api/upload-map",
+          label: "Saves mbtiles file",
+          className: "api-method post",
         },
       ],
     },
@@ -1526,8 +1544,20 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "rest-api/schemas/mapconfig",
+          label: "MapConfig",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "rest-api/schemas/maprealmconfig",
           label: "MapRealmConfig",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/mapsourceconfig",
+          label: "MapSourceConfig",
           className: "schema",
         },
         {
