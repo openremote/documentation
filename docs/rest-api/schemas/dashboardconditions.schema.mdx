@@ -6,7 +6,7 @@ sidebar_label: "DashboardConditions"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"viewAccess":["PUBLIC"],"editAccess":["PUBLIC"],"minWidgets":0}
+sample: {"access":["PUBLIC"]}
 custom_edit_url: null
 ---
 
@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"viewAccess":{"type":"array","items":{"type":"string","enum":["PUBLIC","SHARED","PRIVATE"]}},"editAccess":{"type":"array","items":{"type":"string","enum":["PUBLIC","SHARED","PRIVATE"]}},"minWidgets":{"type":"integer","format":"int32"}},"title":"DashboardConditions"}}
+  schema={{"type":"object","properties":{"access":{"type":"array","items":{"type":"string","enum":["PUBLIC","SHARED","PRIVATE"]}}},"title":"DashboardConditions"}}
   schemaType={"response"}
 >
   
