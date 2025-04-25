@@ -108,7 +108,24 @@ Amazon is now building the `EC2` instance using the provided `CloudFormation` te
 
 After the `EC2` instance is successfully provisioned, the `CREATE_COMPLETE` status will appear on the `CloudFormation` page. 
 
-To start using OpenRemote, either visit the `hostname` you specified during configuration or navigate to the `EC2` dashboard and locate the instance named `AWS-STACKNAME/AWS Marketplace`. (Replace `AWS-STACKNAME` with the stack name you have provided during configuration)
+To start using OpenRemote, either visit the `hostname` you specified during configuration or navigate to the `EC2` page and locate the instance named `%AWS-STACKNAME%-AWS Marketplace`. (Make sure to replace `%AWS-STACKNAME%` with the stack name you have provided during configuration) and look for the `Public IPv4 address`
+
+## SSH into the EC2 instance
+To manage the `EC2` instance via `SSH`, you can follow the steps below.
+
+- Navigate to the `EC2` page, then click on `Security Groups` located under the `Network & Security` section on the left-hand menu.
+- Locate the security group named `%AWS-STACKNAME%-or-ssh-whitelist` (Make sure to replace `%AWS-STACKNAME%` with the stack name you specified during configuration) and click on it.
+- In the `Inbound rules` section, click the `Edit inbound rules` button.
+- Click the `Add rule` button to insert a new entry in the `Inbound rules` section.
+- Set the `type` to `SSH`, and enter your `ISP IP address` in the `Source` field. You can find your `IP address` [here](https://whatsmyip.com/).
+- Click the `Save rules` button to apply the changes.
+- You've now whitelisted your `IP address` to access the `EC2` instance. To connect, open your terminal and run the following command: `ssh ec2-user@%EC2PublicIP%` (Make sure to replace `%EC2PublicIP%` with the instance's actual `IPv4` address or the `hostname` you have provided during configuration)
+
+:::note
+
+To `SSH` into the machine, ensure that your `key pair` is saved in the `.ssh` directory.
+
+:::
 
 ## Unsubscribe from the AWS Marketplace
 To stop using OpenRemote from the AWS Marketplace, you can unsubscribe by following the steps below.
