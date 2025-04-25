@@ -68,7 +68,7 @@ After subscribing on OpenRemote via the AWS Marketplace, you can start configuri
    It is possible to expand the volume after instance creation, but a reboot will be required.
 
 * `Key pair` - Choose a `key pair` for this OpenRemote instance. With the selected `key pair` you can `SSH` into the machine.
-  You can only select an `key pair` that were created in the **same** region as where you want to deploy the OpenRemote instance.
+  You can only select a `key pair` that was created in the **same** region as where you want to deploy the OpenRemote instance.
 
    :::tip
    
