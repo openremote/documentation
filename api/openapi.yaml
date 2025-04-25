@@ -2153,6 +2153,45 @@ paths:
           description: default response
           content:
             application/json: {}
+  /map/deleteMap:
+    delete:
+      tags:
+      - Map
+      summary: Removes mbtiles file
+      operationId: deleteMap
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ObjectNode"
+  /map/getCustomMapInfo:
+    get:
+      tags:
+      - Map
+      summary: Retrieve if the map is custom and custom map limit
+      operationId: getCustomMapInfo
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ObjectNode"
   /map:
     get:
       tags:
@@ -2201,16 +2240,14 @@ paths:
         content:
           application/json:
             schema:
-              type: object
-              additionalProperties:
-                $ref: "#/components/schemas/MapRealmConfig"
+              $ref: "#/components/schemas/MapConfig"
       responses:
         default:
           description: default response
           content:
             application/json:
               schema:
-                type: object
+                $ref: "#/components/schemas/ObjectNode"
   /map/js:
     get:
       tags:
@@ -2270,6 +2307,36 @@ paths:
               schema:
                 type: string
                 format: byte
+  /map/upload:
+    post:
+      tags:
+      - Map
+      summary: Saves mbtiles file
+      operationId: uploadMap
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: filename
+        in: query
+        schema:
+          type: string
+      responses:
+        default:
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ObjectNode"
   /notification:
     get:
       tags:
@@ -3837,7 +3904,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Role"
+                  type: string
   /user/userRealmRoles:
     get:
       tags:
@@ -3865,103 +3932,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Role"
-  /user/userRoles:
-    get:
-      tags:
-      - User
-      summary: Retrieve client roles for the currently authenticated user
-      operationId: getCurrentUserRoles
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
-      responses:
-        default:
-          description: default response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Role"
-  /user/{realm}/roles:
-    get:
-      tags:
-      - User
-      summary: Retrieve roles for a realm
-      operationId: getRoles
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
-      - name: realm
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        default:
-          description: default response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Role"
-    put:
-      tags:
-      - User
-      summary: Update roles for a realm
-      operationId: updateRoles
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
-      - name: realm
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: "#/components/schemas/Role"
-      responses:
-        default:
-          description: default response
-          content:
-            '*/*': {}
+                  type: string
   /user/{realm}/userRoles/{userId}/{clientId}:
     get:
       tags:
@@ -4004,7 +3975,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Role"
+                  type: string
     put:
       tags:
       - User
@@ -4044,7 +4015,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: "#/components/schemas/Role"
+                type: string
       responses:
         default:
           description: default response
@@ -4087,7 +4058,7 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: "#/components/schemas/Role"
+                  type: string
     put:
       tags:
       - User
@@ -4122,85 +4093,7 @@ paths:
             schema:
               type: array
               items:
-                $ref: "#/components/schemas/Role"
-      responses:
-        default:
-          description: default response
-          content:
-            '*/*': {}
-  /user/{realm}/userRoles/{userId}:
-    get:
-      tags:
-      - User
-      summary: Retrieve client roles for a user in a realm
-      operationId: getUserRoles
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
-      - name: realm
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: userId
-        in: path
-        required: true
-        schema:
-          type: string
-      responses:
-        default:
-          description: default response
-          content:
-            application/json:
-              schema:
-                type: array
-                items:
-                  $ref: "#/components/schemas/Role"
-    put:
-      tags:
-      - User
-      summary: Update client roles for a user in a realm
-      operationId: updateUserRoles
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
-      - name: realm
-        in: path
-        required: true
-        schema:
-          type: string
-      - name: userId
-        in: path
-        required: true
-        schema:
-          type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: array
-              items:
-                $ref: "#/components/schemas/Role"
+                type: string
       responses:
         default:
           description: default response
@@ -4376,6 +4269,42 @@ paths:
           application/json:
             schema:
               type: string
+      responses:
+        default:
+          description: default response
+          content:
+            '*/*': {}
+  /user/{realm}/roles:
+    put:
+      tags:
+      - User
+      summary: Update roles for a realm
+      operationId: updateRoles
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/Role"
       responses:
         default:
           description: default response
@@ -4580,9 +4509,6 @@ components:
             items:
               type: object
     AssetObject:
-      required:
-      - name
-      - realm
       type: object
       properties:
         id:
@@ -4644,8 +4570,6 @@ components:
       additionalProperties:
         $ref: "#/components/schemas/AttributeObject"
     AttributeObject:
-      required:
-      - name
       type: object
       properties:
         type:
@@ -4654,6 +4578,7 @@ components:
           type: object
           writeOnly: true
         name:
+          minLength: 1
           pattern: ^\w+$
           type: string
         meta:
@@ -4685,8 +4610,6 @@ components:
           max:
             type: number
     MetaItemObject:
-      required:
-      - name
       type: object
       properties:
         type:
@@ -4695,6 +4618,7 @@ components:
           type: object
           writeOnly: true
         name:
+          minLength: 1
           pattern: ^\w+$
           type: string
     MetaMap:
@@ -4989,9 +4913,6 @@ components:
         binary:
           type: boolean
     AgentObjectObjectObject:
-      required:
-      - name
-      - realm
       type: object
       properties:
         id:
@@ -5664,8 +5585,6 @@ components:
       discriminator:
         propertyName: predicateType
     AttributeRef:
-      required:
-      - name
       type: object
       properties:
         id:
@@ -5674,6 +5593,7 @@ components:
           description: The asset identifier
           example: 7Bt8M3cXEP6BHPh8r47DYf
         name:
+          minLength: 1
           pattern: ^\w+$
           type: string
           description: The attribute name
@@ -5786,19 +5706,19 @@ components:
             type: object
     ConsoleRegistration:
       required:
-      - name
-      - platform
       - providers
-      - version
       type: object
       properties:
         id:
           type: string
         name:
+          minLength: 1
           type: string
         version:
+          minLength: 1
           type: string
         platform:
+          minLength: 1
           type: string
         providers:
           type: object
@@ -5812,8 +5732,6 @@ components:
             type: string
     Dashboard:
       required:
-      - displayName
-      - realm
       - template
       type: object
       properties:
@@ -5831,19 +5749,14 @@ components:
           format: int64
         ownerId:
           type: string
-        viewAccess:
-          type: string
-          enum:
-          - PUBLIC
-          - SHARED
-          - PRIVATE
-        editAccess:
+        access:
           type: string
           enum:
           - PUBLIC
           - SHARED
           - PRIVATE
         displayName:
+          minLength: 1
           type: string
         template:
           $ref: "#/components/schemas/DashboardTemplate"
@@ -5886,13 +5799,13 @@ components:
           type: boolean
     DashboardScreenPreset:
       required:
-      - displayName
       - scalingPreset
       type: object
       properties:
         id:
           type: string
         displayName:
+          minLength: 1
           type: string
         breakpoint:
           minimum: 1
@@ -5986,7 +5899,7 @@ components:
     DashboardConditions:
       type: object
       properties:
-        viewAccess:
+        access:
           type: array
           items:
             type: string
@@ -5994,17 +5907,6 @@ components:
             - PUBLIC
             - SHARED
             - PRIVATE
-        editAccess:
-          type: array
-          items:
-            type: string
-            enum:
-            - PUBLIC
-            - SHARED
-            - PRIVATE
-        minWidgets:
-          type: integer
-          format: int32
     DashboardQuery:
       type: object
       properties:
@@ -6220,6 +6122,17 @@ components:
           type: array
           items:
             type: object
+    MapConfig:
+      type: object
+      properties:
+        options:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/MapRealmConfig"
+        sources:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/MapSourceConfig"
     MapRealmConfig:
       type: object
       properties:
@@ -6248,6 +6161,34 @@ components:
           type: string
         geoJson:
           $ref: "#/components/schemas/GeoJsonConfig"
+    MapSourceConfig:
+      type: object
+      properties:
+        type:
+          type: string
+        url:
+          type: string
+        tiles:
+          type: array
+          items:
+            type: string
+        bounds:
+          type: array
+          items:
+            type: number
+            format: float
+        scheme:
+          type: string
+        minzoom:
+          type: integer
+          format: int32
+        maxzoom:
+          type: integer
+          format: int32
+        attribution:
+          type: string
+        custom:
+          type: boolean
     AbstractNotificationMessage:
       type: object
       properties:

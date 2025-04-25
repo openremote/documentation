@@ -1,0 +1,70 @@
+---
+id: get-asset-descriptors
+title: "Retrieve the available asset descriptors"
+description: "Retrieve the available asset descriptors"
+sidebar_label: "Retrieve the available asset descriptors"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVt+P2zYM/lcMYg8dprMP65ufdmi79oB1Da4pMOCaATyZidXKkirRybIg/3tBOcnFSVDsuj0sT4FIfvz5kd4A4yJBfQ83KREXb31DFmYKfKCIbLy7baCGBXGWv6SkownsYwIFASN2xBQFYAMOO4IabnpufTR/Z2tQYBzU0BI2FEFB0i11CPUGeB1EPXE0bgHbrTog/HH1q48rjA01V5Po2f9rlDc+8XeBBIzk+LbZG3/pKa6fZDsV+T+2nimIlIJ3iZLIG5pjb3n4O9ReqlrvBcVeGxRo75hc1sUQrNG5A9WnJAabc6cYI0o0hqnLziJ96U2kRsahOXQ6JzBTeyv/8Im0FDNEmRE2Q6BDzhsIyExRIvzz48fVTz+AOs1RgdFDRGcC7a3v40VRs3bYGX0ke/DeErosHAd7qSvQGNHpjEP22cUu/vXvQ7dOMLYK2LDNAz2e/HdDAbb5p07ackccDS2p4JYKXKKx+GCpwEyuZsSejrj1O3JlMnELNVSdMLDCc7Yliss91fpoZZKZQ6qrqqHOlz6Qi9R5ptL4CoOpNpHQdtsKFCwxGglk12a03Wi4oMPEFCWnmTjSfTS8zp4E1shEzI5F72WWBrS9wqHmHntufwYFc+tXWUVbQ45fRGrIsUGbH9l/Jvch51GJRZXDStUQShWE99rbasC/0t450lxlMxCWzCOl9vsBkvZhyCBEPze50/t/0lc8XmMvfJPHavT4dN+iKoT4X6eep9q4uc9d2nHgXSB3l6ereIsOFxSLu1fvp8XN5BZOOTBtTSpMyhRovO47cpwLVsx9zK8X0N5Mp5MDZFkUE0uYqEg0UOl+BDR7dhh9r9N49H/MXjofqZAkyt1iRJ0XI3VopGwi+mVkJ4y3RpPs0vrxmL2e/FY8L69BnXButVqVC9eXPi6qnVmqcBHs1fPyuiRXttxZwRTODnURwbU8BZ+4Q3fk5glrY1TrA+mY/uIqWDR5H+ZQN7uVcg95pYCCs6UyU9DKZazvYbN5wEQfot1u5Xm4VLIAGpMklgbqOdpECj7TenwYl2h7iQHk9n1TfXcLHw1mj6sprxi1v84XPZ+kfrh38HhkxnUYfF/6nPh2zP+Bo90Xx8jPoHWjNYVj2dmxlrIcrsPrV1PYbr8CQMZekA==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the available asset descriptors"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/model/assetDescriptors"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the available asset descriptors
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"parentId","in":"query","schema":{"type":"string"}},{"name":"parentType","in":"query","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"required":["descriptorType"],"type":"object","properties":{"name":{"pattern":"^\\w+$","type":"string"},"icon":{"type":"string"},"colour":{"type":"string"},"dynamic":{"type":"boolean"},"descriptorType":{"type":"string"}},"discriminator":{"propertyName":"descriptorType"},"title":"AssetDescriptorObject"}}}}}}}
+>
+  
+</StatusCodes>
+
+

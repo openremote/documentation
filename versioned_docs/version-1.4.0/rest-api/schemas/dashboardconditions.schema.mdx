@@ -1,0 +1,33 @@
+---
+id: dashboardconditions
+title: "DashboardConditions"
+description: ""
+sidebar_label: "DashboardConditions"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"viewAccess":["PUBLIC"],"editAccess":["PUBLIC"],"minWidgets":0}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"DashboardConditions"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"viewAccess":{"type":"array","items":{"type":"string","enum":["PUBLIC","SHARED","PRIVATE"]}},"editAccess":{"type":"array","items":{"type":"string","enum":["PUBLIC","SHARED","PRIVATE"]}},"minWidgets":{"type":"integer","format":"int32"}},"title":"DashboardConditions"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
