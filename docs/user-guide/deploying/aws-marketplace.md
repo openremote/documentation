@@ -78,7 +78,7 @@ After subscribing on OpenRemote via the AWS Marketplace, you can start configuri
 
    :::danger
 
-   After creating the `key pair`, you receive a private key. \
+   After creating the `key pair`, you receive a private key.
    Make sure to save this file on a secure location, as you will not be able to `SSH` into the machine without it.
 
    If you accidentally lose your key, follow the steps provided [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replacing-key-pair.html) to recover access to your instance.
@@ -108,7 +108,9 @@ Amazon is now building the `EC2` instance using the provided `CloudFormation` te
 
 After the `EC2` instance is successfully provisioned, the `CREATE_COMPLETE` status will appear on the `CloudFormation` page. 
 
-To start using OpenRemote, either visit the `hostname` you specified during configuration or navigate to the `EC2` page and locate the instance named `%AWS-STACKNAME%-AWS Marketplace`. (Make sure to replace `%AWS-STACKNAME%` with the stack name you have provided during configuration) and look for the `Public IPv4 address`
+To start using OpenRemote, either visit the `hostname` you specified during configuration or navigate to the `EC2` page and locate the instance named `%AWS-STACKNAME%-AWS Marketplace` (Make sure to replace `%AWS-STACKNAME%` with the stack name you have provided during configuration) and look for the `Public IPv4 address`.
+
+You can also view the `IPv4` address by clicking on the `Outputs` section of the `CloudFormation` stack.
 
 ## SSH into the EC2 instance
 To manage the `EC2` instance via `SSH`, you can follow the steps below.
