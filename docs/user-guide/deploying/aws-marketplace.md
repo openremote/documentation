@@ -79,8 +79,8 @@ After subscribing on OpenRemote via the AWS Marketplace, you can start configuri
    :::danger
 
    After creating the `key pair`, you receive a private key.
+   
    Make sure to save this file on a secure location, as you will not be able to `SSH` into the machine without it.
-
    If you accidentally lose your key, follow the steps provided [here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/replacing-key-pair.html) to recover access to your instance.
 
    :::
@@ -104,11 +104,11 @@ After subscribing on OpenRemote via the AWS Marketplace, you can start configuri
 Once you've entered all the required details, click the `Next` button at the bottom of the page. You’ll be taken to a configuration page where you can configure various stack options. There’s no need to make any changes here, simply click `Next` again.
 On the final page, you'll see a summary of your deployment. Review the information, then click the `Submit` button at the bottom to confirm and proceed.
 
-Amazon is now building the `EC2` instance using the provided `CloudFormation` template, this process takes around `5` to `10` minutes. You can monitor the progress by regularly refreshing the page using the refresh button located on the right-hand side.
+Amazon is building the `EC2` instance using the provided `CloudFormation` template, this process takes around `5` to `10` minutes. You can monitor the progress by regularly refreshing the page using the refresh button located on the right-hand side.
 
 After the `EC2` instance is successfully provisioned, the `CREATE_COMPLETE` status will appear on the `CloudFormation` page. 
 
-To start using OpenRemote, either visit the `hostname` you specified during configuration or navigate to the `EC2` page and locate the instance named `%AWS-STACKNAME%-AWS Marketplace` (Make sure to replace `%AWS-STACKNAME%` with the stack name you have provided during configuration) and look for the `Public IPv4 address`.
+To start using OpenRemote, either visit the `hostname` you specified during configuration or navigate to the `EC2` page and locate the instance named `%AWS-STACKNAME%-AWS Marketplace` (make sure to replace `%AWS-STACKNAME%` with the stack name you have provided during configuration) and look for the `Public IPv4 address`.
 
 You can also view the `IPv4` address by clicking on the `Outputs` section of the `CloudFormation` stack.
 
@@ -116,12 +116,12 @@ You can also view the `IPv4` address by clicking on the `Outputs` section of the
 You can access the `EC2` instance via `SSH` by following the steps below.
 
 - Navigate to the `EC2` page, then click on `Security Groups` located under the `Network & Security` section on the left-hand menu.
-- Locate the security group named `%AWS-STACKNAME%-or-ssh-whitelist` (Make sure to replace `%AWS-STACKNAME%` with the stack name you specified during configuration) and click on it.
+- Locate the security group named `%AWS-STACKNAME%-or-ssh-whitelist` (make sure to replace `%AWS-STACKNAME%` with the stack name you specified during configuration) and click on it.
 - In the `Inbound rules` section, click the `Edit inbound rules` button.
 - Click the `Add rule` button to insert a new entry in the `Inbound rules` section.
 - Set the `type` to `SSH`, and enter your `ISP IP address` in the `Source` field. You can find your `IP address` [here](https://whatsmyip.com/).
 - Click the `Save rules` button to apply the changes.
-- You've now whitelisted your `IP address` to access the `EC2` instance. To connect, open your terminal and run the following command: `ssh ec2-user@%EC2PublicIP%` (Make sure to replace `%EC2PublicIP%` with the instance's actual `IPv4` address or the `hostname` you have provided during configuration)
+- You've now whitelisted your `IP address` to access the `EC2` instance. To connect, open your terminal and run the following command: `ssh ec2-user@%EC2PublicIP%` (make sure to replace `%EC2PublicIP%` with the instance's actual `IPv4` address or the `hostname` you have provided during configuration)
 
 :::note
 
