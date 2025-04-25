@@ -104,7 +104,13 @@ After subscribing on OpenRemote via the AWS Marketplace, you can start configuri
 Once you've entered all the required details, click the `Next` button at the bottom of the page. You’ll be taken to a configuration page where you can configure various stack options. There’s no need to make any changes here, simply click `Next` again.
 On the final page, you'll see a summary of your deployment. Review the information, then click the `Submit` button at the bottom to confirm and proceed.
 
-Amazon is building the `EC2` instance using the provided `CloudFormation` template, this process takes around `5` to `10` minutes. You can monitor the progress by regularly refreshing the page using the refresh button located on the right-hand side.
+Amazon is provisioning the `EC2` instance using the provided `CloudFormation` template, this process takes around `5` to `10` minutes. You can monitor the progress by regularly refreshing the page using the refresh button located on the right-hand side.
+
+:::note
+
+The latest version of OpenRemote will be installed. Click [here](https://github.com/openremote/openremote/releases) to see the latest release.
+
+:::
 
 After the `EC2` instance is successfully provisioned, the `CREATE_COMPLETE` status will appear on the `CloudFormation` page. 
 
