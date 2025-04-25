@@ -112,8 +112,8 @@ To start using OpenRemote, either visit the `hostname` you specified during conf
 
 You can also view the `IPv4` address by clicking on the `Outputs` section of the `CloudFormation` stack.
 
-## SSH into the EC2 instance
-To manage the `EC2` instance via `SSH`, you can follow the steps below.
+## How can I access the EC2 instance?
+You can access the `EC2` instance via `SSH` by following the steps below.
 
 - Navigate to the `EC2` page, then click on `Security Groups` located under the `Network & Security` section on the left-hand menu.
 - Locate the security group named `%AWS-STACKNAME%-or-ssh-whitelist` (Make sure to replace `%AWS-STACKNAME%` with the stack name you specified during configuration) and click on it.
@@ -128,6 +128,9 @@ To manage the `EC2` instance via `SSH`, you can follow the steps below.
 To `SSH` into the machine, ensure that your `key pair` is saved in the `.ssh` directory.
 
 :::
+
+## Where can I find the installation files?
+The installation files are located in the `/openremote` folder. You can navigate to it using the command `cd /openremote`. The data from the platform is stored in persistent `docker` volumes, located in the `/var/lib/docker/volumes` directory. 
 
 ## Unsubscribe from the AWS Marketplace
 To stop using OpenRemote from the AWS Marketplace, you can unsubscribe by following the steps below.
