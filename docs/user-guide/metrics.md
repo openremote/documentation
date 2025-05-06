@@ -9,7 +9,7 @@ Refer to the website of each container app for details of metrics exposed and th
 
 ## OpenRemote Manager
 |Component| Metric name | Metric type | Labels | Description |
-|:--:|--|--|--|---|
+|:--:|:--:|:--:|:--|:---|
 |Artemis| artemis_active | gauge | broker=localhost | If the server is active |
 |Artemis| artemis_address_memory_usage | gauge | broker=localhost | Memory used by all the addresses on broker for in-memory messages |
 |Artemis| artemis_address_memory_usage_percentage | gauge | broker=localhost | Memory used by all the addresses on broker as a percentage of the global-max-size |
