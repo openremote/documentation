@@ -35,6 +35,7 @@ SELECT a.id, REMOVE_ATTRIBUTES(a, 'oldAttribute1', 'oldAttribute2') FROM asset a
 ```
 
 ### Add attribute to specific asset(s) (with meta items)
+**Warning**: this will override any existing attribute data!
 ```sql
 SELECT a.id, ADD_ATTRIBUTE(a, 'newAttribute2', 'GEO_JSONPoint', '1'::jsonb, now(),
     jsonb_build_object('meta1', true, 'meta2', 123))
@@ -42,6 +43,7 @@ FROM asset a WHERE...;
 ```
 
 ### Add attribute to specific asset(s) (without meta items)
+**Warning**: this will override any existing attribute data!
 ```sql
 SELECT a.id, ADD_ATTRIBUTE(a, 'newAttribute1', 'GEO_JSONPoint', '1'::jsonb, now(), null)
 FROM asset a WHERE...;
