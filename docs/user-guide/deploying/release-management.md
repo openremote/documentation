@@ -45,7 +45,7 @@ If you want to use changes before they are released, it is also possible to use 
 E.g. if the next version will be 1.3.0 use the following versions:
 
 1. Docker images: Update the `openremote/manager` image tag to `develop` in the `docker-compose.yml` file (or environment variable)
-2. Java code: Update the `openremoteVersion` to `1.3.0-SNAPSHOT` in the `gradle.properties` file (requires the Maven repository https://s01.oss.sonatype.org/content/repositories/snapshots to be added to your `project.gradle` file)
+2. Java code: Update the `openremoteVersion` to `1.3.0-SNAPSHOT` in the `gradle.properties` file (requires the Maven repository https://central.sonatype.com/repository/maven-snapshots to be added to your `project.gradle` file)
 3. TypeScript code: Update the openremote package dependencies using `yarn up -E "@openremote/*@^1.3.0-snapshot"`
 
 ### Using ORLib
@@ -91,7 +91,7 @@ You can test your local changes in a custom project by first publishing them to 
 `./gradlew clean installDist publishToMavenLocal`
 
 Note that the custom project build first resolves artifacts from `mavenLocal()` which is defined in the `project.gradle` file.
-So once you publish snapshot artifacts to your local Maven repository these will no longer be downloaded from the https://s01.oss.sonatype.org/content/repositories/snapshots repository.
+So once you publish snapshot artifacts to your local Maven repository these will no longer be downloaded from the https://central.sonatype.com/repository/maven-snapshots repository.
 To undo this, either comment the `mavenLocal()` repository or remove your local artifacts in `~/.m2/repository/io/openremote`.
 
 ### Version resolution
