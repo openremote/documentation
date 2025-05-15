@@ -19,23 +19,7 @@ As part of the [configuring the manager UI](../deploying/configuring-the-manager
 ![OpenRemote Map](img/map-page.png)
 _Figure 1. The Map view, here with the Demo Smart City, showing the map with different assets across the city as well as an additional map layer showing primary and secondary highways (GeoJSON). The ship is also showing its direction_
 
-If you want to adjust the map styling. You can change the map on the appearance page. Here you have the option to change what map tiles are loaded either by configuring a tile server template URL e.g. `https://example.com/tileset/{z}/{x}/{y}` or if you have your own `.mbtiles` tiles file you can upload those instead (see [working on maps](../../developer-guide/working-on-maps#uploading-mbtiles) for more). Additionally, you can configure a custom map through [custom deployments](../deploying/custom-deployment.md#map-deploymentmap).
-
-:::note
-The tile server URL will always take precedence over `.mbtiles` files.
-:::
-
-Common tile server providers and implementations
-
-- [Carto](https://carto.com/)
-- [Mapbox](https://www.mapbox.com/)
-- [Martin](https://github.com/maplibre/martin)
-
-:::note
-The base tilesets of some providers are not compatible with the default map layers in the `mapsettings.json` (see [custom deployments](../deploying/custom-deployment.md) to configure them).
-:::
-
-If you want to add map layers, you can add GeoJSON based points, lines and shapes. You can directly add GeoJSON files in settings/appearance. For creating GeoJSON files, you can use e.g. https://geojson.io/. For searching existing GeoJSON map layers, you can use https://overpass-turbo.eu/
+For more see the [appearance page](./appearance.md#map-settings).
 
 ## Assets
 
@@ -66,32 +50,32 @@ _Figure 4. The Asset view in 'Edit mode' while adding an attribute_
 
 While in `Edit asset` mode you can expand each attribute, which gives you the option to add configuration items or change existing ones. You can use configuration items to arrange access permission, parse and store data points, allow data to be used in rules, or define whether and how to show data. The available configuration items are:
 
-| Configuration items | Description |
-| :--- | :--- |
-| `Access public read` | Users can read without authentication, e.g. use with public dashboard |
-| `Access public write` | Users can write without authentication |
-| `Access restricted read` | Restricted users can read if they have read attribute access to the asset |
-| `Access restricted write` | Restricted users can write if they have write attribute access to the asset |
-| `Agent link` | Define the Agent from which data is retrieved including data parsing, see [agent links](../agents-protocols/overview.md#agent-links) |
-| `Attribute links` | Filter and parse multiple values retrieved with an Agent link, see [example](../../tutorials/open-weather-api-using-http-agent.md#setting-multiple-attributes-with-one-agent-link) |
-| `Constraints` | Value constraints applied to the value (size/length, regex, not empty, etc.) |
-| `Data points max age days` | Time period for which data is stored |
-| `Forecast` | Adds [forecasting data](../rules-and-forecasting/forecasting.md), to be used in combination with 'Has predicted data points' |
-| `Format` | Used for data parsing, see [format for available options](https://github.com/openremote/openremote/blob/201cc15451a2cd040a6ab9e699cbec5297821e80/model/src/main/java/org/openremote/model/value/ValueFormat.java#L37) |
-| `Has predicted data points` | Enable the option to add forecasted values |
-| `Label` | Add a friendly name, replacing the default name |
-| `Momentary` | Button input to send the true/on/pressed/closed value when pressed; and false value when released |
-| `Multiline` | Indicates that any input should support multiline text entry |
-| `Read only` | Data can not be filled via UI, only by agents or rules |
-| `Rule event` | Events are stored in rule to allow evaluation of change history of an attribute  |
-| `Rule event expires` | Set lifetime of event triggers and facts |
-| `Rule state` | Add this attribute as option to select in rules, on left-hand side |
-| `Rule reset immediate` | Allows rule to re-trigger immediately. Can be useful for event based data |
-| `Secret` | Marks the value as secret indicating clients to display this in a concealed manner |
-| `Show on dashboard` | Used in combination with 'location' will display asset on the Map view |
-| `Store data points` | Stores data points in the database, default for one month |
-| `Units` | Adds a unit to the attribute value, see [composition and options](../assets-agents-and-attributes.md#attribute-descriptor) |
-| `User connected` | Shows all restricted users which have access to this asset, see [Restricted user realm role](../identity-and-security/realms-users-and-roles.md#restricted-user-realm-role) |
+| Configuration items         | Description                                                                                                                                                                                                           |
+| :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Access public read`        | Users can read without authentication, e.g. use with public dashboard                                                                                                                                                 |
+| `Access public write`       | Users can write without authentication                                                                                                                                                                                |
+| `Access restricted read`    | Restricted users can read if they have read attribute access to the asset                                                                                                                                             |
+| `Access restricted write`   | Restricted users can write if they have write attribute access to the asset                                                                                                                                           |
+| `Agent link`                | Define the Agent from which data is retrieved including data parsing, see [agent links](../agents-protocols/overview.md#agent-links)                                                                                  |
+| `Attribute links`           | Filter and parse multiple values retrieved with an Agent link, see [example](../../tutorials/open-weather-api-using-http-agent.md#setting-multiple-attributes-with-one-agent-link)                                    |
+| `Constraints`               | Value constraints applied to the value (size/length, regex, not empty, etc.)                                                                                                                                          |
+| `Data points max age days`  | Time period for which data is stored                                                                                                                                                                                  |
+| `Forecast`                  | Adds [forecasting data](../rules-and-forecasting/forecasting.md), to be used in combination with 'Has predicted data points'                                                                                          |
+| `Format`                    | Used for data parsing, see [format for available options](https://github.com/openremote/openremote/blob/201cc15451a2cd040a6ab9e699cbec5297821e80/model/src/main/java/org/openremote/model/value/ValueFormat.java#L37) |
+| `Has predicted data points` | Enable the option to add forecasted values                                                                                                                                                                            |
+| `Label`                     | Add a friendly name, replacing the default name                                                                                                                                                                       |
+| `Momentary`                 | Button input to send the true/on/pressed/closed value when pressed; and false value when released                                                                                                                     |
+| `Multiline`                 | Indicates that any input should support multiline text entry                                                                                                                                                          |
+| `Read only`                 | Data can not be filled via UI, only by agents or rules                                                                                                                                                                |
+| `Rule event`                | Events are stored in rule to allow evaluation of change history of an attribute                                                                                                                                       |
+| `Rule event expires`        | Set lifetime of event triggers and facts                                                                                                                                                                              |
+| `Rule state`                | Add this attribute as option to select in rules, on left-hand side                                                                                                                                                    |
+| `Rule reset immediate`      | Allows rule to re-trigger immediately. Can be useful for event based data                                                                                                                                             |
+| `Secret`                    | Marks the value as secret indicating clients to display this in a concealed manner                                                                                                                                    |
+| `Show on dashboard`         | Used in combination with 'location' will display asset on the Map view                                                                                                                                                |
+| `Store data points`         | Stores data points in the database, default for one month                                                                                                                                                             |
+| `Units`                     | Adds a unit to the attribute value, see [composition and options](../assets-agents-and-attributes.md#attribute-descriptor)                                                                                            |
+| `User connected`            | Shows all restricted users which have access to this asset, see [Restricted user realm role](../identity-and-security/realms-users-and-roles.md#restricted-user-realm-role)                                           |
 
 See the documentation page [explaining all available configuration item options for assets and attributes, and references](../assets-agents-and-attributes.md#asset-type-model). Don't forget to save the asset after making changes.
 
