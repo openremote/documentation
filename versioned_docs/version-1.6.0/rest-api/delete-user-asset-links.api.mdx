@@ -1,0 +1,70 @@
+---
+id: delete-user-asset-links
+title: "Delete user asset links"
+description: "Delete user asset links"
+sidebar_label: "Delete user asset links"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFv2zYQ/ivCPW2FLDruim56Wpa1a4CuMRIHGGb44SKdLTYUyZJUXM/wfx+OsiWrdjZ0w4DpSSDvvrvjffeRWwi48pDP4dJ7CrBIwVhyGKTR1yXkUJKiQPeeXDR4L/WjhxQsOqwpkGPfLWisCXK4bEJlnPwjukMKUkMOFWFJDlLwRUU1Qr6FsLFs7oOTegW7Xdoh/DZ6a9waXUnlaOpMMP8a5Z3x4StAFik4+tSQDz+ZcsMWhdGBdOBftFbJIlYnPnqjee0ECp3DDUcMVPujdfPwkQpOxTo+4iAp7sry720coarPZJtC48ldl2e3kPt1dm+XQpBB8dJ1yaaFIwxU3uhT4xSWxtUYmAoYaBRkTR36h3jcZ2JbdKTD5V/acOpvG6WeMThKcsA+2PHHXfLWaN8eUElLbFRof33hpI0MzA8bycEa0uN+vhAvIN+2eEO/nyPtE84xiaUmas/8mkJleDJsSyyLoYIcRLQS7CDYVLSDw1wj93SYk8YppmEI1udClFSbzFjSjmoTKJNGoJViG9u9E5DCEzqJD+oLFnTVQo0+kOMjWXCgonEybGIkhmVqzRfHW3dM1hbtYNBzD5tQTbjhyqyjSaEk6XDlqCQdJKqWzeaR9H2sQ7CHiGl50aYiLA9tYZRo8UeF0ZqKIKIbcNuWjnz1zwF8YWxbgXVmKSNBDn/cRzzWoCtTRm4NFr8+NptC+j8vPbKYVem21683n7G2bDc/CM2eRP14HxSkX+mE42hYjxQCJuPJd6Px69Hkh9nFq/zVRT75Phu/vvgdBqrQ452IwTB4rwFdvAXr9dJEuu014MaSvo1jkvyKGlfkkts3d7PkcnoNXw7vrJI+kT4JFSWlKZqadIidT5bGxdUzaO9ms2kHmSXJVBF6SjxR9JgPgBbfdDNsCj+c4W9jlNo4SriIbC85WETJoRol95+3fhz48TErWRCrVN5fqb9M3ycvszEf1kA81ut1ttJNZtxK7N28wJVVo5fZOCOdVaFWjMni054Lb4yjPBsfatRHYZ7Xu8HRdmIR6HMQVqHUUco5s+1eCuctC/bdBS5KP0agKIiLFCpWznwO2+0Derp3arfj5U8NORavRa97Ub/Sw73NLC6l540S8iUqTyf5deoOPLDnkn2kzTMPjSdUDdsDPyX+i0D7t8ggTmt11aKNZgzUW5w8OHqPy6Ige4zGlxlPTndBTW/uZpDCw/4dU0ctBIdr1iJct5mbWFB7v/DaFhTqVYMrtm1D8vcncQ6A8w==
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete user asset links"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/asset/user/link/delete"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete user asset links
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"id":{"type":"object","properties":{"realm":{"type":"string"},"userId":{"type":"string"},"assetId":{"type":"string"}},"title":"Id"},"createdOn":{"type":"string","format":"date-time"},"assetName":{"type":"string"},"parentAssetName":{"type":"string"},"userFullName":{"type":"string"}},"title":"UserAssetLink"}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+
