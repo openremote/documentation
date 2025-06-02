@@ -9,10 +9,10 @@ sidebar_position: 3
 A frontend application that optionally consumes the OR APIs; same meaning as OAuth client (The OR Manager web application is a client; for custom projects there could be zero or more apps where each app may be used across one or more realms, the apps generally provide very specific functionality as required by the project). These are generally responsive web applications.
 
 ### Console
-This is the application used to load the client and can be thought of as a wrapper around a client e.g. Web Browser, Android/iOS App. Generally this is an application capable of loading a web view that renders the client. A console could be hardcoded to a specific realm and client or it could be more configurable depending on requirements. A web browser requires no installation where as Android/iOS consoles are pre-compiled and distributed.
+This is the application used to load the client and can be thought of as a wrapper around a client e.g. Web Browser, Android/iOS App. Generally this is an application capable of loading a web view that renders the client. A console could be hardcoded to a specific realm and client or it could be more configurable depending on requirements. A web browser requires no installation whereas Android/iOS consoles are pre-compiled and distributed.
 
 ## Console/app interaction
-Apps and consoles exchange information using the API described below which consists of `providers`, a `provider` is a piece of functionality that the console provides to the app, messages can be sent bidirectionally between the console and app. The Android and iOS consoles implement a standard mechanism for this communication and when running an app in the Web Browser the `@openremote/core` component handles communication and also implements a limited subset of `providers` (e.g. `push`). The console is accessed via the `console` property on the `@openremote/core` component but it is also exported globally as `OpenRemoteConsole`:
+Apps and consoles exchange information using the API described below which consists of `providers`, a `provider` is a piece of functionality that the console provides to the app, messages can be sent bidirectionally between the console and app. The Android and iOS consoles implement a standard mechanism for this communication. When running an app in the Web Browser the `@openremote/core` component handles communication and implements a limited subset of `providers` (e.g. `push`). The console is accessed via the `console` property on the `@openremote/core` component but it is also exported globally as `OpenRemoteConsole`:
 ```typescript
 import openremote from "@openremote/core";
 openremote.init(...).then(()=> {
@@ -110,7 +110,7 @@ Once all providers are initialised then the app is free to decide when to enable
    data: JSON [any data that the app wishes to pass to this provider that may be required for enabling it]
 }
 ```
-The console then asks the user for the necessary permission(s) (if not done already) and enables the functionality of this provider then posts a message back to the app:
+The console then asks the user for the necessary permission(s) (if not done already), then enables the functionality of this provider and posts a message back to the app:
 ```json
 {
    action: "PROVIDER_ENABLE",
@@ -265,7 +265,10 @@ Returns the requested data from the provider.
 ```
 
 
-### TODO Notification Provider (provider: "notification")
+### Notification Provider (provider: "notification")
+
+**This is a specification for a forthcoming provider, no implementation has been done yet!**
+
 Show a notification immediately using the platforms standard mechanism (without using Push API)
 
 #### Enabled message request data (App -> Console)
