@@ -66,6 +66,18 @@ function createAppSetupAndTeardown(app) {
 
 ## Writing tests
 
+### Prerequisites
+
+Assumming you have setup your [development tooling](http://localhost:3000/docs/developer-guide/preparing-the-environment#development-tooling).
+
+Install the Playwright browsers:
+```sh
+npx playwright install --with-deps
+```
+See the [Playwright Intro](https://playwright.dev/docs/intro) for more.
+
+### Starting UI mode
+
 The best way to write tests using Playwright is by using the [Playwright UI mode](https://playwright.dev/docs/test-ui-mode). Start by adding a test directory if not already present in the project you want to test and add a test file ending in `*.test.ts`.
 
 **Component tests**
