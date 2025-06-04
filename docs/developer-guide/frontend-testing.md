@@ -121,7 +121,21 @@ npm run e2e -- --ui
 
 Playwright uses [`locators`](https://playwright.dev/docs/locators) to find elements in the DOM. It's crucial to know the different types of locators to be able to write tests that are robust and to avoid flaky behaviour.
 
-### Tips & Best practices
+### Best practices
+
+Please read the [Playwright Best practices](https://playwright.dev/docs/best-practices).
+
+<!-- TODO: include what to do and what not to do -->
+
+**TL;DR**
+- Avoid `xpath` and `css` selectors.
+- Isolate tests, so you can rerun them without relying on external factors such as other tests.
+- Use [web first assertions](https://playwright.dev/docs/test-assertions) e.g. `toBeVisible`, `toBeHidden`, `toBeChecked` etc.
+- Reuse locators and actions through test fixtures
+- Use the UI mode, test reports, trace viewer and debugger
+<!-- - Enable multiple browsers (see playwright UI checkboxes) -->
+
+### Tips
 
 The most useful feature Playwright provides when it comes to writing frontend tests is [UI mode](https://playwright.dev/docs/test-ui-mode). Once the Playwright UI is launched you can select which projects you want to see and run.
 
@@ -144,15 +158,3 @@ npm run e2e -- --headed
 ```
 
 See https://playwright.dev/docs/test-cli#reference for more CLI arguments.
-
-Please read the [Playwright Best practices](https://playwright.dev/docs/best-practices).
-
-<!-- TODO: include what to do and what not to do -->
-
-**TL;DR**
-- Avoid `xpath` and `css` selectors.
-- Isolate tests, so you can rerun them without relying on external factors such as other tests.
-- Use [web first assertions](https://playwright.dev/docs/test-assertions) e.g. `toBeVisible`, `toBeHidden`, `toBeChecked` etc.
-- Reuse locators and actions through test fixtures
-- Use the test reports, trace viewer and debugger
-<!-- - Enable multiple browsers (see playwright UI checkboxes) -->
