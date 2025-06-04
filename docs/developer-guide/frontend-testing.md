@@ -106,7 +106,7 @@ ct("My component test", async ({ mount }) => {
 ```
 
 :::note
-You must import a component by its alias `@openremote/*`. Relative paths will cause issues. The downsides of the alias import is that this refers to the transpiled typescript `lib` directory, which you must manually update after making change to a component. You can update this using `gradle ui:component:my-component:npmBuild`.
+You must import a component by its alias `@openremote/*`. Relative paths will cause issues. The downsides of the alias import is that this refers to the transpiled typescript `lib` directory, which you must manually update after making changes to a component. You can update this using `gradle ui:component:my-component:npmBuild`.
 :::
 
 **End-to-end tests**
