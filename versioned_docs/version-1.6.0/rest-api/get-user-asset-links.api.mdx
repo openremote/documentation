@@ -1,0 +1,70 @@
+---
+id: get-user-asset-links
+title: "Retrieve links between assets and users"
+description: "Retrieve links between assets and users"
+sidebar_label: "Retrieve links between assets and users"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVkuP2zYQ/ivCnFpAlhbJTacaQR4LpI2x8QIFDB9mqbHFLEWy5GjdreH/XgxlyY91ks22h+gkcL55cB7fcAuM6wjVAqYxEsMyB+cpIGtnr2uoYE18Gykk6Udt7yPk4DFgS0xBFLdgsSWoYNpx44L+J+lCDtpCBQ1hTQFyiKqhFqHaAj96gUcO2q5ht8tHC39O3rmwwVBTPZkFx+4/W/ngIr/ISCA07aD5V0fh8ZmKXaRwXb9EEyXFP6K6zCFQ9M5GiiKvaYWd4f43qqB9qkQ1CLIBDTkoZ5lswqL3RqtUtfJLFIXtU6cYAko0mqmNR+fu7gspSbEP0jes+1B0/X1Mn+Kn98qHHF4SDUm6lElgzUaOrmuBqkDIVH+yT8E5rFxokSU3yDRh3dJo/Y9Ujgu+PQayPP0mRkJ/1xnzFcBRkCdTBbv05WeFuyEOmh4oMzJ52R3xhshmKcyYoa0z8Scj2RI3bj+vaUK5gQrKhCwFVIoJaScKD8PgdsHIXDD7WJVlTa0rnCcbqHVMhXYlel1uU512JeTwgEHjnTkr39h20GJkCnKXpThSXdD8mDyJWemJxfJY9Fm6rLc2AA5Ngx03r6RSxm0SRBlNlt8EqsmyRtO3obsne5vuUYpGmcKKZR9K6YVFlDNlb3+inLWkuExqIPOzChSblxuIyvn+Bj64lU6VHf6knnhMim9cnZri5PDHfQsU8p/86qmbtV25VKV9z3/yZG9Sd2W/o8U1hezm7ed5Np1dw3nvzxsdMx0zbiirnepaspwSlq1cSKcXrH2Yz2ejySLLZoYwUhaJksbixNDyl7H1nYqnrf9r8tK6QJlcothTJqpEmdSilrSJ6LcTPeEAoxUJy1aH1fh+9jF7XVxBfjZzm82mWNuucGFd7tViiWtvJq+Lq4Js0XBrxKbMbJ8XEVwlOnKRW7RHbp5PFyepHmeO6W8uvUFtE5VJpNs9lSx6boSe4UAuae/ltdDIhq0WsN3eYaTbYHY7Oe63l4x+raNwRg3VCk2kHO7p8WjBPqDpxDfIJvwKdtypzwEf1ugBvTxwV+KgfHgMXAzwLDnjqgQZukuZ6h1fer18O+D/wdH+gXPip0dNlSJ/LHuy5yUt4954/3YOu92/NYB6TQ==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve links between assets and users"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/asset/user/link"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve links between assets and users
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"query","schema":{"type":"string"}},{"name":"userId","in":"query","schema":{"type":"string"}},{"name":"assetId","in":"query","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"id":{"type":"object","properties":{"realm":{"type":"string"},"userId":{"type":"string"},"assetId":{"type":"string"}},"title":"Id"},"createdOn":{"type":"string","format":"date-time"},"assetName":{"type":"string"},"parentAssetName":{"type":"string"},"userFullName":{"type":"string"}},"title":"UserAssetLink"}}}}}}}
+>
+  
+</StatusCodes>
+
+

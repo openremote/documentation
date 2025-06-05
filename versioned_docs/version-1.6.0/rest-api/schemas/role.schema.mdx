@@ -1,0 +1,33 @@
+---
+id: role
+title: "Role"
+description: ""
+sidebar_label: "Role"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"id":"string","name":"string","description":"string","composite":true,"assigned":true,"compositeRoleIds":["string"]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Role"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"description":{"type":"string"},"composite":{"type":"boolean"},"assigned":{"type":"boolean"},"compositeRoleIds":{"type":"array","items":{"type":"string"}}},"title":"Role"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

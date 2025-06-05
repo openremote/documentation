@@ -1,0 +1,70 @@
+---
+id: create-global-ruleset
+title: "Create a global ruleset"
+description: "Create a global ruleset"
+sidebar_label: "Create a global ruleset"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNlm1v2zYQgP+KcJ82gLYcp1k7f5pru6kLpxJkJ0sWGAUtnW22FKmSVJzM8H8fjvKbkrRLNwyYP8nkvfF49xzX4PjCQucWklIiTBnoAg13QqthBh1IDXKH51LPuCQJiw4YFNzwHB0a0lyD4jlCB7qlW2oj/vTawEAo6MASeYYGGNh0iTmHzhrcQ0Hi1hmhFrDZsL2F68Y7bVbcZJg1YqOd/tdW3mvrfsDIlIHBryVa91ZnDySRauVQOfrkRSFF6k8XfrZa0drBFOkJgxnlUnK1AFbFM2U7L3r2GVOfPkNJdgItKYrsKBKhHC58kHNtcu6qpV9ewYbBHRorKrcvkK5uLovU03MeiWfcYcOJHElFcusudCbmArOXa1VZX0PO70eoFm4JnfbZGYNcqN3/U/Y40wxQ8Zms+ZlpLZEr2jRUas9cEKtS+0xsqMqcUv+he9Ud95JhPAEG50kUXd0Agw/j6CMweDeKfofphkGO7vj+9zfDs0zQ/XIZ1+6oLrfZMLCOu/KZEA+RJINun3z3B/Eouhn0gUEvuoiHo+5kGH38NEiSKAEGV93RsD+c3HyKB8kw6u/XB9eD3mVNchRF8f5Pfzjuvh15q3H3cuw/BtfxMPFfyeAiuqrWLuLJjT8zGqPNs50DTjhJS/U+32xoz6AttLJVHjKc81K66tOmRhS+1zu7jWAnDezlnfO3xVwFUnfY8+Ud8GDhYw7MHk45uqUmdhVV7xecShDCqqYYWDR3O3KVRhIYnCtsJwwzzHVTF6gM5tphU+iQFyJcG+Qy34TA4I4bQWVrq47nMq9lBXJuHRqKeEqO0tII9+A9kVnq9Nvp8daYklBZ2wkcio2XbtmmdEi98iKpFKhcz2CGygkuq/LTX1Bd+nOEpBH6sGxYhRIWhNFUy7Cy30i1Upi60KsBXe/coF3+cwM21UV1gsLoufB1tPuia+PHU6GnM8+K2uKP+yZRYP/zo/uipWpPDhNlcM/zQuIO+60jqLdqyIZ2q/2q0XrdaP86OTnrnJ102m+ardcnf8BjTH9PcjsQj9C0Za4zJe4pe9iv4Fpn6BaVR8jbk21LlCM6CzXXvii3QIkKVIlvpuCCK75AEySD8SToxkN43NGTpbCBsIFbYpDptMxROV8fwVwbv/qMtfeTSbw32QyCWCK3GFhEr3FbMzT9ad/pOrX1Tv/Ze8m1wYAO0dwCjKceYJhzIT2Q5vq3mp6fSSJFYl7n8BQ6j0fBabMF7BFiVqtVc6HKpjaLcKtmQ74oZOO02Wqiai5dLmvDHmijRUvEs5yrIzffhmAttXukOLx3YSG58EPWR7be8vF2Ww1TBkviZucW1usZt3hp5GZDy19LNMSy6QGDHmds97AizGXCbktszqXFJ4HshwIAez6qL/jwjZfgHZclyQO99f4LR9vHYs1PJdWrrDUmZOgg8WSuHTS6aYqF+67s9GhWxdGYmm22fXXmnpNg+Io4xVfVMbQ/XTV7aG3tG7bkC5KtbNLvL2ss/bc=
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a global ruleset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/rules"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create a global ruleset
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"required":["lang","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"version":{"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":3,"type":"string"},"enabled":{"type":"boolean"},"rules":{"type":"string"},"lang":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]},"meta":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"string","enum":["READY","DEPLOYED","COMPILATION_ERROR","VALIDITY_PERIOD_ERROR","EXECUTION_ERROR","LOOP_ERROR","DISABLED","PAUSED","EXPIRED","REMOVED","EMPTY"]},"error":{"type":"string"}},"title":"GlobalRuleset"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"integer","format":"int64"}}}}}}
+>
+  
+</StatusCodes>
+
+
