@@ -43,7 +43,7 @@ The end-to-end tests run sequentially using 1 worker to avoid tests interfering 
 
 - **Target:** Any app in the `ui/app` directory.
 - **Worker Scope:** Single worker (to avoid tests interfering with one-another).
-- **Fixtures:** The Manager app includes a `fixtures` directory with test and data fixtures (`scope: 'worker'`).
+- **Fixtures:** The Manager app includes a `fixtures` directory with test and data fixtures.
 - **Setup & Teardown:** The e2e test projects depend on the `*.setup.ts` and  `*.cleanup.ts` project files. These projects should be used to provision realm(s), user(s) and collect authentication states for more robust and performant tests.
 
 ```ts
@@ -113,7 +113,7 @@ You must import a component by its alias `@openremote/*`. Relative paths will ca
 
 The manager app or any app that you would want to test must first be running. The recommended way is to build the manager docker image first using `docker compose -p openremote -f profile/dev-ui.yml up -d --build`. Having the frontend be served by the manager is much faster than serving the frontend using Webpack.
 
-Then you can start the Playwright in UI mode using the following command.
+Then you can start Playwright in UI mode using the following command.
 
 ```sh
 npm run e2e -- --ui
@@ -126,12 +126,12 @@ Playwright uses [`locators`](https://playwright.dev/docs/locators) to find eleme
 Please read the [Playwright Best practices](https://playwright.dev/docs/best-practices).
 
 **TL;DR**
-- Avoid `xpath` and `css` selectors. Relying to heavy on the [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) makes you more prone to breaking tests when a CSS class is renamed or removed, or when nested elements are removed.
+- Avoid `xpath` and `css` selectors. Relying too heavy on the [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) makes you more prone to breaking tests when a CSS class is renamed or removed, or when nested elements are removed.
 - Do not use `waitForTimeout` outside of debugging. Tests don't always take the same amount of time which can cause flaky behavior, rather use something like `locator.waitFor()` or even better `page.waitForURL()`.
 - Isolate tests, so you can rerun them without relying on external factors such as other tests.
-- Use [web first assertions](https://playwright.dev/docs/test-assertions) e.g. `toBeVisible`, `toBeHidden`, `toBeChecked` etc. use a retry mechanism to avoid flakiness.
-- Reuse locators and actions through test fixtures to set in stone how to locate specific elements on screen and avoid code duplication in tests.
-- Use the UI mode, test reports, trace viewer and debugger.
+- Use [web first assertions](https://playwright.dev/docs/test-assertions) e.g. `toBeVisible`, `toBeHidden`, `toBeChecked` etc. which use a retry mechanism to avoid flakiness.
+- Reuse locators and actions through test fixtures to standardize how to locate specific elements on screen and avoid code duplication in tests.
+- Use the Playwright UI mode, test reports, trace viewer and debugger features.
 <!-- - Enable multiple browsers (see playwright UI checkboxes) -->
 
 ### Tips
@@ -147,7 +147,7 @@ Sometimes the locators Playwright provides are suseptible to flaky behavior, it 
 :::
 
 :::tip
-In some cases you may face a situation where the UI needs to load first before you can run an action. You can use `await selector.waitFor()` to ensure the element you want to interact with is visible.
+In some cases you may face a situation where the UI needs to load first, before you can run an action. You can use `await selector.waitFor()` to ensure the element you want to interact with is visible.
 :::
 
 In case you want to see how Playwright runs in a headed browser you can add the `--headed` argument.
