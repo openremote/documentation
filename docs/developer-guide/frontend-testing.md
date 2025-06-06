@@ -125,14 +125,13 @@ Playwright uses [`locators`](https://playwright.dev/docs/locators) to find eleme
 
 Please read the [Playwright Best practices](https://playwright.dev/docs/best-practices).
 
-<!-- TODO: include what to do and what not to do -->
-
 **TL;DR**
-- Avoid `xpath` and `css` selectors.
+- Avoid `xpath` and `css` selectors. Relying to heavy on the [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) makes you more prone to breaking tests when a CSS class is renamed or removed, or when nested elements are removed.
+- Do not use `waitForTimeout` outside of debugging. Tests don't always take the same amount of time which can cause flaky behavior, rather use something like `locator.waitFor()` or even better `page.waitForURL()`.
 - Isolate tests, so you can rerun them without relying on external factors such as other tests.
-- Use [web first assertions](https://playwright.dev/docs/test-assertions) e.g. `toBeVisible`, `toBeHidden`, `toBeChecked` etc.
-- Reuse locators and actions through test fixtures
-- Use the UI mode, test reports, trace viewer and debugger
+- Use [web first assertions](https://playwright.dev/docs/test-assertions) e.g. `toBeVisible`, `toBeHidden`, `toBeChecked` etc. use a retry mechanism to avoid flakiness.
+- Reuse locators and actions through test fixtures to set in stone how to locate specific elements on screen and avoid code duplication in tests.
+- Use the UI mode, test reports, trace viewer and debugger.
 <!-- - Enable multiple browsers (see playwright UI checkboxes) -->
 
 ### Tips
