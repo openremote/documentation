@@ -117,8 +117,6 @@ Polling Interval: 10000
 * Write operations occur only when attribute values are explicitly changed in OpenRemote.
 * Double-check zero-based addressing, especially if your device documentation uses one-based indexing.
 
-##  Under the Hood
-
 ## Under the Hood
 
 The Modbus agent uses a Modbus client library (Apache PLC4X for parsing Modbus data types) to handle communication. When you configure a linked attribute with a Read setting, the agent schedules periodic read requests to the device (using the specified function code based on Read Type, e.g. function 0x03 for holding registers  or 0x01 for coils, etc.). The response is parsed according to the Read Value Type (e.g. UINT, BOOL, etc.) and then the attribute's value is updated in OpenRemote. Likewise, when a write is triggered (either on a schedule or when you change an attribute's value), the agent sends the appropriate write command (e.g. 0x06 to write a single register, or 0x05 for a coil) with the value formatted according to the Write Value Type. The use of the ModbusDataType enum for the value types ensures that the byte order and size are handled correctly by the PLC4X library, so you don't have to manually deal with big-endian/little-endian or register ordering concerns - you simply select the correct data type and the agent does the rest.
