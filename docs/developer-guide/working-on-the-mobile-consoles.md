@@ -9,9 +9,32 @@ Make sure you've pulled the latest code of the repository.
 
 ## Android Console
 
-Download and install [Android Studio](https://developer.android.com/studio/index.html), then open the [console-android](https://github.com/openremote/console-android) repository.
+Download and install [Android Studio](https://developer.android.com/studio/index.html)
 
-TODO: There is actually nothing to build right now, you have to create a custom project and a dependency on our Android console project from your own Android app.
+Open Android Studio and create an Android app.
+In your application gradle file, add the following dependency
+```groovy
+implementation 'io.openremote:orlib:1.3.0'
+```
+
+Open your `MainActivity` and make it inherit `OrMainActivity`.  
+Implement the additional logic to set the proper URL and trigger the load, such as
+```kotlin
+class MainActivity() : OrMainActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        val platform = "Android " + Build.VERSION.RELEASE
+        val version = BuildConfig.VERSION_NAME
+        baseUrl = "https://example.com/myapp/?consolePlatform=$platform&consoleName=mygrid&consoleVersion=$version&consoleAutoEnable=false&consoleProviders=push storage"
+        loadUrl(baseUrl!!)
+    }
+}
+```
+
+When using Firebase, download the `google-services.json` file and add it to you project.  
+Follow the Firebase [instructions](https://firebase.google.com/docs/android/setup).
 
 ## iOS Console
 
@@ -19,89 +42,34 @@ TODO: There is actually nothing to build right now, you have to create a custom 
 
 Download and install [Xcode](https://itunes.apple.com/nl/app/xcode/id497799835)
 
-Open Xcode and create a new project.
-In the generals part, click on the plus symbol to add a new target.
-Select Notification Service Extension.
-Close the project.
+Open Xcode and create a new iOS App project. Select `Storyboard` as the "Interface".
 
-Install cocoapods through a terminal window.
+In the project navigator, open the contextual menu and select "Add Package Dependencies…".  
+Search for URL https://github.com/openremote/console-ios-lib.git then click "Add Package" and again in the "Choose Package Products" window.  
+Repeat for URL https://github.com/hackiftekhar/IQKeyboardManager.git.  
+Repeat for URL https://github.com/AssistoLab/DropDown.git but here select "Dependency Rule" `Branch` and enter `master` for the branch name.  
+Repeat for URL https://github.com/firebase/firebase-ios-sdk.git but in the "Choose Package Products" window select set the target only for FirebaseAnalytics, FirebaseCrashlytics and FirebaseMessaging.
 
-```shell
-sudo gem install cocoapods
-```
-Navigate to your project directory and create a pod file.
-
-```shell
-pod init
-```
-
-Open up the Podfile with a text editor and add the `ORLib` pod:
-
-```
-workspace '<your_project>'
-platform :ios, '14.0'
-
-use_frameworks!
-
-def shared_pods
-  pod 'Firebase/Core', '~> 4.6.0'
-  pod 'Firebase/Messaging', '~> 4.6.0'
-  pod 'Fabric', '~> 1.10.2'
-  pod 'Crashlytics', '~> 3.13.4'
-  pod 'ORLib', '~> 0.3'
-end
-
-target '<your_project>' do
-  project '<your_project>'
-  shared_pods
-end
-
-target 'NotificationService' do
-  project '<your_project>'
-  shared_pods
-end
-```
-
-Save and close the Podfile.
-In the terminal enter the following command
-
-```shell
-pod install
-```
-
-A xcworkspace file is created after installing the pod.
-Open this file and Xcode will start.
-
-Click on the `Pods` icon in the project tree and then on ORLib in the targets pane.
-Search for Require Only App-Extension-Safe API and set it to `No`.
-A warning will appear which can be ignored.
-
-Open `AppDelegate` in your project and make it inherit from `ORAppDelegate`.
-Remove all the code and override `applicationDidFinishLaunchingWithOptions`.
-Set the right project values.
-
-```cpp
-override func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
-        ORServer.hostURL = "example.com"
-        ORServer.realm = "example"
-
-        ORAppGroup.entitlement = "group.io.openremote.example"
-        
-        return super.application(application, didFinishLaunchingWithOptions: launchOptions)
+Open `ViewController` and make it inherit `ORViewController` instead of `UIViewController` (you'll need to import module `ORLib`).  
+Implement the additional logic to set the proper URL and trigger the load, such as
+```swift
+class MainViewController: ORViewcontroller {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.baseUrl =  "https://example.com/myapp/?consolePlatform=iOS \(UIDevice.current.systemVersion)&consoleName=myconsole&consoleVersion=\(Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "N/A")&consoleProviders=push storage"
+        if let encodedUrl = self.baseUrl!.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed) {
+            loadURL(url: URL(string: encodedUrl)!)
+        }
     }
+}
 ```
 
-In the `Main.storyboard` add a second ViewController.
-The initial viewcontroller should be of class ORLoginViewController.
-The other ViewController should be of class ORViewController.
+In the generals part, click on the plus symbol to add a new target.  
+Select Notification Service Extension.  
+Don't activate the scheme.  
 
-In the Notification Service Extension target, open `NotificationViewController` and make it inherit from `ORNotificationService`.
-Remove all the code inside.
-
-When using Firebase, download the `GoogleService-Info.plist` and add it through Xcode.
-It shuld be placed in the root of the project.
-Make sure that `copy when needed` is checked when adding.
+When using Firebase, download the `GoogleService-Info.plist` file and add it through Xcode.  
+Follow the Firebase [instructions](https://firebase.google.com/docs/ios/setup).
 
 Now your iOS app is setup to work with your OpenRemote project!
 
@@ -109,24 +77,15 @@ Now your iOS app is setup to work with your OpenRemote project!
 
 Our consoles are able to receive push notifications that are sent by the OpenRemote Manager.
 
-Through Firebase, together with the use of FCM tokens, you can set this up for your own project using your own account.
-
-*(steps are unverified)*
-
-### Setup Firebase and client
-
-1. Create a new Firebase Project at https://console.firebase.google.com using either a free or paid plan.
-2. When on the 'Project Overview' page, create a new app for your preferred platform; such as Android and iOS.
-3. Fill in the correct details for your app, and follow the steps respectively. These should be no different than any other Android/iOS app.
-
-After your config files are placed in the correct folder, (normally `google-services.json` and `GoogleService-info.plist`) and the Firebase Gradle dependencies have been added to your project, you are good to go!
+Through Firebase, together with the use of FCM tokens, you can set this up for your own project using your own account.  
+See above for the console specific steps.
 
 ### Configure Manager to send push notifications
 
 To complete the setup process, you should configure the manager to send push notifications to the correct address on Firebase.
 
-> Be sure that the `OR_FIREBASE_CONFIG_FILE` environment variable is set to the correct path.<br />
-> Forks of OpenRemote should be correctly configured, but custom projects might need additional attention.<br />
+> Be sure that the `OR_FIREBASE_CONFIG_FILE` environment variable is set to the correct path.  
+> Forks of OpenRemote should be correctly configured, but custom projects might need additional attention.  
 > We normally use `/deployment/manager/fcm.json`.
 
 1. Go to your Firebase project at https://console.firebase.google.com
@@ -145,7 +104,7 @@ For most projects, you want to keep Firebase related files secret for security r
 We have built-in gradle scripts to help you with this;
 
 1. Open to the `build.gradle` file in the root of your repository.
-2. Add/replace the paths specified in the `gradleFileEncrypt` task with the files you want to encrypt.
+2. Add/replace the paths specified in the `gradleFileEncrypt` task with the files you want to encrypt.  
    Normally this is your `fcm.json` file, but also the files related to the consoles like `google-services.json`.
 3. Double check whether these files you want to encrypt are present in your `.gitignore` files. **This is required.**
 4. Generate/specify a password to encrypt the files with, by using the `GFE_PASSWORD` environment variable. Save this somewhere safe.
