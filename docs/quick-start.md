@@ -32,17 +32,17 @@ Username: admin
 Password: secret
 
 ### Changing host and/or port
-The URL you use to access the system is important, the default is configured as `https://localhost` if you are using a VM or want to run on a different port then you will need to set the `OR_HOSTNAME` and `OR_SSL_PORT` environment variables, so if for example you will be accessing using `https://192.168.1.1:8443` then use the following startup command:
+The URL you use to access the system is important, the default is configured as `https://localhost` if you are using a VM then you will need to set the `OR_HOSTNAME` environment variable, so if for example you will be accessing using `https://192.168.1.1` then use the following startup command:
 
 BASH: 
 ```shell
-OR_HOSTNAME=192.168.1.1 OR_SSL_PORT=8443 docker-compose -p openremote up -d
+OR_HOSTNAME=192.168.1.1 docker-compose -p openremote up -d
 ```
 or
 
 CMD:
 ```shell
-cmd /C "set OR_HOSTNAME=192.168.1.1 && set OR_SSL_PORT=8443 && docker-compose -p openremote up -d"
+cmd /C "set OR_HOSTNAME=192.168.1.1 && docker-compose -p openremote up -d"
 ```
 
 ## What next
