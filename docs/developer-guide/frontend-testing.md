@@ -1,25 +1,37 @@
 # Frontend Testing
 
-OpenRemote uses [Playwright](https://playwright.dev/) for frontend-testing. Playwright was originally created for end-to-end testing i.e. testing through a browser just like how the user would interact with an application. This usually requires the backend to run, making them considerably slower than unit- or component tests. Playwright has added an experimental feature for component testing. Allowing you to use the same Playwright APIs on individual components for better test isolation and easier parallelization.
+OpenRemote uses [Playwright](https://playwright.dev/) for frontend-testing. Playwright was originally created for end-to-end testing i.e. testing through a browser just like how users would interact with an application. This usually requires the backend to run, making end-to-end tests considerably slower than unit- or component tests. Playwright has added an experimental feature for component testing. Allowing you to use the same Playwright APIs on individual components for better test isolation and easier parallelization.
 
 ## Test Organization
 
-The frontend tests are organized under `component` and `e2e` (end-to-end) tests.
+The frontend tests are organized under `app` (end-to-end) and `component` tests.
 
 ### General setup
 
-All frontend testing code is situated under the `ui` directory. We use different Playwright configurations for `component` and `e2e` testing.
+All frontend testing code is situated under the `ui` directory.
 
-- `ui/playwright-ct-config.ts`: Component testing configuration
-- `ui/playwright-config.ts`: End-to-end testing configuration
+We use different Playwright configurations for `app` and `component` testing.
 
-We do this because we modify the base configuration that comes with the `defineConfig` function for component testing to work, however this configuration is incompatible with E2E testing thus we use 2 configurations.
+- `ui/test/config/app.ts`: App test configuration
+- `ui/test/config/component.ts`: Component test configuration
+
+We do this because we modify the base configuration that comes with Playwright so that component testing works, however this configuration is incompatible with app testing thus we use 2 configurations.
 
 #### Shared test package
 
-Both the `component` and `e2e` tests depend on the `@openremote/test` package which includes shared fixtures and our Playwright component testing plugin. Playwrights' component testing plugin comes with Vite, but this is incompatible with the `commonjs` imports used in some components. Playwright uses Vite to bundle and mount a component to an empty HTML document for testing. Our Playwright plugin mimics the Vite based plugin using Webpack so we can mount our components to the document without import issues.
+Both the `app` and `component` tests depend on the `@openremote/test` package which includes shared fixtures, configurations and our Playwright component testing plugin.
 
-The `shared` fixture in the test package is meant for general test utilities like intercepting requests. The `components` fixture is specifically meant for utilities related to components to share common actions between component- and E2E tests.
+The `shared` fixture in the test package is meant for general test utilities like intercepting requests. The `components` fixture is specifically meant for utilities related to components to share common actions between app- and component tests.
+
+Each project that needs testing should configure the `npx playwright test` command under the `test` script in the `package.json` file and should have its own `playwright.config.ts` file with following contents.
+
+```ts
+import defineConfig from "@openremote/test/config/<app|component>";
+
+export default defineConfig(__dirname);
+```
+
+The plugin for component testing mimics Playwright’s component testing plugin, which normally comes with Vite, but this is incompatible with the `commonjs` imports used in some components. Playwright uses Vite to bundle and mount a component to an empty HTML document for testing. Our Playwright plugin mimics the Vite based plugin using Webpack so we can mount our components to the document without import issues.
 
 ### Component test setup
 
@@ -30,7 +42,7 @@ The component tests are used to test individual Lit web components.
 The component tests run in parallel.
 
 - **Target:** Any component in the `ui/component/*` directory.
-- **Runner App:** The component test setup includes a dedicated app at `ui/playwright` (used for component mounting).
+- **Runner App:** The component test setup includes a dedicated app at `ui/test/config/playwright` (used for component mounting).
 - **Testing Strategy:** Based on Playwright’s experimental component testing API, but adapted to Webpack using a custom plugin.
 
 ### End-to-End test setup
@@ -44,7 +56,7 @@ The end-to-end tests run sequentially using 1 worker to avoid tests interfering 
 - **Target:** Any app in the `ui/app` directory.
 - **Worker Scope:** Single worker (to avoid tests interfering with one-another).
 - **Fixtures:** The Manager app includes a `fixtures` directory with test and data fixtures.
-- **Setup & Teardown:** The e2e test projects depend on the `*.setup.ts` and  `*.cleanup.ts` project files. These projects should be used to provision realm(s), user(s) and collect authentication states for more robust and performant tests.
+- **Setup & Teardown:** The e2e test projects depend on the `*.setup.ts` and `*.cleanup.ts` project files. These projects should be used to provision realm(s), user(s) and collect authentication states for more robust and performant tests.
 
 ```ts
 function createAppSetupAndTeardown(app) {
@@ -70,22 +82,43 @@ function createAppSetupAndTeardown(app) {
 
 Assuming you have set up your [development tooling](preparing-the-environment#development-tooling).
 
-Install the Playwright browsers:
+Make sure to include a `playwright.config.ts` file in the project you want to write tests for and the corresponding test script command(s):
+
+- The `app` test command: `npx playwright test`
+- The `component` test: `npx tsc -b && npx playwright test`
+
+Install the required Playwright browsers:
+
 ```sh
 npx playwright install --with-deps
 ```
+
 See the [Playwright Intro](https://playwright.dev/docs/intro) for more.
 
 ### Starting UI mode
 
 The best way to write tests using Playwright is by using the [Playwright UI mode](https://playwright.dev/docs/test-ui-mode). Start by adding a test directory if not already present in the project you want to test and add a test file ending in `*.test.ts`.
 
-**Component tests**
+**App tests**
 
-Run the following command to open the component tests in Playwright UI mode.
+The manager app or any app that you would want to test must first be running. The recommended way is to build the manager docker image first using `docker compose -p openremote -f profile/dev-ui.yml up -d --build`. Having the frontend be served by the manager is much faster than serving the frontend using Webpack.
+
+Then you can start Playwright in UI mode using the Gradle task.
 
 ```sh
-npm test -- --ui
+gradle ui:app:manager:npmTestUI
+# Or run npm test -- --ui in the corresponding directory
+```
+
+Playwright uses [`locators`](https://playwright.dev/docs/locators) to find elements in the DOM. It's crucial to know the different types of locators to be able to write tests that are robust and to avoid flaky behavior.
+
+**Component tests**
+
+Run the following task to open the component tests in Playwright UI mode.
+
+```sh
+gradle ui:component:or-component:npmTestUI
+# Or run npm test -- --ui in the corresponding directory
 ```
 
 Component tests normally include the following boilerplate:
@@ -106,20 +139,8 @@ ct("My component test", async ({ mount }) => {
 ```
 
 :::note
-You must import a component by its alias `@openremote/*`. Relative paths will cause issues. The downsides of the alias import is that this refers to the transpiled typescript `lib` directory, which you must manually update after making changes to a component. You can update this using `gradle ui:component:my-component:npmBuild`.
+You must import a component by its alias `@openremote/*`. Relative paths will cause issues. The downsides of the alias import is that this refers to the transpiled typescript `lib` directory, which is why the component test script includes `npx tsc -b`.
 :::
-
-**End-to-end tests**
-
-The manager app or any app that you would want to test must first be running. The recommended way is to build the manager docker image first using `docker compose -p openremote -f profile/dev-ui.yml up -d --build`. Having the frontend be served by the manager is much faster than serving the frontend using Webpack.
-
-Then you can start Playwright in UI mode using the following command.
-
-```sh
-npm run e2e -- --ui
-```
-
-Playwright uses [`locators`](https://playwright.dev/docs/locators) to find elements in the DOM. It's crucial to know the different types of locators to be able to write tests that are robust and to avoid flaky behavior.
 
 ### Best practices
 
@@ -153,7 +174,7 @@ In some cases you may face a situation where the UI needs to load first, before 
 In case you want to see how Playwright runs in a headed browser you can add the `--headed` argument.
 
 ```sh
-npm run e2e -- --headed
+npm run test -- --headed
 ```
 
 See https://playwright.dev/docs/test-cli#reference for more CLI arguments.
