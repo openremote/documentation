@@ -23,13 +23,7 @@ Both the `app` and `component` tests depend on the `@openremote/test` package wh
 
 The `shared` fixture in the test package is meant for general test utilities like intercepting requests. The `components` fixture is specifically meant for utilities related to components to share common actions between app- and component tests.
 
-Each project that needs testing should configure the `npx playwright test` command under the `test` script in the `package.json` file and should have its own `playwright.config.ts` file with following contents.
-
-```ts
-import defineConfig from "@openremote/test/config/<app|component>";
-
-export default defineConfig(__dirname);
-```
+Each project that needs testing should configure its own Playwright configuration file which must reuse the above-mentioned configurations.
 
 The plugin for component testing mimics Playwright’s component testing plugin, which normally comes with Vite, but this is incompatible with the `commonjs` imports used in some components. Playwright uses Vite to bundle and mount a component to an empty HTML document for testing. Our Playwright plugin mimics the Vite based plugin using Webpack so we can mount our components to the document without import issues.
 
@@ -82,10 +76,20 @@ function createAppSetupAndTeardown(app) {
 
 Assuming you have set up your [development tooling](preparing-the-environment#development-tooling).
 
-Make sure to include a `playwright.config.ts` file in the project you want to write tests for and the corresponding test script command(s):
+Make sure to include the corresponding playwright configuration and test script command(s):
 
-- The `app` test command: `npx playwright test`
-- The `component` test: `npx tsc -b && npx playwright test`
+|           | config                    | test script (in package.json)                                        |
+| --------- | ------------------------- | -------------------------------------------------------------------- |
+| app       | `playwright.config.ts`    | `npx playwright test`                                                |
+| component | `playwright-ct.config.ts` | `npx tsc -b && npx playwright test --config playwright-ct.config.ts` |
+
+Configuration contents:
+
+```ts
+import defineConfig from "@openremote/test/config/<app|component>";
+
+export default defineConfig(__dirname);
+```
 
 Install the required Playwright browsers:
 
