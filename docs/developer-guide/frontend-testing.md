@@ -19,7 +19,7 @@ We do this because we modify the base configuration that comes with the `defineC
 
 Both the `component` and `e2e` tests depend on the `@openremote/test` package which includes shared fixtures and our Playwright component testing plugin. Playwrights' component testing plugin comes with Vite, but this is incompatible with the `commonjs` imports used in some components. Playwright uses Vite to bundle and mount a component to an empty HTML document for testing. Our Playwright plugin mimics the Vite based plugin using Webpack so we can mount our components to the document without import issues.
 
-The `shared` fixture in the test package is meant for general test utilities like intercepting requests. The `components` fixture is specifically meant for utitilies related to components to share common actions between component- and E2E tests.
+The `shared` fixture in the test package is meant for general test utilities like intercepting requests. The `components` fixture is specifically meant for utilities related to components to share common actions between component- and E2E tests.
 
 ### Component test setup
 
@@ -68,7 +68,7 @@ function createAppSetupAndTeardown(app) {
 
 ### Prerequisites
 
-Assumming you have setup your [development tooling](http://localhost:3000/docs/developer-guide/preparing-the-environment#development-tooling).
+Assuming you have set up your [development tooling](preparing-the-environment#development-tooling).
 
 Install the Playwright browsers:
 ```sh
@@ -119,7 +119,7 @@ Then you can start Playwright in UI mode using the following command.
 npm run e2e -- --ui
 ```
 
-Playwright uses [`locators`](https://playwright.dev/docs/locators) to find elements in the DOM. It's crucial to know the different types of locators to be able to write tests that are robust and to avoid flaky behaviour.
+Playwright uses [`locators`](https://playwright.dev/docs/locators) to find elements in the DOM. It's crucial to know the different types of locators to be able to write tests that are robust and to avoid flaky behavior.
 
 ### Best practices
 
@@ -143,7 +143,7 @@ The UI includes a locator tab, which allows you to click an element in the test 
 :::
 
 :::warning
-Sometimes the locators Playwright provides are suseptible to flaky behavior, it is important to understand the DOM structure of the UI to get the most affective locators.
+Sometimes the locators Playwright provides are susceptible to flaky behavior, it is important to understand the DOM structure of the UI to get the most affective locators.
 :::
 
 :::tip
