@@ -1,0 +1,33 @@
+---
+id: provisioningconfigobjectobject
+title: "ProvisioningConfigObjectObject"
+description: ""
+sidebar_label: "ProvisioningConfigObjectObject"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"id":0,"createdOn":"2024-07-29T15:51:28.071Z","lastModified":"2024-07-29T15:51:28.071Z","name":"string","type":"string","realm":"string","assetTemplate":"string","restrictedUser":true,"userRoles":["read:admin"],"disabled":true,"data":{}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ProvisioningConfigObjectObject"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"required":["name"],"type":"object","properties":{"id":{"minimum":1,"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":1,"type":"string"},"type":{"maxLength":100,"minLength":3,"type":"string"},"realm":{"type":"string"},"assetTemplate":{"type":"string"},"restrictedUser":{"type":"boolean"},"userRoles":{"type":"array","items":{"type":"string","enum":["read:admin","read:logs","read:users","read:map","read:assets","read:rules","read:insights","read:alarms","write:user","write:admin","write:logs","write:assets","write:attributes","write:rules","write:insights","write:alarms","read","write"]}},"disabled":{"type":"boolean"},"data":{"type":"object"}},"discriminator":{"propertyName":"type"},"title":"ProvisioningConfigObjectObject"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

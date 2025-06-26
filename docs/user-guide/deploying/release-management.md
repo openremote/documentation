@@ -45,7 +45,7 @@ If you want to use changes before they are released, it is also possible to use 
 E.g. if the next version will be 1.3.0 use the following versions:
 
 1. Docker images: Update the `openremote/manager` image tag to `develop` in the `docker-compose.yml` file (or environment variable)
-2. Java code: Update the `openremoteVersion` to `1.3.0-SNAPSHOT` in the `gradle.properties` file (requires the Maven repository https://s01.oss.sonatype.org/content/repositories/snapshots to be added to your `project.gradle` file)
+2. Java code: Update the `openremoteVersion` to `1.3.0-SNAPSHOT` in the `gradle.properties` file (requires the Maven repository https://central.sonatype.com/repository/maven-snapshots to be added to your `project.gradle` file)
 3. TypeScript code: Update the openremote package dependencies using `yarn up -E "@openremote/*@^1.3.0-snapshot"`
 
 ### Using ORLib
@@ -55,7 +55,7 @@ For this you can use the ORLib library which simplifies integrating OpenRemote i
 ORLib has its own release cycle because it is maintained in separate repositories and is only released when there are changes.
 
 The Android ORLib is maintained in the [console-android](https://github.com/openremote/console-android) repository and published as a JAR to [Maven Central](https://search.maven.org/artifact/io.openremote/orlib).
-The iOS ORLib is maintained in the [console-ios](https://github.com/openremote/console-ios) repository and published as a CocoaPod to [Trunk](https://cocoapods.org/pods/orlib).
+The iOS ORLib is maintained in the [console-ios-lib](https://github.com/openremote/console-ios-lib) repository and published as a Swift Package.
 
 You can find the release notes for ORLib versions on the "Releases" page of the respective GitHub repositories.
 
@@ -91,7 +91,7 @@ You can test your local changes in a custom project by first publishing them to 
 `./gradlew clean installDist publishToMavenLocal`
 
 Note that the custom project build first resolves artifacts from `mavenLocal()` which is defined in the `project.gradle` file.
-So once you publish snapshot artifacts to your local Maven repository these will no longer be downloaded from the https://s01.oss.sonatype.org/content/repositories/snapshots repository.
+So once you publish snapshot artifacts to your local Maven repository these will no longer be downloaded from the https://central.sonatype.com/repository/maven-snapshots repository.
 To undo this, either comment the `mavenLocal()` repository or remove your local artifacts in `~/.m2/repository/io/openremote`.
 
 ### Version resolution
@@ -112,9 +112,10 @@ When the release workflow is started it will:
 
 1. Create a tag for the release
 2. Create a release with release notes
-3. Trigger a CI/CD build to publish all the release artifacts (i.e. Docker images, JARs, NPMs, CocoaPods)
+3. Trigger a CI/CD build to publish all the release artifacts (i.e. Docker images, JARs, NPMs)
 
 Most of the release process is now automated but after a release some versions still need to be manually updated:
 
 * openremote/openremote: The "version" in the `package.json` files of all modules in the 'ui' directory
-* openremote/console-ios: The CocoaPod "version" in the `ORLib/ORLib.podspec` file
+
+For the iOS ORLib, the `Marketing Version` Build Setting of the ORLib target must be manually updated PRIOR to running the release workflow.
