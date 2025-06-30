@@ -94,7 +94,7 @@ export default defineConfig(__dirname);
 Install the required Playwright browsers:
 
 ```sh
-npx playwright install --with-deps
+npx playwright install --with-deps chromium
 ```
 
 See the [Playwright Intro](https://playwright.dev/docs/intro) for more.
