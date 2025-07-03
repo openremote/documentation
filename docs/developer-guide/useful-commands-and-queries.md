@@ -40,7 +40,8 @@ docker cp <PROJECT_NAME>_postgresql_1:/deployment/datapoints.csv ./
 
 ### Backup/Restore OpenRemote DB
 
-* Create backup: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak` (can also be useful to exclude datapoint records from the backup by using this command `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak --exclude-table-data='_timescaledb_internal._hyper_*'`)
+* Create backup: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak`
+* Optional: Exclude datapoint records from the backup using the following command: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak --exclude-table-data='_timescaledb_internal._hyper_*'`
 * Copy to the Docker host: `docker cp or-postgresql-1:/tmp/db.bak ~/`
 * Remove the backup from within the container: `docker exec or-postgresql-1 rm /tmp/db.bak`
 * SCP the backup off the source server onto the destination server: e.g. `scp HOST:~/db.bak .`
