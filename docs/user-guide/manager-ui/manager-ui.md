@@ -12,14 +12,14 @@ If you open the application you will get four main pages: [Map](#map), [Assets](
 
 ## Map
 
-The `Map` page will show your map (see the [custom deployment](../deploying/custom-deployment.md) documentation if you would like to change the map). You can pan, zoom, and tilt the map. On the map all assets are shown which have a location as well the configuration item `show on dashboard` set. Assets can both have static or dynamic locations (e.g. a car, boat or plane). You will see the direction an asset is facing or moving if the asset includes an attribute called 'direction'. When selecting an asset, a panel will show its attributes and values. The `Asset details` button in this panel will bring you to the respective Asset page.
+The `Map` page will show your map. You can pan, zoom, and tilt the map. On the map all assets are shown which have a location (disable it by setting the configuration item `show on dashboard` to `false`). Assets can have static or dynamic locations (e.g. a car, boat or plane). You will see the direction an asset is facing or moving to if the asset includes an attribute called 'direction'. When selecting an asset, a panel will show its attributes and values. The `Asset details` button in this panel will bring you to the respective Asset page.
 
-As part of the [configuring the manager UI](../deploying/configuring-the-manager-ui.md) you can also configure assets to change their colour based on an attribute value (number, boolean, or string) and show a label with or without units. 
-
-If you want to add map layers, you can add GeoJSON based points, lines and shapes. You can directly add GeoJSON files in settings/appearance. For creating GeoJSON files, you can use e.g. https://geojson.io/. For searching existing GeoJSON map layers, you can use https://overpass-turbo.eu/
+As part of the [configuring the manager UI](../deploying/configuring-the-manager-ui.md) you can also configure assets to change their colour based on an attribute value (number, boolean, or string) and show a label with or without units.
 
 ![OpenRemote Map](img/map-page.png)
 _Figure 1. The Map view, here with the Demo Smart City, showing the map with different assets across the city as well as an additional map layer showing primary and secondary highways (GeoJSON). The ship is also showing its direction_
+
+For more see the [appearance page](./appearance.md#map-settings).
 
 ## Assets
 
@@ -50,32 +50,32 @@ _Figure 4. The Asset view in 'Edit mode' while adding an attribute_
 
 While in `Edit asset` mode you can expand each attribute, which gives you the option to add configuration items or change existing ones. You can use configuration items to arrange access permission, parse and store data points, allow data to be used in rules, or define whether and how to show data. The available configuration items are:
 
-| Configuration items | Description |
-| :--- | :--- |
-| `Access public read` | Users can read without authentication, e.g. use with public dashboard |
-| `Access public write` | Users can write without authentication |
-| `Access restricted read` | Restricted users can read if they have read attribute access to the asset |
-| `Access restricted write` | Restricted users can write if they have write attribute access to the asset |
-| `Agent link` | Define the Agent from which data is retrieved including data parsing, see [agent links](../agents-protocols/overview.md#agent-links) |
-| `Attribute links` | Filter and parse multiple values retrieved with an Agent link, see [example](../../tutorials/open-weather-api-using-http-agent.md#setting-multiple-attributes-with-one-agent-link) |
-| `Constraints` | Value constraints applied to the value (size/length, regex, not empty, etc.) |
-| `Data points max age days` | Time period for which data is stored |
-| `Forecast` | Adds [forecasting data](../rules-and-forecasting/forecasting.md), to be used in combination with 'Has predicted data points' |
-| `Format` | Used for data parsing, see [format for available options](https://github.com/openremote/openremote/blob/201cc15451a2cd040a6ab9e699cbec5297821e80/model/src/main/java/org/openremote/model/value/ValueFormat.java#L37) |
-| `Has predicted data points` | Enable the option to add forecasted values |
-| `Label` | Add a friendly name, replacing the default name |
-| `Momentary` | Button input to send the true/on/pressed/closed value when pressed; and false value when released |
-| `Multiline` | Indicates that any input should support multiline text entry |
-| `Read only` | Data can not be filled via UI, only by agents or rules |
-| `Rule event` | Events are stored in rule to allow evaluation of change history of an attribute  |
-| `Rule event expires` | Set lifetime of event triggers and facts |
-| `Rule state` | Add this attribute as option to select in rules, on left-hand side |
-| `Rule reset immediate` | Allows rule to re-trigger immediately. Can be useful for event based data |
-| `Secret` | Marks the value as secret indicating clients to display this in a concealed manner |
-| `Show on dashboard` | Used in combination with 'location' will display asset on the Map view |
-| `Store data points` | Stores data points in the database, default for one month |
-| `Units` | Adds a unit to the attribute value, see [composition and options](../assets-agents-and-attributes.md#attribute-descriptor) |
-| `User connected` | Shows all restricted users which have access to this asset, see [Restricted user realm role](../identity-and-security/realms-users-and-roles.md#restricted-user-realm-role) |
+| Configuration items         | Description                                                                                                                                                                                                           |
+| :-------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `Access public read`        | Users can read without authentication, e.g. use with public dashboard                                                                                                                                                 |
+| `Access public write`       | Users can write without authentication                                                                                                                                                                                |
+| `Access restricted read`    | Restricted users can read if they have read attribute access to the asset                                                                                                                                             |
+| `Access restricted write`   | Restricted users can write if they have write attribute access to the asset                                                                                                                                           |
+| `Agent link`                | Define the Agent from which data is retrieved including data parsing, see [agent links](../agents-protocols/overview.md#agent-links)                                                                                  |
+| `Attribute links`           | Filter and parse multiple values retrieved with an Agent link, see [example](../../tutorials/open-weather-api-using-http-agent.md#setting-multiple-attributes-with-one-agent-link)                                    |
+| `Constraints`               | Value constraints applied to the value (size/length, regex, not empty, etc.)                                                                                                                                          |
+| `Data points max age days`  | Time period for which data is stored                                                                                                                                                                                  |
+| `Forecast`                  | Adds [forecasting data](../rules-and-forecasting/forecasting.md), to be used in combination with 'Has predicted data points'                                                                                          |
+| `Format`                    | Used for data parsing, see [format for available options](https://github.com/openremote/openremote/blob/201cc15451a2cd040a6ab9e699cbec5297821e80/model/src/main/java/org/openremote/model/value/ValueFormat.java#L37) |
+| `Has predicted data points` | Enable the option to add forecasted values                                                                                                                                                                            |
+| `Label`                     | Add a friendly name, replacing the default name                                                                                                                                                                       |
+| `Momentary`                 | Button input to send the true/on/pressed/closed value when pressed; and false value when released                                                                                                                     |
+| `Multiline`                 | Indicates that any input should support multiline text entry                                                                                                                                                          |
+| `Read only`                 | Data can not be filled via UI, only by agents or rules                                                                                                                                                                |
+| `Rule event`                | Events are stored in rule to allow evaluation of change history of an attribute                                                                                                                                       |
+| `Rule event expires`        | Set lifetime of event triggers and facts                                                                                                                                                                              |
+| `Rule state`                | Add this attribute as option to select in rules, on left-hand side                                                                                                                                                    |
+| `Rule reset immediate`      | Allows rule to re-trigger immediately. Can be useful for event based data                                                                                                                                             |
+| `Secret`                    | Marks the value as secret indicating clients to display this in a concealed manner                                                                                                                                    |
+| `Show on dashboard`         | Used in combination with 'location' will display asset on the Map view                                                                                                                                                |
+| `Store data points`         | Stores data points in the database, default for one month                                                                                                                                                             |
+| `Units`                     | Adds a unit to the attribute value, see [composition and options](../assets-agents-and-attributes.md#attribute-descriptor)                                                                                            |
+| `User connected`            | Shows all restricted users which have access to this asset, see [Restricted user realm role](../identity-and-security/realms-users-and-roles.md#restricted-user-realm-role)                                           |
 
 See the documentation page [explaining all available configuration item options for assets and attributes, and references](../assets-agents-and-attributes.md#asset-type-model). Don't forget to save the asset after making changes.
 
@@ -111,7 +111,7 @@ In the asset tree you can multi-select assets and collectively add them as child
 
 The Rules page (only available on desktop screen sizes) allows you to build three types of rules:
 * [WHEN-THEN Rules](#when-then-rules): When certain conditions created with asset attributes are met, then trigger an action for another attribute.
-* [FLOW](#flow-rules): Process attributes and convert them into new attributes with a simple drag-and-drop interface. 
+* [FLOW](#flow-rules): Process attributes and convert them into new attributes with a simple drag-and-drop interface.
 * [GROOVY](#groovy-rules): programming any advanced logic, using attributes in the system.
 All rules can be set to only be active during a (recurring) event set with the scheduler.
 
@@ -119,19 +119,19 @@ Note that you need to add the configuration item 'Rule state' to both the attrib
 
 ### When-Then Rules
 
-When-Then rules use conditions set for attributes to trigger an action for another attribute. The actions do not only include controlling assets, but can also be used to send e-mails or push notifications to mobile apps (using the OpenRemote consoles), or use web hooks. 
+When-Then rules use conditions set for attributes to trigger an action for another attribute. The actions do not only include controlling assets, but can also be used to send e-mails or push notifications to mobile apps (using the OpenRemote consoles), or use web hooks.
 
 ![](img/when-then-example.png)
 _Figure 7. A When-Then example, which shows how, on the When-side an asset type can be selected, while on the Then-side the action, in this case a push notification, is defined._
 
-The frequency on which rules trigger as well as a timer schedule can be set. 
+The frequency on which rules trigger as well as a timer schedule can be set.
 The rule frequency, a dropdown on the upper right of each 'Then' panel defines how frequently a rule can trigger. For example 'Always' means every time the  condition is triggered, but only after the condition has been false (so not continuously on being true).
 The scheduler (right next to the name field of the rule) lets you set an occurrence period as well as repeat that occurrence.
 
 ![](img/time-scheduler-rules-trigger-frequency.png)
 _Figure 8. The Rules trigger frequency (right) as well as time scheduler (left) defines when rules are triggered and active. The scheduled example sets the rule to be active until June 20 2022, only on weekdays._
 
-See the [When-Then rules](../rules-and-forecasting/when-then-rules.md) documentation for more details. 
+See the [When-Then rules](../rules-and-forecasting/when-then-rules.md) documentation for more details.
 
 ### Flow Rules
 
@@ -155,7 +155,7 @@ As an admin user of the system who can access all realms, you have the option to
 
 The Insights page (see figure 11) allows you to create multiple dashboards within the manager UI. You can:
 * Define the dashboard behaviour for different screen sizes and optimise the design for a specific screen.
-* Share dashboards with other users even as standalone app, or keep your dashboard private. 
+* Share dashboards with other users even as standalone app, or keep your dashboard private.
 * Make dashboards public. Note this requires assets to be set as 'public' and attributes as 'public read'.
 * Share via the [iOS or Android console](on-mobile.md) and benefit push notifications (see figure 12).
 * Use eight types of widgets (or [extend with your own](../../developer-guide/adding-widgets-on-insights.md)): Chart, KPI, Gauge, Image, Map, Table, Attribute (with control) and Gateway.
@@ -197,7 +197,7 @@ _Figure 15. Next to interconnecting you can choose which asset attributes are ac
 
 ### Gateway tunnels
 
-On top of the 'Manager Interconnect' functionality, you can remotely access the full Manager UI of the Gateway instances of OpenRemote, by creating Gateway tunnels. See the [Edge Gateway documentation](../gateways-and-devices/edge-gateway.md) for more details.  
+On top of the 'Manager Interconnect' functionality, you can remotely access the full Manager UI of the Gateway instances of OpenRemote, by creating Gateway tunnels. See the [Edge Gateway documentation](../gateways-and-devices/edge-gateway.md) for more details.
 
 ![](img/create-gateway-tunnel.png)
 _Figure 16. Creating a gateway tunnel and opening the manager UI of the remote instance which is connected as a gateway._
@@ -222,15 +222,15 @@ _Figure 18. The account page with contact details (left) and reset passwords (ri
 
 ### Users and access configuration
 
-If you have the correct access rights (role or permissions) for it you can also create new Users for the selected realm and set the roles and access of a user. 
+If you have the correct access rights (role or permissions) for it you can also create new Users for the selected realm and set the roles and access of a user.
 
-#### Link assets to users 
+#### Link assets to users
 
 By linking assets to users, the system will understand which users are connected to a specific asset. Consequently you can create a rule such as "When any temperature sensor measures more than 100 degree, send an email to the linked user".
 
 #### Restricted user
 
-When, next to linking an asset to a user, you also set the Realm role to 'Restricted User', users will only have access to the assets they are linked to. Note that you additionally have to indicate on the assets which attributes of the asset they have access to. To do that, set the configuration item 'Access restricted user read/write' on the attribute ([see 'Configure attributes'](#configure-attributes)). 
+When, next to linking an asset to a user, you also set the Realm role to 'Restricted User', users will only have access to the assets they are linked to. Note that you additionally have to indicate on the assets which attributes of the asset they have access to. To do that, set the configuration item 'Access restricted user read/write' on the attribute ([see 'Configure attributes'](#configure-attributes)).
 
 ![](img/creating-users.png)
 _Figure 19. Creating users for a selected realm, assigning roles. In this example, the user is made a 'restricted user' linked to only 6 assets._
@@ -246,7 +246,7 @@ _Figure 20. Roles are made of a set of permissions_
 
 Only the Master realm Admin user can create `Realms` by accessing the master realm `https://youradress/manager`. Realms are separated projects which can be used for individual users or customers of your platform. Individual Realms can be reached at `https://youradress/manager/?realm=realmname`. Note that the Master realm Admin user should have created a new user in this realm first, before the individual Realm can be accessed.
 
-You can create a realm by adding a `realmname` name (single word, lower case letters), and a `Friendly name`. You can (temporarily) disable realms, which blocks access for any user.    
+You can create a realm by adding a `realmname` name (single word, lower case letters), and a `Friendly name`. You can (temporarily) disable realms, which blocks access for any user.
 
 ![](img/realms.png)
 _Figure 21. Realms can be created to manage multiple independent projects within one OpenRemote instance_
@@ -262,9 +262,9 @@ _Figure 22. Auto provisioning of devices_
 
 ### Appearance
 
-You can restyle any realm in OpenRemote as well as adjust the map views (go to settings/appearance). 
+You can restyle any realm in OpenRemote as well as adjust the map views (go to settings/appearance).
 
-You can change the logo's, use different colours, change the title and default language, set and change the menu items, and use multiple languages for notifications to support personal language preferences. 
+You can change the logo's, use different colours, change the title and default language, set and change the menu items, and use multiple languages for notifications to support personal language preferences.
 
 For adding map layers you can add GeoJSON files (created e.g. with https://geojson.io/). More advanced settings like visible asset and agent types on the asset and rules page, can be configured directly in a JSON file. For the options available in the JSON file and an example, check out [Configuring the Manager UI](../deploying/configuring-the-manager-ui.md). For the maps you can set the center point, zoom levels and boundaries.
 
