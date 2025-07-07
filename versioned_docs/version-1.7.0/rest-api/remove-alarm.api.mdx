@@ -1,0 +1,70 @@
+---
+id: remove-alarm
+title: "Remove an alarm"
+description: "Remove an alarm"
+sidebar_label: "Remove an alarm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU2P0zAQ/SvRnABl4woQh5xYwQIrgaiWroRU9TAk08bCsY092bJE/u9onLa0y3IAhMSp6XjmzfebERg3EeolnBsMPaxKcJ4Csnb2soUaAvXuhqbHEjwG7IkpiMkIFnuCGs4H7lzQ37IVlKAt1NARthSghNh01CPUI/CtF/XIQdsNpFQeED6evXJhi6Gl9mweHLu/RnnjIv8RCEqql+3e1iN3UEKgL4MO1ELNYaB7kLRl2mQnaxd65En07CmktBLz6J2NFMXi8WwmPy3FJmifa1ZDS2scDBd7TSihcZbJsug+Uo+gHlNKqbxjd5X7U6AtcNejnrhzbYY0xJS7xh3UoLKGGncZJikIhZt9M4dgpFbMPtZKtdS7ynmyMgBMlXYKvVZjIDR9UlDCDQaNn8yUUxZPWeU8oIYeI1OAlAsQqRmC5tvsSWB1C/Vydfz0QUo6oe0VDtV1OHD3WIpr3DarNEaT5ReBWrKs0WQhu89kr3MeSixUDiuqKRTlZbIaZ9SEf9Y4a6lhlc1yk9eBYvfnALFxfsrAB7fWRkLff0nr8HhRXriWRPVE+Pu+RRXK/zz1PLjarl3ukub8/N6TvcrTVbxDixsKxdXFh0VxPr+Eu2O+6HQsdCy4o6J1zdCT5VywYu1Clt6D9maxmB8gq6KYG8JIRSTKFssToNWDw+i7Jp6O/sPspXeBCkmi2i0nNnk5qUdt8r6v3fMTO0glGN2Q7HP9gy5fz98WT6oZlHd2brvdVhs7VC5s1M4sKtx4c/akmlVkq457I5iys1Nd5GEmIu8i92iP3PzMDCclPewW01dW3qC2gpMjGneUsYS9ab2nxVUJnVBrvYRx/ISRroNJScRfBgqy36sf1JC3vdVRvluo12gi/RTGgebgwdWOZR8WMtH3hbcTor3NDGQG+QclfKbbI+5Oq1TuWf/3QviV3wn/vjN1CEJuyL9wtLtkJ34mrfOmIX/8JmdCKPVwAl5evL1YXEBK3wGQKrh9
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Remove an alarm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/alarm/{alarmId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Remove an alarm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"alarmId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+
