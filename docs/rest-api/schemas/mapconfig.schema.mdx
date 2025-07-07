@@ -6,7 +6,7 @@ sidebar_label: "MapConfig"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"options":{},"sources":{}}
+sample: {"override":"string","options":{},"sources":{},"glyphs":"string","sprite":"string","layers":[{}]}
 custom_edit_url: null
 ---
 
@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"options":{"type":"object","additionalProperties":{"type":"object","properties":{"center":{"type":"array","items":{"type":"number","format":"float"}},"bounds":{"type":"array","items":{"type":"number","format":"float"}},"zoom":{"type":"integer","format":"int32"},"minZoom":{"type":"integer","format":"int32"},"maxZoom":{"type":"integer","format":"int32"},"boxZoom":{"type":"boolean"},"geocodeUrl":{"type":"string"},"geoJson":{"type":"object","properties":{"source":{"type":"object"},"layers":{"type":"array","items":{"type":"object"}}},"title":"GeoJsonConfig"}},"title":"MapRealmConfig"}},"sources":{"type":"object","additionalProperties":{"type":"object","properties":{"type":{"type":"string"},"url":{"type":"string"},"tiles":{"type":"array","items":{"type":"string"}},"bounds":{"type":"array","items":{"type":"number","format":"float"}},"scheme":{"type":"string"},"minzoom":{"type":"integer","format":"int32"},"maxzoom":{"type":"integer","format":"int32"},"attribution":{"type":"string"},"custom":{"type":"boolean"}},"title":"MapSourceConfig"}}},"title":"MapConfig"}}
+  schema={{"type":"object","properties":{"override":{"type":"string"},"options":{"type":"object","additionalProperties":{"type":"object","properties":{"center":{"type":"array","items":{"type":"number","format":"float"}},"bounds":{"type":"array","items":{"type":"number","format":"float"}},"zoom":{"type":"integer","format":"int32"},"minZoom":{"type":"integer","format":"int32"},"maxZoom":{"type":"integer","format":"int32"},"boxZoom":{"type":"boolean"},"geocodeUrl":{"type":"string"},"geoJson":{"type":"object","properties":{"source":{"type":"object"},"layers":{"type":"array","items":{"type":"object"}}},"title":"GeoJsonConfig"}},"title":"MapRealmConfig"}},"sources":{"type":"object","additionalProperties":{"type":"object","properties":{"type":{"type":"string"},"url":{"type":"string"},"tiles":{"type":"array","items":{"type":"string"}},"bounds":{"type":"array","items":{"type":"number","format":"float"}},"scheme":{"type":"string"},"minzoom":{"type":"integer","format":"int32"},"maxzoom":{"type":"integer","format":"int32"},"attribution":{"type":"string"},"custom":{"type":"boolean"}},"title":"MapSourceConfig"}},"glyphs":{"type":"string"},"sprite":{"type":"string"},"layers":{"type":"array","items":{"type":"object"}}},"title":"MapConfig"}}
   schemaType={"response"}
 >
   
