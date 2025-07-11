@@ -12,8 +12,8 @@ All frontend testing code is situated under the `ui` directory.
 
 We use different Playwright configurations for `app` and `component` testing.
 
-- `ui/test/config/app.ts`: App test configuration
-- `ui/test/config/component.ts`: Component test configuration
+- `ui/test/app.config.ts`: App test configuration
+- `ui/test/component.config.ts`: Component test configuration
 
 We do this because we modify the base configuration that comes with Playwright so that component testing works, however this configuration is incompatible with app testing thus we use 2 configurations.
 
@@ -21,7 +21,7 @@ We do this because we modify the base configuration that comes with Playwright s
 
 Both the `app` and `component` tests depend on the `@openremote/test` package which includes shared fixtures, configurations and our Playwright component testing plugin.
 
-The `shared` fixture in the test package is meant for general test utilities like intercepting requests. The `components` fixture is specifically meant for utilities related to components to share common actions between app- and component tests.
+The `shared` fixture in the test package is meant for general test utilities like intercepting requests.
 
 Each project that needs testing should configure its own Playwright configuration file which must reuse the above-mentioned configurations.
 
@@ -33,11 +33,11 @@ The component tests are used to test individual Lit web components.
 
 #### Configuration
 
-The component tests run in parallel.
+Each component runs its own tests in parallel.
 
 - **Target:** Any component in the `ui/component/*` directory.
-- **Runner App:** The component test setup includes a dedicated app at `ui/test/config/playwright` (used for component mounting).
-- **Testing Strategy:** Based on Playwright’s experimental component testing API, but adapted to Webpack using a custom plugin.
+- **Runner App:** The component test setup includes a dedicated app at `ui/test/playwright` (used to display components and serving static files).
+- **Testing Strategy:** Based on Playwright’s experimental component testing API, but adapted to Webpack using a custom plugin. Each component may include a `fixtures` directory which can provide reusable test code for other components and apps.
 
 ### End-to-End test setup
 
@@ -86,7 +86,7 @@ Make sure to include the corresponding playwright configuration and test script 
 Configuration contents:
 
 ```ts
-import defineConfig from "@openremote/test/config/<app|component>";
+import defineConfig from "@openremote/test/<app|component>.config";
 
 export default defineConfig(__dirname);
 ```
@@ -101,7 +101,7 @@ See the [Playwright Intro](https://playwright.dev/docs/intro) for more.
 
 ### Starting UI mode
 
-The best way to write tests using Playwright is by using the [Playwright UI mode](https://playwright.dev/docs/test-ui-mode). Start by adding a test directory if not already present in the project you want to test and add a test file ending in `*.test.ts`.
+The best way to write tests using Playwright is by using the [Playwright UI mode](https://playwright.dev/docs/test-ui-mode) feature. Start by adding a test directory if not already present in the project you want to test and add a test file ending in `*.test.ts`.
 
 **App tests**
 
@@ -138,7 +138,7 @@ ct("My component test", async ({ mount }) => {
     // slots: {},
     // on: {},
   });
-  // await expect(component).toHaveValue("test");
+  await expect(component).toHaveValue("test");
 })
 ```
 
