@@ -1,6 +1,6 @@
 # Frontend Testing
 
-OpenRemote uses [Playwright](https://playwright.dev/) for frontend-testing. Playwright was originally created for end-to-end testing i.e. testing through a browser just like how users would interact with an application. This usually requires the backend to run, making end-to-end tests considerably slower than unit- or component tests. Playwright has added an experimental feature for component testing. Allowing you to use the same Playwright APIs on individual components for better test isolation and easier parallelization.
+OpenRemote uses [Playwright](https://playwright.dev/) for frontend testing. Playwright was originally created for end-to-end testing i.e. testing through a browser just like how users would interact with an application. This usually requires the backend to run, making end-to-end tests considerably slower than unit- or component tests. Playwright has added an experimental feature for component testing. Allowing you to use the same Playwright APIs on individual components for better test isolation and easier parallelization.
 
 ## Test Organization
 
@@ -151,7 +151,7 @@ You must import a component by its alias `@openremote/*`. Relative paths will ca
 Please read the [Playwright Best practices](https://playwright.dev/docs/best-practices).
 
 **TL;DR**
-- Avoid `xpath` and `css` selectors. Relying too heavy on the [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) makes you more prone to breaking tests when a CSS class is renamed or removed, or when nested elements are removed.
+- Avoid `xpath` and `css` selectors. Relying too heavily on the [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) makes you more prone to breaking tests when a CSS class is renamed or removed, or when nested elements are removed.
 - Do not use `waitForTimeout` outside of debugging. Tests don't always take the same amount of time which can cause flaky behavior, rather use something like `locator.waitFor()` or even better `page.waitForURL()`.
 - Isolate tests, so you can rerun them without relying on external factors such as other tests.
 - Use [web first assertions](https://playwright.dev/docs/test-assertions) e.g. `toBeVisible`, `toBeHidden`, `toBeChecked` etc. which use a retry mechanism to avoid flakiness.
@@ -168,7 +168,7 @@ The UI includes a locator tab, which allows you to click an element in the test 
 :::
 
 :::warning
-Sometimes the locators Playwright provides are susceptible to flaky behavior, it is important to understand the DOM structure of the UI to get the most affective locators.
+Sometimes the locators Playwright provides are susceptible to flaky behavior, it is important to understand the DOM structure of the UI to get the most effective locators.
 :::
 
 :::tip
