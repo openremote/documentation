@@ -25,7 +25,7 @@ The `shared` fixture in the test package is meant for general test utilities lik
 
 Each project that needs testing should configure its own Playwright configuration file which must reuse the above-mentioned configurations.
 
-The plugin for component testing mimics Playwright’s component testing plugin, which normally comes with Vite, but this is incompatible with the `commonjs` imports used in some components. Playwright uses Vite to bundle and mount a component to an empty HTML document for testing. Our Playwright plugin mimics the Vite based plugin using Webpack so we can mount our components to the document without import issues.
+The plugin for component testing mimics Playwright’s component testing plugin, which normally comes with Vite, but this is incompatible with the `commonjs` imports used in some components. Playwright uses Vite to bundle and mount a component to an empty HTML document for testing. Our Playwright plugin mimics the Vite based plugin using Rspack so we can mount our components to the document without import issues.
 
 ### Component test setup
 
@@ -37,7 +37,7 @@ Each component runs its own tests in parallel.
 
 - **Target:** Any component in the `ui/component/*` directory.
 - **Runner App:** The component test setup includes a dedicated app at `ui/test/playwright` (used to display components and serving static files).
-- **Testing Strategy:** Based on Playwright’s experimental component testing API, but adapted to Webpack using a custom plugin. Each component may include a `fixtures` directory which can provide reusable test code for other components and apps.
+- **Testing Strategy:** Based on Playwright’s experimental component testing API, but adapted to Rspack using a custom plugin. Each component may include a `fixtures` directory which can provide reusable test code for other components and apps.
 
 ### End-to-End test setup
 
@@ -105,7 +105,7 @@ The best way to write tests using Playwright is by using the [Playwright UI mode
 
 **App tests**
 
-The manager app or any app that you would want to test must first be running. The recommended way is to build the manager docker image first using `docker compose -p openremote -f profile/dev-ui.yml up -d --build`. Having the frontend be served by the manager is much faster than serving the frontend using Webpack.
+The manager app or any app that you would want to test must first be running. The recommended way is to build the manager docker image first using `docker compose -p openremote -f profile/dev-ui.yml up -d --build`. Having the frontend be served by the manager is much faster than serving the frontend using Rspack.
 
 Then you can start Playwright in UI mode using the Gradle task.
 
