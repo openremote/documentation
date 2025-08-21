@@ -76,14 +76,14 @@ function createAppSetupAndTeardown(app) {
 
 Assuming you have set up your [development tooling](preparing-the-environment#development-tooling).
 
-Make sure to include the corresponding playwright configuration and test script command(s):
+1. Create a playwright configuration file in your component / app directory. Make sure to include the corresponding playwright configuration files:
 
-|           | config                    | test script (in package.json)                                        |
-| --------- | ------------------------- | -------------------------------------------------------------------- |
-| app       | `playwright.config.ts`    | `npx playwright test`                                                |
-| component | `playwright-ct.config.ts` | `npx tsc -b && npx playwright test --config playwright-ct.config.ts` |
+|           | config                    |
+| --------- | ------------------------- |
+| app       | `playwright.config.ts`    |
+| component | `playwright-ct.config.ts` |
 
-Configuration contents:
+Playwright configuration file contents:
 
 ```ts
 import defineConfig from "@openremote/test/<app|component>.config";
@@ -91,13 +91,22 @@ import defineConfig from "@openremote/test/<app|component>.config";
 export default defineConfig(__dirname);
 ```
 
-Install the required Playwright browsers:
+2. Add the corresponding test script to the `package.json` file in your component / app directory.
+
+|           | test script (in package.json)                                        |
+| --------- | -------------------------------------------------------------------- |
+| app       | `npx playwright test`                                                |
+| component | `npx tsc -b && npx playwright test --config playwright-ct.config.ts` |
+
+3. Install the required Playwright browsers:
 
 ```sh
 npx playwright install --with-deps chromium
 ```
 
 See the [Playwright Intro](https://playwright.dev/docs/intro) for more.
+
+### Creating a test file
 
 ### Starting UI mode
 
