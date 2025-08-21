@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","allOf":[{"required":["type"],"type":"object","properties":{"fromTimestamp":{"type":"integer","format":"int64"},"toTimestamp":{"type":"integer","format":"int64"},"fromTime":{"type":"string","format":"date-time"},"toTime":{"type":"string","format":"date-time"},"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AssetDatapointQuery"},{"type":"object","properties":{"interval":{"type":"string"},"gapFill":{"type":"boolean"},"formula":{"type":"string","enum":["MIN","AVG","MAX"]}}}],"title":"AssetDatapointIntervalQuery"}}
+  schema={{"type":"object","allOf":[{"required":["type"],"type":"object","properties":{"fromTimestamp":{"type":"integer","format":"int64"},"toTimestamp":{"type":"integer","format":"int64"},"fromTime":{"type":"string","format":"date-time"},"toTime":{"type":"string","format":"date-time"},"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AssetDatapointQuery"},{"type":"object","properties":{"interval":{"type":"string"},"gapFill":{"type":"boolean"},"formula":{"type":"string","enum":["MIN","AVG","MAX","DIFFERENCE","COUNT","SUM","MODE","MEDIAN"]}}}],"title":"AssetDatapointIntervalQuery"}}
   schemaType={"response"}
 >
   

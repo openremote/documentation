@@ -936,8 +936,14 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "rest-api/reset-password",
-          label: "Reset the password for a user in a realm",
+          id: "rest-api/request-user-password-reset",
+          label: "Request a password reset for a user in a realm",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "rest-api/request-password-reset",
+          label: "Request a password reset for the currently authenticated user",
           className: "api-method put",
         },
         {
@@ -948,8 +954,26 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "rest-api/update-self",
+          label: "Update the currently authenticated user",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
           id: "rest-api/update-current-user-locale",
           label: "Update locale for the current user in a realm",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "rest-api/update-password",
+          label: "Update the password for a user in a realm",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "rest-api/update-own-password",
+          label: "Update the password for the currently authenticated user",
           className: "api-method put",
         },
         {
