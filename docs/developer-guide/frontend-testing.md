@@ -27,30 +27,16 @@ Each project that needs testing should configure its own Playwright configuratio
 
 The plugin for component testing mimics Playwright’s component testing plugin, which normally comes with Vite, but this is incompatible with the `commonjs` imports used in some components. Playwright uses Vite to bundle and mount a component to an empty HTML document for testing. Our Playwright plugin mimics the Vite based plugin using Rspack so we can mount our components to the document without import issues.
 
-### Component test setup
+### App test setup
 
-The component tests are used to test individual Lit web components.
-
-#### Configuration
-
-Each component runs its own tests in parallel.
-
-- **Target:** Any component in the `ui/component/*` directory.
-- **Runner App:** The component test setup includes a dedicated app at `ui/test/playwright` (used to display components and serving static files).
-- **Testing Strategy:** Based on Playwright’s experimental component testing API, but adapted to Rspack using a custom plugin. Each component may include a `fixtures` directory which can provide reusable test code for other components and apps.
-
-### End-to-End test setup
-
-The end-to-end tests are used to test app functionality from the frontend.
+The app tests are used to test the app UI (End-to-End).
 
 #### Configuration
 
-The end-to-end tests run sequentially using 1 worker to avoid tests interfering with each other.
-
-- **Target:** Any app in the `ui/app` directory.
+- **Target:** Any app in the `ui/app/*` directory.
 - **Worker Scope:** Single worker (to avoid tests interfering with one-another).
-- **Fixtures:** The Manager app includes a `fixtures` directory with test and data fixtures.
-- **Setup & Teardown:** The e2e test projects depend on the `*.setup.ts` and `*.cleanup.ts` project files. These projects should be used to provision realm(s), user(s) and collect authentication states for more robust and performant tests.
+- **Code reuse:** Apps may include a `fixtures` directory with test and data fixtures, and reuse fixtures from components they depend on.
+- **Setup & Teardown:** App test projects should depend on `*.setup.ts` and `*.cleanup.ts` project files to provision realm(s), user(s) and collect authentication states for more robust and performant tests.
 
 ```ts
 function createAppSetupAndTeardown(app) {
@@ -69,6 +55,17 @@ function createAppSetupAndTeardown(app) {
   ];
 }
 ```
+
+### Component test setup
+
+The component tests are used to test individual Lit web components.
+
+#### Configuration
+
+- **Target:** Any component in the `ui/component/**` directory.
+- **Worker Scope:** Each component runs its own tests in parallel.
+- **Code reuse:** Components may include a `fixtures` directory with test and data fixtures, and reuse fixtures from other components they depend on.
+- **Setup:** The component test setup includes a dedicated app at `ui/test/playwright` (used to display components and serve static files).
 
 ## Writing tests
 
