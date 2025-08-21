@@ -121,7 +121,7 @@ Playwright uses [`locators`](https://playwright.dev/docs/locators) to find eleme
 Run the following task to open the component tests in Playwright UI mode.
 
 ```sh
-gradle ui:component:or-component:npmTestUI
+gradle ui:component:or-<my-component>:npmTestUI
 # Or run npm test -- --ui in the corresponding directory
 ```
 
