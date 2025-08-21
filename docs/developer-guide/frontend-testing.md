@@ -88,7 +88,7 @@ import defineConfig from "@openremote/test/<app|component>.config";
 export default defineConfig(__dirname);
 ```
 
-2. Add the corresponding test script to the `package.json` file in your component / app directory.
+2. Add the corresponding `test` script to the `package.json` file in your component / app directory.
 
 |           | test script (in package.json)                                        |
 | --------- | -------------------------------------------------------------------- |
@@ -149,20 +149,22 @@ You must import a component by its alias `@openremote/*`. Relative paths will ca
 
 Playwright uses [`locators`](https://playwright.dev/docs/locators) to find elements in the DOM. It's crucial to know the different types of locators to be able to write tests that are robust and to avoid flaky behavior.
 
-From here on out you can decide to use any of the Playwright provided web first assertion methods (e.g. `await expect(component).toHaveValue("test")`) and perform actions like clicking a button, see [First test](https://playwright.dev/docs/writing-tests#first-test) for more.
+From here on out you can decide to use any of the Playwright provided web first assertions (e.g. `await expect(component).toHaveText("test")`) and perform actions like clicking a button.
+
+See [First test](https://playwright.dev/docs/writing-tests#first-test) for more.
 
 ### Reusing test code
 
-You may want to reuse certain `locators` or other test code between your tests, or with other projects. By convention Playwright enables you to configure the environment for each test using [Test Fixtures](https://playwright.dev/docs/test-fixtures). These can be defined by extending the `test` function with your own objects related to their environment like a specific page or component in your application you are writing the test around.
+You may want to reuse certain `locators` or other test code between your tests, or with other projects. By convention Playwright enables you to configure the environment (besides common test hooks like `beforeEach` and `beforeAll`) using [Test Fixtures](https://playwright.dev/docs/test-fixtures). These can be defined by extending the `test` function with your own objects related to their environment like a specific page or component in your application you are writing the test around.
 
 To write a test fixture add a `fixtures` directory under your `test` directory. Then add a TypeScript file usually named after the application, a page in your application or component you're writing the fixtures for. Then create a class for the app, page or component with the common actions you might take, e.g. going to a page.
 
 ```ts
 export class AssetsPage implements BasePage {
-  constructor(private readonly page: Page, private readonly shared: Shared) {}
+  constructor(private readonly page: Page, private readonly shared: Shared, private readonly myApp: MyApp) {}
 
   async goto() {
-    this.manager.navigateToTab("Assets");
+    this.myApp.navigateToTab("Assets");
   }
 }
 ```
@@ -171,7 +173,7 @@ export class AssetsPage implements BasePage {
 In case you want to reuse certain non-project specific fixtures across multiple projects you can add your fixture to the `shared` fixtures in the `@openremote/test` package under `ui/test/fixtures/shared.ts`. If you want to reuse component specific fixtures in tests for a parent component or an app, simply import the fixtures and add them through the `extend` function.
 :::
 
-Finally extend the `test` method:
+Finally extend the `test` function:
 
 ```ts
 import { test as base, type Page, type ComponentTestFixtures } from "@openremote/test";
@@ -189,8 +191,10 @@ interface Fixtures extends PageFixtures, ComponentFixtures {
 }
 
 export const test = base.extend<Fixtures>({
+  // App
+  myApp: async ({ page, baseURL }, use) => await use(new MyApp(page, baseURL)),
   // Pages
-  assetsPage: async ({ page, shared, baseURL }, use) => await use(new AssetsPage(page, shared)),
+  assetsPage: async ({ page, shared, myApp }, use) => await use(new AssetsPage(page, shared, myApp)),
   ...
 ```
 
@@ -205,13 +209,9 @@ test("My app test", async ({ assetsPage }) => {
 
 ### Running the test
 
-Once you're ready to run your test we recommend opening [Playwright UI mode](#starting-ui-mode) to see your tests in action.
+The best way to run and debug your tests in Playwright is by using the [Playwright UI mode](https://playwright.dev/docs/test-ui-mode) feature.
 
-### Starting UI mode
-
-The best way to write tests using Playwright is by using the [Playwright UI mode](https://playwright.dev/docs/test-ui-mode) feature.
-
-You may consider adding the following to the `build.gradle` file in the component / app directory:
+You may consider adding a Gradle task to the `build.gradle` file in the component / app directory to open it:
 
 ```groovy
 tasks.register('npmTestUI', Exec) {
