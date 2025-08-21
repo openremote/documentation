@@ -1,6 +1,6 @@
 # Frontend Testing
 
-OpenRemote uses [Playwright](https://playwright.dev/) for frontend testing. Playwright was originally created for end-to-end testing i.e. testing through a browser just like how users would interact with an application. This usually requires the backend to run, making end-to-end tests considerably slower than unit- or component tests. Playwright has added an experimental feature for component testing. Allowing you to use the same Playwright APIs on individual components for better test isolation and easier parallelization.
+OpenRemote uses [Playwright](https://playwright.dev/) for frontend testing. Playwright was originally created for end-to-end testing i.e. testing through a browser just like how users would interact with an application. This usually requires the backend to run, making end-to-end tests considerably slower than unit- or component tests. Playwright has added an experimental feature for component testing. This allows you to use the same Playwright APIs on individual components for better test isolation and easier parallelization.
 
 ## Test Organization
 
