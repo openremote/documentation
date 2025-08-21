@@ -73,12 +73,7 @@ The component tests are used to test individual Lit web components.
 
 Assuming you have set up your [development tooling](preparing-the-environment#development-tooling).
 
-1. Create a playwright configuration file in your component / app directory. Make sure to include the corresponding playwright configuration files:
-
-|           | config                    |
-| --------- | ------------------------- |
-| app       | `playwright.config.ts`    |
-| component | `playwright-ct.config.ts` |
+1. Create a playwright configuration file `playwright.config.ts` in your component / app directory.
 
 Playwright configuration file contents:
 
