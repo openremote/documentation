@@ -98,7 +98,16 @@ export default defineConfig(__dirname);
 | app       | `npx playwright test`                                                |
 | component | `npx tsc -b && npx playwright test --config playwright-ct.config.ts` |
 
-3. Install the required Playwright browsers:
+3. Add the `npmTest` Gradle task to the `build.gradle` file in the component / app directory so that the CI/CD pipeline knows to run your tests.
+
+```groovy
+tasks.register('npmTest', Exec) {
+    dependsOn getYarnInstallTask()
+    commandLine npmCommand("yarn"), "run", "test"
+}
+```
+
+4. Install the required Playwright browser(s):
 
 ```sh
 npx playwright install --with-deps chromium
@@ -106,35 +115,22 @@ npx playwright install --with-deps chromium
 
 See the [Playwright Intro](https://playwright.dev/docs/intro) for more.
 
-### Creating a test file
+5. (Only for apps) The manager app or any app that you would want to test must first be running. The recommended way is to build the manager docker image first using `docker compose -p openremote -f profile/dev-ui.yml up -d --build`. Having the frontend be served by the manager is much faster than serving the frontend using Rspack.
 
-### Starting UI mode
+### Writing your first test
 
-The best way to write tests using Playwright is by using the [Playwright UI mode](https://playwright.dev/docs/test-ui-mode) feature. Start by adding a test directory if not already present in the project you want to test and add a test file ending in `*.test.ts`.
+To start writing tests using Playwright add a test file ending in `*.test.ts` under your `test` directory.
 
-**App tests**
+Then include the following boilerplate for app tests:
 
-The manager app or any app that you would want to test must first be running. The recommended way is to build the manager docker image first using `docker compose -p openremote -f profile/dev-ui.yml up -d --build`. Having the frontend be served by the manager is much faster than serving the frontend using Rspack.
+```ts
+import { test } from "@openremote/test";
 
-Then you can start Playwright in UI mode using the Gradle task.
-
-```sh
-gradle ui:app:manager:npmTestUI
-# Or run npm test -- --ui in the corresponding directory
+test("My app test", async ({ myApp }) => {
+})
 ```
 
-Playwright uses [`locators`](https://playwright.dev/docs/locators) to find elements in the DOM. It's crucial to know the different types of locators to be able to write tests that are robust and to avoid flaky behavior.
-
-**Component tests**
-
-Run the following task to open the component tests in Playwright UI mode.
-
-```sh
-gradle ui:component:or-<my-component>:npmTestUI
-# Or run npm test -- --ui in the corresponding directory
-```
-
-Component tests normally include the following boilerplate:
+Or the following for component tests:
 
 ```ts
 import { ct } from "@openremote/test";
@@ -147,13 +143,93 @@ ct("My component test", async ({ mount }) => {
     // slots: {},
     // on: {},
   });
-  await expect(component).toHaveValue("test");
 })
 ```
 
 :::note
 You must import a component by its alias `@openremote/*`. Relative paths will cause issues. The downsides of the alias import is that this refers to the transpiled typescript `lib` directory, which is why the component test script includes `npx tsc -b`.
 :::
+
+Playwright uses [`locators`](https://playwright.dev/docs/locators) to find elements in the DOM. It's crucial to know the different types of locators to be able to write tests that are robust and to avoid flaky behavior.
+
+From here on out you can decide to use any of the Playwright provided web first assertion methods (e.g. `await expect(component).toHaveValue("test")`) and perform actions like clicking a button, see [First test](https://playwright.dev/docs/writing-tests#first-test) for more.
+
+### Reusing test code
+
+You may want to reuse certain `locators` or other test code between your tests, or with other projects. By convention Playwright enables you to configure the environment for each test using [Test Fixtures](https://playwright.dev/docs/test-fixtures). These can be defined by extending the `test` function with your own objects related to their environment like a specific page or component in your application you are writing the test around.
+
+To write a test fixture add a `fixtures` directory under your `test` directory. Then add a TypeScript file usually named after the application, a page in your application or component you're writing the fixtures for. Then create a class for the app, page or component with the common actions you might take, e.g. going to a page.
+
+```ts
+export class AssetsPage implements BasePage {
+  constructor(private readonly page: Page, private readonly shared: Shared) {}
+
+  async goto() {
+    this.manager.navigateToTab("Assets");
+  }
+}
+```
+
+:::note
+In case you want to reuse certain non-project specific fixtures across multiple projects you can add your fixture to the `shared` fixtures in the `@openremote/test` package under `ui/test/fixtures/shared.ts`. If you want to reuse component specific fixtures in tests for a parent component or an app, simply import the fixtures and add them through the `extend` function.
+:::
+
+Finally extend the `test` method:
+
+```ts
+import { test as base, type Page, type ComponentTestFixtures } from "@openremote/test";
+
+interface PageFixtures {
+  assetsPage: AssetsPage;
+}
+
+interface ComponentFixtures extends ComponentTestFixtures {
+  ...
+}
+
+interface Fixtures extends PageFixtures, ComponentFixtures {
+  myApp: MyApp;
+}
+
+export const test = base.extend<Fixtures>({
+  // Pages
+  assetsPage: async ({ page, shared, baseURL }, use) => await use(new AssetsPage(page, shared)),
+  ...
+```
+
+And make sure to import the extended `test` function in your test file.
+
+```ts
+import { test } from "./fixtures/myApp";
+
+test("My app test", async ({ assetsPage }) => {
+})
+```
+
+### Running the test
+
+Once you're ready to run your test we recommend opening [Playwright UI mode](#starting-ui-mode) to see your tests in action.
+
+### Starting UI mode
+
+The best way to write tests using Playwright is by using the [Playwright UI mode](https://playwright.dev/docs/test-ui-mode) feature.
+
+You may consider adding the following to the `build.gradle` file in the component / app directory:
+
+```groovy
+tasks.register('npmTestUI', Exec) {
+    dependsOn getYarnInstallTask()
+    commandLine npmCommand("yarn"), "run", "test", "--ui"
+}
+```
+
+Then run it with:
+
+```sh
+gradle ui:component:or-<my-component>:npmTestUI
+```
+
+Or simply run `npm test -- --ui` in the component / app directory.
 
 ### Best practices
 
