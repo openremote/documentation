@@ -1,0 +1,33 @@
+---
+id: dashboard
+title: "Dashboard"
+description: ""
+sidebar_label: "Dashboard"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"id":"string","createdOn":"2024-07-29T15:51:28.071Z","realm":"string","version":0,"ownerId":"string","access":"PUBLIC","displayName":"string","template":{"id":"string","columns":0,"maxScreenWidth":0,"refreshInterval":"OFF","screenPresets":[{"id":"string","displayName":"string","breakpoint":0,"scalingPreset":"WRAP_TO_SINGLE_COLUMN","redirectDashboardId":"string"}],"widgets":[{"id":"string","displayName":"string","gridItem":{"id":"string","x":0,"y":0,"w":0,"h":0,"minH":0,"minW":0,"minPixelH":0,"minPixelW":0,"noResize":true,"noMove":true,"locked":true},"widgetTypeId":"string","widgetConfig":{}}]}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Dashboard"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"required":["template"],"type":"object","properties":{"id":{"type":"string"},"createdOn":{"type":"string","format":"date-time"},"realm":{"maxLength":255,"minLength":1,"type":"string"},"version":{"type":"integer","format":"int64"},"ownerId":{"type":"string"},"access":{"type":"string","enum":["PUBLIC","SHARED","PRIVATE"]},"displayName":{"minLength":1,"type":"string"},"template":{"required":["screenPresets"],"type":"object","properties":{"id":{"type":"string"},"columns":{"minimum":1,"type":"integer","format":"int32"},"maxScreenWidth":{"minimum":1,"type":"integer","format":"int32"},"refreshInterval":{"type":"string","enum":["OFF","ONE_MIN","FIVE_MIN","QUARTER","ONE_HOUR"]},"screenPresets":{"type":"array","items":{"required":["scalingPreset"],"type":"object","properties":{"id":{"type":"string"},"displayName":{"minLength":1,"type":"string"},"breakpoint":{"minimum":1,"type":"integer","format":"int32"},"scalingPreset":{"type":"string","enum":["WRAP_TO_SINGLE_COLUMN","KEEP_LAYOUT","REDIRECT","BLOCK_DEVICE"]},"redirectDashboardId":{"type":"string"}},"title":"DashboardScreenPreset"}},"widgets":{"type":"array","items":{"required":["displayName","gridItem","widgetTypeId"],"type":"object","properties":{"id":{"type":"string"},"displayName":{"type":"string"},"gridItem":{"type":"object","properties":{"id":{"type":"string"},"x":{"type":"integer","format":"int32"},"y":{"type":"integer","format":"int32"},"w":{"minimum":1,"type":"integer","format":"int32"},"h":{"minimum":1,"type":"integer","format":"int32"},"minH":{"type":"integer","format":"int32"},"minW":{"type":"integer","format":"int32"},"minPixelH":{"type":"integer","format":"int32"},"minPixelW":{"type":"integer","format":"int32"},"noResize":{"type":"boolean"},"noMove":{"type":"boolean"},"locked":{"type":"boolean"}},"title":"DashboardGridItem"},"widgetTypeId":{"type":"string"},"widgetConfig":{"type":"object"}},"title":"DashboardWidget"}}},"title":"DashboardTemplate"}},"title":"Dashboard"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
