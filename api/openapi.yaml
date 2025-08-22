@@ -4170,12 +4170,12 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/User"
-  /user/{realm}/reset-password/{userId}:
+  /user/{realm}/request-password-reset/{userId}:
     put:
       tags:
       - User
-      summary: Reset the password for a user in a realm
-      operationId: resetPassword
+      summary: Request a password reset for a user in a realm
+      operationId: requestUserPasswordReset
       parameters:
       - name: Authorization
         in: header
@@ -4199,11 +4199,30 @@ paths:
         required: true
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Credential"
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json: {}
+  /user/request-password-reset:
+    put:
+      tags:
+      - User
+      summary: Request a password reset for the currently authenticated user
+      operationId: requestPasswordReset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
       responses:
         "200":
           description: default response
@@ -4245,6 +4264,37 @@ paths:
             application/json:
               schema:
                 type: string
+  /user/update:
+    put:
+      tags:
+      - User
+      summary: Update the currently authenticated user
+      operationId: updateSelf
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
   /user/locale:
     put:
       tags:
@@ -4274,6 +4324,74 @@ paths:
           description: default response
           content:
             '*/*': {}
+  /user/{realm}/reset-password/{userId}:
+    put:
+      tags:
+      - User
+      summary: Update the password for a user in a realm
+      operationId: updatePassword
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Credential"
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json: {}
+  /user/reset-password:
+    put:
+      tags:
+      - User
+      summary: Update the password for the currently authenticated user
+      operationId: updateOwnPassword
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Credential"
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json: {}
   /user/{realm}/roles:
     put:
       tags:
@@ -5975,6 +6093,11 @@ components:
             - MIN
             - AVG
             - MAX
+            - DIFFERENCE
+            - COUNT
+            - SUM
+            - MODE
+            - MEDIAN
     AssetDatapointLTTBQuery:
       type: object
       allOf:
