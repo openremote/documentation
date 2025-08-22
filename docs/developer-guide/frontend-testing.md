@@ -88,7 +88,7 @@ export default defineConfig(__dirname);
 |           | test script (in package.json)                                        |
 | --------- | -------------------------------------------------------------------- |
 | app       | `npx playwright test`                                                |
-| component | `npx tsc -b && npx playwright test --config playwright-ct.config.ts` |
+| component | `npx tsc -b && npx playwright test`                                  |
 
 3. Add the `npmTest` Gradle task to the `build.gradle` file in the component / app directory so that the CI/CD pipeline knows to run your tests.
 
