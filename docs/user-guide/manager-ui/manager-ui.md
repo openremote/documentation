@@ -162,7 +162,7 @@ The Insights page (see figure 11) allows you to create multiple dashboards withi
 * The gateway widget allows for opening the Manager UI of OpenRemote instances connected as gateways to this instance. See [Gateway tunnelling setup](../../developer-guide/gateway-tunnelling-setup.md) for the technical configuration.
 
 ![](img/insights-dashboard.png)
-_Figure 11. Example of an Insights dashboard, showing a dashboard with seven types of widgets._
+_Figure 11. Example of an Insights dashboard, showing a dashboard with eight different types of widgets._
 
 ![](img/insights-view.png)
 _Figure 12. The Insights view of the Manufacturer demo accessed via the consoles, showing how your dashboards easily turn into an app for your end users._
