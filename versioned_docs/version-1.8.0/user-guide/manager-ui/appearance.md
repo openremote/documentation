@@ -26,8 +26,9 @@ Not all Map/Tile providers are fully supported, please check the provider suppor
 
 The following tile servers have been tested.
 
-| Provider                         | Supported                                                                                                                                                                        | Not Supported   |
-| -------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| [Maptiler](https://maptiler.com) | Most standard maps can be imported                                                                                                                                               |                 |
-| [Carto](https://carto.com/)      | Basemaps                                                                                                                                                                         |                 |
-| [Mapbox](https://mapbox.com/)    | Tested [Classic Mapbox styles](https://docs.mapbox.com/api/maps/styles/#classic-mapbox-styles) using `https://api.mapbox.com/styles/v1/mapbox/streets-v12?access_token=pk.ey...` | Import settings |
+| Provider                                | Supported                                                                                                                                                                        | Not Supported   |
+| --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| [Maptiler](https://maptiler.com)        | Most standard maps can be imported                                                                                                                                               |                 |
+| [Carto](https://carto.com/)             | Basemaps                                                                                                                                                                         |                 |
+| [Mapbox](https://mapbox.com/)           | Tested [Classic Mapbox styles](https://docs.mapbox.com/api/maps/styles/#classic-mapbox-styles) using `https://api.mapbox.com/styles/v1/mapbox/streets-v12?access_token=pk.ey...` | Import settings |
+| [OpenFreeMap](https://openfreemap.org/) | All maps can be imported                                                                                                                                                         |                 |
