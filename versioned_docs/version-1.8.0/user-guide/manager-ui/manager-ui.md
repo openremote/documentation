@@ -158,7 +158,7 @@ The Insights page (see figure 11) allows you to create multiple dashboards withi
 * Share dashboards with other users even as standalone app, or keep your dashboard private.
 * Make dashboards public. Note this requires assets to be set as 'public' and attributes as 'public read'.
 * Share via the [iOS or Android console](on-mobile.md) and benefit push notifications (see figure 12).
-* Use eight types of widgets (or [extend with your own](../../developer-guide/adding-widgets-on-insights.md)): Line Chart, Bar Chart, KPI, Gauge, Image, Map, Table, Attribute (with control) and Gateway.
+* Use nine types of widgets (or [extend with your own](../../developer-guide/adding-widgets-on-insights.md)): Line Chart, Bar Chart, KPI, Gauge, Image, Map, Table, Attribute (with control) and Gateway.
 * The gateway widget allows for opening the Manager UI of OpenRemote instances connected as gateways to this instance. See [Gateway tunnelling setup](../../developer-guide/gateway-tunnelling-setup.md) for the technical configuration.
 
 ![](img/insights-dashboard.png)
