@@ -1,3 +1,7 @@
+---
+sidebar_position: 8
+---
+
 # Release Management
 
 Software releases are created to be able to run OpenRemote in a reproducible and controlled manner.
