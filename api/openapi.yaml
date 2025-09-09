@@ -87,7 +87,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -129,7 +129,7 @@ paths:
             schema:
               $ref: "#/components/schemas/FileInfo"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -170,7 +170,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -220,7 +220,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -253,7 +253,7 @@ paths:
           items:
             type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -278,7 +278,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -308,7 +308,7 @@ paths:
           type: integer
           format: int64
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -339,7 +339,7 @@ paths:
           type: integer
           format: int64
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -368,7 +368,7 @@ paths:
           type: integer
           format: int64
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -402,7 +402,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -430,7 +430,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -463,7 +463,7 @@ paths:
             schema:
               $ref: "#/components/schemas/FileInfo"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -476,7 +476,7 @@ paths:
       summary: Retrieve the manager configuration JSON
       operationId: getManagerConfig
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -506,7 +506,7 @@ paths:
             schema:
               $ref: "#/components/schemas/ManagerAppConfig"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -526,7 +526,7 @@ paths:
           pattern: .+
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*':
@@ -552,7 +552,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -576,7 +576,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -604,7 +604,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -636,7 +636,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -673,7 +673,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -707,7 +707,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -739,7 +739,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -771,7 +771,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -804,7 +804,7 @@ paths:
             schema:
               $ref: "#/components/schemas/AssetObject"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -835,7 +835,7 @@ paths:
           items:
             type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -871,7 +871,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -905,7 +905,7 @@ paths:
               items:
                 $ref: "#/components/schemas/UserAssetLink"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -939,7 +939,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -978,7 +978,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -1009,7 +1009,7 @@ paths:
               items:
                 $ref: "#/components/schemas/UserAssetLink"
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -1038,7 +1038,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1073,7 +1073,7 @@ paths:
             schema:
               $ref: "#/components/schemas/AssetObject"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1099,7 +1099,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1132,7 +1132,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1163,7 +1163,7 @@ paths:
             schema:
               $ref: "#/components/schemas/AssetQuery"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1199,7 +1199,7 @@ paths:
           items:
             type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -1236,7 +1236,7 @@ paths:
           items:
             type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -1267,7 +1267,7 @@ paths:
               items:
                 $ref: "#/components/schemas/AttributeEvent"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1390,7 +1390,7 @@ paths:
               items:
                 $ref: "#/components/schemas/AttributeState"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1424,7 +1424,7 @@ paths:
               $ref: "#/components/schemas/ConsoleRegistration"
         required: true
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1455,7 +1455,7 @@ paths:
             schema:
               $ref: "#/components/schemas/Dashboard"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1485,7 +1485,7 @@ paths:
             schema:
               $ref: "#/components/schemas/Dashboard"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1521,7 +1521,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1556,7 +1556,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -1585,7 +1585,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1618,7 +1618,7 @@ paths:
             schema:
               $ref: "#/components/schemas/DashboardQuery"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1648,7 +1648,7 @@ paths:
           type: integer
           format: int64
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/zip: {}
@@ -1680,7 +1680,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1721,7 +1721,7 @@ paths:
             schema:
               $ref: "#/components/schemas/AssetDatapointQuery"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1766,7 +1766,7 @@ paths:
               items:
                 $ref: "#/components/schemas/ValueDatapointObject"
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -1804,7 +1804,7 @@ paths:
             schema:
               $ref: "#/components/schemas/AssetDatapointQuery"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1837,7 +1837,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1872,7 +1872,7 @@ paths:
             schema:
               $ref: "#/components/schemas/GatewayConnection"
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -1900,7 +1900,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -1924,7 +1924,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -1957,7 +1957,7 @@ paths:
           items:
             type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -1986,7 +1986,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2043,7 +2043,7 @@ paths:
           type: integer
           format: int32
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2074,7 +2074,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2112,7 +2112,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2132,7 +2132,7 @@ paths:
             schema:
               $ref: "#/components/schemas/GatewayTunnelInfo"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2149,7 +2149,7 @@ paths:
             schema:
               $ref: "#/components/schemas/GatewayTunnelInfo"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -2173,7 +2173,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2186,7 +2186,7 @@ paths:
       summary: Retrieve if the map is custom and custom map limit
       operationId: getCustomMapInfo
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2212,7 +2212,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2242,7 +2242,7 @@ paths:
             schema:
               $ref: "#/components/schemas/MapConfig"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2268,7 +2268,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2300,7 +2300,7 @@ paths:
           type: integer
           format: int32
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/vnd.mapbox-vector-tile:
@@ -2331,7 +2331,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2388,7 +2388,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2446,7 +2446,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -2485,7 +2485,7 @@ paths:
             schema:
               $ref: "#/components/schemas/JsonNode"
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -2519,7 +2519,7 @@ paths:
           type: integer
           format: int64
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -2549,7 +2549,7 @@ paths:
           type: integer
           format: int64
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -2578,7 +2578,7 @@ paths:
             schema:
               $ref: "#/components/schemas/Notification"
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -2589,7 +2589,7 @@ paths:
       summary: Retrieve all provisioning configurations
       operationId: getProvisioningConfigs
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2608,7 +2608,7 @@ paths:
             schema:
               $ref: "#/components/schemas/ProvisioningConfigObjectObject"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2646,7 +2646,7 @@ paths:
             schema:
               $ref: "#/components/schemas/ProvisioningConfigObjectObject"
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -2675,7 +2675,7 @@ paths:
           type: integer
           format: int64
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -2704,7 +2704,7 @@ paths:
             schema:
               $ref: "#/components/schemas/AssetRuleset"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2746,7 +2746,7 @@ paths:
         schema:
           type: boolean
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2778,7 +2778,7 @@ paths:
             schema:
               $ref: "#/components/schemas/GlobalRuleset"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2810,7 +2810,7 @@ paths:
             schema:
               $ref: "#/components/schemas/RealmRuleset"
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*':
@@ -2843,7 +2843,7 @@ paths:
           type: integer
           format: int64
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2879,7 +2879,7 @@ paths:
             schema:
               $ref: "#/components/schemas/AssetRuleset"
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -2908,7 +2908,7 @@ paths:
           type: integer
           format: int64
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -2938,7 +2938,7 @@ paths:
           type: integer
           format: int64
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -2974,7 +2974,7 @@ paths:
             schema:
               $ref: "#/components/schemas/GlobalRuleset"
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -3003,7 +3003,7 @@ paths:
           type: integer
           format: int64
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -3033,7 +3033,7 @@ paths:
           type: integer
           format: int64
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3069,7 +3069,7 @@ paths:
             schema:
               $ref: "#/components/schemas/RealmRuleset"
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -3098,7 +3098,7 @@ paths:
           type: integer
           format: int64
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -3127,7 +3127,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3158,7 +3158,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3206,7 +3206,7 @@ paths:
         schema:
           type: boolean
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3234,7 +3234,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3265,7 +3265,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3311,7 +3311,7 @@ paths:
         schema:
           type: boolean
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3339,7 +3339,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3377,7 +3377,7 @@ paths:
           - OUTPUT
           - THEN
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3410,7 +3410,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3436,7 +3436,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3468,7 +3468,7 @@ paths:
             schema:
               $ref: "#/components/schemas/Realm"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -3497,7 +3497,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3532,7 +3532,7 @@ paths:
             schema:
               $ref: "#/components/schemas/Realm"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -3560,7 +3560,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -3584,7 +3584,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3622,7 +3622,7 @@ paths:
             schema:
               $ref: "#/components/schemas/User"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3657,7 +3657,7 @@ paths:
             schema:
               $ref: "#/components/schemas/User"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3693,7 +3693,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -3727,7 +3727,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -3761,7 +3761,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3797,7 +3797,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3841,7 +3841,7 @@ paths:
               items:
                 $ref: "#/components/schemas/Role"
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -3865,7 +3865,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3897,7 +3897,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3925,7 +3925,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -3968,7 +3968,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -4017,7 +4017,7 @@ paths:
               items:
                 type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -4051,7 +4051,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -4095,7 +4095,7 @@ paths:
               items:
                 type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -4129,7 +4129,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -4162,7 +4162,7 @@ paths:
             schema:
               $ref: "#/components/schemas/UserQuery"
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -4170,12 +4170,12 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/User"
-  /user/{realm}/reset-password/{userId}:
+  /user/{realm}/request-password-reset/{userId}:
     put:
       tags:
       - User
-      summary: Reset the password for a user in a realm
-      operationId: resetPassword
+      summary: Request a password reset for a user in a realm
+      operationId: requestUserPasswordReset
       parameters:
       - name: Authorization
         in: header
@@ -4199,13 +4199,32 @@ paths:
         required: true
         schema:
           type: string
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Credential"
       responses:
-        default:
+        "200":
+          description: default response
+          content:
+            application/json: {}
+  /user/request-password-reset:
+    put:
+      tags:
+      - User
+      summary: Request a password reset for the currently authenticated user
+      operationId: requestPasswordReset
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -4239,12 +4258,43 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
               schema:
                 type: string
+  /user/update:
+    put:
+      tags:
+      - User
+      summary: Update the currently authenticated user
+      operationId: updateSelf
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/User"
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/User"
   /user/locale:
     put:
       tags:
@@ -4270,10 +4320,78 @@ paths:
             schema:
               type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
+  /user/{realm}/reset-password/{userId}:
+    put:
+      tags:
+      - User
+      summary: Update the password for a user in a realm
+      operationId: updatePassword
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: userId
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Credential"
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json: {}
+  /user/reset-password:
+    put:
+      tags:
+      - User
+      summary: Update the password for the currently authenticated user
+      operationId: updateOwnPassword
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Credential"
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json: {}
   /user/{realm}/roles:
     put:
       tags:
@@ -4306,7 +4424,7 @@ paths:
               items:
                 $ref: "#/components/schemas/Role"
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -4381,7 +4499,7 @@ paths:
           items:
             type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json: {}
@@ -4404,7 +4522,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -4428,7 +4546,7 @@ paths:
         schema:
           type: string
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -4458,7 +4576,7 @@ paths:
             schema:
               $ref: "#/components/schemas/SyslogConfig"
       responses:
-        default:
+        "200":
           description: default response
           content:
             '*/*': {}
@@ -4469,7 +4587,7 @@ paths:
       summary: Retrieve the health status of the system
       operationId: getHealthStatus
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -4484,7 +4602,7 @@ paths:
       summary: Retrieve the system information
       operationId: getInfo
       responses:
-        default:
+        "200":
           description: default response
           content:
             application/json:
@@ -5975,6 +6093,11 @@ components:
             - MIN
             - AVG
             - MAX
+            - DIFFERENCE
+            - COUNT
+            - SUM
+            - MODE
+            - MEDIAN
     AssetDatapointLTTBQuery:
       type: object
       allOf:
@@ -6125,6 +6248,8 @@ components:
     MapConfig:
       type: object
       properties:
+        override:
+          type: string
         options:
           type: object
           additionalProperties:
@@ -6133,6 +6258,14 @@ components:
           type: object
           additionalProperties:
             $ref: "#/components/schemas/MapSourceConfig"
+        glyphs:
+          type: string
+        sprite:
+          type: string
+        layers:
+          type: array
+          items:
+            type: object
     MapRealmConfig:
       type: object
       properties:
