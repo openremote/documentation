@@ -7,7 +7,7 @@ sidebar_position: 2
 The ML Forecasting Service is an **optional** service that uses machine learning models to generate forecasts for any attribute that has historical data.
 
 :::note
-This service is not installed by default. It can be installed by your administrator by following the instructions in the [External Services](../developer-guide/external-services.md) page.
+This service is not installed by default. It can be installed by your administrator by following the instructions in the [External Services](../../developer-guide/external-services.md) page.
 :::
 
 ## Features
@@ -71,6 +71,8 @@ Regressors can be added when there's a relationship between your target variable
 #### Saving Configuration
 
 Once you've configured all fields, click the `Save` button to store the forecast configuration. The model will automatically train and begin generating forecasts according to your specified intervals.
+
+Note: it is safe to use a low interval for forecast generation and training if you want the forecast to show up faster. The system will not run into any issues with this. For example, if you want the forecast to be updated every 5 minutes, you can set the forecast generation and training to 5 minutes.
 
 ## Viewing the Forecast
 
