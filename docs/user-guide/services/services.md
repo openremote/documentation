@@ -2,35 +2,19 @@
 sidebar_position: 1
 ---
 
-# External Services
+# Services
 
-External services add extra features and tools to your OpenRemote system. They appear as new sections in the Manager UI, giving you access to additional capabilities like AI assistants, analytics dashboards, or custom tools that your administrator has set up.
+Services add extra features and tools to your OpenRemote system. They appear as new sections in the Manager UI, giving you access to additional capabilities like AI assistants, analytics dashboards, or custom tools that your administrator has set up.
 
-When you click on an external service, it opens right within OpenRemote just like any other page, so you don't need to switch between different applications.
+When you click on a service, it opens right within OpenRemote just like any other page, so you don't need to switch between different applications.
 
 ---
 
-## What are External Services?
+## What are Services?
 
-External services are additional applications that work alongside OpenRemote. You'll see them as new menu items or sections in your Manager UI. Each service provides different functionality, such as AI assistants, analytics dashboards, device management tools, or custom integrations.
+services are additional applications that work alongside OpenRemote. You'll see them as new menu items or sections in your Manager UI. Each service provides different functionality, such as AI assistants, analytics dashboards, device management tools, or custom integrations.
 
-When you use an external service, it looks and feels like part of OpenRemote, but it's actually a separate application that's been integrated for you.
-
-### Types of Services
-
-You might encounter two types of external services:
-
-**Organization-wide Services**
-- Available to **everyone** in your organization, across all realms
-- Usually managed by your IT department or system administrators
-- Examples: Company-wide analytics, centralized AI tools
-
-**Realm-specific Services**
-- Only available within **your specific realm** or project
-- Configured for your particular use case
-- Examples: Project-specific dashboards, local integrations
-
-You don't need to worry about which type a service is - if you can see it in your menu, you can use it.
+When you use an service, it looks and feels like part of OpenRemote, but it's actually a separate application that's been integrated for you.
 
 ---
 
@@ -38,7 +22,7 @@ You don't need to worry about which type a service is - if you can see it in you
 
 ### Where to Look
 
-External services can appear in several places in the Manager UI:
+services can appear in several places in the Manager UI:
 
 1. **Main Menu** - Look for the `Services` menu item, this will show all services available to you
 
@@ -53,13 +37,11 @@ If you see a service marked as unavailable, it might be updating or experiencing
 
 ### Opening a Service
 
-To use an external service:
+To use an service:
 
 1. **Click** on the service name in your navigation menu
 2. **Wait** for the service interface to load within OpenRemote
-3. **Use** the service just like you would use any web application
-
-The service will open in the same browser window, but you'll see its own interface and controls.
+3. **Use** the service just like you would use any other part of OpenRemote
 
 ---
 
@@ -67,12 +49,12 @@ The service will open in the same browser window, but you'll see its own interfa
 
 ### Service Won't Load
 
-If an external service isn't working:
+If an service isn't working:
 
 1. **Check the status** - Is it showing as "Available"?
 2. **Refresh your browser** - Press F5 or click the refresh button
 3. **Clear your browser cache** - This can solve many loading issues
-4. **Check your internet connection** - External services may need internet access
+4. **Check your internet connection** - services may need internet access
 5. **Try a different browser** - Sometimes browser compatibility can cause issues
 
 ### Can't Access a Service
@@ -103,6 +85,6 @@ If you need additional functionality that isn't currently available, contact you
 
 ## Summary
 
-External services expand what you can do with OpenRemote by adding specialized tools and features. They appear right in your Manager UI, so you can access everything from one place.
+services expand what you can do with OpenRemote by adding specialized tools and features. They appear right in your Manager UI, so you can access everything from one place.
 
 Don't hesitate to explore them or ask your administrator about what's available - they're there to make your work easier and more effective.
