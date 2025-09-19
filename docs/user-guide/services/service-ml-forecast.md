@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # ML Forecasting Service
 
-The ML Forecasting Service is an **optional** external service that can be used to leverage machine learning to generate forecasts for any attribute that has a history of data.
+The ML Forecasting Service is an **optional** external service that can be used to leverage machine learning models to generate forecasts for any attribute that has a history of data.
 
 :::note
 This service is not installed by default. It can be installed by your administrator by following the instructions in the [External Services](services.md) page.
