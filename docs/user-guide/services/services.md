@@ -14,9 +14,7 @@ When you select a service, it opens right within OpenRemote just like any other 
 
 ### Where to Look
 
-services can appear in the `Services` page in your Manager UI.
-
-1. **Services** - Look for the `Services` page, this will show all services available to you
+You can find all services available to you in the `Services` page of the Manager UI.
 
 ### Service Status
 
@@ -29,7 +27,7 @@ If you see a service marked as unavailable, it might be updating or experiencing
 
 ### Opening a Service
 
-To use an service:
+To use a service:
 
 1. **Click** on the service name in the `Services` page
 2. **Wait** for the service interface to load within OpenRemote
@@ -41,12 +39,12 @@ To use an service:
 
 ### Service Won't Load
 
-If an service isn't working:
+If a service isn't working:
 
 1. **Check the status** - Is it showing as "Available"?
 2. **Refresh your browser** - Press F5 or click the refresh button
 3. **Clear your browser cache** - This can solve many loading issues
-4. **Check your internet connection** - services may need internet access
+4. **Check your internet connection** - Services may need internet access
 5. **Try a different browser** - Sometimes browser compatibility can cause issues
 
 ### Can't Access a Service
@@ -63,7 +61,7 @@ When you encounter problems:
 1. **Note the error message** - Write down exactly what you see
 2. **Try the basic troubleshooting steps** above
 3. **Contact your system administrator** with details about the problem
-4. **Include screenshots** if possible - they help explain the issue
+4. **Include screenshots** if possible, they help explain the issue
 
 ---
 
@@ -77,6 +75,6 @@ If you need additional functionality that isn't currently available, contact you
 
 ## Summary
 
-services expand what you can do with OpenRemote by adding specialized tools and features. They appear right in your Manager UI, so you can access everything from one place.
+Services expand what you can do with OpenRemote by adding specialized tools and features. They appear right in your Manager UI, so you can access everything from one place.
 
 Don't hesitate to explore them or ask your administrator about what's available. They're there to provide you with additional tools and features.
