@@ -4,17 +4,9 @@ sidebar_position: 1
 
 # Services
 
-Services add extra features and tools to your OpenRemote system. They appear as new sections in the Manager UI, giving you access to additional capabilities like AI assistants, analytics dashboards, or custom tools that your administrator has set up.
+Services are additional applications that work alongside OpenRemote to add extra features and tools to your system. You'll see them as entries in the `Services` page in your Manager UI, giving you access to additional functionality like AI assistants, forecasting, device management tools, or custom integrations.
 
-When you click on a service, it opens right within OpenRemote just like any other page, so you don't need to switch between different applications.
-
----
-
-## What are Services?
-
-services are additional applications that work alongside OpenRemote. You'll see them as new menu items or sections in your Manager UI. Each service provides different functionality, such as AI assistants, analytics dashboards, device management tools, or custom integrations.
-
-When you use an service, it looks and feels like part of OpenRemote, but it's actually a separate application that's been integrated for you.
+When you select a service, it opens right within OpenRemote just like any other page.
 
 ---
 
@@ -22,9 +14,9 @@ When you use an service, it looks and feels like part of OpenRemote, but it's ac
 
 ### Where to Look
 
-services can appear in several places in the Manager UI:
+services can appear in the `Services` page in your Manager UI.
 
-1. **Main Menu** - Look for the `Services` menu item, this will show all services available to you
+1. **Services** - Look for the `Services` page, this will show all services available to you
 
 ### Service Status
 
@@ -39,7 +31,7 @@ If you see a service marked as unavailable, it might be updating or experiencing
 
 To use an service:
 
-1. **Click** on the service name in your navigation menu
+1. **Click** on the service name in the `Services` page
 2. **Wait** for the service interface to load within OpenRemote
 3. **Use** the service just like you would use any other part of OpenRemote
 
@@ -87,4 +79,4 @@ If you need additional functionality that isn't currently available, contact you
 
 services expand what you can do with OpenRemote by adding specialized tools and features. They appear right in your Manager UI, so you can access everything from one place.
 
-Don't hesitate to explore them or ask your administrator about what's available - they're there to make your work easier and more effective.
+Don't hesitate to explore them or ask your administrator about what's available. They're there to provide you with additional tools and features.
