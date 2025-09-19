@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # ML Forecasting Service
 
-The ML Forecasting Service is an **optional** service that uses machine learning models to generate forecasts for any attribute that has historical data.
+The ML Forecasting Service is an **optional** service that applies machine learning and statistical models to time series forecasting. It lets you create forecast configurations for attributes with historical data. Currently, it supports [Prophet](https://facebook.github.io/prophet/), an additive regression model widely recognized in machine learning for capturing trend, seasonality, and holiday effects. Additional models will be supported in future releases.
 
 :::note
 This service is not installed by default. It can be installed by your administrator by following the instructions in the [External Services](../../developer-guide/external-services.md) page.
