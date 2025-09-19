@@ -137,13 +137,14 @@ When developing and integrating an external service, consider the following:
 ## Example Use Cases
 External services can be used to extend OpenRemote in many ways, such as:  
 
-- **AI/LLM Integration**: Connect AI services (e.g., ChatGPT, Claude) to provide contextual querying of devices, assets, and data.  
-- **Machine Learning**: Implement predictive maintenance, energy optimization, or anomaly detection.  
-- **Firmware Updates**: Manage and deploy firmware updates to connected devices.
+**Examples:**
+- **AI/LLM Service**: Connect AI services (e.g., ChatGPT, Claude) to provide contextual querying of devices, assets, and data.  
+- **Machine Learning Service**: Implement predictive maintenance, energy optimization, or anomaly detection.  
+- **Firmware Management Service**: Manage and deploy firmware updates to connected devices.
 
 ### Reference Implementation
-We provide the [ML Forecasting Service](https://github.com/openremote/ml-forecasting-service) as a reference implementation.  
-This service connects to OpenRemote, retrieves historical data, and provides forecasting capabilities using machine learning and statistical models. It also demonstrates how to:  
+We provide the [ML Forecast Service](https://github.com/openremote/service-ml-forecast) which can serve as a reference implementation.  
+This service connects to OpenRemote, retrieves historical data, and provides forecasting capabilities using machine learning/statistical models. It also demonstrates how to:  
 
 - **Register** an external service  
 - **Send and manage** heartbeats  
@@ -154,7 +155,7 @@ This service connects to OpenRemote, retrieves historical data, and provides for
 ---
 
 ## Summary
-By leveraging external services, developers can significantly enhance the OpenRemote platform.  
+By leveraging external services, developers can extend and enhance the OpenRemote platform.  
 - **Registration** connects services with a UI to the Manager, embedding their interface directly.  
 - **Global vs regular services** allow flexibility between multi-tenant and realm-specific use cases.  
 - **Heartbeats** ensure service availability is tracked in real time.  
