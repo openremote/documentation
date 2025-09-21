@@ -14,6 +14,8 @@ OpenRemote also has an [MQTT Broker](../manager-apis.md#mqtt-api-mqtt-broker) (o
 
 ## Connecting to an MQTT broker using (m)TLS, AWS IoT Core
 
+
+
 AWS IoT Core provides the option to authenticate clients to the MQTT broker using X.509 Client Certificates. To do so,
 we will need to add the X.509 client certificates assigned to the Thing we have created to OpenRemote's realm-specific
 KeyStores. Below is a tutorial of how that can be done;
@@ -26,9 +28,14 @@ They are all provided after accessing that thing's dashboard and creating a new 
 
 Download the Device Certificate and activate it, download the private key file, and the Amazon Trust Services endpoint RSA 2048 bit key.
 
-The password of everything keystore-related is `OR_ADMIN_PASSWORD`, for when it is requested.
+:::warning
+The password of the keystore and the password of each keypair within the keystore should be the same, and it should be set to `OR_KEYSTORE_PASSWORD`. Otherwise, you may see errors like `Get Key failed: Given final block not properly padded`. If you do, make sure you change the passwords to be the same. You can find a more detailed explanation in [this GitHub issue](https://github.com/openremote/openremote/issues/2093).
+:::
+
+The password of everything keystore-related is `OR_KEYSTORE_PASSWORD`, for when it is requested. If it is not set as an environment variable before starting OpenRemote for the first time, it will default to `<empty string>`. If you want to change the password later, you will need to change it in both the keystore and the truststore, as well as the passwords of each keypair within the keystore and truststore, and make sure to set `OR_KEYSTORE_PASSWORD` as that password.
 
 Make sure that OpenRemote has been started at least once before proceeding, so that the required keystore files are created automatically. If you have a pre-existing keystore file, make sure to provide the file's location using `OR_SSL_CLIENT_KEYSTORE_FILE`, `OR_SSL_CLIENT_TRUSTSTORE_FILE`, and `OR_SSL_CLIENT_KEYSTORE_PASSWORD` or `OR_SSL_CLIENT_TRUSTSTORE_PASSWORD` for their passwords.
+
 
 
 After doing so, we need to:
