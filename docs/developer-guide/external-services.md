@@ -36,7 +36,7 @@ There are two types of external services in OpenRemote:
 - Bound to a **specific realm** and only available within that realm (single-tenant)
 - Simpler to implement when multi-tenancy is not required
 
-Both global and regular services must be registered by **Service Users**. Global services specifically require a Super User account in the master realm, while regular services can be registered with a realm-specific Service User.
+Both global and regular services must be registered by **Service Users**. Global services specifically require a Super User account in the master realm, while regular services can be registered with a realm-specific Service User. For more information on Service Users, see [Realm Users and Roles](../user-guide/identity-and-security/realms-users-and-roles.md) and [Security](../architecture/security.md).
 
 ---
 
@@ -86,7 +86,7 @@ It involves sending a `POST` request to the OpenRemote API with details about th
   "label": "My External Service",
   "icon": "mdi-cloud",
   "homepageUrl": "https://my-external-service.com/interface",
-  "version": "1.0.0"
+  "status": "AVAILABLE"
 }
 ```
 
@@ -164,9 +164,9 @@ services:
 
 ### Service User Configuration
 
-Your external service will need a service user account in OpenRemote for API authentication. The service user credentials should be provided via environment variables and kept secure.
+Your external service will need a **service user account** in OpenRemote for API authentication. The service user credentials should be provided via environment variables and kept secure.
 
-### Reverse Proxy Configuration (Optional)
+### Reverse Proxy Configuration
 
 If you want to use OpenRemote's reverse proxy (HAProxy) to route traffic to your service:
 
@@ -232,4 +232,4 @@ By leveraging external services, developers can significantly extend and enhance
 - **Heartbeats** ensure service availability is tracked in real time
 - **Security best practices** help ensure safe and reliable integrations
 
-Together, these mechanisms provide a seamless way to extend OpenRemote while maintaining a unified and secure user experience.
+Together, these mechanisms provide a way to extend OpenRemote while maintaining a unified and secure user experience.

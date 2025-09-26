@@ -66,13 +66,15 @@ The form contains sensible defaults for forecast generation, training, and model
 
 Regressors can be added when there's a relationship between your target variable and other attributes. For example, when forecasting energy consumption, you might add weather data or solar production as regressors.
 
-
+:::important
+When using regressors, they must have predicted datapoints available for the entire forecast period. If a regressor doesn't have future data points, the forecast will fail. This means you'll need to either:
+- Use another forecast configuration to predict the regressor values first
+- Use another mechanism such as a custom rule or meta configuration to predict the regressor values
+:::
 
 #### Saving Configuration
 
-Once you've configured all fields, click the `Save` button to store the forecast configuration. The model will automatically train and begin generating forecasts according to your specified intervals.
-
-Note: it is safe to use a low interval for forecast generation and training if you want the forecast to show up faster. The system will not run into any issues with this. For example, if you want the forecast to be updated every 5 minutes, you can set the forecast generation and training to 5 minutes.
+Once you've configured all fields, click the `Save` button to store the forecast configuration. The model will automatically train and begin generating forecasts according to your specified intervals. After this step, you can now safely navigate away from the configuration page.
 
 ## Viewing the Forecast
 
@@ -82,3 +84,11 @@ Once the forecast is generated, you can view it in the Insights UI.
 
 The forecast will be displayed as a dotted line in the chart.
 
+## Next Steps
+
+Now that you understand how to set up and use the ML Forecasting Service, you can:
+
+1. **Monitor the results** in the Insights UI to verify forecast quality
+2. **Experiment with parameters** to optimize forecast accuracy for your specific use case
+3. **Add regressors** if you identify relationships between different data sources
+4. **Add additional forecasts** by creating additional configurations for other assets and attributes

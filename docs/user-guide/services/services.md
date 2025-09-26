@@ -4,7 +4,7 @@ sidebar_position: 1
 
 # Services
 
-Services are additional applications that work alongside OpenRemote to add extra features and tools to your system. You'll see them as entries in the `Services` page in your Manager UI, giving you access to additional functionality like AI assistants, forecasting, device management tools, or custom integrations.
+Services are additional applications that work alongside OpenRemote to add extra features and tools to your system. You'll see them as entries in the `Services` page in your Manager UI, giving you access to additional functionality like for example advanced forecasting, device management tools, or custom integrations.
 
 When you select a service, it opens right within OpenRemote just like any other page.
 
@@ -30,7 +30,7 @@ If you see a service marked as unavailable, it might be updating or experiencing
 To use a service:
 
 1. **Click** on the service name in the `Services` page
-2. **Wait** for the service interface to load within OpenRemote
+2. **Wait** for the service interface to load
 3. **Use** the service just like you would use any other part of OpenRemote
 
 ---
