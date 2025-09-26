@@ -55,7 +55,7 @@ The form contains sensible defaults for forecast generation, training, and model
 | | `Unit` | Time measurement for relearning |
 | **Parameters** | `Changepoint range` | How much of your data to check for changes (0.8 = 80%). Reduce if predictions are too jumpy |
 | | `Changepoint prior scale` | How likely the system thinks changes will happen (0.05 = 5%). Increase for more flexible forecasts that adapt quickly to changes, decrease for smoother forecasts that ignore minor variations |
-| | `Seasonality mode` | How seasonal patterns work (`additive` or `multiplicative`). Use `multiplicative` if seasonal effects grow with trend |
+| | `Seasonality mode` | How seasonal patterns work (`additive` or `multiplicative`). `Additive` applies fixed seasonal adjustments (e.g., +10 units in summer). `Multiplicative` applies percentage-based adjustments (e.g., +20% in summer) |
 | | `Daily seasonality` | Look for daily patterns. Enable for daily cycles (energy, temperature) |
 | | `Weekly seasonality` | Look for weekly patterns. Enable for weekday/weekend differences |
 | | `Yearly seasonality` | Look for yearly patterns. Enable for seasonal data (needs 1+ year history) |
