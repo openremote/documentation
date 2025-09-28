@@ -7,8 +7,8 @@ sidebar_position: 8
 There is an MQTT Agent (Client) in OpenRemote that you can use to connect to an external MQTT Broker. First use the MQTT
 Agent to establish the connection to the broker. Then create an asset with attribute(s) of the Value Type that matches
 the incoming/outgoing data, and give those attributes the configuration item 'Agent Link'. In this agent link select
-your MQTT Agent and add the parameter Publish Topic or Subscription Topic. We have no extensive documentation yet, 
-and recommend to [check our forum](https://forum.openremote.io/t/mqtt-agents-publish-subscription/985). 
+your MQTT Agent and add the parameter Publish Topic or Subscription Topic. We have no extensive documentation yet,
+and recommend to [check our forum](https://forum.openremote.io/t/mqtt-agents-publish-subscription/985).
 
 OpenRemote also has an [MQTT Broker](../manager-apis.md#mqtt-api-mqtt-broker) (or MQTT API).
 
