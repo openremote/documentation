@@ -34,8 +34,6 @@ The password of everything keystore-related is `OR_KEYSTORE_PASSWORD`, for when 
 
 Make sure that OpenRemote has been started at least once before proceeding, so that the required keystore files are created automatically. If you have a pre-existing keystore file, make sure to provide the file's location using `OR_SSL_CLIENT_KEYSTORE_FILE`, `OR_SSL_CLIENT_TRUSTSTORE_FILE`, and `OR_SSL_CLIENT_KEYSTORE_PASSWORD` or `OR_SSL_CLIENT_TRUSTSTORE_PASSWORD` for their passwords.
 
-
-
 After doing so, we need to:
 - Combine the certificate and Private Key into a PKCS#12 keypair file, so that it can be easily imported into the KeyStore:
 ```bash 
