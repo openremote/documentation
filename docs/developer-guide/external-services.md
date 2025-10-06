@@ -111,10 +111,9 @@ Your service can interact with OpenRemote's APIs to read and write data:
 - **Write data**: Update attribute values, create assets
 - **Listen for events**: Subscribe to asset/attribute changes via WebSocket or MQTT
 
-Refer to the [OpenRemote API documentation](https://docs.openremote.io/developer-guide/api/) for available endpoints.
+Refer to the [OpenRemote API documentation](https://docs.openremote.io/docs/category/rest-api) for available endpoints.
 
 ### Security Considerations
-
 When developing your external service, follow these security best practices:
 
 - **Authentication**: Integrate with Keycloak (OpenRemote's identity provider) to ensure only authorized users can access your service UI
@@ -153,7 +152,7 @@ OpenRemote responds with the same `ExternalService` object, but with an addition
 | `/services/global`      | POST   | Global    | Register a global external service (master realm only) |
 | `/services/heartbeat`   | POST   | Both      | Send periodic heartbeat with `instanceId`              |
 
-➡ The exact API endpoint and request format can be found in the [OpenRemote API documentation](https://docs.openremote.io/developer-guide/api/).
+The exact API endpoint and request format can be found in the [OpenRemote API documentation](https://docs.openremote.io/docs/category/rest-api).
 
 ### Heartbeat Format
 
@@ -184,7 +183,7 @@ sequenceDiagram
         OR-->>Service: ExternalService object with instanceId
     end
 
-    loop Every < 60s
+    loop Every 30-50s (60s TTL)
         Service->>OR: POST /services/heartbeat (serviceId, instanceId)
         OR-->>Service: 204 No Content
     end
