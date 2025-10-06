@@ -42,43 +42,96 @@ Both global and regular services must be registered by **Service Users**. Global
 
 ## Development
 
-### Service Web Interface Requirements
+Creating an external service involves building a standalone application that integrates with OpenRemote. Below is a step-by-step guide to developing your own service.
 
-Registered external services must expose a web interface via a URL. OpenRemote embeds this interface in the Manager Web UI using an **iframe**.
+### Step 1: Build Your Application
+
+External services can be built using **any programming language or framework** (Python, Node.js, Java, Go, etc.). Your application should:
+
+- Provide the core functionality you want to extend OpenRemote with (e.g., ML forecasting, data analysis, device management)
+- Expose a web server with both:
+  - A **web interface** (HTML/CSS/JavaScript) that users will interact with
+  - **API endpoints** for communication with OpenRemote
+- Be packaged as a Docker container for easy deployment
+
+**Technology choices:**
+- **Backend**: Use any language/framework (FastAPI, Express, Spring Boot, etc.)
+- **Frontend**: Use any web framework (React, Vue, Svelte, vanilla JavaScript, etc.)
+- **Optional**: Use OpenRemote's [web components](https://www.npmjs.com/~openremotedeveloper) (buttons, panels, forms, tables) for a consistent UI that matches the Manager
+
+### Step 2: Make Your Web Interface Iframe-Compatible
+
+Since your service's web interface will be embedded in the OpenRemote Manager using an **iframe**, ensure it meets these requirements:
 
 **Technical Requirements:**
-- **Same origin and protocol**: The service must use the same domain and protocol (HTTP or HTTPS) as the OpenRemote Manager (no mixed content)
-- **Headers**: Do not block embedding. Avoid `X-Frame-Options: DENY` or restrictive `Content-Security-Policy`
+- **Same origin and protocol**: Use the same domain and protocol (HTTP/HTTPS) as the OpenRemote Manager (no mixed content)
+- **Headers**: Configure your web server to allow iframe embedding:
+  - Avoid `X-Frame-Options: DENY` or overly restrictive `Content-Security-Policy`
   - Recommended: `Content-Security-Policy: frame-ancestors 'self' https://<manager-domain>`
-- **Responsive design**: The iframe may resize; ensure the UI adapts dynamically
-- **Navigation**: Avoid pop-ups or full-page redirects; keep interactions within the iframe
+- **Responsive design**: The iframe may resize; ensure your UI adapts dynamically
+- **Navigation**: Avoid pop-ups or full-page redirects; keep all interactions within the iframe
 
-### Building the Interface
+### Step 3: Implement Registration Logic
 
-Developers can use any web framework or technology stack. Optionally, OpenRemote provides a set of pre-made web components such as buttons, panels, forms, and tables that integrate seamlessly with the Manager UI for a consistent look and feel.
+Your service must register itself with OpenRemote on startup. This involves:
 
-These components are available on [npmjs](https://www.npmjs.com/~openremotedeveloper).
+1. **On application startup**, send a `POST` request to `/services` (realm-specific) or `/services/global` (global)
+2. Include service details in the request body (see Registration section below for format)
+3. **Store the `instanceId`** returned in the response—you'll need it for heartbeats
+4. Use your **Service User credentials** for authentication
+
+This logic should run during your application's initialization phase, typically in your main startup code or initialization function.
+
+### Step 4: Implement Heartbeat Mechanism
+
+Your service must continuously signal that it's alive and operational:
+
+1. **Implement a background task** (scheduled job, async loop, cron job, etc.) that runs periodically
+2. Send `POST /services/heartbeat` with your `serviceId` and `instanceId`
+3. Send heartbeats **every 30-50 seconds** (must be <60 seconds to avoid being marked unavailable)
+4. Handle failures gracefully—if a heartbeat fails, retry or re-register if needed
+
+Example pseudo-code structure:
+```python
+# On startup
+instance_id = register_service()
+
+# Background task
+while True:
+    send_heartbeat(instance_id)
+    sleep(30)  # seconds
+```
+
+### Step 5: Integrate with OpenRemote APIs
+
+Your service can interact with OpenRemote's APIs to read and write data:
+
+- **Authentication**: Use OAuth2 with your Service User credentials
+- **Read data**: Query assets, attributes, historical data
+- **Write data**: Update attribute values, create assets
+- **Listen for events**: Subscribe to asset/attribute changes via WebSocket or MQTT
+
+Refer to the [OpenRemote API documentation](https://docs.openremote.io/developer-guide/api/) for available endpoints.
 
 ### Security Considerations
 
-When developing and integrating an external service, consider the following:
+When developing your external service, follow these security best practices:
 
-- **Authentication**: OpenRemote uses Keycloak as an identity provider. External services should ensure that only authorized users can access them, either by integrating with Keycloak or implementing their own mechanism
+- **Authentication**: Integrate with Keycloak (OpenRemote's identity provider) to ensure only authorized users can access your service UI
+- **Authorization**: Validate that users have appropriate permissions before exposing sensitive functionality
 - **Protocol**: Always use **HTTPS** in production to protect data integrity and confidentiality
-- **Data validation**: Validate and sanitize all data received from OpenRemote or users to prevent vulnerabilities such as SQL injection or cross-site scripting (XSS)
+- **Secrets management**: Store Service User credentials and API keys securely using environment variables or secret management tools
 - **CORS**: If hosting on a different domain, configure Cross-Origin Resource Sharing (CORS) appropriately. Note that using a different domain may complicate Keycloak integration
 
 ---
 
 ## Registration
 
-### Registration Process
+### Request Format
 
-Registration is only required if the service provides a web interface and is expected to be embedded and used within the OpenRemote Manager UI. This process is always performed using a **Service User** account (see [Service Users](../architecture/security.md) for details).
+As described in Step 3 of the Development section, your service must send a registration request on startup. Below are the details of the API format.
 
-It involves sending a `POST` request to the OpenRemote API with details about the service.
-
-**Example request:**
+**Example registration request body:**
 
 ```json
 {
@@ -102,15 +155,21 @@ OpenRemote responds with the same `ExternalService` object, but with an addition
 
 ➡ The exact API endpoint and request format can be found in the [OpenRemote API documentation](https://docs.openremote.io/developer-guide/api/).
 
-### Heartbeat Mechanism
+### Heartbeat Format
 
-After registration, each service must send periodic heartbeat requests to confirm its availability.
+As described in Step 4 of the Development section, your service must send periodic heartbeat requests. Below are the technical details.
 
-- The request must include the `instanceId` received during registration
-- The default TTL (Time To Live) is **60 seconds**
-- If OpenRemote does not receive a heartbeat within this period, the service is marked as **unavailable**
+**Request details:**
+- **Endpoint**: `POST /services/heartbeat`
+- **Body**: Include `serviceId` and `instanceId` (received during registration)
+- **Frequency**: Every 30-50 seconds (TTL is 60 seconds)
+- **Response**: `204 No Content` on success
 
-The diagram below illustrates the registration and heartbeat process:
+If OpenRemote does not receive a heartbeat within the 60-second TTL, the service is marked as **unavailable** in the Manager UI.
+
+**Registration and Heartbeat Flow:**
+
+The diagram below illustrates the complete registration and heartbeat process:
 
 ```mermaid
 sequenceDiagram
@@ -118,10 +177,10 @@ sequenceDiagram
     participant OR as OpenRemote Manager API
 
     alt Regular Service
-        Service->>OR: POST /services (serviceId, name, url, metadata…)
+        Service->>OR: POST /services (serviceId, label, url, metadata…)
         OR-->>Service: ExternalService object with instanceId
     else Global Service
-        Service->>OR: POST /services/global (serviceId, name, url, metadata…)
+        Service->>OR: POST /services/global (serviceId, label, url, metadata…)
         OR-->>Service: ExternalService object with instanceId
     end
 
@@ -137,9 +196,9 @@ sequenceDiagram
 
 ### Docker Compose Setup
 
-External services can be deployed alongside the OpenRemote stack using Docker Compose. The easiest approach is to add your service to an existing Docker Compose profile or create a custom one.
+External services can be deployed alongside the OpenRemote stack using Docker Compose. The easiest approach is to add your service to an existing Docker Compose profile or create a custom one. For the instructions below, we will use the [ML Forecast Service](https://github.com/openremote/service-ml-forecast) as an example.
 
-**Example service configuration:**
+**Example service (service-ml-forecast) configuration:**
 
 ```yaml
 volumes:
@@ -153,22 +212,25 @@ services:
       ML_LOG_LEVEL: INFO
       ML_ENVIRONMENT: production
       ML_WEBSERVER_ORIGINS: '["https://${OR_HOSTNAME:-localhost}"]'
-      ML_SERVICE_HOSTNAME: https://${OR_HOSTNAME:-localhost}
-      ML_OR_URL: https://${OR_HOSTNAME:-localhost}
-      ML_OR_KEYCLOAK_URL: https://${OR_HOSTNAME:-localhost}/auth
-      ML_OR_SERVICE_USER: ${ML_OR_SERVICE_USER:-mlserviceuser}
-      ML_OR_SERVICE_USER_SECRET: ${ML_OR_SERVICE_USER_SECRET:-secret}
+      ML_OR_URL: https://${OR_HOSTNAME:-localhost} # OpenRemote Manager URL
+      ML_OR_KEYCLOAK_URL: https://${OR_HOSTNAME:-localhost}/auth # Keycloak Auth URL
+      ML_OR_SERVICE_USER: ${ML_OR_SERVICE_USER:-serviceuser} # Service User
+      ML_OR_SERVICE_USER_SECRET: ${ML_OR_SERVICE_USER_SECRET:-secret} # Service User Secret
+      ML_OR_SERVICE_URL: https://${OR_HOSTNAME:-localhost} # The homepageUrl of the service
     volumes:
       - service-ml-forecast-data:/app/deployment/data
 ```
+For more information on the service configuration, refer to the [ML Forecast Service](https://github.com/openremote/service-ml-forecast) repository.
+
+
 
 ### Service User Configuration
 
-Your external service will need a **service user account** in OpenRemote for API authentication. The service user credentials should be provided via environment variables and kept secure.
+Your external service will need a **service user account** in OpenRemote for API authentication. You can create the Service User via the OpenRemote Manager UI. The service user credentials should be provided via environment variables and kept secure.
 
 ### Reverse Proxy Configuration
 
-If you want to use OpenRemote's reverse proxy (HAProxy) to route traffic to your service:
+If you want to use OpenRemote's reverse proxy (HAProxy) to route traffic to your external service:
 
 **1. Enable Custom HAProxy Configuration**
 
@@ -213,19 +275,21 @@ External services can be used to extend OpenRemote in many ways:
 
 We provide the [ML Forecast Service](https://github.com/openremote/service-ml-forecast) which can serve as a reference implementation. This service connects to OpenRemote, retrieves historical data, and provides forecasting capabilities using machine learning/statistical models.
 
-It demonstrates how to:
+It demonstrates how to implement:
 
-- **Register** an external service
-- **Send and manage** heartbeats
-- **Interact** with OpenRemote's APIs (OAuth2 authentication, data retrieval, data writing)
-- **Integrate** securely with Keycloak for authentication
-- **Implement** a web interface (using OpenRemote's web components)
+- **Registration logic** at service startup
+- **Heartbeat mechanism** as a background task
+- **OAuth2 authentication** with OpenRemote's APIs for data retrieval and writing
+- **Keycloak integration** for user authentication
+- **Web interface** using OpenRemote's web components for a consistent UI
+
+Reviewing this implementation will give you a clear example of how to structure your own external service, including the complete registration and heartbeat implementation code.
 
 ---
 
 ## Summary
 
-By leveraging external services, developers can significantly extend and enhance the OpenRemote platform:
+By leveraging external services, developers can extend and enhance the OpenRemote platform in a flexible manner:
 
 - **Registration** connects services with a UI to the Manager, embedding their interface directly
 - **Global vs regular services** allow flexibility between multi-tenant and realm-specific use cases
