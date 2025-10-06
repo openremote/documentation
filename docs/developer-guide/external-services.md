@@ -25,14 +25,14 @@ External services can be built using any programming language or framework. They
 There are two types of external services in OpenRemote:
 
 **Global Services**
-- Registered using the `/services/global` endpoint
+- Registered using the `/service/global` endpoint
 - Must be registered via the **master realm**
 - Require a **Service User with Super User privileges** for registration
 - Once registered, they are available and listed on **all realms**
 - Typically designed with **multi-tenancy** in mind, but this is not strictly required
 
 **Regular Services**
-- Registered using the `/services` endpoint
+- Registered using the `/service` endpoint
 - Bound to a **specific realm** and only available within that realm (single-tenant)
 - Simpler to implement when multi-tenancy is not required
 
@@ -75,7 +75,7 @@ Since your service's web interface will be embedded in the OpenRemote Manager us
 
 Your service must register itself with OpenRemote on startup. This involves:
 
-1. **On application startup**, send a `POST` request to `/services` (realm-specific) or `/services/global` (global)
+1. **On application startup**, send a `POST` request to `/service` (realm-specific) or `/service/global` (global)
 2. Include service details in the request body (see Registration section below for format)
 3. **Store the `instanceId`** returned in the response—you'll need it for heartbeats
 4. Use your **Service User credentials** for authentication
@@ -87,7 +87,7 @@ This logic should run during your application's initialization phase, typically 
 Your service must continuously signal that it's alive and operational:
 
 1. **Implement a background task** (scheduled job, async loop, cron job, etc.) that runs periodically
-2. Send `POST /services/heartbeat` with your `serviceId` and `instanceId`
+2. Send `POST /service/{serviceId}/{instanceId}` with your `serviceId` and `instanceId` as path parameters
 3. Send heartbeats **every 30-50 seconds** (must be less than 60 seconds to avoid being marked unavailable)
 4. Handle failures gracefully—if a heartbeat fails, retry or re-register if needed
 
@@ -146,11 +146,11 @@ OpenRemote responds with the same `ExternalService` object, but with an addition
 
 ### API Endpoints
 
-| Endpoint                | Method | Scope     | Purpose                                                |
-|-------------------------|--------|-----------|--------------------------------------------------------|
-| `/services`             | POST   | Realm     | Register a realm-specific external service             |
-| `/services/global`      | POST   | Global    | Register a global external service (master realm only) |
-| `/services/heartbeat`   | POST   | Both      | Send periodic heartbeat with `instanceId`              |
+| Endpoint                                    | Method | Scope     | Purpose                                                |
+|---------------------------------------------|--------|-----------|--------------------------------------------------------|
+| `/service`                                  | POST   | Realm     | Register a realm-specific external service             |
+| `/service/global`                           | POST   | Global    | Register a global external service (master realm only) |
+| `/service/{serviceId}/{instanceId}`         | POST   | Both      | Send periodic heartbeat                                |
 
 The exact API endpoint and request format can be found in the [OpenRemote API documentation](https://docs.openremote.io/docs/category/rest-api).
 
@@ -159,8 +159,8 @@ The exact API endpoint and request format can be found in the [OpenRemote API do
 As described in Step 4 of the Development section, your service must send periodic heartbeat requests. Below are the technical details.
 
 **Request details:**
-- **Endpoint**: `POST /services/heartbeat`
-- **Body**: Include `serviceId` and `instanceId` (received during registration)
+- **Endpoint**: `POST /service/{serviceId}/{instanceId}`
+- **Path parameters**: `serviceId` and `instanceId` (received during registration)
 - **Frequency**: Every 30-50 seconds (TTL is 60 seconds)
 - **Response**: `204 No Content` on success
 
@@ -176,15 +176,15 @@ sequenceDiagram
     participant OR as OpenRemote Manager API
 
     alt Regular Service
-        Service->>OR: POST /services (serviceId, label, url, metadata…)
+        Service->>OR: POST /service (serviceId, label, url, metadata…)
         OR-->>Service: ExternalService object with instanceId
     else Global Service
-        Service->>OR: POST /services/global (serviceId, label, url, metadata…)
+        Service->>OR: POST /service/global (serviceId, label, url, metadata…)
         OR-->>Service: ExternalService object with instanceId
     end
 
     loop Every 30-50s (60s TTL)
-        Service->>OR: POST /services/heartbeat (serviceId, instanceId)
+        Service->>OR: POST /service/{serviceId}/{instanceId}
         OR-->>Service: 204 No Content
     end
 ```
