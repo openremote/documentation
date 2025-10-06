@@ -53,6 +53,8 @@ tags:
   description: Operations on realms
 - name: User
   description: Operations on users
+- name: Services
+  description: Registration and management of external services
 - name: Syslog
   description: Operations on syslog events
 - name: Status
@@ -1138,6 +1140,38 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AssetObject"
+  /asset/tree:
+    post:
+      tags:
+      - Asset
+      summary: "Retrieve part of the asset tree using a query, returns an optimized\
+        \ structure for tree display"
+      operationId: queryAssetTree
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AssetQuery"
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssetTree"
   /asset/query:
     post:
       tags:
@@ -4428,6 +4462,250 @@ paths:
           description: default response
           content:
             '*/*': {}
+  /service/{serviceId}/{instanceId}:
+    get:
+      tags:
+      - Services
+      summary: Retrieve a specific external service by its serviceId and instanceId
+      operationId: getService
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: serviceId
+        in: path
+        required: true
+        schema:
+          maxLength: 2147483647
+          minLength: 1
+          type: string
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: ExternalService retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalService"
+        "404":
+          description: ExternalService not found
+    put:
+      tags:
+      - Services
+      summary: Update the active registration lease for the specified external service
+      operationId: heartbeat
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: serviceId
+        in: path
+        required: true
+        schema:
+          maxLength: 2147483647
+          minLength: 1
+          type: string
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "204":
+          description: Heartbeat sent successfully
+        "404":
+          description: Service instance not found
+    delete:
+      tags:
+      - Services
+      summary: Deregister an external service
+      operationId: deregisterService
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: serviceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "204":
+          description: Service deregistered successfully
+        "404":
+          description: Service instance not found
+  /service/global:
+    get:
+      tags:
+      - Services
+      summary: List all registered external services that are globally accessible
+        within the OpenRemote manager
+      operationId: getGlobalServices
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        "200":
+          description: List of registered external services
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ExternalService"
+    post:
+      tags:
+      - Services
+      summary: Register a global external service with the OpenRemote manager
+      operationId: registerGlobalService
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalService"
+        required: true
+      responses:
+        "200":
+          description: Service registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalService"
+        "400":
+          description: Invalid external service object
+        "409":
+          description: ExternalService instance already registered
+  /service:
+    get:
+      tags:
+      - Services
+      summary: List all registered external services for the given realm within the
+        OpenRemote manager
+      operationId: getServices
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: List of registered external services
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ExternalService"
+    post:
+      tags:
+      - Services
+      summary: Register an external service with the OpenRemote manager
+      operationId: registerService
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalService"
+        required: true
+      responses:
+        "200":
+          description: Service registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalService"
+        "400":
+          description: Invalid external service object
+        "409":
+          description: ExternalService instance already registered
   /syslog/event:
     get:
       tags:
@@ -4627,6 +4905,9 @@ components:
             items:
               type: object
     AssetObject:
+      required:
+      - name
+      - realm
       type: object
       properties:
         id:
@@ -4688,6 +4969,8 @@ components:
       additionalProperties:
         $ref: "#/components/schemas/AttributeObject"
     AttributeObject:
+      required:
+      - name
       type: object
       properties:
         type:
@@ -4728,6 +5011,8 @@ components:
           max:
             type: number
     MetaItemObject:
+      required:
+      - name
       type: object
       properties:
         type:
@@ -5031,6 +5316,9 @@ components:
         binary:
           type: boolean
     AgentObjectObjectObject:
+      required:
+      - name
+      - realm
       type: object
       properties:
         id:
@@ -5416,6 +5704,29 @@ components:
           type: string
         userFullName:
           type: string
+    AssetTree:
+      type: object
+      properties:
+        assets:
+          type: array
+          items:
+            $ref: "#/components/schemas/AssetTreeAsset"
+        hasMore:
+          type: boolean
+    AssetTreeAsset:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        hasChildren:
+          type: boolean
+        createdOn:
+          type: string
+          format: date-time
     ArrayPredicate:
       type: object
       allOf:
@@ -5482,6 +5793,9 @@ components:
         orderBy:
           $ref: "#/components/schemas/OrderBy"
         limit:
+          type: integer
+          format: int32
+        offset:
           type: integer
           format: int32
     AttributePredicate:
@@ -5703,6 +6017,8 @@ components:
       discriminator:
         propertyName: predicateType
     AttributeRef:
+      required:
+      - name
       type: object
       properties:
         id:
@@ -5824,7 +6140,10 @@ components:
             type: object
     ConsoleRegistration:
       required:
+      - name
+      - platform
       - providers
+      - version
       type: object
       properties:
         id:
@@ -5850,6 +6169,8 @@ components:
             type: string
     Dashboard:
       required:
+      - displayName
+      - realm
       - template
       type: object
       properties:
@@ -5917,6 +6238,7 @@ components:
           type: boolean
     DashboardScreenPreset:
       required:
+      - displayName
       - scalingPreset
       type: object
       properties:
@@ -6569,6 +6891,8 @@ components:
             - read:rules
             - read:insights
             - read:alarms
+            - read:services
+            - write:services
             - write:user
             - write:admin
             - write:logs
@@ -7091,6 +7415,46 @@ components:
           type: string
         temporary:
           type: boolean
+    ExternalService:
+      required:
+      - homepageUrl
+      - label
+      - serviceId
+      - status
+      type: object
+      properties:
+        realm:
+          type: string
+          readOnly: true
+        isGlobal:
+          type: boolean
+          readOnly: true
+        serviceId:
+          maxLength: 255
+          minLength: 3
+          type: string
+        instanceId:
+          type: integer
+          format: int32
+        version:
+          maxLength: 255
+          minLength: 3
+          type: string
+        icon:
+          type: string
+        label:
+          maxLength: 255
+          minLength: 1
+          type: string
+        homepageUrl:
+          maxLength: 512
+          minLength: 3
+          type: string
+        status:
+          type: string
+          enum:
+          - AVAILABLE
+          - UNAVAILABLE
     SyslogConfig:
       required:
       - storedCategories
