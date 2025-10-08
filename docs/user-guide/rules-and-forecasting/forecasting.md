@@ -4,16 +4,16 @@ sidebar_position: 5
 
 # Forecasting
 
-OpenRemote includes a time series forecasting method for attributes, based on weighted exponential averaging, which is explained here.
+OpenRemote includes two types of time series forecasting methods for attributes, one quick and simple, based on weighted exponential averaging, the other using a machine learning based non-linear regression model.
 
 Additional energy domain specific forecasting for power generation of solar panels and wind turbines are explained in the [Tutorial: Create your Energy Management System](../domains/create-your-energy-management-system.md).
 
 ![Timeseries Forecasting](img/timeseries-forecasting.png)
 _Examples of time series forecasting which allows recognising patterns with a repetitive character, e.g per 24 hour or also per day of the week_
 
-## Time series forecasting
+## Time series with weighted exponential averaging
 
-In many cases you have data with a repeating daily or weekly pattern. Examples are the temperature in a room (similar every day at the same time) or number of occupied office parking places (similar every weekday at the same time). For those types of time series data, you can apply  forecasting for attributes. 
+In many cases you have data with a straightforward repeating daily or weekly pattern. Examples are the temperature in a room (similar every day at the same time) or number of occupied office parking places (similar every weekday at the same time). For those types of time series data, you can apply simple WEA based forecasting for attributes. 
 
 To add this forecast and store it, you can add the two configuration items 'Has predicted data points' and 'Forecast'. For the 'Forecast' you will need to add five parameters in a JSON format:
 - Type: the method applied, currently only weighted exponential averaging is available ("wea")
@@ -46,6 +46,10 @@ For "forecastPeriod" the representation for
 - H is the hour designator that follows the value for the number of hours.
 - M is the **minute** designator that follows the value for the number of minutes.
 - S is the second designator that follows the value for the number of seconds.
+
+## Time series with non-linear regeression model
+
+For more advanced time series forecasting where you expect a seasonal effect as well as (non) linear relations with other attributes. You can use the ML Forecasting service. An example is the amount of energy required for heating a building, as you would expect a dependancy on the outdor temperature and even the windspeed. For more information about this service, check the [ML Forecasting Service](../services/service-ml-forecast.md)
 
 ## See Also
 - [Tutorial: Create your Energy Management System](../domains/create-your-energy-management-system.md)
