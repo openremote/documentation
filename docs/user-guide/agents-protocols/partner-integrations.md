@@ -8,6 +8,15 @@ Below is a short list of companies who actively offer and maintain integrations 
 
 As we are 100% open source we invite other companies to develop an integration. To be listed we only expect maintenance of these integrations. You can always [contact us](https://openremote.io/contact/) to get going.
 
+## Seeed Studio 
+![SEEED-STUDIO](img/seeed-studio.jpg)
+
+[Seeed Studio](https://wiki.seeedstudio.com/openremote_r1x00/) offers a wide range of edge computing devices based on Raspberry Pi. Seeed Studio support the installation of OpenRemote on their edge computing devices.
+
+Documentation: 
+- [Seeed Studio Wiki - Deploying OpenRemote on reComputer R1x Manage IoT Devices at the Edge](https://wiki.seeedstudio.com/openremote_r1x00/))
+- [OpenRemote Documentation - Manager APIs - MQTT Broker](../manager-apis.md#mqtt-api-mqtt-broker)
+
 ## Teltonika Networks 
 ![TELTONIKA-NETWORKS](img/teltonika-networks.png)
 
