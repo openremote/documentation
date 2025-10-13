@@ -1,0 +1,33 @@
+---
+id: userquery
+title: "UserQuery"
+description: ""
+sidebar_label: "UserQuery"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"realmPredicate":{"name":"string"},"assets":["string"],"pathPredicate":{"path":["string"]},"ids":["string"],"select":{"basic":true},"usernames":[{"match":"EXACT","caseSensitive":true,"value":"string","negate":true}],"attributes":[{"negated":true,"name":{"match":"EXACT","caseSensitive":true,"value":"string","negate":true},"value":{"match":"EXACT","caseSensitive":true,"value":"string","negate":true}}],"clientRoles":[{"match":"EXACT","caseSensitive":true,"value":"string","negate":true}],"realmRoles":[{"match":"EXACT","caseSensitive":true,"value":"string","negate":true}],"serviceUsers":true,"limit":0,"offset":0,"orderBy":{"property":"CREATED_ON","descending":true}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"UserQuery"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"realmPredicate":{"type":"object","properties":{"name":{"type":"string"}},"title":"RealmPredicate"},"assets":{"type":"array","items":{"type":"string"}},"pathPredicate":{"type":"object","properties":{"path":{"type":"array","items":{"type":"string"}}},"title":"PathPredicate"},"ids":{"type":"array","items":{"type":"string"}},"select":{"type":"object","properties":{"basic":{"type":"boolean"}},"title":"Select"},"usernames":{"type":"array","items":{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"}},"attributes":{"type":"array","items":{"type":"object","properties":{"negated":{"type":"boolean"},"name":{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"},"value":{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"}},"title":"AttributeValuePredicate"}},"clientRoles":{"type":"array","items":{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"}},"realmRoles":{"type":"array","items":{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"}},"serviceUsers":{"type":"boolean"},"limit":{"type":"integer","format":"int32"},"offset":{"type":"integer","format":"int32"},"orderBy":{"type":"object","properties":{"property":{"type":"string","enum":["CREATED_ON","FIRST_NAME","LAST_NAME","USERNAME","EMAIL"]},"descending":{"type":"boolean"}},"title":"OrderBy"}},"title":"UserQuery"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

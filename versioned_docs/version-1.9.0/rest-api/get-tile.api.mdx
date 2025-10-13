@@ -1,0 +1,70 @@
+---
+id: get-tile
+title: "Retrieve the vector tile data for Mapbox GL"
+description: "Retrieve the vector tile data for Mapbox GL"
+sidebar_label: "Retrieve the vector tile data for Mapbox GL"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcFuGzkM/RWBpxaYjIzkNqcNiiIt0GCD1D0FPigztEeoJKoSx647mH9fUOPMxmkP28W2WF9sU+Ij9Ug+jsBml6F5gFsTYVMBRUyGLYX3HTSwQ15bh1BBNMl4ZExyeYRgPEID34g8VGADNBAN91BBwi+DTdhBw2nACnLbozfQjMDHKD42MO4wQQVbSt7wbLq6hGmqFuCW3ODDL4FOdPgPcTfiniOFjFk8Llcr+eowt8lGIRIa6HBrBsfq6SZU0FJgDCx3TYzOtoV0vQ9d7U18pK8Xe2yZ0gUL/834fVKZkw275zk9Hhlhkk/1IoF75GRxj4p7VDOwEmDVGTZqS0ndlqDq5gNU4JF7OpW/lJ57aEB7E7U46VHKPulxLtKkx0SHCSrImPZPDTIkBw30zDE3WnfoqaaIIaEnxtqSNtHqMaFxftJQwd4kax7dTGIxzzQW4qABbzJjktdtJFA7JMvHEklgbQfNw+b50Ueha0Z7urAwR2bg/lKYc3QoV1pnMfCbhB0GtsYVI9NnDJ/KO7R46JJW1nMqOiZiasnpGf+ipRCwZV3cSldtE+b+3wPkluL8gphoW9pg+SUlFkhK9lvpnDfUlTY5M/58bLkK1f/86aXBbdhSqZLlcvxnxHBfukvdmmB2mNT9249rdX33Hl6Ow7q3WdlcpqGjdvAYuBBWRkGsP0B7t17fLZC1UncOTUaVcZ6qhzOgzaul9anN563/ukTxlFDJI+qTGpi2qAF6Y10RmC39ceYHUwXOtigC0ixydn1z90Fd1SuoXszc4XCod2GoKe30yS1rs4vu4qpe1Rjqnr0TTJnZmRc5WIkpUmZvwrMwP6cgZ3Qvc8f4lXV0xgaJUbIdT+ryAN5Eabx52zSnxdIse6AR2d5U0FNmuT6Ojybjp+SmScxfBkwiB5u/laSIQ2ez/O6g2RqX8bvMFhmGV/enLfBaSR4/yvhkNOFYBMsN8g8q+IzHp10oe+Y3xjzR85ujSimmzVRBj6bDVIieT67bFiM/8/kHu01Ue9k4N2/XME1/Aduv9v4=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the vector tile data for Mapbox GL"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/map/tile/{zoom}/{column}/{row}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the vector tile data for Mapbox GL
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"zoom","in":"path","required":true,"schema":{"type":"integer","format":"int32"}},{"name":"column","in":"path","required":true,"schema":{"type":"integer","format":"int32"}},{"name":"row","in":"path","required":true,"schema":{"type":"integer","format":"int32"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/vnd.mapbox-vector-tile":{"schema":{"type":"string","format":"byte"}}}}}}
+>
+  
+</StatusCodes>
+
+
