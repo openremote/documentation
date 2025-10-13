@@ -270,6 +270,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "rest-api/query-asset-tree",
+          label: "Retrieve part of the asset tree using a query, returns an optimized structure for tree display",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "rest-api/query-assets",
           label: "Retrieve assets using a query",
           className: "api-method post",
@@ -986,6 +992,58 @@ const sidebar: SidebarsConfig = {
     },
     {
       type: "category",
+      label: "Services",
+      link: {
+        type: "doc",
+        id: "rest-api/services",
+      },
+      items: [
+        {
+          type: "doc",
+          id: "rest-api/get-service",
+          label: "Retrieve a specific external service by its serviceId and instanceId",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "rest-api/heartbeat",
+          label: "Update the active registration lease for the specified external service",
+          className: "api-method put",
+        },
+        {
+          type: "doc",
+          id: "rest-api/deregister-service",
+          label: "Deregister an external service",
+          className: "api-method delete",
+        },
+        {
+          type: "doc",
+          id: "rest-api/get-global-services",
+          label: "List all registered external services that are globally accessible within the OpenRemote manager",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "rest-api/register-global-service",
+          label: "Register a global external service with the OpenRemote manager",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
+          id: "rest-api/get-services",
+          label: "List all registered external services for the given realm within the OpenRemote manager",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "rest-api/register-service",
+          label: "Register an external service with the OpenRemote manager",
+          className: "api-method post",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Syslog",
       link: {
         type: "doc",
@@ -1270,6 +1328,18 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "rest-api/schemas/userassetlink",
           label: "UserAssetLink",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/assettree",
+          label: "AssetTree",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/assettreeasset",
+          label: "AssetTreeAsset",
           className: "schema",
         },
         {
@@ -1780,6 +1850,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "rest-api/schemas/credential",
           label: "Credential",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/externalservice",
+          label: "ExternalService",
           className: "schema",
         },
         {

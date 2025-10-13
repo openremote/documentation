@@ -1,0 +1,70 @@
+---
+id: heartbeat
+title: "Update the active registration lease for the specified external service"
+description: "Update the active registration lease for the specified external service"
+sidebar_label: "Update the active registration lease for the specified external service"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVm1v2zYQ/ivEfWoBRUoTYx30aUWxLQE6zEgcYIDhDwx1kohSJEue4niG/ntxlOTYWTYs3TDsk+XT3XMvz71oDySbCOUabjE8aIURNhk4j0GSdva6ghJalIHuURJk4GWQHRIGttmDlR1CCR96al3QvycbyEDb0azCABlE1WInodwD7TyrRwraNjAM2QHht7OfXNjKUGF1tgyO3D9GuXKRvgkkjoW4rmZrL6mFDAJ+6XXACkoKPR5jdfLxE9qGWigv3i3eL76//G7xPoNO21n8LvsLh9pGkvZVHicwbQmblFjtQidpFF1ewDBs2Dx6ZyNGtrg4X/BPhVEF7RNPJVzNzIqIlkTslcIY696YHQwZLF6ymfpEzFEL60jUrrcVJ/VM+c5XklBQi0Iq0g8oAjY60thdwqCMKGoXkkb0qHStsRL4SBisNGLiAjLokFrH3ej7sQ+5rFBMCsX+wNpQ7J8KOjDnGB7mfu2D4XYg8rEsigo7lzuPNmDnCHPtCul1sQ8oTTcUkMGDDFrem7GESTwWpJa94Wp3MhIGGFK9I6o+aNolTwyrKyjXm+NXt8zgiDYrHMh0sqf2grk0bptUlNFo6WPACi1paZKQ3Ge0dymPgi2KFFYsxlAKz8OjnClG/DPlrEVFRTJLPVUHjO23A0Tl/JiBD67WhkOfn7gB5PEu+OgqZNUT4et9sypk//PUB85e29olljSl1796tDepu8Qv0soGg7j58XYlPiyv4fmwrFodhY5pFiqn+g4tjXMyT8gLaFer1fIAmQuxHGcq4jh16xOgzZtD6zsVT1v/bfLSucCjXbscMlDOklTE+WAntUnrpXY/nNjxojBaoY2J6fki/Lz8JC7zc8iezdx2u80b2+cuNMVkFgvZeHN2mZ/naPOWOsOYPLNjXfjFOYu8i9RJe+Tm39svJ1QcZpLwkQpvpLbsP2Wyn3bPGp6My+ObUR7t800GLd+hcg37/b2MeBfMMLD4S4+BN8XmacmkvVHpyM8VlLU0Ef8QGHOClnfPm5vpPLwVkL0c8CSUdpd2men5H2TwGXcnh46P0X/o+KhAw2bI5vP8uvT/zPXo4qXviUMcr0v37zuaPjme/GyO7tbybgXD8BU30UTE
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update the active registration lease for the specified external service"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/service/{serviceId}/{instanceId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update the active registration lease for the specified external service
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"serviceId","in":"path","required":true,"schema":{"maxLength":2147483647,"minLength":1,"type":"string"}},{"name":"instanceId","in":"path","required":true,"schema":{"type":"integer","format":"int32"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"204":{"description":"Heartbeat sent successfully"},"404":{"description":"Service instance not found"}}}
+>
+  
+</StatusCodes>
+
+
