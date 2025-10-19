@@ -4,9 +4,9 @@ sidebar_position: 17
 
 # OpenWeatherMap
 
-This agent enables integration with [OpenWeatherMap](https://openweathermap.org/), providing access to current and forecasted weather data via the [One Call 3.0 API](https://openweathermap.org/api/one-call-3#current).
+This agent enables integration with [OpenWeatherMap](https://openweathermap.org/), providing access to weather data via the [One Call 3.0 API](https://openweathermap.org/api/one-call-3#current).
 
-- Periodically retrieves weather data from OpenWeatherMap  
+- Periodically retrieves **current**, **hourly**, and **daily** forecast data from OpenWeatherMap  
 - Updates the current and predicted values of linked attributes  
 - Supports both current conditions and forecasted hourly and daily data  
 - Can optionally provision a complete **Weather Asset** with preconfigured attributes and links  
