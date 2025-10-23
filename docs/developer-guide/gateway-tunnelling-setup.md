@@ -39,3 +39,157 @@ This guide describes the steps necessary to setup the gateway tunnelling functio
 * Set TCP port range in sish service (to allow raw TCP tunnelling)
 * Allow inbound access to port `2222` and to the TCP port range exposed on the instance
 * Generate or select existing SSH private key and add this to the deployment image and set SISH variable: `--private-keys-directory`
+
+# Gateway Tunnelling Development Setup
+
+To run the manager locally as an edge gateway, to test the gateway tunnelling functionality, two different docker compose profiles need to be running:
+* The central instance profile (e.g. `docker-compose.central.yml`) needs to be running to provide the sish server functionality, with the correctly configured environment variables
+* The proxy development profile needs to be running to provide the correctly setup proxying functionality, with the correctly configured environment variables
+
+You need to setup the SSH keys as described in the "Edge Instance Setup" section above.
+
+For the **central instance** profile:
+
+Run the main `docker-compose.yml` file with `OR_HOSTNAME=localhost`, and add the following:
+* In the proxy service:
+  * SISH_PORT: 8090
+  * SISH_HOST: sish
+* In the manager service:
+  * Remove the manager port exports for metrics etc., and add ``8008:8008`` to allow attaching the debugger from the IDE
+  * Optionally, set the manager to be built from context ``./manager/build/install/manager``, so that code changes are reflected during Docker image rebuild (after running `./gradlew clean installDist`)
+  * Add `OR_JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8008"` to allow remote debugging from the IDE
+  * `OR_METRICS_ENABLED: false`
+  * `OR_GATEWAY_TUNNEL_SSH_HOSTNAME: "localhost"`
+  * `OR_GATEWAY_TUNNEL_SSH_PORT: 2222`
+  * `OR_GATEWAY_TUNNEL_TCP_START: 9000`
+  * `OR_GATEWAY_TUNNEL_HOSTNAME: "localhost"`
+  * `OR_GATEWAY_TUNNEL_AUTO_CLOSE_MINUTES: 2`
+* Add the ``sish`` service, as found in `deploy.yml`, and modify:
+  * Add volume ``./deployment:/deployment`` so that you can map the SSH keys as instructed above
+
+For the **proxy development profile**:
+
+* Modify the proxy service:
+  * Instead of extending from `deploy.yml`, instead use the default proxy image:
+    * `image: openremote/proxy:latest`
+  * Set the ports of the proxy service, so that they dont clash with the central instance's proxy ports:
+  * `- "444:443"`
+  * `- "808:80"`
+  * Set the sish environment variables:
+    * `SISH_HOST: sish`
+    * `SISH_PORT: 8090`
+
+The above setup should make the **`org.openremote.test.gateway.GatewayTest#Gateway Tunneling Edge Gateway Integration test`** pass when run from the IDE or via Gradle.
+
+
+Here's a Git diff you can apply to your local `docker-compose.central.yml` and `docker-compose.proxy.dev.yml` files to get the above setup:
+
+
+<details>
+  <summary>Click to see the patch</summary>
+
+```diff
+Index: profile/dev-proxy.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/profile/dev-proxy.yml b/profile/dev-proxy.yml
+--- a/profile/dev-proxy.yml	(revision 2b8c46b824dd3a48657fd71defd6699dac65b98e)
++++ b/profile/dev-proxy.yml	(date 1760799651300)
+@@ -16,9 +16,16 @@
+ services:
+ 
+   proxy:
+-    extends:
+-      file: deploy.yml
+-      service: proxy
++#    extends:
++#      file: deploy.yml
++#      service: proxy
++    image: openremote/proxy:latest
++    depends_on:
++      keycloak:
++        condition: service_healthy
++    ports:
++      - "444:443"
++      - "808:80"
+     environment:
+       MANAGER_HOST: 'host.docker.internal'
+       # Uncomment to use sish in development
+Index: docker-compose.yml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/docker-compose.yml b/docker-compose.yml
+--- a/docker-compose.yml	(revision 2b8c46b824dd3a48657fd71defd6699dac65b98e)
++++ b/docker-compose.yml	(date 1760798570417)
+@@ -33,7 +33,8 @@
+       DOMAINNAMES: ${OR_ADDITIONAL_HOSTNAMES:-}
+       # USE A CUSTOM PROXY CONFIG - COPY FROM https://raw.githubusercontent.com/openremote/proxy/main/haproxy.cfg
+       #HAPROXY_CONFIG: '/data/proxy/haproxy.cfg'
+-
++      SISH_PORT: 8090
++      SISH_HOST: sish
+   postgresql:
+     restart: always
+     image: openremote/postgresql:${POSTGRESQL_VERSION:-latest}
+@@ -57,16 +58,19 @@
+ 
+ 
+   manager:
+-#    privileged: true
++    #    privileged: true
+     restart: always
+     image: openremote/manager:${MANAGER_VERSION:-latest}
++#    build:
++#      context: ./manager/build/install/manager
+     depends_on:
+       keycloak:
+         condition: service_healthy
+     ports:
+-      - "127.0.0.1:8405:8405" # Localhost metrics access
+-      - "${PRIVATE_IP:-127.0.0.1}:8405:8405" # Allows to also expose metrics on a given IP address,
++#      - "127.0.0.1:8405:8405" # Localhost metrics access
++#      - "${PRIVATE_IP:-127.0.0.1}:8405:8405" # Allows to also expose metrics on a given IP address,
+                                              # intended to be IP of the interface of the private subnet of the EC2 VM
++      - "8008:8008"
+     environment:
+       OR_SETUP_TYPE:
+       OR_ADMIN_PASSWORD:
+@@ -77,11 +81,19 @@
+       OR_EMAIL_X_HEADERS:
+       OR_EMAIL_FROM:
+       OR_EMAIL_ADMIN:
+-      OR_METRICS_ENABLED: ${OR_METRICS_ENABLED:-true}
++      OR_METRICS_ENABLED: ${OR_METRICS_ENABLED:-false}
+       OR_HOSTNAME: ${OR_HOSTNAME:-localhost}
+       OR_ADDITIONAL_HOSTNAMES:
+       OR_SSL_PORT: ${OR_SSL_PORT:--1}
+       OR_DEV_MODE: ${OR_DEV_MODE:-false}
++      OR_JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8008"
++
++
++      OR_GATEWAY_TUNNEL_SSH_HOSTNAME: "localhost"
++      OR_GATEWAY_TUNNEL_SSH_PORT: 2222
++      OR_GATEWAY_TUNNEL_TCP_START: 9000
++      OR_GATEWAY_TUNNEL_HOSTNAME: "localhost"
++      OR_GATEWAY_TUNNEL_AUTO_CLOSE_MINUTES: 2
+ 
+       # The following variables will configure the demo
+       OR_FORECAST_SOLAR_API_KEY:
+@@ -90,3 +102,10 @@
+       OR_SETUP_IMPORT_DEMO_AGENT_VELBUS:
+     volumes:
+       - manager-data:/storage
++
++  sish:
++    extends:
++      file: profile/deploy.yml
++      service: sish
++    volumes:
++      - ./deployment:/deployment
+```
+
+</details>
