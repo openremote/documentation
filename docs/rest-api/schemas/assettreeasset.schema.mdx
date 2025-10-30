@@ -6,7 +6,7 @@ sidebar_label: "AssetTreeAsset"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"id":"string","name":"string","type":"string","hasChildren":true,"createdOn":"2024-07-29T15:51:28.071Z"}
+sample: {"id":"string","name":"string","type":"string","parentId":"string","path":["string"],"hasChildren":true,"createdOn":"2024-07-29T15:51:28.071Z"}
 custom_edit_url: null
 ---
 
@@ -25,7 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string"},"hasChildren":{"type":"boolean"},"createdOn":{"type":"string","format":"date-time"}},"title":"AssetTreeAsset"}}
+  schema={{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string"},"parentId":{"type":"string"},"path":{"type":"array","items":{"type":"string"}},"hasChildren":{"type":"boolean"},"createdOn":{"type":"string","format":"date-time"}},"title":"AssetTreeAsset"}}
   schemaType={"response"}
 >
   
