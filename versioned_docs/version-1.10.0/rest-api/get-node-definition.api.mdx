@@ -1,0 +1,70 @@
+---
+id: get-node-definition
+title: "Retrieve a node definition by name"
+description: "Retrieve a node definition by name"
+sidebar_label: "Retrieve a node definition by name"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV01v2kwQ/ivWnFrJwVFy86mEuAkqAWSMmgqhaLEHvI296+6uQyjyf381a0MgISVpVamH92Rrdr72mc9dg2ELDf4EPmdyCVMXZIGKGS5FNwEfFmj6MsFLnHPBiQouFEyxHA0qkluDYDmCD+3SpFLxn6zh4gJ8SJElqMAFHaeYM/DXYFYFsWujuFhAVblbDbcnn6VaMpVgcjJU0sg/1nIttfktJfbTCBbMpOCCwh8lV5iAb1SJv1IzJWZdSKFR0/nZ6Sl9EtSx4oWFx4cE56zMjLPhBBdiKQwKQ7ysKDIeWyi975oE1i8Nytl3jOl+haKgGV6b48kBp9yG8PzABRRlTvHv9ofjCFwYhoNOMBoNQnBhMI5qYnQd9GFakSkuFTerHU1cGFxYZOdS5czUpPMzMlrDecCbQuo6nY5e53GHRZT5bN/SPJPMkMLVW9gIBm4y4qGsHm6cqFzQ/Cf+M84QpEqwTO/oYUqxFeWkwVwf9/R15Hl8j+q4gmP5EgW3lBk3417U7XX7AbjQH99cBJQ3l+FgeDn42qffwfiiF9ztUDrXQefLxeAWXGiPRkF0146isHsxjkhFZ9CzmXfZjgKbcNIWzN8A4oFl5YGQ78ZlUFdrtUsb1vj9QoELM4XsPjoCYD/4etcANxq2O0EI0+c50W3ywDrFRVGaPwDilb7wKj7HEmAb7frnrh2G7W90mSjs9q/AhYvBoBe0KeRR2L26sryb+Lb732x4Bd3ysGNcJPj4pj7zDLWRjO+xDqQszf+gvRe0hOsiY6tOyhSLzV6veBqVe8JUIVZyb8SFaBTHB3SYQx47yXaJcGYrpxmxOZpUNpuG3S1MCj5480wuvTXxVDSyUT1s1o1SZTTNjSm073kJ5rIlCxQKc2mwxaXHCu6tFbIsrzygKlWczbI6nJZcD2M7fsGHnGm6Y2Xntsa4rMfbZE2bkKD4T6a7RyMaw7W2DcNTErHSpGcEdiaXliXOOArTUZigMHzT0eU9irG9h0cSnnVLe7UrXkG7Tywzr9Z/EkshMDaeFbObyFyhTn9fgY5lUd+gUHLObRg3fxRGtrvKdSi+tJLsEt9vm1jB/cevXtV9di5tlLZDAEVos8u5YYItUDlhMIqc9rALz1M+Srl2uHZMik4i4zJHYSxgzlwqSz2g7TqKhluVLccZZsg0OhrRSkz2FE0/bFNfxno/9T9aK7lU6NAlWs1OyWK7U2LOeGbrfy4/7clR48h4jLSG+k8L/dWw55y3TsF9VnPL5bK1EGVLqoXXiGmPLYrs5Lx12kLRSk2e2QGJSte40MFps/eZnIkdM2/qEnsob8vN4KPxioxxuzRZJ9dNB5nYEgQXfKth6kJKbwF/Auv1jGkcq6yqiPyjREXlPn3qFLb4E67pPwF/zjKNL1zYLuvwIWxeBh8dcA+7tpk9YgXbtQHAhXtcbR4bFTX25o3yPvuvGa2VH3pUbT2gF8/fMNS8u/bs1FztOMZi9+zFS4d67XYoXAURVNV/u3Lt4A==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve a node definition by name"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/flow/{name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve a node definition by name
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"name","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"string"},"type":{"type":"string","enum":["INPUT","PROCESSOR","OUTPUT","THEN"]},"priority":{"type":"integer","format":"int32"},"name":{"type":"string"},"position":{"type":"object","properties":{"x":{"type":"number","format":"float"},"y":{"type":"number","format":"float"}},"title":"NodePosition"},"size":{"type":"object","properties":{"x":{"type":"number","format":"float"},"y":{"type":"number","format":"float"}},"title":"NodePosition"},"internals":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"picker":{"type":"object","properties":{"type":{"type":"string","enum":["TEXT","MULTILINE","NUMBER","DROPDOWN","DOUBLE_DROPDOWN","CHECKBOX","ASSET_ATTRIBUTE","COLOR","DATE"]},"options":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"value":{"type":"object"}},"title":"Option"}}},"title":"Picker"},"value":{"type":"object"},"breakType":{"type":"string","enum":["NEW_LINE","SPACER"]}},"title":"NodeInternal"}},"inputs":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string","enum":["NUMBER","NUMBER_ARRAY","STRING","BOOLEAN","TRIGGER","COLOR","ANY"]},"nodeId":{"type":"string"},"index":{"type":"integer","format":"int32"}},"title":"NodeSocket"}},"outputs":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string","enum":["NUMBER","NUMBER_ARRAY","STRING","BOOLEAN","TRIGGER","COLOR","ANY"]},"nodeId":{"type":"string"},"index":{"type":"integer","format":"int32"}},"title":"NodeSocket"}},"displayCharacter":{"type":"string"}},"title":"Node"}}}}}}
+>
+  
+</StatusCodes>
+
+

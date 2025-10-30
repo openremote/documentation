@@ -1,0 +1,70 @@
+---
+id: delete-user
+title: "Delete a user from a realm"
+description: "Delete a user from a realm"
+sidebar_label: "Delete a user from a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUtP20AQ/iurORVk7AhuPhVBWpCoGkGQKkU5LPYkXrHeXXbHpKnl/17NOjEJpRVQqeopzjy+eX/bAsllgHwGtwE9zBOwDr0kZc1lCTmUqJEw6hJw0ssaCT07tGBkjZDDaUOV9epHdIIElIEcKpRl9AlFhbWEvAVaOzYP5JVZQtclA8K3o0/Wr6QvsTyaeEv2r1EubKB3gXiUut56OkkVJODxoVEeS8jJN/g6nCagvyzfDTRn4+CsCRhYfzwa8U+JofDKxUbzbBay0SS2lpBAYQ2hIbY9zA4hb7uu65JnfudxpkIKTlIsvK2FFNvCa6TKPk0+Tp0qyCFj66yNdl38E7K2L7Pj5qJ/3C5G4zX3nciFPMtKrG1qHRqPtSVMlc2kUwMSJPAovZJ3ui+1TyQWG8uDHGoZCD10sS8Bi8YrWsdIDKtKyGfzXdUN97VH2xoMLbayoeoYElhou4omhVZo6MxjiYaU1FFI9h7NbawjY48sphWyPpXM8ZYWVmc9/lFhjcGCsugWJ73wGKr3A4TCur4C5+1CaU59+8UTlbtHd2ZLZNM94dtjsykk/3npcZ+VWdg4JUVR/dWhuY7bJb5II5foxfX4ZipOJ5fwfPunlQpCBUEVitIWTY2GYsPEwvoofQHtYjqdDJCpEBONMqAIiNFjtgc0/zCsvi3C/uofxCi19Si4iHRzs7KIN4u1VNw2Vn3c84MuAa0K5DPPn6j38+RKnKQjSJ7d3Gq1SpemSa1fZhu3kMml00cn6ShFk1ZUa8bkm+37wooRi5wNVEuzE+aPhLHX3eHMCL9T5rRUhiFjcu2GSWaRHCGBfAsRyYQFG9acJ1AxgeczaNs7GfDW665j8UODni9//kQakQdKFfi7hHwhdcBfshp4ET5cb0j4QPCuv5TtRijNOnKTbvgfJHCP6+GFYKr/h0E3jenmXbJ9z95W9u/C9vAvPcBDDm8r9fWBNm/0Xpze6rQo0O3q+C1jgh8ep/Px1Xg6hq77Ca08AXI=
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a user from a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/user/{realm}/users/{userId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete a user from a realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}},{"name":"userId","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+
