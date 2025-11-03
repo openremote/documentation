@@ -150,7 +150,7 @@ OpenRemote responds with the same `ExternalService` object, but with an addition
 |---------------------------------------------|--------|-----------|--------------------------------------------------------|
 | `/service`                                  | POST   | Realm     | Register a realm-specific external service             |
 | `/service/global`                           | POST   | Global    | Register a global external service (master realm only) |
-| `/service/{serviceId}/{instanceId}`         | POST   | Both      | Send periodic heartbeat                                |
+| `/service/{serviceId}/{instanceId}`         | PUT    | Both      | Send periodic heartbeat                                |
 
 The exact API endpoint and request format can be found in the [OpenRemote API documentation](https://docs.openremote.io/docs/category/rest-api).
 
@@ -159,7 +159,7 @@ The exact API endpoint and request format can be found in the [OpenRemote API do
 As described in Step 4 of the Development section, your service must send periodic heartbeat requests. Below are the technical details.
 
 **Request details:**
-- **Endpoint**: `POST /service/{serviceId}/{instanceId}`
+- **Endpoint**: `PUT /service/{serviceId}/{instanceId}`
 - **Path parameters**: `serviceId` and `instanceId` (received during registration)
 - **Frequency**: Every 30-50 seconds (TTL is 60 seconds)
 - **Response**: `204 No Content` on success
