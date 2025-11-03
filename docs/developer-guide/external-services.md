@@ -87,7 +87,7 @@ This logic should run during your application's initialization phase, typically 
 Your service must continuously signal that it's alive and operational:
 
 1. **Implement a background task** (scheduled job, async loop, cron job, etc.) that runs periodically
-2. Send `POST /service/{serviceId}/{instanceId}` with your `serviceId` and `instanceId` as path parameters
+2. Send `PUT /service/{serviceId}/{instanceId}` with your `serviceId` and `instanceId` as path parameters
 3. Send heartbeats **every 30-50 seconds** (must be less than 60 seconds to avoid being marked unavailable)
 4. Handle failures gracefully—if a heartbeat fails, retry or re-register if needed
 
