@@ -151,6 +151,10 @@ _Figure 10. Groovy rules for more advanced processing, logic or automation_
 
 As an admin user of the system who can access all realms, you have the option to select 'Global' versus 'Realm' rules. Global rules allow you to use When-Then and Groovy rules that can access assets across realms. Realm users can only use Realm rules which are a part of their realm and can only access attributes within that realm.
 
+## Services
+
+Services are additional applications that work alongside OpenRemote to add extra features and tools to your system. You'll see them listed on the Services page, giving you access to additional functionality like for example advanced forecasting, device management tools, or custom integrations. Your administrator can add specific services to OpenRemote. OpenRemote also distributes generic services which are considered to have value to many users. The first service is the [ML forecasting service](../services/service-ml-forecast.md), which can be used for time series forecasting with an expected dependency on multiple other variables. An example is forecasting the published energy tariffs on the EPEX Spot market, for which you expect a dependancy on the amount of sun and wind. 
+
 ## Insights
 
 The Insights page (see figure 11) allows you to create multiple dashboards within the manager UI. You can:
