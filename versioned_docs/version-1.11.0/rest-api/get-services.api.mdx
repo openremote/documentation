@@ -1,0 +1,70 @@
+---
+id: get-services
+title: "List all registered external services for the given realm within the OpenRemote manager"
+description: "List all registered external services for the given realm within the OpenRemote manager"
+sidebar_label: "List all registered external services for the given realm within the OpenRemote manager"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVt9v2zYQ/leEe2oBxXId5EVP84osDeCtRpIOAww/nKWzxJYiVfJkxzP0vw9Hyb9iI0M6FJhfbJN33x3vvvvILTAWHtIZPJJbqYw8zGOwNTlkZc19DikUxPvNGGp0WBGTE68tGKwIUhg3XFqn/g5eEIMykEJJmJODGHxWUoWQboE3tZh7dsoU0LbxHuGvq9+sW6PLKb+aOsv2P6N8sp5/CMQR6mrn+b0ht4EYHH1vlKMcUnYNvQY0F2NfW+PJy/5oOJSvnHzmVB0KlMJEeY7sMnJUKM/kKI/omckZ1JE/VDuzhsmw+GNda5WFAidfvYBsz5NA51CyVUxVCH5IewalrajGgr44DTFoXJB899Huc/nNyE2gQI9nF18pkyrWTkjBinpUqdDZ2eXgmH82etNVqY1B+TttF6iPjBfWakJzyfqQS7qFCp8nZAouIR3d3MRQKbP7fx2/rLp0yzOanXO/rQxTERq/tK5C7pauR+KwIudVV8e3hso6t7ONrqavA364AHjcmVPvmw+jf02n79qFdpBpKun8+M/x/WT86+QWYvjyx+HfvG1jYMVavG57/vXDDm34xJeIi1q/ytxoaV3EJUWFWpGJAl2iteJSmbD8uSbzQJVliio02HWoIi5tLzhBaOS8kPSYPVN3utNIpaBkrn2aJDlVdmBrMi6ADpRNsFbJNgRuE4hhhU7hQr+gb05LbLSwokI5i5x5LoGyxinehEgCq2R+5sdbjzJ5HdrOYF9+iw2XI+GctutgkmlFhj86ysmwQt01y34jEzoOiXgkIS2fdKkktYhgZnXS4V9l1hjKOAluYXiWjnz54wA+s3V3gtrZpQoc2P2SvuOxpn+0OQUVOl58e2wxhfh/fvTAemWWNnSpn44jyv7eUTZ6uH18isbTe3g5I0+l8pHygeq5zZqKDIeC7efiAtqnp6fpHnIQRVNN6CnyRMFjdgI0f7envs38KfXfhyiVdRTJIQb9NYJZuEaoQqWDDC7tLyd+QcBURsaHTu9u9rvpJLoeDCF+MXPr9XpQmGZgXZH0bj7BotZX14PhgMyg5Eqf6CzIxlCWauu5QnMU5ufJyklr9jPK9MxJrVEZyafpdLeTnNnuGpJ7sJRHRDqD7XaBXvS5bWW5exWIPOTKi67kkC5RezqLt7/B4d1Dfxe/jyC+nMc32hy9P1aoG7EBEZ6dgAUhincPmrdl8HrYSy+wQwrxzwnUP9JO4nRW4yyj+njv7AEkZdlfGne3T9C2/wDpmbyf
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List all registered external services for the given realm within the OpenRemote manager"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/service"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+List all registered external services for the given realm within the OpenRemote manager
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"query","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"List of registered external services","content":{"application/json":{"schema":{"type":"array","items":{"required":["homepageUrl","label","serviceId","status"],"type":"object","properties":{"realm":{"type":"string","readOnly":true},"isGlobal":{"type":"boolean","readOnly":true},"serviceId":{"maxLength":255,"minLength":3,"type":"string"},"instanceId":{"type":"integer","format":"int32"},"version":{"maxLength":255,"minLength":3,"type":"string"},"icon":{"type":"string"},"label":{"maxLength":255,"minLength":1,"type":"string"},"homepageUrl":{"maxLength":512,"minLength":3,"type":"string"},"status":{"type":"string","enum":["AVAILABLE","UNAVAILABLE"]}},"title":"ExternalService"}}}}}}}
+>
+  
+</StatusCodes>
+
+
