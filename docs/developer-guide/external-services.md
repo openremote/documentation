@@ -225,7 +225,7 @@ For more information on the service configuration, refer to the [ML Forecast Ser
 
 ### Service User Configuration
 
-Your external service will need a **service user account** in OpenRemote for API authentication. You can create the Service User via the OpenRemote Manager UI. The service user credentials should be provided via environment variables and kept secure.
+Your external service will need a **service user account** in OpenRemote for API authentication. You can create the Service User via the OpenRemote Manager UI. The service user credentials should be provided via environment variables and kept secure. For the service being able to register to OpenRemote, the role **write:services** is required.
 
 ### Reverse Proxy Configuration
 
