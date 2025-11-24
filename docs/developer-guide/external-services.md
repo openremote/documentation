@@ -87,7 +87,7 @@ This logic should run during your application's initialization phase, typically 
 Your service must continuously signal that it's alive and operational:
 
 1. **Implement a background task** (scheduled job, async loop, cron job, etc.) that runs periodically
-2. Send `POST /service/{serviceId}/{instanceId}` with your `serviceId` and `instanceId` as path parameters
+2. Send `PUT /service/{serviceId}/{instanceId}` with your `serviceId` and `instanceId` as path parameters
 3. Send heartbeats **every 30-50 seconds** (must be less than 60 seconds to avoid being marked unavailable)
 4. Handle failures gracefully—if a heartbeat fails, retry or re-register if needed
 
@@ -150,7 +150,7 @@ OpenRemote responds with the same `ExternalService` object, but with an addition
 |---------------------------------------------|--------|-----------|--------------------------------------------------------|
 | `/service`                                  | POST   | Realm     | Register a realm-specific external service             |
 | `/service/global`                           | POST   | Global    | Register a global external service (master realm only) |
-| `/service/{serviceId}/{instanceId}`         | POST   | Both      | Send periodic heartbeat                                |
+| `/service/{serviceId}/{instanceId}`         | PUT    | Both      | Send periodic heartbeat                                |
 
 The exact API endpoint and request format can be found in the [OpenRemote API documentation](https://docs.openremote.io/docs/category/rest-api).
 
@@ -159,7 +159,7 @@ The exact API endpoint and request format can be found in the [OpenRemote API do
 As described in Step 4 of the Development section, your service must send periodic heartbeat requests. Below are the technical details.
 
 **Request details:**
-- **Endpoint**: `POST /service/{serviceId}/{instanceId}`
+- **Endpoint**: `PUT /service/{serviceId}/{instanceId}`
 - **Path parameters**: `serviceId` and `instanceId` (received during registration)
 - **Frequency**: Every 30-50 seconds (TTL is 60 seconds)
 - **Response**: `204 No Content` on success
@@ -225,7 +225,7 @@ For more information on the service configuration, refer to the [ML Forecast Ser
 
 ### Service User Configuration
 
-Your external service will need a **service user account** in OpenRemote for API authentication. You can create the Service User via the OpenRemote Manager UI. The service user credentials should be provided via environment variables and kept secure.
+Your external service will need a **service user account** in OpenRemote for API authentication. You can create the Service User via the OpenRemote Manager UI. The service user credentials should be provided via environment variables and kept secure. For the service being able to register to OpenRemote, the role **write:services** is required.
 
 ### Reverse Proxy Configuration
 

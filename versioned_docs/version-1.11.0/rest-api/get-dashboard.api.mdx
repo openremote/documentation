@@ -1,0 +1,70 @@
+---
+id: get-dashboard
+title: "Retrieve a dashboard"
+description: "Retrieve a dashboard"
+sidebar_label: "Retrieve a dashboard"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNV19v2zYQ/yrCPbWAYmXpugc9zXWcRKgTu4rdbAiMgBHPMhuKVEkqjmv4uw+kZFlO1Cz2hmFPlnl3v/vL490KDEk1hLdwSvT8XhJFYeqDzFERw6SIKISQotlSfciJIhkaVFZuBYJkCCF0CzOXiv1wYuADExDCHAlFBT7oZI4ZgXAFZplbdm0UEyms136N8MfRmVQLoijSo5GSRv5jlAupzUEgCgnPNpI5MXPwQeH3gimkEBpV4Ntw6CZsET0YbWqZdS6FRm3pJ8fH9oeiThTLXbRDoDgjBTfehhN8SKQwKIzlJXnOWeIyE3zTVmDVULg15RYo0zknyytrvl+HwWCWc2LQlkZlnrz/hokNbq5ssRhWGsdoiws+JAqJQToUL6k+zKTKiHHRMnhkWIZWpNQdriAjTwMUqZlDePLxow8ZE5v/v/gvVT2i0kw2FTFhMHWprzUxYX771XLLhUAVtRtNkgS1brMYRZHZaI0mnwZRD3y4vujG/VPwYRRHX7vjPkzX/k4srR+v213H+FlGdKIQxUihRqMPT4DkRSZ0ZQfLrP1bK9oj9OHESmbk6dqZcMOotX1vAIUzhXoeCYPqkfDX4jk8OwMfhlf9u8voCnw4i75uPr9MuvG4H1fki+EkdjHejc4WmihFlvbKGcz060WuE8KZSEuMgwO8X7LvFZKHXLLyeu4Z0F2DXwnnTdwd3Y2Hd9fR1fmgf9cbDiaXNpaf+/3R3aD753AyBh/i/mkU93v289Ng2Pt8d9r/GvXKElZImcJk2/5br4qtXma4PaoZrxuJcRwLRtODc5QqRiODtheVOONljhH9t7L1gl7r2xL3U/D0t/2nzOXyjXyLA+rkkMuaMXHxRpMyJm7ezjpiT8j3gHb8b8UXMkbNfjRzeS8lRyJK6qV8/AmNy+QBaRutrajPN2WxflaHbSVQMvSkmLH0ZR214t84EVi3EsebB6KVaoUsYXcsiNEoho/oEY82JrgMzVxWk50b6GyfgqBmCVbu9V0Hq8YAs7a9EtXjZu4rFLdjlTG5DoOAYiY7MkehMJMGO0wGJGc1EPjwSBQj9xyrq1697tXgAiFkRBtU1o+pVZQUipml02Rh7T27nTZJ13aAKdE2DNsgk8LMT2ytcLlwLAlnKExPIUVhGOFlI5IPKCbOj8BKBM4sHZSmBLkdQhPJgxL/KJFCYGICJwb1y3Y4gE5kXnqQKzljLqObL5tM0pype5K6It453F+3ZbUj3f/adVfKTMyky1JV68McReyqy7skgqSovLh/Pfa6owieF/54zrTHtGfm6FGZFBkK4wLmzaRypy1oF+PxqIbseN6II9HoaUQncbsDNH1Xl75M9G7pv3daMqnQs050qmmcJO65xoww7trXTP6+I+c6EkvQDvDhdrM6Hw28D51j8J/ducVi0UlF0ZEqDSoxHZA050cfOscdFJ25yfjOTAyWcGyPcqlNRkRDzU96xU5c6wtm8MkEOSfMdVFn1qrqI7fQFA83O0TY3IWmPsztbhbewmp1TzROFF+v7fH3ApW99dNtw3A9gDJtvymEM8I1vrCr3nbgXVyNEe898Nvt3QwgYun6Ei/sP/DhAZf18me3uP9QaTM6azt6Vfvqfr7/THepo23Brg3Zz9+3K6p28B09JVc3STBv0l6sqbbd12/VeX8M6/VfwHGs+Q==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve a dashboard"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/dashboard/{realm}/{dashboardId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve a dashboard
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}},{"name":"dashboardId","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"required":["displayName","realm","template"],"type":"object","properties":{"id":{"type":"string"},"createdOn":{"type":"string","format":"date-time"},"realm":{"maxLength":255,"minLength":1,"type":"string"},"version":{"type":"integer","format":"int64"},"ownerId":{"type":"string"},"access":{"type":"string","enum":["PUBLIC","SHARED","PRIVATE"]},"displayName":{"minLength":1,"type":"string"},"template":{"required":["screenPresets"],"type":"object","properties":{"id":{"type":"string"},"columns":{"minimum":1,"type":"integer","format":"int32"},"maxScreenWidth":{"minimum":1,"type":"integer","format":"int32"},"refreshInterval":{"type":"string","enum":["OFF","ONE_MIN","FIVE_MIN","QUARTER","ONE_HOUR"]},"screenPresets":{"type":"array","items":{"required":["displayName","scalingPreset"],"type":"object","properties":{"id":{"type":"string"},"displayName":{"minLength":1,"type":"string"},"breakpoint":{"minimum":1,"type":"integer","format":"int32"},"scalingPreset":{"type":"string","enum":["WRAP_TO_SINGLE_COLUMN","KEEP_LAYOUT","REDIRECT","BLOCK_DEVICE"]},"redirectDashboardId":{"type":"string"}},"title":"DashboardScreenPreset"}},"widgets":{"type":"array","items":{"required":["displayName","gridItem","widgetTypeId"],"type":"object","properties":{"id":{"type":"string"},"displayName":{"type":"string"},"gridItem":{"type":"object","properties":{"id":{"type":"string"},"x":{"type":"integer","format":"int32"},"y":{"type":"integer","format":"int32"},"w":{"minimum":1,"type":"integer","format":"int32"},"h":{"minimum":1,"type":"integer","format":"int32"},"minH":{"type":"integer","format":"int32"},"minW":{"type":"integer","format":"int32"},"minPixelH":{"type":"integer","format":"int32"},"minPixelW":{"type":"integer","format":"int32"},"noResize":{"type":"boolean"},"noMove":{"type":"boolean"},"locked":{"type":"boolean"}},"title":"DashboardGridItem"},"widgetTypeId":{"type":"string"},"widgetConfig":{"type":"object"}},"title":"DashboardWidget"}}},"title":"DashboardTemplate"}},"title":"Dashboard"}}}}}}
+>
+  
+</StatusCodes>
+
+
