@@ -96,7 +96,7 @@ To connect electricity consuming devices. You can connect several energy meters 
 
 ##### Forecast service
 
-For the electricity consuming devices you also need the forecasted power. You can enable this in two ways. The simple one is by adding the configuration item 'Forecast'. This service will take an exponential weighted moving average, based on your preferences. See [Time series forecasting](../rules-and-forecasting/forecasting.md) for configuration. For more advanced forecasting you can use the ML forecasting service, which can take into account the influence of other attributes, e.g. weather. See [ML Forecasting](../services/service-ml-forecast.md/).
+For the electricity consuming devices you also need the forecasted power. You can enable this in two ways. The simple one is by adding the configuration item 'Forecast'. This service will take an exponential weighted moving average, based on your preferences. See [Time series forecasting](../rules-and-forecasting/forecasting.md) for configuration. For more advanced forecasting you can use the ML forecasting service, which can take into account the influence of other attributes, e.g. weather. See [ML Forecasting](../services/service-ml-forecast.md).
 
 ### Electricity Battery
 
