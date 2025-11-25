@@ -1,0 +1,33 @@
+---
+id: metamap
+title: "MetaMap"
+description: ""
+sidebar_label: "MetaMap"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"delegate":{}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"MetaMap"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"delegate":{"type":"object","additionalProperties":{"required":["name"],"type":"object","properties":{"type":{"type":"object","properties":{"name":{"pattern":"^\\w+(\\[\\])?$","type":"string"},"constraints":{"type":"array","items":{"required":["type"],"type":"object","properties":{"message":{"type":"string"},"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"ValueConstraint"}},"format":{"type":"object","properties":{"useGrouping":{"type":"boolean"},"minimumIntegerDigits":{"type":"integer","format":"int32"},"minimumFractionDigits":{"type":"integer","format":"int32"},"maximumFractionDigits":{"type":"integer","format":"int32"},"minimumSignificantDigits":{"type":"integer","format":"int32"},"maximumSignificantDigits":{"type":"integer","format":"int32"},"asBoolean":{"type":"boolean"},"asDate":{"type":"boolean"},"asSlider":{"type":"boolean"},"resolution":{"type":"number"},"dateStyle":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"timeStyle":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"dayPeriod":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"hour12":{"type":"boolean"},"iso8601":{"type":"boolean"},"weekday":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"era":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"year":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"month":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"week":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"day":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"hour":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"minute":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"second":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"fractionalSecondDigits":{"type":"integer","format":"int32"},"timeZoneName":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"momentJsFormat":{"type":"string"},"asNumber":{"type":"boolean"},"asOnOff":{"type":"boolean"},"asPressedReleased":{"type":"boolean"},"asOpenClosed":{"type":"boolean"},"asMomentary":{"type":"boolean"},"multiline":{"type":"boolean"}},"title":"ValueFormat"},"units":{"type":"array","items":{"type":"string"}},"arrayDimensions":{"type":"integer","format":"int32"},"metaUseOnly":{"type":"boolean"},"jsonType":{"type":"string"}},"title":"ValueDescriptorObject"},"value":{"type":"object","writeOnly":true},"name":{"minLength":1,"pattern":"^\\w+$","type":"string"}},"title":"MetaItemObject"}}},"additionalProperties":{"required":["name"],"type":"object","properties":{"type":{"type":"object","properties":{"name":{"pattern":"^\\w+(\\[\\])?$","type":"string"},"constraints":{"type":"array","items":{"required":["type"],"type":"object","properties":{"message":{"type":"string"},"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"ValueConstraint"}},"format":{"type":"object","properties":{"useGrouping":{"type":"boolean"},"minimumIntegerDigits":{"type":"integer","format":"int32"},"minimumFractionDigits":{"type":"integer","format":"int32"},"maximumFractionDigits":{"type":"integer","format":"int32"},"minimumSignificantDigits":{"type":"integer","format":"int32"},"maximumSignificantDigits":{"type":"integer","format":"int32"},"asBoolean":{"type":"boolean"},"asDate":{"type":"boolean"},"asSlider":{"type":"boolean"},"resolution":{"type":"number"},"dateStyle":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"timeStyle":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"dayPeriod":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"hour12":{"type":"boolean"},"iso8601":{"type":"boolean"},"weekday":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"era":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"year":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"month":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"week":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"day":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"hour":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"minute":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"second":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"fractionalSecondDigits":{"type":"integer","format":"int32"},"timeZoneName":{"type":"string","enum":["numeric","2-digit","full","long","medium","short","narrow"]},"momentJsFormat":{"type":"string"},"asNumber":{"type":"boolean"},"asOnOff":{"type":"boolean"},"asPressedReleased":{"type":"boolean"},"asOpenClosed":{"type":"boolean"},"asMomentary":{"type":"boolean"},"multiline":{"type":"boolean"}},"title":"ValueFormat"},"units":{"type":"array","items":{"type":"string"}},"arrayDimensions":{"type":"integer","format":"int32"},"metaUseOnly":{"type":"boolean"},"jsonType":{"type":"string"}},"title":"ValueDescriptorObject"},"value":{"type":"object","writeOnly":true},"name":{"minLength":1,"pattern":"^\\w+$","type":"string"}},"title":"MetaItemObject"},"title":"MetaMap"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

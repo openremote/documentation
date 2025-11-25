@@ -749,6 +749,40 @@ paths:
                 type: object
                 additionalProperties:
                   $ref: "#/components/schemas/MetaItemDescriptorObject"
+  /model/getValueDescriptorSchema:
+    get:
+      tags:
+      - Asset Model
+      summary: Retrieve the valueDescriptor JSON Schema.
+      operationId: getValueDescriptorSchema
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: name
+        in: query
+        schema:
+          type: string
+      - name: hash
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/JsonNode"
   /model/valueDescriptors:
     get:
       tags:
@@ -5690,6 +5724,8 @@ components:
           type: array
           items:
             type: string
+    JsonNode:
+      type: object
     UserAssetLink:
       type: object
       properties:
@@ -5722,6 +5758,12 @@ components:
           type: string
         type:
           type: string
+        parentId:
+          type: string
+        path:
+          type: array
+          items:
+            type: string
         hasChildren:
           type: boolean
         createdOn:
@@ -6803,8 +6845,6 @@ components:
           format: date-time
         acknowledgement:
           type: string
-    JsonNode:
-      type: object
     Notification:
       type: object
       properties:

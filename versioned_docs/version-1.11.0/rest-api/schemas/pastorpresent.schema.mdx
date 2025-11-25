@@ -1,0 +1,33 @@
+---
+id: pastorpresent
+title: "PastOrPresent"
+description: ""
+sidebar_label: "PastOrPresent"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"message":"string","type":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"PastOrPresent"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","allOf":[{"required":["type"],"type":"object","properties":{"message":{"type":"string"},"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"ValueConstraint"}],"title":"PastOrPresent"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

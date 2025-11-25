@@ -1,0 +1,70 @@
+---
+id: get-asset-links
+title: "Retrieve the asset links of an alarm"
+description: "Retrieve the asset links of an alarm"
+sidebar_label: "Retrieve the asset links of an alarm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk2P2zgM/SsGTy3g2EFb9ODTBkU/AnS3wTQFFghy4NhMrI4sqRI9aRr4vy8o25kkk+5uWyywuSSQyEdSfHzMARi3AYoVzDT6BtYpWEceWVkzr6CALfEsBOL3ytwFSMGhx4aYvDgdwGBDUMCs5dp69S36QQrKQAE1YUUeUghlTQ1CcQDeOzEP7JXZQtelR4Q/J2+s36GvqJosvGX7yyjvbOCfAkF5iXk1+jrkGlLw9KVVnioo2Ld0BUkZpm0MsrG+Qe6PXr44w/aEuhmRv7Tk93+b1FriBmdNoCD3z6ZT+aoolF65+NgFVLTBVnMyWkIKpTVMhsUWndOqjI3JPwdxODwOiN6jZKKYmnBybm8/Uymv6LzQglWfhqr+2aav9HFNKbSB/Ly6eoVCtat3XQqsWMvRvBLT0hMyVR/MY+OTDlTINGHV0BH9j9iIK7EdejI92b9jc5JDnJbjYEAXP+lFY26IvaJ7SrimJAZPtIxRYjcJmiTyDFJoiGs7zFqcMK6hgDxe54eBjV0eAWQEA/n7cf5ar4XezC4UeV5RYzPryHhqLFOmbI5O5YfYiy6HFO7RK7zVFy0aGAQFNBiYvNSzlkBl6xXvYySBlb6v1qdXH4VJPdpo8EAMbLl+Jt3QdhdNSq3I8CtPFRlWqHuq2Tsyn2IduXjkMa2Q96nkTsSgtDrv8SelNYZKzqNbnMuNp1D/PEAoresrcN5uVGzv+Et6iqfa9spWkRlnhz8eW0wh/Z+XHhmtzMbGLg3E/+DI3ER2Jb+jwS355Ob1x2UyW8zhkv/LWoVEhUj/ypZtQ4bjgyUb6+PpFbR3y+XiCJklyUITBkoC9WO0OgNaPzlS35bhnPpPY5TGekqkiGyQRSyjLFKDSkeJ3tjfzvxEC7QqSZS0eNhwbxfvk+fZFNKLmdvtdtnWtJn123xwCzlunZ48z6YZmazmRgumzGz/LnIxjZJjAzdoTsL8S8k4e+fjwDF95dxpVCbKrKR5GORkBaNr8bDeBkVZp1DLrixWcDjcYqBPXnedHPcLSqa/UkFko4JigzpQCne0P1ln96hbyQBEG0aNue54kfpxU8GTm2HDPk1kNK6VNG4rsz+NOSYzFtatu3Tc+D+Wwvfi9vjX/qI8FJ7+N4GGfzFncXqrWVmSO717tOmlGcfl8vb1ErruL0cMbZs=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the asset links of an alarm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/alarm/{alarmId}/assets"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the asset links of an alarm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"alarmId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}},{"name":"realm","in":"query","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"id":{"type":"object","properties":{"realm":{"type":"string"},"userId":{"type":"string"},"assetId":{"type":"string"}},"title":"Id"},"createdOn":{"type":"string","format":"date-time"},"assetName":{"type":"string"},"parentAssetName":{"type":"string"}},"title":"AlarmAssetLink"}}}}}}}
+>
+  
+</StatusCodes>
+
+
