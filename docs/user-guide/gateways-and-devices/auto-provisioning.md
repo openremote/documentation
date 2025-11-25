@@ -17,33 +17,11 @@ When the auto provisioning is configured, an authorised device will first create
 
 There are two basic mechanisms for client provisioning.
 
-### X.509 Client Certificate (Message-Based)
+### X.509 Client Certificate
 
-Supports the industry standard X.509 certificate authentication mechanism where each client has a unique client certificate that is signed by a CA certificate that must also be registered within OpenRemote. The certificate must contain a unique ID within the CN attribute of the certificate. OpenRemote then verifies the certificate and CN attribute presented during provisioning.
+Supports the industry standard X.509 certificate authentication mechanism where each client has a unique client certificate that is signed by a CA certificate that must also be registered within OpenRemote, the certificate must contain a unique ID within the CN attribute of the certificate. OpenRemote then verifies the certificate and CN attribute presented during provisioning. 
 
-In this mode, the client connects to the standard MQTT broker (default port 1883) and sends the certificate as part of the provisioning message payload.
-
-This is a secure authentication mechanism but adds complexity to the manufacturing/flashing process.
-
-### mTLS (Mutual TLS) Client Certificate
-
-Supports automatic provisioning using mTLS (Mutual TLS) at the transport layer. This is the **recommended approach** for production deployments as it provides the highest security by enforcing client authentication at the TLS handshake level before any MQTT communication occurs.
-
-In this mode, clients connect to a dedicated mTLS MQTT broker endpoint (default port 8884) and present their client certificate during the TLS handshake. OpenRemote extracts the realm from the certificate's `OU` (Organizational Unit) field and the unique device ID from the `CN` (Common Name) field.
-
-**Key differences from message-based X.509:**
-* Client authentication happens at the TLS layer (before MQTT connection)
-* No need to send certificate in the provisioning message
-* Realm is extracted from the certificate's `OU` field
-* Device ID is extracted from the certificate's `CN` field
-* More secure as unauthenticated clients cannot connect at all
-* Simpler provisioning message format
-
-**Certificate Requirements for mTLS:**
-* Client certificate must be signed by a CA registered in OpenRemote
-* Certificate subject must include: `CN=<unique-device-id>,OU=<realm-name>`
-* Certificate must have the `clientAuth` Extended Key Usage
-* Example subject: `CN=device123,OU=master`
+This is the most secure authentication mechanism but adds complexity to the manufacturing/flashing process.
 
 ### Symmetric Key (HMAC-SHA256)
 
@@ -69,22 +47,12 @@ The following illustrates the connect process (through [MQTT topics](../manager-
 
 **NOTE THAT THE 'WHITELIST/BLACKLIST FAILURE', IS NOT YET IMPLEMENTED. THIS FUNCTION ENHANCES SECURITY AS ONLY SPECIFIED DEVICES CAN CONNECT (WHITELIST) OR CAN BE EXCLUDED (BLACKLIST)**
 
-#### X.509 Client Certificate Validation (Message-Based)
+#### X.509 Client Certificate Validation
 
 1. Find X.509 realm config whose CA cert subject matches the client cert issuer
 2. Check client certificate has been signed by the CA
-3. Extract client certificate subject 'CN' value
+3. Extract client certificate subject ‘CN’ value
 4. Check it matches UNIQUE_ID
-
-#### mTLS Client Certificate Validation
-
-1. Client presents certificate during TLS handshake
-2. Server validates certificate is signed by a trusted CA
-3. Extract realm from certificate subject 'OU' value
-4. Extract unique device ID from certificate subject 'CN' value
-5. Find matching provisioning config for the realm
-6. Verify realm in certificate matches provisioning config realm
-7. Authenticate or auto-provision service user based on extracted credentials
 
 #### Symmetric Key Validation
 
@@ -95,7 +63,7 @@ The following illustrates the connect process (through [MQTT topics](../manager-
 
 ### Message Schema
 
-#### X.509 Provisioning Request Message (Message-Based)
+### X.509 Provisioning Request Message
 The provisioning message format for X.509 is as follows:
 
 ```json
@@ -106,19 +74,6 @@ The provisioning message format for X.509 is as follows:
 ```
 
 The cert field should be in PEM format and must contain the certificate chain up to and including the CA certificate registered within OpenRemote.
-
-#### mTLS Provisioning Request Message
-
-The provisioning message format for mTLS is much simpler since authentication has already occurred at the TLS layer:
-
-```json
-    {
-      "type": "mtls",
-      "req": null
-    }
-```
-
-No certificate needs to be sent in the payload as the client certificate was already validated during the TLS handshake. The realm and device ID are extracted from the certificate's `OU` and `CN` fields respectively.
 
 #### Symmetric Key Provisioning Request Message
 
@@ -170,12 +125,11 @@ The code field should be the base64 encoded HMAC specific to this client.
 
 Client certificate generation is done using standard tooling e.g. openssl:
 
-1. A unique client private key and X.509 certificate should be generated with the client's unique ID stored in the CN attribute of the certificate.
-1. **For mTLS**: The certificate must also include the realm name in the OU (Organizational Unit) field of the certificate subject (e.g., `CN=device123,OU=master`).
+1. A unique client private key and X.509 certificate should be generated with the client’s unique ID stored in the CN attribute of the certificate.
 1. The certificate should then be signed by an intermediate CA (can be self-signed or signed by a CA)
 1. The intermediate CA certificate is then uploaded into OpenRemote within a Realm config instance
 
-When the client publishes its certificate to OpenRemote (message-based X.509 only) it must be in the PEM format. For mTLS, the certificate is presented during the TLS handshake. Client certificate generation can take place within the manufacturing environment without any external dependencies.
+When the client publishes its certificate to OpenRemote it must be in the PEM format. Client certificate generation can take place within the manufacturing environment without any external dependencies.
 
 :::note
 
@@ -193,29 +147,9 @@ Generate CSR for device (inc. key):
 ```shell
 openssl req -nodes --newkey rsa:4096 -keyout deviceN.key -subj "/C=NL/ST=North Brabant/O=OpenRemote/CN=deviceN" -out deviceN.csr
 ```
-
-**For mTLS**, include the OU field with the realm name:
-```shell
-openssl req -nodes --newkey rsa:2048 -keyout device123.key -subj "/CN=device123,OU=master" -out device123.csr
-```
-
 Generate signed cert for device:
 ```shell
 openssl x509 -req -in deviceN.csr -CA ca.pem -CAkey ca.key -CAcreateserial -out deviceN.pem -days 500 -sha256
-```
-
-**For mTLS**, add the clientAuth Extended Key Usage:
-```shell
-# Create an extensions file
-cat > device-ext.cnf <<EOF
-basicConstraints = CA:FALSE
-keyUsage = critical, digitalSignature, keyEncipherment
-extendedKeyUsage = clientAuth
-EOF
-
-# Sign the certificate with the extensions
-openssl x509 -req -in device123.csr -CA ca.pem -CAkey ca.key -CAcreateserial \
-  -out device123.pem -days 500 -sha256 -extfile device-ext.cnf
 ```
 
 ### Asset provisioning
@@ -231,27 +165,6 @@ The type of the asset generated must be an asset type that exists in the system;
 
 ## Configuration
 Configuration of auto provisioning is done via the `Manager UI` -> Auto Provisioning (top right menu); the menu item is only present for superusers.
-
-### mTLS MQTT Broker Configuration
-
-To enable the mTLS MQTT broker endpoint, you need to configure the following environment variables:
-
-* `OR_MQTT_MTLS_SERVER_LISTEN_HOST` - Host/IP address for the mTLS MQTT broker to listen on (default: `0.0.0.0`)
-* `OR_MQTT_MTLS_SERVER_LISTEN_PORT` - Port for the mTLS MQTT broker (default: `8884`)
-* `OR_MQTT_MTLS_KEYSTORE_PATH` - Path to the server keystore file in PKCS#12 format (default: `keystores/server_keystore.p12`)
-* `OR_MQTT_MTLS_KEYSTORE_PASSWORD` - Password for the server keystore (default: `secret`)
-* `OR_MQTT_MTLS_TRUSTSTORE_PATH` - Path to the server truststore file containing trusted CA certificates (default: `keystores/server_truststore.p12`)
-* `OR_MQTT_MTLS_TRUSTSTORE_PASSWORD` - Password for the server truststore (default: `secret`)
-
-The mTLS endpoint is automatically configured when the OpenRemote Manager starts. Clients connecting to this endpoint must present a valid client certificate signed by a CA that is registered in the truststore.
-
-:::tip
-For production deployments, ensure:
-1. The server keystore contains a valid TLS certificate with appropriate SANs (Subject Alternative Names)
-2. The truststore contains only the CA certificates you trust for client authentication
-3. Strong passwords are used for both keystores
-4. Keystores are stored securely with appropriate file permissions
-:::
 
 
 ### Provisioning Configuration
@@ -350,233 +263,3 @@ awk 'NF {sub(/\r/, ""); printf "%s\n",$0;}'
 
 * [Git GitHub, Self Signed Certificate with Custom Root CA](https://gist.github.com/fntlnz/cf14feb5a46b2eda428e000157447309)
 * [Whitepaper Device Manufacturing and Provisioning with X.509](https://d1.awsstatic.com/whitepapers/device-manufacturing-provisioning.pdf)
-
-## mTLS Autoprovisioning - End-to-End Example
-
-This section provides a complete example of setting up mTLS-based automatic device provisioning.
-
-### Step 1: Generate Certificates
-
-First, generate a root CA, server certificates, and client certificates:
-
-```bash
-# Generate Root CA
-openssl genrsa -out rootca.key 4096
-openssl req -x509 -new -nodes -key rootca.key -sha256 -days 3650 \
-  -out rootca.crt -subj "/CN=OpenRemote Root CA"
-
-# Generate Server Key and CSR
-openssl genrsa -out server.key 2048
-openssl req -new -key server.key -out server.csr \
-  -subj "/CN=localhost"
-
-# Create server extensions file with SANs
-cat > server-ext.cnf <<EOF
-basicConstraints = CA:FALSE
-keyUsage = critical, digitalSignature, keyEncipherment
-extendedKeyUsage = serverAuth
-subjectAltName = @alt_names
-[alt_names]
-DNS.1 = localhost
-DNS.2 = your-domain.com
-EOF
-
-# Sign Server Certificate
-openssl x509 -req -in server.csr -CA rootca.crt -CAkey rootca.key \
-  -CAcreateserial -out server.crt -days 825 -sha256 \
-  -extfile server-ext.cnf
-
-# Generate Client Key and CSR (include realm in OU)
-openssl genrsa -out device001.key 2048
-openssl req -new -key device001.key -out device001.csr \
-  -subj "/CN=device001,OU=master"
-
-# Create client extensions file
-cat > client-ext.cnf <<EOF
-basicConstraints = CA:FALSE
-keyUsage = critical, digitalSignature, keyEncipherment
-extendedKeyUsage = clientAuth
-EOF
-
-# Sign Client Certificate
-openssl x509 -req -in device001.csr -CA rootca.crt -CAkey rootca.key \
-  -CAcreateserial -out device001.crt -days 365 -sha256 \
-  -extfile client-ext.cnf
-```
-
-### Step 2: Create Server Keystores
-
-Create PKCS#12 keystores for the OpenRemote server:
-
-```bash
-# Create server keystore with server certificate and key
-openssl pkcs12 -export -inkey server.key -in server.crt \
-  -certfile rootca.crt -out server_keystore.p12 \
-  -name server -passout pass:secret
-
-# Create server truststore with CA certificate
-keytool -importcert -noprompt -alias client-ca \
-  -file rootca.crt -storetype PKCS12 \
-  -keystore server_truststore.p12 -storepass secret
-```
-
-### Step 3: Configure OpenRemote
-
-Create or update your `docker-compose.yml` to include the mTLS environment variables:
-
-```yaml
-services:
-  manager:
-    environment:
-      # mTLS MQTT Configuration
-      OR_MQTT_MTLS_SERVER_LISTEN_HOST: 0.0.0.0
-      OR_MQTT_MTLS_SERVER_LISTEN_PORT: 8884
-      OR_MQTT_MTLS_KEYSTORE_PATH: /deployment/keystores/server_keystore.p12
-      OR_MQTT_MTLS_KEYSTORE_PASSWORD: secret
-      OR_MQTT_MTLS_TRUSTSTORE_PATH: /deployment/keystores/server_truststore.p12
-      OR_MQTT_MTLS_TRUSTSTORE_PASSWORD: secret
-    volumes:
-      - ./keystores:/deployment/keystores:ro
-    ports:
-      - "8884:8884"
-```
-
-Place the `server_keystore.p12` and `server_truststore.p12` files in the `./keystores` directory.
-
-### Step 4: Create Provisioning Configuration
-
-1. Log into OpenRemote Manager UI as superuser
-2. Navigate to **Auto Provisioning** (top right menu)
-3. Click **Add Provisioning Config**
-4. Configure:
-   - **Name**: `mTLS Device Provisioning`
-   - **Type**: `X.509`
-   - **Realm**: `master` (or your target realm)
-   - **Roles**: Select appropriate roles (e.g., `read:assets`, `write:assets`, `write:attributes`)
-   - **Create restricted user**: `true` (recommended for devices)
-   - **CA Certificate**: Paste the content of `rootca.crt` (PEM format)
-   - **Asset Template**: (Optional) Configure if you want to auto-create assets
-
-### Step 5: Connect Device with mTLS
-
-Example Python client connecting with mTLS:
-
-```python
-import paho.mqtt.client as mqtt
-import ssl
-import json
-
-# MQTT Broker settings
-BROKER_HOST = "localhost"
-BROKER_PORT = 8884
-CLIENT_ID = "device001"
-DEVICE_ID = "device001"
-REALM = "master"
-
-# Certificate paths
-CA_CERT = "rootca.crt"
-CLIENT_CERT = "device001.crt"
-CLIENT_KEY = "device001.key"
-
-def on_connect(client, userdata, flags, rc):
-    if rc == 0:
-        print("Connected successfully")
-        # Subscribe to provisioning response topic
-        response_topic = f"provisioning/{DEVICE_ID}/response"
-        client.subscribe(response_topic)
-        
-        # Send provisioning request
-        request_topic = f"provisioning/{DEVICE_ID}/request"
-        provisioning_msg = {
-            "type": "mtls",
-            "req": None
-        }
-        client.publish(request_topic, json.dumps(provisioning_msg))
-    else:
-        print(f"Connection failed with code {rc}")
-
-def on_message(client, userdata, msg):
-    print(f"Received message on {msg.topic}: {msg.payload.decode()}")
-    response = json.loads(msg.payload.decode())
-    
-    if response.get("type") == "success":
-        print(f"Provisioning successful! Realm: {response.get('realm')}")
-        print(f"Asset: {response.get('asset')}")
-        # Device is now provisioned and can disconnect/reconnect
-        # On reconnect, it will authenticate with the provisioned service user
-    elif response.get("type") == "error":
-        print(f"Provisioning error: {response.get('error')}")
-
-# Create MQTT client
-client = mqtt.Client(client_id=CLIENT_ID, clean_session=False)
-client.on_connect = on_connect
-client.on_message = on_message
-
-# Configure TLS/SSL with client certificate
-client.tls_set(
-    ca_certs=CA_CERT,
-    certfile=CLIENT_CERT,
-    keyfile=CLIENT_KEY,
-    cert_reqs=ssl.CERT_REQUIRED,
-    tls_version=ssl.PROTOCOL_TLSv1_2
-)
-
-# Connect to broker
-client.connect(BROKER_HOST, BROKER_PORT, keepalive=60)
-client.loop_forever()
-```
-
-### Step 6: Verify Provisioning
-
-After the device connects and sends the provisioning request:
-
-1. Check the OpenRemote logs for successful provisioning
-2. In Manager UI, navigate to **Identity & Security** → **Users**
-3. You should see a new service user: `service-account-device001`
-4. If asset template was configured, check the **Assets** page for the auto-created asset
-
-### Step 7: Post-Provisioning Usage
-
-After provisioning, the device can disconnect and reconnect. On subsequent connections:
-
-1. The device authenticates using the same mTLS certificate
-2. OpenRemote recognizes it as the provisioned service user `service-account-device001`
-3. The device has the roles configured in the provisioning config
-4. The device can publish/subscribe to asset attribute topics based on its permissions
-
-Example of publishing an attribute update after provisioning:
-
-```python
-# Assume we know the asset_id from the provisioning response
-asset_id = "YOUR_ASSET_ID_FROM_PROVISIONING_RESPONSE"
-attribute_name = "temperature"
-
-# Publish attribute value
-topic = f"{REALM}/{CLIENT_ID}/writeattributevalue/{attribute_name}/{asset_id}"
-value = 22.5
-client.publish(topic, json.dumps(value))
-```
-
-### Troubleshooting
-
-**Connection Refused:**
-- Verify the mTLS MQTT broker is running on port 8884
-- Check firewall rules allow connections to port 8884
-
-**Certificate Verification Failed:**
-- Ensure the client certificate is signed by the CA registered in OpenRemote
-- Verify the CA certificate in the truststore matches the one that signed the client cert
-- Check that the certificate hasn't expired
-
-**Unauthorized Error:**
-- Verify the provisioning config is enabled and matches the certificate's CA
-- Check that the realm in the certificate's OU field matches an existing realm
-- Ensure the OU and CN fields are properly set in the client certificate
-
-**Service User Not Found on Reconnect:**
-- First connection should trigger auto-provisioning
-- Check Manager logs for provisioning errors
-- Verify the service user was created in the correct realm
-
-
-
