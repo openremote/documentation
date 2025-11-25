@@ -55,8 +55,8 @@ Run the main `docker-compose.yml` file with `OR_HOSTNAME=localhost`, and add the
   * SISH_PORT: 8090
   * SISH_HOST: sish
 * In the manager service:
-  * Add ``8008:8008`` to allow attaching the debugger from the IDE
-  * Optionally, set the manager to be built from context ``./manager/build/install/manager``, so that code changes are reflected during Docker image rebuild (after running `./gradlew clean installDist`)
+  * Add `8008:8008` to allow attaching the debugger from the IDE
+  * Optionally, set the manager to be built from context `./manager/build/install/manager`, so that code changes are reflected during Docker image rebuild (after running `./gradlew clean installDist`)
   * Add `OR_JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8008"` to allow remote debugging from the IDE
   * `OR_METRICS_ENABLED: false`
   * `OR_GATEWAY_TUNNEL_SSH_HOSTNAME: "localhost"`
@@ -64,7 +64,7 @@ Run the main `docker-compose.yml` file with `OR_HOSTNAME=localhost`, and add the
   * `OR_GATEWAY_TUNNEL_TCP_START: 9000`
   * `OR_GATEWAY_TUNNEL_HOSTNAME: "localhost"`
   * `OR_GATEWAY_TUNNEL_AUTO_CLOSE_MINUTES: 2`
-* Add the ``sish`` service, as found in `deploy.yml`, and modify:
-  * Add volume ``./deployment:/deployment`` so that you can map the SSH keys that were generated above
+* Add the `sish` service, as found in `deploy.yml`, and modify:
+  * Add volume `./deployment:/deployment` so that you can map the SSH keys that were generated above
 
-The above setup should make the **`org.openremote.test.gateway.GatewayTest#Gateway Tunneling Edge Gateway Integration test`** pass when run from the IDE or via Gradle.
+The above setup should make the **`org.openremote.test.gateway.GatewayTest#Gateway Tunnelling Edge Gateway Integration test`** pass when run from the IDE or via Gradle.
