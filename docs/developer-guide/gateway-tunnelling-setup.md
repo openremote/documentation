@@ -67,4 +67,10 @@ Run the main `docker-compose.yml` file with `OR_HOSTNAME=localhost`, and add the
 * Add the `sish` service, as found in `deploy.yml`, and modify:
   * Add volume `./deployment:/deployment` so that you can map the SSH keys that were generated above
 
+The routing of requests from the central instance to the gateway looks like this: Central Instance --> Sish --> Gateway Proxy --> Keycloak/Manager
+
+For the "Sish --> Gateway Proxy" requests to be routed correctly, we need to edit the local `/etc/hosts` file to route the <tunnelID>.<tunnelSSHHost> to localhost, like this:
+```
+127.0.0.1       gw-5fj1sxvwwfp7wvgqgve91n.localhost
+```
 The above setup should make the **`org.openremote.test.gateway.GatewayTest#Gateway Tunnelling Edge Gateway Integration test`** pass when run from the IDE or via Gradle.
