@@ -10,11 +10,13 @@ sidebar_position: 1
 
 ![image](img/architecture.jpg)
 
-The core of the OpenRemote system is the [Manager](https://github.com/openremote/openremote/tree/master/manager), a headless Java application that forms an IoT context broker which captures the current asset state of the system. You can create a dynamic schema of your assets and their attributes in the manager, modelling the problem domain. For example, you would create Building, Apartment, Room, and Sensor assets to model an IoT system for a smart home or office.
+The core of the OpenRemote system is the [Manager](https://github.com/openremote/openremote/tree/master/manager), a headless Java application that forms an IoT context broker which captures the current asset state of the system. You can create a dynamic schema of your assets and their attributes in the manager, modelling the problem domain. For example, you would create Building, Vehicle, Battery, Streetlight, and Sensor assets to model an IoT system for a smart city, an energy management system, or fleet telematics.
 
-Rules can be written in Groovy, JavaScript, a Rules JSON, or Flow model, and dynamically deployed. Rules execute actions when matching asset state or sequence of events are detected. For example, when a mobile asset enters a geographic fence, or when humidity in a room keeps increasing, you can notify a group of users via email and on their mobile devices.
+Rules can be written in Groovy, JavaScript, a Rules JSON, or Flow model, and dynamically deployed. Rules execute actions when matching asset state or sequence of events are detected. For example, when a mobile asset enters a geographic fence, or when your sensor is not updating anymore, you can notify a group of users via email and on their mobile devices.
 
-Networked things and devices are connected to the manager via [Agents](https://github.com/openremote/openremote/tree/master/agent), they are the interface to 3rd party APIs and service protocols. OpenRemote has many built-in protocols and it's easy to create new adapters. Co-locate your agents with the manager or install agents on [Edge gateways](user-guide/gateways-and-devices/edge-gateway.md), close to devices. 
+Networked things and devices are connected to the manager via [Agents](https://github.com/openremote/openremote/tree/master/agent), they are the interface to 3rd party APIs and service protocols, using the services model. OpenRemote has many built-in protocols and it's easy to create new adapters. Co-locate your agents with the manager or install agents on [Edge gateways](user-guide/gateways-and-devices/edge-gateway.md), close to devices. 
+
+The [Manager UI](https://github.com/openremote/openremote/tree/master/ui/app/manager) is configurable and suitable both for configuring your IoT system as well as monitoring the performance of your system. The Insight dashboard builder offers a quick way to create one page dashboard apps for your professional users who don't need access to the full manager.  
 
 The manager provides APIs for monitoring and administrating the system:
 
