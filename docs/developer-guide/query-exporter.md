@@ -32,7 +32,7 @@ The query-exporter service monitors the OpenRemote PostgreSQL database and expos
 ## Configuration
 
 ### Environment Variables
-The service uses the following environment variables (automatically configured in `deploy.yml`):
+The service uses the following environment variables (automatically configured in `profile/deploy.yml`):
 
 **Database Connection:**
 - `POSTGRES_HOST` - Database host (default: `postgresql`)
@@ -72,14 +72,8 @@ export INDEX_BLOAT_THRESHOLD=2.0  # 100% index bloat
 curl http://localhost:9560/metrics
 ```
 
-:::note
-
-In `dev-testing.yml`, the port is exposed as `9560:9560`. In production (`deploy.yml`), it's bound to `127.0.0.1:9560:9560` for security.
-
-:::
-
 ### Expose on Private Network
-To expose on a private network in production, uncomment this line in `deploy.yml`:
+To expose on a private network in production, uncomment this line in `profile/deploy.yml`:
 ```yaml
 - "${PRIVATE_IP:-127.0.0.1}:9560:9560"
 ```
@@ -100,22 +94,22 @@ scrape_configs:
 
 To modify queries or add new metrics:
 
-1. Edit `config.yaml` in the query-exporter configuration directory
+1. Edit the `config.yaml` file located in the `query-exporter` configuration directory (by default, this is `/deployment/query-exporter/config.yaml` which is mounted as a Docker volume at the container's `/config/config.yaml` path—see your `profile/deploy.yml` for the exact path).
 2. Restart the service:
 ```bash
-docker-compose restart query-exporter
+docker-compose -f profile/deploy.yml restart query-exporter
 ```
 
 ## Troubleshooting
 
 ### Check Service Logs
 ```bash
-docker-compose logs -f query-exporter
+docker-compose -f profile/deploy.yml logs -f query-exporter
 ```
 
 ### Test Database Connectivity
 ```bash
-docker-compose exec query-exporter sh
+docker-compose -f profile/deploy.yml exec query-exporter sh
 apk add postgresql-client
 psql -h $POSTGRES_HOST -U $POSTGRES_USER -d $POSTGRES_DB
 ```
