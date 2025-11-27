@@ -50,7 +50,7 @@ See [Manager APIs](https://docs.openremote.io/docs/user-guide/manager-apis/) for
 
 ##### Via publishing on MQTT topics
 
-Clients can post on writeattributevalue or writeattribute topics.
+Clients can post on `writeattributevalue` or `writeattribute` topics.
 This is handled in [DefaultMQTTHandler.onPublish()](https://github.com/openremote/openremote/blob/151af17d0e502f0fa7a377cd34b8416350bc1794/manager/src/main/java/org/openremote/manager/mqtt/DefaultMQTTHandler.java#L342).
 
 ##### Via REST API
@@ -62,7 +62,7 @@ Several endpoints allow to add or update one or more attributes.
 [Update attribute values](https://docs.openremote.io/docs/rest-api/write-attribute-values) - PUT attributes  
 [Update attribute values with timestamps](https://docs.openremote.io/docs/rest-api/write-attribute-events) - PUT attributes/timestamp  
 
-All above end up being handled in by [AssetResourceImpl.doAttributeWrite()](https://github.com/openremote/openremote/blob/151af17d0e502f0fa7a377cd34b8416350bc1794/manager/src/main/java/org/openremote/manager/asset/AssetResourceImpl.java#L580).
+All above end up being handled by [AssetResourceImpl.doAttributeWrite()](https://github.com/openremote/openremote/blob/151af17d0e502f0fa7a377cd34b8416350bc1794/manager/src/main/java/org/openremote/manager/asset/AssetResourceImpl.java#L580).
 
 ##### Via WebSocket API
 
