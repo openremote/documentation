@@ -282,7 +282,7 @@ This is what the --or-app-colors look like in the demo deployment:
               ]
             }
           }
-        }openremote
+        }
       }
     }
   }
