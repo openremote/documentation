@@ -57,10 +57,10 @@ This is handled in [DefaultMQTTHandler.onPublish()](https://github.com/openremot
 
 Several endpoints allow to add or update one or more attributes.
 
-[Write to a single attribute](https://docs.openremote.io/docs/rest-api/write-attribute-value)- PUT {assetId}/attribute/{attributeName}  
-[Write to a single attribute with a timestamp](https://docs.openremote.io/docs/rest-api/write-attribute-value-1) - PUT {assetId}/attribute/{attributeName}/{timestamp}  
-[Update attribute values](https://docs.openremote.io/docs/rest-api/write-attribute-values) - PUT attributes  
-[Update attribute values with timestamps](https://docs.openremote.io/docs/rest-api/write-attribute-events) - PUT attributes/timestamp  
+[Write to a single attribute](https://docs.openremote.io/docs/rest-api/write-attribute-value)- `PUT {assetId}/attribute/{attributeName}`  
+[Write to a single attribute with a timestamp](https://docs.openremote.io/docs/rest-api/write-attribute-value-1) - `PUT {assetId}/attribute/{attributeName}/{timestamp}`  
+[Update attribute values](https://docs.openremote.io/docs/rest-api/write-attribute-values) - `PUT attributes`  
+[Update attribute values with timestamps](https://docs.openremote.io/docs/rest-api/write-attribute-events) - `PUT attributes/timestamp`  
 
 All above end up being handled by [AssetResourceImpl.doAttributeWrite()](https://github.com/openremote/openremote/blob/151af17d0e502f0fa7a377cd34b8416350bc1794/manager/src/main/java/org/openremote/manager/asset/AssetResourceImpl.java#L580).
 
