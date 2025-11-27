@@ -222,6 +222,7 @@ By default Superusers (e.g. the 'admin' user of the master realm) will see these
 </details>
 **Realm configuration:** You can set the branding per realm. In the example below you can see how the page title, headers, colors, and logos are set as default (for any new realm created through the UI), as well as for the 'master' and 'clienta' realms.
 ```json
+{
   "realms": {
     "default": {
       "appTitle": "ACME IoT",
@@ -281,7 +282,7 @@ This is what the --or-app-colors look like in the demo deployment:
               ]
             }
           }
-        }
+        }openremote
       }
     }
   }
@@ -426,7 +427,7 @@ Set which types of rules are available (for users with the correct permissions),
 }
 ```
 **Rules - When-Then:** 
-Set which assettypes are excluded from the list of asset types that can be selected in the When-Then rule. Additionally you can set per asset (or all '*') which attributes should be excluded from the select list.
+Set which asset types are excluded from the list of asset types that can be selected in the When-Then rule. Additionally you can set per asset (or all '*') which attributes should be excluded from the select list.
 ```json
 {
   "pages": {
@@ -515,7 +516,7 @@ This configures how the markers behave. They can either change their colour base
 }
 ```
 **Map - Clustering config:**
-This configures how clustering behaves. Clustering ensures the map page can render assets smoothly even with 40-50 thousand. The clustering option can be disabled, or changed to cluster markers in a smaller radius showing more clusters and changed to start clustering at a certain zoom level. Note that reducing cluster radius or cluster max zoom can have performance impacts. The recommended cluster max zoom level the is Maximal realm zoom level - 2.
+This configures how clustering behaves. Clustering ensures the map page can render assets smoothly even with 40-50 thousand assets. The clustering option can be disabled, or changed to cluster markers in a smaller radius showing more clusters and changed to start clustering at a certain zoom level. Note that reducing cluster radius or cluster max zoom can have performance impacts. The recommended cluster max zoom level is Maximum realm zoom level - 2.
 ```json
 {
   "pages": {
@@ -530,7 +531,7 @@ This configures how clustering behaves. Clustering ensures the map page can rend
 }
 ```
 **Map - Legend config:**
-This configures what asset types are shown as markers on the map. The legend is enabled by default can be disabled by setting show to false.
+This configures what asset types are shown as markers on the map. The legend is enabled by default and can be disabled by setting show to false.
 ```json
 {
   "pages": {
