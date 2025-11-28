@@ -44,7 +44,7 @@ docker cp <PROJECT_NAME>_postgresql_1:/deployment/datapoints.csv ./
 * Optional: Exclude datapoint records from the backup using the following command: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak --exclude-table-data='_timescaledb_internal._hyper_*'`
 * Copy to the Docker host: `docker cp or-postgresql-1:/tmp/db.bak ~/`
 * Remove the backup from within the container: `docker exec or-postgresql-1 rm /tmp/db.bak`
-* SCP the backup off the source server onto the destination server: e.g. `scp HOST:~/db.bak .`
+* SCP the backup off the source server onto the destination server: e.g. `scp <HOST>:~/db.bak .`
 * On the destination server stop the manager and Keycloak containers and any project specific containers that are using the DB: `docker stop or-manager-1 or-keycloak-1`
 * Copy backup into the postgresql container: `docker cp db.bak or-postgresql-1:/tmp/`
 * Drop existing DB: `docker exec or-postgresql-1 dropdb openremote`
