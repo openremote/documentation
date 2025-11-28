@@ -4,41 +4,41 @@ Prometheus formatted metrics endpoints can be configured for each container (inc
 
 ```mermaid
 graph LR
-    subgraph AWS
-        direction TB
-        CW[Cloudwatch]:::orangeStyle
-        DB["Dashboard\nor-default\n* Standard dashboard uses variables to update widgets for each instance\n* Instance names list generated from list of or_attributes_total metrics\n* Metrics are sampled over configurable period (independent of chart duration), configurable aggregation AVG/MIN/MAX/etc.\n* Sampling configuration can be tricky (e.g. count metrics)"]:::purpleStyle
-    end
-
-    subgraph EC2_Instance["EC2 Instance"]
-        
-        subgraph CWAgent["Cloudwatch Agent"]:::greenStyle
-            direction TB
-            CWConfig["Cloudwatch Config\n/opt/aws/amazon-cloudwatch-agent/var/config.json\n* Cloudwatch agent is able to act like Prometheus server\n* Regex filters and matchers to select what metrics get pushed to cloudwatch\n* Cloudwatch maps metric types to its' own"]:::innerGreenStyle
-            PromScrape["Prometheus Scrape Config\n/opt/aws/amazon-cloudwatch-agent/var/prometheus.yaml\n* Defines the scrape configs for each container (only HA Proxy and Manager currently scraped)\n* Be aware some functionality doesn't work (i.e. label injection)"]:::innerGreenStyle
-        end
-
-        subgraph DockerContainers["Docker Containers"]
-            direction TB
-            Manager["Manager\nhttp://localhost:8404/metrics\n* Micrometer with Prometheus Registry\n* Runs on own embedded web server port 8404\n* OR_METRICS_ENABLED: true|false\n* Register meters using Container.getMeterRegistry()"]:::greenStyle
-            HAProxy["HA Proxy\nhttp://localhost:8404/metrics\n* Uses prometheus-exporter\n* Runs on own embedded web server port 8404\n* Configured via haproxy.cfg (Enabled by default)"]:::greenStyle
-            Keycloak["Keycloak\nhttp://localhost:8080/metrics\n* Built in prometheus metrics support\n* KC_METRICS_ENABLED: true|false\n* Need to be careful to not publicly expose"]:::orangeStyle
-            PostgreSQL["PostgreSQL\n* No metrics at present could use postgresql-exporter"]:::redStyle
-        end
-    end
-
-    %% Connections
-    Manager --"Scrape"--> PromScrape
-    HAProxy --"Scrape"--> PromScrape
-    CWAgent --> CW
-    CW --> DB
-
-    %% Styling
+    %% Styling Definitions
     classDef greenStyle fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#000;
     classDef innerGreenStyle fill:#e8f5e9,stroke:#28a745,stroke-width:1px,color:#000;
     classDef orangeStyle fill:#ffe0b2,stroke:#f57c00,stroke-width:2px,color:#000;
     classDef redStyle fill:#ffcdd2,stroke:#c62828,stroke-width:2px,color:#000;
     classDef purpleStyle fill:#e1bee7,stroke:#7b1fa2,stroke-width:2px,color:#000;
+
+    subgraph AWS [AWS]
+        direction TB
+        CW[Cloudwatch]:::orangeStyle
+        DB["<b>Dashboard</b><br/>or-default<br/>- Standard dashboard uses variables to update widgets<br/>- Instance names list generated from list of or_attributes_total metrics<br/>- Metrics are sampled over configurable period<br/>- Sampling configuration can be tricky"]:::purpleStyle
+    end
+
+    subgraph EC2 [EC2 Instance]
+        
+        subgraph CWAgent [Cloudwatch Agent]
+            direction TB
+            CWConfig["<b>Cloudwatch Config</b><br/>/opt/aws/amazon-cloudwatch-agent/var/config.json<br/>- Cloudwatch agent is able to act like Prometheus server<br/>- Regex filters and matchers to select metrics<br/>- Cloudwatch maps metric types to its own"]:::innerGreenStyle
+            PromScrape["<b>Prometheus Scrape Config</b><br/>/opt/aws/amazon-cloudwatch-agent/var/prometheus.yaml<br/>- Defines the scrape configs for each container<br/>- Be aware some functionality does not work"]:::innerGreenStyle
+        end
+
+        subgraph Docker [Docker Containers]
+            direction TB
+            Manager["<b>Manager</b><br/>http://localhost:8404/metrics<br/>- Micrometer with Prometheus Registry<br/>- Runs on own embedded web server port 8404<br/>- OR_METRICS_ENABLED: true/false"]:::greenStyle
+            HAProxy["<b>HA Proxy</b><br/>http://localhost:8404/metrics<br/>- Uses prometheus-exporter<br/>- Runs on own embedded web server port 8404<br/>- Configured via haproxy.cfg"]:::greenStyle
+            Keycloak["<b>Keycloak</b><br/>http://localhost:8080/metrics<br/>- Built in prometheus metrics support<br/>- KC_METRICS_ENABLED: true/false<br/>- Do not publicly expose"]:::orangeStyle
+            PostgreSQL["<b>PostgreSQL</b><br/>- No metrics at present could use postgresql-exporter"]:::redStyle
+        end
+    end
+
+    %% Connections
+    PromScrape --> Manager
+    PromScrape --> HAProxy
+    CWAgent --> CW
+    CW --> DB
 
 ```
 
