@@ -2,8 +2,45 @@
 
 Prometheus formatted metrics endpoints can be configured for each container (including the OpenRemote Manager), you will either need Prometheus server running to scrape these endpoints or use a cloud provider service; here's an example using AWS Cloudwatch:
 
-![image](img/metrics.png)
-_Image of metrics endpoints and AWS Cloudwatch configuration_
+```mermaid
+graph LR
+    subgraph AWS
+        direction TB
+        CW[Cloudwatch]:::orangeStyle
+        DB["Dashboard\nor-default\n* Standard dashboard uses variables to update widgets for each instance\n* Instance names list generated from list of or_attributes_total metrics\n* Metrics are sampled over configurable period (independent of chart duration), configurable aggregation AVG/MIN/MAX/etc.\n* Sampling configuration can be tricky (e.g. count metrics)"]:::purpleStyle
+    end
+
+    subgraph EC2_Instance["EC2 Instance"]
+        
+        subgraph CWAgent["Cloudwatch Agent"]:::greenStyle
+            direction TB
+            CWConfig["Cloudwatch Config\n/opt/aws/amazon-cloudwatch-agent/var/config.json\n* Cloudwatch agent is able to act like Prometheus server\n* Regex filters and matchers to select what metrics get pushed to cloudwatch\n* Cloudwatch maps metric types to its' own"]:::innerGreenStyle
+            PromScrape["Prometheus Scrape Config\n/opt/aws/amazon-cloudwatch-agent/var/prometheus.yaml\n* Defines the scrape configs for each container (only HA Proxy and Manager currently scraped)\n* Be aware some functionality doesn't work (i.e. label injection)"]:::innerGreenStyle
+        end
+
+        subgraph DockerContainers["Docker Containers"]
+            direction TB
+            Manager["Manager\nhttp://localhost:8404/metrics\n* Micrometer with Prometheus Registry\n* Runs on own embedded web server port 8404\n* OR_METRICS_ENABLED: true|false\n* Register meters using Container.getMeterRegistry()"]:::greenStyle
+            HAProxy["HA Proxy\nhttp://localhost:8404/metrics\n* Uses prometheus-exporter\n* Runs on own embedded web server port 8404\n* Configured via haproxy.cfg (Enabled by default)"]:::greenStyle
+            Keycloak["Keycloak\nhttp://localhost:8080/metrics\n* Built in prometheus metrics support\n* KC_METRICS_ENABLED: true|false\n* Need to be careful to not publicly expose"]:::orangeStyle
+            PostgreSQL["PostgreSQL\n* No metrics at present could use postgresql-exporter"]:::redStyle
+        end
+    end
+
+    %% Connections
+    Manager --"Scrape"--> PromScrape
+    HAProxy --"Scrape"--> PromScrape
+    CWAgent --> CW
+    CW --> DB
+
+    %% Styling
+    classDef greenStyle fill:#d4edda,stroke:#28a745,stroke-width:2px,color:#000;
+    classDef innerGreenStyle fill:#e8f5e9,stroke:#28a745,stroke-width:1px,color:#000;
+    classDef orangeStyle fill:#ffe0b2,stroke:#f57c00,stroke-width:2px,color:#000;
+    classDef redStyle fill:#ffcdd2,stroke:#c62828,stroke-width:2px,color:#000;
+    classDef purpleStyle fill:#e1bee7,stroke:#7b1fa2,stroke-width:2px,color:#000;
+
+```
 
 Refer to the website of each container app for details of metrics exposed and their meaning; here's an overview of the OpenRemote Manager metrics.
 
