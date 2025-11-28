@@ -151,6 +151,13 @@ _Figure 10. Groovy rules for more advanced processing, logic or automation_
 
 As an admin user of the system who can access all realms, you have the option to select 'Global' versus 'Realm' rules. Global rules allow you to use When-Then and Groovy rules that can access assets across realms. Realm users can only use Realm rules which are a part of their realm and can only access attributes within that realm.
 
+## Services
+
+Services are additional applications that work alongside OpenRemote to add extra features and tools to your system. You'll see them listed on the Services page, giving you access to additional functionality like for example advanced forecasting, device management tools, or custom integrations. Your administrator can add specific services to OpenRemote. OpenRemote also distributes generic services which are considered to have value to many users. 
+
+### Service ML forecasting with multiple regressors
+OpenRemote includes a [ML forecasting service](../services/service-ml-forecast.md), which can be used for time series forecasting with an expected dependency on multiple other variables. An example is forecasting the published energy tariffs on the EPEX Spot market, for which you expect a dependancy on the amount of sun and wind. 
+
 ## Insights
 
 The Insights page (see figure 11) allows you to create multiple dashboards within the manager UI. You can:
@@ -158,11 +165,11 @@ The Insights page (see figure 11) allows you to create multiple dashboards withi
 * Share dashboards with other users even as standalone app, or keep your dashboard private.
 * Make dashboards public. Note this requires assets to be set as 'public' and attributes as 'public read'.
 * Share via the [iOS or Android console](on-mobile.md) and benefit push notifications (see figure 12).
-* Use eight types of widgets (or [extend with your own](../../developer-guide/adding-widgets-on-insights.md)): Chart, KPI, Gauge, Image, Map, Table, Attribute (with control) and Gateway.
+* Use nine types of widgets (or [extend with your own](../../developer-guide/adding-widgets-on-insights.md)): Line Chart, Bar Chart, KPI, Gauge, Image, Map, Table, Attribute (with control) and Gateway.
 * The gateway widget allows for opening the Manager UI of OpenRemote instances connected as gateways to this instance. See [Gateway tunnelling setup](../../developer-guide/gateway-tunnelling-setup.md) for the technical configuration.
 
 ![](img/insights-dashboard.png)
-_Figure 11. Example of an Insights dashboard, showing a dashboard with seven types of widgets._
+_Figure 11. Example of an Insights dashboard, showing a dashboard with eight different types of widgets._
 
 ![](img/insights-view.png)
 _Figure 12. The Insights view of the Manufacturer demo accessed via the consoles, showing how your dashboards easily turn into an app for your end users._

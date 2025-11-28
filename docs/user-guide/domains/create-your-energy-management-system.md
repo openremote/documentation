@@ -96,7 +96,7 @@ To connect electricity consuming devices. You can connect several energy meters 
 
 ##### Forecast service
 
-For the electricity consuming devices you also need the forecasted power. You can enable this by adding the configuration item 'Forecast'. This service will take an exponential weighted moving average, based on your preferences. See [Time series forecasting](../rules-and-forecasting/forecasting.md) for configuration.
+For the electricity consuming devices you also need the forecasted power. You can enable this in two ways. The simple one is by adding the configuration item 'Forecast'. This service will take an exponential weighted moving average, based on your preferences. See [Time series forecasting](../rules-and-forecasting/forecasting.md) for configuration. For more advanced forecasting you can use the ML forecasting service, which can take into account the influence of other attributes, e.g. weather. See [ML Forecasting](../services/service-ml-forecast.md).
 
 ### Electricity Battery
 
@@ -152,7 +152,7 @@ In some cases you also want to connect to your charger, and make the vehicle a c
 _Figure 6. The Energy schedule is in a JSON format as shown. Each day of the week (seven days) specifies the required energy level percentage for each hour of the day, starting at midnight. So in the above example the vehicle battery needs to be charged to 90% at 8am on each day_
 
 ### Electricity Supplier
-The optimisation will also take into account the 'Tariff import' and 'Tariff export' for your electricity. To enable this, first add an 'Electricity supplier asset' as a child of the Optimisation asset. Note that the tariffs are defined as costs. So the 'Tariff import' is normally positive as you pay, while the 'Tariff export' is negative as you earn. You can either set a fixed value for both tariffs, or connect to an API of your supplier, using any of the existing [Agent Protocol options](../agents-protocols/overview.md). For electricity tariffs you can e.g. use the ENTSOE data https://transparency.entsoe.eu/ (for optimising on carbon footprint you can consider https://www.electricitymaps.com/ , see 'Optimisation' for a further explanation).
+The optimisation will also take into account the 'Tariff import' and 'Tariff export' for your electricity. To enable this, first add an 'Electricity supplier asset' as a child of the Optimisation asset. Note that the tariffs are defined as costs. So the 'Tariff import' is normally positive as you pay, while the 'Tariff export' is negative as you earn. You can either set a fixed value for both tariffs, or connect to an API of your supplier, using any of the existing [Agent Protocol options](../agents-protocols/overview.md). For electricity tariffs you can e.g. use EPEX Spot prices via the ENTSOE API https://transparency.entsoe.eu/ (for optimising on carbon footprint you can consider https://www.electricitymaps.com/ , see 'Optimisation' for a further explanation).
 
 In this tutorial we just simulate values by adding a simulator profile. To do that, take the following steps:
 * Add a 'Simulator Agent' at the root of your asset tree. 
@@ -168,6 +168,10 @@ _Figure 7. Selecting the parameter 'Replay data' within the 'Agent link' configu
 ![Supplier tariff export](img/supplier-tariff-export.png)
 
 _Figure 8. An example for the 'Replay data' for the Export tariff you want to use, indicating a tariff per timestamp (seconds). The negative value indicates you are earning money_
+
+##### Forecast service with ML forecasting
+
+In case you need forecasted electricity tariffs beyond the time window of the published data by EPEX, you can use the ML forecasting service, which can take into account the historical time series data as well as the influence of forecasted wind speed and solar/cloud coverage. See [ML Forecasting](../services/service-ml-forecast.md) and the [Open WeatherMap Agent](../agents-protocols/openweathermap.md).
 
 ## Optimisation
 

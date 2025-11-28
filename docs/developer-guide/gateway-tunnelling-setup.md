@@ -39,3 +39,38 @@ This guide describes the steps necessary to setup the gateway tunnelling functio
 * Set TCP port range in sish service (to allow raw TCP tunnelling)
 * Allow inbound access to port `2222` and to the TCP port range exposed on the instance
 * Generate or select existing SSH private key and add this to the deployment image and set SISH variable: `--private-keys-directory`
+
+# Gateway Tunnelling Development Setup
+
+To run the manager locally as an edge gateway, to test the gateway tunnelling functionality, two different docker compose profiles need to be running:
+* The central instance profile (e.g. `docker-compose.central.yml`) needs to be running to provide the sish server functionality, with the correctly configured environment variables
+* The testing (unproxied) development profile needs to be running to allow the manager to run properly in the IDE.
+
+You need to setup the SSH keys as described in the "Edge Instance Setup" section above.
+
+For the **central instance** profile:
+
+Run the main `docker-compose.yml` file with `OR_HOSTNAME=localhost`, and add the following:
+* In the proxy service:
+  * SISH_PORT: 8090
+  * SISH_HOST: sish
+* In the manager service:
+  * Add `8008:8008` to allow attaching the debugger from the IDE
+  * Optionally, set the manager to be built from context `./manager/build/install/manager`, so that code changes are reflected during Docker image rebuild (after running `./gradlew clean installDist`)
+  * Add `OR_JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8008"` to allow remote debugging from the IDE
+  * `OR_METRICS_ENABLED: false`
+  * `OR_GATEWAY_TUNNEL_SSH_HOSTNAME: "localhost"`
+  * `OR_GATEWAY_TUNNEL_SSH_PORT: 2222`
+  * `OR_GATEWAY_TUNNEL_TCP_START: 9000`
+  * `OR_GATEWAY_TUNNEL_HOSTNAME: "localhost"`
+  * `OR_GATEWAY_TUNNEL_AUTO_CLOSE_MINUTES: 2`
+* Add the `sish` service, as found in `deploy.yml`, and modify:
+  * Add volume `./deployment:/deployment` so that you can map the SSH keys that were generated above
+
+The routing of requests from the central instance to the gateway looks like this: Central Instance --> Sish --> Gateway Proxy --> Keycloak/Manager
+
+For the "Sish --> Gateway Proxy" requests to be routed correctly, we need to edit the local `/etc/hosts` file to route the `<tunnelID>.<tunnelSSHHost>` to localhost, like this:
+```
+127.0.0.1       gw-5fj1sxvwwfp7wvgqgve91n.localhost
+```
+The above setup should make the **`org.openremote.test.gateway.GatewayTest#Gateway Tunnelling Edge Gateway Integration test`** pass when run from the IDE or via Gradle.

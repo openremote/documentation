@@ -1,0 +1,33 @@
+---
+id: dashboardquery
+title: "DashboardQuery"
+description: ""
+sidebar_label: "DashboardQuery"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"select":{"basic":true},"conditions":{"dashboard":{"access":["PUBLIC"]},"asset":{"access":["RESTRICTED"],"minAmount":"AT_LEAST_ONE","parents":[{"id":"string"}]}},"ids":["string"],"names":[{"match":"EXACT","caseSensitive":true,"value":"string","negate":true}],"userIds":["string"],"realm":{"name":"string"},"start":0,"limit":0}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"DashboardQuery"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"select":{"type":"object","properties":{"basic":{"type":"boolean"}},"title":"Select"},"conditions":{"type":"object","properties":{"dashboard":{"type":"object","properties":{"access":{"type":"array","items":{"type":"string","enum":["PUBLIC","SHARED","PRIVATE"]}}},"title":"DashboardConditions"},"asset":{"type":"object","properties":{"access":{"type":"array","items":{"type":"string","enum":["RESTRICTED","LINKED","REALM"]}},"minAmount":{"type":"string","enum":["AT_LEAST_ONE","ALL","NONE"]},"parents":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"}},"title":"ParentPredicate"}}},"title":"AssetConditions"}},"title":"Conditions"},"ids":{"type":"array","items":{"type":"string"}},"names":{"type":"array","items":{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"}},"userIds":{"type":"array","items":{"type":"string"}},"realm":{"type":"object","properties":{"name":{"type":"string"}},"title":"RealmPredicate"},"start":{"type":"integer","format":"int32"},"limit":{"type":"integer","format":"int32"}},"title":"DashboardQuery"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
