@@ -355,7 +355,7 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>executor_scheduled_once_total</td>
       <td>counter</td>
       <td>name: ContainerExecutor</td>
-      <td>total tasks scheduled once</td>
+      <td>Total tasks scheduled once</td>
     </tr>
     <tr>
       <td>Executors</td>
