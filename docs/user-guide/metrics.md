@@ -376,7 +376,7 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>executor_seconds_max</td>
       <td>gauge</td>
       <td>name: ContainerExecutor | ContainerScheduledExecutor</td>
-      <td>maximum execution time of executor tasks</td>
+      <td>Maximum execution time of executor tasks</td>
     </tr>
     <tr>
       <td>Events</td>
