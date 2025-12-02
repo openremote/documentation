@@ -144,7 +144,7 @@ rm -r data/new data/old
 ## Bash
 ### SSH tunnel for proxy stats
 HAProxy stats web page is only accessible on localhost in our default config, this can be tunnelled to your local machine to allow access at http://localhost:8404/stats:
-```
+```shell
 ssh -L 8404:localhost:8404 <HOST>
 ```
 
