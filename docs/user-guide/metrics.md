@@ -397,7 +397,7 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>or_attributes_seconds_max</td>
       <td>gauge</td>
       <td>(none)</td>
-      <td>maximum time spent processing an attribute event</td>
+      <td>Maximum time spent processing an attribute event</td>
     </tr>
     <tr>
       <td>Events</td>
