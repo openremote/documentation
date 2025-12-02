@@ -390,7 +390,7 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>or_attributes_seconds</td>
       <td>summary</td>
       <td>(none)</td>
-      <td>total time spent processing attribute events</td>
+      <td>Total time spent processing attribute events</td>
     </tr>
     <tr>
       <td>Events</td>
