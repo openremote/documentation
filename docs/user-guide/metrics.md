@@ -313,7 +313,7 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>executor_idle_seconds_max</td>
       <td>gauge</td>
       <td>name: ContainerExecutor | ContainerScheduledExecutor</td>
-      <td>maximum idle time of executor</td>
+      <td>Maximum idle time of executor</td>
     </tr>
     <tr>
       <td>Executors</td>
