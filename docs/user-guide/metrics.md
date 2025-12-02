@@ -369,7 +369,7 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>executor_seconds</td>
       <td>summary</td>
       <td>name: ContainerExecutor | ContainerScheduledExecutor</td>
-      <td>measures executor task execution time</td>
+      <td>Measures executor task execution time</td>
     </tr>
     <tr>
       <td>Executors</td>
