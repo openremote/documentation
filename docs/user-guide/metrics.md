@@ -362,7 +362,7 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>executor_scheduled_repetitively_total</td>
       <td>counter</td>
       <td>name: ContainerScheduledExecutor</td>
-      <td>total tasks scheduled repetitively</td>
+      <td>Total tasks scheduled repetitively</td>
     </tr>
     <tr>
       <td>Executors</td>
