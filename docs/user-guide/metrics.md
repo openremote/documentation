@@ -306,7 +306,7 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>executor_idle_seconds</td>
       <td>summary</td>
       <td>name: ContainerExecutor | ContainerScheduledExecutor</td>
-      <td>idle time of executor</td>
+      <td>Idle time of executor</td>
     </tr>
     <tr>
       <td>Executors</td>
