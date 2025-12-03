@@ -383,7 +383,7 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>or_attributes_total</td>
       <td>counter</td>
       <td>source: AgentService | AttributeLinkingService | EnergyOptimisationService | GatewayService | RulesEngine | none | ...</td>
-      <td>total attributes processed by source</td>
+      <td>Total attributes processed by source</td>
     </tr>
     <tr>
       <td>Events</td>
