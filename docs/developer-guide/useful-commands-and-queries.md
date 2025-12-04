@@ -41,8 +41,10 @@ docker cp <PROJECT_NAME>_postgresql_1:/deployment/datapoints.csv ./
 ### Backup/Restore OpenRemote DB
 
 * Create backup: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak`
+* Optional: Exclude datapoint records from the backup using the following command: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak --exclude-table-data='_timescaledb_internal._hyper_*'`
 * Copy to the Docker host: `docker cp or-postgresql-1:/tmp/db.bak ~/`
-* SCP the backup off the source server onto the destination server
+* Remove the backup from within the container: `docker exec or-postgresql-1 rm /tmp/db.bak`
+* SCP the backup off the source server onto the destination server: e.g. `scp <HOST>:~/db.bak .`
 * On the destination server stop the manager and Keycloak containers and any project specific containers that are using the DB: `docker stop or-manager-1 or-keycloak-1`
 * Copy backup into the postgresql container: `docker cp db.bak or-postgresql-1:/tmp/`
 * Drop existing DB: `docker exec or-postgresql-1 dropdb openremote`
@@ -137,6 +139,13 @@ docker volume prune
 docker exec --rm -it -v or_postgresql-data:/var/lib/postgresql/data --entrypoint=bash openremote/postgresql
 mv -v data/old/* $PGDATA
 rm -r data/new data/old
+```
+
+## Bash
+### SSH tunnel for proxy stats
+HAProxy stats web page is only accessible on localhost in our default config, this can be tunnelled to your local machine to allow access at http://localhost:8404/stats:
+```shell
+ssh -L 8404:localhost:8404 <HOST>
 ```
 
 ## Queries
