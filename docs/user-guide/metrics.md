@@ -52,7 +52,7 @@ Refer to the website of each container app for details of metrics exposed and th
       <th width="15%">Metric name</th>
       <th width="5%">Type</th>
       <th width="25%">Labels</th>
-      <th>Description <br> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
+      <th>Description <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</th>
     </tr>
   </thead>
   <tbody>
@@ -81,21 +81,21 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>Artemis</td>
       <td>artemis_address_size</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost</td>
       <td>The number of estimated bytes being used by all the queue(s) bound to this address; used to control paging and blocking</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_authentication_count</td>
       <td>gauge</td>
-      <td>broker: localhost<br>result: failure | success</td>
+      <td>broker: localhost<br/>result: failure | success</td>
       <td>Number of successful authentication attempts</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_authorization_count</td>
       <td>gauge</td>
-      <td>broker: localhost<br>result: failure | success</td>
+      <td>broker: localhost<br/>result: failure | success</td>
       <td>Number of successful authorization attempts</td>
     </tr>
     <tr>
@@ -109,35 +109,35 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>Artemis</td>
       <td>artemis_consumer_count</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Number of consumers consuming messages from this queue</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_delivering_durable_message_count</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Number of durable messages that this queue is currently delivering to its consumers</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_delivering_durable_persistent_size</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Persistent size of durable messages that this queue is currently delivering to its consumers</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_delivering_message_count</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Number of messages that this queue is currently delivering to its consumers</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_delivering_persistent_size</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Persistent size of messages that this queue is currently delivering to its consumers</td>
     </tr>
     <tr>
@@ -151,70 +151,70 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>Artemis</td>
       <td>artemis_durable_message_count</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Number of durable messages currently in this queue (includes scheduled, paged, and in-delivery messages)</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_durable_persistent_size</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Persistent size of durable messages currently in this queue (includes scheduled, paged, and in-delivery messages)</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_limit_percent</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost</td>
       <td>The % of memory limit (global or local) that is in use by this address</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_message_count</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Number of messages currently in this queue (includes scheduled, paged, and in-delivery messages)</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_messages_acknowledged</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Number of messages acknowledged from this queue since it was created</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_messages_added</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Number of messages added to this queue since it was created</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_messages_expired</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Number of messages expired from this queue since it was created</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_messages_killed</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Number of messages removed from this queue since it was created due to exceeding the max delivery attempts</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_number_of_pages</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost</td>
       <td>Number of pages used by this address</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_persistent_size</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Persistent size of all messages (including durable and non-durable) currently in this queue (includes scheduled, paged, and in-delivery messages)</td>
     </tr>
     <tr>
@@ -228,35 +228,35 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>Artemis</td>
       <td>artemis_routed_message_count</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost</td>
       <td>Number of messages routed to one or more bindings</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_scheduled_durable_message_count</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Number of durable scheduled messages in this queue</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_scheduled_durable_persistent_size</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Persistent size of durable scheduled messages in this queue</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_scheduled_message_count</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Number of scheduled messages in this queue</td>
     </tr>
     <tr>
       <td>Artemis</td>
       <td>artemis_scheduled_persistent_size</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost<br>queue: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost<br/>queue: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request</td>
       <td>Persistent size of scheduled messages in this queue</td>
     </tr>
     <tr>
@@ -284,7 +284,7 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>Artemis</td>
       <td>artemis_unrouted_message_count</td>
       <td>gauge</td>
-      <td>address: *.*.writeattribute.# | *.*.writeattributevalue.# | provisioning.*.request<br>broker: localhost</td>
+      <td>address: \*.\*.writeattribute.# | \*.\*.writeattributevalue.# | provisioning.\*.request<br/>broker: localhost</td>
       <td>Number of messages not routed to any bindings</td>
     </tr>
     <tr>
