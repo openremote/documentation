@@ -5,9 +5,9 @@ description: "Retrieve the vector tile data for Mapbox GL"
 sidebar_label: "Retrieve the vector tile data for Mapbox GL"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVcFuGzkM/RWBpxaYjIzkNqcNiiIt0GCD1D0FPigztEeoJKoSx647mH9fUOPMxmkP28W2WF9sU+Ij9Ug+jsBml6F5gFsTYVMBRUyGLYX3HTSwQ15bh1BBNMl4ZExyeYRgPEID34g8VGADNBAN91BBwi+DTdhBw2nACnLbozfQjMDHKD42MO4wQQVbSt7wbLq6hGmqFuCW3ODDL4FOdPgPcTfiniOFjFk8Llcr+eowt8lGIRIa6HBrBsfq6SZU0FJgDCx3TYzOtoV0vQ9d7U18pK8Xe2yZ0gUL/834fVKZkw275zk9Hhlhkk/1IoF75GRxj4p7VDOwEmDVGTZqS0ndlqDq5gNU4JF7OpW/lJ57aEB7E7U46VHKPulxLtKkx0SHCSrImPZPDTIkBw30zDE3WnfoqaaIIaEnxtqSNtHqMaFxftJQwd4kax7dTGIxzzQW4qABbzJjktdtJFA7JMvHEklgbQfNw+b50Ueha0Z7urAwR2bg/lKYc3QoV1pnMfCbhB0GtsYVI9NnDJ/KO7R46JJW1nMqOiZiasnpGf+ipRCwZV3cSldtE+b+3wPkluL8gphoW9pg+SUlFkhK9lvpnDfUlTY5M/58bLkK1f/86aXBbdhSqZLlcvxnxHBfukvdmmB2mNT9249rdX33Hl6Ow7q3WdlcpqGjdvAYuBBWRkGsP0B7t17fLZC1UncOTUaVcZ6qhzOgzaul9anN563/ukTxlFDJI+qTGpi2qAF6Y10RmC39ceYHUwXOtigC0ixydn1z90Fd1SuoXszc4XCod2GoKe30yS1rs4vu4qpe1Rjqnr0TTJnZmRc5WIkpUmZvwrMwP6cgZ3Qvc8f4lXV0xgaJUbIdT+ryAN5Eabx52zSnxdIse6AR2d5U0FNmuT6Ojybjp+SmScxfBkwiB5u/laSIQ2ez/O6g2RqX8bvMFhmGV/enLfBaSR4/yvhkNOFYBMsN8g8q+IzHp10oe+Y3xjzR85ujSimmzVRBj6bDVIieT67bFiM/8/kHu01Ue9k4N2/XME1/Aduv9v4=
+api: eJzNVcFuGzkM/ZUBTy2gjIzkNqcNiiIt0GCDrHsKfFA0tEeoJKoSx246mH9fUOO4SbpYbBe7RU8eU+Qj9Ug+TcBmV6C7g2uTYKOAEmbDjuL7HjrYIa+dR1CQTDYBGbM4TxBNQOjgK1EABS5CB8nwAAoyfh5dxh46ziMqKHbAYKCbgB+SxLjIuMMMCraUg+HFdHEO86xOwJb8GOL/Ap3p8B/ibiS8JIoFi0Scr1by02Ox2SUhEjrocWtGz82jJyiwFBkji69JyTtbSdf72LfBpHv6crZHy5TPWPjvpnmeZ/UC9hY5O9xjwwM2i3sj7k1v2DRbys11hWquPoCCgDzQsam1oTxABzqYpCVIT9LMWU8L9bOeMh1mUFAw7x/bPmYPHQzMqXRa9xiopYQxYyDG1pE2yekpo/Fh1qBgb7Iz936hppoXciod0EEwhTHDXHksaMfs+KFmEljXQ3e3eXr0h3RmQXt0ODWJzMjDufTI06G6WO8w8puMPUZ2xlcj0yeMH+s9tEToWlbRSyk6ZWKy5PWCf2YpRrSsa1idlW3GMvx7gGIpLTdImba1uacvabFAUnZf6zy8oR7riDw1/nhucQX1i1+9DriLW6pdclyPf08Yb+t0Ndcmmh3m5t16fdNc3ryHl+uwHlxpXKnb0JMdA0auhNVVEOvfoLVNc+PRFGwKLgt19wxj8+o09WTL86l/XRMEythI/e1xvY2t643BOF8VY0u/PYuDWYF3FkURupM+XV7dfGgu2hWoF+t2OBzaXRxbyjt9DCva7JI/u2hXLcZ24OAFU9Z1oUQOVmJKVDiY+CTNj4nHM6ZPK8f4hXXyxkXJUaudjsJyB8Ekmbnl+eiOL0V3EvZOdHijYKDC4j5N96bgx+znWcyfR8yiBJtvIlJ1oXdFvnvotsYX/K6yk67Cq9ujrL9upI6/qvhoNPGhapUf5R8o+IQPj4+bPBw/MeeRnp+cVVoxb2YFA5oecyV6Obm0FhM/ifkHj5UI9umxuXq7hnn+E9AB53U=
 sidebar_class_name: "get api-method"
-info_path: docs/rest-api/openremote-manager-rest-api
+info_path: docs/rest-api/openremote-manager-http-api
 custom_edit_url: null
 ---
 
@@ -62,7 +62,7 @@ Retrieve the vector tile data for Mapbox GL
 <StatusCodes
   id={undefined}
   label={undefined}
-  responses={{"200":{"description":"default response","content":{"application/vnd.mapbox-vector-tile":{"schema":{"type":"string","format":"byte"}}}}}}
+  responses={{"200":{"description":"default response","content":{"application/vnd.mapbox-vector-tile":{}}}}}
 >
   
 </StatusCodes>

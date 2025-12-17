@@ -4,7 +4,7 @@ const sidebar: SidebarsConfig = {
   apisidebar: [
     {
       type: "doc",
-      id: "rest-api/openremote-manager-rest-api",
+      id: "rest-api/openremote-manager-http-api",
     },
     {
       type: "category",

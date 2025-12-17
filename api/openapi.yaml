@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  title: OpenRemote Manager REST API
-  description: "This is the documentation for the OpenRemote Manager HTTP REST API.\
-    \  Please see the [documentation](https://docs.openremote.io) for more info."
+  title: OpenRemote Manager HTTP API
+  description: "This is the documentation for the OpenRemote Manager HTTP API.  Please\
+    \ see the [documentation](https://docs.openremote.io) for more info."
   contact:
     email: info@openremote.io
   license:
@@ -2371,10 +2371,7 @@ paths:
         "200":
           description: default response
           content:
-            application/vnd.mapbox-vector-tile:
-              schema:
-                type: string
-                format: byte
+            application/vnd.mapbox-vector-tile: {}
   /map/upload:
     post:
       tags:
