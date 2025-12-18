@@ -18,6 +18,7 @@ For attributes linked to this agent, the following describes the supported agent
 | `type` | Agent type | Text (Must be `SimulatorAgentLink`) | Y |
 | `replayData` | A dataset of values that should be replayed (i.e. written to the linked attribute) in a continuous loop | [SimulatorReplayDatapoint[]](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/simulator/SimulatorReplayDatapoint.java) | N |
 | `schedule` | When defined overwrites the default 24h dataset length and how it is replayed. | [SimulatorProtocol.Schedule](https://github.com/openremote/openremote/blob/master/agent/src/main/java/org/openremote/agent/protocol/simulator/SimulatorProtocol.java) | N |
+| `timezone` | The timezone the Simulator should follow when replaying the dataset. | [TimeZone](https://github.com/openremote/openremote/blob/master/agent/src/main/java/org/openremote/agent/protocol/simulator/SimulatorAgentLink.java) | N |
 
 ## Additional info
 Attributes linked to this agent that are written to will follow a route through the system as if it came from a remote service.
@@ -31,3 +32,6 @@ Attributes linked to this agent that have a `replayData` field in their Agent Li
 
 ### Schedule
 The schedule can be set to occur only once when only a start- (and end) date are defined, or as a recurring event following the [RFC 5545 RRULE](https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10) format. If not provided defaults to every 24 hours.
+
+### Timezone
+The timezone parameter allows the replay data to follow any specified timezone. Upon adding a new SimulatorAgentLink the timezone parameter will be added with the users' timezone. If not specified will fall back to UTC.
