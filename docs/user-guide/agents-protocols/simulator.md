@@ -32,15 +32,15 @@ If the `replayData` contains data points scheduled after the default 24 hours or
 Attributes linked to this agent that have a `replayData` field in their Agent Link will cause the values within to be replayed over a 24h period in a continuous loop, unless a schedule is configured. Each `SimulatorReplayDatapoint` value must have a `timestamp` (seconds offset from midnight `00:00` in the system time of the machine that hosts the manager) and a `value`, this value will then be written to the attribute at the specified seconds offset from midnight each day.
 
 ### Schedule
-The schedule can be set to occur only once by selecting "Plan an occurrence". This will allow a period to be specified where within the data will be replayed. Any datapoints specified to be replayed after the end date are ignored.
+The schedule can be set to occur only once by selecting "Plan an occurrence". This will allow a period to be specified where the data will be replayed. Any datapoints specified to be replayed after the end date are ignored.
 
 ![](img/simulator-scheduler-occurr.png)
 
 The dataset can also be replayed recurringly by selecting "Plan a repeating occurrence". In addition to the period options this allows a frequency to be specified and how the repeating occurrence ends.
 
-The `frequency` defines how often the replay data is replayed. The frequency can be set to replay the dataset every `minute`, `hour`, `day`, `week`, `month` or `year`. By increasing the number alongside the selected frequency the `interval` the frequency will change to run every few `minutes`, `hours`, `days`, `weeks`, `months` or `years`. Besides the interval and frequency, the dataset can also be replayed on certain days of the week when selected.
+The `frequency` defines how often the replay data is replayed. The frequency can be set to replay the dataset every `minute`, `hour`, `day`, `week`, `month` or `year`. By increasing the number alongside the selected frequency (the `interval`),  the frequency will change to run every few `minutes`, `hours`, `days`, `weeks`, `months` or `years`. Besides the interval and frequency, the dataset can also be replayed on certain days of the week when selected.
 
-The `repeating occurrence ending` can be specified to stop at a certain date and time or set end after a certain amount of occurrences.
+The `repeating occurrence ending` can be specified to stop at a certain date and time or set to end after a certain amount of occurrences.
 
 These options follow the [RFC 5545 RRULE](https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10) specification.
 
