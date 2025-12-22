@@ -17,7 +17,7 @@ To use GeoJSON geofencing in OpenRemote, follow these steps:
 4.  **Configure the GeoJSON Geofence:**
 
     *   Select either "inside area" or "outside area" for the operator.
-    *   In the operator configuration panel, click the "GeoJSON" button and paste your GeoJSON into the text field. The UI provides validation tools to help with this.
+    *   In the configuration panel, click the "GeoJSON" button and paste your GeoJSON into the text field. The UI provides validation tools to help with this.
 
 5.  **Define Then-actions:** Specify the actions to be performed in the then-section when the geofence condition (inside or outside the area) is met.
 
@@ -64,4 +64,4 @@ Here’s an example of a GeoJSON Polygon, around the area of the Rotterdam defau
 }
 ```
 
-This Polygon defines a simple rectangular area. You can use more complex polygons, MultiPolygons, Features, or FeatureCollections to define more intricate geofences. You can input the exact same GeoJSON into the additional GeoJSON button, in the realm appearance menu, to see the same area highlighted on the various OpenRemote maps.
+This Polygon defines a simple rectangular area. You can use more complex polygons, MultiPolygons, Features, or FeatureCollections to define more intricate geofences. You can input the same GeoJSON as custom GeoJSON styling in "Appearance -> Map Settings -> GeoJSON", to see the same area highlighted on the various OpenRemote maps.
