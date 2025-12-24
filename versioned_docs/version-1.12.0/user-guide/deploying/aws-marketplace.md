@@ -64,7 +64,7 @@ After subscribing on OpenRemote via the AWS Marketplace, you can start configuri
   
   :::
 
-* `Storage` - You can specify the amount of block storage to provision for this OpenRemote instance, with options of `8GB`, `16GB`, `32GB`, `48GB` and `64GB`.
+* `Storage` - You can specify the amount of block storage to provision for this OpenRemote instance, with options of `32GB`, `48GB` and `64GB`.
    It is possible to expand the volume after instance creation, but a reboot will be required.
 
 * `Key pair` - Choose a `key pair` for this OpenRemote instance. With the selected `key pair` you can `SSH` into the machine.
@@ -114,7 +114,7 @@ The latest version of OpenRemote will be installed. Click [here](https://github.
 
 After the `EC2` instance is successfully provisioned, the `CREATE_COMPLETE` status will appear on the `CloudFormation` page. 
 
-To start using OpenRemote, either visit the `hostname` you specified during configuration or navigate to the `EC2` page and locate the instance named `%AWS-STACKNAME%-AWS Marketplace` (make sure to replace `%AWS-STACKNAME%` with the stack name you have provided during configuration) and look for the `Public IPv4 address`.
+To start using OpenRemote, either visit the `hostname` you specified during configuration or navigate to the `EC2` page and locate the instance named `OpenRemote` and look for the `Public IPv4 address`.
 
 You can also view the `IPv4` address by clicking on the `Outputs` section of the `CloudFormation` stack.
 
@@ -122,12 +122,12 @@ You can also view the `IPv4` address by clicking on the `Outputs` section of the
 You can access the `EC2` instance via `SSH` by following the steps below.
 
 - Navigate to the `EC2` page, then click on `Security Groups` located under the `Network & Security` section on the left-hand menu.
-- Locate the security group named `%AWS-STACKNAME%-or-ssh-whitelist` (make sure to replace `%AWS-STACKNAME%` with the stack name you specified during configuration) and click on it.
+- Locate the security group named `<AWS-STACKNAME>-or-ssh-whitelist` (make sure to replace `<AWS-STACKNAME>` with the stack name you specified during configuration) and click on it.
 - In the `Inbound rules` section, click the `Edit inbound rules` button.
 - Click the `Add rule` button to insert a new entry in the `Inbound rules` section.
 - Set the `type` to `SSH`, and enter your `ISP IP address` in the `Source` field. You can find your `IP address` [here](https://whatsmyip.com/).
 - Click the `Save rules` button to apply the changes.
-- You've now whitelisted your `IP address` to access the `EC2` instance. To connect, open your terminal and run the following command: `ssh ec2-user@%EC2PublicIP%` (make sure to replace `%EC2PublicIP%` with the instance's actual `IPv4` address or the `hostname` you have provided during configuration)
+- You've now whitelisted your `IP address` to access the `EC2` instance. To connect, open your terminal and run the following command: `ssh ec2-user@<EC2PublicIP>` (make sure to replace `<EC2PublicIP>` with the instance's actual `IPv4` address or the `hostname` you have provided during configuration)
 
 :::note
 
@@ -136,7 +136,7 @@ To `SSH` into the machine, ensure that your `key pair` is saved in the `.ssh` di
 :::
 
 ## Where can I find the installation files?
-The installation files are located in the `/openremote` folder. You can navigate to it using the command `cd /openremote`. The data from the platform is stored in persistent `docker` volumes, located in the `/var/lib/docker/volumes` directory. 
+The installation files are located in the `/home/ec2-user/` folder. You can navigate to it using the command `cd /home/ec2-user/`. The data from the platform is stored in persistent `docker` volumes, located in the `/var/lib/docker/volumes` directory. 
 
 ## Unsubscribe from the AWS Marketplace
 To stop using OpenRemote from the AWS Marketplace, you can unsubscribe by following the steps below.
