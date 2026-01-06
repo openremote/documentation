@@ -1,0 +1,33 @@
+---
+id: dashboardscreenpreset
+title: "DashboardScreenPreset"
+description: ""
+sidebar_label: "DashboardScreenPreset"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"id":"string","displayName":"string","breakpoint":0,"scalingPreset":"WRAP_TO_SINGLE_COLUMN","redirectDashboardId":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"DashboardScreenPreset"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"required":["displayName","scalingPreset"],"type":"object","properties":{"id":{"type":"string"},"displayName":{"minLength":1,"type":"string"},"breakpoint":{"minimum":1,"type":"integer","format":"int32"},"scalingPreset":{"type":"string","enum":["WRAP_TO_SINGLE_COLUMN","KEEP_LAYOUT","REDIRECT","BLOCK_DEVICE"]},"redirectDashboardId":{"type":"string"}},"title":"DashboardScreenPreset"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
