@@ -104,4 +104,4 @@ This mechanism is used to discover the device, then establish a secure communica
 Communication on this channel uses Protocol Buffer payloads, in addition to the messages defined by Espressif, OpenRemote uses messages defined in the following ProtoBuf spec: [ORConfigChannelProtocol](https://github.com/openremote/console-ios-lib/blob/7212bc905c7df34c2f3d62f801f0e4df7529a2f0/ORLib/ORConfigChannelProtocol.proto)  
 OpenRemote includes the [ESP Provision provider](apps-and-consoles.md#esp-provision-provider-espprovision) to support the implementation of the mobile application side.
 
-On the backend, the project must implement a single `/rest/device` endpoint, see [Provision Device API](../provisioning-api/provisions-a-new-device-for-the-user.api.mdx) for more details.
+On the backend, the project must implement a single `/rest/device` endpoint, see [Provision Device API](../provisioning-api/provision-device.api.mdx) for more details.

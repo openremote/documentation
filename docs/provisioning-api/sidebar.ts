@@ -12,7 +12,7 @@ const sidebar: SidebarsConfig = {
       items: [
         {
           type: "doc",
-          id: "provisioning-api/provisions-a-new-device-for-the-user",
+          id: "provisioning-api/provision-device",
           label: "Provisions a new device for the user",
           className: "api-method post",
         },
