@@ -385,12 +385,12 @@ Periodically during the scan, if the provider has found BLE devices, it will sen
         {
         "id": "",
         "name": "",
-        "signalStrengh": ""
+        "signalStrength": ""
         }, ...
     ]
 }
 ```
-signalStrengh is optional, it will not be present in a first version.
+signalStrength is optional, it will not be present in a first version.
 
 #### Stop BLE scan (App -> Console)
 
@@ -507,7 +507,7 @@ Periodically during the scan, if the provider has found SSIDs, it will send the 
   "networks": [
     {
       "ssid": "",
-      "signalStrengh": -12
+      "signalStrength": -12
     }, ...
   ]
 }
@@ -579,7 +579,7 @@ Once device has reported its status, the following information is sent by the pr
 ```json
 {
   "provider": "espprovision",
-  "action": "PROVISION_DEVICE"
+  "action": "PROVISION_DEVICE",
   "userToken": ""
 }
 ```
@@ -635,7 +635,7 @@ Once the device is out of provisioning mode, the following information is sent b
 {
   "provider": "espprovision",
   "action": "EXIT_PROVISIONING",
-  "exit": true | false
+  "exit": true | false,
   "errorCode": <see table below>,
   "errorMessage": "An optional detail message about the error, not meant for end-user"
 }

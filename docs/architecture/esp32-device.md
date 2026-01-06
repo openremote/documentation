@@ -21,9 +21,9 @@ graph LR
 
     App[App]:::orangeStyle
 
-    OR[Backend]::::greenStyle
+    OR[Backend]:::greenStyle
     
-    ESP[Device]::::purpleStyle
+    ESP[Device]:::purpleStyle
 
     %% Connections
     App <--> OR
@@ -42,7 +42,7 @@ To integrate a new device into the system, it needs to be provisioned.
 This can either be done automatically, see [User Guide Auto provisioning](/user-guide/gateways-and-devices/auto-provisioning.md)  
 or through a manual process performed by the end-user.
 
-For the later case, the workflow is as follows
+For the latter case, the workflow is as follows
 
 ```mermaid
 sequenceDiagram
