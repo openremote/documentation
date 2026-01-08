@@ -44,6 +44,7 @@ components:
             required:
               - deviceId
               - password
+              - modelName
             properties:
               deviceId:
                 type: string
