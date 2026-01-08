@@ -331,7 +331,7 @@ Start the camera and scan a QR code.
 ### ESP Provision (provider: "espprovision")
 Allows provisioning an ESP32 device in the system via a 3-step workflow:
 1. discover the device and establish a secure communication to the device over BLE
-2. discover Wifi networks and configure the device to connect to it
+2. discover Wi-Fi networks and configure the device to connect to it
 3. provision the device in the backend and configure the device to connect to the backend
 
 This is based on Espressif [Unified Provisioning](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/provisioning/provisioning.html)
@@ -467,9 +467,9 @@ Possible error codes
 }
 ```
 
-#### Start Wifi scan (App -> Console)
+#### Start Wi-Fi scan (App -> Console)
 
-Asks the connected device to start a WiFi scan without any timeout.
+Asks the connected device to start a Wi-Fi scan without any timeout.
 
 ```json
 {
@@ -478,7 +478,7 @@ Asks the connected device to start a WiFi scan without any timeout.
 }
 ```
 
-#### Wifi scan error response (Console -> App)
+#### Wi-Fi scan error response (Console -> App)
 
 If there’s an error starting or during the scan, the following message is sent
 ```json
@@ -490,13 +490,13 @@ If there’s an error starting or during the scan, the following message is sent
 }
 ```
 
-| Error               | errorCode | Reason                                                                                      |
-|---------------------|-----------|--------------------------------------------------------------------------------------------|
-| Not connected       | 300       | There is no communication channel with the device                                          |
-| Communication error | 301       | Error in communication with device to start scan or receive information back               |
-| Timeout             | 600       | A timeout (120s) occurred during wifi scan (even if some networks were already found and reported) |
+| Error               | errorCode | Reason                                                                                              |
+|---------------------|-----------|-----------------------------------------------------------------------------------------------------|
+| Not connected       | 300       | There is no communication channel with the device                                                   |
+| Communication error | 301       | Error in communication with device to start scan or receive information back                        |
+| Timeout             | 600       | A timeout (120s) occurred during Wi-Fi scan (even if some networks were already found and reported) |
 
-#### Wifi scan response (Console -> App)
+#### Wi-Fi scan response (Console -> App)
 
 Periodically during the scan, if the provider has found SSIDs, it will send the complete list to the web app using the below structure
 
@@ -513,9 +513,9 @@ Periodically during the scan, if the provider has found SSIDs, it will send the 
 }
 ```
 
-#### Stop Wifi scan (App -> Console)
+#### Stop Wi-Fi scan (App -> Console)
 
-Stops on-going WiFi scans, calling this if none is underway is not an error.
+Stops on-going Wi-Fi scans, calling this if none is underway is not an error.
 
 ```json
 {
@@ -524,7 +524,7 @@ Stops on-going WiFi scans, calling this if none is underway is not an error.
 }
 ```
 
-#### Stop Wifi scan response (Console -> App)
+#### Stop Wi-Fi scan response (Console -> App)
 
 Always sends back a confirmation message, even if no scan was underway.
 ```json
@@ -533,15 +533,15 @@ Always sends back a confirmation message, even if no scan was underway.
   "action": "STOP_WIFI_SCAN"
 }
 ```
-Implementation note: there is no command to stop the WiFi scan on the device, but it only does it for a limited amount of time.
+Implementation note: there is no command to stop the Wi-Fi scan on the device, but it only does it for a limited amount of time.
 The provider is the one implementing a loop to scan “indefinitely”.
 When the STOP_WIFI_SCAN command is sent, the provider stops this loop.
 
-#### Send Wifi configuration (App -> Console)
+#### Send Wi-Fi configuration (App -> Console)
 
-Sends SSID and password to the device for it to configure its Wifi network.
+Sends SSID and password to the device for it to configure its Wi-Fi network.
 
-This also stops any WiFi scan that was in progress.
+This also stops any Wi-Fi scan that was in progress.
 
 ```json
 {
@@ -552,7 +552,7 @@ This also stops any WiFi scan that was in progress.
 }
 ```
 
-#### Wifi configuration response (Console -> App)
+#### Wi-Fi configuration response (Console -> App)
 
 Once device has reported its status, the following information is sent by the provider
 
@@ -565,15 +565,15 @@ Once device has reported its status, the following information is sent by the pr
   "errorMessage": "An optional detail message about the error, not meant for end-user"
 }
 ```
-| Error                      | errorCode | Reason                                                                   |
-|----------------------------|-----------|--------------------------------------------------------------------------|
-| Not connected              | 300       | There is no communication channel with the device                        |
-| Communication error        | 301       | Error in communication with device to start scan or receive information back |
-| WiFi configuration error   | 500       | Error in applying the provided Wifi configuration                        |
-| Wifi communication error   | 501       | Could not determine the status of the Wifi network                       |
-| Wifi authentication error  | 502       | Wrong Wifi credentials                                                   |
-| Wifi network not found     | 503       | Could not find given Wifi network                                        |
-| Generic error              | 10000     | A non specific error has occurred                                        |
+| Error                     | errorCode | Reason                                                                   |
+|---------------------------|-----------|--------------------------------------------------------------------------|
+| Not connected             | 300       | There is no communication channel with the device                        |
+| Communication error       | 301       | Error in communication with device to start scan or receive information back |
+| Wi-Fi configuration error | 500       | Error in applying the provided Wi-Fi configuration                        |
+| Wi-Fi communication error  | 501       | Could not determine the status of the Wi-Fi network                       |
+| Wi-Fi authentication error | 502       | Wrong Wi-Fi credentials                                                   |
+| Wi-Fi network not found    | 503       | Could not find given Wi-Fi network                                        |
+| Generic error             | 10000     | A non specific error has occurred                                        |
 
 #### Provision device (App -> Console)
 ```json

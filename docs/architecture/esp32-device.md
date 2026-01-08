@@ -36,7 +36,7 @@ We offer software elements to support the development of all 3 components.
 A device is represented in the OpenRemote backend by an asset of a specific type.
 The device communicates with OpenRemote over MQTTS, authenticated with a dedicated service user.
 
-In this typical use case, the device uses Wifi for its internet connectivity.
+In this typical use case, the device uses Wi-Fi for its internet connectivity.
 
 To integrate a new device into the system, it needs to be provisioned.  
 This can either be done automatically, see [User Guide Auto provisioning](/user-guide/gateways-and-devices/auto-provisioning.md)  
@@ -54,7 +54,7 @@ sequenceDiagram
     App->>Backend: Authenticate user
     Backend-->>App: Authenticated
     
-    Note over User,Backend: Device WiFi provisioning
+    Note over User,Backend: Device Wi-Fi provisioning
     
     User->>Device: Put in discovery mode
     App->>App: Start device scan
@@ -64,12 +64,12 @@ sequenceDiagram
     App->>Device: Connect
     Device->>App: Get PoP
     App-->>Device: PoP
-    App->>Device: Start WiFi scan
-    Device-->>App: WiFi information
-    User->>App: Select WiFi (or join other)
-    User->>App: Enter WiFi password
-    App->>Device: WiFi configuration
-    Device->>App: WiFi connection status
+    App->>Device: Start Wi-Fi scan
+    Device-->>App: Wi-Fi information
+    User->>App: Select Wi-Fi (or join other)
+    User->>App: Enter Wi-Fi password
+    App->>Device: Wi-Fi configuration
+    Device->>App: Wi-Fi connection status
     
     Note over User,Backend: Device provisioning
     
