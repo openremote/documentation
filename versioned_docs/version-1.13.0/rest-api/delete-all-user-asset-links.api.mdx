@@ -1,0 +1,70 @@
+---
+id: delete-all-user-asset-links
+title: "Delete all user asset links"
+description: "Delete all user asset links"
+sidebar_label: "Delete all user asset links"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUtv2zgQ/ivEnBqAEY32plONNrsNkMUabQIUMHxgpbHFhiJZclRvVtB/L4aSFTt9IMkCi54sD2e+eX/TA+ldgnINy5SQYCPBB4yajHeXNZRQo0XCpbU3CWPWuTLuNoGEoKNukTCyeQ9OtwglLDtqfDT/ZgSQYByU0KCuMYKEVDXYaih7oLvA6omicTsYBjkjfDz/w8e9jjXW56voyf9nlHc+0bNAImrbHiyDpgYkRPzSmYg1lBQ7fBxOlzBe1s8G2rByCt4lTPz+crHgnxpTFU3IheZGbXVnSRw0QULlHaEj1tUhWFPlpqjPiQ36YRgG+QDkbe620NYKjllobriwU8dbpMbfD0WeAWqgBJX1FJsoVlZ9rtyg+jHzgeuN8ethVrpouRVEIZVK1dj6wgd0EVtPWBivdDAzBkj4qqPRn+yY/diUnH/OGEpodSKMMORSJay6aOgue2JYU0O53hw/feBSj2gHhbnqXnfUvAQJW+v3WaWyBh29iVijI6NtFpK/RXeT81BsoXJYSY2hqMCDW3mrRvzzyjuHFalslpu/jZia5wOkyocxgxD91lgO/fDFfdXHe/jG15in4Fj4dN+sCvI3Tz1PtXFbn7tkKD//HdC9z9Ml/tJO7zCKd9fXK7FcXcLDHbhuTBImCWpQ1L7qWnSUCya2PmbpL9AKIVYWdUKRELPy+gRj82Keel+l06k/yw5aH1Fw/MW0wbrKG4ytNlwxfnp9YgeDBGsq5KUv74n4z9WVeFUsQD5Yt/1+X+xcV/i4U5NZUnoX7PmrYlGgKxpqLWPyuo4l4YcFi4JP1Gp35ObXjHFS2XnFCP8hFaw2jjFzdP1EJWvIABx0yjTNSCChPFBxOXHpRkLDtF6uoe8/6YQ30Q4Di790GHn5N/e8kamgNom/ayi32ib8LriZLeHF+4mazwSP+4+CnoTa3WV6sh3/Awm3eDffDT4A/6PTqTDDZpCHK/e0tH/mdoT/0VmeY3haqo93NF3uEz+j1rKqMBy/fXfhmPDni/X24uri+gKG4Rui5hcC
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete all user asset links"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/asset/user/link/{realm}/{userId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete all user asset links
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}},{"name":"userId","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{}}}}}
+>
+  
+</StatusCodes>
+
+

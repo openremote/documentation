@@ -1,0 +1,33 @@
+---
+id: emailnotificationmessage
+title: "EmailNotificationMessage"
+description: ""
+sidebar_label: "EmailNotificationMessage"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"type":"string","from":{"name":"string","address":"string"},"replyTo":{"name":"string","address":"string"},"subject":"string","text":"string","html":"string","to":[{"name":"string","address":"string"}],"cc":[{"name":"string","address":"string"}],"bcc":[{"name":"string","address":"string"}]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"EmailNotificationMessage"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","allOf":[{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"},{"type":"object","properties":{"from":{"type":"object","properties":{"name":{"type":"string"},"address":{"type":"string"}},"title":"Recipient"},"replyTo":{"type":"object","properties":{"name":{"type":"string"},"address":{"type":"string"}},"title":"Recipient"},"subject":{"type":"string"},"text":{"type":"string"},"html":{"type":"string"},"to":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"address":{"type":"string"}},"title":"Recipient"}},"cc":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"address":{"type":"string"}},"title":"Recipient"}},"bcc":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"address":{"type":"string"}},"title":"Recipient"}}}}],"title":"EmailNotificationMessage"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
