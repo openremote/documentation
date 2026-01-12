@@ -288,6 +288,12 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "rest-api/query-count",
+          label: "Counts the amount of assets using a query",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "rest-api/delete-assets-parent",
           label: "Delete the parent of assets",
           className: "api-method delete",
@@ -1388,6 +1394,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "rest-api/schemas/datetimepredicate",
           label: "DateTimePredicate",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/geojsongeofencepredicate",
+          label: "GeoJSONGeofencePredicate",
           className: "schema",
         },
         {
