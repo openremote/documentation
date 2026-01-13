@@ -8799,9 +8799,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"docusaurus-plugin-openapi-docs@npm:4.3.6":
-  version: 4.3.6
-  resolution: "docusaurus-plugin-openapi-docs@npm:4.3.6"
+"docusaurus-plugin-openapi-docs@npm:4.5.1":
+  version: 4.5.1
+  resolution: "docusaurus-plugin-openapi-docs@npm:4.5.1"
   dependencies:
     "@apidevtools/json-schema-ref-parser": "npm:^11.5.4"
     "@redocly/openapi-core": "npm:^1.10.5"
@@ -8823,13 +8823,13 @@ __metadata:
     "@docusaurus/utils": ^3.5.0
     "@docusaurus/utils-validation": ^3.5.0
     react: ^16.8.4 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10/8fbeb094f2eff9e471e816c2d21db4ee6f05dbadbe47a651ab605dd32f8614d1986acd1aabd3f8c883997f5f339178a4fe9d33a7d54cee9933f5d2ce5334ee9c
+  checksum: 10/496ce49d494f06803a61eaa6c6810782668269574c12a1a55315742974884a7ffd6e2c75875d8fd9909611bdccaa4de42419e0debbf47def0db6974617b9e5ba
   languageName: node
   linkType: hard
 
-"docusaurus-theme-openapi-docs@npm:4.3.6":
-  version: 4.3.6
-  resolution: "docusaurus-theme-openapi-docs@npm:4.3.6"
+"docusaurus-theme-openapi-docs@npm:4.5.1":
+  version: 4.5.1
+  resolution: "docusaurus-theme-openapi-docs@npm:4.5.1"
   dependencies:
     "@hookform/error-message": "npm:^2.0.1"
     "@reduxjs/toolkit": "npm:^1.7.1"
@@ -8864,7 +8864,7 @@ __metadata:
     docusaurus-plugin-sass: ^0.2.3
     react: ^16.8.4 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^16.8.4 || ^17.0.0 || ^18.0.0 || ^19.0.0
-  checksum: 10/1c830b17acbbcc86ff2f881fafc84b04931cf435427a5744918e17403e050d2bbcf1ec7787095a7c581a5b71945cbdce1917933920192d31a2f90dc93f7ccf4d
+  checksum: 10/bb6bf3c1f9c19462ccf1ab23b22a36015bfd7c9049b79b066b2d5f064764d919cd1ca96983b217e831bd15caa0c048b060d3c1c76937d818811693edab4a366b
   languageName: node
   linkType: hard
 
@@ -13803,8 +13803,8 @@ __metadata:
     "@mdx-js/react": "npm:^3.0.0"
     "@types/react": "npm:^19"
     clsx: "npm:^2.0.0"
-    docusaurus-plugin-openapi-docs: "npm:4.3.6"
-    docusaurus-theme-openapi-docs: "npm:4.3.6"
+    docusaurus-plugin-openapi-docs: "npm:4.5.1"
+    docusaurus-theme-openapi-docs: "npm:4.5.1"
     prism-react-renderer: "npm:^2.3.0"
     react: "npm:^19.0.0"
     react-dom: "npm:^19.0.0"
