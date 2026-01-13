@@ -327,3 +327,322 @@ Start the camera and scan a QR code.
    }
 }
 ```
+
+### ESP Provision (provider: "espprovision")
+Allows provisioning an ESP32 device in the system via a 3-step workflow:
+1. discover the device and establish a secure communication to the device over BLE
+2. discover Wi-Fi networks and configure the device to connect to it
+3. provision the device in the backend and configure the device to connect to the backend
+
+This is based on Espressif [Unified Provisioning](https://docs.espressif.com/projects/esp-idf/en/stable/esp32/api-reference/provisioning/provisioning.html)
+and uses their [esp-idf-provisioning-ios](https://github.com/espressif/esp-idf-provisioning-ios) and [esp-idf-provisioning-android](https://github.com/espressif/esp-idf-provisioning-android) libraries.
+
+#### Start BLE scan (App -> Console)
+
+Starts a BLE scans without any timeout.
+
+```json
+{
+    "provider": "espprovision",
+    "action": "START_BLE_SCAN",
+    "prefix": "PROV_"
+}
+```
+
+The prefix value is optional, if not specified a default empty value is used.
+
+The returned devices are filtered based on their service name having the given prefix.
+
+#### BLE scan error response (Console -> App)
+
+If there’s an error starting or during the scan, the following message is sent
+
+```json
+{
+    "provider": "espprovision",
+    "action": "STOP_BLE_SCAN",
+    "errorCode": <see table below>,
+    "errorMessage": "An optional detail message about the error, not meant for end-user"
+}
+```
+
+All errors will be reported to the web application and not handled by the native code.
+
+| Error          | errorCode | Reason                                                                                                |
+|----------------|-----------|-------------------------------------------------------------------------------------------------------|
+| Timeout        | 600       | A timeout (120s) occurred during device search (even if some devices were already found and reported) |
+| Generic error  | 10000     | A non specific error has occurred                                                                     |
+
+#### BLE scan response (Console -> App)
+
+Periodically during the scan, if the provider has found BLE devices, it will send the complete list to the web app using the below structure
+
+```json
+{
+    "provider": "espprovision",
+    "action": "START_BLE_SCAN",
+    "devices": [
+        {
+        "id": "",
+        "name": "",
+        "signalStrength": ""
+        }, ...
+    ]
+}
+```
+signalStrength is optional, it will not be present in a first version.
+
+#### Stop BLE scan (App -> Console)
+
+Stops on-going BLE scans, calling this if none is underway is not an error.
+
+```json
+{
+  "provider": "espprovision",
+  "action": "STOP_BLE_SCAN"
+}
+```
+
+#### BLE scan stop response (Console -> App)
+
+Always sends back a confirmation message, even if no scan was underway.  
+This message is also sent when the scan is stopped upon connection to a device.
+
+```json
+{
+  "provider": "espprovision",
+  "action": "STOP_BLE_SCAN"
+}
+```
+
+#### Connect to device (App -> Console)
+
+Establishes a secure connection to the device with the given id.
+
+This also stops any BLE scan that was in progress.
+
+```json
+{
+  "provider": "espprovision",
+  "action": "CONNECT_TO_DEVICE",
+  "id": "",
+  "pop": "xyz"
+}
+```
+
+The pop (Proof of Possession) is used for establishing the security layer of the device communication channel.
+If not provided, a default value is used.
+
+#### Device connection status (Console -> App)
+
+Connection status information can be sent at any time (and multiple times),
+e.g. if at any point the BLE connection is lost, message with status `disconnected` is sent.
+
+```json
+{
+  "provider": "espprovision",
+  "action": "CONNECT_TO_DEVICE",
+  "id": "",
+  "status": "connected" | "disconnected" | "connectionError",
+  "errorCode": <see table below>,
+  "errorMessage": "An optional detail message about the error, not meant for end-user"
+}
+```
+
+Possible error codes
+| Error                | errorCode | Reason                                                                    |
+|----------------------|-----------|---------------------------------------------------------------------------|
+| Unknown device       | 100       | The provided id was not discovered in the previous search                 |
+| BLE connection error | 200       | Error establishing a BLE connection with the device                       |
+| Communication error  | 301       | Error establishing a connection with the device (on top of BLE connection)|
+| Security error       | 400       | Error while handling security (includes invalid credentials)              |
+| Generic error        | 10000     | A non specific error has occurred                                         |
+
+#### Disconnect from device (App -> Console)
+
+```json
+{
+  "provider": "espprovision",
+  "action": "DISCONNECT_FROM_DEVICE"
+}
+```
+
+#### Start Wi-Fi scan (App -> Console)
+
+Asks the connected device to start a Wi-Fi scan without any timeout.
+
+```json
+{
+  "provider": "espprovision",
+  "action": "START_WIFI_SCAN"
+}
+```
+
+#### Wi-Fi scan error response (Console -> App)
+
+If there’s an error starting or during the scan, the following message is sent
+```json
+{
+  "provider": "espprovision",
+  "action": "STOP_WIFI_SCAN",
+  "errorCode": <see table below>,
+  "errorMessage": "An optional detail message about the error, not meant for end-user"
+}
+```
+
+| Error               | errorCode | Reason                                                                                              |
+|---------------------|-----------|-----------------------------------------------------------------------------------------------------|
+| Not connected       | 300       | There is no communication channel with the device                                                   |
+| Communication error | 301       | Error in communication with device to start scan or receive information back                        |
+| Timeout             | 600       | A timeout (120s) occurred during Wi-Fi scan (even if some networks were already found and reported) |
+
+#### Wi-Fi scan response (Console -> App)
+
+Periodically during the scan, if the provider has found SSIDs, it will send the complete list to the web app using the below structure
+
+```json
+{
+  "provider": "espprovision",
+  "action": "START_WIFI_SCAN",
+  "networks": [
+    {
+      "ssid": "",
+      "signalStrength": -12
+    }, ...
+  ]
+}
+```
+
+#### Stop Wi-Fi scan (App -> Console)
+
+Stops on-going Wi-Fi scans, calling this if none is underway is not an error.
+
+```json
+{
+  "provider": "espprovision",
+  "action": "STOP_WIFI_SCAN"
+}
+```
+
+#### Stop Wi-Fi scan response (Console -> App)
+
+Always sends back a confirmation message, even if no scan was underway.
+```json
+{
+  "provider": "espprovision",
+  "action": "STOP_WIFI_SCAN"
+}
+```
+Implementation note: there is no command to stop the Wi-Fi scan on the device, but it only does it for a limited amount of time.
+The provider is the one implementing a loop to scan “indefinitely”.
+When the STOP_WIFI_SCAN command is sent, the provider stops this loop.
+
+#### Send Wi-Fi configuration (App -> Console)
+
+Sends SSID and password to the device for it to configure its Wi-Fi network.
+
+This also stops any Wi-Fi scan that was in progress.
+
+```json
+{
+  "provider": "espprovision",
+  "action": "SEND_WIFI_CONFIGURATION",
+  "ssid": "",
+  "password": ""
+}
+```
+
+#### Wi-Fi configuration response (Console -> App)
+
+Once device has reported its status, the following information is sent by the provider
+
+```json
+{
+  "provider": "espprovision",
+  "action": "SEND_WIFI_CONFIGURATION",
+  "connected": true | false,
+  "errorCode": <see table below>,
+  "errorMessage": "An optional detail message about the error, not meant for end-user"
+}
+```
+| Error                     | errorCode | Reason                                                                   |
+|---------------------------|-----------|--------------------------------------------------------------------------|
+| Not connected             | 300       | There is no communication channel with the device                        |
+| Communication error       | 301       | Error in communication with device to start scan or receive information back |
+| Wi-Fi configuration error | 500       | Error in applying the provided Wi-Fi configuration                        |
+| Wi-Fi communication error  | 501       | Could not determine the status of the Wi-Fi network                       |
+| Wi-Fi authentication error | 502       | Wrong Wi-Fi credentials                                                   |
+| Wi-Fi network not found    | 503       | Could not find given Wi-Fi network                                        |
+| Generic error             | 10000     | A non specific error has occurred                                        |
+
+#### Provision device (App -> Console)
+```json
+{
+  "provider": "espprovision",
+  "action": "PROVISION_DEVICE",
+  "userToken": ""
+}
+```
+
+Provisions the device with the backend. A valid authentication token towards the backend,
+as the user logged in to the app, must be provided in `userToken`.
+
+The provider will perform all the required steps to accomplish this and notify back the status to the caller.
+
+This includes:
+- Getting the model name and device id from the device
+- Generating a random password
+- Provisioning the device with the backend, creating the required asset and service account.  
+  The provider performs a `POST` on `/rest/device` to trigger this.
+- Linked the created asset to the end user account (corresponding to userToken)
+- Sending the required configuration to the device
+- Waiting for the device to connect
+
+#### Provision device response (Console -> App)
+
+Once the device is connected to the backend or if connection failed, the following information is sent by the provider
+
+```json
+{
+  "provider": "espprovision",
+  "action": "PROVISION_DEVICE",
+  "connected": true | false,
+  "errorCode": <see table below>,
+  "errorMessage": "An optional detail message about the error, not meant for end-user"
+}
+```
+
+| Error               | errorCode | Reason                                                                       |
+|---------------------|-----------|------------------------------------------------------------------------------|
+| Not connected       | 300       | There is no communication channel with the device                            |
+| Communication error | 301       | Error in communication with device to start scan or receive information back |
+
+#### Exit provisioning (App -> Console)
+
+```json
+{
+  "provider": "espprovision",
+  "action": "EXIT_PROVISIONING"
+}
+```
+Asks the device to exit provisioning mode.
+
+#### Exit provisioning response (Console -> App)
+
+Once the device is out of provisioning mode, the following information is sent by the provider
+
+```json
+{
+  "provider": "espprovision",
+  "action": "EXIT_PROVISIONING",
+  "exit": true | false,
+  "errorCode": <see table below>,
+  "errorMessage": "An optional detail message about the error, not meant for end-user"
+}
+```
+
+| Error               | errorCode | Reason                                                                       |
+|---------------------|-----------|------------------------------------------------------------------------------|
+| Not connected       | 300       | There is no communication channel with the device                            |
+| Communication error | 301       | Error in communication with device to start scan or receive information back |
+| Generic error       | 10000     | A non specific error has occurred                                            |
