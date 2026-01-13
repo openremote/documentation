@@ -34,7 +34,7 @@ For development you need the following in addition to the runtime tooling:
 
 * Java 21 JDK ([OpenJDK](https://openjdk.java.net/), [Oracle Java SE JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html))
 * [Git](https://git-scm.com/downloads)
-* [NodeJS](https://nodejs.org/en/download/current/) (>=18.12.0, on macOS you can use [Homebrew](https://brew.sh/) and `brew install node@18`)
+* [NodeJS](https://nodejs.org/en/download/current/) (>=20.0, on macOS you can use [Homebrew](https://brew.sh/) and `brew install node@20`)
 * [yarn](https://yarnpkg.com/getting-started/install) `corepack enable; yarn init -2` (>=3.2.0)
 
 Ensure the following commands execute successfully:
