@@ -1239,6 +1239,38 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/AssetObject"
+  /asset/count:
+    post:
+      tags:
+      - Asset
+      summary: Counts the amount of assets using a query
+      operationId: queryCount
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AssetQuery"
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
   /asset/parent:
     delete:
       tags:
@@ -5895,6 +5927,16 @@ components:
             - LESS_EQUALS
             - BETWEEN
           negate:
+            type: boolean
+    GeoJSONGeofencePredicate:
+      type: object
+      allOf:
+      - $ref: "#/components/schemas/ValuePredicate"
+      - type: object
+        properties:
+          geoJSON:
+            type: string
+          negated:
             type: boolean
     LogicGroupAttributePredicate:
       type: object
