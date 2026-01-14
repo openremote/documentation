@@ -22,7 +22,7 @@ The agent connects to the **TTS MQTT integration** for real-time data flow:
 
 The agent utilizes the **The Things Stack gRPC API** as the primary interface for managing device lifecycles and metadata. This is used for:
 
-* **Real-time Auto-discovery:** Instead of periodic polling, the agent listens to the gRPC events stream. When a device sends an uplink or performs a `Join`, the agent detects it instantly.
+* **Real-time auto-discovery:** Instead of periodic polling, the agent listens to the gRPC events stream. When a device sends an uplink or performs a `Join`, the agent detects it instantly.
 * **Attribute-based Template Identification:** Once a device is detected, the agent queries the gRPC API to retrieve the device's specific metadata. It looks for a custom **TTS device attribute** that defines the **OpenRemote Asset Type**, allowing the agent to apply the correct template automatically.
 
 ## Agent configuration
@@ -102,7 +102,7 @@ For a detailed breakdown of the required columns and an example file, see the [C
 
 ## MQTT Agent Link Automation
 
-The ChirpStack agent handles the transmission of sensor data (**uplinks**) and commands (**downlinks**) via the **MQTT protocol**. To eliminate the need for manual configuration of every attribute, the agent automatically provisions these communication links during the discovery or import process.
+The TTS agent handles the transmission of sensor data (**uplinks**) and commands (**downlinks**) via the **MQTT protocol**. To eliminate the need for manual configuration of every attribute, the agent automatically provisions these communication links during the discovery or import process.
 
 ### Automatic Provisioning Logic
 
