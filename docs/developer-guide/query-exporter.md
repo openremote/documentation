@@ -61,7 +61,7 @@ export INDEX_BLOAT_THRESHOLD=2.0  # 100% index bloat
 ### Query Intervals
 - Table bloat queries: Every 5 minutes
 - Autovacuum queries: Every 30 seconds
-- Datapoint performance: Every 60 seconds
+- Datapoint performance: Every 60 seconds (samples 100 most recent datapoints)
 - Database size: Every 5 minutes
 - Connection/lock stats: Every 30 seconds
 
@@ -86,9 +86,16 @@ Add this scrape configuration to your Prometheus config:
 scrape_configs:
   - job_name: 'openremote-postgres'
     static_configs:
-      - targets: ['localhost:9560']
+      - targets: ['query-exporter:9560']  # Use service name in Docker network
+      # - targets: ['localhost:9560']     # Use localhost if Prometheus runs on host
     scrape_interval: 30s
 ```
+
+:::note
+
+When Prometheus runs in the same Docker network as OpenRemote, use the service name `query-exporter:9560`. Only use `localhost:9560` if Prometheus is running directly on the host machine.
+
+:::
 
 ## Customizing Queries
 
