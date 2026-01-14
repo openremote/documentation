@@ -20,8 +20,8 @@ The query-exporter service monitors the OpenRemote PostgreSQL database and expos
 - `pg_autovacuum_running` - Running autovacuum processes (labels: database, table_schema, table_name, phase)
 
 ### Datapoint Query Performance
-- `pg_datapoint_query_duration_seconds` - Histogram of execution times for the attribute with most datapoints
-- `pg_datapoint_count` - Total number of datapoints for the top attribute
+- `pg_datapoint_query_duration_seconds` - Histogram of execution times for the attribute that is automatically identified as having the highest datapoint count
+- `pg_datapoint_count` - Total number of datapoints for the attribute that is automatically identified as having the highest datapoint count
 
 ### Database Health
 - `pg_database_size_megabytes` - Total database size in megabytes
@@ -94,7 +94,10 @@ scrape_configs:
 
 To modify queries or add new metrics:
 
-1. Edit the `config.yaml` file located in the `query-exporter` configuration directory (by default, this is `/deployment/query-exporter/config.yaml` which is mounted as a Docker volume at the container's `/config/config.yaml` path—see your `profile/deploy.yml` for the exact path).
+1. Edit the `config.yaml` file in the `query-exporter` configuration directory.
+   - Default host path: `/deployment/query-exporter/config.yaml`
+   - Container path (Docker volume mount): `/config/config.yaml`
+   - For the exact host path in your environment, see the `query-exporter` volume mapping in `profile/deploy.yml`.
 2. Restart the service:
 ```bash
 docker-compose -f profile/deploy.yml restart query-exporter
@@ -130,7 +133,7 @@ If bloat detection queries impact database performance:
 
 ### Query Complexity
 - Bloat detection scans `pg_stats` and `pg_class` catalogs (limited to top 50 results)
-- Datapoint performance samples 100 most recent datapoints from the largest attribute
+- Datapoint performance uses a sample size of 100 recent datapoints from the largest attribute (configurable)
 - All queries exclude PostgreSQL system schemas (`pg_%` and `information_schema`)
 
 ## Understanding Bloat
@@ -153,7 +156,7 @@ The bloat detection queries use these PostgreSQL internal constants:
 - `20` - Page header size in bytes
 - `12` - Index header overhead in bytes
 - `4` - Item pointer size in bytes
-- `23` - Tuple header size for PostgreSQL 14+ (Linux)
+- `23` - Typical tuple header size for PostgreSQL 14+ on Linux (this value may differ for other PostgreSQL versions or operating systems; verify for your deployment)
 - `4` - Memory alignment for Linux containers
 
 ## References
