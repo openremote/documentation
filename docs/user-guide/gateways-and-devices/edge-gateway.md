@@ -42,6 +42,111 @@ Just create a new Asset of type Gateway and the manager will provision a Keycloa
 
 ![image](img/manager-interconnect-rate.png)
 
+You can set advanced per-attribute synchronisation using the JSON editor. See [GatewayAttributeFilter](https://github.com/openremote/openremote/blob/a321ea3e972d2e88e79225cf2459a5a026878e54/model/src/main/java/org/openremote/model/gateway/GatewayAttributeFilter.java)
+```
+[
+  {
+    "matcher": {
+      "recursive": false,
+      "realm": {
+        "name": "master"
+      },
+      "types": [
+        "ThingAsset"
+      ],
+      "attributes": {
+        "operator": "OR",
+        "items": [
+          {
+            "name": {
+              "predicateType": "string",
+              "match": "EXACT",
+              "caseSensitive": true,
+              "value": "attribute1",
+              "negate": false
+            },
+            "negated": false
+          },
+          {
+            "name": {
+              "predicateType": "string",
+              "match": "EXACT",
+              "caseSensitive": true,
+              "value": "attribute2",
+              "negate": false
+            },
+            "negated": false
+          }
+        ]
+      },
+      "limit": 0
+    },
+    "duration": "PT1M",
+    "durationParsedMillis": 60000
+  },
+    {
+    "matcher": {
+      "recursive": false,
+      "realm": {
+        "name": "master"
+      },
+      "types": [
+        "ThingAsset"
+      ],
+      "attributes": {
+        "operator": "OR",
+        "items": [
+          {
+            "name": {
+              "predicateType": "string",
+              "match": "EXACT",
+              "caseSensitive": true,
+              "value": "attribute3",
+              "negate": false
+            },
+            "negated": false
+          },
+        ]
+      },
+      "limit": 0
+    },
+    "duration": "PT10M",
+    "durationParsedMillis": 600000
+  },
+  {
+    "matcher": {
+      "recursive": false,
+      "realm": {
+        "name": "master"
+      },
+      "types": [
+        "ThingAsset"
+      ],
+      "attributes": {
+        "items": [
+          {
+            "name": {
+              "predicateType": "string",
+              "match": "EXACT",
+              "caseSensitive": true,
+              "value": "attribute4",
+              "negate": false
+            },
+            "negated": false
+          }
+        ]
+      },
+      "limit": 0
+    },
+    "valueChange": true,
+    "durationParsedMillis": null
+  },
+  {
+    "skipAlways": true
+  }
+]
+```
+
 ### 4. Add/remove attributes and/or configuration items during synchronisation (Asset synchronization)
    1. Allows customisation of the attributes and/or configuration items that are sent to the central instance on a per asset & attribute basis (wildcards can also be used)
    1. Until we have a UI to do this configuration you will need to write/copy/paste JSON into the textarea using the following schema:
