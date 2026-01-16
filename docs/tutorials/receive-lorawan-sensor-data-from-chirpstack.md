@@ -6,6 +6,14 @@ sidebar_position: 3
 
 [ChirpStack](https://www.chirpstack.io/) is an open source LoRaWAN network server stack. This tutorial explains how to receive LoRaWAN sensor data via ChirpStack using the [MQTT Agent](../user-guide/agents-protocols/mqtt). The tutorial is based on the [Dragino LHT65](https://www.dragino.com/products/temperature-humidity-sensor/item/151-lht65.html) LoRaWAN sensor device as an example.
 
+:::note
+This tutorial focuses on the **manual configuration** of MQTT agent links to provide a deeper understanding of the integration process.
+
+For a more automated approach, please see the specific agent documentation:
+* **[ChirpStack](../user-guide/agents-protocols/chirpstack.md)**
+* **[The Things Stack (TTS)](../user-guide/agents-protocols/the-things-stack.md)**
+:::
+
 ## Install and start ChirpStack
 1. Make a copy of the ChirpStack Docker repository with the following commands:
 ```shell
