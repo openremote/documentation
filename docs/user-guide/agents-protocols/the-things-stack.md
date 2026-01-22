@@ -145,4 +145,4 @@ a84043d8d1842176,Dragino LHT65 2,DraginoLHT65Asset,dragino,lht65,1.8
 <AssetTypes />
 
 ### Reference Documentation
-* **[Agent Link Overview](https://docs.openremote.io/docs/user-guide/agents-protocols/overview/)**: Deep dive into generic OpenRemote attributes like filters and predicates.
+* **[Agent Link Overview](overview.md)**: Deep dive into generic OpenRemote attributes like filters and predicates.
