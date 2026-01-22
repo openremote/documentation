@@ -8,8 +8,8 @@ The documentation on this page focuses on custom protocol implementations built 
 
 :::note
 For standard **LoRaWAN** network server support, please refer to the following protocol documentation:
-* **[ChirpStack](./chirpstack.md)**
-* **[The Things Stack (TTS)](./the-things-stack.md)**
+* **[ChirpStack](chirpstack.md)**
+* **[The Things Stack (TTS)](the-things-stack.md)**
 
 If you require a technical deep dive into manual configuration of MQTT agent links, see the **[Manual ChirpStack Tutorial](../../tutorials/receive-lorawan-sensor-data-from-chirpstack.md)**.
 :::
