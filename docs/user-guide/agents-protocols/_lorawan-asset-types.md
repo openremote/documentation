@@ -1,6 +1,6 @@
 ## LoRaWAN Asset Types
 
-When using LoRaWAN agents such as [ChirpStack](./chirpstack.md) or [The Things Stack](./the-things-stack.md), OpenRemote can automatically provision assets and their communication links.
+When using LoRaWAN agents such as [ChirpStack](chirpstack.md) or [The Things Stack](the-things-stack.md), OpenRemote can automatically provision assets and their communication links.
 
 This automation relies on the use of specific **LoRaWAN Asset Types**. In these types, each attribute that is linked to a device data point must contain an `AGENT_LINK_CONFIG` meta item. This meta item acts as a blueprint, allowing the agent to automatically configure the underlying MQTT protocol agent links.
 
