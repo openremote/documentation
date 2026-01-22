@@ -21,11 +21,11 @@ We do this because we modify the base configuration that comes with Playwright s
 
 Both the `app` and `component` tests depend on the `@openremote/test` package which includes shared fixtures, configurations and our Playwright component testing plugin.
 
-The `shared` fixture in the test package is meant for general test utilities like intercepting requests.
+The `shared` fixtures in the test package are meant for general test utilities like intercepting requests. Besides this there are also shared component only test fixtures under `CtShared`.
 
 Each project that needs testing should configure its own Playwright configuration file which must reuse the above-mentioned configurations.
 
-The plugin for component testing mimics Playwright’s component testing plugin, which normally comes with Vite, but this is incompatible with the `commonjs` imports used in some components. Playwright uses Vite to bundle and mount a component to an empty HTML document for testing. Our Playwright plugin mimics the Vite based plugin using Rspack so we can mount our components to the document without import issues.
+The plugin for component testing mimics Playwright’s component testing plugin, which normally comes with Vite, but this is incompatible with the `commonjs` imports used in some components. Playwright uses Vite to bundle and mount components to an empty HTML document for testing. Our Playwright plugin mimics the Vite based plugin using Rspack so we can mount our components to the document without import issues.
 
 ### App test setup
 
@@ -139,7 +139,7 @@ ct("My component test", async ({ mount }) => {
 ```
 
 :::note
-You must import a component by its alias `@openremote/*`. Relative paths will cause issues. The downsides of the alias import is that this refers to the transpiled typescript `lib` directory, which is why the component test script includes `npx tsc -b`.
+You must import a component by its alias `@openremote/*`. Relative paths will cause issues. The downside of alias imports is that they refer to the transpiled TypeScript (in the `lib` directory), which is why the component test script includes `npx tsc -b` and needs manual rebuilding. However you can still live reload the component changes indirectly by running `npm run serve` on the manager app.
 :::
 
 Playwright uses [`locators`](https://playwright.dev/docs/locators) to find elements in the DOM. It's crucial to know the different types of locators to be able to write tests that are robust and to avoid flaky behavior.
@@ -165,19 +165,19 @@ export class AssetsPage implements BasePage {
 ```
 
 :::note
-In case you want to reuse certain non-project specific fixtures across multiple projects you can add your fixture to the `shared` fixtures in the `@openremote/test` package under `ui/test/fixtures/shared.ts`. If you want to reuse component specific fixtures in tests for a parent component or an app, simply import the fixtures and add them through the `extend` function.
+In case you want to reuse certain non-project specific fixtures across multiple projects you can add your fixture to the `shared` fixtures in the `@openremote/test` package under `ui/test/fixtures/shared.ts`. If you want to reuse component specific fixtures in tests for a parent component or an app, simply import the fixtures and add them through the `extend` method.
 :::
 
 Finally extend the `test` function:
 
 ```ts
-import { test as base, type Page, type ComponentTestFixtures } from "@openremote/test";
+import { test as base, type Page, type SharedComponentTestFixtures } from "@openremote/test";
 
 interface PageFixtures {
   assetsPage: AssetsPage;
 }
 
-interface ComponentFixtures extends ComponentTestFixtures {
+interface ComponentFixtures extends SharedComponentTestFixtures {
   ...
 }
 
@@ -228,11 +228,11 @@ Or simply run `npm test -- --ui` in the component / app directory.
 Please read the [Playwright Best practices](https://playwright.dev/docs/best-practices).
 
 **TL;DR**
-- Avoid `xpath` and `css` selectors. Relying too heavily on the [Document Object Model (DOM)](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model) makes you more prone to breaking tests when a CSS class is renamed or removed, or when nested elements are removed.
+- Avoid `xpath` and `css` selectors. Relying too heavily on classes and filler elements makes you more prone to breaking tests when a CSS class is renamed or removed, or when nested elements are removed.
 - Do not use `waitForTimeout` outside of debugging. Tests don't always take the same amount of time which can cause flaky behavior, rather use something like `locator.waitFor()` or even better `page.waitForURL()`.
 - Isolate tests, so you can rerun them without relying on external factors such as other tests.
 - Use [web first assertions](https://playwright.dev/docs/test-assertions) e.g. `toBeVisible`, `toBeHidden`, `toBeChecked` etc. which use a retry mechanism to avoid flakiness.
-- Reuse locators and actions through test fixtures to standardize how to locate specific elements on screen and avoid code duplication in tests.
+- Reuse locators and compose actions through test fixtures to standardize how to locate specific elements on screen and avoid code duplication in tests.
 - Use the Playwright UI mode, test reports, trace viewer and debugger features.
 <!-- - Enable multiple browsers (see playwright UI checkboxes) -->
 
