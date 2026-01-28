@@ -401,8 +401,8 @@ This is what the --or-app-colors look like in the demo deployment:
   }
 }
 ```
-**Rules - Controls:** 
-Set which types of rules are available (for users with the correct permissions), and which actions a rule can perform. 
+**Rules - Controls:**
+Set which types of rules are available (for users with the correct permissions), and which actions a rule can perform.
 ```json
 {
   "pages": {
@@ -426,7 +426,7 @@ Set which types of rules are available (for users with the correct permissions),
   }
 }
 ```
-**Rules - When-Then:** 
+**Rules - When-Then:**
 Set which asset types are excluded from the list of asset types that can be selected in the When-Then rule. Additionally you can set per asset (or all '*') which attributes should be excluded from the select list.
 ```json
 {
@@ -561,7 +561,7 @@ OpenRemote picks how to render the map based on the configurations set in the fo
 :::
 
 :::warning
-Not all Map/Tile providers are fully supported, please check the provider supports MapLibre (see [maplibre providers](https://github.com/maplibre/awesome-maplibre?tab=readme-ov-file#maptile-providers)).
+Not all Map/Tile providers are fully supported, please check the provider supports MapLibre (see [MapLibre providers](https://github.com/maplibre/awesome-maplibre?tab=readme-ov-file#maptile-providers)).
 :::
 
 The following tile servers have been tested.
