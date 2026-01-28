@@ -4,9 +4,9 @@ sidebar_position: 6
 
 # Working on maps
 
-## Vector maps (Mapbox GL)
+## MapLibre GL
 
-The manager has built in support for `Mapbox GL` and can serve vector tile data. Tiles can be configured from the appearance page or through a custom deployment. Please ensure to check the following:
+The manager has built in support for `MapLibre GL` and can serve vector tile data. Tiles can be configured from the appearance page or through a custom deployment. Please ensure to check the following:
 
 ### Uploading MBTiles
 
@@ -58,25 +58,6 @@ json|{...}
 ```
 
 </details>
-
-## Raster maps (Mapbox JS)
-If you are working on raster maps (Mapbox JS) then you will need to have the `map` Docker container running, this container serves the raster map tiles from the vector map data.
-
-The container can be started by using the `dev-map.yml` profile (see [here](docker-compose-profiles.md)) or you can add a `map` service to an existing custom project profile (copy the `dev-map.yml` as a template).
-
-The manager acts as a reverse proxy for the `map` service and in order to configure the manager to serve raster tiles you need to set the following environment variables:
-
-```shell
-MAP_TILESERVER_HOST=localhost
-MAP_TILESERVER_PORT=8082
-MAP_TILESERVER_REQUEST_TIMEOUT=10000
-```
-
-:::note
-
-By default `MAP_TILESERVER_HOST` is `null` which means the reverse proxy is disabled
-
-:::
 
 ## Downloading maps and extracting smaller tilesets
 We currently do not have our own pipeline for extracting/converting OSM data into vector tilesets but depend on the extracts offered on [openmaptiles.org](https://openmaptiles.com/downloads/). You can download the vector `mbtiles` file that contains the bounding box of interest.
