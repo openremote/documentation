@@ -30,7 +30,7 @@ Feel free to develop new widgets yourself; there is functionality to create them
 The widget architecture is structured to support the additions of custom widgets, whereof a short tutorial is shown below.<br />
 To know more about the dashboard builder and it's terminology, check the README of the `or-dashboard-builder` component.<br />
 <br />
-All widget code is located under `/ui/components/or-dashboard-builder/widgets/`.<br />
+All widget code is located under `/ui/component/or-dashboard-builder/widgets/`.<br />
 <br />
 
 > **Working in a OpenRemote custom project?**<br />
@@ -42,7 +42,7 @@ All widget code is located under `/ui/components/or-dashboard-builder/widgets/`.
 
 ### Creating your own Widget
 
-All widget code is located under `/ui/components/or-dashboard-builder/widgets/`.<br />
+All widget code is located under `/ui/component/or-dashboard-builder/widgets/`.<br />
 Create a new TypeScript file, and define a `WidgetManifest` to set up your widget.<br />
 It includes options like its display name, minimum width of columns, and a reference to the HTML content.<br />
 You can write the HTML/CSS code in the same file, or reference it from somewhere else. See the example below.<br />
