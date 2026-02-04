@@ -1,0 +1,70 @@
+---
+id: get-realm
+title: "Retrieve details about the currently authenticated and active realm"
+description: "Retrieve details about the currently authenticated and active realm"
+sidebar_label: "Retrieve details about the currently authenticated and active realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVt9v2zYQ/leEe2oBxQqSNz0tK7o2QLsZnoMVMPxAU2eLLcVjyFM8z9D/PhwlJ3ZiO2i3AXuSzbv77ic/3hZYrSKUM5igsg3McyCPQbEhd1tBCSvkXpKDV0E1yBhEfwtONQgl3LRcUzB/JRPIwTgooUZVYYAcoq6xUVBugTde1CMH41bQdfkjwpeLXyisVaiwuhgHYvrHKB8p8g+BpM9g6BXXkEPA+9YErKDk0OI5mLkoR08uYhT51eWlfCqMOhifylNChUvVWs52mpCDJsfoWHSV99boVMriaxSD7UuHtPiKWvLzQXrFpndnqiNB5UNmRwSVid6qza+n5OjUwuI+6ILIonIJlfhnXFLYN3Vts0iVXlJoFEuy1C4sir5XMa4pVGOyRm/2jFQIaiMlZ2zi0eZIUZHHA8CNtbQ+FVXV9uXD940yNp7VDdigxPsZT8lXJnJ/E14BelJMfm/iXcTwrO57Bg8YzHKTVI8rWFoZ94fh+jWdaY0nmqe0ptbxGYWqOWeP4vksPMY4pW/oPpklRq/cnp5xjKvDSTCOr6/6ainbTMj2M9s6c9/ibd/7/n69Mhcnhv/0lO/fvmPTxYatHE12gUH34liOuudgMEEOBh8wq5Bl3DK1oJYzrjHTbQjo2G4y1XKNjtNUVplyVaY0mwfMwsCqDXJNA9MmkuUaSiiSuNhKXp2QF4aHHfG2wQqvMftYFkWFDY3IowvYEOPIUKG8KbYJoCsghwcVjFzlVKjebaKlRERQQqMiY5Ac5+JIt8HwJnkSWKGV2Xxf9LsQUo+2U3hqj+R7JZ23tE4q2hp0/C5gJWVQtm+mTM5dyqMQiz7dWPShFF5eAU226PEvNDmHmotkljh5GTDWPw4QNfk+Ax9oaVKnd7+k0Wr/UXtHVZqtg8Pv9y2qkP/PU09jbtySUpeGO/CbRzdJ05V9Vk6tMGQfp9NxdjO+heeXYlqbmJmYbkFFum3QcSpYtqSQTs+gjbJsbFFFzCJiUp4dYMzfPE496Xg49W+Tg4YCZhL/aHhYlU4PK/ZMmlL76cAukanRKG9x+bTVfBh/yq5Hl5A/u27r9Xq0cu2IwqoYzGKhVt5eXI8uR+hGNTd2YPnYl0QEl+kRpMhNz5SDm3+HQo5zHOOfXHirTHovUhbbgV5msDMtUyDzHGpZmcoZbLcLFfEu2K6T4/sWg3DB/IlGEjNUJg7bwVLZiC9ieNxp4M1kWKDeZpAfj21H+W6T2Mq28g9y+Iab3U7Wzbt8t8p9n/9TTnvwY7vnYwSyGP4Xjob19MBPr3WjNfp92YuFUIj48cn48H4KXfc3sbYZHQ==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve details about the currently authenticated and active realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/realm/{name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve details about the currently authenticated and active realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"name","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"displayName":{"type":"string"},"enabled":{"type":"boolean"},"notBefore":{"type":"number","format":"double"},"passwordPolicy":{"type":"array","items":{"type":"string"}},"resetPasswordAllowed":{"type":"boolean"},"duplicateEmailsAllowed":{"type":"boolean"},"rememberMe":{"type":"boolean"},"registrationAllowed":{"type":"boolean"},"registrationEmailAsUsername":{"type":"boolean"},"verifyEmail":{"type":"boolean"},"loginWithEmail":{"type":"boolean"},"loginTheme":{"type":"string"},"accountTheme":{"type":"string"},"adminTheme":{"type":"string"},"emailTheme":{"type":"string"},"accessTokenLifespan":{"type":"integer","format":"int32"},"realmRoles":{"uniqueItems":true,"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"description":{"type":"string"}},"title":"RealmRole"}}},"title":"Realm"}}}}}}
+>
+  
+</StatusCodes>
+
+
