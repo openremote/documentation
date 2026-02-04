@@ -1,0 +1,62 @@
+---
+id: get-provisioning-configs
+title: "Retrieve all provisioning configurations"
+description: "Retrieve all provisioning configurations"
+sidebar_label: "Retrieve all provisioning configurations"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVktv20YQ/ivEnFqAFhW76YGnBkaRBkhqw7VPgg7j3RG5yT6Y3aEVVdB/L2ZJypScBklP1UHamZ3Ht/PUHhibBPUKbmN4MskEb3wD6xJCRxHZBP9OQw0N8VzgOviNaRKUECl1wSdKUO/hcrmUH01JRdOJMtSgaYO95WKShBJU8EyeRRa7zhqVHVUfkyjsIamWHMqJdx1BDRgj7qAEw+Syo0ifexNJC3CPjgTwKBseP5JiKKGL8gQ2AzSj5dsZb1zvoH51lDeeqaEIJWxCdMgD69df4FCCioRM+sbPsCSOEqGZuEamCzaORMVi4g9Bm40h/f1a+Q2CD7+8J99wC/Xl69el4J3oZ8SjrcPEOFF7tVyeqF19RS0SWvcS3KEETIn4nlxnkemrEpHkrJj0Q6I4E3kMwRJ6kekTxbtgh8D/WwrPA0Ne8rIScLpG7YzP1YW6tmGsNNS1mD4SDrvpmIEfL2IvzkfC+GSa9vkSLUZ3pBLFJ6Oy9DYappcMcXkkJmADNSIbryYII8kczWPPM0sTrIGa4Ro15sAmLqwPhxK0SfhoTypqFm+NPO+WsQNGPRWNMx455GSNTbH7MxfcoCGFZNgK/bLHb7Kxm8mkfMqzBr8jjoaeqEBri25moVDZRD/MEXmZI27DOE+kRVFKFKq5EpQgKZA016s99NFCDS1zl+qq0uTCInTkI7nAtDChws5U+1zRhwpKeMJoJFTjmBgLfZxBUIPDxBTlJWtxpPpoeJc9iVmZEqv1/OovmUWDtUngOdDYc3spTW3DNosoa8jzdSRNng3aodLDJ/IP+R2VaFQZVqoGKPJ4DirYarB/oYL3pLjKarkaNpFS+98NJBW64QVdDBuTEz2dJJtiMkTzd87SddC58U+YP+5bRKH8nz8917Lxm5CzNLbATUf+LldX8QE9NhSLP+7vb4s3t+/gvPLvW5MKkwpuqdBB9Y4854AVmxAz9xvWFkVxawkTFYkoC69ObKx/OlZ9UOm06n/ODlyIVAj+xbhTUeWdSg6NzXtsE3470csbyiiSNVzvx7UDb97evi+uFksoz9ptu90uGt8vQmyqUS1V2HT24mqxXJBftOys2JR2HUIiF0thdSGxQz9z8wNz4iTMx35j+sJVZ9EMW0ag7scZsoLu7P9LGxILf79/xEQP0R4Owv7cU5R+Xz+PitzyJbSEWjbaag+faCdhUYo6zjPF9nmHnf9XkUFxHGlvf7+Hw+Ef9WNE0w==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve all provisioning configurations"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/provisioning"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve all provisioning configurations
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"required":["name"],"type":"object","properties":{"id":{"minimum":1,"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":1,"type":"string"},"type":{"maxLength":100,"minLength":3,"type":"string"},"realm":{"type":"string"},"assetTemplate":{"type":"string"},"restrictedUser":{"type":"boolean"},"userRoles":{"type":"array","items":{"type":"string","enum":["read:admin","read:logs","read:users","read:map","read:assets","read:rules","read:insights","read:alarms","read:services","write:services","write:user","write:admin","write:logs","write:assets","write:attributes","write:rules","write:insights","write:alarms","read","write"]}},"disabled":{"type":"boolean"},"data":{"type":"object"}},"discriminator":{"propertyName":"type"},"title":"ProvisioningConfigObjectObject"}}}}}}}
+>
+  
+</StatusCodes>
+
+
