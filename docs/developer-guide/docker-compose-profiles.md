@@ -11,7 +11,7 @@ The following services are used by the main OpenRemote code base:
 * manager - Runs the OpenRemote Manager (by default depends on PostgreSQL and Keycloak)
 * postgresql - PostgreSQL DB
 * keycloak - Keycloak identity provider service
-* map - tileserver-gl service that is used for serving map tiles (not required)
+* map - tileserver-gl service that is used for serving raster map tiles (only needed for UI components/apps that use mapbox-js)
 
 ## Docker Compose profiles
 Docker Compose profiles (Docker Compose `.yml` files) are used to configure and start required services; the standard profiles are located in the profile folder of the main [OpenRemote repository](https://github.com/openremote/openremote/tree/master/profile) although the `demo` profile is in the root of the repo.
