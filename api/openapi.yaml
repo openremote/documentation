@@ -2296,7 +2296,7 @@ paths:
     get:
       tags:
       - Map
-      summary: Retrieve the style used for Mapbox GL
+      summary: Retrieve the style used for MapLibre GL
       operationId: getSettings
       parameters:
       - name: Authorization
@@ -2341,32 +2341,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/MapConfig"
-      responses:
-        "200":
-          description: default response
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ObjectNode"
-  /map/js:
-    get:
-      tags:
-      - Map
-      summary: Retrieve the tileJSON object used for Mapbox GL
-      operationId: getSettingsJs
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
       responses:
         "200":
           description: default response
@@ -5643,11 +5617,6 @@ components:
           enum:
           - WEBSOCKET
           - POLLING
-        mapType:
-          type: string
-          enum:
-          - VECTOR
-          - RASTER
         configureTranslationsOptions:
           type: object
         basicLoginProvider:

@@ -541,7 +541,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "rest-api/get-settings",
-          label: "Retrieve the style used for Mapbox GL",
+          label: "Retrieve the style used for MapLibre GL",
           className: "api-method get",
         },
         {
@@ -549,12 +549,6 @@ const sidebar: SidebarsConfig = {
           id: "rest-api/save-settings",
           label: "Update map settings",
           className: "api-method put",
-        },
-        {
-          type: "doc",
-          id: "rest-api/get-settings-js",
-          label: "Retrieve the tileJSON object used for Mapbox GL",
-          className: "api-method get",
         },
         {
           type: "doc",
