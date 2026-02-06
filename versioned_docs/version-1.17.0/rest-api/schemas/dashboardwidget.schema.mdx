@@ -1,0 +1,33 @@
+---
+id: dashboardwidget
+title: "DashboardWidget"
+description: ""
+sidebar_label: "DashboardWidget"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"id":"string","displayName":"string","gridItem":{"id":"string","x":0,"y":0,"w":0,"h":0,"minH":0,"minW":0,"minPixelH":0,"minPixelW":0,"noResize":true,"noMove":true,"locked":true},"widgetTypeId":"string","widgetConfig":{}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"DashboardWidget"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"required":["displayName","gridItem","widgetTypeId"],"type":"object","properties":{"id":{"type":"string"},"displayName":{"type":"string"},"gridItem":{"type":"object","properties":{"id":{"type":"string"},"x":{"type":"integer","format":"int32"},"y":{"type":"integer","format":"int32"},"w":{"minimum":1,"type":"integer","format":"int32"},"h":{"minimum":1,"type":"integer","format":"int32"},"minH":{"type":"integer","format":"int32"},"minW":{"type":"integer","format":"int32"},"minPixelH":{"type":"integer","format":"int32"},"minPixelW":{"type":"integer","format":"int32"},"noResize":{"type":"boolean"},"noMove":{"type":"boolean"},"locked":{"type":"boolean"}},"title":"DashboardGridItem"},"widgetTypeId":{"type":"string"},"widgetConfig":{"type":"object"}},"title":"DashboardWidget"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
