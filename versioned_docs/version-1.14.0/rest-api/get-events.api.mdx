@@ -1,0 +1,70 @@
+---
+id: get-events
+title: "Retrieve the syslog events"
+description: "Retrieve the syslog events"
+sidebar_label: "Retrieve the syslog events"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVt9v6jYU/lei87RJboLaaQ95WkRpLxIFBOnurhCq3OSQeNexPduBMZT/fbIDNPR2jPX2YU8g+zvf+eXznezA0sJAvID51nBZwJKAVKipZVIMc4ihQDtYo7AGCCiqaYUWtbPYgaAVQgxJbUup2V/eBggwATGUSHPUQMBkJVYU4h3YrXJwYzUTBTQNOTL8dnUn9YbqHPOrqZZWfjfLJ2nsu0g4rpEfLP+oUW/PGBJAUVeuesPx3QQIfE5mYyAwmM0mM1h2eRXqJ0UL/FdqJiwWPtyV1BW17dHN9UmUH8e00rJ6J9PPP50wvXTt+3gyarGQnuA8G9WaepTFypxrTjKfD1IgkNwPxu53PEmHd8N+kg4nrlvJKJk9AIHZ42gwBwLT2SSd9CcjIHCfpIPPyRcg8DC5HYyekvHt06/J6NHjkukQCNwmaeJa3cnA1M/9D0qiaZolAY1GSWHQA657PfeTo8k0U37mYshxRWtugwMSCGRSWBTWYalSnGV+PqPfjTPYNS7iVyQztJrhGgNbYmC8HgR4mP0KbSn3guClwJYQQ9TCIg9z+aFeH+Sh1txNn7XKxFGUYyVDqVBorKTFkMmIKhbtNFJeNREQWFPN6DNvs/THbZ4+M4ihosai3pfEYFZrZrfek6NlOcSLZfdq7mrdsh0Ax/JKWtvy2j1ELjceknGGwvY15igso7xthvyK4tHnETmLyIdlojaUSDmtyiSPWv6rTAqBmY28Gbi+rTSa8v0EJpOqzUBpuWLcz/7+n+sf7UpvX+bou909/O++HRTI/zx1/3qZWEnfJWb99UShmPnXFTxQQQvUwac0nQbtoJ6+9bRkJmDGP/VcZnWFwvqCBSup/ekZtjAIphypwcBgOy2LE47lD8dXLzNz+up/9A4qqTFw8Yf7SaWZn1SsKONeFlfylxM7aAhwlqEb7vhl995PR8FN2APyatw2m01YiDqUuoj2ZiaiheJXN2EvRBGWtuKO041rWxJ30XNHShpbUdFxc1YZTgp7nDCLf9pIccqEo/TB7faqsYCWwkm0140lgdIt7HgBu90zNfioedO441Y33YznzDhxyCFeUW6QwFfcdvb1mvLauQWnw/+A7ezgi+CXQ/db9BKoX5OXADt78BL46dJ5sVi+CKsXSHL4HnqzqK96edwh4BThrca2zt/6gDsf9Ac42n/jnfhpUUmWoerefbMAXVmOG+1+kELT/A2fIbsq
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the syslog events"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/syslog/event"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the syslog events
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"level","in":"query","schema":{"type":"string","enum":["INFO","WARN","ERROR"]}},{"name":"per_page","in":"query","schema":{"type":"integer","format":"int32"}},{"name":"page","in":"query","schema":{"type":"integer","format":"int32"}},{"name":"from","in":"query","schema":{"type":"integer","format":"int64"}},{"name":"to","in":"query","schema":{"type":"integer","format":"int64"}},{"name":"category","in":"query","schema":{"type":"array","items":{"type":"string","enum":["ASSET","AGENT","NOTIFICATION","ALARM","RULES","PROTOCOL","GATEWAY","MODEL_AND_VALUES","API","DATA"]}}},{"name":"subCategory","in":"query","schema":{"type":"array","items":{"type":"string"}}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{}}}}}
+>
+  
+</StatusCodes>
+
+

@@ -1,0 +1,70 @@
+---
+id: create-user-asset-links
+title: "Create links between users and assets"
+description: "Create links between users and assets"
+sidebar_label: "Create links between users and assets"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk2P2zYQ/SvCnFpAlrxOg7Q61V00zQJp10i8QBDDh7E0tpilSIYcreMa/u/FUP5S1tk0LQpUFxvk45vh8M0jt8C4ClDMYBwCMcxTsI48srLmpoICSk/IdBfIR8BrZe4DpODQY0NMXtZuwWBDUMC45dp69WdcDikoAwXUhBV5SCGUNTUIxRZ44wQe2Cuzgt0uPTK8G7y0fo2+omow8Zbtv2Z5ZQN/A8k8BU8fWwr8i602giitYTIsf9E5rcq4u/xDsEbGHlGh97iRiExNOBu3iw9USirOS4lZUZxV1dcxnlA3F7JNoQ3kb6qLUyjndXFulwIr1jJ0Uwm0O+Tq1jwGp7C0vkGGAipkGrBq6Mj+Ryz3hdgOPRkeP4mR1F+2Wn8BcJZkT32wk09OKThrQleg0XAoPxWF0isX1VdARUtsNScHJKRfOcuOuE9yHUuTaNF9siBeE5lEUg8JmiqJZZCGaIhrKw3jOr055BoKyCMglwW5cIj2yD8c+qb1WmTJ7EKR5xU1NrOOjKfGMmXK5uhUvo3Hv8shhQf0Chf6M1XsNwoFNBiYvJRoLoHK1ivexEhCK1Kbzc+n3op4O7YD4KRFbLkeiQC0XUdIqRUZvvZUkWGFulO3vSdzF/eRy4o8phXyLpXcSROXVucd/6C0xlDJeVwGcoxLT6H+5wShtK7bgfN2qaJgDv/kOPHck65tFbXWG/z22AKF9H++9ShmUfabk5/9+gkbJ7jZwXj2Ijq1+8FRTiNHIzlr3jPHgNFw9MNg+GIw+ml69bx4flWMfsyGL67eQ88lTnyPzKEf/OQJx3hz8e+ljXLbe8KtI/MmtknyOxpckU9eTaeTZDy5gc97eFqrkKiQcE1JZcu2IcPx5JOl9XH0CbYsSSaaMFASiCJ41uOYf3dsX1uGfvt+HwM01lMi+Wd7B8IyOhA1qOToZern3jqpsFYliWkVp9v1t8nr5Fk2lDr1fGO9Xmcr02bWr/L9spDjyunBs2yYkclqbrRwiu90JZGJYXRqG7hBcxbm7zper8ZH12D6xLnTqEz0eMlzuzfDWSeH/TGDbNHcy4ujFsssZrDdLjDQnde7nQx/bMmLec1Pvhf9Kz3c46LiSgWZqKBYog70KK2j44M07KUc72nzhYfHA+pW8CBPi/8i0P5t0ovToa47tsFUiE6IR5fWacW4LMnxk9j52TU1uX07hRQW+0dOE40RPK7FmHDdbcPG3XWXjYxtQaNZtbgSbMcp318uzo48
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create links between users and assets"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/asset/user/link"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create links between users and assets
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"id":{"type":"object","properties":{"realm":{"type":"string"},"userId":{"type":"string"},"assetId":{"type":"string"}},"title":"Id"},"createdOn":{"type":"string","format":"date-time"},"assetName":{"type":"string"},"parentAssetName":{"type":"string"},"userFullName":{"type":"string"}},"title":"UserAssetLink"}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{}}}}}
+>
+  
+</StatusCodes>
+
+

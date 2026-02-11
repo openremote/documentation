@@ -1,0 +1,33 @@
+---
+id: realm
+title: "Realm"
+description: ""
+sidebar_label: "Realm"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"id":"string","name":"string","displayName":"string","enabled":true,"notBefore":0,"passwordPolicy":["string"],"resetPasswordAllowed":true,"duplicateEmailsAllowed":true,"rememberMe":true,"registrationAllowed":true,"registrationEmailAsUsername":true,"verifyEmail":true,"loginWithEmail":true,"loginTheme":"string","accountTheme":"string","adminTheme":"string","emailTheme":"string","accessTokenLifespan":0,"realmRoles":[{"name":"string","description":"string"}]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Realm"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"displayName":{"type":"string"},"enabled":{"type":"boolean"},"notBefore":{"type":"number","format":"double"},"passwordPolicy":{"type":"array","items":{"type":"string"}},"resetPasswordAllowed":{"type":"boolean"},"duplicateEmailsAllowed":{"type":"boolean"},"rememberMe":{"type":"boolean"},"registrationAllowed":{"type":"boolean"},"registrationEmailAsUsername":{"type":"boolean"},"verifyEmail":{"type":"boolean"},"loginWithEmail":{"type":"boolean"},"loginTheme":{"type":"string"},"accountTheme":{"type":"string"},"adminTheme":{"type":"string"},"emailTheme":{"type":"string"},"accessTokenLifespan":{"type":"integer","format":"int32"},"realmRoles":{"uniqueItems":true,"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"description":{"type":"string"}},"title":"RealmRole"}}},"title":"Realm"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

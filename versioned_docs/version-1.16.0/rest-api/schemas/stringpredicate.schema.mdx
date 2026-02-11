@@ -1,0 +1,33 @@
+---
+id: stringpredicate
+title: "StringPredicate"
+description: ""
+sidebar_label: "StringPredicate"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"match":"EXACT","caseSensitive":true,"value":"string","negate":true}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"StringPredicate"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

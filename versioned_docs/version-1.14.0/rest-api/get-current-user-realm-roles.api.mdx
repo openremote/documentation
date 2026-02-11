@@ -1,0 +1,70 @@
+---
+id: get-current-user-realm-roles
+title: "Retrieve realm roles for the currently authenticated user"
+description: "Retrieve realm roles for the currently authenticated user"
+sidebar_label: "Retrieve realm roles for the currently authenticated user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVd9r2zAQ/lfEPW3g2qF989NK2drCxkLXwiDkQZUvsVZZ0k7nZlnI/z5OTtKk7QZdGcwPttH9/u7u0wpYzxPUE7hJSDAtIEQkzTb4ywZqmCOf9UToWeRXqF13FRwmKCBq0h0ykpivwOsOoYbTnttA9md2AQVYDzW0qBskKCCZFjsN9Qp4GUU9MVk/h/W62Hn4evQh0EJTg83RmAKHV3u5CIlf4GRaAGGKwSdMIj8ejeTTYDJkY66rhgZnunestppQgAme0bPo6hidNRmD6lsSg9XTgJpILyUvxi49l4g8xaO4V8hk8R4VSS8USTPULJDiFpUZWuWWSvfcomfJARvVp1xyh9yGTVdzA7mFGiqR5tdBexPS/ba3PTmBjjmmuqoa7EIZInrCLjCWNlQ62mqVM1pXUMC9Jqtv3QBfPh4AzJBBDZ1OjCQVTiWQ6cnyMkcSt7aBejLdF30R6AZvW4UdWkFKPYYCZi4ssopxFj2fETaCgHYDtuEO/U2uoxKLKqeVqiGVKsqgmeCqwf+RCd6j4SqbgQzEjDC1f+8gmRCHCiKFmXWS+vZPuqz39+YsNJjHaP/w5bFFFYr/vPQ849bPQu6S5Sz+HNFf5elSn7TXcyR1cX09VqfjS3i8EdetTcqmvABNMH2HnjNgu7X4g7dSqbFDnVAlxKw8OfAxfbOb+mDS4dS/zQG6QKgk/3JDAdpkCsBOW0FMRO8O7GBdgLMGhTXqB+I8H39UJ+UIikfrtlgsyrnvy0DzamOWKj2P7uikHJXoy5Y7Jz5lXQdIRDCSoxgSd9rvhXkNfxzgvltAxh9cRaetl4g599WGWyawsXzELtMCWuHkegKr1a1OeENuvZbj7z2SMMH0gUQyGRRb4haSaGwSQQP1TLuETxLbETHI9D+X5R0uf3PT3GvXiz7IXfIvAm0uo4M4g9apMRj3ZU9uEeHEHYmfv7+G9foXhKa3Dg==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve realm roles for the currently authenticated user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/userRealmRoles"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve realm roles for the currently authenticated user
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"string"}}}}}}}
+>
+  
+</StatusCodes>
+
+
