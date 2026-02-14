@@ -1,0 +1,57 @@
+html[data-theme='dark'] .card_container {
+    background-color: var(--ifm-color-secondary);
+}
+
+.card_container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--ifm-color-secondary-lightest);
+    transition: background-color var(--ifm-transition-fast) var(--ifm-transition-timing-default);
+    padding: 16px 24px;
+    border-left: 4px solid var(--ifm-color-primary);
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+html[data-theme='dark'] .card_container:hover {
+    background-color: var(--ifm-color-secondary-light);
+}
+
+.card_container:hover {
+    background-color: var(--ifm-color-secondary-dark);
+    text-decoration: none;
+}
+
+.card_container > .card_icon_prefix {
+    color: var(--ifm-color-content);
+    height: 24px;
+}
+
+.card_container > .card_icon_suffix {
+    color: var(--ifm-color-content);
+    margin-left: 48px;
+    height: 24px;
+}
+
+.card_container > .card_content {
+    flex: 1;
+}
+
+.card_content {
+    display: flex;
+    flex-direction: column;
+}
+
+.card_content > .card_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--ifm-color-content);
+}
+
+.card_content > .card_subtitle {
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--ifm-color-content);
+}

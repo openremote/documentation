@@ -1,0 +1,190 @@
+---
+sidebar_position: 1
+sidebar_label: Using Docker
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import OpenRemoteDemo from '@site/static/img/install-demo.png';
+import InsightsDashboard from '@site/static/img/insights-dashboard.png';
+import OpenRemoteIcon from '@site/static/icon/openremote.svg';
+import DockerIcon from '@site/static/icon/docker-mark-blue.svg';
+import OpenInTabIcon from '@site/static/icon/open-in-new.svg';
+import DownloadIcon from '@site/static/icon/download.svg';
+import ChevronRight from '@site/static/icon/chevron-right.svg';
+import styles from './styles.module.css';
+import Admonition from '@theme/Admonition';
+import {CardElement} from "../util/card-element";
+
+# Install using Docker
+
+The most common installation method for OpenRemote is using [Docker](https://www.docker.com).<br />
+It is the most popular tool for providing containerization, which runs our software in its own isolated environment.<br />
+
+We provide easy-to-install configurations using [Docker Compose](https://docs.docker.com/compose/) profiles.<br />
+All of our distributions, for both ARM64 and AMD64, are available on [Docker Hub](https://hub.docker.com/u/openremote).<br />
+
+## Prerequisites
+
+<CardElement prefix={DockerIcon} suffix={OpenInTabIcon} url="https://www.docker.com">
+    <span>Install Docker Engine</span>
+    <span>Version 18 or higher</span>
+</CardElement>
+<br />
+You'll need access to the Docker CLI during the setup, to start containers using [Docker Compose](https://docs.docker.com/compose/).<br />
+
+{/*<Tabs queryString="prerequisites">
+    <TabItem value="desktop" label="Using desktop environment" default attributes={{className: [styles.menu_item, styles.menu_item_desktop]}}>
+        - **Install Docker Desktop**<br />
+        You can install Docker Desktop on [Windows](https://docs.docker.com/desktop/setup/install/windows-install/), [Mac](https://docs.docker.com/desktop/setup/install/mac-install/) or [Linux](https://docs.docker.com/desktop/setup/install/linux/).<br />
+        It provides a straightforward GUI (Graphical User Interface) that lets you manage your containers, applications,<br />
+        and images directly from your machine. All necessary tools for installing OpenRemote come preinstalled.
+    </TabItem>
+    <TabItem value="command-line" label="Using command line" attributes={{className: [styles.menu_item, styles.menu_item_commandline]}}>
+        - **Install Docker Engine for Linux**<br />
+        Users can install [Docker Engine](https://docs.docker.com/engine/install/) on any Linux distribution for running OpenRemote.<br />
+        It includes all necessary CLI tools (like Docker Compose) for a smooth installation process.<br />
+        Other platforms will have to use the [desktop environment](./using-docker?prerequisites=desktop) instead.
+    </TabItem>
+</Tabs>*/}
+
+## Installing OpenRemote
+
+Depending on your project, and the amount of customization you need, we provide steps below.
+
+<Tabs queryString="install">
+    <TabItem value="demo" label="Demo version" default attributes={{className: [styles.menu_item, styles.menu_item_demoversion]}}>
+        <img src={OpenRemoteDemo} alt="OpenRemote Demo" className={styles.image} />
+        *Figure 1. Screenshot of the Manager UI Map page filled with the assets of this setup.*
+
+        We distribute a demo version of OpenRemote that includes several assets with simulated data.<br />
+        It includes automation rules, dashboards, and full administrator control of the software.<br />
+        The easy setup allows users to discover platform features, without needing additional setup.<br />
+        <br />
+
+        ### 1. Download the `docker-compose.yml` file
+        <CardElement prefix={DockerIcon} suffix={DownloadIcon} url="https://github.com/openremote/openremote/blob/1.3.0/docker-compose.yml">
+            <span>docker-compose.yml</span>
+        </CardElement>
+        <br />
+        By default, we expose port `80` (HTTP), `443` (HTTPS) and `8883` (MQTT) to the local network.<br />
+        Make sure the correct firewall routing is set up for public access on these ports.<br />
+        Alternatively, you can adjust port mapping within the `docker-compose.yml` file; see [here](https://docs.docker.com/compose/how-tos/networking/).<br />
+        <br />
+
+        ### 2. Start the OpenRemote stack
+        Open a terminal in the folder you downloaded the `docker-compose.yml` file in, and run the following command;
+        ```bash
+        docker-compose -p openremote up -d
+        ```
+        <br />
+
+        ### Complete!
+        You can now visit the Manager UI on **https://localhost**, and log in with username `admin`, and password `secret`.<br />
+
+        <Admonition type="note" title="Did an 'Your connection is not private' error appear?">
+            It is referring to an self-signed SSL certificate that needs to be accepted, as we're running a local demo version.<br />
+            You can bypass this error, see more information on this [here](https://www.guidingtech.com/top-ways-to-fix-your-connection-is-not-private-in-chrome/).
+
+            For a production deployment, with an SSL certificate, check the [production guide](./using-docker?install=production)
+        </Admonition>
+        <br />
+
+    </TabItem>
+    <TabItem value="production" label="Production ready" attributes={{className: [styles.menu_item, styles.menu_item_productionready]}}>
+        <img src={InsightsDashboard} alt="OpenRemote Production demo" className={styles.image} />
+        *Figure 2. Screenshot of the Manager UI Insights page filled with simulated data.*
+
+        This guide will help you setting up a production-ready OpenRemote instance, together with an included proxy service.<br />
+        It comes without any pre-installed assets or realms, and includes minor tweaks to optimize for production use.<br />
+        <br />
+
+        ### 1. Download the `docker-compose.yml` file
+        <CardElement prefix={DockerIcon} suffix={DownloadIcon} url="https://github.com/openremote/openremote/blob/1.3.0/docker-compose.yml">
+            <span>docker-compose.yml</span>
+        </CardElement>
+        <br />
+        By default, we expose port `80` (HTTP), `443` (HTTPS) and `8883` (MQTT) to the local network.<br />
+        Make sure the correct firewall routing is set up for public access on these ports.<br />
+        Alternatively, you can adjust port mapping within the `docker-compose.yml` file; see [here](https://docs.docker.com/compose/how-tos/networking/).<br />
+        <br />
+
+        ### 2. Create an `.env` file in the same folder
+        You can configure the OpenRemote instance using environment variables.<br />
+        We create an `.env` file, where we add variables in `ENV_VARIABLE=VALUE` format. See this example here;
+        ```env
+        OR_HOSTNAME=demo.openremote.app
+        OR_ADMIN_PASSWORD=secret
+        ```
+        The most common environment variables are:
+        - `OR_HOSTNAME` - Configures the accessible hostname URL for all services.
+        - `OR_ADMIN_PASSWORD` - Sets the initial password for the `admin` username.
+        - `OR_EMAIL_***` - Configures the mail server to send emails from; full list [here](https://github.com/openremote/openremote/blob/1.3.0/profile/deploy.yml#L172).
+        - `OR_ADDITIONAL_HOSTNAMES` - Allow additional hostname URLs on top of `OR_HOSTNAME`.
+
+        A full list of variables can be viewed [here](https://github.com/openremote/openremote/blob/1.3.0/profile/deploy.yml).<br />
+        <br />
+
+        ### 3. Optional steps
+        <details>
+            <summary>Configure a wildcard SSL certificate for your custom domain</summary>
+
+            By default, we ship a self-signed SSL certificate based on the `OR_HOSTNAME` environment variable.<br />
+            You can bring your own by including the full certificate chain in a `.pem` file.<br />
+
+            Place your `.pem` file in the same folder as your `docker-compose.yml` is located.<br />
+
+            After that, you need to modify the `docker-compose.yml` file, to include the following line;
+            ```yml
+            services:
+              proxy:
+                 image: openremote/proxy:${PROXY_VERSION:-latest}
+                 // ...
+                 volumes:
+                 - proxy-data:/deployment
+                 - ./cert.pem:/etc/haproxy/certs/00-custom
+            ```
+        </details>
+        <br />
+
+        ### 4. Start the OpenRemote stack
+        Open a terminal in the same folder, and run the following command;
+        ```bash
+        docker-compose -p openremote up -d
+        ```
+        <br />
+
+        ### Complete!
+        You can now visit the Manager UI on **https://[yourhostname].com**, and log in with username `admin`, and your password.<br />
+        <br />
+
+    </TabItem>
+    <TabItem value="custom-project" label="Using a Custom Project" attributes={{className: [styles.menu_item, styles.menu_item_customproject]}}>
+        Work in progress
+    </TabItem>
+</Tabs>
+
+## Frequently asked questions
+<details>
+    <summary>**Error:** "We are sorry... Invalid parameter: redirect_uri"</summary>
+
+    This is a common error when using an unexpected URL to access the Manager.<br />
+    By default, only `localhost` is accepted, and other hostnames are rejected from access.<br />
+
+    You can use the `OR_HOSTNAME` and `OR_ADDITIONAL_HOSTNAMES` environment variables for this.<br />
+    Check Step 2 of the [Production ready guide](./using-docker?install=production#2-create-an-env-file-in-the-same-folder) for more details on setting these up.
+</details>
+
+If your question is not listed, feel free to ask on our [community forum](https://forum.openremote.io)!
+
+## Up next
+
+<div className={styles.bottom_navigation_container}>
+    <CardElement wide prefix={OpenRemoteIcon} suffix={ChevronRight} url="../user-guide/manager-ui">
+        <span>Manager UI Guide</span>
+        <span>Learn more about the User Interface</span>
+    </CardElement>
+    <CardElement wide prefix={OpenRemoteIcon} suffix={ChevronRight} url="../user-guide/deploying/custom-deployment">
+        <span>Custom Deployment</span>
+        <span>Style the Manager UI to your brand</span>
+    </CardElement>
+</div>
