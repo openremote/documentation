@@ -46,12 +46,12 @@ The `geocodeUrl` must point to a Nominatim-compatible API. You can use one of th
 | Service | Description |
 | :------ | :---------- |
 | **Public Nominatim** | `https://nominatim.openstreetmap.org` — free, but subject to the [Nominatim Usage Policy](https://operations.osmfoundation.org/policies/nominatim/) (max 1 request/second, no heavy usage) |
-| **Self-hosted Nominatim** | Run your own instance for higher throughput and no rate limits. See [setting up a self-hosted instance](#setting-up-a-self-hosted-nominatim-instance) below |
+| **Self-hosted Nominatim** | Run your own instance for higher throughput and no rate limits. See [setting up a self-hosted instance](#using-a-self-hosted-nominatim-instance) below |
 | **Other compatible services** | Any service that implements the Nominatim `/search` and `/reverse` endpoints with GeoJSON output support |
 
 :::warning
 
-The public Nominatim service has strict rate limits. For production deployments with multiple users, you should run a [self-hosted instance](#setting-up-a-self-hosted-nominatim-instance) or use another compatible service.
+The public Nominatim service has strict rate limits. For production deployments with multiple users, you should run a [self-hosted instance](#using-a-self-hosted-nominatim-instance) or use another compatible service.
 
 :::
 
@@ -65,69 +65,21 @@ The geocoding search box only appears when both the `showGeoCodingControl` prope
 
 :::
 
-## Setting up a self-hosted Nominatim instance
+## Using a self-hosted Nominatim instance
 
-For production deployments or cases where the public Nominatim instance is insufficient, you can run your own Nominatim server. The easiest way is to use the [mediagis/nominatim](https://github.com/mediagis/nominatim-docker) Docker image.
-
-### 1. Add Nominatim to your Docker Compose
-
-```yaml
-services:
-  nominatim:
-    image: mediagis/nominatim:4.4
-    environment:
-      PBF_URL: https://download.geofabrik.de/europe/netherlands-latest.osm.pbf
-      REPLICATION_URL: https://download.geofabrik.de/europe/netherlands-updates/
-    volumes:
-      - nominatim-data:/var/lib/postgresql/14/main
-    ports:
-      - "8088:8080"
-
-volumes:
-  nominatim-data:
-```
-
-### 2. Point `geocodeUrl` to your instance
-
-Update `mapsettings.json` to use your self-hosted Nominatim:
+OpenRemote also supports using a self-hosted [Nominatim](https://nominatim.org/) instance. To use one, update `mapsettings.json` to include the correct URL for request resolution:
 
 ```json
 {
   "options": {
     "default": {
-      "geocodeUrl": "http://nominatim:8080"
+      "geocodeUrl": "http://your-nominatim-host:8080"
     }
   }
 }
 ```
 
-### 3. Choose your map data
-
-You can download OpenStreetMap extracts from [Geofabrik](https://download.geofabrik.de/) in PBF format. Choose the region that covers your deployment area. Some examples:
-
-- Netherlands: `https://download.geofabrik.de/europe/netherlands-latest.osm.pbf`
-- Europe: `https://download.geofabrik.de/europe-latest.osm.pbf`
-- North America: `https://download.geofabrik.de/north-america-latest.osm.pbf`
-
-:::note
-
-Importing data requires significant resources depending on the region size. A country-level extract typically needs 8-16 GB RAM during import and 2-4 GB at runtime. The full planet (~70GB PBF) requires 64+ GB RAM for import. For most deployments, a country or region extract is sufficient.
-
-:::
-
-<details>
-<summary>Resource requirements by data size</summary>
-
-| Data size | RAM (import) | RAM (runtime) | Disk |
-| :-------- | :----------- | :------------ | :--- |
-| City/small region | 2 GB | 1 GB | 5-10 GB |
-| Country | 8-16 GB | 2-4 GB | 20-100 GB |
-| Continent | 32-64 GB | 8-16 GB | 200-500 GB |
-| Full planet | 64+ GB | 16-32 GB | 1+ TB |
-
-</details>
-
-For more information on self-hosting Nominatim, see the [Nominatim installation guide](https://nominatim.org/release-docs/latest/admin/Installation/).
+For more information on setting up Nominatim, see the [Nominatim installation guide](https://nominatim.org/release-docs/latest/admin/Installation/).
 
 ## See Also
 
