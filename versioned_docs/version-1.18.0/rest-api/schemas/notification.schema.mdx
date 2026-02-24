@@ -1,0 +1,33 @@
+---
+id: notification
+title: "Notification"
+description: ""
+sidebar_label: "Notification"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"name":"string","message":{"type":"string"},"targets":[{"type":"REALM","id":"string","locale":"string","allowedLocales":["string"],"data":{}}],"repeatFrequency":"ALWAYS","repeatInterval":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Notification"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"name":{"type":"string"},"message":{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"},"targets":{"type":"array","items":{"type":"object","properties":{"type":{"type":"string","enum":["REALM","USER","ASSET","CUSTOM"]},"id":{"type":"string"},"locale":{"type":"string"},"allowedLocales":{"uniqueItems":true,"type":"array","items":{"type":"string"}},"data":{"type":"object"}},"title":"Target"}},"repeatFrequency":{"type":"string","enum":["ALWAYS","ONCE","HOURLY","DAILY","WEEKLY","MONTHLY","ANNUALLY"]},"repeatInterval":{"type":"string"}},"title":"Notification"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
