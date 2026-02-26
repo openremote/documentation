@@ -1,0 +1,70 @@
+---
+id: register
+title: "Create or update the registration for a console"
+description: "Create or update the registration for a console"
+sidebar_label: "Create or update the registration for a console"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV02P2zYQ/SvCnFpAttzkplO3RtsESBFj4wAFDB/G0lhiwq+Q1Dquof9eDCVZ8trddFMUKNDsZeXhmy+K7w11goCVh3wDS6O9kQTbFIwlh0EY/bqEHBxVwgdykIJFh4oCOfY4gUZFkMNdE2rjxB/RBVIQGnKoCcvo44uaFEJ+gnC0DPfBCV1B26bnCL/PfjHugK6kcrZyJph/HOWV8eEZQbYpOPrUkA8/mfLIiMLoQDrwI1orRRG7yz54o9k2hmI/4ajkPYyFpGAlhr1xih+deRAlb1gKD+Q879A2HfKb3QcqQgez5IIgzyFFeaPGtG/zBEroN6SrUEP+Q3oNG9J8GXmu829Az32MlZ2rx7IUvDsoVxd9PN3lpM6rdP2m+hU5Jfwj2M4YSagZV+MXIb4pCvL+9iJp3Ekqby+Wwj+1igG/fjPatk0hiCDZ1lNv1e8xH2pQpiR5c2/Q2mlAdA6PfNQDKX/rbF8nuo+M7ijeAcZDHFxD0eCt0b4r/cViwf9K8oUTNnrlUNIeGxmSAQnpN85848z/hjMMuSTE0hEGSoxLGlvyU6gpcRO3ZG9cgknRD9oUFIXa8Ii13bSyyEcJsh6RTSavJ/cwjN3GSZ5qIVifZ1lJysyNJe1ImUBzYTK0Ijs5QqnajDmETvBL8R31UKqOzZG/kIPCmKSNY9BT0TgRjjETh2VibbbTpXfM4y7aABhfFTahfgEp7KU5REghBemwdFSSDgJlt9/mI+n3sY+MPbJYls+6UjLLd4DCyKyLPyuM1lSELLoBH/W9I19/fQBfGNt1YJ3Zi/iihyd+szi90ixNGTXkwvj83AyF9D/eejzXLNj343Xo58+orKRBZQeWDOI6/j6r02ga5XJim+jiyNpxvSPrZjBsW77H7U08Nz0p31rS9/G8J7+hxopc8mq9XiV3q9fwmJfrWvhE+EjH0hSNIh1GPrL1iWjzJFlJQk+Jp47Rm4sY2+/OPDSFv+Th9zGBMo4Srn/eT0gs4oQkhYLb5qUfL/xYsKQoiIdqPt6yf129SV7OF5A+EoDD4TCvdDM3rsp6N59hZeXs5XwxJz2vg5IXQw54YRFHlPFBoZ6keb6KXez2WQgCfQ6ZlSii8MeKT73AbWB0PkvcNoWaVTDfwOm0Q0/vnWxbNn9qyLEcbUcli4qUDhd7Vqpx7uxRerqq6nw1AUhvl/iRjn/xJfKAsmE88LfGv5Go/1i5yNOhll202ZoDjYir29XocVcUZMOT2O1k8qzevltDCrv+q0dFqQOHB343eOjaMLG7bnyw7QQSddVgxdguJv/9Ccp3+y0=
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create or update the registration for a console"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/console/register"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create or update the registration for a console
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"required":["name","platform","providers","version"],"type":"object","properties":{"id":{"type":"string"},"name":{"minLength":1,"type":"string"},"version":{"minLength":1,"type":"string"},"platform":{"minLength":1,"type":"string"},"providers":{"type":"object","additionalProperties":{"type":"object","properties":{"version":{"type":"string"},"requiresPermission":{"type":"boolean"},"hasPermission":{"type":"boolean"},"success":{"type":"boolean"},"enabled":{"type":"boolean"},"disabled":{"type":"boolean"},"data":{"type":"object","additionalProperties":{"type":"object"}}},"title":"ConsoleProvider"}},"model":{"type":"string"},"apps":{"type":"array","items":{"type":"string"}}},"title":"ConsoleRegistration"}}},"required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"required":["name","platform","providers","version"],"type":"object","properties":{"id":{"type":"string"},"name":{"minLength":1,"type":"string"},"version":{"minLength":1,"type":"string"},"platform":{"minLength":1,"type":"string"},"providers":{"type":"object","additionalProperties":{"type":"object","properties":{"version":{"type":"string"},"requiresPermission":{"type":"boolean"},"hasPermission":{"type":"boolean"},"success":{"type":"boolean"},"enabled":{"type":"boolean"},"disabled":{"type":"boolean"},"data":{"type":"object","additionalProperties":{"type":"object"}}},"title":"ConsoleProvider"}},"model":{"type":"string"},"apps":{"type":"array","items":{"type":"string"}}},"title":"ConsoleRegistration"}}}}}}
+>
+  
+</StatusCodes>
+
+
