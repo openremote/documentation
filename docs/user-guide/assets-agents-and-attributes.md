@@ -10,6 +10,23 @@ An asset is a digital representation of a physical or logical `Thing` (this is t
 ## Attributes
 Each asset can have one or more attributes that hold a value; a value can be of any type that can be represented as JSON. The name of the attribute is used to cross-reference it with an attribute descriptor (see below), which provides schema information for the attribute.
 
+### Datapoints
+
+In addition to its current value, an attribute can store historical datapoints.  
+You enable this by setting the `storeDataPoints` meta item on the attribute.
+By default, the history is kept for one month but this can be configured using the `dataPointsMaxAgeDays` meta item.  
+Once enabled, on the asset page in the manager UI, you'll see a History panel, and you'll be able to select this attribute from a dropdown menu.
+This displays a line graph of the attribute values over a configurable period of time.  
+This also allows you to use that attribute in graphs in [Insights](manager-ui/manager-ui.md#insights) dashboards.
+
+### Predicted Datapoints
+
+An attribute can also store values the attribute would take in the future i.e. predicted datapoints.  
+You enable this by setting the `hasPredictedDataPoints` meta item on the attribute.  
+Predicted datapoints are automatically removed when their time has passed (cleaning routine runs once per day).
+
+If in addition, you set the `applyPredictedDataPoints` meta item on the attribute, then the predicted value is automatically applied as the current value when the time matches.
+
 ## Configuration items
 As well as having a value an attribute can have configuration items (called 'meta items' in the code) which control the behaviour of the attribute (link it to an agent for read/write from/to external systems, link to another attribute, configure historical value storage, and much more). Each attribute can have one or more meta items which is essentially a well known named value (metadata) that can be used in various parts of the system to control behaviour of the associated attribute (e.g. an `agentLink` meta item is used to connect an attribute to an agent/protocol).
 

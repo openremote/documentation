@@ -1,0 +1,33 @@
+---
+id: assetdatapointintervalquery
+title: "AssetDatapointIntervalQuery"
+description: ""
+sidebar_label: "AssetDatapointIntervalQuery"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"fromTimestamp":0,"toTimestamp":0,"fromTime":"2024-07-29T15:51:28.071Z","toTime":"2024-07-29T15:51:28.071Z","type":"string","interval":"string","gapFill":true,"formula":"MIN"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AssetDatapointIntervalQuery"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","allOf":[{"required":["type"],"type":"object","properties":{"fromTimestamp":{"type":"integer","format":"int64"},"toTimestamp":{"type":"integer","format":"int64"},"fromTime":{"type":"string","format":"date-time"},"toTime":{"type":"string","format":"date-time"},"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AssetDatapointQuery"},{"type":"object","properties":{"interval":{"type":"string"},"gapFill":{"type":"boolean"},"formula":{"type":"string","enum":["MIN","AVG","MAX","DIFFERENCE","COUNT","SUM","MODE","MEDIAN"]}}}],"title":"AssetDatapointIntervalQuery"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
