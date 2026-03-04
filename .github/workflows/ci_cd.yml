@@ -25,10 +25,14 @@ jobs:
     steps:
       - name: Add swap space
         run: |
-          sudo fallocate -l 10G /swapfile
+          # Resize existing swap from default 4 GB to 14 GB
+          sudo swapoff /swapfile || true
+          sudo rm -f /swapfile
+          sudo fallocate -l 14G /swapfile
           sudo chmod 600 /swapfile
           sudo mkswap /swapfile
           sudo swapon /swapfile
+          free -h
 
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
