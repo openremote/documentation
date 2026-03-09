@@ -1,0 +1,33 @@
+---
+id: rectangulargeofencepredicate
+title: "RectangularGeofencePredicate"
+description: ""
+sidebar_label: "RectangularGeofencePredicate"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"predicateType":"string","latMin":0,"lngMin":0,"latMax":0,"lngMax":0,"negated":true}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"RectangularGeofencePredicate"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","allOf":[{"required":["predicateType"],"type":"object","properties":{"predicateType":{"type":"string"}},"discriminator":{"propertyName":"predicateType"},"title":"ValuePredicate"},{"type":"object","properties":{"latMin":{"type":"number","format":"double"},"lngMin":{"type":"number","format":"double"},"latMax":{"type":"number","format":"double"},"lngMax":{"type":"number","format":"double"},"negated":{"type":"boolean"}}}],"title":"RectangularGeofencePredicate"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

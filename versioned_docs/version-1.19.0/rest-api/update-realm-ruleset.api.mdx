@@ -1,0 +1,70 @@
+---
+id: update-realm-ruleset
+title: "Update a realm ruleset"
+description: "Update a realm ruleset"
+sidebar_label: "Update a realm ruleset"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNlm1v2zYQgP+KcJ/agrZct1k3fZqbuK0HpxIUJ2sWGAUjnW22EqmSVN3M0H8fjpRflLhF22HA/MXS6d5IHp+7DVi+NBDdQFoXCHMGqkLNrVBykkMEdZVziynyoiQFgxYYVFzzEi1qMtyA5CVCBKParpQWfztjYCAkRLBCnqMGBiZbYckh2oC9q0jdWC3kEpqG7Ty8671Ses11jnkv0cqqf+3ljTL2p5yIfGtWcbsCBho/1UJjDpHVNR5xIqTFpfO/ULrk1ot+eQ5NM/fmaOxLld+RTaakRWnpkVdVITK3aeEHoyTJ9s73YW+g4HIJzGc4Z9u46vYDZu5UNB2dFWjIUOTflRuDz6iN8GG/QzvTyC3msXy4fQfqVDM9K0okk4Ibe65ysRCYf7+VP4cNlPzLFOXSriAanpwwKIXcvj9j9w+QAUp+W3Ti3CpVIJf0UVMFHzl35rf2SG4o65K2/o/R1ejiNJ0kM2DwOo3jq2tg8MdF/BYYvJrGf8K8YVCiPayI3cnwPBd0vrxIOmfU1WsaBsZyWx9JcZ9JOh6dUeyzcTKNr8dnwOA0Pk8m09FsEr99P07TOAUGV6Pp5Gwyu36fjNNJfLaTj9+NTy87mtM4TnYvZ5OL0cup85qMLi/cw/hdMkndUzo+j6+87DyZXbs1o9ZKH91TTdA4+oVnGRqT1LeFyFLkR0+rYWCFLUjWoU/TNM63qZQ0fhuHgwH95WgyLSpHnwhyXPC6sMFWE9jhpXsSPoFo43117S4d8AIeuPQDvYNeiXalCIlV7RlIJQihUwidcrgReUN8Qf15y8ZaF4QeaysThWGOpeqrCqXGUlnsCxXySoQbZ96EwOAz14Iq2PjL3+5guxiIoOTGoqZdmFOgrNbC3rlI5JYu/c388NMFkcR72yrs647XdjWkG1iotVPJCoHSnmrMUVrBC1+J6iPKS7eOkCz8Yk3oUwkrAnWmitD772VKSsxs6MwcOBcazernHZhMVX4FlVYL4Upi+0Tnxw/7zqnKHTY6wh+PTarA/udLd9VLLSPdN5fxF15WBW47wOCA74MOvWE4GD7vDV70hr/Nnp5EJ0+j4a/9wYunf8F9Yn9Ls+2WB5Rq8eubZAvc/XfP2S5OW2oe0G8HuRYue/v2RuwFD1FCkRvq3QvlqreFSFyhTN2tC8655EvUwZvZLAlGyQTuM2C2EiYQJrArDHKV1SVK6wopWCjtpN/w1g+CpEBuMDCITvmm42P+aEcDlZkuDR67AKXSGFD+/RZaPHPQwpKLwjXjhfq9Y+damMiQOBftB7LXyTR41h8Au4eh9XrdX8q6r/QybM1MyJdV0XvWH/RR9le2LDqzAdCHAYkqZWzJ5UGYrxKzs6k76lj8YsOq4MK1ZJfYpqXpTVsw23NmEImcRp0VjXHRDWw2t9zgpS6ahsSfatQEv/memw6FuTBtGS54YfBBJrtGAI/Sdr56HAA7nmEr5PLO4bmo6Q0YfMQ7Pyc21Abb4fLHon8tpHd9bBrexadR9b8I1A7MnThe69R7683I0V7jwfi6txhlGVaH3qjrUnPatdLkkgBw2w7FpWM3aL6mCuBrn7hy6/H9kGQbB5GaL0nXR6TfPxFpS5o=
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a realm ruleset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/rules/realm/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update a realm ruleset
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"required":["lang","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"version":{"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":3,"type":"string"},"enabled":{"type":"boolean"},"rules":{"type":"string"},"lang":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]},"meta":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"string","enum":["READY","DEPLOYED","COMPILATION_ERROR","VALIDITY_PERIOD_ERROR","EXECUTION_ERROR","LOOP_ERROR","DISABLED","PAUSED","EXPIRED","REMOVED","EMPTY"]},"error":{"type":"string"},"realm":{"type":"string"},"accessPublicRead":{"type":"boolean"}},"title":"RealmRuleset"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+
