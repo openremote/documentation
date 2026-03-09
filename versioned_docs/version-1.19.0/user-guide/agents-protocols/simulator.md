@@ -46,7 +46,7 @@ These options follow the [RFC 5545 RRULE](https://datatracker.ietf.org/doc/html/
 
 ![](img/simulator-scheduler-recurr.png)
 
-If the schedule is not provided it defaults to every 24 hours.
+If the schedule is not provided it defaults to the start of the current day and replays the dataset once.
 
 ### Timezone
 The timezone parameter allows the replay data to follow any specified timezone. Upon adding a new SimulatorAgentLink the timezone parameter will be added with the users' timezone. If not specified will fall back to UTC.
