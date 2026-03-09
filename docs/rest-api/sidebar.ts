@@ -189,7 +189,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "rest-api/get-value-descriptor-schema",
-          label: "Retrieve the valueDescriptor JSON Schema.",
+          label: "Retrieve the JSON Schema of the specified value descriptor",
           className: "api-method get",
         },
         {
@@ -1332,12 +1332,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "rest-api/schemas/jsonnode",
-          label: "JsonNode",
-          className: "schema",
-        },
-        {
-          type: "doc",
           id: "rest-api/schemas/userassetlink",
           label: "UserAssetLink",
           className: "schema",
@@ -1718,6 +1712,12 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "rest-api/schemas/sentnotification",
           label: "SentNotification",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/jsonnode",
+          label: "JsonNode",
           className: "schema",
         },
         {
