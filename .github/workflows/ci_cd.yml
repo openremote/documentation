@@ -15,7 +15,7 @@ concurrency:
   cancel-in-progress: true
 
 env:
-  # Hosted GitHub runners have 7 GB of memory available, let's use 6 GB
+  # Hosted GitHub runners have 7 GB of memory available, swap handles brief peaks above this
   NODE_OPTIONS: --max-old-space-size=6144
 
 jobs:
@@ -23,18 +23,39 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
+      - name: Add swap space
+        run: |
+          # Resize existing swap from default 4 GB to 14 GB
+          sudo swapoff /swapfile || true
+          sudo rm -f /swapfile
+          sudo fallocate -l 14G /swapfile
+          sudo chmod 600 /swapfile
+          sudo mkswap /swapfile
+          sudo swapon /swapfile
+          free -h
+
       - name: Checkout
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
 
       - name: Setup Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: '20'
+          node-version: '24'
           cache: 'yarn'
           cache-dependency-path: yarn.lock
 
       - name: Install dependencies
         run: yarn install --immutable
+
+      - name: Cache Docusaurus build
+        uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+        with:
+          path: |
+            .docusaurus
+            node_modules/.cache
+          key: docusaurus-${{ runner.os }}-${{ hashFiles('yarn.lock', 'docusaurus.config.ts', 'versions.json') }}
+          restore-keys: |
+            docusaurus-${{ runner.os }}-
 
       - name: Build
         run: yarn build

@@ -29,6 +29,23 @@ const config: Config = {
     locales: ['en'],
   },
 
+  future: {
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+      useCssCascadeLayers: true,
+    },
+    experimental_faster: {
+      swcJsLoader: true,
+      swcJsMinimizer: true,
+      swcHtmlMinimizer: true,
+      lightningCssMinimizer: true,
+      rspackBundler: true,
+      rspackPersistentCache: true,
+      mdxCrossCompilerCache: true,
+      ssgWorkerThreads: true,
+    },
+  },
+
   presets: [
     [
       'classic',
@@ -38,6 +55,9 @@ const config: Config = {
           editCurrentVersion: true,
           editUrl: 'https://github.com/openremote/documentation/edit/main/',
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
+          ...(process.env.NODE_ENV === 'development' && {
+            onlyIncludeVersions: ['current'],
+          }),
         },
         blog: {
           showReadingTime: true,
