@@ -5155,6 +5155,7 @@ components:
           type: boolean
         jsonType:
           type: string
+      nullable: true
     ValueFormat:
       type: object
       properties:
