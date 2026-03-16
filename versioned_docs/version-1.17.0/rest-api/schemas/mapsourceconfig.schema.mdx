@@ -1,0 +1,33 @@
+---
+id: mapsourceconfig
+title: "MapSourceConfig"
+description: ""
+sidebar_label: "MapSourceConfig"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"type":"string","url":"string","tiles":["string"],"bounds":[0],"scheme":"string","minzoom":0,"maxzoom":0,"attribution":"string","custom":true}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"MapSourceConfig"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"type":{"type":"string"},"url":{"type":"string"},"tiles":{"type":"array","items":{"type":"string"}},"bounds":{"type":"array","items":{"type":"number","format":"float"}},"scheme":{"type":"string"},"minzoom":{"type":"integer","format":"int32"},"maxzoom":{"type":"integer","format":"int32"},"attribution":{"type":"string"},"custom":{"type":"boolean"}},"title":"MapSourceConfig"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

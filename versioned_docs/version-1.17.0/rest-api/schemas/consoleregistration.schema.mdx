@@ -1,0 +1,33 @@
+---
+id: consoleregistration
+title: "ConsoleRegistration"
+description: ""
+sidebar_label: "ConsoleRegistration"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"id":"string","name":"string","version":"string","platform":"string","providers":{},"model":"string","apps":["string"]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ConsoleRegistration"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"required":["name","platform","providers","version"],"type":"object","properties":{"id":{"type":"string"},"name":{"minLength":1,"type":"string"},"version":{"minLength":1,"type":"string"},"platform":{"minLength":1,"type":"string"},"providers":{"type":"object","additionalProperties":{"type":"object","properties":{"version":{"type":"string"},"requiresPermission":{"type":"boolean"},"hasPermission":{"type":"boolean"},"success":{"type":"boolean"},"enabled":{"type":"boolean"},"disabled":{"type":"boolean"},"data":{"type":"object","additionalProperties":{"type":"object"}}},"title":"ConsoleProvider"}},"model":{"type":"string"},"apps":{"type":"array","items":{"type":"string"}}},"title":"ConsoleRegistration"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

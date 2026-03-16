@@ -1,0 +1,88 @@
+openapi: "3.0.2"
+info:
+  title: Provisioning REST API
+  description: Provisioning REST API
+  contact:
+    email: info@openremote.io
+  license:
+    name: AGPL 3.0
+    url: https://www.gnu.org/licenses/agpl-3.0.en.html
+  version: "1.0"
+servers:
+  - url: "https://demo.openremote.io/api/{realm}"
+    variables:
+      realm:
+        default: master
+security:
+  - bearerAuth: []
+paths:
+  /device:
+    post:
+      operationId: provisionDevice
+      summary: Provisions a new device for the user
+      description: Provisions a new device, creating both an Asset to represent it and a Service Account for the device to connect over MQTT. The asset type is selected based on the provided modelName. If none matches, an error is reported.
+      requestBody:
+        $ref: "#/components/requestBodies/DeviceProvisioning"
+      responses:
+        '200':
+          $ref: "#/components/responses/DeviceProvisioningResponse"
+        '401':
+          $ref: '#/components/responses/UnauthorizedError'
+        '403':
+          $ref: '#/components/responses/ForbiddenError'
+components:
+  securitySchemes:
+    bearerAuth: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+  requestBodies:
+    DeviceProvisioning:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - deviceId
+              - password
+              - modelName
+            properties:
+              deviceId:
+                type: string
+                description: ID of device
+                example: "123456789ABC"
+              password:
+                type: string
+                description: Password for service account
+                example: "s3cr3t"
+              modelName:
+                type: string
+                description: Model of device to provision
+                example: "orbattery"
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid
+    ForbiddenError:
+      description: Principal is not allowed to perform this operation
+    DeviceProvisioningResponse:
+      description: Information about a successfully provisioned device
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - assetId
+              - assetCreated
+              - serviceUserCreated
+            properties:
+              assetId:
+                type: string
+                description: OpenRemote Asset ID
+                example: "6tXbmMvQLd2e7UrY5xLviR"
+              assetCreated:
+                type: boolean
+                description: Indicates if the battery asset was created by this call (true) or already existed (false)
+                example: true
+              serviceUserCreated:
+                type: boolean
+                description: Indicates if the service user was created by this call (true) or already existed (false)
+                example: true

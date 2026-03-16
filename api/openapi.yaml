@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  title: OpenRemote Manager REST API
-  description: "This is the documentation for the OpenRemote Manager HTTP REST API.\
-    \  Please see the [documentation](https://docs.openremote.io) for more info."
+  title: OpenRemote Manager HTTP API
+  description: "This is the documentation for the OpenRemote Manager HTTP API.  Please\
+    \ see the [documentation](https://docs.openremote.io) for more info."
   contact:
     email: info@openremote.io
   license:
@@ -753,26 +753,10 @@ paths:
     get:
       tags:
       - Asset Model
-      summary: Retrieve the valueDescriptor JSON Schema.
+      summary: Retrieve the JSON Schema of the specified value descriptor
       operationId: getValueDescriptorSchema
       parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
       - name: name
-        in: query
-        schema:
-          type: string
-      - name: hash
         in: query
         schema:
           type: string
@@ -780,9 +764,7 @@ paths:
         "200":
           description: default response
           content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/JsonNode"
+            application/json: {}
   /model/valueDescriptors:
     get:
       tags:
@@ -1239,6 +1221,38 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/AssetObject"
+  /asset/count:
+    post:
+      tags:
+      - Asset
+      summary: Counts the amount of assets using a query
+      operationId: queryCount
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AssetQuery"
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
   /asset/parent:
     delete:
       tags:
@@ -1715,6 +1729,15 @@ paths:
         schema:
           type: integer
           format: int64
+      - name: format
+        in: query
+        schema:
+          type: string
+          default: CSV
+          enum:
+          - CSV
+          - CSV_CROSSTAB
+          - CSV_CROSSTAB_MINUTE
       responses:
         "200":
           description: default response
@@ -2264,7 +2287,7 @@ paths:
     get:
       tags:
       - Map
-      summary: Retrieve the style used for Mapbox GL
+      summary: Retrieve the style used for MapLibre GL
       operationId: getSettings
       parameters:
       - name: Authorization
@@ -2316,32 +2339,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ObjectNode"
-  /map/js:
-    get:
-      tags:
-      - Map
-      summary: Retrieve the tileJSON object used for Mapbox GL
-      operationId: getSettingsJs
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
-      responses:
-        "200":
-          description: default response
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ObjectNode"
   /map/tile/{zoom}/{column}/{row}:
     get:
       tags:
@@ -2371,10 +2368,7 @@ paths:
         "200":
           description: default response
           content:
-            application/vnd.mapbox-vector-tile:
-              schema:
-                type: string
-                format: byte
+            application/vnd.mapbox-vector-tile: {}
   /map/upload:
     post:
       tags:
@@ -5614,11 +5608,6 @@ components:
           enum:
           - WEBSOCKET
           - POLLING
-        mapType:
-          type: string
-          enum:
-          - VECTOR
-          - RASTER
         configureTranslationsOptions:
           type: object
         basicLoginProvider:
@@ -5724,8 +5713,6 @@ components:
           type: array
           items:
             type: string
-    JsonNode:
-      type: object
     UserAssetLink:
       type: object
       properties:
@@ -5898,6 +5885,16 @@ components:
             - LESS_EQUALS
             - BETWEEN
           negate:
+            type: boolean
+    GeoJSONGeofencePredicate:
+      type: object
+      allOf:
+      - $ref: "#/components/schemas/ValuePredicate"
+      - type: object
+        properties:
+          geoJSON:
+            type: string
+          negated:
             type: boolean
     LogicGroupAttributePredicate:
       type: object
@@ -6845,6 +6842,8 @@ components:
           format: date-time
         acknowledgement:
           type: string
+    JsonNode:
+      type: object
     Notification:
       type: object
       properties:

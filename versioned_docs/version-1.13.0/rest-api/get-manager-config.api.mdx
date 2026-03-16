@@ -1,0 +1,62 @@
+---
+id: get-manager-config
+title: "Retrieve the manager configuration JSON"
+description: "Retrieve the manager configuration JSON"
+sidebar_label: "Retrieve the manager configuration JSON"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNV1Fz4jYQ/iuefWpnfDiTvPFUjtKUhgQmca7TyfAg5MXokLWqJJNyjP97R7Ihds7k0jz1CdtafbtaffvtcgDHcgvDJxiTWou8NMwJUrCMgTTWL9MMhpCju2WK5WhqQ4jBoNWkLFoYHuDy4sL/ZGi5ETpgDCHDNSuli46WEAMn5VA5b8u0loIHF8lX6zccwPINFsw/ub1GGAKtviJ3EIM2PiAnaneSWDYjzmT92hiviCQyBVUMkqm8ZHln+YTFskx4t0wuOqiNnXVGqByqyp+RyeIjGGfiZlqnwkns8RaDdXvZG0gMknI6u3BLK3EGcs12gtep/X5rk6LexQ2yDE07GGYM20MMwmFxJluKnFg3V/qOZPTd0Tu8NKyanQ+/isHVWYaGtCOt7/1V3rUibIj8hnXLQn+QS42dhyhq8B/npTF8NLL3ara455LY9tw60/oLGivOXHugdO8KlwKV8+Xeh1o6mlEuVH+9cVKWJI5KRxPFVh06tsuSWDblXXa0ljVJKVQ+VQ7NjslbIaVomwrl0KcwhjWZgrn609XlETo1TFn5Hf/eQSq/+9dGvMicCc+14GfEsgVzm/5K3gr9G5Nyxfg2pc/MCj4qO7YtVK+D+5pqKY2y4lyKWdnnLQZUZeEV/Gby13g2H91ADJ9HD9MxxHA3v5vA0l+PwQyVE0y+oy5Li0axol8YNLP2mUwfSVqF9NhALI7WVQy4Q+UWhnYiQ5OGrecP8+fk88N8fDNJIYbFfDab3l2HgxRM/2jrl8k4nd9DDPejh3RyX5+/6W7YZshcnxGqKoaVv7PA92PEvWYf0aI3dee0WNVS126n9+iMwB1GboNRIxIRb/ft6I+H+R3EUKDbUNO2/fUGnkLSsU2OehSDRbMLYv90gNKrCmyc03aYJBkWNCCNymBBDgeCEqZFcggiUiUQw44Z4es9pPGkLU1eYAgFsw6NP9DSO+KlEW4fPHlYkcHwadleevATQI12NHjJuy+BS1/9kp6DSS1Z41fspi2qoI6Q+B1J3cWTOpREG3LESSY1/idOSiF3SdgW5pq1Qbv5OIDlpOsTaEPr0JpPT1VTyGTEt6YLZYE2nY//3XcQh/h/fvTAaaHW9SjTcH+uUd0HdkVNGUS/p+kiGi2m8LoC0o2wkbChADLiZYHK1cRfkwlf30AbRNFCIrMYWaxr6KmDsfzpxHritsv6n4ODggxGPv5BM8kyHiZZLJiQoRet6ZfOvtCYBEc//A4PUKsqjK4Xs+hqcAHxq3J7fn4e5KockMmTZptNWK7lp6vBxQDVYOMK6TF3xwYPfuGi7p3WFUy13LxfLzpZPpWbw39coiUTof2U9bhRa8kTdHDgZbpZxrAh67zJ4bBiFh+NrCr/+e8Sja/85YtohOI/DptBFLa49wniHLUL6iLL0MFf/1fwknFSuetJClX1L1LefCc=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the manager configuration JSON"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/configuration/manager"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the manager configuration JSON
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"loadLocales":{"type":"boolean"},"languages":{"type":"object","additionalProperties":{"type":"string"}},"realms":{"type":"object","additionalProperties":{"type":"object","properties":{"appTitle":{"type":"string"},"styles":{"type":"string"},"logo":{"type":"string"},"logoMobile":{"type":"string"},"favicon":{"type":"string"},"language":{"type":"string"},"headers":{"type":"array","items":{"type":"string"}},"notifications":{"type":"object","properties":{"languages":{"type":"array","items":{"type":"string"}},"defaultLanguage":{"type":"string"}},"title":"ManagerAppRealmNotificationConfig"}},"title":"ManagerAppRealmConfig"}},"pages":{"type":"object","additionalProperties":{"type":"object"}},"manager":{"type":"object","properties":{"managerUrl":{"type":"string"},"keycloakUrl":{"type":"string"},"appVersion":{"type":"string"},"realm":{"type":"string"},"clientId":{"type":"string"},"autoLogin":{"type":"boolean"},"consoleAutoEnable":{"type":"boolean"},"loadIcons":{"type":"boolean"},"pollingIntervalMillis":{"type":"integer","format":"int32"},"loadTranslations":{"type":"array","items":{"type":"string"}},"loadDescriptors":{"type":"boolean"},"translationsLoadPath":{"type":"string"},"skipFallbackToBasicAuth":{"type":"boolean"},"applyConfigToAdmin":{"type":"boolean"},"auth":{"type":"string","enum":["KEYCLOAK","BASIC","NONE"]},"credentials":{"type":"object","properties":{"username":{"type":"string"},"password":{"type":"string"}},"title":"UsernamePassword"},"eventProviderType":{"type":"string","enum":["WEBSOCKET","POLLING"]},"mapType":{"type":"string","enum":["VECTOR","RASTER"]},"configureTranslationsOptions":{"type":"object"},"basicLoginProvider":{"type":"object"},"defaultLanguage":{"type":"string"}},"title":"ManagerConfig"}},"title":"ManagerAppConfig"}}}}}}
+>
+  
+</StatusCodes>
+
+
