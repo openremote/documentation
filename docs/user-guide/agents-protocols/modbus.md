@@ -80,7 +80,7 @@ Each asset attribute can link to the Modbus agent via an **Agent Link**. Below a
 | **Read Value Type**       | Data type (`BOOL`, `INT`, `UINT`, `DINT`, `REAL`, etc.). Also used for multi-register write conversions. | Yes (for read)|
 | **Write Address**         | Register or coil address for write                     | Yes (for write)|
 | **Write Memory Area**     | Register type for write (`COIL`, `HOLDING`)            | Yes (for write)|
-| **Unit Id**               | Modbus device address (1–255). Required for RTU, optional for TCP (defaults to `1`). Set when connecting through a Modbus gateway. | Yes (RTU) / No (TCP) |
+| **Unit Id**               | Modbus device address (1–255). Required for reading. Writes default to `1` if omitted. For TCP, this is typically `1` unless connecting through a Modbus gateway. | Yes (for read) |
 | **Request Interval**      | Interval between reads/writes in milliseconds (minimum: 1000). If not set, reads execute once on connection and writes execute on demand only. | Optional       |
 | **Registers Amount** | Amount of registers to read/write (automatically determined from data type if not set) | Optional  |
 
