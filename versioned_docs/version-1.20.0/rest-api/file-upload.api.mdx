@@ -1,0 +1,70 @@
+---
+id: file-upload
+title: "Upload a file"
+description: "Upload a file"
+sidebar_label: "Upload a file"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVd+L2zgQ/lfMPN2BY4X2zU+3t7TXhTsa2iwUQh4m8jhWK0uqJG+aC/nfy0hxnOwuC205uLwkGc188/ubA0TcBqhXcGtNq7aDx6isgXUJ1lH+c9dADa3SdO+0xQZKcOixp0ieLQ9gsCeo4WaInfXq34xQgjJQQ0fYkIcSguyoR6gPEPeO1UP0ymzheCzPCJ9mb63foW+omS28jfaXUd7ZEH8KxGHsRsOvA/n9i3brEjx9HSjEP22zZw1pTSQT+Sc6p5VMVRGfgzUsewJlN59JcqjOc+GjosCvOZonDssRPzz7uFEG/f7iaWOtJjScIUQVNcveKk13prVwPLLYU3DWhOz21XzOXw0F6ZVL/ayhoRYHHYtRE8ofzvJcsOTyGj5PV4EFjxqU0FPsLI+eyz1MHalByMtBFT0a3JIXJ6NA/mEcy8Fr7nqMLtRCNNTbyjoynnobqVJWoFPi4Al1fxRQwgN6hRudK5DEuQYpa6ihxxDJc/BrdiQHr+I+eWJY1UC9Wl8+feTsM9qoMLUbh9i9ghJabXdJRWpFJt56ashEhTp31n4hc5/yEGwhUlhB5FCE4x2RVouMP5PWGJJRJDPgnraeQvfzAEFalzNw3qYS1+df3EG8XPlb26RZvRL+uG9WhfJ/nnqaXx7zD9Pav/mGvdM0re047pfbOsnGJY1+oCMzTWtTy0/r+d6R+ZBGtfgnz3jxbrlcFDeLO3i8OstOhUKFInZUNFYOPZmYql+01ifpC2hVUSw0YaAiECXl1RXG+rfzClkZrlfo9+Sgt54Kjr86pYoyUQL1qLj8/PTHlR2TlFaSmEWmct38tfi7eF3NoXy0u7vdrtqaobJ+K05mQeDW6dnral6RqbrYa8bk3c8l4Yc5i5g9ejQXbh4TzVUtzxsa6VsUTqMyjJLiOZw4aAVXHMRclWvK+8yY6xI6Jq16BYfDBgPde308sjifEuaMRgUmmwbqFnWgEr7Qfro7D6gHjgKYUEZiSgRTjnfsWZBHuZz5GXijnksse33u8E4hlP+No9NtvvKTtW4z2mzJQJPGkxMzWdxISS6+qLu+OCmL9x+XvIKnY90n5gKPO2YO3OU0bMouXwOWHUCj2Q64Zd2MyZ/vkqc3bw==
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Upload a file"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/configuration/manager/file"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Upload a file
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"path","in":"query","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"contents":{"type":"string"},"binary":{"type":"boolean"}},"title":"FileInfo"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"string"}}}}}}
+>
+  
+</StatusCodes>
+
+

@@ -753,26 +753,10 @@ paths:
     get:
       tags:
       - Asset Model
-      summary: Retrieve the valueDescriptor JSON Schema.
+      summary: Retrieve the JSON Schema of the specified value descriptor
       operationId: getValueDescriptorSchema
       parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
       - name: name
-        in: query
-        schema:
-          type: string
-      - name: hash
         in: query
         schema:
           type: string
@@ -780,9 +764,7 @@ paths:
         "200":
           description: default response
           content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/JsonNode"
+            application/json: {}
   /model/valueDescriptors:
     get:
       tags:
@@ -1747,6 +1729,15 @@ paths:
         schema:
           type: integer
           format: int64
+      - name: format
+        in: query
+        schema:
+          type: string
+          default: CSV
+          enum:
+          - CSV
+          - CSV_CROSSTAB
+          - CSV_CROSSTAB_MINUTE
       responses:
         "200":
           description: default response
@@ -5164,6 +5155,7 @@ components:
           type: boolean
         jsonType:
           type: string
+      nullable: true
     ValueFormat:
       type: object
       properties:
@@ -5722,8 +5714,6 @@ components:
           type: array
           items:
             type: string
-    JsonNode:
-      type: object
     UserAssetLink:
       type: object
       properties:
@@ -6853,6 +6843,8 @@ components:
           format: date-time
         acknowledgement:
           type: string
+    JsonNode:
+      type: object
     Notification:
       type: object
       properties:

@@ -1,0 +1,70 @@
+---
+id: get-config
+title: "Retrieve the syslog configuration"
+description: "Retrieve the syslog configuration"
+sidebar_label: "Retrieve the syslog configuration"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVduO2zYQ/RVhnlqAKxm7b3qq4PVuDPgGW9u0WBgBlxpLTChSISk7rqF/L4ayvXY2DZoWBeoX2+TMmQvPmTmA56WD9BlWe6dMCWsGpkHLvTR6XEAKJfqh0RtZAoOGW16jR0seB9C8Rkgha31lrPwj+AADqSGFCnmBFhg4UWHNIT2A3zdk7ryVuoSuY2eE324ejN1xW2Bxs7DGm3+N8s44/wMgawYWXWO0Q0f3t4MBfRXohJVNqCuFAje8VT46WQIDYbRH7cmWN42SIvQg+ejI4XAR0OLnVlosqNPOG4vFkHssjZXoKLNwNMEtqvO/Kf+SlTiVuvXo6F2OSZuXjyiouMbSS3nZp3wJ8aZCBqjbmoKPZw9zYPA+W86AwWi5nC9h3bG3Sb1icGv5nprpsXbfw85Wq1EODLLH0Yy+Z/N8/DAeZvl4TsGySbacAoPl02S0AgaL5TyfD+cTYPCY5aP32e/AYDq/H00+ZLP7D79mk6dgly3GwOA+yzNYd9232/OaldQey/DcG2Nr7vuju1uiCnjpFRn1ZD/yuqMP++qxl+itxC1GvsLIBfNIBPvWnoheo6/MUSNBHb6CFJLeOhEn1Ti025NkWquIkd43Lk2SAmsTmwa1xdp4jKVJeCOTg0Wu6i4BBltuJX9RfYXhuOdlYCKkUHPn0VIJawokWiv9PkQiWEl8W19erYiRPdrJ4Nw5w1tf3VLjlNkFE6Ekaj+0WKD2kqu+z+YT6qdQR0IeSUjLJX0qSUP6FUYlPf6NMFqj8ElwA9LZxqKr/jmAE6bpK2is2cjwnqdf9I78chwNTYFBnZeHPx6bTIH9z0sPLJZ6Y8IrHZk+b1AvA7uiKde8RBu9y/NF1IvqmvN5JV0kXaB8YURbo/ahYdHG2HD6HbQ4ihYKucPIYa+a5yuM9U9n1hvhrln/cwhQG4sR5R8fJysXYbJizaUKMt6YX678oGOgpEAaxunrPnpcTKK7eADsK7ntdru41G1sbJkc3VzCy0bd3MWDGHVc+VoRJsm1bwldDOioMc7XXF+E+TsT4qq/Z6F5/OKTRnGpCTnkeDhOj2fokfoO0PxYM6homaXPcDi8cIdPVnUdHX9u0ZLW169jIsidnTYejYFCOrooIN1w5fBNSucNBsC+nd8n3P/Fit5y1ZI90BL+LwIdt/hVnN4qEwKby7s365em3nlAP45y6Lo/AQCCEis=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the syslog configuration"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/syslog/config"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the syslog configuration
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"required":["storedCategories","storedLevel","storedMaxAgeMinutes"],"type":"object","properties":{"storedLevel":{"type":"string","enum":["INFO","WARN","ERROR"]},"storedCategories":{"type":"array","items":{"type":"string","enum":["ASSET","AGENT","NOTIFICATION","ALARM","RULES","PROTOCOL","GATEWAY","MODEL_AND_VALUES","API","DATA"]}},"storedMaxAgeMinutes":{"type":"integer","format":"int32"}},"title":"SyslogConfig"}}}}}}
+>
+  
+</StatusCodes>
+
+
