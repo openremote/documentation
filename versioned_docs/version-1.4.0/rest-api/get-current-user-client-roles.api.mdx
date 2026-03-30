@@ -1,0 +1,70 @@
+---
+id: get-current-user-client-roles
+title: "Retrieve client roles for the currently authenticated user using a client ID"
+description: "Retrieve client roles for the currently authenticated user using a client ID"
+sidebar_label: "Retrieve client roles for the currently authenticated user using a client ID"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUtv2zgQ/ivEnFqAEYP2plODtNsGaFHDdYAFDB9YaWyxpUh2SMV1Bf33xVCWaifpAn0ssDkEMmfmm/c3PSS9i1Cu4TYiwUaCD0g6Ge9uaihhh+m6I0KXWH5tDbq09BYjSAiadIsJie17cLpFKOGqS40n8y1jgATjoIQGdY0EEmLVYKuh7CEdAqvHRMbtYBjkjPD3xV+e9ppqrC8W5JP/bZQ3PqZfAqlywjf1ZBx0akAC4ZfOENZQJurw36A2rByDdxEjy2vc6s6m8TNWZEIuUzkJxKQNEirvErqsq0OwpsolVZ8iG/QPnWoifeBIE7bxsWD4T97zu8REBu9QjKkK4uaKrSeRGhTV2Ht7ELpLDbrEQWAtuogkumjcTujJ8uYlSGgxNf44OHlEUgMlKNbP//LsqH6q68B9QLqbZqgjyy1KKcRSqRpbX/iAjrD1CQvjlQ5G9YTatoMCCXeajP5ox9rm57MiQ6tjQuLUN+yo6sikQ/bEsKaGcr05FX3gmo5ok8JcRs8leAYSttbvs8qYxTVhzZXRdiy6/4zuNueh2ELlsKIaQ1GBB7ryVo34F5V3DqukslkerS1hbH4dIFY+jBkE8ltjOfTpi9uvT/fz2teY5+v08ed9syrI/3nqefiN2/rcJZOy+H1At8zTJd5pp3dIYvnqw0pcLW7g/qqsGhOFiXkxal91LbqUCzavyyNob1arxQxZCLGwqCOKiJgt1mdAmyfz6Psqno/+0+yl9YSCkyiOBKGrTBDYasNlY9GLMzsYJFhTIXNK+Z2lXy/eiufFJch7O7ff74ud6wpPO3U0i0rvgr14XlwW6IomtZYxeWfHurDgkp+Cj6nV7sTNH2aXs37Mi5nwa1LBauM4iJxOf2SeNTAWJzlxD0goZ1bfSGj4NJRr6PuPOuIt2WHg5y8dEhPF5jvHZNqoTeTvGsqtthEfhDRzNjxZHo/EU8Gr8VioE2+7Q6Yy2/EvkPAZD6e3Z9gMcjpbPxfDjxyPDh67s3MUfAT/C0fHU3zmZ9S6qioMp7IHR4+Zej4wr1+tYBj+AZ02DS0=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve client roles for the currently authenticated user using a client ID"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/userRoles/{clientId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve client roles for the currently authenticated user using a client ID
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"clientId","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"string"}}}}}}}
+>
+  
+</StatusCodes>
+
+

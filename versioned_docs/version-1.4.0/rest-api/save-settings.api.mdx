@@ -1,0 +1,70 @@
+---
+id: save-settings
+title: "Update map settings"
+description: "Update map settings"
+sidebar_label: "Update map settings"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVt9v2zYQ/leEe9oA2QqaNz0tC7q2w4IZiQMMNfxwlk4SW5LHklQc1/D/PhzlX0qyDmkxYH4yeN995B3v+8QtRGwDlAu4QQfLHNiRx6jYfqihhIAPdEcxKtsGyMGhR0ORvGRswaIhKOGqjx179TWlQQ7KQgkdYU0ecghVRwah3ELcOIGH6JVtYbfLjwx/TX5jv0ZfUz2ZeY78wyzvOcRXkCxz8PSlpxB/5XojiIptJBvlLzqnVZWqKz4FtrL2jIpXn6iSLbGulUBRz7w0MyoKL+HcKFqRjeTPcOg9bqSCSOY83/ZmlYpp2BuMUEKjGaM0Albc2zr8IMlXZnMGVTZSO8YqGy/fwC4Ho+zHV6Dx8RXoFT9Fr5g1oZVgS1xxTfdev3CZKfz7/p6+3fXAva/oOW6Xg8ZNGvN/7eUhRXoXVdSy9m44wDXbRqUZPUZu0N0SanMMpTxPwbENw6FqarDXcfgbKq9c0lV5CGQHNOTfO6X7bcf0967GSJlBl4WT5A3FjsUKXJ/6h7GDEgqDTgRF/uFgBr1cBnQxulAWRU2Gp+zIejIcaaq4QKeKrZfidwXk8IBe4UoPNaflUfFgMIgidkmcgareq7hJOwmtqqFcLM9Dd1LrwHYAnMrGPnZvZM40rwe9aUU2XnuqyUaFerhR/kw2DRUUklGkY4ViOErhxJkq1sXAP6nYWqpikdJAbrHxFLrvJwgVu6EC57lRaWAO/+S+8Nxor7lOkztafP3eAoX8f156mlYZ6tuTSb99ROMEt92JzzecbnAvsz8d2ds0edkNWmzJZ7dv7+bZ1ewDPJ37eadCpkIWO8pqrnpDNqZmZg37tPoC2/v5fHaknGbZTBMGygJRyliMiJY/HWXBVRjL4ue0i2FPmRQx3YsaqyRqMqh0ssWGfxnlJY9SFYkPlKdP8bvZH9nl9ALyJ3pcr9fT1vZT9m2xTwsFtk5PLqcXU7LTLhotnKLnoS8SuJAlxyEatGfbvGwVo7YetRfpMRZOo0rO3Q+WPdjIAszw6Ojka10uYLtdYRBb3+1k+UtPXiS/PLlFUn1++KSLG9QqSKCGskEd6NkxjhYJMuYvnekzbf7hDfKAuhc8yCvjv9ho/0wZ7TOgrge2yVyITohnLn/KuKoqcvGb2OWZn8/u5yCf2eG5Y5KbgMe1qBnXQxWcihscWta2oNG2PbaCHSjl9zfVNI9k
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update map settings"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/map"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update map settings
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","additionalProperties":{"type":"object","properties":{"center":{"type":"array","items":{"type":"number","format":"float"}},"bounds":{"type":"array","items":{"type":"number","format":"float"}},"zoom":{"type":"integer","format":"int32"},"minZoom":{"type":"integer","format":"int32"},"maxZoom":{"type":"integer","format":"int32"},"boxZoom":{"type":"boolean"},"geocodeUrl":{"type":"string"},"geoJson":{"type":"object","properties":{"source":{"type":"object"},"layers":{"type":"array","items":{"type":"object"}}},"title":"GeoJsonConfig"}},"title":"MapRealmConfig"}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"object"}}}}}}
+>
+  
+</StatusCodes>
+
+

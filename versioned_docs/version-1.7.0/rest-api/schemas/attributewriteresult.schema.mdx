@@ -1,0 +1,33 @@
+---
+id: attributewriteresult
+title: "AttributeWriteResult"
+description: ""
+sidebar_label: "AttributeWriteResult"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"ref":{"id":"7Bt8M3cXEP6BHPh8r47DYf","name":"location"},"failure":"ASSET_NOT_FOUND"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AttributeWriteResult"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"ref":{"type":"object","properties":{"id":{"pattern":"^[0-9A-Za-z]{22}$","type":"string","description":"The asset identifier","example":"7Bt8M3cXEP6BHPh8r47DYf"},"name":{"minLength":1,"pattern":"^\\w+$","type":"string","description":"The attribute name","example":"location"}},"title":"AttributeRef"},"failure":{"type":"string","enum":["ASSET_NOT_FOUND","ATTRIBUTE_NOT_FOUND","INSUFFICIENT_ACCESS","INVALID_VALUE","INTERCEPTOR_FAILURE","STATE_STORAGE_FAILED","CANNOT_PROCESS","QUEUE_FULL","UNKNOWN","ASSET_ID_MISSING","ATTRIBUTE_NAME_MISSING"]}},"title":"AttributeWriteResult"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

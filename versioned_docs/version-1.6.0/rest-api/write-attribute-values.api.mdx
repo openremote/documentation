@@ -1,0 +1,70 @@
+---
+id: write-attribute-values
+title: "Update attribute values"
+description: "Update attribute values"
+sidebar_label: "Update attribute values"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVktv20YQ/ivEoIcWpUTXLppUp9IybQuVJVUknbSKKqzJkbgJubvZXVpxBP33YpZ6xnbbtCiQQ3Uw6Nl5P76ZFVi2MNCZQGgMWpj6IBVqZrkUvRw6sNTcYmit5ne1xVtW1mjAB8U0q9CiJtkVCFYhdCCsbSE1/+jEwQcuoAMFshw1+GCyAisGnRXYB0XsxmouFrBe+zsNr1uXUi+ZzjFvjbS08l9ruZbGfoaSqQ8a39do7LnMH4gjk8KisPTJlCp55qIL3hopiPZIFdOaPZBFi5U5oMu7t5iRK0pTii1H96px/tdMPKe/ilmLmgL5fXLS+jFs/cZaH6er09P1V+B/EokPOZpMc+VK0YGkQI9RiT2eo7B8zl0i8AOrVElyL87ty5uz7HU0+uH8elS81N+/uPh1Dmt/k9QVVFz0USxsAZ3v/ENn3rxZfvs3Pdg2kueUHtovZZNYKiRYbh1x13hjdK7cU/89TteTIrFlFmFNP6qpUVKYJps5zlld2ubz0MXNg7flBv//6n9B1Z8zXtYaH4+tDyjqyqFYHEfJbDBMZpfDdHABPoRJMu6dp0l0RO0N4vTystftRYNkFna7URw76m3Y713MbsN+Grn/k2jcjUbJcDy7DHv9dEzUOAmTaBYnw3F4FTl6RCq74YAsjMbDjbZf0iiNZpdpvw8+pIOfB8NXA3LIudi7mN304rg3uDr2MbyJdg/TJ5PxihB5jIY6eL1p7+Ncpypn9jDd91vYrtAWkmBd1a7NGJUTAtcawY6fOA3q+y2617ok8LRWmU4Q5FjJtlQoNFbSYpvLgCkerDSysloHQFOqObsrtx3Oyupo6qBixqIm56dkKKs1tw/OEqmlbp9MD59iGrJG25ZhPzKstsUp+DAv5dKxZCVHYbsaXaezsplC+Q5F6uIISCJwbpmgcSVQtGoyWQaN/lYmhcDMBk4MCD7mGk3xzxWYTKomAqXlnLuKbr+ogOxwc3Zl7pr8iPj5tomV5vKLDt21L6HpeL91oy0sTHYASTV/DqS2GHUAIvtN4XqMi7l0XbCZpaFCMXbd690wwRaovXEUJ1446j0BXNx43Hi2QC+XWV2hsM6KN5faUZ/Qdp0ko53KtueNSmQGPYPoJCZHiqZf70ZLZuZ4tL5xViqp0aMg2puNxDK3kbBinMpCTz8dyVEKSp4hLbHO/j67GvW9s/YJ+J/M9HK5bC9E3ZZ6EWzETMAWqmydtU/aKNqFrUqXVtSmyQs9nBBJSWMrJg7MPI8/R6ndzbDFDzZQJeOucs6z1QabJuCwCXw4QKepDwVddZ0JrFZ3zGCqy/WayO9r1IQk0z0IOTDxt6cftVTODT3k0Jmz0uAjr3YrH/Zb7djFd/jwzK26aTsAukb/C0Obc/bITsPVbbS1ElK053h0tewlwixDZf+Ud3qwM0ZpAj7cbc7iyoEUaLYkkGDLJgrpgmuAn2grKJlY1GxBvI1K+v0BogI/fw==
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update attribute values"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/asset/attributes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update attribute values
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"ref":{"type":"object","properties":{"id":{"pattern":"^[0-9A-Za-z]{22}$","type":"string","description":"The asset identifier","example":"7Bt8M3cXEP6BHPh8r47DYf"},"name":{"minLength":1,"pattern":"^\\w+$","type":"string","description":"The attribute name","example":"location"}},"title":"AttributeRef"},"value":{"type":"object"}},"title":"AttributeState"}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"ref":{"type":"object","properties":{"id":{"pattern":"^[0-9A-Za-z]{22}$","type":"string","description":"The asset identifier","example":"7Bt8M3cXEP6BHPh8r47DYf"},"name":{"minLength":1,"pattern":"^\\w+$","type":"string","description":"The attribute name","example":"location"}},"title":"AttributeRef"},"failure":{"type":"string","enum":["ASSET_NOT_FOUND","ATTRIBUTE_NOT_FOUND","INSUFFICIENT_ACCESS","INVALID_VALUE","INTERCEPTOR_FAILURE","STATE_STORAGE_FAILED","CANNOT_PROCESS","QUEUE_FULL","UNKNOWN","ASSET_ID_MISSING","ATTRIBUTE_NAME_MISSING"]}},"title":"AttributeWriteResult"}}}}}}}
+>
+  
+</StatusCodes>
+
+

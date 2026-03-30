@@ -1,0 +1,70 @@
+---
+id: get-notifications
+title: "Retrieve all sent notifications by targets"
+description: "Retrieve all sent notifications by targets"
+sidebar_label: "Retrieve all sent notifications by targets"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNV91v4kYQ/1eseWolB0d3VR/8VBrRHBL5EBCpUoSqxR7svax3fbPrUIr8v1ezNsYEckfSPJQXsHfm95uZnS+24ERmIX6EW+PkSibCSaNhEYIpkfzDOIUYMnR9AQshlIJEgQ6J1begRYEQw7ByuSH5T4MTgtQQQ44iRYIQbJJjISDegtuULG4dSZ1BXYcdwp8XfxhaC0oxvbgn48x/RvlirHsXiEx3at8qpM0pLakdZh5wZagQrnn16y8HOF72R0gn+Fdkig+ywHwMDqFQxfjHYTnhTGWR3qcprEX3FtVFCIS2NNqi5fNPl5f8laJNSJY+M2NIcSUq5YKdJISQGO1QO5YVZanaZI++WlbYHhMKIsGWSIeFJyL8VknClAvKmooSRnWCMnTdD++IB1iEOyCz/IoJi5TEdedkY7dMz7qfsA3UUSB2+KcOGqOOjkJAXRVs/3Q0nNxACA+z0RRCGM5mozmEcPUwm9/dwKLu+XOKoHX/OwTj2/loejucMOhkPLpl9OvJ3e/DyV/Th8moofNW9J69Gd3zoiN6xYoCrRVZ34xXQv1KoOoQUslZU0gtnCEWaRU3t73i5mhIp3wHXFpHIjnolzetGXUISNTAHEcMtbvTpyLWXXgqHF44WXikFJV8RsL0LUoiedJmrTDN3q1XtCVyHKpdCGaoD9yH2n/CFxU4RUcSnzEQSgXsfaD7MyZYboImxXjcFOhy044iP31cDjFEfQ3uCUjPu4lUkeKG71xp4yhKsTADU6ImLIzDgTSRKGW09R2tjiCEZ0FSLBW2lSxU0TQN3yYghkJYh8S+LJgoqUi6jWdiWK7Vx0X/aMbtokHbCeyzUFQu/8TRVmbtRRIlUbsrwhS1k0I1WWmeUD94PyLWiLxZNmpMiUoej4lRUYN/kRitMXGRVwNugitCm78fwCambDwoyaykv9zdL75P0Z/2Vyb1JXTw8u3cLMod8n/tus9mqVfG31Kb9ncl6qnPruBGaJEhBdPRbB4M78fwMvfnubSBtIHLMUhNUnFR+YAFK0P+7Qm0L/P5fQc5CIJ7hcJiYBG9xuMB0OKnLvVNYg9T/2fPUhjCgJ0YtLNPJL6wsRBS+fGyMr8d6HEnUDJBHpfxfue7vp8EnweXEL6oufV6Pch0NTCURa2ajURWqovPg8sB6kHuCsWYXLNNXPjgkl+VxrpC6B7Nm9rFQbS7snP4t4tKJaRmCm/stm0lj6BfbMA5r43xI2y3S2HxgVRd8+tm/eCyT6XlfpFCvBLKYghPuNltjc9CVcwIvMe8ItiuheeItpvgWajmTMH9LneOdLe+nSO839j20ot9h/WdMtzt4idD+eL+us0MIDx9mQ3xqT8P3zf4A4ja/xcHPI3UMEmw7J8drZUclm60XY/mUNf/AuW9oAk=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve all sent notifications by targets"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/notification"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve all sent notifications by targets
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"id","in":"query","schema":{"type":"integer","format":"int64"}},{"name":"type","in":"query","schema":{"type":"string"}},{"name":"from","in":"query","schema":{"type":"integer","format":"int64"}},{"name":"to","in":"query","schema":{"type":"integer","format":"int64"}},{"name":"realmId","in":"query","schema":{"type":"string"}},{"name":"userId","in":"query","schema":{"type":"string"}},{"name":"assetId","in":"query","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"required":["source","target","targetId","type"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"name":{"type":"string"},"type":{"type":"string"},"target":{"type":"string","enum":["REALM","USER","ASSET","CUSTOM"]},"targetId":{"type":"string"},"source":{"type":"string","enum":["INTERNAL","CLIENT","GLOBAL_RULESET","REALM_RULESET","ASSET_RULESET"]},"sourceId":{"type":"string"},"message":{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"},"error":{"type":"string"},"sentOn":{"type":"string","format":"date-time"},"deliveredOn":{"type":"string","format":"date-time"},"acknowledgedOn":{"type":"string","format":"date-time"},"acknowledgement":{"type":"string"}},"title":"SentNotification"}}}}}}}
+>
+  
+</StatusCodes>
+
+

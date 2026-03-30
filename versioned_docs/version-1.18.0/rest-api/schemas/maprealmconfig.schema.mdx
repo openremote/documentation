@@ -1,0 +1,33 @@
+---
+id: maprealmconfig
+title: "MapRealmConfig"
+description: ""
+sidebar_label: "MapRealmConfig"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"center":[0],"bounds":[0],"zoom":0,"minZoom":0,"maxZoom":0,"boxZoom":true,"geocodeUrl":"string","geoJson":{"source":{},"layers":[{}]}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"MapRealmConfig"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"center":{"type":"array","items":{"type":"number","format":"float"}},"bounds":{"type":"array","items":{"type":"number","format":"float"}},"zoom":{"type":"integer","format":"int32"},"minZoom":{"type":"integer","format":"int32"},"maxZoom":{"type":"integer","format":"int32"},"boxZoom":{"type":"boolean"},"geocodeUrl":{"type":"string"},"geoJson":{"type":"object","properties":{"source":{"type":"object"},"layers":{"type":"array","items":{"type":"object"}}},"title":"GeoJsonConfig"}},"title":"MapRealmConfig"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

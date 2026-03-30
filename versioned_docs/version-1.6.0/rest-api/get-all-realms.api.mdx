@@ -1,0 +1,70 @@
+---
+id: get-all-realms
+title: "Retrieve all realms"
+description: "Retrieve all realms"
+sidebar_label: "Retrieve all realms"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVkuP2zYQ/ivCnFpAKy2yN53qBttkgaQ1HC9awPCBpkYSE4rDkCO7ruH/XpCSbXnX3jQJAvRGzPv5cXbAovZQLGCGQrewTIEsOsGKzEMJBdTIE60j00MKVjjRIqMLOjswokUoYNJxQ079E9UgBWWggAZFiQ5S8LLBVkCxA97aIO7ZKVPDfp8eLfx18xu5jXAlljdTR0zfbeUtef4KI8sUHHpLxqMP/BIr0Wnun146ZWNuxYGRHKQhBUmG0URZYa1WMtYh/+iDwu65U+Gc2IbYGFs/otPqI8oQtHWhCaz6UFR5IeB0yPkCo1TearH9/RofjVhpHBtdEWkUJlol/hUrcmNV07WrWL6KXCs4FIG6lcYgb4X3G3LllLSS2/+Q5KltoeDI08HARGvaXIuq7Pqy4n0rlPYvyjpsMcT7Hq/xa+W5H/EvGDoJRr8T/+jRPan7SGGNTlXbKHpZQFOtzJ+Kmy/JzBu80jwhJXWGXxAo25f0MXh+0Tx6P6dPaN6pCr0VZiSnDGN9PgnK8N2rvlpCtzPS/cx2Rn3u8KHvPbsO028c/utTPt7KS9PFinUgzQ6Bwf4ZOZAi9XzHZ8hO4RoToXXiDtjXIjc0YGKEQm6ggDzyA7agWx9wsXM6wA6z9UWel9hSRhaNw5YYM0W5sCrfRc19DimshVNhKWPKvcExBkErPKML0S6DI9k5xdvoKZgNALFYjlkfAuT01g4Cp0KLjptXoYeaNlFEaoWGXzss0bASum9LmIHHmEceNPo8fd6HktsA0pJ03tu/kWQMSs6jGoRxqBz65tsNeEm2z8A6qlTs2eEVOibGf85rKuOUnBG/3ncQhfR/nnqcV2Uqil0apvkPi2YWpyt5L4yo0SWz+w/zZDJ9gKfTPW+UT5RPuMGkJNm1aDgWLKnIReoFa2/n8+nRZJYkU43CY+IRo8bizNDyp+Pok/Tno/9z9NKSwyQkkQ3/p5Dx/8QeGGN+v5zpRWxUEsOXW5wujzfTd8lddgvpk53bbDZZbbqMXJ0Paj4XtdU3d9lthiZruNUDaPu+LoFxG/808tz2wDe4uQwIlyGI8W/OrRYqwnmMajeAxWLY7WUKTThPigXsdivh8dHp/T6QP3fowmIvT5gQdzs93DBh50vlhx+8Etrjs0CO9whAejmqT7i9cnSthe6CPISz6kc4Gu6yMz+91ERKtGPes2MqQNwRhd/cz2G//xcrYr9p
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve all realms"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/realm"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve all realms
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"displayName":{"type":"string"},"enabled":{"type":"boolean"},"notBefore":{"type":"number","format":"double"},"passwordPolicy":{"type":"array","items":{"type":"string"}},"resetPasswordAllowed":{"type":"boolean"},"duplicateEmailsAllowed":{"type":"boolean"},"rememberMe":{"type":"boolean"},"registrationAllowed":{"type":"boolean"},"registrationEmailAsUsername":{"type":"boolean"},"verifyEmail":{"type":"boolean"},"loginWithEmail":{"type":"boolean"},"loginTheme":{"type":"string"},"accountTheme":{"type":"string"},"adminTheme":{"type":"string"},"emailTheme":{"type":"string"},"accessTokenLifespan":{"type":"integer","format":"int32"},"realmRoles":{"uniqueItems":true,"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"description":{"type":"string"}},"title":"RealmRole"}}},"title":"Realm"}}}}}}}
+>
+  
+</StatusCodes>
+
+

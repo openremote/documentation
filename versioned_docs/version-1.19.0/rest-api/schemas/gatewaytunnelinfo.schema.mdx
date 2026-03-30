@@ -1,0 +1,33 @@
+---
+id: gatewaytunnelinfo
+title: "GatewayTunnelInfo"
+description: ""
+sidebar_label: "GatewayTunnelInfo"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"realm":"string","gatewayId":"string","targetPort":0,"target":"string","assignedPort":0,"hostname":"string","type":"HTTPS","autoCloseTime":"2024-07-29T15:51:28.071Z","id":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"GatewayTunnelInfo"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"realm":{"type":"string"},"gatewayId":{"type":"string"},"targetPort":{"type":"integer","format":"int32"},"target":{"type":"string"},"assignedPort":{"type":"integer","format":"int32"},"hostname":{"type":"string"},"type":{"type":"string","enum":["HTTPS","HTTP","TCP"]},"autoCloseTime":{"type":"string","format":"date-time"},"id":{"type":"string"}},"title":"GatewayTunnelInfo"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

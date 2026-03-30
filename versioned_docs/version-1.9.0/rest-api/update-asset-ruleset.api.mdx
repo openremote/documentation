@@ -1,0 +1,70 @@
+---
+id: update-asset-ruleset
+title: "Update an asset ruleset"
+description: "Update an asset ruleset"
+sidebar_label: "Update an asset ruleset"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNll9v00gQwL+KNU+ANnEI9Ljz04U2QFCKLTft0asitLUnyYK9a3bXhF7k736atePYbTgBp5OuL3XG8293xr+ZHVi+NhDcQFxmCEsGqkDNrVBylkIAZZFyixNj0JKCQQsMCq55jhY1Ge5A8hwhgElpN0qLv5wxMBASAtggT1EDA5NsMOcQ7MDeFaRurBZyDVXFWg/vB6+U3nKdYjqItLLqX3t5o4z9KSci3ZsV3G6AgcbPpdCYQmB1iUecCGlx7fyvlM65rUW/PIeqWtbmaOxLld6RTaKkRWnpkRdFJhJ3af5HoyTJDs4PYW8g43INrM5wyfZx1e1HTFxVNJXOCjRkKNLvyo3BF9RG1GG/QzvRyC2moXx4fR116pmBFTmSScaNPVepWAlMv9+qrsMOcv51jnJtNxCMT04Y5ELufz9j9wvIACW/zXpxbpXKkEt6qamDj9Sd1Vd7JDeUZU5X/3ZyNbk4jWfRAhi8jsPw6hoYvL0I3wGDV/PwD1hWDHK03Y5oK8PTVFB9eRb1atTXqyoGxnJbHknxkEk8nZxR7LNpNA+vp2fA4DQ8j2bzyWIWvvswjeMwBgZXk/nsbLa4/hBN41l41sqn76enlz3NeRhG7Y+z2cXk5dx5jSaXF+5h+j6axe4pnp6HV7XsPFpcuzOj1kofvVNO0JgdKTm9SxI0JipvM5HEyL9VL+RZfvQ7BSts5qDTJVNVVc7KFEqa+orHoxH9S9EkWhSOTAGkuOJlZr29JrDuB/nEfwLBrvbVt7t0MPS49NzZPN0SMUe7UcTLoqwBSf0JvlPwnbK/E2lF8EH9ZQ/OUmfEJWsLE/h+irkaqgKlxlxZHArl80L4O3cLlQ8MvnAtqL1NTYbmcprTQAA5NxY1XcOSAiWlFvbORSK3RISbZffVBWGm9rZXODQlL+1mTJ9nprZOJckESnuqMUVpBc/qNlWfUF66c/hk4bu0jF+n4hdE8URlfu1/kCgpMbG+M3NUXWk0m593YBJV1CcotFoJ1xP7Jyog7w6lU5U6pvSEPx6bVIH9z4/u2pfmSXyYPNOvPC8y3I+HUQf+ox7aYTwaPx+MXgzGvy2engQnT4Pxr8PRi6d/wn2c/5NmM0o7CGvYXE/QhsaH9zWE+6xtkNpBY0vAhjwH+xY4HdEDzjSx64+nQyQhV8o1dAOWsEAZuw/RO+eSr1F78fRi4U2iGdznwmIjjCeMZzfopSopc5TW9Za3UtpJj3h7s1hErcuh50UZcoOeQXQWNz1Hy0ctJVRi+pR47KLkSqNHhxg2NOOJoxnmXGRugq/U7z07N/dEggTA4LDFvY7m3rPhCNg9PG232+FalkOl135jZny+LrLBs+FoiHK4sXnWWyiAXoxIVChjcy47Yb6N0t7Vtjiy+NX6RcaFGwwus12D2Zumk5oGAAaBSGlB2tDyF9zAbnfLDV7qrKpI/LlETVRcHoDqGJkK0/TnimcGH2TSjgh4FDdb2WMP2PEMGyGXd47bWUm/gMEnvKu3y4qGZ7OS/lj0b4WsXR/bodv4tOD+F4GaNbsXp9Y6rb0NFuTooPFg6T1YTJIEi643msc0tdoZG10SGW6bVTp3UAfNtwRVvq0TV+489aAk2c7RpeRr0q0j0t/fDHheCA==
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update an asset ruleset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/rules/asset/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update an asset ruleset
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"required":["lang","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"version":{"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":3,"type":"string"},"enabled":{"type":"boolean"},"rules":{"type":"string"},"lang":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]},"meta":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"string","enum":["READY","DEPLOYED","COMPILATION_ERROR","VALIDITY_PERIOD_ERROR","EXECUTION_ERROR","LOOP_ERROR","DISABLED","PAUSED","EXPIRED","REMOVED","EMPTY"]},"error":{"type":"string"},"assetId":{"type":"string"},"accessPublicRead":{"type":"boolean"},"realm":{"type":"string"}},"title":"AssetRuleset"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+

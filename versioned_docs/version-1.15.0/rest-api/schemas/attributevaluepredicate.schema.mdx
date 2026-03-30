@@ -1,0 +1,33 @@
+---
+id: attributevaluepredicate
+title: "AttributeValuePredicate"
+description: ""
+sidebar_label: "AttributeValuePredicate"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"negated":true,"name":{"match":"EXACT","caseSensitive":true,"value":"string","negate":true},"value":{"match":"EXACT","caseSensitive":true,"value":"string","negate":true}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AttributeValuePredicate"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"negated":{"type":"boolean"},"name":{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"},"value":{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"}},"title":"AttributeValuePredicate"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

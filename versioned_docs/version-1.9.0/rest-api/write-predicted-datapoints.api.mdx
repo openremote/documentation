@@ -1,0 +1,70 @@
+---
+id: write-predicted-datapoints
+title: "Write the predicted datapoints of an asset attribute"
+description: "Write the predicted datapoints of an asset attribute"
+sidebar_label: "Write the predicted datapoints of an asset attribute"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlGP2zYM/isGn9rCFwftsAc/7Xrr1gO2NbjmtgJBHhibidXKkirRzaWG//tAKXGS3g3o3YBheYlNUx9F6uNH9cC4CVAu4DIE4mzmqVYVU539jIzOKsOwzME68sjKmusaSth6xTR6jo4BcnDosSUmL5g9GGwJSrjsuLFefY0QkIMyUEJDWJOHHELVUItQ9sA7J+6BvTIbGIZ8RPhw8Yv1W/Q11Rczb9n+a5S3NvCTQFAKdV0f1jrkBnLw9LlTnmoo2Xf0nUjMXq06pj/k/al4y+RMgV/beicelTVMhuURndOqinUvPgZrxHYPCr3HncRnasOJ3a4+UiVFcl4IwIri17sTF2WYNrF0a+tb5GT68QcYctjdhxqGHFixFtOfqDsayfPu4DCIj6fgrAkp3svpVP5qCpVXLlKohJrW2GnODp6Qn6b9ongBZZ+wztf9JdzNuKHMjVSvRwZndp2hyeIRZ+PxQA4tcWOF+66LBZFDKqGIjsWIVPR7cgxFf3a4g3CL/JdDX3ReC+2YXSiLoqbWTqwj46m1TBNlC3Sq6D2hbocCcviCXuFKp3pEc6pIrAGU0GJg8lK9pQSqOq94FyMJrKqhXCxPP70XCiS0g8PxqLDj5qWcqLbb6FJpRYavPNVkWKFOHLGfyNzGPApZUcRthSJtpXDSpJXVRcK/qKwxVHERl0V+rz2F5ukAobIuZeC8XatIqcOTHDueas6VrSm2w6nx8bHFFfL/eeqR9NLrN0dVeHOHrRO/RWzfaWrOyBZl1jae574t3zkyN5GH2e9ocEM+u3nzfp5dzq7h22aaNypkKsR2qm3VtWQ4ljZbWx+tD6C9nc9nI+Qky2aaMFAWKLXl4gxo+WxsEluF8yZ5HqO01lMmSUz2EoBVlABqUekoR2v709k60SatKhLVKI8z6tfZb9mryRTyb7pzu91ONqabWL8p9stCgRunL15NphMyk4ZbLZjS3aku8mEqJmcDt2hOwjxRf87qPrYq0x0XTqMyEixuu99r0yLNqSje+ziQQ3kcXuX59Fnm0MhELBfQ9ysMdOv1MIj5c0detGR5lKHIo1oFea6hXKMOdG+PoxzDs5v9MHueSfc8tPfDJDK7qHa6kzfI4RPtTkauzM7/MuxZhYblkB9uCo/L/5+ipygPXW3GrTwu4+8PtL/9nMVJXlcJ7WIuQEePexeJ44rLqiJ3iibTV6RlHJqz2znksNpfT9ooxuBxK2KI27RxG/NJA05sPWg0mw434psiyu9vksqzYA==
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Write the predicted datapoints of an asset attribute"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/asset/predicted/{assetId}/{attributeName}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Write the predicted datapoints of an asset attribute
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"assetId","in":"path","required":true,"schema":{"type":"string"}},{"name":"attributeName","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"x":{"type":"integer","format":"int64"},"y":{"type":"object"}},"title":"ValueDatapointObject"}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+

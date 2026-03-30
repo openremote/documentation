@@ -1,0 +1,70 @@
+---
+id: update-realm-ruleset
+title: "Update a realm ruleset"
+description: "Update a realm ruleset"
+sidebar_label: "Update a realm ruleset"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNlm1v2zYQgP+KcJ/agrZct1k3fZqbuK0LpxIUJ2sWGAUjnW22EqmSVN3M0H8fjpRflLhD22HA/MXS6d5IHp+7DVi+NBDdQFoXCHMGqkLNrVBykkMEdZVziynyoiQFgxYYVFzzEi1qMtyA5CVCBKParpQWfzljYCAkRLBCnqMGBiZbYckh2oC9q0jdWC3kEpqG7Ty8771Ses11jnkv0cqqf+3ljTL2p5yIfGtWcbsCBho/10JjDpHVNR5xIqTFpfO/ULrk1ot+eQ5NM/fmaOxLld+RTaakRWnpkVdVITK3aeFHoyTJ9s73YW+g4HIJzGc4Z9u46vYjZu5UNB2dFWjIUOTflRuDL6iN8GG/QzvTyC3msXy4fQfqVDM9K0okk4Ibe65ysRCYf7+VP4cNlPzrFOXSriAanpwwKIXcvj9j9w+QAUp+W3Ti3CpVIJf0UVMFHzl35rf2SG4o65K2/u3oanRxmk6SGTB4ncbx1TUweHsRvwMGr6bxHzBvGJRoDytidzI8zwWdLy+Szhl19ZqGgbHc1kdS3GeSjkdnFPtsnEzj6/EZMDiNz5PJdDSbxO8+jNM0ToHB1Wg6OZvMrj8k43QSn+3k4/fj08uO5jSOk93L2eRi9HLqvCajywv3MH6fTFL3lI7P4ysvO09m127NqLXSR/dUEzSOfuFZhsYk9W0hshT50dNqGFhhC5J16NM0jfNtKiWN38bhYEB/OZpMi8rRJ4IcF7wubLDVBHZ46Z6ETyDaeF9du0sHvIAHLv1A76BXol0pQmJVewZSCULoFEKnHG5E3hBfUH/ZsrHWBaHH2spEYZhjqfqqQqmxVBb7QoW8EuHGmTchMPjCtaAKNv7ytzvYLgYiKLmxqGkX5hQoq7Wwdy4SuaVLfzM//HRBJPHetgr7uuO1XQ3pBhZq7VSyQqC0pxpzlFbwwlei+oTy0q0jJAu/WBP6VMKKQJ2pIvT+e5mSEjMbOjMHzoVGs/p5ByZTlV9BpdVCuJLYPtH58cO+c6pyh42O8Mdjkyqw//nSXfVSy0j3zWX8lZdVgdsOMDjg+6BDbxgOhs97gxe94W+zpyfRydNo+Gt/8OLpn3Cf2P+k2XbLA0q1+PVNsgXu/rvnbBenLTUP6LeDXAuXvX17I/aChyihyA317oVy1dtCJK5Qpu7WBedc8iXqIB1fzIJRMoH7DJithAmECewKg1xldYnSukIKFko76RFvb2azZOeyHwRJgdxgYBCdxU3H0fzRDgkqM10kPHZRSqUxoEX0W3LxzJELSy4K15EX6veOnetjIkOCXbSfyl4n0+BZfwDsHovW63V/Keu+0suwNTMhX1ZF71l/0EfZX9my6AwIQB8GJKqUsSWXB2G+ic3Ozu7QY/GrDauCC9eXXWKbFqk3bdVsD5tBJHKad1Y0y0U3sNnccoOXumgaEn+uURMB53t4Oh7mwrS1uOCFwQeZ7LoBPErbIetxAOx4hq2QyzvH6KKmN2DwCe/8sNhQL2wnzB+L/q2Q3vWxkXgXn+bV/yJQOzV34nitU++tNyNHe40HM+zeYpRlWB16o9ZLHWrXT5NLosBtOxmXDuCg+ZoqgK994sqtxzdFkm0cSWq+JF0fkX5/A35LTPY=
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a realm ruleset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/rules/realm/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update a realm ruleset
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"required":["lang","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"version":{"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":3,"type":"string"},"enabled":{"type":"boolean"},"rules":{"type":"string"},"lang":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]},"meta":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"string","enum":["READY","DEPLOYED","COMPILATION_ERROR","VALIDITY_PERIOD_ERROR","EXECUTION_ERROR","LOOP_ERROR","DISABLED","PAUSED","EXPIRED","REMOVED","EMPTY"]},"error":{"type":"string"},"realm":{"type":"string"},"accessPublicRead":{"type":"boolean"}},"title":"RealmRuleset"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+

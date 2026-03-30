@@ -1,0 +1,33 @@
+---
+id: assettree
+title: "AssetTree"
+description: ""
+sidebar_label: "AssetTree"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"assets":[{"id":"string","name":"string","type":"string","hasChildren":true,"createdOn":"2024-07-29T15:51:28.071Z"}],"hasMore":true}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AssetTree"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"assets":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string"},"hasChildren":{"type":"boolean"},"createdOn":{"type":"string","format":"date-time"}},"title":"AssetTreeAsset"}},"hasMore":{"type":"boolean"}},"title":"AssetTree"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

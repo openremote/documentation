@@ -1,0 +1,70 @@
+---
+id: get-global-services
+title: "List all registered external services that are globally accessible within the OpenRemote manager"
+description: "List all registered external services that are globally accessible within the OpenRemote manager"
+sidebar_label: "List all registered external services that are globally accessible within the OpenRemote manager"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFv2zYQ/ivEPa2AYrkO8qKneUWWBsjWoEmHAYEfztRZYkuRKnmK4xn678NRsmMnaYds2DC/yBLvvrvjd/eRW2CsIhR3cEPh3miKsMjAtxSQjXeXJRRQEV9Yv0S7N8mgxYANMQXx3YLDhqCAece1D+aP5AsZGAcF1IQlBcgg6poahGILvGnFPHIwroK+z/YIv5/87MMaQ0nlyXXw7P8xynsf+RUgiwwCxda7SFHWZ9OpPEqKOpg21VXAlYms/EoFqkxkClQqemAKDq2Kj5ukvWNyLP7YttbotC/55ygg2+dJYAi4kVyZmhQ80NfOBCqFn9o31GJFn4KFDCwuSZ5jtMtS/jNyl/gb8fzyM2kpvg3CKBsaUdE2z2uXwrH84OwGCg4d9RmYOBB/YLz03hK6l6wfcym20ODDFbmKayhmZ2cZNMbt3k+zp7su9ERGt3Mel41jqhJfKx8a5OHT6Uwc7ilEM+zja0Ppwe3ZwrCn3wd8+wLgITPH3mdvZ3+ZzsjaC3SQ6xphfv7b/PJq/tPVOWTw6dfHt0XfZ8CGrXidj/03zij06Ze91Lho7Xc7V3GNrDCQqhL7dqNQa4rRLC2pteHaOMU1qQ8tuY/UeCbVoMOBqoa49qNsJKGQwiEfwfMBcuzcnXx0snNQM7exyPOSGj/xLbmQsCfG59iafJv6ts8hg3sMBpf2STuXtMLOSpc0KLXJHiwkkO6C4U2KJLBG5mlxuHQjkzig7Qz2dHjsuJ5JD1q/TibaGnL8LlBJjg3agTz/hVzqAMjFI09pxXxIJW9Fy7S3+YB/or1zpDlPbmmYVoFi/fcBovbtUEEb/Mqkntj9kz7AQ2l+50tKqnT48fWxxRSy/3npaQqMW/nE0jgtB537y9C56uP5za2aX1/C05m5rU1UJqaOL73uGnKcNkytfHg6Bzu097e313vIiVLXljCSikTJ4+4IaPHDvvW9jset/yZFaXwgJUVMxmMFdTpWqEFjkyyu/I9HfknQjCYXE9O7A/ri+kqdTqaQPZm59Xo9qVw38aHKR7eYY9Xak9PJdEJuUnNjj3QXZGEqn1ofuUF3EOY/kJkjjvbDyvTAeWvROEmsGwR5kKC73fkEGYwitBDtjixr2+0Soyh438vnrx0FEYzFo9Ykzch2VwjRktJEWSihWKGN9Cyn/fEPkL2c4BfafOPOc4+2E3uQW82/EWi8Fh3FGazmWlN7uPbs7iLSuZf5i/Nb6Ps/Acj7kKI=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"List all registered external services that are globally accessible within the OpenRemote manager"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/service/global"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+List all registered external services that are globally accessible within the OpenRemote manager
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"List of registered external services","content":{"application/json":{"schema":{"type":"array","items":{"required":["homepageUrl","label","serviceId","status"],"type":"object","properties":{"realm":{"type":"string","readOnly":true},"isGlobal":{"type":"boolean","readOnly":true},"serviceId":{"maxLength":255,"minLength":3,"type":"string"},"instanceId":{"type":"integer","format":"int32"},"version":{"maxLength":255,"minLength":3,"type":"string"},"icon":{"type":"string"},"label":{"maxLength":255,"minLength":1,"type":"string"},"homepageUrl":{"maxLength":512,"minLength":3,"type":"string"},"status":{"type":"string","enum":["AVAILABLE","UNAVAILABLE"]}},"title":"ExternalService"}}}}}}}
+>
+  
+</StatusCodes>
+
+

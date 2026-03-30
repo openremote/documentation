@@ -1,0 +1,70 @@
+---
+id: stop-tunnel
+title: "Stop a tunnel for a gateway"
+description: "Stop a tunnel for a gateway"
+sidebar_label: "Stop a tunnel for a gateway"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk2P2zYQ/SvCnBpAlrzeBml1ytY10gVS1NhVLl34wJXGEhOKZMhRHNfwfy+GlFeya6RIT/XFxHy8GXLePOgAJBoPxRO8E4Q7sYdNCsaiEySNvq+hAE/Glr3WqCAFh5979PSLqfdQHKAymlATH4W1SlYhLf/ojWabr1rsBJ9obxEKMM8fsSJIwTouQhI9ex0K1U3CPDmpGzim0MSuuJErXhKuQVobRxO31IQNOkhha1wnKJpuF2PCVSzhvWw01t+B1hpPWnR4vbdguHSkgLrv+L1/K8v1I6ThH1Iol2vYcBs9maUyHkt5DXjSRi0IZ8RRxxTktQfiLiQpNg3TjXO811sDxyP7HXprtI9jqHErekXx6CsnLU+TS0VHcoqG9F8mH8HPQR7J2EQkFFpItsYlIhnGCyl0SK2pQy2FxBWsoBYKyIeYnE4c9Oi+oGPSHqB3Cgpoiawv8rzGzmTGonbYGcJMmlxYmR8Cv445pPBFOCme1QXtXi4OnfCEjh9nw4Wq3knah0oMy6/8tJm6HpnhEe0UMJJd9NQueGTK7EJIpSRqWjqsUZMUKhjJfEL9Idwj54w8tOXz2EpunSFTGZVH/FlltMaK8pAWNnLr0Lf/HcBXxsYbWGe2MtDldDpGRrbGyb/CgJemDqw8M35/bQ6F9H9+9cBhJvTDKHqrr6KzCifsGTdzolWjcSpR81GAxoBz3ZlPVWWCEhl10owLkYDFfPHjbP5mtvi5vHldvL4pFj9l8zc3f0IUhokqSV59Jt2gC39Y1A9hWZLfhRYNuuRh9Vgmd+t7uFzgspU+kT6hFpPaVH2HmsL8wzKz9Qoat/wCmSXJWqHwmHjEkPF0BrT54WWTTeXPN/lVqNIZhwlfIhs0SFRBg7ATUgVt3pq3Z3l8ayUrZNkqDjC87N279fvkNptDeiEhu90ua3SfGdfkQ5rPRWPV7DabZ6izljrFmCxB8V3YMWeTNZ46oSdlvq15Z8/7IhuEXym3SkjNmKG7wyCGTzAmD3K4iYRh3+HwLDx+cOp4ZPPnHh1L12ZUvaBeKbQoanRB1T7hHgpYRjGfldwBh6ueO/mHsB/TU8ZdVaGlb8ZuJqL+6+r9qlxBCs/Dh0MXdASc2PEeix0UAPzhwflRm9l2ACV004uGYyMq//4GFz4D6A==
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Stop a tunnel for a gateway"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/gateway/tunnel"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Stop a tunnel for a gateway
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={undefined}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"realm":{"type":"string"},"gatewayId":{"type":"string"},"targetPort":{"type":"integer","format":"int32"},"target":{"type":"string"},"assignedPort":{"type":"integer","format":"int32"},"hostname":{"type":"string"},"type":{"type":"string","enum":["HTTPS","HTTP","TCP"]},"autoCloseTime":{"type":"string","format":"date-time"},"id":{"type":"string"}},"title":"GatewayTunnelInfo"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{}}}}}
+>
+  
+</StatusCodes>
+
+

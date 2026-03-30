@@ -1,0 +1,70 @@
+---
+id: update-config
+title: "Update the syslog configuration"
+description: "Update the syslog configuration"
+sidebar_label: "Update the syslog configuration"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVttu4zYQ/RVhntoFYwWbNz1VdZysASc2bLnbIjAWjDSWuUuRXJKK4xr692JIX+tsi21RoHmJPJw5cz/kFjyvHWRPMNs4qWtYMNAGLfdCq2EFGbSm4h77Wi1FDQwMt7xBj5aMtqB4g5BB3vqVtuL3YAYMhIIMVsgrtMDAlStsOGRb8BtD6s5boWroOnZA+PXqTts1txVWVxOrvf7XKB+0898BsmBg8WuLzv+sqw1plFp5VJ4+uTFSlCG79LPTimRHKLITFisqo/PaYtXnHmttBTryGUQjfEF5+PXAX/MaH4RqPToq+i4c/fwZSwrbWGqDJwTydQJxETsDVG1DzoePd2Ng8DGfPgKDwXQ6nsKiY5dBHTG4tXxDZfLYuL/CzmezQQEM8vvBI/1/HBfDu2E/L4ZjcpaP8ukDMJjOR4MZMJhMx8W4Px4Bg/u8GHzMfwMGD+PbwehT/nj76Zd8NA96+WQIDG7zIodF171dnmNUQnmsQyOX2jbcR9HNexoC8MJLUoqTvJvYrqMji85o5SJWhUveSh8/XWmFCVOb7Q+SvTaw0xl4l76DbBvxzu3mYUUSv8LEBd9JGZy3dr8PDfqVpm0ybWgu9yvIII3aablfLof2Zb9ZrZU0uN4bl6VphY3uaYPKYqM99oROuRHp1iKXTZcCgxduBX+WMcUgPssVGu48WqrHghyVrRV+EzwRrKDhXZwezWi8I9pe4dAGzVu/ek9dkHodVEopUPm+xQqVF1zGpukvqOYhj5Qs0hCWS2MoqaE1L7VMI/5VqZXC0qfBDKhpS4tu9c8BXKlNzMBYvRRhOPZf1EV+ylp9XWFY9VPh9/smVWD/89TDDBOPTY+MN3jljZF4wTZ7UrnkkD0nLL6xtdcdse9Sh1HY7ebYoJqGEU4euOI12mQ6mBVJpIHztSpWwiXChb2qdNk2qHzoSrLUNkjfQPtQFJMDZC9JJhK5w8Rh3M+nM6DFD4f90qU7368fg5dGW0woid6ODHgZyAAbLmRgn6X+6cwOOgZSlEj8kR0vyPvJKLnpXQP702Kv1+terdqetnW6M3Mpr428uuld91D1Vr6RhEnEEOtCB9ckMtr5hqsTN3/PRGclPiy0x1efGsmFItwQ4XbHUk8QkWL+xFMLBiu6W7Mn2G6fucO5lV1H4q8tWuKUxZGOAq2w/QVMdFMJRwcVZEsuHV6EdKBcAPZ2fF9w840XwwuXLekDvQn+C0e7R8WZn6jVj2hXBQEdNS5eDkeLvCzRnKLRDUMUfLgtJnO6aZ9375EmMBRYviaG4OsYuA75RNYn2RYkV3XLa9KNHunvD3dtZ1A=
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update the syslog configuration"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/syslog/config"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update the syslog configuration
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"required":["storedCategories","storedLevel","storedMaxAgeMinutes"],"type":"object","properties":{"storedLevel":{"type":"string","enum":["INFO","WARN","ERROR"]},"storedCategories":{"type":"array","items":{"type":"string","enum":["ASSET","AGENT","NOTIFICATION","ALARM","RULES","PROTOCOL","GATEWAY","MODEL_AND_VALUES","API","DATA"]}},"storedMaxAgeMinutes":{"type":"integer","format":"int32"}},"title":"SyslogConfig"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+

@@ -1,0 +1,70 @@
+---
+id: get-asset-rulesets
+title: "Retrieve the rules of an asset"
+description: "Retrieve the rules of an asset"
+sidebar_label: "Retrieve the rules of an asset"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk1v2zgQ/SvCnFqAsYJmuwedqo3d1IVTCbKTTWAYBSONLLYUqZJUUq+h/74gJTmW67Rpu4fNJTI5n5w3b2YLhq41BEtIao6wIiArVNQwKaYZBLBGE2qNxt5qNBoIVFTREg0qq7YFQUuEAMLaFFKxf5wqEGACAiiQZqiAgE4LLCkEWzCbyopro5hYQ9OQnYWbk7dSPVCVYXYSK2nkb1t5J7X5JSPUpjzNet2KmgIIKPxSM4UZBEbV+DxLnIp1TdfYm/pSo9oci4IqRe0FM1jqb20SQFGXtk7vw+twfp5M4wUQuEii6PoWCLyfRx+AwNtZ9Desmv0I8przTSyrmlPz4zDupORIBTTNyiasKyk0unhenZ7afxnqVLHKVTmADHNac+P1kkAglcKgMFaWVhVnqUOE/0lbhe0zEn985qV7PiBtKivSq8i7T5jaylbKotWwNkKW7ZllwuDaFTyXqqSmPfrzD2gI3KPSrA3nGdKpQmowi8SxquzEM2rwxLASrQqn2lzKjOUMs+drtQXbQkm/zlCsTQHBq9evCZRM9L/PyCHWLDDoHR/42RWRgLJ9ewSipH3a38QZgRLNfjF3laFZxmzdKY8HNRrKNQ0Bbaipv4v4ZBKOre/xJJ5Ft5MxEDiPLuPpLFxMow8fJ0kSJUDgOpxNx9PF7cd4kkyj8e58cjM5vxpIzqIo3v0YT+fhXzNnNQ6v5u5jchNPE/eVTC6j6/bsMl7cupxRKamOvmnPG0fv0hS1jus7ztIE6VP1QsrLo5QChhnumHaPj6Fxf+SgLRM0iuE9eqZAz0HAk7lHhecCBFe2Qnb87ijdggt8J+o7IT+Xyt92CTWWKlDd95xfK24p1ZhKB76fYSlHskKhsJQGR0z6tGL+1uXS+EDgnipmQdr1d5diRx4QQEm1QWWTWVlHaa2Y2ThP1qzt6+Vq/2puSaS11gs8QovWpnhlm4zLByeScobCnCvMUBhGeQs2+RnFlcvDtxq+C0v7bSh+ZQdQKrnf2j9JpRCYGt+puVmQK9TFrxvQqazaDColc+Yq23/ZgtL9eXouM8cMg8Of921FgfzPU3dwZiKXrkod5qMKReLQ5V1SQdeovGQyX3hhPIVD8C8Kpj2mHfYzmdYlCuMezMulcqdHrL1bLOKdyZHnxRypRk9j20PLgaHVix30ZaqH0H/pvJRSoWeTGHUTkaZuImJJGXfDJZdvBnqOklmKdogGj1vVRTzzzkanQA567uHhYbQW9Uiqtd+paZ+uK35yNjodoRgVpuSDWQf24tQeVVKbkoo9Nz/ki8EL71rN4FfjV5wyR10uwG3HJctu8nSc2M48IBD0FLkiUNj1LFjCdntHNV4p3jT2uN1NbPNnTHejLadcI4HPuBnuVPeU1zYSsAvPE+KHC9CjzuqRmY77O0h7t9rAi6RbUl56QI4/R7/eiM2+zz6o/hkaO1C63fTnQnjKb2v/2DL9/cf6Dxx1+/bATysVpilW+3ffrIa2GLupdDFZQNP8CylHRHI=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the rules of an asset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rules/asset/for/{assetId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the rules of an asset
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"assetId","in":"path","required":true,"schema":{"type":"string"}},{"name":"language","in":"query","schema":{"type":"array","items":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]}}},{"name":"fullyPopulate","in":"query","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"required":["lang","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"version":{"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":3,"type":"string"},"enabled":{"type":"boolean"},"rules":{"type":"string"},"lang":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]},"meta":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"string","enum":["READY","DEPLOYED","COMPILATION_ERROR","VALIDITY_PERIOD_ERROR","EXECUTION_ERROR","LOOP_ERROR","DISABLED","PAUSED","EXPIRED","REMOVED","EMPTY"]},"error":{"type":"string"},"assetId":{"type":"string"},"accessPublicRead":{"type":"boolean"},"realm":{"type":"string"}},"title":"AssetRuleset"}}}}}}}
+>
+  
+</StatusCodes>
+
+

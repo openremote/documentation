@@ -1,0 +1,70 @@
+---
+id: get-user
+title: "Retrieve a user in a realm"
+description: "Retrieve a user in a realm"
+sidebar_label: "Retrieve a user in a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVuFu3DYMfhWPy7akc85Bg/7x1nVB0LUBsvWQJsCA8wVjbN5ZrSy5Ep00u3qv0/fokw2U7UsudyuaDBj2zxbJjyL18ZMWwDj3kE7gzJODaQy2JoesrDkqIIU5cTDEUKPDipiceC/AYEWQwkHDpXXqzxABMSgDKZSERYjxeUkVQroAvq7F3bNTZg5tGy8Rft/9xbordAUVu2Nn2f5rlJfW84NAHKGuhsgauYQYHL1rlKMCUnYNfRlO48kdFQ8Gmoqzr63x5MVe0Awbzd2nz52qQ7PTwRAN3hBDbg2TCb5Y11rl4WCSN14CFutJ7cUbyqVbtZODZ9Wl7Dqxvre4swg1NtjU5uWZcp5/C63ZYNX4GSNVqPRmi8ELTbcTXlirCY0Yc0fIVLwy66ExzKyrkKV9yLTLqiIJ8ZQ74o2pkNmpi4a71txtHBaFkh6jHq+0sPdD5/BaqMBU+U2nHXK7S5XTQZ7bxvDmkoRTpm9The+Pycy5hPTxkycxVMoM//syqMzkhB/n28+eTrKsXhz5Y2Rl2g/dz6GtKmva6fdbO+Jx/uNP32bwXZb5LLvMsnLrm6++fvbpY/xD+uivJMuy7MP50yybZNl00W7v/CEYh4adDgCjR1sQr88CsGItS0E92jbUucreE2Kn6JIijKS4SJkIo2EEK+LS9gIUxEeKg0Qck0VwapNFN2ctdB0clKlxWgafufZpkhRU2ZGtyTiqLNNI2QRrtcSAGC7RKeHSKvGXQwcVeu5qmAaaNE7xdcgksML5yfS26bXMWIc2ONywBhsuHwsJtb0KLrlWZPjQUUGGFeqOI/YtmbNQRyIRSdiWT7qtJLXIZG510uHv5tYYyjkJYUFqZo58+XAAn9u6q6B2dqbCQQ5fcpB4W/UPbRFYubJ4/9ziKkz6X5ceaKzMzIZT6in+qiZzEtgV/YoG5+Sik+evT6OD8RHcJf1pqXykfMQlRYXNm4oMh4ZFM+vC6ga0l6en4yXkKIrGmtBT5IlCxGQFaLq9pL7N/Sr1d0KWyjqKpIhRf2FgHkSnF9tQ388rcUGnVU5yx6Q3d/+L8XG0P9qD+M7MXV1djeamGVk3T/own+C81rv7o70RmVHJlRZMmdmuL2LYk6Xaeq7Q3ErzWZ1Y6e5yzJjec1JrVJ10unCFdBoyCUoKMaQDRNpf19MYSnk5pBNYLC7Q05nTbSvL7xpyMvHTG7EI818o319CM9Se1nazvIxh+6S//XeiG7Vc3eVwX5jroEm6kT+I4S1dL58m8sb4D5P2jWmnbTw8pO5X9j+l7eA3vfyWe7hfqV+eqH8cruTpvA7ynOrbtrUHlKj88mJ68fwU2vZvTcXfKw==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve a user in a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/{realm}/{userId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve a user in a realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}},{"name":"userId","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"realm":{"type":"string"},"realmId":{"type":"string"},"id":{"type":"string"},"firstName":{"type":"string"},"lastName":{"type":"string"},"email":{"type":"string"},"enabled":{"type":"boolean"},"createdOn":{"type":"string","format":"date-time"},"secret":{"type":"string"},"attributes":{"type":"object","additionalProperties":{"type":"array","items":{"type":"string"}}},"serviceAccount":{"type":"boolean"},"username":{"maxLength":255,"minLength":3,"pattern":"^(?=[\\p{IsLatin}|\\p{IsCommon}]+$)(?=[^<>&\"'\\s\\v\\h$%!#?§,;:*~/\\\\|^=\\[\\]{}()`\\p{Cntrl}]+$).*$","type":"string"}},"title":"User"}}}}}}
+>
+  
+</StatusCodes>
+
+

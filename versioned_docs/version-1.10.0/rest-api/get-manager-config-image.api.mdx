@@ -1,0 +1,70 @@
+---
+id: get-manager-config-image
+title: "Retrieve manager configuration images"
+description: "Retrieve manager configuration images"
+sidebar_label: "Retrieve manager configuration images"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVU1P3DAQ/SvRnICaeAW3nIoQokituoLlhPZgnNnExbGNPYHSVf57NU72i/bQ9tS9JBnPvJl5nnm7BlJNguoBLr1bmaaPiox3sBTgA44fNzVU0CB9UU41GEfHm041CAKCiqpDwsgga3CqQ6hgZSzmVwHGQQVBUQsCIj73JmINFcUeBSTdYqegWrMDYWTX8gMIoLfAMImicQ0Mw5JjU/AuYWL3s9mMHzUmHU3IFVdQ40r1loqNJwjQ3hE6Yt8TecKPXcoph3/8hppg4J94h3iLFA2+YNGNrRd6n6TCMAcJBHRIrZ9YypxQCxXIA285YcgcJdcbigYQkDC+bBjso4UKWqKQKilr7HzpA7qInScsjZcqGLmOqGw3SBDwoqJRj3bkJZtHZjIXUEGnEmHk/pacSPfR0FvOxLCmhuphuX90xwSNaBuHHVeqp/YMBKysf80u2hp0dBmxRkdG2Wwk/4TuPvchOULmspIcS5EhevLaWznin2rvHGqSOSxPySpiav8dIGkfxg5C9MwzT+D0xpfMkD6aH/leLn2N7Hpg/Pvc7MqD+1+3nkfcuJXPt2QoH38N6G7zdBXThhe3V3eL4mJ+A+8XYtGaVJhUUItF7XXfoaNxF1Y+Zutv0D4tFvMtZFkUc4sqYZEQc8TDAdDyaDv6XqfD0T/OWTofseAmymnBlc4Ljp0yTBsffTyIg0GANRpZE6qtRl1czz8X5+UMxLude319LRvXlz42cgpLUjXBnp6XsxJd2VJnGZN3duSFD2ZsCj5Rp9xemj/VkAOitxtH+J1ksMo4Rs91rid9eYADJJahMQOL7qTO1VaIlwJan4jD1utHlfA+2mFg83OPkQVhudOSLA+1SfxeQ7VSNuEvFW61FY5uJ10/LnbafVj5ZFTuLUuW7fkLBDzh2/7fxbAcBLSoaoy5hvH4QmsMtBfIWs6atdXd66sFDMNPnGNgcw==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve manager configuration images"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/configuration/manager/image/{filename}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve manager configuration images
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"filename","in":"path","required":true,"schema":{"pattern":".+","type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"*/*":{"schema":{"type":"object"}}}}}}
+>
+  
+</StatusCodes>
+
+

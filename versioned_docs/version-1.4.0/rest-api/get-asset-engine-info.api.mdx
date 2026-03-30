@@ -1,0 +1,70 @@
+---
+id: get-asset-engine-info
+title: "Retrieve information about an asset rules engine"
+description: "Retrieve information about an asset rules engine"
+sidebar_label: "Retrieve information about an asset rules engine"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFv4zYM/isGn+4A1Squb35a0ct6AbY2cFNgQJAH1WZi3cmSTqKb6wz/94GykyZtN+A6DFieFIr8SJEfSfdAahuhWEHZGYS1AOcxKNLOzmsoYIt0GSPSzG61xbndOBDgVVAtEgY27MGqFqGAy44aF/SfyRgEaAsFNKhqDCAgVg22Cooe6MmzeqSg7RaGQRwQ/jj71YWdCjXWZ4vgyP1rlC8u0rtAFD96Xu9tvaIGBAT83umANRQUOvwnpDUrR+9sxMj3NW5UZ2g8xipon7JU7C+yvTYIqJwltElXeW90lTIqv0Y26F87dQ9fseJn+sDFIz26jKSoi6+DE4C2a7nkd8vbxWL2GQSU9zc385trEDAry9sS1gOH0Xptku9ZCC5cuW4MaoLTlnCbErpxoVU0ii4+wSAAf2DVvcNyEECaDCsxH+MR7Qb+iRfZK5GCxkfMtB2htLOZenAdZcpmqYhZYKAMExIIaJEaN1E7cZkaKEAmLckwMpnJfqLAwIzB8LhnexcMk4nIx0LKGluXO482YOsIc+2k8lr2AZVpBwkCHlXQ6sGMNUniEz5AqyJh4Oet2VHVBU1PyRPD6hqK1fr46o7LP6LtFZ6ZoDpqPnFejdsllcpotHQVsEZLWpmRD+4b2vv0DskWMoUV5RiK9Nx6lTNyxD+rnLVYkUxmqQs2AWPzfoBYOT++wAe30anc+xPXWB1PkitXY2qFY+HP+2ZVEP/zpyeGMwdTlaZGuPVoy8Su7Hdl1RZDVs7ultnlYg4v+2HZ6JjpmFGDWe2qrkVLY1NsXEjSN9C+LJeLA2SeZQuDKmIWEZPF6gRo/eFAfVfFU+p/TF5aF8Z+zKdZpqrU/NgqbVKrb9wvJ3Y8MYyukMdf8bxPrhe/ZRf5OYgXPbfb7fKt7XIXtnIyi1JtvTm7yM9ztHlDrWFM7tkxL3xxziLvIrXKHrl5xwg5yfmh+Qh/kPRGacuOUsj9NF5WkBBgKq4Y1wsIKPZ7Zi2g4V1VrKDvH1TE+2CGgcXfOww8D9bPoyRNh1pHPtdQbJSJ+CqqwxaBD+W0tj5m3AFvRTsJlX1KE8t0/A8EfMOno2U48FqY1ujPhfB3fkf8t/b+IQheyv+Fo+nT4MTPqHVZVeiP715tYZ7Hhz1yPVvCMPwFGgw4qw==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve information about an asset rules engine"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rules/info/asset/{assetId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve information about an asset rules engine
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"assetId","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"status":{"type":"string","enum":["STOPPED","RUNNING","ERROR"]},"compilationErrorCount":{"type":"integer","format":"int32"},"executionErrorCount":{"type":"integer","format":"int32"}},"title":"RulesEngineInfo"}}}}}}
+>
+  
+</StatusCodes>
+
+

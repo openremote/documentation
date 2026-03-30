@@ -1,0 +1,70 @@
+---
+id: create-realm-ruleset
+title: "Create a realm ruleset"
+description: "Create a realm ruleset"
+sidebar_label: "Create a realm ruleset"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNll9v2zYQwL+KcE9bQVuO06ybn+Y6buvCqQTZyZIFRsFIZ5utRKokFScz9N2Ho2TZStyt3TBgfpKP94/H4++4BctXBga3EBUpwoKBylFzK5ScJDCAWCO3GCFPM1IwaIFBzjXP0KImwy1IniEMYFjYtdLiD2cMDISEAayRJ6iBgYnXmHEYbME+5qRurBZyBWXJGg/XnTdKb7hOMOmEWln1r728U8Z+h5MFA41fCjT2tUoeSSNW0qK09MnzPBWx253/yShJsr0rshMaEyplyuUKWJXPgu2iqLtPGLvyaaqxFWjIUCQHmQhpceWSXCqdcVuJfnoJJYN71EZUYb9Buzq4JJDP93mgnnCLHSsyJJOUG3uhErEUmHy7VVX1LWT8YYpyZdcw6J+dMciE3P0/ZU8rzQAlv0tbce6USpFLWtTUakcOiFWlPZIbyiKj0r8fXg1no2gSzoHB2ygIrm6AwftZ8AEYvJkGv8GiZJChPTz/5mR4kgg6X56GrTNq65UlA2O5LY6kuM8kGg/PKfb5OJwGN+NzYDAKLsLJdDifBB8+jqMoiIDB1XA6OZ/Mbz6G42gSnDfy8fV4dNnSnAZB2Pw5n8yGr6fOazi8nLmP8XU4idxXNL4IrirZRTi/cXtGrZU+WlNNt/voCo9jNCYs7lIRR8iPnlbJwAqbkqyFibIsnW+TK2mqMia45EVqq08Ta5E7VAx2C95OG9jhxXvhv2jftb9t/yp2O8bIXQiPe267nm5olqFdK2JdXsEi59Sz4DsNvyoOA4P6fge8QqfEE2tzM/D9BDPVVTlKjZmy2BXK57nwt86y9IHBPdeCut1UoKir3VQDMm4sakp7QYHiQgv76CKRWwLE7eJwaUaVqLztFPY9ygu77lNNUrVxKnEqUNqRxgSlFTytulZ9Rnnp9uGTRbVP41ep+DnRN1apX/nvxEpKjK3vzICOdanRrP+5AxOrvNpBrtVSuPbZfdHZ8cNhMlKJQ0xL+P2xSRXY/3zrrnNpvET7QTR+4Fme4m5a9A5mQa9Feuj3+i87vVed/i/zk7PB2cmg/3O39+rkd3hK97/SrOfoAdFqVFtdYAPn/XrF5DZ6a8IekLIBYg2ivX19I/aC59ihyCXN8aVy3VsDJ8hRRu7WeRdc8hVqLxrP5t4wnMDT+z9fC+MJ49k1eomKiwyldY3kLZV20iPe3s3nYeOy63lhitygZxCdxW3L0eKHBgkqNm0k/OiiZEqjR5vo1oTjsSMcZlykDl9L9WvLzs08ESNBcbB/ar0Np95ptwfsCYs2m013JYuu0iu/NjM+X+Vp57Tb66Lsrm2Wth4TQAs9EhH+Mi4PwnwVma3KNuix+GD9POXCzXCX2Lam6W3dNbvDXjBYE20Ht7Dd3nGDlzotSxJ/KVAT+xZ7bDr8sd37jbCYCFO35JKnBp8l1AwPAHY8u8/4+JUH5z1PC9IHelL+F4HqN2krTqU1qrx15uRor/Hs4bm3GMYx5ofeaFbSqGiGWhjM6D7e1e/ZzKEUNN/QWfBNlblyG6rGE8m27k4XfEW6VUj6/QnMaBmB
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a realm ruleset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/rules/realm"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Create a realm ruleset
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"required":["lang","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"version":{"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":3,"type":"string"},"enabled":{"type":"boolean"},"rules":{"type":"string"},"lang":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]},"meta":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"string","enum":["READY","DEPLOYED","COMPILATION_ERROR","VALIDITY_PERIOD_ERROR","EXECUTION_ERROR","LOOP_ERROR","DISABLED","PAUSED","EXPIRED","REMOVED","EMPTY"]},"error":{"type":"string"},"realm":{"type":"string"},"accessPublicRead":{"type":"boolean"}},"title":"RealmRuleset"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"*/*":{"schema":{"type":"integer","format":"int64"}}}}}}
+>
+  
+</StatusCodes>
+
+

@@ -1,0 +1,70 @@
+---
+id: remove-notification
+title: "Delete a sent notification"
+description: "Delete a sent notification"
+sidebar_label: "Delete a sent notification"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVd9v1DgQ/leseQKUxtWBeMgTVekdlThuVbYS0mof3GSysXBsY0+6VyL/72ic3WWzFCRAJ91bMv7mmx+e+TwCqU2EagXvHOlW14q0s7AuwHkM+ee6gQoC9u4eZ5gCvAqqR8LABCNY1SNUcDFQ54L+vEdpCxV0qBoMUECsO+wVVCPQg2d4pKDtBlIqDgwfzv50YatCg83ZIjhyv83yxkX6JRJ7VPF1s6fwijooIOCnQQdsoKIw4COE2hJucqzWhV7RZHr5AlJas3v0zkaM7NFgqwZD02esg/a5fdX+QOzRUEDtLKHN2GfyGVRjSikVJ36v0SChUCKiJWHnN9cjda7J7IzKd0kdVCCPgXKcl5+4aRju9xc+BMP9JPKxkrLB3pXOo+VZISy1k8prOQZUpk8SCrhXQas7MxWczbPKoVeRMEDK3YlYD0HTQ47EtLqBarU+PnrP/Z7Y9oBD650aqPuDO2/cNkNqo9HSZcAGLWllspHcR7S3uQ7JHjKnFeWUivQ8fbUzcuI/q521WJPMbnkC2oCx+3WCWDs/VeCDa7Xh1PdffKfqeJkuXYMMnRl/PjZDofifl54nWtvW5VvSlI//8Whv8nSJv5VVGwzi5ur9UlwsruF0/pedjkJHQR2KxtVDj5Zyw0TrQrY+wvZmuVwcKEshFgZVRBERs8dqRrR+chh9V8f56D/NUXoXUHAR5W5rVZ23FnulTRaD1r2a+UEqwOgaedGrr5L61+KteF6eQ3Gyc9vtttzYoXRhI3duUaqNN2fPy/MSbdlRb5iTd3bqCx+cs8m7SL2yR2F+KBmz7h7WjPBfkt4obZkyJzfutGQFJwzViZiuC+hYl6sVjOOdingbTEps/jRg4MVff9WMLAONjvzdQNUqE/GbpA7CCE9udtr8VPCoP5bszqjsQ5YmM/AfFPARH74V/rROxf7l+LlMvhd+CvPYU3fIhd+h/yLQ7jWcxZlQF3WN/viM3xeW3MOD8frq7dXyClL6AuzD2zY=
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a sent notification"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/notification/{notificationId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete a sent notification
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"notificationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+

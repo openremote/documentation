@@ -1,0 +1,70 @@
+---
+id: get-datapoint-period
+title: "Retrieve a datapoint period of an asset attribute"
+description: "Retrieve a datapoint period of an asset attribute"
+sidebar_label: "Retrieve a datapoint period of an asset attribute"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVkuP2zYQ/ivEnFqAKy2aogedukjTZIE+jI0DFDB8mJXGFhOKZMnRultD/70YytLaXrdItj1UJ2k43zect/bAuE1QreAmJWL1AzIGbxzDWoMPFJGNd7cNVLAlnk8XFI1vQEPAiB0xReHYg8OOoIKbnlsfzZ8ZDBqMgwpawoYiaEh1Sx1CtQd+DKKeOBq3hWHQM8NvVz/6uMPYUHO1iJ79v2Z55xO/iAQlMLfNhP29p/j4uVDmaO57pl/k+7MJ1hoipeBdoiTnDW2wtzy+pjqakONaTQdq0gYNtXdMLutiCNbUOQflxySA/XOj/v4j1RKYECXdbEaTk9PPb6fPvLqk4W1DiZemo8TYhSMd45i2OfQbHzvkUfTdt4KyyF+MGjSwYStK58U5yKPPInZHHA09kELVTPoqZIDyG4VOZc/V7CNo6Ihbf+iAXPLcQgVlVixnlnJkSZJZig9TR/TRSsExh1SVZUOdL3wgF6nzTIXxJQZT7iOh7YYSNDxgNHhvxyxk8UkFQIeJKYpzazFU99HwY7YktKaBarU+PnovCR/ZJoWn3GPP7TcSVet3WaW2hhy/jtSQY4M2C9l/Ivch+1EKoszXSuV4lTJIe9beliP/Ve2do5rLDAMp5U2k1L6cINU+jB6E6DcmJ3t6kwzj8bR57ZtckyfCL7ctqqD/567n+jZu43OWDm3wayB3l6tL/YwOtxTV3Zv3S3WzuIXzbli2JimTFLekGl/3HTnOAVMbH7P0Atu75XIxUxZKLSxhIpWIMmJ1QrT+ai59X6fT0v86W+l8JCVOFIfphXWeXtShsbnRN/77E1yeFaYmGXjV0855u/hJvSquQZ/13G63K7auL3zclgdYKnEb7NWr4rogV7TcWeGUnh3jIgfXIgo+cYfuyMxLBshJ0OfuY/qDy2DROLGU77w/DJfVOH8FOu9jDdOAWWtoZZlVK9jv7zHRh2iHQcTjapFh0JgkU6SBaoM2kYZP9Hiyyx7Q9nILkHX1d9pn6+sJs34aVHng6GmlXrR95v+8okA67FIwRvOX/gH++dr/gaHDb8KJnVHrpq4pHJ89268SlnlZvH2zhGH4C+svQ5A=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve a datapoint period of an asset attribute"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/asset/datapoint/periods"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve a datapoint period of an asset attribute
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"assetId","in":"query","schema":{"type":"string"}},{"name":"attributeName","in":"query","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"assetId":{"type":"string"},"attributeName":{"type":"string"},"oldestTimestamp":{"type":"integer","format":"int64"},"latestTimestamp":{"type":"integer","format":"int64"}},"title":"DatapointPeriod"}}}}}}
+>
+  
+</StatusCodes>
+
+

@@ -1,0 +1,33 @@
+---
+id: geojsongeofencepredicate
+title: "GeoJSONGeofencePredicate"
+description: ""
+sidebar_label: "GeoJSONGeofencePredicate"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"predicateType":"string","geoJSON":"string","negated":true}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"GeoJSONGeofencePredicate"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","allOf":[{"required":["predicateType"],"type":"object","properties":{"predicateType":{"type":"string"}},"discriminator":{"propertyName":"predicateType"},"title":"ValuePredicate"},{"type":"object","properties":{"geoJSON":{"type":"string"},"negated":{"type":"boolean"}}}],"title":"GeoJSONGeofencePredicate"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

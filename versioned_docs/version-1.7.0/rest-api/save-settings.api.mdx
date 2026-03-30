@@ -1,0 +1,70 @@
+---
+id: save-settings
+title: "Update map settings"
+description: "Update map settings"
+sidebar_label: "Update map settings"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVktv20YQ/ivEnFqAFg37xlNdI01S1K1gO0BRQYcROSI32d3Z7C4tK4L+ezFLPShbcas4BaqLiNl5P76ZFURsApQTuEEH0xzYkceo2L6voYSAD3RHMSrbBMjBoUdDkbxIrMCiISjhqoste/UliUEOykIJLWFNHnIIVUsGoVxBXDphD9Er28B6ne80/Hn2C/sF+prqs7HnyK/W8o5DPEHJNAdPnzsK8Weul8JRsY1ko3yic1pVKbriY2ArtGeqePaRKjHpvKQwKgryyg/kvarpiFHJtegMx7RgXSt5RD0+0PeytYpsJD/gQ+9xKXmIZIbytjOzlJI5e4MRSphrxijphBl3tg6vVPKF2QxYlY3UHPIqGy8vJAtG2b9O4MbHE7hn/JR7xqwJrTw2xBXX9MHro9VpiH/dVPvlrAfufEXP+dY5aFymYfnHXG5FJHdRRS20t70D12znKnX67uUG3S2hNoOn3onv2Ev965G8dF/JV1Sa/k2o+8n9Pq2WRvG4q0bZUxoRH0/gxhi9mnUJ847ZrroQj3feYSHvUuEGlWz00rXHEpZDcF7F46G+qtNu0O0cELqn4NiGvpwX5+fyV1OovHJ9vFDTHDsdsy0n5N+OmFsv/kiE37mm5MY6f2Lzg6sxUmbQZWG/kwzFlmVXuS41McYWSigMOkF88g/bbZX6FtoYXSiLoibDI3ZkPRmONFJcoFPFystcrQvI4QG9wtmmpxO5T0MKHEowGARs12l7BKo6r+IyWRK1qoZyMh0+3aU+7bfChmGfC+xieyF9pnnRQ7lWZOO1p5psVKj7EvInsgmvoBCJIrkVit6VwsnqrFgXvf6ziq2lKhZJDKSsc0+h/XYFoWLXR+A8z1Wq2vZL6oXDS+Ca+7V3QDzdtrBKk/yvQ0/dKp1+u78i3jyicZoOr4DtxA6X/wF6DwBgz7ud+z1lO+6T1Xq6ljtnzqlBtqPkyN6mxs5u0GJDPrt9c3efXY3fw9Oxum9VyFTIYktZzVVnyMZUq2zOPlGPaHt3fz/eqRxl2VgTBsoCUZKYHCia/rCbOq7C4dT9mKwY9pRJEKMNkGCVgIQMKp1Qd84/HcglzFMVCfaU+1P07fi37HJ0DvmTcV8sFqPGdiP2TbERCwU2Tp9djs5HZEdtNFp0Clz0eZGHcyE5DtGgHZg5jkQHad2NdqTHWDiNyg6WZ49SEzD90d3KtVpOYLWaYZCDZL0W8ueOvCDKdA9GCVTy7UkrYFOrIA81lHPUgZ65sYNlkCk65tMnWn7lBn9A3Qk/yJX9XxjanOkHdnqu617b2b0o2nM82yx7iauqIhdf5J0O1sX4wz3IBdKf+yaBFXhcCFjgoo9icKAn2go02qbDRnh7lfL7Gz5hlpI=
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update map settings"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/map"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update map settings
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"override":{"type":"string"},"options":{"type":"object","additionalProperties":{"type":"object","properties":{"center":{"type":"array","items":{"type":"number","format":"float"}},"bounds":{"type":"array","items":{"type":"number","format":"float"}},"zoom":{"type":"integer","format":"int32"},"minZoom":{"type":"integer","format":"int32"},"maxZoom":{"type":"integer","format":"int32"},"boxZoom":{"type":"boolean"},"geocodeUrl":{"type":"string"},"geoJson":{"type":"object","properties":{"source":{"type":"object"},"layers":{"type":"array","items":{"type":"object"}}},"title":"GeoJsonConfig"}},"title":"MapRealmConfig"}},"sources":{"type":"object","additionalProperties":{"type":"object","properties":{"type":{"type":"string"},"url":{"type":"string"},"tiles":{"type":"array","items":{"type":"string"}},"bounds":{"type":"array","items":{"type":"number","format":"float"}},"scheme":{"type":"string"},"minzoom":{"type":"integer","format":"int32"},"maxzoom":{"type":"integer","format":"int32"},"attribution":{"type":"string"},"custom":{"type":"boolean"}},"title":"MapSourceConfig"}},"glyphs":{"type":"string"},"sprite":{"type":"string"},"layers":{"type":"array","items":{"type":"object"}}},"title":"MapConfig"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"object","title":"ObjectNode"}}}}}}
+>
+  
+</StatusCodes>
+
+

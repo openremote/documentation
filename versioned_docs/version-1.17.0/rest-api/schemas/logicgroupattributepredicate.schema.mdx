@@ -1,0 +1,33 @@
+---
+id: logicgroupattributepredicate
+title: "LogicGroupAttributePredicate"
+description: ""
+sidebar_label: "LogicGroupAttributePredicate"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"operator":"AND","items":[{"name":{"match":"EXACT","caseSensitive":true,"value":"string","negate":true},"negated":true,"path":[{}],"value":{"predicateType":"string"},"meta":[{"name":{"match":"EXACT","caseSensitive":true,"value":"string","negate":true},"negated":true,"path":[{}],"value":{"predicateType":"string"}}],"previousValue":{"predicateType":"string"},"timestampOlderThan":"string"}],"groups":[null]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"LogicGroupAttributePredicate"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"operator":{"type":"string","enum":["AND","OR"]},"items":{"type":"array","items":{"type":"object","properties":{"name":{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"},"negated":{"type":"boolean"},"path":{"type":"array","items":{"type":"object"}},"value":{"required":["predicateType"],"type":"object","properties":{"predicateType":{"type":"string"}},"discriminator":{"propertyName":"predicateType"},"title":"ValuePredicate"},"meta":{"type":"array","items":{"type":"object","properties":{"name":{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"},"negated":{"type":"boolean"},"path":{"type":"array","items":{"type":"object"}},"value":{"required":["predicateType"],"type":"object","properties":{"predicateType":{"type":"string"}},"discriminator":{"propertyName":"predicateType"},"title":"ValuePredicate"}},"title":"NameValuePredicate"}},"previousValue":{"required":["predicateType"],"type":"object","properties":{"predicateType":{"type":"string"}},"discriminator":{"propertyName":"predicateType"},"title":"ValuePredicate"},"timestampOlderThan":{"type":"string"}},"title":"AttributePredicate"}},"groups":{"type":"array","items":"circular(LogicGroupAttributePredicate)"}},"title":"LogicGroupAttributePredicate"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

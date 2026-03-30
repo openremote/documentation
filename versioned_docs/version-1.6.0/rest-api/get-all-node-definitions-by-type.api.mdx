@@ -1,0 +1,70 @@
+---
+id: get-all-node-definitions-by-type
+title: "Retrieve all node definitions by type"
+description: "Retrieve all node definitions by type"
+sidebar_label: "Retrieve all node definitions by type"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV1tv4joQ/ivRPO1KKam2b3k6QLMtOhRQCNquKlS5yUC8deys7ZSyKP99NQ5QaOnpTSvtw3mz7PHnmW+uXoFlcwPhFXwVagFTH1SJmlmuZC+DEOZo20IMVIanOOOS04HpLJNlieBDyTQr0KImhBVIViCE0K5srjT/5VDABy4hhBxZhhp8MGmOBYNwBZZAQjBWczmHuva3CJdHX5VeMJ1hdjTSyqoPo5wrY98FYhtL3cWS2Rx80Piz4hozCK2u8HkYH1BWBXHbG4wmCfgwiofdaDwexuDDcJI0m8l5NIBpXU8J2ZRKGjQEluGMVcI2S5NqXjo+w82Bt5EGH1IlLUony8pS8NRxH/wwdGH1VEOmNVuSWRYLs7Ovbn5gSkSVmuLA8kYVnh0gyV9vfMxseoorze1yB4lLi3PnopnSBbPN1skXerTxywFtSmV4w9BL5tzviMiquNl/aSYUswS4fI0Y0cCtIBnKktFGidoHw3/hX6MMUaolE+b9UfA88zy9Rf0ywEvxkkSXFBkXk37S6/cGEfgwmFx0Ioqb03g4Oh1+G9ByOOn0o+udne551P23M7wEH9rjcZRct5Mk7nUmCUF0h30XeaftJHIBp1wi/Qki7pioDrh81y/DJovr3b1Rw99/APhwo5HdJi8QOIi+Xa+JG4/a3SimurIfE711HDiluCwr+wEinqkLz/LzUgBsvd0srttx3P5OxiRxb3AGPnSGw37UJpcnce/szMlu/NsefHfulWTlYcW4zPD+VXXmEWtjld5i40hV2f9JeytpGTelYMtuzjRL7V6teOi5e5cpQ1yS7Pe+GK3meIceE8Ijpb3sYS7xbpbeul8XaHO1HmDcoGJzCCGYCbUIViRTU/9HfbeZXSotaDSwtjRhEGRYqJYqUWoslMUWVwErebDSyERRB0CZqjm7EY1L3fZez4aCGbKzdn3dYFo1Le5qRQOWpBi4mu4ejalFN2gbgYdAYpXNvxDhQi2cSCo4StvVmKG0fFPV1S3KibMjoBuBU8sEjSpBSYNUqkTQ4B+lSkpMbeCuubFmptHk7wcwqSobC0qtZty5crMiT7LdubBLPqZxZXfz7W+TKPh/uel1U2tnynlp2whQxi66vAsm2Ry1F0fjxGuPevA46pOcG48bz+boZSqtCpTWEebNlHa7B9DOk2S0hWx53kggM+gZRHfjag9o+mkb+io1+6H/2b1SKI0eGdFaz5ssdfMmFowLVwNm6p+9e1Q8BE+RRtTw4XdwNup7J61j8B/l3GKxaM1l1VJ6HqyvmYDNS3F00jpuoWzlthCuSaI2DS90cLye/WzB5M4zry0Ue0RvM87ivQ1KwbibnZyeq3URuXJZCD6ETnbqQ05/i/AKVqsbZnCiRV3T9s8KNWX89KFYuPzPuKF1BuGMCYNPVNjO8vApXv80PnvgH1Zt04LkErbTA4APt7jcfF5qqu/rP8/b3n/u0Qb80CdtqwH9oP7EQ+t/3N47jVQ7TbHcPXvyEaJyu+0LZ1ECdf0b0rMMCQ==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve all node definitions by type"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/flow/{type}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve all node definitions by type
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"type","in":"path","required":true,"schema":{"type":"string","enum":["INPUT","PROCESSOR","OUTPUT","THEN"]}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"type":{"type":"string","enum":["INPUT","PROCESSOR","OUTPUT","THEN"]},"priority":{"type":"integer","format":"int32"},"name":{"type":"string"},"position":{"type":"object","properties":{"x":{"type":"number","format":"float"},"y":{"type":"number","format":"float"}},"title":"NodePosition"},"size":{"type":"object","properties":{"x":{"type":"number","format":"float"},"y":{"type":"number","format":"float"}},"title":"NodePosition"},"internals":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"picker":{"type":"object","properties":{"type":{"type":"string","enum":["TEXT","MULTILINE","NUMBER","DROPDOWN","DOUBLE_DROPDOWN","CHECKBOX","ASSET_ATTRIBUTE","COLOR","DATE"]},"options":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"value":{"type":"object"}},"title":"Option"}}},"title":"Picker"},"value":{"type":"object"},"breakType":{"type":"string","enum":["NEW_LINE","SPACER"]}},"title":"NodeInternal"}},"inputs":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string","enum":["NUMBER","NUMBER_ARRAY","STRING","BOOLEAN","TRIGGER","COLOR","ANY"]},"nodeId":{"type":"string"},"index":{"type":"integer","format":"int32"}},"title":"NodeSocket"}},"outputs":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string","enum":["NUMBER","NUMBER_ARRAY","STRING","BOOLEAN","TRIGGER","COLOR","ANY"]},"nodeId":{"type":"string"},"index":{"type":"integer","format":"int32"}},"title":"NodeSocket"}},"displayCharacter":{"type":"string"}},"title":"Node"}}}}}}}
+>
+  
+</StatusCodes>
+
+

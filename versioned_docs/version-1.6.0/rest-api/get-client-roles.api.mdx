@@ -1,0 +1,70 @@
+---
+id: get-client-roles
+title: "Retrieve client roles for a realm and client"
+description: "Retrieve client roles for a realm and client"
+sidebar_label: "Retrieve client roles for a realm and client"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVktvGzcQ/ivEnBKA3jWa255qGGlioEUFRQYKCDrQ3JGWCZdkhlyrqrD/vRjuw1KsArYLFL3tct7Db77hEZLaRajWcB+RYCPBBySVjHd3NVSww3RrDbq09BYjSAiKVIsJiY2O4FSLUMFNlxpP5q9sCBKMgwoaVDUSSIi6wVZBdYR0CKweExm3g76Xs4c/rn7xtFdUY321IJ/8v/by2cf0JieEyraTZVCpAQmE3ztDWEOVqMOX+dG5cXf1m11tWDkG7yJGlte4VZ1Nw2fUZEJudzUJxKQNErR3CV3WVSFYo/PVlF8jGxyfB1VE6sCZJmzjybl/+Iqa+xiIkZHMkIqpLyQsx8ovCM7yvSDXvg0+mnRq/eC9ReVYrGI0O4f1ZelszCC9q+MLypp73EtIJlk+Y2s+yYfnDV5iIoOPKIY7FcTTILaehBIZLkK5ehSChBZT48fxyTOTGqig7CJSecz6fXmc4NGXNM5WRHqcBqsjy7hNKcSqLGtsfeEDOsLWJyyML1Uwsy+Q8KjIqAc73M6A4FPEQKtiQuLyNhxId2TSIUdit3yd682p6AsDZPA2KTxhQnWp+QkkbK3fZ5WhllvCGl0yyg6t9t/Q3ec6SrYoc1qxHFIpA0+59rYc/F9p7xzqVGazPCdbwti83UHUPgwVBPJbk+94+uIrVqekdevrjL2zw9fHZlWQ//PSM8CN2/p8SyP6fw/olhld4jfl1A5JLD9+WYmbxR38OA6rxkRhokgNitrrrkWXcsPySPDpBW+fV6vF7LIQYmFRRRQRMVuszxxt3s3Q9zqeQ/99jtJ6QsFFFCPbKZ3ZDltluG0s+vnMjqnCGo1MkNXT6vq0+FV8KK5B/jBz+/2+2Lmu8LQrR7NYql2wVx+K6wJd0aTWsk+e2aEvLLjmo+BjapU7CfNKBrnMlwn/TGWwymTay+keR3ZZA7MLSKim9VWd7J+BYTYSGl6K1RqOxwcV8Z5s3/Px9w6J2WDzRCSZG2oT+buGaqtsxGd5zVsG3i3HtfZeMP4v5TtRsjtkvrId/4GEb3iYty6vz/8w6NyiftPL6ZXwusL/KfAQ4NKzZs7idcW+PND48jmLM2jdaI3hVPbsbcA7YF5fnz6uoO//BoJtgfA=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve client roles for a realm and client"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/{realm}/{clientId}/roles"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve client roles for a realm and client
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}},{"name":"clientId","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"description":{"type":"string"},"composite":{"type":"boolean"},"assigned":{"type":"boolean"},"compositeRoleIds":{"type":"array","items":{"type":"string"}}},"title":"Role"}}}}}}}
+>
+  
+</StatusCodes>
+
+

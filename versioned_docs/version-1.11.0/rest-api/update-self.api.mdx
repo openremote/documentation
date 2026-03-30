@@ -1,0 +1,70 @@
+---
+id: update-self
+title: "Update the currently authenticated user"
+description: "Update the currently authenticated user"
+sidebar_label: "Update the currently authenticated user"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV+Fy20QQfhWxBEiKLDkOmYKgtCFTaGYC9STODIPlDGdpbV97ulPvVnGNa16H9+DJmD3JkZ2YDoVhpj/qP5Z2977Vrr779rQEElMHyRCuHFoYhWBKtIKk0Wc5JFCVuSC8RDWBEEphRYGElhcsQYsCIYGTimbGyt/8IghBakhghiJHCyG4bIaFgGQJtCg53JGVegqrVXiL8HPne2PnwuaYd/rWkPnPKM+Mo3cAGYVg8VWFjr4z+YIjMqMJNfGlKEslM19d/MIZzbZ7UGb8AjNOWVpuIEl07LUoVLEjY1h7uMU7fHK3eSKto598sTu8SrzFiYWQardHi7HCzYRjYxQKzc7MoiDMn+v7S0OYGFsIggSYIR2SBfISh5lF2plKEFk5rqhuzd3GiTyX3GOh+lstbOKEtWLBr5SwcLveoc9tb2SGJ1lmKk27S6ocWt20qRCvz1FPaQZJ7/g4hELq9f0Rs50ILTPoev/xo2Galsszdy5I6tWb+ubUFIXRq9Hnewcccf3Nt5+m8FmaujS9SdPZ3icfffz4zz/Cr5MHv8dpmqZvrh+l6TBNR8vV/sGvjHGqySoPED3Yg/A+u4EkKTb57bnyZVp0pdGubk+v2+W/HF1mZem3YAI5TkSlKFhHQviB0B8I/Z4SehXeYe+VnzkBzTDIKmtRk1oEoqIZamLeYh5w0RBCgTQzPKbKylNVcKUQszeuJxfUTVyPrMoqnghEpUviOMfCRKZEbbEwhJE0sShlvPRUXsUQwo2wkum0zf1me0EChXBUlzHyTKmspIXPxLBM++Fo03XJ26xGWwe0xOESe8xDZeY+JFMSNZ1azLlyoWqamJeor3wdMa+I/WO5uH6UuOT5mRkV1/idzGiNGcV+GfA2nVh0s38P4DJT1hWU1kykf5frK36XYvM4cGpyT8wt47vn5lAm03tdumcy6+lFe5R4+loUpcIN9rRycyuYrUlu3W3IY2tsVbG1NWK4YVhrINkKt1QPet3eF53uw07vq8HhcXJ8mPS+jLoPD3+BVulanC2B26FHNXyrQJuSryfG07XZ7s9L1Bd+mwU/Ci2maIOLp5eD4KR/BncFYDCTLpDOK0BusqpATZ45wcRYb92B9mww6N9CRkHQVygcBg5rJRluAY32bzXAZG5bAw58lsJYDLiIqBmeIvMCvO41u55srfMzS2bI8zZpT8c/9M+Do6gL4R3xmc/n0VRXkbHTuFnmYjEtVeco6kaooxkVijFZvOq+sKPLptI4KoTeSPPPNXOr1bfiQ/ia4lIJWc8U62drradDaFY2ijoKYcbH62QIy+VYOLyyarVi86sKLavfqBVOL4Dh+gzOwphL15BzIpTDew90e1CBdnxsP91LXPzNR8ONUBXHA38W/B+Jmu+KrTx11GmN1hkwUBtx76zVrjjJMizprbGjjRHXvxpACOPm+6TwwgpWzFlJxLyuwvji6mHFtiUooaeVmHJsDcm/vwCaMs8J
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update the currently authenticated user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/user/update"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update the currently authenticated user
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"realm":{"type":"string"},"realmId":{"type":"string"},"id":{"type":"string"},"firstName":{"type":"string"},"lastName":{"type":"string"},"email":{"type":"string"},"enabled":{"type":"boolean"},"createdOn":{"type":"string","format":"date-time"},"secret":{"type":"string"},"attributes":{"type":"object","additionalProperties":{"type":"array","items":{"type":"string"}}},"serviceAccount":{"type":"boolean"},"username":{"maxLength":255,"minLength":3,"pattern":"^(?=[\\p{IsLatin}|\\p{IsCommon}]+$)(?=[^<>&\"'\\s\\v\\h$%!#?§,;:*~/\\\\|^=\\[\\]{}()`\\p{Cntrl}]+$).*$","type":"string"}},"title":"User"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"realm":{"type":"string"},"realmId":{"type":"string"},"id":{"type":"string"},"firstName":{"type":"string"},"lastName":{"type":"string"},"email":{"type":"string"},"enabled":{"type":"boolean"},"createdOn":{"type":"string","format":"date-time"},"secret":{"type":"string"},"attributes":{"type":"object","additionalProperties":{"type":"array","items":{"type":"string"}}},"serviceAccount":{"type":"boolean"},"username":{"maxLength":255,"minLength":3,"pattern":"^(?=[\\p{IsLatin}|\\p{IsCommon}]+$)(?=[^<>&\"'\\s\\v\\h$%!#?§,;:*~/\\\\|^=\\[\\]{}()`\\p{Cntrl}]+$).*$","type":"string"}},"title":"User"}}}}}}
+>
+  
+</StatusCodes>
+
+

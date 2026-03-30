@@ -1,0 +1,33 @@
+---
+id: booleanpredicate
+title: "BooleanPredicate"
+description: ""
+sidebar_label: "BooleanPredicate"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"predicateType":"string","value":true}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"BooleanPredicate"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","allOf":[{"required":["predicateType"],"type":"object","properties":{"predicateType":{"type":"string"}},"discriminator":{"propertyName":"predicateType"},"title":"ValuePredicate"},{"type":"object","properties":{"value":{"type":"boolean"}}}],"title":"BooleanPredicate"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

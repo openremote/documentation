@@ -1,0 +1,70 @@
+---
+id: notification-delivered
+title: "Update a notification as delivered"
+description: "Update a notification as delivered"
+sidebar_label: "Update a notification as delivered"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVd2P0zgQ/1eieQKUjSs48ZAnVnB3rAR31dKVkKo+DMmksXBsY0+2VyL/78hO201KkfgQ0j01Hc/85vs3AzBuPZRr+MewbGSFLI2GTQ7Gkkt/bmooQU9eX5GS9+SohhwsOuyIyUWMATR2BCVc99waJz+PYDlIDSW0hDU5yMFXLXUI5QC8t1Hds5N6CyHkJ4T3V38Zt0NXU321dIbNL6O8Np5/CoTRbYlv6qPxp57c/jttp2V7QLDILeTg6FMvYxlLdj1dAJSaaZvibIzrkEfR8z8ghE0099ZoTz5aPF0s4k9NvnLSprKXUFODveLsqAk5VEYzaY66T8QTKIcQQsjP7O5sjUwZZtPwM/RZPel8R9yaOBq25zQI3EIJYmoihnn+QUwBPLn749z0TsW2MFtfClFTZwpjSTvqDFMhjUArxeAIVRcE5HCPTuIHNeaexGP2KV8ooUPP5CCkQnmqeid5nzxFWFlDud5Mn97F0o9oR4VTFwz23D6NTVBml1QqJUnzS0c1aZaokpDNR9J3KQ8RLUQKy4sxFGHjEFdGiRH/qjJaU8UimaVhaBz59ucBfGXsmIF1ppEqhn78ii3G6U6+NDVF1Znwx31HVcj/56mnAZe6MalLktPzv5b0bZqu7C1q3JLLbv98t8qulzdwvg6rVvpM+oxbympT9R1pHleiMS5JL6C9Xq2WJ8giy5aK0FPmiZLFega0eXQafVP5+eg/Tl464yiLSRSHJcYqLTF1KFXihca8mNlByEHJiuLelw/M/PfyTfasWEB+tnO73a7Y6r4wbisOZl7g1qqrZ8WiIF203KmIGXd2rEt8WESRNZ471BM338Ugsyqf1o3pPxZWodQROgU5HNhlPeNTyKH8il8f8Dc5tJHyyzUMwwf0dOdUCFE8Engkg1r6yCI1lA0qTzl8pP2c8e9R9TEqiGxxZJ3LtmfpnJgWHt0eiP5xFpflUpoHIer91OcxnrMswybkxxP2Y5F8y/3o5tLNfcg//z2ODmd55mfUuq4qstO3eLBiG06XZ3m3ghC+AHKyCVo=
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a notification as delivered"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/notification/{notificationId}/delivered"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update a notification as delivered
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"targetId","in":"query","schema":{"type":"string"}},{"name":"notificationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+
