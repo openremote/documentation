@@ -6511,6 +6511,8 @@ components:
           type: object
           additionalProperties:
             $ref: "#/components/schemas/MetaMap"
+        accessPublicRead:
+          type: boolean
     GatewayAttributeFilter:
       type: object
       properties:
