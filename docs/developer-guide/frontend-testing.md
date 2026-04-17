@@ -107,7 +107,13 @@ npx playwright install --with-deps chromium
 
 See the [Playwright Intro](https://playwright.dev/docs/intro) for more.
 
-5. (Only for apps) The manager app or any app that you would want to test must first be running. The recommended way is to build the manager docker image first using `docker compose -p openremote -f profile/dev-ui.yml up -d --build`. Having the frontend be served by the manager is much faster than serving the frontend using Rspack.
+5. (Only for apps) The manager app or any app that you would want to test must first be running. When you start app tests they'll automatically start the manager, so ensure the required containers are up using:
+
+```sh
+docker compose -p openremote -f profile/dev-testing.yml up -d
+```
+
+> Info: Having the frontend be served by the manager is much faster than serving the frontend using Rspack.
 
 ### Writing your first test
 
