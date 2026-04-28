@@ -27,16 +27,17 @@ graph LR
 
         subgraph Docker [Docker Containers]
             direction TB
-            Manager["<b>Manager</b><br/>http://localhost:8404/metrics<br/>- Micrometer with Prometheus Registry<br/>- Runs on own embedded web server port 8404<br/>- OR_METRICS_ENABLED: true/false"]:::greenStyle
             HAProxy["<b>HA Proxy</b><br/>http://localhost:8404/metrics<br/>- Uses prometheus-exporter<br/>- Runs on own embedded web server port 8404<br/>- Configured via haproxy.cfg"]:::greenStyle
+            Manager["<b>Manager</b><br/>http://localhost:8405/metrics<br/>- Micrometer with Prometheus Registry<br/>- Runs on own embedded web server port 8404<br/>- OR_METRICS_ENABLED: true/false"]:::greenStyle
             Keycloak["<b>Keycloak</b><br/>http://localhost:8080/metrics<br/>- Built in prometheus metrics support<br/>- KC_METRICS_ENABLED: true/false<br/>- Do not publicly expose"]:::orangeStyle
-            PostgreSQL["<b>PostgreSQL</b><br/>- No metrics at present could use postgresql-exporter"]:::redStyle
+            PostgreSQL["<b>PostgreSQL</b><br/>http://localhost:8406/metrics<br/>- Uses separate query-exporter docker container and config"]:::redStyle
         end
     end
 
     %% Connections
     PromScrape --> Manager
     PromScrape --> HAProxy
+    PromScape --> PostgreSQL
     CWAgent --> CW
     CW --> DB
 
@@ -426,6 +427,260 @@ Refer to the website of each container app for details of metrics exposed and th
       <td>gauge</td>
       <td>(none)</td>
       <td>Maximum time spent processing rules</td>
+    </tr>
+  </tbody>
+</table>
+
+## PostgreSQL (via Query Exporter)
+
+
+
+The following metrics are exposed by the Query Exporter, which connects directly to the OpenRemote PostgreSQL database to monitor TimescaleDB performance, connection limits, and general database health. The
+following is based on the default configuration found in `/deployment/query-exporter/config.yaml`.
+
+<table>
+  <thead>
+    <tr>
+      <th width="25%">Metric name</th>
+      <th width="10%">Type</th>
+      <th width="25%">Labels</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>pg_collation_mismatch_count</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Number of text indexes with collation version mismatches requiring a REINDEX</td>
+    </tr>
+    <tr>
+      <td>pg_cache_hit_percentage</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>What percentage of data is being served instantly from RAM versus being slowly read from disk. You want this as high as possible</td>
+    </tr>
+    <tr>
+      <td>pg_connections_limit</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Count of connections max limit</td>
+    </tr>
+    <tr>
+      <td>pg_connections_used</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Count of connections in use</td>
+    </tr>
+    <tr>
+      <td>pg_connections_free</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Count of connections available</td>
+    </tr>
+    <tr>
+      <td>pg_connections_stuck</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Count of connections with state of idle in transaction</td>
+    </tr>
+    <tr>
+      <td>pg_hot_update_percent</td>
+      <td>gauge</td>
+      <td>table_name</td>
+      <td>Table percentage of updates that are HOT updates indicates good fillfactor</td>
+    </tr>
+    <tr>
+      <td>pg_dead_tuple_percent</td>
+      <td>gauge</td>
+      <td>table_name</td>
+      <td>Table ratio of dead tuples to live ones a ratio &gt; 10-20% indicates not aggressive enough autovacuum</td>
+    </tr>
+    <tr>
+      <td>pg_last_autovacuum_hours</td>
+      <td>gauge</td>
+      <td>table_name</td>
+      <td>Table hours since last auto vacuum run successfully</td>
+    </tr>
+    <tr>
+      <td>pg_last_autoanalyze_hours</td>
+      <td>gauge</td>
+      <td>table_name</td>
+      <td>Table hours since last auto analyze run successfully</td>
+    </tr>
+    <tr>
+      <td>pg_db_disk_size</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>DB size in MB</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_raw_data_size</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint table raw uncompressed size in MB</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_indexes_size</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint table indexes size in MB</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_toast_size</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint TOAST table size in MB</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_disk_size</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint table size in MB</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_chunk_count</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint table hypertable chunk count</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_uncompressed_chunk_count</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint table hypertable uncompressed chunk count</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_chunks_needing_compression</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint table hypertable chunks needing compression count</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_chunk_start_weeks</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint table oldest hypertable chunk in weeks</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_chunk_end_weeks</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint table newest hypertable chunk in weeks</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_chunks_not_analyzed</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint table hypertable chunks not yet analyzed</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_largest_uncompressed_chunk</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint table largest uncompressed hypertable chunk in MB</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_uncompressed_cache_hit_ratio</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint table cache hit ratio for uncompressed chunks (Aim for 99%+)</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_uncompressed_blks_read_total</td>
+      <td>counter</td>
+      <td>(none)</td>
+      <td>Asset datapoint total physical disk blocks read for uncompressed chunks (Monitor rate with spikes indicate RAM spillover)</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_compression_ratio</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint table compression ratio</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_query</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Dummy metric to get typical query time metric</td>
+    </tr>
+    <tr>
+      <td>pg_background_errors</td>
+      <td>counter</td>
+      <td>(none)</td>
+      <td>Count of errors in background worker processes</td>
+    </tr>
+    <tr>
+      <td>pg_timescale_job_total_runs</td>
+      <td>counter</td>
+      <td>job_id | proc_name</td>
+      <td>TimescaleDB job total runs by job</td>
+    </tr>
+    <tr>
+      <td>pg_timescale_job_total_failures</td>
+      <td>counter</td>
+      <td>job_id | proc_name</td>
+      <td>TimescaleDB job total failures by job</td>
+    </tr>
+    <tr>
+      <td>pg_timescale_job_last_run_duration_seconds</td>
+      <td>gauge</td>
+      <td>job_id | proc_name</td>
+      <td>TimescaleDB job last run duration in seconds</td>
+    </tr>
+    <tr>
+      <td>pg_timescale_job_next_start_seconds</td>
+      <td>gauge</td>
+      <td>job_id | proc_name</td>
+      <td>Seconds until next scheduled run for each TimescaleDB job</td>
+    </tr>
+    <tr>
+      <td>pg_timescale_job_last_run_status</td>
+      <td>gauge</td>
+      <td>job_id | proc_name | last_run_status</td>
+      <td>TimescaleDB job last run status marker</td>
+    </tr>
+    <tr>
+      <td>pg_wal_total</td>
+      <td>counter</td>
+      <td>(none)</td>
+      <td>Total WAL written since statistics reset in MB</td>
+    </tr>
+    <tr>
+      <td>pg_bgwriter_checkpoints_timed_total</td>
+      <td>counter</td>
+      <td>(none)</td>
+      <td>Scheduled checkpoints executed</td>
+    </tr>
+    <tr>
+      <td>pg_bgwriter_checkpoints_req_total</td>
+      <td>counter</td>
+      <td>(none)</td>
+      <td>Requested checkpoints executed</td>
+    </tr>
+    <tr>
+      <td>pg_bgwriter_checkpoint_write_time_seconds_total</td>
+      <td>counter</td>
+      <td>(none)</td>
+      <td>Total time spent writing checkpoints in seconds</td>
+    </tr>
+    <tr>
+      <td>pg_bgwriter_checkpoint_sync_time_seconds_total</td>
+      <td>counter</td>
+      <td>(none)</td>
+      <td>Total time spent syncing checkpoints in seconds</td>
+    </tr>
+    <tr>
+      <td>pg_table_bloat_count</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Number of tables where dead tuples &gt; 30% of live rows</td>
+    </tr>
+    <tr>
+      <td>pg_index_bloat_count</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Number of indexes that are larger than 150% of table size</td>
     </tr>
   </tbody>
 </table>
