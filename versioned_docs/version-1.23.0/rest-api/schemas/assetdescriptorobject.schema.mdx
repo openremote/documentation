@@ -1,0 +1,33 @@
+---
+id: assetdescriptorobject
+title: "AssetDescriptorObject"
+description: ""
+sidebar_label: "AssetDescriptorObject"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"name":"string","icon":"string","colour":"string","dynamic":true,"descriptorType":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AssetDescriptorObject"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"required":["descriptorType"],"type":"object","properties":{"name":{"pattern":"^\\w+$","type":"string"},"icon":{"type":"string"},"colour":{"type":"string"},"dynamic":{"type":"boolean"},"descriptorType":{"type":"string"}},"discriminator":{"propertyName":"descriptorType"},"title":"AssetDescriptorObject"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
