@@ -557,7 +557,11 @@ paths:
         "200":
           description: default response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
   /apps:
     get:
       tags:
@@ -609,7 +613,9 @@ paths:
         "200":
           description: default response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: object
   /model/assetDescriptors:
     get:
       tags:
