@@ -433,8 +433,6 @@ Refer to the website of each container app for details of metrics exposed and th
 
 ## PostgreSQL (via Query Exporter)
 
-
-
 The following metrics are exposed by the Query Exporter, which connects directly to the OpenRemote PostgreSQL database to monitor TimescaleDB performance, connection limits, and general database health. The
 following is based on the default configuration found in `/deployment/query-exporter/config.yaml`.
 

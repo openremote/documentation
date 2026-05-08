@@ -10,76 +10,16 @@ Tail log output of all containers with `docker-compose -p openremote -f profile/
 
 Use `docker stats` to show CPU, memory, network read/writes, and total disk read/writes for running containers.
 
-## Diagnosing database problems
+## Database
 
-Access the database:
-
+### Access the database on the docker host
 ```shell
 docker exec -it openremote_postgresql_1 psql -U postgres
 ```
 
-Get statistics for all tables and indices (note that these are collected statistics, not live data):
+### Useful links
 
-```sql
-SELECT
-    t.tablename,
-    indexname,
-    c.reltuples AS approximate_row_count,
-    pg_size_pretty(pg_relation_size(quote_ident(t.tablename)::text)) AS table_size,
-    pg_size_pretty(pg_relation_size(quote_ident(indexrelname)::text)) AS index_size,
-    CASE WHEN indisunique THEN 'Y'
-       ELSE 'N'
-    END AS UNIQUE,
-    idx_scan AS number_of_scans,
-    idx_tup_read AS tuples_read,
-    idx_tup_fetch AS tuples_fetched
-FROM pg_tables t
-LEFT OUTER JOIN pg_class c ON t.tablename=c.relname
-LEFT OUTER JOIN
-    ( SELECT c.relname AS ctablename, ipg.relname AS indexname, x.indnatts AS number_of_columns, idx_scan, idx_tup_read, idx_tup_fetch, indexrelname, indisunique FROM pg_index x
-           JOIN pg_class c ON c.oid = x.indrelid
-           JOIN pg_class ipg ON ipg.oid = x.indexrelid
-           JOIN pg_stat_all_indexes psai ON x.indexrelid = psai.indexrelid )
-    AS foo
-    ON t.tablename = foo.ctablename
-WHERE t.schemaname='openremote'
-ORDER BY 1,2;
-```
 
-Find transactions/queries waiting for more than 30 seconds:
-
-```sql
-SELECT pid, client_addr, now() - query_start AS duration, query, state
-    FROM pg_stat_activity
-    WHERE now() - query_start > interval '30 seconds';
-```
-
-Kill them with:
-
-```sql
-select pg_cancel_backend(pid);
-```
-
-Pay attention to shared memory setting of postgres container; Docker sets this very low by default and this will cause problems for any reasonable size DB, see here for info:
-
-* https://www.instaclustr.com/blog/postgresql-docker-and-shared-memory/#:~:text=Docker%20and%20SHM%2DSize&text=This%20means%20that%20instead%20of,default%2C%20this%20limit%20is%2064MB.
-
-More useful queries and maintenance operations can be found here:
-
-* https://wiki.postgresql.org/wiki/Index_Maintenance
-* https://github.com/ioguix/pgsql-bloat-estimation
-
-You can log all queries taking longer than 2 seconds:
-
-```sql
-alter system set log_min_duration_statement=2000;
-select pg_reload_conf();
-show log_min_duration_statement;
-```
-
-To disable, set the duration to `-1`.
-
-Use `explain analyze <SQL query>` to obtain the query plan and display it in https://explain.depesz.com/.
 
 ## Diagnosing JVM memory problems
 

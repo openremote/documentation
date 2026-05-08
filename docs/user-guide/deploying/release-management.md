@@ -38,7 +38,7 @@ When updating a custom project to a new OpenRemote release, you can follow the s
 
 1. Read the [release notes](https://github.com/openremote/openremote/releases) to get familiar with the changes
 2. Update the code to use the new version:
-   1. Docker images: Update the `openremote/manager` image tag in the `docker-compose.yml` file (or environment variable)
+   1. Docker images: Update the `openremote/manager` image tag in the `docker-compose.yml` file (or environment variable) [NOTE: The OpenRemote CI/CD will auto set `MANAGER_VERSION` env variable based on what is found for `openremoteVersion` in `gradle.properties` so this may not be needed]
    2. Java code: Update the `openremoteVersion` in the `gradle.properties` file
    3. TypeScript code: Update the openremote package dependencies, e.g. using `yarn up -E "@openremote/*@^1.2.0"`
 3. Check that the code in your custom project still builds correctly using: `./gradlew clean installDist`

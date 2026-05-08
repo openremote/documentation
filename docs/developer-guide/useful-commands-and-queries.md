@@ -38,28 +38,11 @@ docker cp ./<FILE_NAME>.mbtiles <PROJECT_NAME>_manager_1:/deployment/map/mapdata
 docker cp <PROJECT_NAME>_postgresql_1:/deployment/datapoints.csv ./
 ```
 
-### Backup/Restore OpenRemote DB
-
-* Create backup: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak`
-* Optional: Exclude datapoint records from the backup using the following command: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak --exclude-table-data='_timescaledb_internal._hyper_*'`
-* Copy to the Docker host: `docker cp or-postgresql-1:/tmp/db.bak ~/`
-* Remove the backup from within the container: `docker exec or-postgresql-1 rm /tmp/db.bak`
-* SCP the backup off the source server onto the destination server: e.g. `scp <HOST>:~/db.bak .`
-* On the destination server stop the manager and Keycloak containers and any project specific containers that are using the DB: `docker stop or-manager-1 or-keycloak-1`
-* Copy backup into the postgresql container: `docker cp db.bak or-postgresql-1:/tmp/`
-* Drop existing DB: `docker exec or-postgresql-1 dropdb openremote`
-* Create new DB: `docker exec or-postgresql-1 createdb openremote`
-* Add POSTGIS extension: `docker exec or-postgresql-1 psql -U postgres -d openremote -c "CREATE EXTENSION IF NOT EXISTS postgis;"`
-* Add Timescale DB extension: `docker exec or-postgresql-1 psql -U postgres -d openremote -c "CREATE EXTENSION IF NOT EXISTS timescaledb;"`
-* Run timescale DB pre restore command: `docker exec or-postgresql-1 psql -U postgres -d openremote -c "SELECT timescaledb_pre_restore();"`
-* Restore the backup: `docker exec or-postgresql-1 pg_restore -Fc --verbose -U postgres -d openremote /tmp/db.bak`
-* Run timescale DB restore command: `docker exec or-postgresql-1 psql -U postgres -d openremote -c "SELECT timescaledb_post_restore();"`
-* Start the stopped containers: `docker start or-keycloak-1 or-manager-1`
-
-For more details related to TimescaleDB backup/restore see [here](https://docs.timescale.com/self-hosted/latest/backup-and-restore/pg-dump-and-restore/).
-
-### Clear Syslogs older than 1 day
-`docker exec or-postgresql-1 psql -U postgres -d openremote -c "delete from syslog_event where timestamp < now() - INTERVAL '1day';"`
+### Cleanup unused data volumes
+To remove data volumes no longer referenced by a container (deleting ALL persistent data!), use:
+```shell
+docker volume prune
+```
 
 ### Restart exited containers (without using `docker-compose up`)
 If the containers are exited then they can be restarted using the `docker` command, the startup order is important:
@@ -70,106 +53,18 @@ If the containers are exited then they can be restarted using the `docker` comma
 * docker start `<PROJECT_NAME>_manager_1`
 * docker start `<PROJECT_NAME>_proxy_1`
 
-:::note
 
-**On Docker v18.02 there is a bug which means you might see the message `Error response from daemon: container "<CONTAINER_ID>": already exists` to resolve this simply enter the following command (you can ignore any error messages) and try starting again**
-
-:::
-
-`docker-containerd-ctr --address /run/docker/containerd/docker-containerd.sock --namespace moby c rm $(docker ps -aq --no-trunc)`
-
-### Running demo deployment
-
-```shell
-eval $(docker-machine env or-host1)
-
-OR_ADMIN_PASSWORD=******** OR_SETUP_RUN_ON_RESTART=true OR_HOSTNAME=demo.openremote.io \
-OR_EMAIL_ADMIN=support@openremote.io docker-compose -p demo up --build -d
-```
-
-To find out the password:
-
-`docker exec demo_manager_1 env | awk -F= '/ADMIN_PASSWORD/ {print $2}'`
-
-
-### Enabling bash auto-completion
-
-You might want to install bash auto-completion for Docker commands. On OS X, install:
-
-```shell
-brew install bash-completion
-```
-
-Then add this to your `$HOME/.profile`:
-
-```bash
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-. $(brew --prefix)/etc/bash_completion
-fi
-```
-
-And link the completion-scripts from your local Docker install:
-
-```shell
-find /Applications/Docker.app \
--type f -name "*.bash-completion" \
--exec ln -s "{}" "$(brew --prefix)/etc/bash_completion.d/" \;
-```
-Start a new shell or source your profile to enable auto-completion.
-
-### Cleaning up images, containers, and volumes
-
-Working with Docker might leave exited containers and untagged images. If you build a new image with the same tag as an existing image, the old image will not be deleted but simply untagged. If you stop a container, it will not be automatically removed. The following bash function can be used to clean up untagged images and stopped containers, add it to your `$HOME/.profile`:
-
-```bash
-function dcleanup(){
-    docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
-    docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
-}
-```
-
-To remove data volumes no longer referenced by a container (deleting ALL persistent data!), use:
-
-```shell
-docker volume prune
-```
-
-### Revert failed PostgreSQL container auto upgrade
-```shell
-docker exec --rm -it -v or_postgresql-data:/var/lib/postgresql/data --entrypoint=bash openremote/postgresql
-mv -v data/old/* $PGDATA
-rm -r data/new data/old
-```
-
-## Bash
+## Proxy
 ### SSH tunnel for proxy stats
 HAProxy stats web page is only accessible on localhost in our default config, this can be tunnelled to your local machine to allow access at http://localhost:8404/stats:
 ```shell
 ssh -L 8404:localhost:8404 <HOST>
 ```
 
-## Queries
 
-### Get DB table size info
-```sql
-SELECT
-  schema_name,
-  relname,
-  pg_size_pretty(table_size) AS size,
-  table_size
-
-FROM (
-       SELECT
-         pg_catalog.pg_namespace.nspname           AS schema_name,
-         relname,
-         pg_relation_size(pg_catalog.pg_class.oid) AS table_size
-
-       FROM pg_catalog.pg_class
-         JOIN pg_catalog.pg_namespace ON relnamespace = pg_catalog.pg_namespace.oid
-     ) t
-WHERE schema_name NOT LIKE 'pg_%'
-ORDER BY table_size DESC;
-```
+## Database
+### Useful DB Queries
+Refer to the [Query Exporter configuration file](https://github.com/openremote/openremote/blob/master/deployment/query-exporter/config.yaml) for useful DB monitoring queries.
 
 ### Data points
 #### Export all asset data points
@@ -218,13 +113,113 @@ Drop temp table:
 DROP TABLE tmp_table;
 ```
 
-### Selfsigned SSL
+
+### Useful DB Resources
+- [Shared memory](https://www.instaclustr.com/blog/postgresql-docker-and-shared-memory/#:~:text=Docker%20and%20SHM%2DSize&text=This%20means%20that%20instead%20of,default%2C%20this%20limit%20is%2064MB)
+- [Index maintenance](https://wiki.postgresql.org/wiki/Index_Maintenance)
+- [Bloat estimation](https://github.com/ioguix/pgsql-bloat-estimation)
+- [Query Exporter Documentation](https://github.com/albertodonato/query-exporter)
+- [Configuration Format](https://github.com/albertodonato/query-exporter/blob/main/docs/configuration.rst)
+- [PostgreSQL Statistics Views](https://www.postgresql.org/docs/current/monitoring-stats.html)
+- [PostgreSQL Bloat Detection](https://wiki.postgresql.org/wiki/Show_database_bloat)
+
+### Log all queries taking longer than 2 seconds:
+
+```sql
+alter system set log_min_duration_statement=2000;
+select pg_reload_conf();
+show log_min_duration_statement;
+```
+To disable, set the duration to `-1`.
+Use `explain analyze <SQL query>` to obtain the query plan and display it in https://explain.depesz.com/.
+
+### Backup/Restore OpenRemote DB
+
+* Create backup: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak`
+* Optional: Exclude datapoint records from the backup using the following command: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak --exclude-table-data='_timescaledb_internal._hyper_*'`
+* Copy to the Docker host: `docker cp or-postgresql-1:/tmp/db.bak ~/`
+* Remove the backup from within the container: `docker exec or-postgresql-1 rm /tmp/db.bak`
+* SCP the backup off the source server onto the destination server: e.g. `scp <HOST>:~/db.bak .`
+* On the destination server stop the manager and Keycloak containers and any project specific containers that are using the DB: `docker stop or-manager-1 or-keycloak-1`
+* Copy backup into the postgresql container: `docker cp db.bak or-postgresql-1:/tmp/`
+* Drop existing DB: `docker exec or-postgresql-1 dropdb openremote`
+* Create new DB: `docker exec or-postgresql-1 createdb openremote`
+* Add POSTGIS extension: `docker exec or-postgresql-1 psql -U postgres -d openremote -c "CREATE EXTENSION IF NOT EXISTS postgis;"`
+* Add Timescale DB extension: `docker exec or-postgresql-1 psql -U postgres -d openremote -c "CREATE EXTENSION IF NOT EXISTS timescaledb;"`
+* Run timescale DB pre restore command: `docker exec or-postgresql-1 psql -U postgres -d openremote -c "SELECT timescaledb_pre_restore();"`
+* Restore the backup: `docker exec or-postgresql-1 pg_restore -Fc --verbose -U postgres -d openremote /tmp/db.bak`
+* Run timescale DB restore command: `docker exec or-postgresql-1 psql -U postgres -d openremote -c "SELECT timescaledb_post_restore();"`
+* Start the stopped containers: `docker start or-keycloak-1 or-manager-1`
+
+For more details related to TimescaleDB backup/restore see [here](https://docs.timescale.com/self-hosted/latest/backup-and-restore/pg-dump-and-restore/).
+
+### Recover OpenRemote DB failed container update
+The `openremote/postgresql` container should handle automatic updates to the latest TimescaleDB version in the image and also auto migration
+to the major version of PostgreSQL in the image (note: you must incrementally go through each major version of the `openremote/postgresql` images i.e. you cannot go from 14.x to 17.x but must go `14.x` -> `15.x` -> `17.x` \[there is no `16.x` image so this can be skipped\]).
+
+The PostgreSQL auto migration process will move `PGDATA` to a sub directory called `old` and create a `new` directory for the initialisation of the new major version DB, if the upgrade fails then you will need to manually handle the issue and move files back to the `PGDATA` folder like so:  
+```bash
+docker run -it --rm --volume=profile_postgresql-data:/var/lib/postgresql/data --entrypoint=bash openremote/postgresql:latest-slim
+mv data/old/* data
+rm -r data/old data/new
+```
+### Clear Syslogs older than 1 day
+`docker exec or-postgresql-1 psql -U postgres -d openremote -c "delete from syslog_event where timestamp < now() - INTERVAL '1day';"`
+
+### Revert failed PostgreSQL container auto upgrade
+```shell
+docker exec --rm -it -v or_postgresql-data:/var/lib/postgresql/data --entrypoint=bash openremote/postgresql
+mv -v data/old/* $PGDATA
+rm -r data/new data/old
+```
+
+
+## Shell
+### Enabling bash auto-completion
+
+You might want to install bash auto-completion for Docker commands. On OS X, install:
+
+```shell
+brew install bash-completion
+```
+
+Then add this to your `$HOME/.profile`:
+
+```bash
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+. $(brew --prefix)/etc/bash_completion
+fi
+```
+
+And link the completion-scripts from your local Docker install:
+
+```shell
+find /Applications/Docker.app \
+-type f -name "*.bash-completion" \
+-exec ln -s "{}" "$(brew --prefix)/etc/bash_completion.d/" \;
+```
+Start a new shell or source your profile to enable auto-completion.
+
+
+
+### Cleaning up images, containers, and volumes
+
+Working with Docker might leave exited containers and untagged images. If you build a new image with the same tag as an existing image, the old image will not be deleted but simply untagged. If you stop a container, it will not be automatically removed. The following bash function can be used to clean up untagged images and stopped containers, add it to your `$HOME/.profile`:
+
+```bash
+function dcleanup(){
+    docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+    docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
+```
+
+## Selfsigned SSL
 To add the OpenRemote selfsigned certificate to the default java keystore `cacerts`:
 
 1. Convert to `p12`: `openssl pkcs12 -export -in proxy/selfsigned/localhost.pem -out or_selfsigned.p12` (use default password `changeit`
 2. Import into default java keystore: `openssl pkcs12 -export -in openremote/proxy/selfsigned/localhost.pem -out or_selfsigned.p12` (Windows will need to execute this in Command Prompt with Admin permissions)
 
-### Consoles
+## Consoles
 
 #### Remove consoles that haven't registered for more than N days
 
@@ -240,7 +235,7 @@ WHERE a.asset_type = 'urn:openremote:asset:console' AND
     to_timestamp((a.attributes#>>'{consoleName, valueTimestamp}')::bigint /1000) < (current_timestamp - interval '30 days');
 ```
 
-### Notifications
+## Notifications
 
 #### Count notifications with specific title sent to consoles (Android/iOS) in past N days
 
