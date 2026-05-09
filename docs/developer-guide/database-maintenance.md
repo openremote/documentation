@@ -49,7 +49,7 @@ Query execution times were fundamentally transformed. Heavy historical aggregati
 
 **SysAdmin Note:**
 * **The Win:** Complex, multi-day historical aggregations improved by 97-98%, eliminating 40+ second query timeouts.
-* **The Trade-off:** Micro-queries taking <10ms previously will now take ~50-150ms. This is expected behavior; querying compressed chunks requires on-the-fly decompression CPU overhead to unpack the columnar data back into rows.
+* **The Trade-off:** Micro-queries taking \<10ms previously will now take ~50-150ms. This is expected behavior; querying compressed chunks requires on-the-fly decompression CPU overhead to unpack the columnar data back into rows.
 
 ---
 
