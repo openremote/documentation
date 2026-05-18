@@ -207,7 +207,7 @@ To keep the instance healthy and prevent Docker crashes, you can follow these gu
 5. Set `maintenance_work_mem` (0.125 x P) = 250MB (Round up to a clean number 256MB)
 6. Set `work_mem` (1% x P) = 16MB (or larger if there are few concurrent connections)
 7. Set `effective_cache_size` (P - `shared_buffers`) = 1.5GB
-8. Calculate average asset row size (see `` metric or query or use approximate calculation ) ensure there is enough free space in each page for at least one HOT update by setting `fillfactor` via a project specific migration script ``
+8. Actively monitor `pg_hot_update_percent` metric to attain a >90% HOT update percentage; tweak the asset table `fillfactor` to achieve this (default is set to: 90% as asset table is not significantly large)
 
 Apply this config in docker compose yaml as follows:
 ```yaml
@@ -230,55 +230,6 @@ services:
       - -c
       - work_mem=16MB
 ```
-### Asset table HOT updates
-The asset table is constantly being updated (whenever an attribute event is written to the attributes JSONB column) this causes excessive autovacuum executions but is also a significant potential bottleneck for large asset tables due to the way row updates are handled by postgreSQL. Some info:
-
-> Heap-Only Tuples (HOT) updates.
->
-> Normally, when PostgreSQL inserts that new version of the row, it also has to update every single index on the table to point to the new physical location of the row. This is incredibly expensive (this is what causes "index bloat").
->
-> A HOT update bypasses the indexes entirely. It places the new version of the row on the exact same disk page as the old version, and just links them together. It is vastly faster and prevents index bloat.
->
-> For a HOT update to happen, two rules must be met:
->
-> You cannot be updating a column that has an index on it. (If you have a GIN index on that entire jsonb column, HOT updates are disabled, and you will suffer massive bloat).
->
-> There must be empty space on the current disk page to fit the new row.
-
-To facilitate this we have to reduce the `fillfactor` on the asset table and ensure no indexes are in place on that column (which they aren't), choosing the fillfactor:
-
-> The Math Behind the Space
-> PostgreSQL stores data in 8KB (8,192 bytes) pages.
->
-> A fillfactor of 80 leaves about 1,638 bytes of free space per page.
->
-> A fillfactor of 90 leaves about 819 bytes of free space per page.
->
-> For a HOT update to succeed, the entire new version of the row must fit into that free space on the exact same page.
->
-> If your average row in the asset table is relatively small (for example, 150 bytes), leaving 10% free space (819 bytes) gives PostgreSQL enough room to perform 5 consecutive HOT updates to a row before that page completely fills up and requires pruning.
->
-> How to Choose Between 90 and 80
-> Go with fillfactor = 90 (10% free space) if:
->
-> Your JSONB updates are relatively small and the overall row size is small (under a few hundred bytes).
->
-> The updates are somewhat spread out, giving PostgreSQL's opportunistic page pruning a chance to clean up the dead HOT tuples between updates.
->
-> You want to minimize the storage and RAM penalties we talked about earlier.
->
-> Stick with fillfactor = 80 (20% free space) if:
->
-> Your rows are physically large (e.g., storing massive JSON documents where a single row takes up 1,000+ bytes). If a row is 1,000 bytes, 10% free space (819 bytes) literally isn't big enough to hold a single HOT update!
->
-> A single row gets battered with back-to-back-to-back updates in a matter of seconds, meaning you need room for multiple dead copies to pile up before pruning can catch up.
-
-And via a project specific migration script or manually alter the setting if default `fillfactor= 90` is not sufficient:
-
-```sql
-ALTER TABLE asset SET (fillfactor = 80);
-```
-
 
 #### Some simple guidelines
 * Docker's `shm_size` must be sized appropriately. A simple rule of thumb is to take PostgreSQL `shared_buffers` and add a margin (10% or a flat 256MB); the `shared_buffers` must fit inside this size (**NOTE: Docker sets this very low by default and this will cause problems for any reasonable size DB**)
@@ -287,6 +238,7 @@ ALTER TABLE asset SET (fillfactor = 80);
 * **The 25% Rule:** The largest uncompressed chunk should never exceed 25% of the total Docker container RAM limit.
 * For a 2GB container limit, the `pg_datapoint_largest_uncompressed_chunk` metric must stay below **512 MB**.
 * If chunks grow too large, the background compression worker will exhaust RAM during the sorting phase and trigger the Linux OOM killer. If this occurs, reduce the hypertable's `chunk_time_interval` via `set_chunk_time_interval()`.
+* The asset table is constantly being updated (whenever an attribute event is written to the attributes JSONB column) this can cause excessive autovacuum executions and can be a significant bottleneck for large asset tables due to the way row updates are handled by PostgreSQL; HOT updates is an optimisation PostgreSQL uses to minimise this overhead and the asset table `fillfactor` can be tweaked to optimise this (default: 90%)
 
 ### Backup/Restore
 * Create backup: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak`
@@ -329,6 +281,11 @@ rm -r data/new data/old
 
 ### Useful queries
 Refer to the [Query Exporter configuration file](https://github.com/openremote/openremote/blob/master/deployment/query-exporter/config.yaml) for useful DB monitoring queries.
+
+#### Adjust asset table fillfactor
+```sql
+ALTER TABLE asset SET (fillfactor = 80);
+```
 
 #### Clear syslogs older than 1 day
 `docker exec or-postgresql-1 psql -U postgres -d openremote -c "delete from syslog_event where timestamp < now() - INTERVAL '1day';"`
