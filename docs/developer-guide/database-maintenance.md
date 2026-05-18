@@ -10,6 +10,11 @@ This document summarises the database performance, storage footprint, and system
 
 ---
 
+Use the following docker command to access the database on the docker host:
+```shell
+docker exec -it openremote_postgresql_1 psql -U postgres
+```
+
 ## 1. Storage & Compression
 Enabling Hypercore compression drastically reduced the database storage footprint by converting uncompressed historical row-data into highly compressed columnar structures.
 
@@ -66,3 +71,12 @@ To keep this instance healthy and prevent Docker crashes, adhere to the followin
 * **The 25% Rule:** The largest uncompressed chunk should never exceed 25% of the total Docker container RAM limit.
 * For a 2GB container limit, the `pg_datapoint_largest_uncompressed_chunk` metric must stay below **512 MB**.
 * If chunks grow too large, the background compression worker will exhaust RAM during the sorting phase and trigger the Linux OOM killer. If this occurs, reduce the hypertable's `chunk_time_interval` via `set_chunk_time_interval()`.
+
+## Useful DB Resources
+- [Shared memory](https://www.instaclustr.com/blog/postgresql-docker-and-shared-memory/#:~:text=Docker%20and%20SHM%2DSize&text=This%20means%20that%20instead%20of,default%2C%20this%20limit%20is%2064MB)
+- [Index maintenance](https://wiki.postgresql.org/wiki/Index_Maintenance)
+- [Bloat estimation](https://github.com/ioguix/pgsql-bloat-estimation)
+- [Query Exporter Documentation](https://github.com/albertodonato/query-exporter)
+- [Configuration Format](https://github.com/albertodonato/query-exporter/blob/main/docs/configuration.rst)
+- [PostgreSQL Statistics Views](https://www.postgresql.org/docs/current/monitoring-stats.html)
+- [PostgreSQL Bloat Detection](https://wiki.postgresql.org/wiki/Show_database_bloat)

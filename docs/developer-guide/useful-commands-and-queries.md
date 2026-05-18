@@ -113,16 +113,6 @@ Drop temp table:
 DROP TABLE tmp_table;
 ```
 
-
-### Useful DB Resources
-- [Shared memory](https://www.instaclustr.com/blog/postgresql-docker-and-shared-memory/#:~:text=Docker%20and%20SHM%2DSize&text=This%20means%20that%20instead%20of,default%2C%20this%20limit%20is%2064MB)
-- [Index maintenance](https://wiki.postgresql.org/wiki/Index_Maintenance)
-- [Bloat estimation](https://github.com/ioguix/pgsql-bloat-estimation)
-- [Query Exporter Documentation](https://github.com/albertodonato/query-exporter)
-- [Configuration Format](https://github.com/albertodonato/query-exporter/blob/main/docs/configuration.rst)
-- [PostgreSQL Statistics Views](https://www.postgresql.org/docs/current/monitoring-stats.html)
-- [PostgreSQL Bloat Detection](https://wiki.postgresql.org/wiki/Show_database_bloat)
-
 ### Log all queries taking longer than 2 seconds:
 
 ```sql
