@@ -1,5 +1,5 @@
 ---
-sidebar_position: 1
+sidebar_position: 00
 ---
 
 # Preparing the environment
@@ -9,24 +9,15 @@ To build OpenRemote projects, you have to first prepare the environment on your 
 Ensure you have installed and configured the following tools:
 
 ## Runtime tooling
-To run docker images from Docker Hub you need to install the following tooling:
-* Docker see [here](installing-and-using-docker.md#local-engine)
-
-If you want to manage remote Docker engines then you will also need to install `docker-machine` separately (since docker 2.2.x):
-
-* [Docker machine](https://docs.docker.com/machine/install-machine/)
+OpenRemote is primarily packaged as Docker images and deployed using docker compose, you will need a docker compatible runtime:
+* [Docker](https://docs.docker.com/engine/install/)
+* [Docker compose](https://docs.docker.com/compose/install/)
 
 Ensure the following commands execute successfully:
 
 ```shell
-docker ps
-docker-compose version
-```
-
-If you installed Docker machine then make sure the following command executes successfully:
-
-```shell
-docker-machine version
+docker -v
+docker-compose -v
 ```
 
 ## Development tooling
@@ -51,6 +42,5 @@ Ensure that you have the `JAVA_HOME` environment variable set to the path of JDK
 
 ## See also
 
-- [Installing and using Docker](installing-and-using-docker.md)
 - [Next 'Get Started' step: Build the code and run the manager](https://github.com/openremote/openremote/blob/master/README.md)
 - [Get Started](https://openremote.io/get-started-iot-platform/)
