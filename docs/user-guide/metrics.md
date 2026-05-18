@@ -679,6 +679,18 @@ following is based on the default configuration found in `/deployment/query-expo
       <td>gauge</td>
       <td>(none)</td>
       <td>Number of indexes that are larger than 150% of table size</td>
+    </tr>    
+    <tr>
+      <td>pg_long_running_queries_count</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Number of queries that have been running for longer than 30 seconds</td>
+    </tr>    
+    <tr>
+      <td>pg_longest_query_duration_seconds</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Duration of the longest running query in seconds</td>
     </tr>
   </tbody>
 </table>
