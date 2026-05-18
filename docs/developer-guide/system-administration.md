@@ -183,15 +183,57 @@ Query execution times were fundamentally transformed. Heavy historical aggregati
 
 ### Critical maintenance guidelines
 
-To keep this instance healthy and prevent Docker crashes, adhere to the following rules:
+Here's a summary of critical PostgreSQL memory settings:
 
-#### A. Docker Memory vs. PostgreSQL Memory
-* Docker's `shm_size` must be sized appropriately **Docker sets this very low by default and this will cause problems for any reasonable size DB**
-* PostgreSQL's `shared_buffers` must fit inside Docker's `shm_size` and should be as large as possible
+### PostgreSQL & Docker Memory Summary
+
+| Setting / Limit | Scope | Primary Purpose | How it relates to Hypercore & Docker |
+| :--- | :--- | :--- | :--- |
+| **Total Container RAM** | Docker Limit | The absolute physical ceiling. | If the combined database footprint exceeds this, the Linux OOM killer crashes the container. |
+| **`shm_size`** | Docker Limit | Sets the maximum allowed size for the shared memory file system (`/dev/shm`). | Must be set ~10-20% higher than `shared_buffers` so the database has permission to allocate its global cache. |
+| **`shared_buffers`** | Global Postgres Cache | The main memory pool where PostgreSQL caches active data. | Holds the highly compressed Hypercore columnar blocks. Needs to fit entirely inside Docker's `shm_size`. |
+| **`maintenance_work_mem`** | Local Postgres Memory | A dedicated workspace for heavy background maintenance tasks. | **Critical for compression.** Used to sort raw data before compressing it into chunks. If set too high, it causes an OOM crash. |
+| **`work_mem`** | Local Postgres Memory | Workspace for everyday query operations (sorting, joining, grouping). | **Multiplies rapidly.** It is allocated *per operation*. Used to temporarily decompress columnar chunks back into rows for user queries. |
+| **`effective_cache_size`** | Query Planner Hint | Estimates how much RAM the Linux OS has left over for caching files. | **Does not allocate RAM.** Helps the query planner decide the fastest way to scan compressed Hypercore blocks. |
+
+**The Golden Rule:** `shared_buffers` (Fixed) + `maintenance_work_mem` (Spiky) + `work_mem` (Highly Spiky) must **never** exceed the **Total Container RAM**.
+
+To keep the instance healthy and prevent Docker crashes, you can follow these guidelines:
+
+1. Calculate largest un-compressed chunk size N (see `pg_datapoint_largest_uncompressed_chunk` query or use approximate calculation ~1 million datapoints / week = 300MB)
+2. Calculate minimum RAM size P = (4 x N) = 1.2GB (Round up to 2GB here)
+3. Set `shared_buffers` at 25% RAM (0.25 x P) = 512MB
+4. Set `shm_size` (`shared_buffers` + ~20%) = ~614MB (Round up to a clean number 1GB)
+5. Set `maintenance_work_mem` (0.125 x P) = 250MB (Round up to a clean number 256MB)
+6. Set `work_mem` (1% x P) = 16MB (or larger if there are few concurrent connections)
+7. Set `effective_cache_size` (P - `shared_buffers`) = 1.5GB
+
+Apply this config in docker compose yaml as follows:
+```yaml
+services:
+  postgresql:
+    image: openremote/postgresql:latest
+    shm_size: 1gb 
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+    command:
+      - postgres
+      - -c
+      - shared_buffers=512MB
+      - -c
+      - effective_cache_size=1536MB
+      - -c
+      - maintenance_work_mem=256MB
+      - -c
+      - work_mem=16MB
+```
+
+#### Some simple guidelines
+* Docker's `shm_size` must be sized appropriately. A simple rule of thumb is to take PostgreSQL `shared_buffers` and add a margin (10% or a flat 256MB); the `shared_buffers` must fit inside this size (**NOTE: Docker sets this very low by default and this will cause problems for any reasonable size DB**)
 * **Do not** run `timescaledb-tune` automatically on container startup. It may miscalculate limits if Docker's cgroup namespaces are restricted.
-* **Best Practice:** Run `timescaledb-tune --dry-run` manually, verify the outputs, and hardcode the tuned `shared_buffers`, `effective_cache_size`, and `maintenance_work_mem` directly into the `docker-compose.yml` command args.
-
-#### B. Uncompressed Chunk Size Management
+* **Best Practice:** Run `timescaledb-tune` with explicit CPU and memory values to avoid known issues with the script not being able to figure out docker aware values itself `timescaledb-tune --memory="2GB" --cpus="2" --dry-run`, the `dry-run` setting ensures no changes are made to the configuration file and instead hardcode the tuned `shared_buffers`, `effective_cache_size`, `maintenance_work_mem` and `work_mem` directly into the `docker-compose.yml` command args.
 * **The 25% Rule:** The largest uncompressed chunk should never exceed 25% of the total Docker container RAM limit.
 * For a 2GB container limit, the `pg_datapoint_largest_uncompressed_chunk` metric must stay below **512 MB**.
 * If chunks grow too large, the background compression worker will exhaust RAM during the sorting phase and trigger the Linux OOM killer. If this occurs, reduce the hypertable's `chunk_time_interval` via `set_chunk_time_interval()`.
