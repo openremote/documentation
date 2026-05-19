@@ -17,7 +17,7 @@ This guide describes the steps necessary to setup the gateway tunnelling functio
 * `ssh-keygen -t ed25519 -b 4096 -f server_key`
 * `mv server_key deployment/sish/keys`
 
-### Docker envrionment variables
+### Docker environment variables
 
 * Set Keycloak container environment variables:
   * `KEYCLOAK_ISSUER_BASE_URI: https://${OR_HOSTNAME}/auth`
