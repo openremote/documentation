@@ -1,0 +1,33 @@
+---
+id: nodeinternal
+title: "NodeInternal"
+description: ""
+sidebar_label: "NodeInternal"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"name":"string","picker":{"type":"TEXT","options":[{"name":"string","value":{}}]},"value":{},"breakType":"NEW_LINE"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"NodeInternal"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"name":{"type":"string"},"picker":{"type":"object","properties":{"type":{"type":"string","enum":["TEXT","MULTILINE","NUMBER","DROPDOWN","DOUBLE_DROPDOWN","CHECKBOX","ASSET_ATTRIBUTE","COLOR","DATE"]},"options":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"value":{"type":"object"}},"title":"Option"}}},"title":"Picker"},"value":{"type":"object"},"breakType":{"type":"string","enum":["NEW_LINE","SPACER"]}},"title":"NodeInternal"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

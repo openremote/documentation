@@ -1,0 +1,70 @@
+---
+id: get-service
+title: "Retrieve a specific external service by its serviceId and instanceId"
+description: "Retrieve a specific external service by its serviceId and instanceId"
+sidebar_label: "Retrieve a specific external service by its serviceId and instanceId"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVm1v2zYQ/ivEfWoBxnLe1kGf5hVZGiBbjTQdBgT+QFMniy1FsuQpiWfovw+kZEeKs7TphmGfLJP3/tw9xw2QWAXIb+AD+lslMcCCg3XoBSlrLgrIYYXUXwIHJ7yokdBHpQ0YUSPkMGuosl79mZSAgzKQQ4WiQA8cgqywFpBvgNYuigfyyqygbfnOwh8Hv1h/J3yBxcHcW7L/2Mo7G+i7jIQu2Ytiq+0EVcDB45dGeSwgJ9/g0FYt7i/RrKiC/Ojw5M3Jj8c/nLzhUCuzPT7kzzhUJpAwL/LYG1OGcJUSK62vBXVHx0fQtouoHpw1AUPUOJpO40+BQXrlEk45nN0TeiN0jy/zSF7hLRYsNFJiCGWj9Ro4SGsIDUULwjmtZEI6+xSimc0gsIeQb6CyNTqxwo9eAwctlhh/h+UNJKhJLdcnZJefUEbYnI9NSKoL3qPQ9T5qMUVRvDd63VWo5aDCubZLoQfCS2s1CvOU9EMsj1A8PR3Bd7wHHx+i9i2AcLhFH1RXr5e6kp3a3kVX0+cN7rceHyEz1j49PPpqOD1qT8CBpqkj8rPfZxeXs58vz4DDx98e/i3algMp0rjffNC28fZkevL1PjWWWGkbU8Q5eiR71fcwEyw4lKpUkmGvz3rA2XLNFAW2w58JU7DRHNZIle3pL/FerAZkvUa22am22eZBse0bfMuPTSwwVEQu5FlWYG0n1qHxWFvCibKZcCrbpPZuM+BwK7wSS/2o6wssRaNjM9UiEPpYqkV0JBuvaJ08RbMqjt1iePUhDmZnbSuwQ82Khqqj2Kra3iURqRUaeuuxQENK6A5j+xlNahTIokaWwgpZF0rmIllLq7PO/oG0xqCkLKmlmSs9hur7DQRpXZeB87ZUqXW2XxF9Mdw9b22BiaSGhy/3HUWB/89TT+OiTGkTSv1QvXdorlJ3sV+FESv07N319ZzN5hfweFKuKxWYCowqZIWVTY2GUsFYaX06fcbahLG5RhGQBcQkfDOysXi163orw7jrXycHtfXIYvyTfsEImRYM1kLpRJyl/WmklyhPSTQhgbx9fJzPL9nxZAr80bjd3d1NVqaZWL/KerWQiZXTB8eT6QTNpKJaj5gZ4sU0HjkbqBZm4OZf4pURBLtZJLynzGmhTHTedLTccc7NdksBh3y4PPOB3UXk9EBRerNZihCZvW3j8ZcGfWSIxQO5JL4oVIjfBeSl0AH3AtttfHh11e/01wz40wH3h8KsE4fpJv4DDp9xPXpQxUfPf+h4UKB2Edde9wx8Wfp/57pz8dS7dRfHy9L9dkf903bkp5OaSYlueLf3WovbYbfbzs+uoW3/An5pIu4=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve a specific external service by its serviceId and instanceId"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/service/{serviceId}/{instanceId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve a specific external service by its serviceId and instanceId
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"serviceId","in":"path","required":true,"schema":{"maxLength":2147483647,"minLength":1,"type":"string"}},{"name":"instanceId","in":"path","required":true,"schema":{"type":"integer","format":"int32"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"ExternalService retrieved successfully","content":{"application/json":{"schema":{"required":["homepageUrl","label","serviceId","status"],"type":"object","properties":{"realm":{"type":"string","readOnly":true},"isGlobal":{"type":"boolean","readOnly":true},"serviceId":{"maxLength":255,"minLength":3,"type":"string"},"instanceId":{"type":"integer","format":"int32"},"version":{"maxLength":255,"minLength":3,"type":"string"},"icon":{"type":"string"},"label":{"maxLength":255,"minLength":1,"type":"string"},"homepageUrl":{"maxLength":512,"minLength":3,"type":"string"},"status":{"type":"string","enum":["AVAILABLE","UNAVAILABLE"]}},"title":"ExternalService"}}}},"404":{"description":"ExternalService not found"}}}
+>
+  
+</StatusCodes>
+
+
