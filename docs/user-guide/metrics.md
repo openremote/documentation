@@ -28,7 +28,7 @@ graph LR
         subgraph Docker [Docker Containers]
             direction TB
             HAProxy["<b>HA Proxy</b><br/>http://localhost:8404/metrics<br/>- Uses prometheus-exporter<br/>- Runs on own embedded web server port 8404<br/>- Configured via haproxy.cfg"]:::greenStyle
-            Manager["<b>Manager</b><br/>http://localhost:8405/metrics<br/>- Micrometer with Prometheus Registry<br/>- Runs on own embedded web server port 8404<br/>- OR_METRICS_ENABLED: true/false"]:::greenStyle
+            Manager["<b>Manager</b><br/>http://localhost:8405/metrics<br/>- Micrometer with Prometheus Registry<br/>- Runs on own embedded web server port 8404 but mapped to 8405 by default<br/>- OR_METRICS_ENABLED: true/false"]:::greenStyle
             Keycloak["<b>Keycloak</b><br/>http://localhost:8080/metrics<br/>- Built in prometheus metrics support<br/>- KC_METRICS_ENABLED: true/false<br/>- Do not publicly expose"]:::orangeStyle
             PostgreSQL["<b>PostgreSQL</b><br/>http://localhost:8406/metrics<br/>- Uses separate query-exporter docker container and config"]:::redStyle
         end
@@ -37,7 +37,7 @@ graph LR
     %% Connections
     PromScrape --> Manager
     PromScrape --> HAProxy
-    PromScape --> PostgreSQL
+    PromScrape --> PostgreSQL
     CWAgent --> CW
     CW --> DB
 

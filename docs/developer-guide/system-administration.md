@@ -75,7 +75,7 @@ GCT: Total garbage collection time.
 Force garbage collection with: 
 
 ```shell
-docker exec -it openremote_manager_1 /usr/bin/jcmd 1 GC.run
+docker exec -it or-manager-1 /usr/bin/jcmd 1 GC.run
 ```
 
 ### Install the JDK
@@ -209,26 +209,28 @@ To keep the instance healthy and prevent Docker crashes, you can follow these gu
 7. Set `effective_cache_size` (P - `shared_buffers`) = 1.5GB
 8. Actively monitor `pg_hot_update_percent` metric to attain a >90% HOT update percentage; tweak the asset table `fillfactor` to achieve this (default is set to: 90% as asset table is not significantly large)
 
-Apply this config in docker compose yaml as follows:
+Apply this config in docker compose yaml as follows (use environment variables for convenience:
 ```yaml
 services:
   postgresql:
-    image: openremote/postgresql:latest
-    shm_size: 1gb 
+    image: openremote/postgresql:${POSTGRESQL_VERSION:-latest-slim}
+    restart: always
+    # RAM limits and PostgreSQL memory settings should be set appropriately for the expected load (see documentation)
+    shm_size: ${OR_DB_SHM:-156mb}
     deploy:
       resources:
         limits:
-          memory: 2G
+          memory: ${OR_DB_RAM:-512M}
     command:
       - postgres
       - -c
-      - shared_buffers=512MB
+      - shared_buffers=${OR_DB_SHARED_BUFFERS:-128MB}
       - -c
-      - effective_cache_size=1536MB
+      - effective_cache_size=${OR_DB_CACHE_SIZE:-384MB}
       - -c
-      - maintenance_work_mem=256MB
+      - maintenance_work_mem=${OR_DB_MAINTENANCE_WORK_MEM:-56MB}
       - -c
-      - work_mem=16MB
+      - work_mem=${OR_DB_WORK_MEM:-4MB}
 ```
 
 #### Some simple guidelines
