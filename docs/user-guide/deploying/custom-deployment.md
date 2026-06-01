@@ -45,7 +45,7 @@ Most of the changes made in the manager_config.json will not be visible to the d
 Create your own asset type that fits your product. In the asset type you define its name, icon, and colour, and set its attributes with configuration items (called meta items in the code). If you need some inspiration, you can look at OpenRemote's [default asset types](https://github.com/openremote/openremote/tree/master/model/src/main/java/org/openremote/model/asset/impl).
 
 ### Agents & Protocols (/agent)
-Protocols are a main extension point of OpenRemote, they translate the messages from and to external systems into reads and writes of the assets and attribute values used by OpenRemote. When creating an [agent asset](../../developer-guide/connecting-protocol-adaptors-with-agents.md), you can create protocol configurations, which are a special type of attribute. Each agent attribute that is a protocol configuration then automatically gets its own instance of the protocol you have selected.
+Protocols are a main extension point of OpenRemote, they translate the messages from and to external systems into reads and writes of the assets and attribute values used by OpenRemote. When creating an [agent asset](../../developer-guide/agent-protocol-spi.md), you can create protocol configurations, which are a special type of attribute. Each agent attribute that is a protocol configuration then automatically gets its own instance of the protocol you have selected.
 
 ### Setup code (/setup)
 Define which assets and rules should be present when you deploy your project. You can set attribute values and their configuration items, add realms and users, and create a structure of assets.\
@@ -72,7 +72,3 @@ If you want to deploy the OpenRemote stack on a custom domain then all that is n
 - `8883` MQTT
 
 The `proxy` service uses Let's Encrypt to auto generate the SSL certificate for the domain and it will also auto renew the certificates; if you already have an SSL certificate for the domain then this can be volume mapped into the `proxy` service.
-
-## See Also
-
-- [Installing Docker (incl. SBCs as Raspberry Pi or Odroid)](../../developer-guide/installing-and-using-docker.md)

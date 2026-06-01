@@ -1,5 +1,5 @@
 ---
-sidebar_position: 3
+sidebar_position: 10
 ---
 
 # Setting up an IDE
@@ -8,13 +8,7 @@ This guide helps you set up an environment with an IDE when you are done [Prepar
 
 This is not necessary if you prefer [Working on the UI](working-on-ui-and-apps.md) only, any file manager and text editor will suffice.
 
-## Download custom-project
- 
-Using Git, clone the [custom-project](https://github.com/openremote/custom-project) repository.
-
-## Run Docker container
-
-If you have successfully downloaded your custom-project, you can build the Docker container by running one of the following commands from your custom-project directory:
+If you have successfully cloned the OpenRemote repo or a custom project repo, you can run the Docker containers needed for development by running one of the following commands:
 
 ### Without SSL and proxy
 
@@ -27,18 +21,6 @@ docker-compose -p openremote -f profile/dev-testing.yml up --build -d
 ```shell
 docker-compose -p openremote -f profile/dev-proxy.yml up --build -d
 ```
-
-:::note
-
-You will need to add the following environment variables within your IDE for the manager to work behind the proxy with SSL:
-
-```shell
-WEBSERVER_LISTEN_HOST=0.0.0.0
-IDENTITY_NETWORK_WEBSERVER_PORT=443
-IDENTITY_NETWORK_SECURE=true
-```
-
-:::
 
 ## Importing a project in an IDE
 
@@ -136,7 +118,7 @@ If you are using the custom project repository as starting point the run configu
 - Main class: `org.openremote.manager.Main`
 - Any environment variables that customise deployment (usually custom projects have some)
 
-## Accessing the Manager UI
+### Accessing the Manager UI
 
 The manager UI web application isn't compiled until build time. \
 To run the manager app run `npm run serve` from the `/openremote/ui/app/manager` directory.\
@@ -152,13 +134,23 @@ The web server binds to only localhost interface (i.e. `127.0.0.1`). You can ove
 
 Go to [Working on the UI](working-on-ui-and-apps.md#working-on-an-app-eg-manager-ui) for more information.
 
-## VisualVM
 
-To inspect the threads, analyzing CPU and memory allocation you should running a VisualVM.
+## Building
 
-- Download and install VisualVM from the [VisualVM](https://visualvm.github.io/) website.
-- Install the [VisualVM Launcher](https://plugins.jetbrains.com/plugin/7115-visualvm-launcher) for IntelliJ IDEA
+Our build tooling is `gradle` and building the code is just a matter of executing the following gradle tasks:
 
-## Executing tests
+```shell
+./gradlew clean installDist
+```
 
-Any JUnit test can be directly executed, you can create a Run Configuration for the `test` module and run all tests in the IDE. Ensure that the `profile/dev-testing.yml` background service stack is running, as described above.
+## Testing
+
+Our test suite is mostly integration tests located in the `/test` module and they require the `keycloak` and `postgres` services to be running on `localhost`, you can start these using the `/profile/dev-testing.yml` Docker Compose profile.
+
+Unit tests are located within each related module and can just be directly executed.
+
+If you want to run the tests, execute:
+
+```shell
+./gradlew test
+```
