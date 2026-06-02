@@ -252,7 +252,7 @@ The whole data volume can be restored from a daily snapshot but the following is
 sudo mkdir -p /mnt/snapshot
 sudo mount -t xfs -o nouuid /dev/nvme2n1 /mnt/snapshot
 ```
-* Boot another postgreSQL DB connected to this docker volume:
+* Boot another postgreSQL DB connected to this docker volume **NOTE: It may take a while for the DB to become available, be patient**:
 ```bash
 docker run -d \
   --name temp_recovery_db \
