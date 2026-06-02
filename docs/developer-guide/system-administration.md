@@ -243,6 +243,42 @@ services:
 * The asset table is constantly being updated (whenever an attribute event is written to the attributes JSONB column) this can cause excessive autovacuum executions and can be a significant bottleneck for large asset tables due to the way row updates are handled by PostgreSQL; HOT updates is an optimisation PostgreSQL uses to minimise this overhead and the asset table `fillfactor` can be tweaked to optimise this (default: 90%)
 
 ### Backup/Restore
+#### AWS snapshot
+The whole data volume can be restored from a daily snapshot but the following is useful for partial data retrieval or interrogation:
+* Create a new EC2 volume from the desired snapshot (make sure it is in the same AZ as the EC2 instance you want to attach it to)
+* Attach the new volume to the EC2 instance, once attached find the device name of the volume `sudo lsblk`
+* Mount the new volume:
+```
+sudo mkdir -p /mnt/snapshot
+sudo mount -t xfs -o nouuid /dev/nvme2n1 /mnt/snapshot
+```
+* Boot another postgreSQL DB connected to this docker volume:
+```bash
+docker run -d \
+  --name temp_recovery_db \
+  -p 5433:5432 \
+  -e POSTGRES_PASSWORD=postgres \
+  -v /mnt/snapshot/or_postgresql-data/_data:/var/lib/postgresql/data \
+  -v /tmp:/export \
+  openremote/postgresql:latest-slim
+```
+* Extract the desired data from the DB snapshot e.g.:
+```bash
+docker exec -it temp_recovery_db psql -U postgres -d openremote -c "\copy (SELECT * FROM _timescaledb_internal.\"_hyper_1_281_chunk\") TO '/export/chunk_281_recovery.csv' WITH CSV HEADER;"
+```
+* Copy the file to the host:
+```bash
+docker cp temp_recovery_db:/export/chunk_281_recovery.csv .
+```
+* Stop and remove the temporary DB:
+```bash
+sudo docker stop temp_recovery_db
+sudo docker rm temp_recovery_db
+sudo umount /mnt/snapshot
+```
+* Detach the volume from the EC2 instance and delete it when done
+
+#### PG dump/restore
 * Create backup: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak`
 * Optional: Exclude datapoint records from the backup using the following command: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak --exclude-table-data='_timescaledb_internal._hyper_*'`
 * Copy to the Docker host: `docker cp or-postgresql-1:/tmp/db.bak ~/`
@@ -282,7 +318,46 @@ rm -r data/new data/old
 - [PostgreSQL Bloat Detection](https://wiki.postgresql.org/wiki/Show_database_bloat)
 
 ### Useful queries
-Refer to the [Query Exporter configuration file](https://github.com/openremote/openremote/blob/master/deployment/query-exporter/config.yaml) for useful DB monitoring queries.
+Refer to the [Query Exporter configuration file](https://github.com/openremote/openremote/blob/master/deployment/query-exporter/config.yaml) for useful DB monitoring queries, some additional diagnostic queries:
+
+#### Stuck processes dashboard view
+```sql
+SELECT 
+    pid AS blocked_pid,
+    pg_blocking_pids(pid) AS blocked_by_pids,
+    extract(epoch FROM (now() - query_start))::int AS blocked_seconds,
+    wait_event_type,
+    query AS blocked_query
+FROM pg_stat_activity
+WHERE array_length(pg_blocking_pids(pid), 1) > 0
+ORDER BY blocked_seconds DESC;
+```
+
+#### Size of uncompressed chunks
+```sql
+SELECT 
+    chunk_schema, 
+    chunk_name, 
+    pg_size_pretty(pg_relation_size(format('%I.%I', chunk_schema, chunk_name))) AS physical_size
+FROM timescaledb_information.chunks
+WHERE hypertable_name = 'asset_datapoint' 
+  AND is_compressed = false
+ORDER BY pg_relation_size(format('%I.%I', chunk_schema, chunk_name)) DESC
+LIMIT 5;
+```
+
+#### Largest datapoint chunks (size and rows - live and dead)
+```sql
+SELECT
+relname AS chunk_name,
+pg_size_pretty(pg_relation_size(relid)) AS heap_size,
+n_live_tup AS live_rows,
+n_dead_tup AS dead_rows
+FROM pg_stat_user_tables
+WHERE relname LIKE '_hyper_%'
+ORDER BY pg_relation_size(relid) DESC
+LIMIT 10;
+```
 
 #### Adjust asset table fillfactor
 ```sql
