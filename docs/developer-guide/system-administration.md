@@ -342,8 +342,7 @@ SELECT
 FROM timescaledb_information.chunks
 WHERE hypertable_name = 'asset_datapoint' 
   AND is_compressed = false
-ORDER BY pg_relation_size(format('%I.%I', chunk_schema, chunk_name)) DESC
-LIMIT 5;
+ORDER BY pg_relation_size(format('%I.%I', chunk_schema, chunk_name)) DESC;
 ```
 
 #### Largest datapoint chunks (size and rows - live and dead)
@@ -355,8 +354,7 @@ n_live_tup AS live_rows,
 n_dead_tup AS dead_rows
 FROM pg_stat_user_tables
 WHERE relname LIKE '_hyper_%'
-ORDER BY pg_relation_size(relid) DESC
-LIMIT 10;
+ORDER BY pg_relation_size(relid) DESC;
 ```
 
 #### Adjust asset table fillfactor
