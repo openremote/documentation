@@ -2,9 +2,8 @@
 
 This tutorial shows how to turn OpenRemote into a **white-label, multi-tenant IoT platform**: you will brand the Manager with your own logo and colours, give each customer (or distributor) their own isolated **realm**, and optionally serve it on a custom domain. This is exactly what device manufacturers (OEMs) and system integrators need when they want to resell an IoT solution under their own brand.
 
-:::tip Why this matters for OEMs and integrators
+Why this matters for OEMs and integrators
 White-labeling and multi-tenancy are part of the open-source core of OpenRemote — there is no separate "enterprise" edition or paid add-on to unlock branding, custom realms or role-based access. You can ship a fully branded, multi-customer platform without a per-feature licence.
-:::
 
 ## Prerequisites
 
@@ -20,9 +19,8 @@ Realms are OpenRemote's tenancy boundary: each realm has its own users, assets, 
 2. Click the **+** to add a realm, e.g. `acme`, give it a friendly display name (`ACME Buildings`) and enable it.
 3. Repeat for each customer or distributor you want to onboard.
 
-:::note
+Note
 The `master` realm is for platform administration. Keep your customers in their own realms so a tenant can never see another tenant's data.
-:::
 
 ## Step 2 — Brand the Manager (Appearance settings)
 
@@ -49,9 +47,8 @@ For a fully reproducible, version-controlled setup, define the same values in a 
 }
 ```
 
-:::caution
+Caution
 The `admin` superuser is intentionally **not** restricted by `manager_config.json`, so branding changes may not be visible to `admin`. Log in as a normal realm user (or set `"manager": {"applyConfigToAdmin": true}`) to verify your branding.
-:::
 
 See [Custom deployment](https://docs.openremote.io/docs/user-guide/deploying/custom-deployment) and the [Appearance page](https://docs.openremote.io/docs/user-guide/manager-ui/appearance) for the full set of options.
 
