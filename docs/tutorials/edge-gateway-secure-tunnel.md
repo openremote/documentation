@@ -1,6 +1,4 @@
 ---
-title: Deploy OpenRemote as an edge gateway with a secure tunnel
-description: Run OpenRemote on-site as an edge gateway, connect it to a central instance, and remotely access the gateway UI through a secure tunnel for edge computing and hybrid on-premise IoT deployments.
 sidebar_position: 7
 ---
 
