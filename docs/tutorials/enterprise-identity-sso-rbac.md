@@ -1,4 +1,8 @@
-# Enterprise identity — SSO, RBAC and OAuth2 service users
+---
+sidebar_position: 5
+---
+
+# Enterprise identity — SSO, RBAC and OAuth2
 
 How does our platform handle **identity and access**? This tutorial covers the essentials: **single sign-on (SSO/OIDC)** through the built-in **Keycloak**, linking to **Active Directory/LDAP**, **role-based access control (RBAC)** with realms and restricted users, and **OAuth2 service accounts** for headless device and machine access.
 
