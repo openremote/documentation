@@ -6,8 +6,9 @@ sidebar_position: 5
 
 How does our platform handle **identity and access**? This tutorial covers the essentials: **single sign-on (SSO/OIDC)** through the built-in **Keycloak**, linking to **Active Directory/LDAP**, **role-based access control (RBAC)** with realms and restricted users, and **OAuth2 service accounts** for headless device and machine access.
 
-Why this matters for enterprise users
+:::tip Why this matters for enterprise users
 Industry-standard identity is built into the open-source core: Keycloak-based authentication, fine-grained roles, restricted (per-asset) users, federated SSO and OAuth 2.0 service users — no separate edition required to satisfy an enterprise security review.
+:::
 
 ## Prerequisites
 
@@ -31,7 +32,7 @@ OpenRemote separates concerns into:
 
 ## Step 3 — Enable single sign-on (SSO)
 
-Because identity is managed by Keycloak, you can federate to an external IdP:
+Because identity is managed by Keycloak, you can federate to an external Identity Provider:
 
 1. Open the Keycloak admin console for your realm.
 2. Add an **Identity Provider** (OIDC or SAML) for your IdP and map claims/roles.
@@ -47,8 +48,9 @@ For headless access (a device, a backend service, a CI job) create a **service u
 2. Grant it the minimum roles it needs (prefer least privilege over the convenience of full read/write).
 3. Use its client ID/secret with standard **OAuth 2.0** to obtain tokens for the REST, WebSocket or MQTT APIs.
 
-Caution
+:::caution
 Give each device or integration its own service user with a narrow role, so you can revoke one without affecting the rest.
+:::
 
 ## Step 5 — Verify
 
