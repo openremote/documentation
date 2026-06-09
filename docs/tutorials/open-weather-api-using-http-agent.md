@@ -7,7 +7,7 @@ sidebar_position: 2
 This tutorial explains how to use the generic [Http Agent](../user-guide/agents-protocols/http) with an example to connect to the [Open Weather Map](https://openweathermap.org/) API. 
 
 :::note 
-For those who want to specifically conect to OpenWeather, you can directly use the [OpenWeatherMap Agent](https://docs.openremote.io/docs/user-guide/agents-protocols/openweathermap)
+For those who want to specifically connect to OpenWeather, you can directly use the [OpenWeatherMap Agent](https://docs.openremote.io/docs/user-guide/agents-protocols/openweathermap).
 :::
 
 ## Prerequisites
