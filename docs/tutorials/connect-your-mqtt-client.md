@@ -44,6 +44,6 @@ In this tutorial we will be looking at specific attributes of a specific asset. 
 
 ## Step 5 - Publish attribute values from the MQTT client
 You can publish data from your MQTT client (device) to the OpenRemote manager so that you can monitor the device and create rules.
-1. Define the correct topic. For directly writing an attribute value: `{realm}/{clientID}/writeattributevalue/{attributeName}/{assetID}`. So in our case this will be `master/client123/writeattributevalue/writeAttribute/6xIa9MkpZuR7slaUGB6OTZ`
+1. Define the correct topic. For directly writing an attribute value: `{realm}/{clientId}/writeattributevalue/{attributeName}/{assetId}`. So in our case this will be `master/client123/writeattributevalue/writeAttribute/6xIa9MkpZuR7slaUGB6OTZ`
 2. Send the JSON over this topic. For a Number, this is really simple: `23`
 3. Go to the Manager and check if the value updated!
