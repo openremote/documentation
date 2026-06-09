@@ -54,7 +54,9 @@ For a fully reproducible, version-controlled setup, define the same values in a 
 ```
 
 :::caution
-The `admin` superuser is intentionally **not** restricted by `manager_config.json`, so branding changes may not be visible to `admin`. Log in as a normal realm user (or set `"manager": {"applyConfigToAdmin": true}`) to verify your branding.
+By default, superusers (e.g. `admin`) will see styling changes from `manager_config.json`. If you have set `"manager": {"applyConfigToAdmin": false}` then most branding/styling changes will *not* be shown for `admin`.
+
+To verify per-tenant branding reliably, log in as a normal realm user.
 
 See [Custom deployment](https://docs.openremote.io/docs/user-guide/deploying/custom-deployment) and the [Appearance page](https://docs.openremote.io/docs/user-guide/manager-ui/appearance) for the full set of options.
 :::
