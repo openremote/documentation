@@ -1,5 +1,5 @@
 ---
-sidebar_position: 7
+sidebar_position: 5
 ---
 
 # Connect Modbus TCP/RTU devices (PLCs, meters, inverters)
