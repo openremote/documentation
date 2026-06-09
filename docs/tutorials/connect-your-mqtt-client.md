@@ -33,7 +33,7 @@ In your MQTT client set up a new connection:
 - Port: `8883` with TLS/SSL enabled; most clients will work with our self generated Let's Encrypt certificates, but if using a self signed certificate or your client isn't able to validate the cert chain then you may need to explicitly load the cert into your client or disable/relax the client's TLS verification settings (refer to your specific client's documentation). It is possible to expose the broker un-encrypted on port `1883` by creating a port mapping for that on the `manager` service in your Docker Compose file
 - password: the secret generated for the MQTT service user (you can find it on the mqttuser users page)
 - username: `master:mqttuser` (`{realm}:{user}`)
-- clientID: `client123` (this can be anything you like but must be unique - Any existing connection with the same client ID will be replaced. Make sure this clientID remains identical.)
+- clientId: `client123` (this can be anything you like but must be unique - Any existing connection with the same client ID will be replaced. Make sure this clientId remains identical.)
 
 ## Step 4 - Subscribe to attributes using the MQTT API
 In this tutorial we will be looking at specific attributes of a specific asset. There are [many more options](../user-guide/manager-apis.md#mqtt-api-mqtt-broker) of subscribing to (all) updates of assets and attributes. The asset attributes that you will be subscribing to can be written by the user, by rules, or can be a live value gathered through an Agent link with another device in the field. You can imagine this boolean value could toggle a function of the device subscribed to the attribute
