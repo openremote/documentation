@@ -4,7 +4,7 @@ sidebar_position: 4
 
 # Celsius to Fahrenheit with Flow
 
-An example for converting an attribute value, using the Flow editor is the conversion from temperature Celsius into Fahrenheit.
+This tutorial offers an example for converting an attribute value, using the Flow editor. This example describes the conversion from temperature Celsius into Fahrenheit.
 
 ## Prerequisites
 
