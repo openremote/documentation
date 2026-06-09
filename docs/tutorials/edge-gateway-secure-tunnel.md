@@ -18,7 +18,7 @@ The edge gateway is the **same OpenRemote codebase** running on-site, so an inst
 
 ## Step 1 — Run OpenRemote on the edge
 
-Deploy a standard OpenRemote instance on the on-site hardware. Connect your local devices to it using whichever agents fit — [Modbus](./connect-modbus-devices), [KNX](./integrate-knx-building-automation), MQTT, Z-Wave, etc. The edge instance keeps working and storing data even if the uplink drops.
+Deploy a standard OpenRemote instance on the on-site hardware. Connect your local devices to it using whichever agents fit — [Modbus](./connect-modbus-devices), [KNX](../user-guide/agents-protocols/knx), MQTT, Z-Wave, etc. The edge instance keeps working and storing data even if the uplink drops.
 
 ## Step 2 — Register the gateway on the central instance
 
