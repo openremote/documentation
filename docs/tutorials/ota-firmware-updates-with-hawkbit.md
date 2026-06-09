@@ -1,9 +1,14 @@
-# Over-the-air (OTA) firmware updates with Eclipse hawkBit
+---
+sidebar_position: 8
+---
+
+# Over-the-air (OTA) firmware updates
 
 Shipping hardware means shipping bugs you will need to fix later. This tutorial shows how to deliver **over-the-air (OTA) firmware updates** to a device fleet using OpenRemote's integration with **[Eclipse hawkBit](https://www.eclipse.org/hawkbit/)** — a dedicated software update server with managed **rollouts** and **campaigns**, not just a file drop.
 
-Why this matters for OEMs and integrators
+:::tip Why this matters for OEMs and integrators
 OpenRemote integrates a purpose-built rollout engine (hawkBit) for **device lifecycle management**: staged rollouts, target filtering and update status — so you can patch thousands of deployed devices safely rather than pushing a binary and hoping.
+:::
 
 ## Prerequisites
 
@@ -31,8 +36,9 @@ Each device becomes a **target** in hawkBit. Use a consistent target/controller 
 2. Define rollout groups and success/error thresholds so a failing batch pauses the rollout automatically.
 3. Start the rollout and watch devices move through *scheduled → running → finished*.
 
-Caution
+:::caution
 Always start with a small canary group and verify devices come back online and report the new version before rolling out to the whole fleet.
+:::
 
 ## Step 5 — Track update status in OpenRemote
 
