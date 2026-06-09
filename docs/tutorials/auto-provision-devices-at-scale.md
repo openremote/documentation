@@ -1,9 +1,14 @@
+---
+sidebar_position: 7
+---
+
 # Auto-provision and onboard OEM devices at scale
 
 If you build and distribute your own hardware, you do not want to register every unit by hand. This tutorial shows how **auto-provisioning** lets a device **self-register** the first time it connects: OpenRemote authenticates it, creates an **asset** of the type you defined, and links its **attributes** to the right MQTT topics — true **zero-touch device onboarding**.
 
-Why this matters for OEMs and integrators
+:::tip Why this matters for OEMs and integrators
 Provisioning in OpenRemote creates the client credentials **and** the digital asset **and** the attribute links in a single flow, included in the open-source core. That means a freshly flashed device becomes a fully modelled, queryable asset the moment it powers on in the field.
+:::
 
 ## Prerequisites
 
@@ -44,8 +49,9 @@ For a concrete firmware example, follow [Connect ESP32 or ESP8266 using MQTT](ht
 2. Power on a second unit with a different certificate and confirm a second, separate asset is created.
 3. Roll out the remaining fleet — no manual asset creation required.
 
-Note
+:::note
 Combine this with [multi-tenant realms](./white-label-multi-tenant-iot-platform) so each customer's devices provision straight into that customer's realm.
+:::
 
 ## Next steps
 
