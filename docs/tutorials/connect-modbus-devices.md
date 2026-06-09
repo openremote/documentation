@@ -52,3 +52,7 @@ Writing to a holding register or coil lets you actuate the device (e.g. toggle a
 
 Use [Flow rules](https://docs.openremote.io/docs/user-guide/rules-and-forecasting/flow-rules) to derive virtual attributes (e.g. compute energy from power), and [When-Then rules](https://docs.openremote.io/docs/user-guide/rules-and-forecasting/when-then-rules) to alarm on thresholds.
 
+## Next steps
+
+- Deploy a local [edge gateway with a secure tunnel](./edge-gateway-secure-tunnel) for sites with intermittent connectivity.
+
