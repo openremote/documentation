@@ -1,9 +1,14 @@
+---
+sidebar_position: 7
+---
+
 # Connect Modbus TCP/RTU devices (PLCs, meters, inverters)
 
-**Modbus** is everywhere in industrial and energy hardware — PLCs, energy meters, solar inverters, HVAC controllers. This tutorial shows how to connect Modbus devices to OpenRemote using the **native Modbus agent**, mapping registers straight onto **asset attributes** over Ethernet (**Modbus TCP**) or serial (**Modbus RTU**).
+**Modbus** is everywhere in industrial and energy hardware — PLCs, energy meters, solar inverters, HVAC controllers. This tutorial shows how to connect Modbus devices to OpenRemote running as a gateway, using the **native Modbus agent**, mapping registers straight onto **asset attributes** over Ethernet (**Modbus TCP**) or serial (**Modbus RTU**).
 
-Why this matters for OEMs and integrators
-The Modbus agent runs **inside the OpenRemote Manager** — there is no separate gateway application to deploy and operate just to speak an industrial protocol. The same is true for KNX, SNMP, BACnet-class building/industrial integrations, Z-Wave and more, which keeps your **industrial IoT** architecture simple.
+:::tip Why this matters for OEMs and integrators
+The Modbus agent runs **inside the OpenRemote Manager** — there is no separate gateway application to deploy and operate just to speak an industrial protocol. The same is true for KNX, and SNMP and more, which keeps your **industrial IoT** architecture simple.
+:::
 
 ## Prerequisites
 
@@ -33,8 +38,9 @@ For each attribute, add the **Agent Link** configuration item and select your Mo
 - the **read/write** behaviour and a **polling interval**,
 - optional **scaling** to convert raw registers into engineering units.
 
-Note
+:::note
 Writing to a holding register or coil lets you actuate the device (e.g. toggle a relay) straight from an attribute write, the Manager UI, the REST API, or a rule.
+:::
 
 ## Step 4 — Verify live data
 
@@ -46,7 +52,3 @@ Writing to a holding register or coil lets you actuate the device (e.g. toggle a
 
 Use [Flow rules](https://docs.openremote.io/docs/user-guide/rules-and-forecasting/flow-rules) to derive virtual attributes (e.g. compute energy from power), and [When-Then rules](https://docs.openremote.io/docs/user-guide/rules-and-forecasting/when-then-rules) to alarm on thresholds.
 
-## Next steps
-
-- Build a complete [energy management and optimization](./energy-management-optimization) solution on top of your meters and inverters.
-- Add [building-automation devices over KNX](./integrate-knx-building-automation).
