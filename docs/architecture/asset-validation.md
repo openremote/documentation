@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Asset Validation
 
 This document summarises how asset validation is perforomed and how it relates to the asset type model.
