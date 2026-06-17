@@ -116,8 +116,8 @@ ValueUtil.validateValue(
 private static boolean validateConstraints(Integer dimensions, ValueConstraint[] constraints, ..., Object value) {
     if (dimensions == null || dimensions == 0 || value == null) {
         // Leaf: evaluate each constraint directly against the value
-        return Arrays.stream(constraints).map(c -> validateValueConstraint(..., c, value))
-                     .anyMatch(valid -> !valid);
+        return Arrays.stream(constraints)
+                     .anyMatch(c -> !validateValueConstraint(..., c, value));
     } else {
         // Array: recurse into each element, decrementing dimension count
         return Arrays.stream((Object[]) value)
