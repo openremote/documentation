@@ -130,7 +130,7 @@ When valueDescriptor.arrayDimensions > 0, constraints are applied to each elemen
 
 ## `validateValueConstraint` (the leaf evaluator)
 
-'''java
+```java
 // ValueUtil.java:1051
 public static boolean validateValueConstraint(..., ValueConstraint valueConstraint, Object value) {
     if (!valueConstraint.evaluate(value, now)) {
@@ -141,7 +141,7 @@ public static boolean validateValueConstraint(..., ValueConstraint valueConstrai
     }
     return true;        // valid
 }
-'''
+```
 
 ## Constraint source summary
 
