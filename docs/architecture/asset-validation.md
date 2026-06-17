@@ -8,53 +8,72 @@ This document summarises how asset validation is performed and how it relates to
 
 ## AssetTypeInfo Model Structure
 
-```
-┌─────────────────────────────────────────────────────────-──┐
-│                       AssetTypeInfo                        │
-│  (AssetTypeInfo.java)                                      │
-│                                                            │
-│  assetDescriptor      : AssetDescriptor<?>                 │
-│  attributeDescriptors : Map<String, AttributeDescriptor<?>>│
-│  metaItemDescriptors  : MetaItemDescriptor<?>[]            │
-│  valueDescriptors     : ValueDescriptor<?>[]               │
-└──────┬──────────────────────────────────────────────────┬-─┘
-       │                                                  │
-       ▼                                                  ▼
-┌──────────────────────┐           ┌─────────────────────────────-─┐
-│   AssetDescriptor<T> │           │  AttributeDescriptor<T>       │
-│                      │           │  (extends                     │
-│  name : String       │           │   AbstractNameValueDescriptor │
-│  type : Class<T>     │           │   Holder<T>)                  │
-│  icon : String       │           │                               │
-│  color: String       │           │  ── Inherited ──              │
-│  (agent subtype:     │           │  name        : String         │
-│   AgentDescriptor)   │           │  type        : ValueDescriptor│
-└──────────────────────┘           │  constraints : ValueConstraint│
-                                   │  format      : ValueFormat    │
-                                   │  units       : String[]       │
-                                   │                               │
-                                   │  ── Own ──                    │
-                                   │  meta     : MetaMap           │
-                                   │  optional : Boolean           │
-                                   └────────────┬─────────────────-┘
-                                                │
-                        ┌───────────────────────┼─────────────-────┐
-                        ▼                       ▼                  ▼
-              ┌──────────────────┐  ┌────────────────────┐  ┌───────────────-┐
-              │  ValueDescriptor │  │     MetaMap        │  │ ValueConstraint│
-              │                  │  │  (attribute-level  │  │  (abstract)    │
-              │  name  : String  │  │   meta items,      │  │                │
-              │  type  : Class<T>│  │   keyed by name)   │  │  evaluate()    │
-              │  constraints[]   │  │                    │  │  message       │
-              │  arrayDimensions │  │  ── Can hold ──    │  │  getParams()   │
-              │  jsonType        │  │  MetaItemType      │  └──────┬──────-──┘
-              └──────────────────┘  │  .CONSTRAINTS ──►  │         │
-                                    │  ValueConstraint[] │  ┌──────┴──────────────────────────────────────-──┐
-                                    └────────────────────┘  │  Concrete subtypes (discriminated by "type":)  │
-                                                            │  Size, Min, Max, Pattern, AllowedValues,       │
-                                                            │  Past, PastOrPresent, Future, FutureOrPresent, │
-                                                            │  NotEmpty, NotBlank, NotNull                   │
-                                                            └────────────────────────────────────────────────┘
+```mermaid
+classDiagram
+    direction TB
+
+    class AssetTypeInfo {
+        +AssetDescriptor~?~ assetDescriptor
+        +Map attributeDescriptors
+        +MetaItemDescriptor~?~[] metaItemDescriptors
+        +ValueDescriptor~?~[] valueDescriptors
+    }
+    note for AssetTypeInfo "Source: AssetTypeInfo.java"
+
+    class AssetDescriptor~T~ {
+        +String name
+        +Class~T~ type
+        +String icon
+        +String color
+    }
+    note for AssetDescriptor "Agent subtype: AgentDescriptor"
+
+    class AttributeDescriptor~T~ {
+        +String name [Inherited]
+        +ValueDescriptor type [Inherited]
+        +ValueConstraint constraints [Inherited]
+        +ValueFormat format [Inherited]
+        +String[] units [Inherited]
+        +MetaMap meta [Own]
+        +Boolean optional [Own]
+    }
+    note for AttributeDescriptor "Extends AbstractNameValueDescriptor, Holder~T~"
+
+    class ValueDescriptor {
+        +String name
+        +Class~T~ type
+        +constraints[]
+        +arrayDimensions
+        +jsonType
+    }
+
+    class MetaMap {
+        +ValueConstraint[] CONSTRAINTS
+    }
+    note for MetaMap "Attribute-level meta items\nKeyed by name"
+
+    class ValueConstraint {
+        <<abstract>>
+        +evaluate()
+        +message
+        +getParams()
+    }
+
+    class ConcreteSubtypes {
+        Size, Min, Max, Pattern, AllowedValues
+        Past, PastOrPresent, Future, FutureOrPresent
+        NotEmpty, NotBlank, NotNull
+    }
+    note for ConcreteSubtypes "Discriminated by 'type' field"
+
+    %% Relationships & Structural Dependencies
+    AssetTypeInfo --> AssetDescriptor~T~ : assetDescriptor
+    AssetTypeInfo --> AttributeDescriptor~T~ : attributeDescriptors
+    AttributeDescriptor~T~ --> ValueDescriptor : type
+    AttributeDescriptor~T~ --> MetaMap : meta
+    AttributeDescriptor~T~ --> ValueConstraint : constraints
+    MetaMap --> ValueConstraint : holds via MetaItemType
+    ValueConstraint <|-- ConcreteSubtypes : dynamic subtypes
 ```
 ---
 
