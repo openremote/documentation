@@ -58,7 +58,7 @@ Run the manager with the following env variables:
 * In the manager service/IDE:
   * Add `8008:8008` to allow attaching the debugger from the IDE (if not running in an IDE)
   * Optionally, set the manager to be built from context `./manager/build/install/manager`, so that code changes are reflected during Docker image rebuild (after running `./gradlew clean installDist`)
-  * Add `OR_JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8008"` to allow remote debugging from the IDE (if not running in an IDE)
+  * Add `JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8008"` to allow remote debugging from the IDE (if not running in an IDE)
   * `OR_HOSTNAME=localhost`
   * `OR_METRICS_ENABLED: false`
   * `OR_GATEWAY_TUNNEL_SSH_HOSTNAME: "localhost"`
