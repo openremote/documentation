@@ -65,13 +65,13 @@ Run the manager with the following env variables:
   * `OR_GATEWAY_TUNNEL_SSH_PORT: 2222`
   * `OR_GATEWAY_TUNNEL_TCP_START: 9000`
   * `OR_GATEWAY_TUNNEL_HOSTNAME: "localhost"`
-  * `OR_GATEWAY_TUNNEL_AUTO_CLOSE_MINUTES: 2` <-- OPTIONAL if auto closure of tunnels is desired
+  * `OR_GATEWAY_TUNNEL_AUTO_CLOSE_MINUTES: 2` \<-- OPTIONAL if auto closure of tunnels is desired
 * Add the `sish` service, as found in `deploy.yml`, and modify:
   * Add volume `./deployment:/deployment` so that you can map the SSH keys that were generated above
 
-The routing of requests from the central instance to the gateway looks like this: Central Instance --> Sish --> Gateway Proxy --> Keycloak/Manager
+The routing of requests from the central instance to the gateway looks like this: Central Instance --\> Sish --\> Gateway Proxy --\> Keycloak/Manager
 
-For the "Sish --> Gateway Proxy" requests to be routed correctly, we need to either have DNS wildcard support or we have to manually edit the local `/etc/hosts` file to route the `<tunnelID>.<tunnelSSHHost>` to localhost, like this:
+For the "Sish --\> Gateway Proxy" requests to be routed correctly, we need to either have DNS wildcard support or we have to manually edit the local `/etc/hosts` file to route the `\<tunnelID\>.\<tunnelSSHHost\>` to localhost, like this:
 ```
 127.0.0.1       gw-5fj1sxvwwfp7wvgqgve91n.localhost
 ```
