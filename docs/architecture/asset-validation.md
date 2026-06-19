@@ -145,11 +145,11 @@ public static boolean validateValueConstraint(..., ValueConstraint valueConstrai
 
 ## Constraint source summary
 
-| Source | Where defined | Applied via |
-|--------|--------------|-------------|
-| ValueDescriptor.constraints[] | On the value type (e.g. ValueType.NUMBER) | validateConstraints() with array recursion |
-| AttributeDescriptor.constraints[] | On the static attribute definition | validateConstraints() with array recursion |
-| AttributeDescriptor.meta[CONSTRAINTS] | In the descriptor's MetaMap, key "constraints" | Direct per-constraint loop |
-| metaHolder.meta[CONSTRAINTS] | On the live Attribute instance's MetaMap | Direct per-constraint loop |
+| Source                                  | Where defined | Applied via |
+|-----------------------------------------|--------------|-------------|
+| ValueDescriptor.constraints\[\]         | On the value type (e.g. ValueType.NUMBER) | validateConstraints() with array recursion |
+| AttributeDescriptor.constraints\[\]     | On the static attribute definition | validateConstraints() with array recursion |
+| AttributeDescriptor.meta\[CONSTRAINTS\] | In the descriptor's MetaMap, key "constraints" | Direct per-constraint loop |
+| metaHolder.meta\[CONSTRAINTS\]          | On the live Attribute instance's MetaMap | Direct per-constraint loop |
 
-The key distinction between sources 3 and 4 is that source 3 comes from the static descriptor (set by the developer defining the asset model), while source 4 comes from the live attribute (set at runtime, e.g. by a user configuring constraints via the UI or API). Both are checked with MetaItemType.CONSTRAINTS — the same MetaItemDescriptor<ValueConstraint[]>.
+The key distinction between sources 3 and 4 is that source 3 comes from the static descriptor (set by the developer defining the asset model), while source 4 comes from the live attribute (set at runtime, e.g. by a user configuring constraints via the UI or API). Both are checked with MetaItemType.CONSTRAINTS — the same MetaItemDescriptor\<ValueConstraint\[\]\>.
