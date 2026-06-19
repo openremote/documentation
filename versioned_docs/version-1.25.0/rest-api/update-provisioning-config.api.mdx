@@ -1,0 +1,70 @@
+---
+id: update-provisioning-config
+title: "Update a provisioning configuration"
+description: "Update a provisioning configuration"
+sidebar_label: "Update a provisioning configuration"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVt9v2zYQ/leEe2oL2XLcZt30tC7Y1gJtY2QOMMzwAyOeJbb8oZJUHM/Q/z4cKVlSknVthwHLgyOSd98dj3ff3RE8Kx3kG1hZcyucMFroErYpmBot88LoNxxyaGrOPI5lLozeiRJSqJllCj1agjmCZgohh1eNr4wVfwYISEFoyKFCxtFCCq6oUDHIj+APNYk7b8lu26YnhN9nvxi7Z5Yjn62s8eZfo7w2zn8TiOC9Ws18BSlY/NQIixxybxt8BERoj2XA3xmrmI9b372Att1GdXT+J8MPpFMY7VF7+mR1LUURgpZ9cEbT3gA+mN1E17Zpb9DcfMCCbldbejkv0JGG4PSrhBaqUZCfpf/sYAqFReaRX+qHURmJU0LMvFBIKpI5/85wsRPIv1wrhvcIit29RV36CvLl+XlK/vbrweP+XfqNidrZYjFRe/6ImkUm1SMPnQJzDv0aVS2Zx0clLNJ34ZFfO7QjkRtjJDJNMo1De2VkDHx3zKxlB0oej8o9FhjU9C4bco7njCuhQ3oxnktTuv6boE8Lxer+Mzh+OrANGe8WQjtRVsMhk8yq08qhvRVFkN5b4fHhBpk8LXrH4qrzrDvqXeiW3ltx0/gRUu9WXI386jTGjvW7sG3bFLhw7EZOMmoUb878uOS6Cuj0CiuU0Myb8FhdURzex3oOGpRIwktaP+S1ywB22UO2MQVqo1183uViQf84kqE6cFwOHHeskT7pJSEdl/az7Bnkx4g11bsO5JqwpB75kRTBkcb2DKrQV4a4uG5CnRMT5ZCNdbKj4C1xGtrbno8bK4nuvK9dnmUclZmbGrVFZTzOhclYLbJjqI02gxRumRUUdBcJpyuZ7mqQg2LOo6WYbMlQ0VjhD8ESwRLfbLbjo9+IvSJaLzA8GWt8tSR6kGYfRAopUPsLixy1F0zGmjEfUV+He2SkkQW3XBZdoQh4UxiZRfxZYbTGwmdBLeTVzqKrvh3AFaaON6it2YmQMv0XvSYb97oLwwOFTDa/3jaJQvo/v3rIZWpTV0ND+/mOqVpi33wWk3YCy8XyxWzxcrb8YX12np+f5cvv54uXZ3/A/RbyOcmuK5849D6ndlk7bNzj97HklNZjNx8R+YSYt2NGiqIdB1EchN6ZkK0dqVzWqK9ClSXvmGYl2uT1er1KXq3ewH0GWFfCJcIlvsKEm6JRqH1InGRnbNj9DNo8SVYSmcPEIQbhzQRj++RU/aZw0+p/GgwoYzEh/+cdZbEiUBYqJmSYDHbmx4le6PmiQGK5fBj6fl29TZ7PF5Deo539fj8vdTM3tsw6NZexspaz5/PFHPW88koSJtFWDAkdLGirNs4rpkdmvowvJxE+UY7HO5/VkonYssnLY8elGxjjQQq54PTmFY2N+QaOxxvm8NrKtqXtTw1aIr7twJmBBocU2THp8IEjp5YAT666ee5pMmTx1MF+jNCHQM2yoRWk8BEPcS5tt23aD7NfZ/3vTEbox6bvk30ajf8LQ92APrETpS4i2mxNQIPEg3F50HhVFFiP0aj/UmM69dHV9RpSuOmGcBV4GyzbEy+wfXTchPvEXkh7R5BMlw0rSTZapL+/ABX1kCk=
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a provisioning configuration"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/provisioning/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update a provisioning configuration
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"required":["name"],"type":"object","properties":{"id":{"minimum":1,"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":1,"type":"string"},"type":{"maxLength":100,"minLength":3,"type":"string"},"realm":{"type":"string"},"assetTemplate":{"type":"string"},"restrictedUser":{"type":"boolean"},"userRoles":{"type":"array","items":{"type":"string","enum":["read:admin","read:logs","read:users","read:map","read:assets","read:rules","read:insights","read:alarms","read:services","write:services","write:user","write:admin","write:logs","write:assets","write:attributes","write:rules","write:insights","write:alarms","read","write"]}},"disabled":{"type":"boolean"},"data":{"type":"object"}},"discriminator":{"propertyName":"type"},"title":"ProvisioningConfigObjectObject"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+

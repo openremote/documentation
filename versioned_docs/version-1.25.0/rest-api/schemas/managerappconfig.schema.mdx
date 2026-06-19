@@ -1,0 +1,33 @@
+---
+id: managerappconfig
+title: "ManagerAppConfig"
+description: ""
+sidebar_label: "ManagerAppConfig"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"loadLocales":true,"languages":{},"realms":{},"pages":{},"manager":{"managerUrl":"string","keycloakUrl":"string","appVersion":"string","realm":"string","clientId":"string","autoLogin":true,"consoleAutoEnable":true,"loadIcons":true,"pollingIntervalMillis":0,"loadTranslations":["string"],"loadDescriptors":true,"translationsLoadPath":"string","skipFallbackToBasicAuth":true,"applyConfigToAdmin":true,"auth":"KEYCLOAK","credentials":{"username":"string","password":"string"},"eventProviderType":"WEBSOCKET","configureTranslationsOptions":{},"basicLoginProvider":{},"defaultLanguage":"string"}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ManagerAppConfig"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"loadLocales":{"type":"boolean"},"languages":{"type":"object","additionalProperties":{"type":"string"}},"realms":{"type":"object","additionalProperties":{"type":"object","properties":{"appTitle":{"type":"string"},"styles":{"type":"string"},"logo":{"type":"string"},"logoMobile":{"type":"string"},"favicon":{"type":"string"},"language":{"type":"string"},"headers":{"type":"array","items":{"type":"string"}},"notifications":{"type":"object","properties":{"languages":{"type":"array","items":{"type":"string"}},"defaultLanguage":{"type":"string"}},"title":"ManagerAppRealmNotificationConfig"}},"title":"ManagerAppRealmConfig"}},"pages":{"type":"object","additionalProperties":{"type":"object"}},"manager":{"type":"object","properties":{"managerUrl":{"type":"string"},"keycloakUrl":{"type":"string"},"appVersion":{"type":"string"},"realm":{"type":"string"},"clientId":{"type":"string"},"autoLogin":{"type":"boolean"},"consoleAutoEnable":{"type":"boolean"},"loadIcons":{"type":"boolean"},"pollingIntervalMillis":{"type":"integer","format":"int32"},"loadTranslations":{"type":"array","items":{"type":"string"}},"loadDescriptors":{"type":"boolean"},"translationsLoadPath":{"type":"string"},"skipFallbackToBasicAuth":{"type":"boolean"},"applyConfigToAdmin":{"type":"boolean"},"auth":{"type":"string","enum":["KEYCLOAK","BASIC","NONE"]},"credentials":{"type":"object","properties":{"username":{"type":"string"},"password":{"type":"string"}},"title":"UsernamePassword"},"eventProviderType":{"type":"string","enum":["WEBSOCKET","POLLING"]},"configureTranslationsOptions":{"type":"object"},"basicLoginProvider":{"type":"object"},"defaultLanguage":{"type":"string"}},"title":"ManagerConfig"}},"title":"ManagerAppConfig"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
