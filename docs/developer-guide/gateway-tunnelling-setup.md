@@ -42,34 +42,36 @@ This guide describes the steps necessary to setup the gateway tunnelling functio
 
 # Gateway Tunnelling Development Setup
 
-To run the manager locally as an edge gateway, to test the gateway tunnelling functionality, two different docker compose profiles need to be running:
-* The central instance profile (e.g. `docker-compose.central.yml`) needs to be running to provide the sish server functionality, with the correctly configured environment variables
-* The testing (unproxied) development profile needs to be running to allow the manager to run properly in the IDE.
+To debug/develop gateway related code two instances of the manager will be running, one for the edge gateway and one for the central instance. Depending on what you wish to test either or both could be launched from an IDE or you could configure either to allow remote debugging using `JAVA_TOOL_OPTIONS` and exposing assigned port on the manager docker services (ensure you set 2 different ports if running both managers on the same host).
+
+## Edge Instance Setup
 
 You need to setup the SSH keys as described in the "Edge Instance Setup" section above.
 
-For the **central instance** profile:
 
-Run the main `docker-compose.yml` file with `OR_HOSTNAME=localhost`, and add the following:
+## Central Instance Setup
+Either use the `dev-proxy.yml` compose file and then run the manager in an IDE, or run a compose file with a full stack of services and ensure the manager is configured for remote debugging (unless you don't intend to do any central instance code debugging/development),
+Run the manager with the following env variables:
 * In the proxy service:
   * SISH_PORT: 8090
   * SISH_HOST: sish
-* In the manager service:
-  * Add `8008:8008` to allow attaching the debugger from the IDE
+* In the manager service/IDE:
+  * Add `8008:8008` to allow attaching the debugger from the IDE (if not running in an IDE)
   * Optionally, set the manager to be built from context `./manager/build/install/manager`, so that code changes are reflected during Docker image rebuild (after running `./gradlew clean installDist`)
-  * Add `OR_JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8008"` to allow remote debugging from the IDE
+  * Add `JAVA_TOOL_OPTIONS: "-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:8008"` to allow remote debugging from the IDE (if not running in an IDE)
+  * `OR_HOSTNAME=localhost`
   * `OR_METRICS_ENABLED: false`
   * `OR_GATEWAY_TUNNEL_SSH_HOSTNAME: "localhost"`
   * `OR_GATEWAY_TUNNEL_SSH_PORT: 2222`
   * `OR_GATEWAY_TUNNEL_TCP_START: 9000`
   * `OR_GATEWAY_TUNNEL_HOSTNAME: "localhost"`
-  * `OR_GATEWAY_TUNNEL_AUTO_CLOSE_MINUTES: 2`
+  * `OR_GATEWAY_TUNNEL_AUTO_CLOSE_MINUTES: 2` \<-- OPTIONAL if auto closure of tunnels is desired
 * Add the `sish` service, as found in `deploy.yml`, and modify:
   * Add volume `./deployment:/deployment` so that you can map the SSH keys that were generated above
 
-The routing of requests from the central instance to the gateway looks like this: Central Instance --> Sish --> Gateway Proxy --> Keycloak/Manager
+The routing of requests from the central instance to the gateway looks like this: Central Instance --\> Sish --\> Gateway Proxy --\> Keycloak/Manager
 
-For the "Sish --> Gateway Proxy" requests to be routed correctly, we need to edit the local `/etc/hosts` file to route the `<tunnelID>.<tunnelSSHHost>` to localhost, like this:
+For the "Sish --\> Gateway Proxy" requests to be routed correctly, we need to either have DNS wildcard support or we have to manually edit the local `/etc/hosts` file to route the `\<tunnelID\>.\<tunnelSSHHost\>` to localhost, like this:
 ```
 127.0.0.1       gw-5fj1sxvwwfp7wvgqgve91n.localhost
 ```
