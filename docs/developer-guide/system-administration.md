@@ -295,7 +295,10 @@ A snapshot can be easily attached to a new EC2 instance using the `Provision Hos
       openremote/postgresql:latest
     ```
 1. Wait for the DB to be ready; it can take a while when starting from a large snapshot, look at the docker container logs for DB ready message
-1. Exec into the container and run DB queries, exports, etc. `docker exec -it temp_recovery_db psql -U postgres -d openremote`
+1. Extract/Analyse the data as required either by:
+   * Exec'ing into the container `docker exec -it temp_recovery_db psql -U postgres -d openremote`
+   or
+   * Modify the manager and keycloak DB settings to connect to the temporary DB on port 5433
 
 ### Useful resources
 - [Shared memory](https://www.instaclustr.com/blog/postgresql-docker-and-shared-memory/#:~:text=Docker%20and%20SHM%2DSize&text=This%20means%20that%20instead%20of,default%2C%20this%20limit%20is%2064MB)
