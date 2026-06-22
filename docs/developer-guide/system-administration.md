@@ -277,13 +277,15 @@ For data recovery or testing purposes it may be desirable to attach a DB snapsho
 
 #### New instance
 A snapshot can be easily attached to a new EC2 instance using the `Provision Host` github action or the `provision_host.sh` bash script directly.
+1. Change PostgreSQL data volume permissions `sudo chown -R 70:70 /var/lib/docker/volumes/or_postgresql-data/_data`
 
 #### Existing instance
 1. Create a new EBS volume from the EBS snapshot
 1. Attach the new EBS volume to the existing EC2 instance using the AWS console or the `aws ec2 attach-volume` command
 1. Check the EBS volume is attached as a disk using `lsblk` (assuming it is attached as `/dev/nvme2n1` for remaining steps)
 1. Mount the EBS volume `sudo mount -t xfs -o nouuid /dev/nvme2n1 /mnt/snapshot`
-2. Start a temporary PostgreSQL instance to connect to the snapshot DB:Locate the PostgreSQL data volume in `ls /mnt/snapshot` generally called `or_postgresql-data and set the `PGDATA` environment variable to the mount point.
+1. Change PostgreSQL data volume permissions `sudo chown -R 70:70 /mnt/snapshot/or_postgresql-data/_data`
+1. Start a temporary PostgreSQL instance to connect to the snapshot DB:Locate the PostgreSQL data volume in `ls /mnt/snapshot` generally called `or_postgresql-data and set the `PGDATA` environment variable to the mount point.
     ```shell
     sudo docker run -d \
       --rm \
