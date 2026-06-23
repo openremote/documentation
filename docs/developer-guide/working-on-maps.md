@@ -69,7 +69,7 @@ For configuring the geocode URL and setting up a self-hosted Nominatim instance,
 
 The `<or-map>` web component has a `showGeoCodingControl` boolean property (default: `false`) that controls whether the geocoding search box is rendered. In the Manager app (`ui/app/manager/src/pages/page-map.ts`), geocoding is enabled by default:
 
-```html
+```javascript <!-- should be lit or js-templates if it existed/worked -->
 <or-map id="map" class="or-map"
     showGeoCodingControl
     @or-map-geocoder-change="${(ev: OrMapGeocoderChangeEvent) => {
@@ -80,7 +80,7 @@ The `<or-map>` web component has a `showGeoCodingControl` boolean property (defa
 
 To enable geocoding in your own component:
 
-```html
+```javascript <!-- should be lit or js-templates if it existed/worked -->
 <or-map
     .showGeoCodingControl="${true}"
     @or-map-geocoder-change="${(ev) => {
