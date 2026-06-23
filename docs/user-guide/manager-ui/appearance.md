@@ -52,7 +52,67 @@ By default Superusers (e.g. the 'admin' user of the master realm) will see these
             ]
           }
         }
-      }
+      },
+      "clustering": {
+        "cluster": true,
+        "clusterRadius": 180,
+        "clusterMaxZoom": 17
+      },
+      "filters": [
+        {
+          "query": {
+            "types": [
+              "SoilSensorAsset"
+            ]
+          }
+        },
+        {
+          "query": {
+            "types": [
+              "HarvestRobotAsset"
+            ],
+            "attributes": {
+              "items": [
+                {
+                  "name": {
+                    "predicateType": "string",
+                    "value": "vegetableType"
+                  },
+                  "value": {
+                    "predicateType": "string",
+                    "value": "TOMATO"
+                  }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "label": "Robot & Irrigation errors",
+          "query": {
+            "types": [
+              "HarvestRobotAsset",
+              "IrrigationAsset"
+            ],
+            "attributes": {
+              "items": [
+                {
+                  "name": {
+                    "predicateType": "string",
+                    "value": "notes"
+                  },
+                  "value": {
+                    "predicateType": "string",
+                    "value": "error",
+                    "match": "CONTAINS",
+                    "caseSensitive": false
+                  }
+                }
+              ]
+            }
+          }
+        }
+      ]
     },
     "rules": {
       "rules": {
@@ -539,6 +599,49 @@ This configures what asset types are shown as markers on the map. The legend is 
       "legend": {
         "show": true
       }
+    }
+  }
+}
+```
+
+**Map - Preset filters:**
+This configures map preset filters, which add a dropdown on the map page to quickly filter the visible assets by type, attribute values, realm, and more using an `AssetQuery`. A live matching-asset count badge is shown per filter option. Options without a `label` will have an auto-derived label based on the type names and attribute values. Selected filters are persisted across page reloads (per user and realm) and reset on each new login session. You can also specify an optional `default` boolean or an array of `realms` to limit where the filter applies. Note that unsupported query fields like `orderBy`, `limit`, and `offset` will result in a warning.
+```json
+{
+  "pages": {
+    "map": {
+      "filters": [
+        {
+          "query": { "types": ["SoilSensorAsset"] }
+        },
+        {
+          "query": {
+            "types": ["HarvestRobotAsset"],
+            "attributes": {
+              "items": [
+                {
+                  "name": { "predicateType": "string", "value": "vegetableType" },
+                  "value": { "predicateType": "string", "value": "TOMATO" }
+                }
+              ]
+            }
+          }
+        },
+        {
+          "label": "Robot & Irrigation errors",
+          "query": {
+            "types": ["HarvestRobotAsset", "IrrigationAsset"],
+            "attributes": {
+              "items": [
+                {
+                  "name": { "predicateType": "string", "value": "notes" },
+                  "value": { "predicateType": "string", "value": "error", "match": "CONTAINS", "caseSensitive": false }
+                }
+              ]
+            }
+          }
+        }
+      ]
     }
   }
 }
