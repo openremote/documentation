@@ -36,8 +36,9 @@ You can brand each realm independently from the UI.
 2. Go to **Settings → Appearance**.
 3. Upload your **logo**, **mobile logo** and **favicon**, set the **app title** (e.g. `ACME IoT`), and configure the colour variables to match your brand.
 4. Configure map defaults, navigation items and default language for that realm.
+5. Save the configuration
 
-For a fully reproducible, version-controlled setup, define the same values in a `manager_config.json` instead:
+For a fully reproducible, version-controlled setup, define the same values in a `manager_config.json` instead. This file can be found under the 'JSON button' at the upper right:
 
 ```json
 {
@@ -63,7 +64,7 @@ See [Custom deployment](https://docs.openremote.io/docs/user-guide/deploying/cus
 
 ## Step 3 — Serve each tenant on its own domain (optional)
 
-Point your customer's domain (e.g. `iot.acme.com`) at the Docker host running the OpenRemote stack and set the `OR_HOSTNAME`/proxy configuration. The built-in HAProxy-based reverse proxy provisions TLS/SSL automatically (Let's Encrypt), so each branded tenant is served securely over HTTPS without extra tooling.
+Point your customer's domain (e.g. `iot.acme.com/manager/?realm=acme`) at the Docker host running the OpenRemote stack and set the `OR_HOSTNAME`/proxy configuration. The built-in HAProxy-based reverse proxy provisions TLS/SSL automatically (Let's Encrypt), so each branded tenant is served securely over HTTPS without extra tooling.
 
 ## Step 4 — Verify isolation
 
