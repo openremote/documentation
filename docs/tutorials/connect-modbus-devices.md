@@ -2,9 +2,9 @@
 sidebar_position: 5
 ---
 
-# Connect Modbus TCP/RTU devices (PLCs, meters, inverters)
+# Connect Modbus TCP/Serial devices (PLCs, meters, inverters)
 
-**Modbus** is everywhere in industrial and energy hardware — PLCs, energy meters, solar inverters, HVAC controllers. This tutorial shows how to connect Modbus devices to OpenRemote running as a gateway, using the **native Modbus agent**, mapping registers straight onto **asset attributes** over Ethernet (**Modbus TCP**) or serial (**Modbus RTU**).
+**Modbus** is everywhere in industrial and energy hardware — PLCs, energy meters, solar inverters, HVAC controllers. This tutorial shows how to connect Modbus devices to OpenRemote running as a gateway, using the **native Modbus agent**, mapping registers straight onto **asset attributes** over Ethernet (**Modbus TCP**) or serial (**Modbus Serial**).
 
 :::tip Why this matters for OEMs and integrators
 The Modbus agent runs **inside the OpenRemote Manager** — there is no separate gateway application to deploy and operate just to speak an industrial protocol. The same is true for KNX, and SNMP and more, which keeps your **industrial IoT** architecture simple.
