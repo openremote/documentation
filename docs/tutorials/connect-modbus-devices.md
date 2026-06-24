@@ -18,7 +18,7 @@ The Modbus agent runs **inside the OpenRemote Manager** — there is no separate
 
 ## Step 1 — Create a Modbus agent
 
-1. On the **Assets** page, click **+** and add a **Modbus TCP Agent** (or **Modbus RTU Agent**).
+1. On the **Assets** page, click **+** and add a **Modbus TCP Agent** (or **Modbus Serial Agent**).
 2. For TCP, set the host/IP and port (default `502`) and the unit/slave ID.
 3. For RTU, set the serial port, baud rate, parity and stop bits, and the unit ID.
 
