@@ -1,0 +1,33 @@
+---
+id: rulesengineinfo
+title: "RulesEngineInfo"
+description: ""
+sidebar_label: "RulesEngineInfo"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"status":"STOPPED","compilationErrorCount":0,"executionErrorCount":0}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"RulesEngineInfo"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"status":{"type":"string","enum":["STOPPED","RUNNING","ERROR"]},"compilationErrorCount":{"type":"integer","format":"int32"},"executionErrorCount":{"type":"integer","format":"int32"}},"title":"RulesEngineInfo"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
