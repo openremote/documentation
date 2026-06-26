@@ -62,9 +62,9 @@ To verify per-tenant branding reliably, log in as a normal realm user.
 See [Custom deployment](https://docs.openremote.io/docs/user-guide/deploying/custom-deployment) and the [Appearance page](https://docs.openremote.io/docs/user-guide/manager-ui/appearance) for the full set of options.
 :::
 
-## Step 3 — Serve each tenant on its own domain (optional)
+## Step 3 — Serving each tenant
 
-Point your customer's domain (e.g. `iot.acme.com/manager/?realm=acme`) at the Docker host running the OpenRemote stack and set the `OR_HOSTNAME`/proxy configuration. The built-in HAProxy-based reverse proxy provisions TLS/SSL automatically (Let's Encrypt), so each branded tenant is served securely over HTTPS without extra tooling.
+Your customer's realm is now available at its own URL (e.g. `iot.acme.com/manager/?realm=acme`).
 
 ## Step 4 — Verify isolation
 
