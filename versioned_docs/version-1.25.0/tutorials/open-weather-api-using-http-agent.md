@@ -1,17 +1,21 @@
 ---
-sidebar_position: 1
+sidebar_position: 2
 ---
 
-# Weather data using HTTP Agent
+# Using HTTP Agent for weather service
 
-This tutorial explains how to connect to the [Open Weather Map](https://openweathermap.org/) API using the [Http Agent](../user-guide/agents-protocols/http) and is based on the basic environment described in the quick start. 
+This tutorial explains how to use the generic [HTTP Agent](../user-guide/agents-protocols/http) with an example to connect to the [OpenWeatherMap](https://openweathermap.org/) API.
+
+:::note
+If you specifically want to connect to OpenWeatherMap, you can use the dedicated [OpenWeatherMap Agent](../user-guide/agents-protocols/openweathermap).
+:::
 
 ## Prerequisites
 
 * A running Open Remote instance (this tutorial assumes `https://localhost`)
 * A free API key for the [Open Weather Map](https://openweathermap.org/) API
 
-## Create the Agent
+## Step 1 - Create the Agent
 1. Login to the manager UI (`https://localhost/` `admin/secret`)
 2. Navigate to the Assets page and click the `+` at the top of the Asset list on the left to add an Agent or Asset.
 3. In the dialog do the following:
@@ -31,7 +35,7 @@ This tutorial explains how to connect to the [Open Weather Map](https://openweat
 
 You now have a basic HTTP API protocol ready to be linked to by asset attributes.
 
-## Create the weather asset
+## Step 2 - Create the weather asset
 Now we will create a weather asset where we show the temperature and humidity in Rotterdam that we collect using the OpenWeatherMap API.
 1. Click the `+` to add an asset:
    * Select the asset type from the list: `Weather Asset`
@@ -39,7 +43,7 @@ Now we will create a weather asset where we show the temperature and humidity in
    * Confirm with `Add`
 The weather asset will now appear in the list as a child of the `HTTP API Agent`. You can change its parent if you wish.
 
-## Add the Agent Links
+## Step 3 - Add the Agent Links
 1. Go to the modify mode by clicking the toggle at the top of the asset page. In the modify mode you can alter the attributes of an asset and set configuration items.
 2. First we will set up the humidity value:
    * Expand the `humidity` attribute
@@ -67,7 +71,7 @@ What this means is that the information can be found at the base URI + `weather`
 
 Switch to view mode (top right) to view the live values. You now have the live weather data of Rotterdam linked.
 
-## Setting multiple attributes with one agent link
+## Step 4 - Setting multiple attributes with one agent link
 
 As you may have noticed we do two calls in the above example, one to get the humidity and one to get the temperature. You can imagine that collecting all the attributes this way, and for several assets, will greatly increase the number of calls you make. This can be optimized by doing one call and extracting all the values you need and pushing them to the attributes of your assets. At the moment `Attribute links` does not have an auto-generated UI, so we'll have to add JSON code. We will recreate the example above using this method.
 
@@ -123,7 +127,7 @@ As you may have noticed we do two calls in the above example, one to get the hum
 
 With the attribute link configuration item you filter the values collected with the agent link and push them to the attributes in your specified asset. When you go to view mode you will see the weather data, temperature, and humidity value in their respective attributes.
 
-## Additional Exercises
+## Step 5 - Additional Exercises
 
 Try and create additional attributes that link to the OpenWeatherMap API, some ideas:
    * Get temperature in Fahrenheit
