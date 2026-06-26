@@ -1,5 +1,5 @@
 ---
-sidebar_position: 5
+sidebar_position: 12
 ---
 
 # Configure mobile app behaviour
@@ -32,7 +32,7 @@ This file has the following structure
 }
 ```
 
-## Domain
+## Step 1 - Domain
 
 The domain must always be manually entered by the user. Users can enter:
 - a full URL (e.g. https://myapp.example.com), with optional port
@@ -40,7 +40,7 @@ The domain must always be manually entered by the user. Users can enter:
 - an IP address, with or without scheme (e.g. 192.168.1.1)
 - a simple domain (string with no dot in name), the URL used is then https://_domain_.openremote.app
 
-## App
+## Step 2 - App
 
 By default, the system discovers the available apps and presents them to the user as a list for selection.  
 If there's only one available app, it's automatically selected and no option is presented to the user.
@@ -76,7 +76,7 @@ In this case, even if only one application is available, it is not automatically
 You can also specify the app to be used and forbid selection by the user (the app selection option is never presented).  
 Customize the `console_config.json` file, setting the `app` field to the name of the app you want to be used.
 
-## Realm
+## Step 3 - Realm
 
 As for apps, by default, the console presents the user with a list of possible realms for selection.  
 If there's only one available realm, it's automatically selected and no option is presented to the user.
@@ -101,7 +101,7 @@ For example
 If you don't want the console to present a list of available realms, you can force the user to manually enter the realm name in a text field.  
 Customize the `console_config.json` file, setting the `showRealmTextInput` to `true`.  
 
-## Providers
+## Step 4 - Providers
 
 For example
 ```json
