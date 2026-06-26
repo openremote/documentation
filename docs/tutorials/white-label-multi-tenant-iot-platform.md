@@ -4,19 +4,19 @@ sidebar_position: 1
 
 # White-label your IoT platform with multi-tenant realms
 
-This tutorial shows how to turn OpenRemote into a **white-label, multi-tenant IoT platform**: you will brand the Manager with your own logo and colours, give each customer (or distributor) their own isolated **realm**, and optionally serve it on a custom domain. This is exactly what device manufacturers (OEMs) and system integrators need when they want to resell an IoT solution under their own brand.
+This tutorial shows how to turn OpenRemote into a **white-label, multi-tenant IoT platform**: you will brand the Manager with your own logo and colours, give each customer (or distributor) their own isolated **realm**, and optionally serve it on a custom URL. This is exactly what device manufacturers (OEMs) and system integrators need when they want to resell an IoT solution under their own brand.
 
 :::tip Why this matters for OEMs and integrators
-White-labeling and multi-tenancy are part of the open-source core of OpenRemote — there is no separate "enterprise" edition or paid add-on to unlock branding, custom realms or role-based access. You can ship a fully branded, multi-customer platform without a per-feature licence.
+White-labeling and multi-tenancy are part of the open-source core of OpenRemote - there is no separate "enterprise" edition or paid add-on to unlock branding, custom realms or role-based access. You can ship a fully branded, multi-customer platform without a per-feature licence.
 :::
 
 ## Prerequisites
 
-- A running OpenRemote instance — see the [Quick Start](../quick-start).
+- A running OpenRemote instance - see the [Quick Start](../quick-start).
 - Superuser (`admin`) access to the **master** realm.
 - Your brand assets: a `logo.png`, a `logo-mobile.png`, a `favicon.png`, and your brand colour hex codes.
 
-## Step 1 — Create a realm per customer
+## Step 1 - Create a realm per customer
 
 Realms are OpenRemote's tenancy boundary: each realm has its own users, assets, agents, rules and branding, fully isolated from the others.
 
@@ -28,7 +28,7 @@ Realms are OpenRemote's tenancy boundary: each realm has its own users, assets, 
 The `master` realm is for platform administration. Keep your customers in their own realms so a tenant can never see another tenant's data.
 :::
 
-## Step 2 — Brand the Manager (Appearance settings)
+## Step 2 - Brand the Manager (Appearance settings)
 
 You can brand each realm independently from the UI.
 
@@ -62,15 +62,15 @@ To verify per-tenant branding reliably, log in as a normal realm user.
 See [Custom deployment](../user-guide/deploying/custom-deployment) and the [Appearance page](../user-guide/manager-ui/appearance) for the full set of options.
 :::
 
-## Step 3 — Serving each tenant
+## Step 3 - Serving each tenant
 
 Your customer's realm is now available at its own URL (e.g. `iot.acme.com/manager/?realm=acme`).
 
-## Step 4 — Verify isolation
+## Step 4 - Verify isolation
 
 1. Create a test user in the `acme` realm and log in as that user in a separate browser session.
 2. Confirm the branded login page, logo and colours appear.
-3. Confirm the user can only see `acme` assets — not those of other realms.
+3. Confirm the user can only see `acme` assets - not those of other realms.
 
 ## Next steps
 

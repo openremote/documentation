@@ -8,9 +8,9 @@ This tutorial offers an example for converting an attribute value, using the Flo
 
 ## Prerequisites
 
-- A running OpenRemote instance — see the [Quick Start](../quick-start).
+- A running OpenRemote instance - see the [Quick Start](../quick-start).
 
-## Step 1 — Create a new attribute
+## Step 1 - Create a new attribute
 
 First of all create the attribute you want to show the temperature in Fahrenheit. Note that you have to add the configuration item “Rule state” to be able to use it in the flow editor. In the example we also:
 
@@ -21,7 +21,7 @@ First of all create the attribute you want to show the temperature in Fahrenheit
 
 ![Add Fahrenheit attribute](img/flow-new-attribute-for-flow.png)
 
-## Step 2 — Create the flow rule
+## Step 2 - Create the flow rule
 
 Next create a flow in the flow editor, which looks like this:
 

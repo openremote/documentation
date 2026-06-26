@@ -2,35 +2,35 @@
 sidebar_position: 6
 ---
 
-# Enterprise identity — SSO, RBAC and OAuth2
+# Enterprise identity - SSO, RBAC and OAuth2
 
 How does our platform handle **identity and access**? This tutorial covers the essentials: **single sign-on (SSO/OIDC)** through the built-in **Keycloak**, linking to **Active Directory/LDAP**, **role-based access control (RBAC)** with realms and restricted users, and **OAuth2 service accounts** for headless device and machine access.
 
 :::tip Why this matters for enterprise users
-Industry-standard identity is built into the open-source core: Keycloak-based authentication, fine-grained roles, restricted (per-asset) users, federated SSO and OAuth 2.0 service users — no separate edition required to satisfy an enterprise security review.
+Industry-standard identity is built into the open-source core: Keycloak-based authentication, fine-grained roles, restricted (per-asset) users, federated SSO and OAuth 2.0 service users - no separate edition required to satisfy an enterprise security review.
 :::
 
 ## Prerequisites
 
-- A running OpenRemote instance — see the [Quick Start](../quick-start).
+- A running OpenRemote instance - see the [Quick Start](../quick-start).
 - Superuser access; ideally a [tenant realm already created](white-label-multi-tenant-iot-platform).
 - For SSO/AD: access to your identity provider (Microsoft Entra ID/AD, Google, Okta, or any OIDC/SAML IdP).
 
-## Step 1 — Understand the access model
+## Step 1 - Understand the access model
 
 OpenRemote separates concerns into:
 
-- **Realms** — isolated tenants (see the [white-label tutorial](white-label-multi-tenant-iot-platform)).
-- **Roles** — what a user can do (read, write, configure, manage users, etc.).
-- **Restricted users** — users who can only see the specific assets linked to them (device- or customer-level access control).
+- **Realms** - isolated tenants (see the [white-label tutorial](white-label-multi-tenant-iot-platform)).
+- **Roles** - what a user can do (read, write, configure, manage users, etc.).
+- **Restricted users** - users who can only see the specific assets linked to them (device- or customer-level access control).
 
-## Step 2 — Create roles and assign users
+## Step 2 - Create roles and assign users
 
 1. Go to the **Users** page in your realm.
 2. Create users and assign **roles** appropriate to their job (for example a read-only "viewer" vs a "configurator").
 3. For end customers who should only see their own equipment, mark them **restricted** and link the relevant assets to them. Also add the configuration item 'restricted access read/write' to the attributes you want the restricted user to see.
 
-## Step 3 — Enable single sign-on (SSO)
+## Step 3 - Enable single sign-on (SSO)
 
 Because identity is managed by Keycloak, you can federate to an external Identity Provider:
 
@@ -40,7 +40,7 @@ Because identity is managed by Keycloak, you can federate to an external Identit
 
 To synchronise users/groups from a directory, follow [Linking to Active Directory](../user-guide/identity-and-security/linking-to-active-directory).
 
-## Step 4 — Create OAuth2 service users for devices and integrations
+## Step 4 - Create OAuth2 service users for devices and integrations
 
 For headless access (a device, a backend service, a CI job) create a **service user**:
 
@@ -52,7 +52,7 @@ For headless access (a device, a backend service, a CI job) create a **service u
 Give each device or integration its own service user with a narrow role, so you can revoke one without affecting the rest.
 :::
 
-## Step 5 — Verify
+## Step 5 - Verify
 
 1. Sign in via your IdP and confirm the SSO flow and resulting roles.
 2. Log in as a restricted user and confirm they see only their linked assets.
