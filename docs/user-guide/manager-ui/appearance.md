@@ -60,27 +60,29 @@ By default Superusers (e.g. the 'admin' user of the master realm) will see these
       },
       "filters": [
         {
-          "query": {
-            "types": [
-              "SoilSensorAsset"
-            ]
-          }
+          "realms": ["manufacturer"],
+          "query": { "types": ["SoilSensorAsset"] }
         },
         {
+          "label": "CO2 > 100",
+          "realms": [
+            "smartcity"
+          ],
           "query": {
             "types": [
-              "HarvestRobotAsset"
+              "EnvironmentSensorAsset"
             ],
             "attributes": {
               "items": [
                 {
                   "name": {
-                    "predicateType": "string",
-                    "value": "vegetableType"
+                    "predicateType": "number",
+                    "value": "ozoneLevel"
                   },
                   "value": {
-                    "predicateType": "string",
-                    "value": "TOMATO"
+                    "predicateType": "number",
+                    "value": 100,
+                    "operator": "GREATER_THAN"
                   }
                 }
               ]
@@ -88,24 +90,25 @@ By default Superusers (e.g. the 'admin' user of the master realm) will see these
           }
         },
         {
-          "label": "Robot & Irrigation errors",
+          "label": "Irrigation water flow > 10",
+          "realms": [
+            "manufacturer"
+          ],
           "query": {
             "types": [
-              "HarvestRobotAsset",
               "IrrigationAsset"
             ],
             "attributes": {
               "items": [
                 {
                   "name": {
-                    "predicateType": "string",
-                    "value": "notes"
+                    "predicateType": "number",
+                    "value": "flowWater"
                   },
                   "value": {
-                    "predicateType": "string",
-                    "value": "error",
-                    "match": "CONTAINS",
-                    "caseSensitive": false
+                    "predicateType": "number",
+                    "value": 10,
+                    "operator": "GREATER_THAN"
                   }
                 }
               ]
@@ -612,30 +615,56 @@ This configures map preset filters, which add a dropdown on the map page to quic
     "map": {
       "filters": [
         {
+          "realms": ["manufacturer"],
           "query": { "types": ["SoilSensorAsset"] }
         },
         {
+          "label": "CO2 > 100",
+          "realms": [
+            "smartcity"
+          ],
           "query": {
-            "types": ["HarvestRobotAsset"],
+            "types": [
+              "EnvironmentSensorAsset"
+            ],
             "attributes": {
               "items": [
                 {
-                  "name": { "predicateType": "string", "value": "vegetableType" },
-                  "value": { "predicateType": "string", "value": "TOMATO" }
+                  "name": {
+                    "predicateType": "number",
+                    "value": "ozoneLevel"
+                  },
+                  "value": {
+                    "predicateType": "number",
+                    "value": 100,
+                    "operator": "GREATER_THAN"
+                  }
                 }
               ]
             }
           }
         },
         {
-          "label": "Robot & Irrigation errors",
+          "label": "Irrigation water flow > 10",
+          "realms": [
+            "manufacturer"
+          ],
           "query": {
-            "types": ["HarvestRobotAsset", "IrrigationAsset"],
+            "types": [
+              "IrrigationAsset"
+            ],
             "attributes": {
               "items": [
                 {
-                  "name": { "predicateType": "string", "value": "notes" },
-                  "value": { "predicateType": "string", "value": "error", "match": "CONTAINS", "caseSensitive": false }
+                  "name": {
+                    "predicateType": "number",
+                    "value": "flowWater"
+                  },
+                  "value": {
+                    "predicateType": "number",
+                    "value": 10,
+                    "operator": "GREATER_THAN"
+                  }
                 }
               ]
             }
