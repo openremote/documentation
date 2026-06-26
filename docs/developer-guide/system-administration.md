@@ -272,6 +272,36 @@ mv -v data/old/* $PGDATA
 rm -r data/new data/old
 ```
 
+### Attaching DB snapshot to an EC2 instance
+For data recovery or testing purposes it may be desirable to attach a DB snapshot to an existing instance. the following steps explain how to do this using an AWS EC2 EBS snapshot of the docker volumes.
+
+#### New instance
+A snapshot can be easily attached to a new EC2 instance using the `Provision Host` github action or the `provision_host.sh` bash script directly.
+1. Change PostgreSQL data volume permissions `sudo chown -R 70:70 /var/lib/docker/volumes/or_postgresql-data/_data`
+
+#### Existing instance
+1. Create a new EBS volume from the EBS snapshot
+1. Attach the new EBS volume to the existing EC2 instance using the AWS console or the `aws ec2 attach-volume` command
+1. Check the EBS volume is attached as a disk using `lsblk` (assuming it is attached as `/dev/nvme2n1` for remaining steps)
+1. Mount the EBS volume `sudo mount -t xfs -o nouuid /dev/nvme2n1 /mnt/snapshot`
+1. Change PostgreSQL data volume permissions `sudo chown -R 70:70 /mnt/snapshot/or_postgresql-data/_data`
+1. Start a temporary PostgreSQL instance to connect to the snapshot DB:Locate the PostgreSQL data volume in `ls /mnt/snapshot` generally called `or_postgresql-data and set the `PGDATA` environment variable to the mount point.
+    ```shell
+    sudo docker run -d \
+      --rm \
+      --name temp_recovery_db \
+      -p 5433:5432 \
+      -e POSTGRES_PASSWORD=postgres \
+      -v /mnt/snapshot/<YOUR_POSTGRES_VOLUME_NAME>/_data:/var/lib/postgresql/data \
+      -v /tmp:/export \
+      openremote/postgresql:latest
+    ```
+1. Wait for the DB to be ready; it can take a while when starting from a large snapshot, look at the docker container logs for DB ready message
+1. Extract/Analyse the data as required either by:
+   * Exec'ing into the container `docker exec -it temp_recovery_db psql -U postgres -d openremote`
+   or
+   * Modify the manager and keycloak DB settings to connect to the temporary DB on port 5433
+
 ### Useful resources
 - [Shared memory](https://www.instaclustr.com/blog/postgresql-docker-and-shared-memory/#:~:text=Docker%20and%20SHM%2DSize&text=This%20means%20that%20instead%20of,default%2C%20this%20limit%20is%2064MB)
 - [Index maintenance](https://wiki.postgresql.org/wiki/Index_Maintenance)
