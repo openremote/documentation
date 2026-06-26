@@ -12,7 +12,7 @@ White-labeling and multi-tenancy are part of the open-source core of OpenRemote 
 
 ## Prerequisites
 
-- A running OpenRemote instance — see the [Quick Start](https://docs.openremote.io/docs/quick-start).
+- A running OpenRemote instance — see the [Quick Start](../quick-start).
 - Superuser (`admin`) access to the **master** realm.
 - Your brand assets: a `logo.png`, a `logo-mobile.png`, a `favicon.png`, and your brand colour hex codes.
 
@@ -59,7 +59,7 @@ By default, superusers (e.g. `admin`) will see styling changes from `manager_con
 
 To verify per-tenant branding reliably, log in as a normal realm user.
 
-See [Custom deployment](https://docs.openremote.io/docs/user-guide/deploying/custom-deployment) and the [Appearance page](https://docs.openremote.io/docs/user-guide/manager-ui/appearance) for the full set of options.
+See [Custom deployment](../user-guide/deploying/custom-deployment) and the [Appearance page](../user-guide/manager-ui/appearance) for the full set of options.
 :::
 
 ## Step 3 — Serving each tenant
@@ -74,6 +74,6 @@ Your customer's realm is now available at its own URL (e.g. `iot.acme.com/manage
 
 ## Next steps
 
-- Lock down who can see what with [enterprise identity, SSO and RBAC](./enterprise-identity-sso-rbac).
-- Let your customers' devices register themselves with [auto-provisioning at scale](./auto-provision-devices-at-scale).
+- Lock down who can see what with [enterprise identity, SSO and RBAC](enterprise-identity-sso-rbac).
+- Let your customers' devices register themselves with [auto-provisioning at scale](auto-provision-devices-at-scale).
 - Build a customer-facing dashboard with the Insights dashboard builder.

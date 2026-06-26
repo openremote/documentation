@@ -8,7 +8,7 @@ This tutorial offers an example for converting an attribute value, using the Flo
 
 ## Prerequisites
 
-- A running OpenRemote instance — see the [Quick Start](https://docs.openremote.io/docs/quick-start).
+- A running OpenRemote instance — see the [Quick Start](../quick-start).
 
 ## Step 1 — Create a new attribute
 

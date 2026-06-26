@@ -12,7 +12,7 @@ The Modbus agent runs **inside the OpenRemote Manager** — there is no separate
 
 ## Prerequisites
 
-- A running OpenRemote instance — see the [Quick Start](https://docs.openremote.io/docs/quick-start).
+- A running OpenRemote instance — see the [Quick Start](../quick-start).
 - A reachable Modbus device: a Modbus TCP slave on your network, or a Modbus RTU device on a serial line accessible to the Manager host.
 - The device's register map (function code, address, data type, scaling).
 
@@ -22,7 +22,7 @@ The Modbus agent runs **inside the OpenRemote Manager** — there is no separate
 2. For TCP, set the host/IP and port (default `502`) and the unit/slave ID.
 3. For RTU, set the serial port, baud rate, parity and stop bits, and the unit ID.
 
-See the [Modbus agent reference](https://docs.openremote.io/docs/user-guide/agents-protocols/modbus) for all parameters.
+See the [Modbus agent reference](../user-guide/agents-protocols/modbus) for all parameters.
 
 ## Step 2 — Create the asset that represents the device
 
@@ -50,9 +50,9 @@ Writing to a holding register or coil lets you actuate the device (e.g. toggle a
 
 ## Step 5 — Turn raw values into insight
 
-Use [Flow rules](https://docs.openremote.io/docs/user-guide/rules-and-forecasting/flow-rules) to derive virtual attributes (e.g. compute energy from power), and [When-Then rules](https://docs.openremote.io/docs/user-guide/rules-and-forecasting/when-then-rules) to alarm on thresholds.
+Use [Flow rules](../user-guide/rules-and-forecasting/flow-rules) to derive virtual attributes (e.g. compute energy from power), and [When-Then rules](../user-guide/rules-and-forecasting/when-then-rules) to alarm on thresholds.
 
 ## Next steps
 
-- Deploy a local [edge gateway with a secure tunnel](./edge-gateway-secure-tunnel) for sites with intermittent connectivity.
+- Deploy a local [edge gateway with a secure tunnel](edge-gateway-secure-tunnel) for sites with intermittent connectivity.
 
