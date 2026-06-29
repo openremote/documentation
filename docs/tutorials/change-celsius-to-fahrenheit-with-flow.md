@@ -1,10 +1,16 @@
 ---
-sidebar_position: 4
+sidebar_position: 11
 ---
 
 # Celsius to Fahrenheit with Flow
 
-An example for converting an attribute value, using the Flow editor is the conversion from temperature Celsius into Fahrenheit.
+This tutorial offers an example for converting an attribute value, using the Flow editor. This example describes the conversion from temperature Celsius into Fahrenheit.
+
+## Prerequisites
+
+- A running OpenRemote instance - see the [Quick Start](../quick-start).
+
+## Step 1 - Create a new attribute
 
 First of all create the attribute you want to show the temperature in Fahrenheit. Note that you have to add the configuration item “Rule state” to be able to use it in the flow editor. In the example we also:
 
@@ -14,6 +20,8 @@ First of all create the attribute you want to show the temperature in Fahrenheit
 * added the unit Fahrenheit
 
 ![Add Fahrenheit attribute](img/flow-new-attribute-for-flow.png)
+
+## Step 2 - Create the flow rule
 
 Next create a flow in the flow editor, which looks like this:
 
