@@ -35,7 +35,7 @@ The device communicates with OpenRemote over MQTTS, authenticated with a dedicat
 In this typical use case, the device uses Wi-Fi for its internet connectivity.
 
 To integrate a new device into the system, it needs to be provisioned.  
-This can either be done automatically, see [User Guide Auto provisioning](/user-guide/080-gateways-and-devices/20-auto-provisioning.md)  
+This can either be done automatically, see [User Guide Auto provisioning](../user-guide/080-gateways-and-devices/20-auto-provisioning.md)  
 or through a manual process performed by the end-user.
 
 For the latter case, the workflow is as follows
