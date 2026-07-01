@@ -1,3 +1,7 @@
+---
+slug: /user-guide/services/
+---
+
 # Services
 
 Services are additional applications that work alongside OpenRemote to add extra features and tools to your system. You'll see them as entries in the `Services` page in your Manager UI, giving you access to additional functionality like for example advanced forecasting, device management tools, or custom integrations.
