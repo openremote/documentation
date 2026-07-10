@@ -296,7 +296,7 @@ When executing the automation, AWS will perform several actions under the hood.
 3. Check the EBS volume is attached as a disk using `lsblk` (assuming it is attached as `/dev/nvme2n1` for remaining steps)
 4. Mount the EBS volume `sudo mount -t xfs -o nouuid /dev/nvme2n1 /mnt/snapshot`
 5. Change PostgreSQL data volume permissions `sudo chown -R 70:70 /mnt/snapshot/or_postgresql-data/_data`
-6. Start a temporary PostgreSQL instance to connect to the snapshot DB:Locate the PostgreSQL data volume in `ls /mnt/snapshot` generally called `or_postgresql-data and set the `PGDATA` environment variable to the mount point.
+6. Start a temporary PostgreSQL instance to connect to the snapshot DB: locate the PostgreSQL data volume shown by `ls /mnt/snapshot` (generally called `or_postgresql-data`) and use that name in the `-v /mnt/snapshot/<YOUR_POSTGRES_VOLUME_NAME>/_data:/var/lib/postgresql/data` mount below.
     ```shell
     sudo docker run -d \
       --rm \
