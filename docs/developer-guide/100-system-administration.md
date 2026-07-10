@@ -310,8 +310,7 @@ When executing the automation, AWS will perform several actions under the hood.
 7. Wait for the DB to be ready. When starting from a large snapshot, this can take a while; check the Docker container logs for the DB-ready message.
 8. Extract/Analyse the data as required either by:
    * Exec'ing into the container `docker exec -it temp_recovery_db psql -U postgres -d openremote`
-   or
-   * Modify the manager and keycloak DB settings to connect to the temporary DB on port 5433
+   * Modifying the Manager and Keycloak DB settings to connect to the temporary DB on port 5433
 
 ### Useful resources
 - [Shared memory](https://www.instaclustr.com/blog/postgresql-docker-and-shared-memory/#:~:text=Docker%20and%20SHM%2DSize&text=This%20means%20that%20instead%20of,default%2C%20this%20limit%20is%2064MB)
