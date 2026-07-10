@@ -296,7 +296,7 @@ When executing the automation, AWS will perform several actions under the hood.
 3. Check the EBS volume is attached as a disk using `lsblk` (assuming it is attached as `/dev/nvme2n1` for remaining steps)
 4. Mount the EBS volume `sudo mount -t xfs -o nouuid /dev/nvme2n1 /mnt/snapshot`
 5. Change PostgreSQL data volume permissions `sudo chown -R 70:70 /mnt/snapshot/or_postgresql-data/_data`
-6. Start a temporary PostgreSQL instance to connect to the snapshot DB: locate the PostgreSQL data volume shown by `ls /mnt/snapshot` (generally called `or_postgresql-data`) and use that name in the `-v /mnt/snapshot/<YOUR_POSTGRES_VOLUME_NAME>/_data:/var/lib/postgresql/data` mount below.
+6. Start a temporary PostgreSQL instance to connect to the snapshot DB. Locate the PostgreSQL data volume shown by `ls /mnt/snapshot` (generally called `or_postgresql-data`) and use that name in the `-v /mnt/snapshot/<YOUR_POSTGRES_VOLUME_NAME>/_data:/var/lib/postgresql/data` mount below.
     ```shell
     sudo docker run -d \
       --rm \
@@ -310,7 +310,7 @@ When executing the automation, AWS will perform several actions under the hood.
 7. Wait for the DB to be ready. When starting from a large snapshot, this can take a while; check the Docker container logs for the DB-ready message.
 8. Extract/Analyse the data as required either by:
    * Exec'ing into the container `docker exec -it temp_recovery_db psql -U postgres -d openremote`
-   * Modifying the Manager and Keycloak DB settings to connect to the temporary DB on port 5433
+   * Modifying the Manager and Keycloak DB settings to connect to the temporary DB on port 5433.
 
 ### Useful resources
 - [Shared memory](https://www.instaclustr.com/blog/postgresql-docker-and-shared-memory/#:~:text=Docker%20and%20SHM%2DSize&text=This%20means%20that%20instead%20of,default%2C%20this%20limit%20is%2064MB)
