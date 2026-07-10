@@ -269,7 +269,7 @@ rm -r data/new data/old
 ```
 
 ### Attaching DB snapshot to an EC2 instance
-For data recovery or testing purposes it may be desirable to attach a DB snapshot to an existing instance. the following steps explain how to do this using an AWS EC2 EBS snapshot of the docker volumes.
+For data recovery or testing purposes, it may be desirable to attach a DB snapshot to an existing instance. The following steps explain how to do this using an AWS EC2 EBS snapshot of the Docker volumes.
 
 #### New instance
 A volume based on a snapshot can be easily created and attached to a new EC2 instance using the `Provision Host` GitHub action or the `provision_host.sh` bash script directly.
