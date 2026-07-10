@@ -1,0 +1,33 @@
+---
+id: numberpredicate
+title: "NumberPredicate"
+description: ""
+sidebar_label: "NumberPredicate"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"predicateType":"string","value":0,"rangeValue":0,"operator":"EQUALS","negate":true}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"NumberPredicate"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","allOf":[{"required":["predicateType"],"type":"object","properties":{"predicateType":{"type":"string"}},"discriminator":{"propertyName":"predicateType"},"title":"ValuePredicate"},{"type":"object","properties":{"value":{"type":"number"},"rangeValue":{"type":"number"},"operator":{"type":"string","enum":["EQUALS","GREATER_THAN","GREATER_EQUALS","LESS_THAN","LESS_EQUALS","BETWEEN"]},"negate":{"type":"boolean"}}}],"title":"NumberPredicate"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
