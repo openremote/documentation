@@ -276,16 +276,31 @@ rm -r data/new data/old
 For data recovery or testing purposes it may be desirable to attach a DB snapshot to an existing instance. the following steps explain how to do this using an AWS EC2 EBS snapshot of the docker volumes.
 
 #### New instance
-A snapshot can be easily attached to a new EC2 instance using the `Provision Host` github action or the `provision_host.sh` bash script directly.
-1. Change PostgreSQL data volume permissions `sudo chown -R 70:70 /var/lib/docker/volumes/or_postgresql-data/_data`
+A volume based on a snapshot can be easily created and attached to a new EC2 instance using the `Provision Host` GitHub action or the `provision_host.sh` bash script directly.
 
-#### Existing instance
+#### Rollback an existing instance using AWS SSM
+When using the SSM documents provided in `cloudformation-create-ssm-documents.yml` the rollback process can be completed automatically in just a few minutes. This reduces the number of manual steps required and is therefore less error-prone.
+To start the rollback process, select the `replace_volume` SSM document from the AWS SSM console. The document requires only a few parameters to be filled in:
+
+- `SnapshotId` (The ID of the snapshot to restore from)
+- `VolumeId` (The ID of the EBS volume to replace with the snapshot)
+- `DeleteVolume` (Specifies whether the existing EBS volume should be deleted after replacement. Set to `true` to delete the volume or `false` to keep it.)
+
+When executing the automation, AWS will perform several actions under the hood.
+
+1. Retrieve the instance details for the specified `VolumeId`
+2. Create a new EBS volume from the snapshot specified in `SnapshotId`
+3. Detach the current EBS volume and attach the newly created volume.
+4. Execute the `attach_volume` SSM automation. This automation runs several commands directly on the EC2 instance to mount the volume and update the `fstab` file. The `tag` attached to the EBS volume is also updated to ensure that AWS Data Lifecycle Manager (DLM) targets the volume when creating daily and weekly backups.
+5. Based on the `DeleteVolume` parameter, the original EBS volume is either deleted or retained as backup.
+
+#### Manually rollback an existing instance
 1. Create a new EBS volume from the EBS snapshot
-1. Attach the new EBS volume to the existing EC2 instance using the AWS console or the `aws ec2 attach-volume` command
-1. Check the EBS volume is attached as a disk using `lsblk` (assuming it is attached as `/dev/nvme2n1` for remaining steps)
-1. Mount the EBS volume `sudo mount -t xfs -o nouuid /dev/nvme2n1 /mnt/snapshot`
-1. Change PostgreSQL data volume permissions `sudo chown -R 70:70 /mnt/snapshot/or_postgresql-data/_data`
-1. Start a temporary PostgreSQL instance to connect to the snapshot DB:Locate the PostgreSQL data volume in `ls /mnt/snapshot` generally called `or_postgresql-data and set the `PGDATA` environment variable to the mount point.
+2. Attach the new EBS volume to the existing EC2 instance using the AWS console or the `aws ec2 attach-volume` command
+3. Check the EBS volume is attached as a disk using `lsblk` (assuming it is attached as `/dev/nvme2n1` for remaining steps)
+4. Mount the EBS volume `sudo mount -t xfs -o nouuid /dev/nvme2n1 /mnt/snapshot`
+5. Change PostgreSQL data volume permissions `sudo chown -R 70:70 /mnt/snapshot/or_postgresql-data/_data`
+6. Start a temporary PostgreSQL instance to connect to the snapshot DB:Locate the PostgreSQL data volume in `ls /mnt/snapshot` generally called `or_postgresql-data and set the `PGDATA` environment variable to the mount point.
     ```shell
     sudo docker run -d \
       --rm \
@@ -296,8 +311,8 @@ A snapshot can be easily attached to a new EC2 instance using the `Provision Hos
       -v /tmp:/export \
       openremote/postgresql:latest
     ```
-1. Wait for the DB to be ready; it can take a while when starting from a large snapshot, look at the docker container logs for DB ready message
-1. Extract/Analyse the data as required either by:
+7. Wait for the DB to be ready; it can take a while when starting from a large snapshot, look at the docker container logs for DB ready message
+8. Extract/Analyse the data as required either by:
    * Exec'ing into the container `docker exec -it temp_recovery_db psql -U postgres -d openremote`
    or
    * Modify the manager and keycloak DB settings to connect to the temporary DB on port 5433
