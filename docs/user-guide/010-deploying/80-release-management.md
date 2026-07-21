@@ -9,7 +9,7 @@ The Manager UI and backend is versioned in the [openremote/openremote](https://g
 The code in this repository is used for building the [openremote/manager](https://hub.docker.com/r/openremote/manager) Docker image which is available on Docker Hub.
 You can find the release notes of each version on the [Releases](https://github.com/openremote/openremote/releases) page on GitHub.
 
-When using the `openremote/manager` Docker image in production, it is recommended to always use a version tag (e.g. 1.2.0) so you know exactly what version is deployed.
+When using the `openremote/manager` Docker image in production, it is recommended to always use a version tag (e.g. 1.26.0) so you know exactly what version is deployed.
 
 Besides the version tags you can also use the "latest" and "develop" tags which are convenient during testing:
 
@@ -34,19 +34,19 @@ When updating a custom project to a new OpenRemote release, you can follow the s
 
 1. Read the [release notes](https://github.com/openremote/openremote/releases) to get familiar with the changes
 2. Update the code to use the new version:
-   1. Docker images: Update the `openremote/manager` image tag in the `docker-compose.yml` file (or environment variable) [NOTE: The OpenRemote CI/CD will auto set `MANAGER_VERSION` env variable based on what is found for `openremoteVersion` in `gradle.properties` so this may not be needed]
-   2. Java code: Update the `openremoteVersion` in the `gradle.properties` file
-   3. TypeScript code: Update the openremote package dependencies, e.g. using `yarn up -E "@openremote/*@^1.2.0"`
+   1. Docker images: Update the `openremote/manager` image tag in the `docker-compose.yml` file (or environment variable) [NOTE: The OpenRemote CI/CD will auto set `MANAGER_VERSION` env variable based on what is found for `openremote` version in `gradle/libs.versions.toml` so this may not be needed]
+   2. Java code: Update the `openremote` version in the `gradle/libs.versions.toml` file
+   3. TypeScript code: Update the openremote package dependencies, e.g. using `yarn up -E "@openremote/*@~1.26.0"`
 3. Check that the code in your custom project still builds correctly using: `./gradlew clean installDist`
 
 ### Using snapshot artifacts
 
 If you want to use changes before they are released, it is also possible to use development snapshot artifacts in your custom projects instead.
-E.g. if the next version will be 1.3.0 use the following versions:
+E.g. if the next version will be 1.27.0 use the following versions:
 
 1. Docker images: Update the `openremote/manager` image tag to `develop` in the `docker-compose.yml` file (or environment variable)
-2. Java code: Update the `openremoteVersion` to `1.3.0-SNAPSHOT` in the `gradle.properties` file (requires the Maven repository https://central.sonatype.com/repository/maven-snapshots to be added to your `project.gradle` file)
-3. TypeScript code: Update the openremote package dependencies using `yarn up -E "@openremote/*@^1.3.0-snapshot"`
+2. Java code: Update the `openremote` version to `1.27.0-SNAPSHOT` in the `gradle/libs.versions.toml` file (requires the Maven repository https://central.sonatype.com/repository/maven-snapshots to be added to your `project.gradle` file)
+3. TypeScript code: Update the openremote package dependencies using `yarn up -E "@openremote/*@~1.27.0-snapshot"`
 
 ### Using ORLib
 
