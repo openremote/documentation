@@ -8,17 +8,17 @@ OpenRemote integrates a purpose-built rollout engine (hawkBit) for **device life
 
 ## Prerequisites
 
-- A running OpenRemote instance - see the [Quick Start](../quick-start).
+- A running OpenRemote instance - see the [Quick Start](../20-quick-start.md).
 - A hawkBit instance reachable from OpenRemote (can be co-located with your stack).
 - Devices whose firmware can poll a hawkBit DDI endpoint and apply an update image.
 
 ## Step 1 - Enable the hawkBit integration
 
-Configure OpenRemote to connect to your hawkBit server. Once linked, OpenRemote can represent firmware/device-update state on your assets and surface update actions. See [Firmware updating with Hawkbit](../user-guide/gateways-and-devices/firmware-updating-with-hawkbit) for the supported features and configuration.
+Configure OpenRemote to connect to your hawkBit server. Once linked, OpenRemote can represent firmware/device-update state on your assets and surface update actions. See [Firmware updating with Hawkbit](../user-guide/080-gateways-and-devices/40-firmware-updating-with-hawkbit.md) for the supported features and configuration.
 
 ## Step 2 - Register devices as hawkBit targets
 
-Each device becomes a **target** in hawkBit. Use a consistent target/controller ID (for example the same serial used during [auto-provisioning](auto-provision-devices-at-scale)) so a device's OpenRemote asset and its hawkBit target line up one-to-one.
+Each device becomes a **target** in hawkBit. Use a consistent target/controller ID (for example the same serial used during [auto-provisioning](./080-auto-provision-devices-at-scale.md)) so a device's OpenRemote asset and its hawkBit target line up one-to-one.
 
 ## Step 3 - Upload a software module and distribution set
 
@@ -38,9 +38,9 @@ Always start with a small canary group and verify devices come back online and r
 
 ## Step 5 - Track update status in OpenRemote
 
-Monitor update progress and firmware version on the device assets in the Manager. Combine this with [rules](../user-guide/rules-and-forecasting/create-rules) to alert an operator if a device fails to check in after an update.
+Monitor update progress and firmware version on the device assets in the Manager. Combine this with [rules](../user-guide/060-rules-and-forecasting/10-create-rules.md) to alert an operator if a device fails to check in after an update.
 
 ## Next steps
 
-- Trigger update alerts and escalation with [ML Forecasting Service](../user-guide/services/service-ml-forecast).
-- Manage on-site devices behind an [edge gateway with a secure tunnel](../user-guide/gateways-and-devices/edge-gateway).
+- Trigger update alerts and escalation with [ML Forecasting Service](../user-guide/100-services/20-service-ml-forecast.md).
+- Manage on-site devices behind an [edge gateway with a secure tunnel](../user-guide/080-gateways-and-devices/10-edge-gateway.md).
