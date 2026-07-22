@@ -321,7 +321,7 @@ This is what the --or-app-colors look like in the demo deployment:
 
 ### Assets
 
-#### Tree
+#### Tree Configuration
 
 Exclude asset types from the 'Add asset' dialog.
 ```json
@@ -354,7 +354,7 @@ Exclude asset types from the 'Add asset' dialog.
   }
 }
 ```
-#### Viewer
+#### Viewer Configuration
 
 Configure which panels are shown on the assets page. You can include or exclude attributes to show per panel. These panels can be set for all asset types, or specified per type. This is an overwrite of the default config of the [asset-viewer](https://github.com/openremote/openremote/blob/master/ui/component/or-asset-viewer/src/index.ts). In `historyConfig` an example is given on how to specify the columns shown in a table for an attribute that is not a number or boolean; if no config is given, it will automatically create columns.
 ```json
@@ -471,7 +471,7 @@ Configure which panels are shown on the assets page. You can include or exclude 
 ```
 ### Rules
 
-#### Controls
+#### Controls Configuration
 
 Set which types of rules are available (for users with the correct permissions), and which actions a rule can perform.
 ```json
@@ -497,7 +497,7 @@ Set which types of rules are available (for users with the correct permissions),
   }
 }
 ```
-#### When-Then
+#### When-Then Configuration
 
 Set which asset types are excluded from the list of asset types that can be selected in the When-Then rule. Additionally you can set per asset (or all '*') which attributes should be excluded from the select list.
 ```json
@@ -528,7 +528,7 @@ Set which asset types are excluded from the list of asset types that can be sele
 ```
 ### Map
 
-#### Card
+#### Card Configuration
 
 You can set the attributes to exclude (or include) on the top right card of the map when an asset is selected. This can be done for all asset types (by using default), or per asset type (as shown for WeatherAsset).
 ```json
@@ -556,7 +556,7 @@ You can set the attributes to exclude (or include) on the top right card of the 
   }
 }
 ```
-#### Marker Config
+#### Marker Configuration
 
 This configures how the markers behave. They can either change their colour based on an attribute value (number, boolean, or string), show a label with or without units, and/or show the direction an asset is facing. Note that this part of the config is not yet configured in the manager_config of the manager demo.
 ```json
@@ -591,7 +591,7 @@ This configures how the markers behave. They can either change their colour base
   }
 }
 ```
-#### Clustering Config
+#### Clustering Configuration
 
 This configures how clustering behaves. Clustering ensures the map page can render assets smoothly even with 40-50 thousand assets. The clustering option can be disabled, or changed to cluster markers in a smaller radius showing more clusters and changed to start clustering at a certain zoom level. Note that reducing cluster radius or cluster max zoom can have performance impacts. The recommended cluster max zoom level is Maximum realm zoom level - 2.
 ```json
@@ -607,7 +607,7 @@ This configures how clustering behaves. Clustering ensures the map page can rend
   }
 }
 ```
-#### Legend Config
+#### Legend Configuration
 
 This configures what asset types are shown as markers on the map. The legend is enabled by default and can be disabled by setting show to false.
 ```json
@@ -622,7 +622,7 @@ This configures what asset types are shown as markers on the map. The legend is 
 }
 ```
 
-#### Preset Filters
+#### Preset Filters Configuration
 
 This configures map preset filters, which add a dropdown on the map page to quickly filter the visible assets by type, attribute values, realm, and more using an `AssetQuery`. A live matching-asset count badge is shown per filter option. Options without a `label` will have an auto-derived label based on the type names and attribute values. Selected filters are persisted across page reloads (per user and realm) and reset on each new login session. You can also specify an optional `default` boolean or an array of `realms` to limit where the filter applies. Note that unsupported query fields like `orderBy`, `limit`, and `offset` will result in a warning.
 ```json
