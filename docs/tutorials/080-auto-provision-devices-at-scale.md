@@ -8,7 +8,7 @@ Provisioning in OpenRemote creates the client credentials **and** the digital as
 
 ## Prerequisites
 
-- A running OpenRemote instance - see the [Quick Start](../quick-start).
+- A running OpenRemote instance - see the [Quick Start](../20-quick-start.md).
 - Superuser access to a realm where your devices will live.
 - A device (or test client) that can do MQTT over TLS with an X.509 client certificate - for example an ESP32/ESP8266.
 
@@ -23,7 +23,7 @@ Decide what each device *is* in your model (e.g. a `Thing`, or a custom `Environ
 3. Select the **asset type** to create per device and set the realm.
 4. Choose whether to **auto-link attributes** to standard MQTT topics and whether newly provisioned assets are **disabled until approved** (useful for a manufacturing QA gate).
 
-See [Auto provisioning devices and users](../user-guide/gateways-and-devices/auto-provisioning) for the message format and the full configuration reference.
+See [Auto provisioning devices and users](../user-guide/080-gateways-and-devices/20-auto-provisioning.md) for the message format and the full configuration reference.
 
 ## Step 3 - Flash devices with a unique certificate
 
@@ -37,7 +37,7 @@ On first connection the device publishes a provisioning request to the provision
 2. Links its attributes to the device's publish/subscribe topics.
 3. Returns the asset ID so the device can start publishing telemetry immediately.
 
-For a concrete firmware example, follow [Connect ESP32 or ESP8266 using MQTT](../user-guide/gateways-and-devices/connect-esp32-or-esp8266-using-mqtt), then point it at your provisioning config instead of a manually created service user.
+For a concrete firmware example, follow [Connect ESP32 or ESP8266 using MQTT](../user-guide/080-gateways-and-devices/30-connect-esp32-or-esp8266-using-mqtt.md), then point it at your provisioning config instead of a manually created service user.
 
 ## Step 5 - Verify and scale
 
@@ -46,10 +46,10 @@ For a concrete firmware example, follow [Connect ESP32 or ESP8266 using MQTT](..
 3. Roll out the remaining fleet - no manual asset creation required.
 
 :::note
-Combine this with [multi-tenant realms](./white-label-multi-tenant-iot-platform) so each customer's devices provision straight into that customer's realm.
+Combine this with [multi-tenant realms](./010-white-label-multi-tenant-iot-platform.md) so each customer's devices provision straight into that customer's realm.
 :::
 
 ## Next steps
 
-- Keep field devices current with [OTA firmware updates using hawkBit](ota-firmware-updates-with-hawkbit).
-- Deploy a local [edge gateway with a secure tunnel](edge-gateway-secure-tunnel) for sites with intermittent connectivity.
+- Keep field devices current with [OTA firmware updates using hawkBit](./090-ota-firmware-updates-with-hawkbit.md).
+- Deploy a local [edge gateway with a secure tunnel](./070-edge-gateway-secure-tunnel.md) for sites with intermittent connectivity.
