@@ -1,0 +1,70 @@
+---
+id: write-attribute-values
+title: "Update attribute values"
+description: "Update attribute values"
+sidebar_label: "Update attribute values"
+hide_title: true
+hide_table_of_contents: true
+api: eJztVltz2kYU/iuaM31IpwJRu5OkeqqMhc0UAwXJSUsos5YOaBNpV95dmTgM/z1zVlx9SZt2OpOH8mDw2XO/fOeswLCFBn8CgdZoYOqCLFExw6XopuDDUnGDgTGK31QGr1leoQYXSqZYgQYVya5AsALBh6AymVT8kxUHF7gAHzJkKSpwQScZFgz8FZj7kti1UVwsYL12dxreNjpSLZlKMW0MlTTyX2u5lNp8hZKpCwpvK9TmTKb3xJFIYVAY+snKMueJjc57r6Ug2iNVTCl2TxYNFvqALm/eY0KulIpSbDjaV4Xz+uu24gpTKoWNYur+hSBP6W/JjEFFwf05aTV+Dhp/sMan6erkZP0duA+icyFFnShe2vL4EGXoMCq7w1MUhs+5TQ5+ZEWZk9yrM/P66jR5Gw5fnl0Os9fqp1fnv89h7W4SvYKCix6KhcnA/9E9dObdu+UPf9ODbXM5Vumh/VzWyabiguHGEnfNOELryh315OM8PykyNswgrOlDddalFLrO5kmrRV/H7qU4Z1VunC0nuP93wzfeDXPG80rh49F2AUVVWKQbj8No1h9Es84g7p+DC0EUjbpncRQeUbv9cdzpdNvdsB/NgnY7HI8t9Trodc9n10EvDu3/UThqh8NoMJp1gm4vHhF1HAVROBtHg1FwEVp6SCrbQZ8sDEeDjbbf4jAOZ5241wMX4v6v/cGbPjlkXeyez66643G3f3HsY3AV7h6mTybjDaH2CHWVm7rb1w9zHZcpM4fpvttCe4EmkwT9ZWXbjFE5wbOt4e34iVOjuttugErlBLDGlNr3vBQL2ZQlCoWFNNjk0mMl91YKWV6sPaCpVZzd5NuuZ3lRj58dOPChYNqgIuenZCipFDf31hKppW6fTA+fxjR4tbYtw37WWGWyE3BhnsulZUlyjsK0FdpOZ3k9mfIDitjG4ZGEZ93SXu2KV9I6SmTu1fobiRQCE+NZMSA4mSvU2T9XoBNZ1hGUSs65rej2FxWQHW7Xtkxtkx8Rv942sdJcftOh2/YlhB3tN3O4hYXJDjSp5s+B1BajDkBkvzlsj3Exl7YLNrM0KFGMbPc6V0ywBSrnMoqGTjDsPgFcXDtcOyZDJ5VJVaAw1oozl8pSv6Ct6TjDHJlGRyNa5smRjumL3VTJRB9P1ffWQCEVOuR/c7OgWGIXFBaMU0Xo6ZcjOYo+5wnSTvP359vFsOecNlvgPhjn5XLZXIiqKdXC24hpjy3KvHHabDVRNDNT5DajqHSdEnpoEamU2hRMHJh5HnqOsrobX4MfjVfmjNuiWc9WG1iagIUlcOEAmKYuZHT0+RNYrW6Yxljl6zWRbytUBCLTPf5YHHG3lyF1U8o1PaTgz1mu8ZFXuwsA9gvt2MUPeP/MKbvpOAA6Vv8LQ5tr98hOzdWutTUiUrTneHTE7CWCJMHSfJF3erAuhnEELtxsrubC4hMotiR8YMs6CmmDqzGfaCvImVhUbEG8tUr6fAbWYEkg
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update attribute values"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/asset/attributes"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update attribute values
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"ref":{"required":["name"],"type":"object","properties":{"id":{"pattern":"^[0-9A-Za-z]{22}$","type":"string","description":"The asset identifier","example":"7Bt8M3cXEP6BHPh8r47DYf"},"name":{"minLength":1,"pattern":"^\\w+$","type":"string","description":"The attribute name","example":"location"}},"title":"AttributeRef"},"value":{"type":"object"}},"title":"AttributeState"}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"ref":{"required":["name"],"type":"object","properties":{"id":{"pattern":"^[0-9A-Za-z]{22}$","type":"string","description":"The asset identifier","example":"7Bt8M3cXEP6BHPh8r47DYf"},"name":{"minLength":1,"pattern":"^\\w+$","type":"string","description":"The attribute name","example":"location"}},"title":"AttributeRef"},"failure":{"type":"string","enum":["ASSET_NOT_FOUND","ATTRIBUTE_NOT_FOUND","INSUFFICIENT_ACCESS","INVALID_VALUE","INTERCEPTOR_FAILURE","STATE_STORAGE_FAILED","CANNOT_PROCESS","QUEUE_FULL","UNKNOWN","ASSET_ID_MISSING","ATTRIBUTE_NAME_MISSING"]}},"title":"AttributeWriteResult"}}}}}}}
+>
+  
+</StatusCodes>
+
+

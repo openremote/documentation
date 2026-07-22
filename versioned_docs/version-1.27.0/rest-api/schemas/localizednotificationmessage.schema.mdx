@@ -1,0 +1,33 @@
+---
+id: localizednotificationmessage
+title: "LocalizedNotificationMessage"
+description: ""
+sidebar_label: "LocalizedNotificationMessage"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"type":"string","defaultLanguage":"string","languages":{}}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"LocalizedNotificationMessage"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","allOf":[{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"},{"type":"object","properties":{"defaultLanguage":{"type":"string"},"languages":{"type":"object","additionalProperties":{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"}}}}],"title":"LocalizedNotificationMessage"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
