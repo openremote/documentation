@@ -416,7 +416,16 @@ paths:
     put:
       tags:
       - Alarm
-      summary: Set the asset links of an alarm
+      summary: Add asset links to a single alarm
+      description: |
+        Adds links between assets and one existing alarm.
+
+        The request body is a list for backward compatibility, but this operation now has single-alarm semantics:
+        every item must contain the same `id.realm` and the same `id.alarmId`. The alarm must exist in that realm,
+        every asset must exist in the same realm, and the authenticated user must have access to that realm.
+
+        Existing links are left unchanged; duplicate links in the request or links that already exist are ignored.
+        This operation does not remove existing links from the alarm.
       operationId: setAssetLinks
       parameters:
       - name: Authorization
@@ -431,11 +440,62 @@ paths:
         in: header
         schema:
           type: string
+      requestBody:
+        description: Alarm asset links to add. All items must use the same `id.realm`
+          and `id.alarmId`.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/AlarmAssetLink"
+            examples:
+              Single asset link:
+                summary: Link one asset to one alarm
+                description: Single asset link
+                value:
+                - id:
+                    realm: building
+                    alarmId: 1234
+                    assetId: 7A6p4AnLTkKxJUCQAAABAA
+              Multiple asset links:
+                summary: Link multiple assets to the same alarm
+                description: Multiple asset links
+                value:
+                - id:
+                    realm: building
+                    alarmId: 1234
+                    assetId: 7A6p4AnLTkKxJUCQAAABAA
+                - id:
+                    realm: building
+                    alarmId: 1234
+                    assetId: 2Qjr4AnLTkKxJUCQAAACAA
+              Invalid multiple alarms:
+                summary: Rejected because the request targets more than one alarm
+                description: Invalid multiple alarms
+                value:
+                - id:
+                    realm: building
+                    alarmId: 1234
+                    assetId: 7A6p4AnLTkKxJUCQAAABAA
+                - id:
+                    realm: building
+                    alarmId: 5678
+                    assetId: 2Qjr4AnLTkKxJUCQAAACAA
+        required: true
       responses:
-        "200":
-          description: default response
-          content:
-            '*/*': {}
+        "204":
+          description: "Asset links were added, or already existed"
+        "400":
+          description: "Invalid request body, multiple alarm IDs or realms were provided,\
+            \ or the alarm/assets are not all in the same realm"
+        "401":
+          description: Authentication is required
+        "403":
+          description: The authenticated user is not allowed to write alarms in the
+            requested realm
+        "404":
+          description: The alarm or one or more assets do not exist
   /configuration/manager/file:
     post:
       tags:
@@ -5161,7 +5221,6 @@ components:
           type: boolean
         jsonType:
           type: string
-      nullable: true
     ValueFormat:
       type: object
       properties:
@@ -5634,12 +5693,12 @@ components:
       - $ref: "#/components/schemas/AssetDescriptorObject"
       - type: object
         properties:
-          assetDiscovery:
-            type: boolean
           assetImport:
             type: boolean
           agentLinkType:
             type: string
+          assetDiscovery:
+            type: boolean
     AssetDescriptorObject:
       required:
       - descriptorType

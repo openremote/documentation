@@ -87,7 +87,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "rest-api/set-asset-links",
-          label: "Set the asset links of an alarm",
+          label: "Add asset links to a single alarm",
           className: "api-method put",
         },
       ],
