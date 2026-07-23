@@ -82,7 +82,6 @@ const config: Config = {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",
             },
-            template: "api.mustache", // Customize API MDX with mustache template
             downloadUrl: "https://demo.openremote.io/api/master/openapi.yaml",
             hideSendButton: false,
             showSchemas: true,
