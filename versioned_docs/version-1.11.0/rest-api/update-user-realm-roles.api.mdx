@@ -1,0 +1,70 @@
+---
+id: update-user-realm-roles
+title: "Update realm roles for a user in a realm"
+description: "Update realm roles for a user in a realm"
+sidebar_label: "Update realm roles for a user in a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVktv2zgQ/ivEnNpCloz0ptOmQR8Btqjh2sAChg4TaWxxQ5EsSdX1Cvrvi6Es2U6yQJMFivpiiZz55vnNqIOAOw/5BtaeHBQJGEsOgzT6toIcWlthIL5bEqpmaRR5SMCiw4YCOVbtQGNDkMN1G2rj5D9RHRKQGnKoCStykIAva2oQ8g7CwbK4D07qHfR9MiH8Nftg3B5dRdVs4Uww/xvlk/HhRSCO4x01LYYaEnD0rZWOKsiDa+nncFpP7rZ6MVAxCJMP70x1YInS6EA68CNaq2QZ05397Y3ms0dQ6Bwe2H6gxj9lou97NuKt0Z6ixNV8zn8V+dJJG6uZQ0VbbFUQoyQk5668yd5A3g1Yl3rr2EIi5lM4biCxNU6g4MwIqQWKMdcNhdpw29k2xC4LNeSQsWDWRaE+vpx6MeuG/PZcVXLfx45sneKCh2B9nmUVNSY1lrSjxgRKpcnQygkSEviOTuKdGsIf3IkJiCFDDg36QI6TVbChsnUyHKIlhpUV5Jvi/OorV2FAGwWmxBtsQ30FCWyV2UeRUknS4cZRRTpIVEOZzD3pdYwjY40suuWzwZXMMj1Ko7IBf1YarakMWVSLLbZ15OuXA/jS2CEC68xWKnZ9fOIq4znbb0xFsSPPD59vm0Uh+c1Djz3OdFueiPn+BzaW5TYjrwpm/NbESsoQIb5Y0svYgeIzatyRE8v3X1fienELD1mzqqUX0otQk6hM2TakQ0xqJA+fPoH2abVaTJCpEAtF6El4oqixuQAqXk30MKW/pMfraKUxjgQHkR65jmXkOjUoObV89ceFHvQJKFkSj4f8tBc+Lv4Ub9M5JA94ud/v051uU+N22VHNZ7izavY2naek0zo0ijGZ10Ne+GLOR9b40KA+M/OMQXOR64mYgX6EzCqUmg1EV7vjENrEOQ4J5CNE+3An5sdJXyRQ89LJN9B1d+hp7VTf8/G3lhwPjeI0b+IIqaTn5wryLSpPj9ybxiy8Wh4Xx2vBNHnK7XHq60Mca6rlN0jgng7TVuP19AuNHhPTF30y7uDnhf1fZgf4pz4aJh+eF+rPGzp+V1zYGaRuBrTZioFOEo929UnjuizJnqPxMuVtMu3DxXoFCdwdvwCaOGzB4Z6HHe4Hx02MZ1hgfNaBQr1rcceyg0X+/QtSPG3S
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update realm roles for a user in a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/user/{realm}/userRealmRoles/{userId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update realm roles for a user in a realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}},{"name":"userId","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"array","items":{"type":"string"}}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+

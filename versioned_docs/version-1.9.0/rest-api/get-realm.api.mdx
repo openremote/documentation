@@ -1,0 +1,70 @@
+---
+id: get-realm
+title: "Retrieve details about the currently authenticated and active realm"
+description: "Retrieve details about the currently authenticated and active realm"
+sidebar_label: "Retrieve details about the currently authenticated and active realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVktv4zYQ/ivCnHYBxQqSm05NF+lugN3W8DpogcAHmhpb3KU4DDmK6xr678VQsmMndoJ9FOhJNmfmmyc/zgZYLSOUdzBBZRuY5UAeg2JD7qaCEpbIvSQHr4JqkDGI/gacahBKuGq5pmD+SSaQg3FQQo2qwgA5RF1jo6DcAK+9qEcOxi2h6/Idwl9nv1FYqVBhdTYOxPTDKB8o8neBpM9g6BXXkEPA+9YErKDk0OJLMDNRjp5cxCjyi/Nz+VQYdTA+laeECheqtZxtNSEHTY7Rsegq763RqZTFlygGm+cOaf4FteTng/SKTe/OVEeCyofMjggqE71V699PydGpucV90DmRReUSKvGvuKCwb+raZp4qvaDQKJZkqZ1bFH2vYlxRqMZkjV7vGakQ1FpKztjEo82RoiKPB4Ara2l1Kqqq7cuH140yNr6oG7BBifcTnpIvTeT+JrwC9KiY/F7F24jhSd33DB4wmMU6qR5XsLQ07k/D9Ws60xpPNE9pTa3jFxSq5iV7FM8vwmOMU/qK7qNZYPTK7ekZx7g8nATj+PKir5ayzYRsP7OtM/ct3vS97+/XK3NxYvhPT/n+7Ts2XWzYytFkGxh0z47lqHsKBhPkYPABswpZxi1Tc2o54xoz3YaAju06Uy3X6DhNZZUpV2VKs3nALAys2iDXNDBtIlmuoYQiiYuN5NUJeWF42BJvG6zwGrOPZVFU2NCIPLqADTGODBXKm2KTALoCcnhQwchVToXq3SZaSkQEJTQqMgbJcSaOdBsMr5MngRVauZvtiz4LIfVoW4XH9ki+F9J5S6ukoq1Bx+8CVlIGZftmyuTcpjwKsejTjUUfSuHlFdBkix7/TJNzqLlIZomTFwFj/f0AUZPvM/CBFiZ1evtLGq32H7V3VKXZOjj8dt+iCvn/PPU05sYtKHVpuAN/eHSTNF3ZJ+XUEkM2uf48za7GN/D0UkxrEzMT0y2oSLcNOk4FyxYU0ukRtA/T6XgHOcqysUUVMYuIyeLuAGj2Zjf6pOPh6L9NXhoKmEkSo+F1VTq9rtjTacrvlwO7xKhGozzI5eNq8378MbscnUP+5M6tVqvR0rUjCstiMIuFWnp7djk6H6Eb1dzYgepjXxcRnKeXkCI3PV0Obn4OjxwnOsa/ufBWmfRopCw2A8fcwda0TIHMcqhlbyrvYLOZq4i3wXadHN+3GIQQZo9ckuihMnFYERbKRnwWw26xgTeTYYt6m0F+PLYt77t1oizbyj/I4Suut4tZN+vy7T73bf5POe3Bjy2guwhkO/wvHA076oGfXutKa/T7smdbobDx7t14fz2FrvsXIUsaeQ==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve details about the currently authenticated and active realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/realm/{name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve details about the currently authenticated and active realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"name","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"displayName":{"type":"string"},"enabled":{"type":"boolean"},"notBefore":{"type":"number","format":"double"},"passwordPolicy":{"type":"array","items":{"type":"string"}},"resetPasswordAllowed":{"type":"boolean"},"duplicateEmailsAllowed":{"type":"boolean"},"rememberMe":{"type":"boolean"},"registrationAllowed":{"type":"boolean"},"registrationEmailAsUsername":{"type":"boolean"},"verifyEmail":{"type":"boolean"},"loginWithEmail":{"type":"boolean"},"loginTheme":{"type":"string"},"accountTheme":{"type":"string"},"adminTheme":{"type":"string"},"emailTheme":{"type":"string"},"accessTokenLifespan":{"type":"integer","format":"int32"},"realmRoles":{"uniqueItems":true,"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"description":{"type":"string"}},"title":"RealmRole"}}},"title":"Realm"}}}}}}
+>
+  
+</StatusCodes>
+
+

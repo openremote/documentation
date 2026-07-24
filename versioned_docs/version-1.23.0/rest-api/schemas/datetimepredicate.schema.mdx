@@ -1,0 +1,33 @@
+---
+id: datetimepredicate
+title: "DateTimePredicate"
+description: ""
+sidebar_label: "DateTimePredicate"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"predicateType":"string","value":"string","rangeValue":"string","operator":"EQUALS","negate":true}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"DateTimePredicate"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","allOf":[{"required":["predicateType"],"type":"object","properties":{"predicateType":{"type":"string"}},"discriminator":{"propertyName":"predicateType"},"title":"ValuePredicate"},{"type":"object","properties":{"value":{"type":"string"},"rangeValue":{"type":"string"},"operator":{"type":"string","enum":["EQUALS","GREATER_THAN","GREATER_EQUALS","LESS_THAN","LESS_EQUALS","BETWEEN"]},"negate":{"type":"boolean"}}}],"title":"DateTimePredicate"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

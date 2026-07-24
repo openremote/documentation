@@ -1,0 +1,70 @@
+---
+id: get-predicted-datapoints
+title: "Retrieve the predicted datapoints of an asset attribute"
+description: "Retrieve the predicted datapoints of an asset attribute"
+sidebar_label: "Retrieve the predicted datapoints of an asset attribute"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFv2zYQ/ivCPbWAbDluu256WpZ1a4Ct8RJ3GGb44SKdbbYSyZKnOK6h/z4cactWkxZJBgzziyXqu+94d7yPtwXGpYd8BqfeEycTR6UqmMrkZ2S0RmmGeQrGkkNWRp+XkMOSuMN1MA8pWHRYE5MTxi1orAlyOG14ZZz6HAggBaUhhxVhSQ5S8MWKaoR8C7yxAvfslF5C26Ydw1+DX4xboyupHEycYfOvWd4az08iQUnTebm3tcgrSMHRp0Y5KiFn19ADmZidum6Y3sn7U/nmEUyefzLlRhCF0Uya5RGtrVQR8p598EbL2oHq4GQWaefpnt5cf6BCEmSdlJ4VebFYOFNPVU2esbZHu1GaaRlSuDCuRo5L372ENgU2j7XYe7kb7hG6RKYBC6rz8Qh8QN1THCiVL5yqlUY2TiC7BGzexaIFC2FQXIWzLceh64E/GnIbaFthcuSt0T4mbjwayV9Jwm5DH+RQ0gKbipM9EtKH1263c3QON3J2mGp/tP6V+t0+sAKbu1TtUdB/YtVQF/TFHhDj7sd4SewU3VDCK0psJy5lpxqJWSSok9BWSdcSkEJNvDKiNja2auiMHLKAzDqqbLvryDbb9jqqlYYmd7MXo8ZV0uvM1udZVlJthsaSdlQbpqEyGVqVbR1hVbcZpHCDTuF1FRMXlmMFQ80ghxo9k5Ow5+KoaJziTfAktEq6an786UpqF9n2gEOOseHVWEpRmXWAFJUizWeOStKssIrFNR9Jvw9xZGKRhW35LG4ls6KMhamyyD8ojNZUcBbMgqgsHPnV0wl8YWyMwDqzUOEs7J+k9Hgs9GemDD3WW3y8b4FC+j8PPRx8adLLgxS/ucXaVnSPbI6+EMXRseTBeDR+ORi9Hox/mJ68yl+d5OPvh6PXJ3/DQea+ielLmlwrCxMOz655Lyzpy3Dok99R45JccvnmapqcTs7hy+6drpRPlA/NW5qiqUlzqGOyMC6s3sP2djqddJTDJJlUhJ4ST1EEZj2i+bOuI03h+x35PHipjaNEghju9BGLoI9Uo6qCaC3Mjz07ibpSBYmk5ocp5NfJb8mL4QjSL6RgvV4Pl7oZGrfMdmY+w6WtBi+GoyHp4YrrSjhFSmJe5MNIlkSbatRHbp4ueL3Ud9LAdMuZrVBp8Rd2vt1p4SwOI0Hld34ghfwwoeT9EWOewkq0NJ/BdnuNnt67qm1l+VO4t/LZ/CB7QclK5eW5hHyBlac7e+yuK3h2uRsmnieHQ9jf+/7K0pugrlUjb5DCR9oczVUyIP2XbnsZaudtuh8HHxf/17xHL/fNr91WHhfxwx3tRtyen4g6i2yDqRAdEHcmjoPFaVGQ5W9i50dX9uTiagopXO8m0jpcBeBwLVKM6xiGCdHF61XWtlChXja4FGzklN8/azBbHQ==
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the predicted datapoints of an asset attribute"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/asset/predicted/{assetId}/{attributeName}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the predicted datapoints of an asset attribute
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"assetId","in":"path","required":true,"schema":{"type":"string"}},{"name":"attributeName","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"required":["type"],"type":"object","properties":{"fromTimestamp":{"type":"integer","format":"int64"},"toTimestamp":{"type":"integer","format":"int64"},"fromTime":{"type":"string","format":"date-time"},"toTime":{"type":"string","format":"date-time"},"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AssetDatapointQuery"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"x":{"type":"integer","format":"int64"},"y":{"type":"object"}},"title":"ValueDatapointObject"}}}}}}}
+>
+  
+</StatusCodes>
+
+

@@ -1,0 +1,33 @@
+---
+id: calendareventpredicate
+title: "CalendarEventPredicate"
+description: ""
+sidebar_label: "CalendarEventPredicate"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"predicateType":"string","timestamp":"2024-07-29T15:51:28.071Z"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"CalendarEventPredicate"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","allOf":[{"required":["predicateType"],"type":"object","properties":{"predicateType":{"type":"string"}},"discriminator":{"propertyName":"predicateType"},"title":"ValuePredicate"},{"type":"object","properties":{"timestamp":{"type":"string","format":"date-time"}}}],"title":"CalendarEventPredicate"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

@@ -1,0 +1,70 @@
+---
+id: register-global-service
+title: "Register a global external service with the OpenRemote manager"
+description: "Register a global external service with the OpenRemote manager"
+sidebar_label: "Register a global external service with the OpenRemote manager"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV01v4zYQ/SvCnFpAsbxJc6hO9QbpboC0MZJsUSDwYUyNJe5SpJak4riG/3sxpBTJdrpFumjRw/piiZwvzrx5Q23BY+kgf4A7so9SkINFCqYhi14afVVADpZK6TzZd8osUXVykEKDFmvyZFl/Cxprghxmra+MlX8EfUhBasihIizIQgpOVFQj5Fvwm4bFnbdSl7Dbpc8Wfj/52dg12oKKk7k13ny1lffG+VcYWaRg6XNLzr81xYYlhNGetOdHbBolRThd9tEZzWuDKdaTlgrOaGVqarCkD1ZBCgqXxP8u5u+q4GePvg0Z70Iwy48kONTGcg28JBetoqqPI+UwsbjRagO5ty3tUpAuVmkkvDRGEeqXpIdY8i3U+HRNuvQV5Kfn5ynUUvfvZ+lhjjiZzqPulbttqT2VIbsrY2v0censlBUeyToZ8/VaVyKqHW3EnH7Z4JsXDI4rs699/ub0b8PpqvZCOUi3NVd+9tvs6nr29voSUvjw6/C22O1S8NIr1rp88mT10FA73hzw05XIkmuMdhEHp9Mp/xXkhJVNaLC8b9ykb1MqEtcKQc6tWqU2kH5D7zf0/hfo3aXww0sAvdKPqGSRUKeSdIVLOrwEvR+P9Q5cJH3NElSMhc0I8cz8B9q33WaCSRlAdex/LX2V+IqSm4b0LdXGU1KjxoiBmnxleP41cXo0yCmFrNPOotWuJ/oh2HJNoPK+cXmWFVSbiWlI22B8Ik2Gjcy2oSN2GaTwiFbiUh00SkErbBXjr0Y+A2d3wY5Ea6XfBE9sVnKnLsZbd9zL0Vov8Fxog62vThndyqyDiFCStL+wVJD2ElWEhflEOmALMtbIQlgui6FkDU9kYVQW7Z8IozUJnwW10KYrS6765wacME08QWPNSga09U9cZhxfMC5MQYHXxouv982ikP7Pjx46jEn7dricXD5h3aiQghEdDj095rnpiMVGEmL/vWOlYWGPboblnkdGdBF4dWUCiDqaGHXWL7Gzkvf39/NkNr+Cw469r6RLpAsdWRjR1qR9qGeyMvawTw+tTZJkrggdJY4oCD/s2Vh899yURrj9pvw+OKiNZY5ZmUk3MlGEkUk1ShVGwcr8tKcXSFwK0i4UoL8Av5tfJ2eTKaQHbLBeryelbifGllmn5jIsG3VyNplOSE8qX6u9WQO8MeUl5qAa9cjNV/PbXvKfScLTk88ahVKz2zaOmEh9Dz3EIIWO/BYMD+d5b7tdomOQ7Ha8/Lkly0S1GDgucFXaX8CZwwrpeKOAfIXK0VFMzxcXgPTlAD/R5i++GB5RtSwP/E3wbzjqPir2/ESpi2jt5J4NDRJHd69BYyYENf6LsovRRJrf3N1DCsvu66QOJAgW10xCuI7HMOF0cbDw2hYU6rLFkmWjTf79CbId0nA=
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Register a global external service with the OpenRemote manager"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/service/global"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Register a global external service with the OpenRemote manager
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"required":["homepageUrl","label","serviceId","status"],"type":"object","properties":{"realm":{"type":"string","readOnly":true},"isGlobal":{"type":"boolean","readOnly":true},"serviceId":{"maxLength":255,"minLength":3,"type":"string"},"instanceId":{"type":"integer","format":"int32"},"version":{"maxLength":255,"minLength":3,"type":"string"},"icon":{"type":"string"},"label":{"maxLength":255,"minLength":1,"type":"string"},"homepageUrl":{"maxLength":512,"minLength":3,"type":"string"},"status":{"type":"string","enum":["AVAILABLE","UNAVAILABLE"]}},"title":"ExternalService"}}},"required":true}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"Service registered successfully","content":{"application/json":{"schema":{"required":["homepageUrl","label","serviceId","status"],"type":"object","properties":{"realm":{"type":"string","readOnly":true},"isGlobal":{"type":"boolean","readOnly":true},"serviceId":{"maxLength":255,"minLength":3,"type":"string"},"instanceId":{"type":"integer","format":"int32"},"version":{"maxLength":255,"minLength":3,"type":"string"},"icon":{"type":"string"},"label":{"maxLength":255,"minLength":1,"type":"string"},"homepageUrl":{"maxLength":512,"minLength":3,"type":"string"},"status":{"type":"string","enum":["AVAILABLE","UNAVAILABLE"]}},"title":"ExternalService"}}}},"400":{"description":"Invalid external service object"},"409":{"description":"ExternalService instance already registered"}}}
+>
+  
+</StatusCodes>
+
+

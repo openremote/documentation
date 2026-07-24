@@ -1,0 +1,33 @@
+---
+id: orderby
+title: "OrderBy"
+description: ""
+sidebar_label: "OrderBy"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"property":"CREATED_ON","descending":true}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"OrderBy"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"property":{"type":"string","enum":["CREATED_ON","FIRST_NAME","LAST_NAME","USERNAME","EMAIL"]},"descending":{"type":"boolean"}},"title":"OrderBy"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

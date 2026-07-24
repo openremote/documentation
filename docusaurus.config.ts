@@ -21,7 +21,6 @@ const config: Config = {
   projectName: 'documentation', // Usually your repo name.
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -29,6 +28,14 @@ const config: Config = {
   i18n: {
     defaultLocale: 'en',
     locales: ['en'],
+  },
+
+  future: {
+    v4: {
+      removeLegacyPostBuildHeadAttribute: true,
+      useCssCascadeLayers: true,
+    },
+    faster: true,
   },
 
   presets: [
@@ -40,6 +47,9 @@ const config: Config = {
           editCurrentVersion: true,
           editUrl: 'https://github.com/openremote/documentation/edit/main/',
           docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi
+          ...(process.env.NODE_ENV === 'development' && {
+            onlyIncludeVersions: ['current'],
+          }),
         },
         blog: {
           showReadingTime: true,
@@ -73,8 +83,17 @@ const config: Config = {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",
             },
-            template: "api.mustache", // Customize API MDX with mustache template
             downloadUrl: "https://demo.openremote.io/api/master/openapi.yaml",
+            hideSendButton: false,
+            showSchemas: true,
+          } satisfies OpenApiPlugin.Options,
+          provisioningapi: {
+            specPath: "api/provisioningapi.yaml",
+            outputDir: "docs/provisioning-api",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+              categoryLinkSource: "tag",
+            },
             hideSendButton: false,
             showSchemas: true,
           } satisfies OpenApiPlugin.Options,
@@ -83,7 +102,17 @@ const config: Config = {
     ],
   ],
 
-  themes: ["docusaurus-theme-openapi-docs"],
+  themes: [
+    "docusaurus-theme-openapi-docs",
+    "@docusaurus/theme-mermaid"
+  ],
+
+  markdown: {
+    mermaid: true,
+    hooks: {
+        onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   themeConfig: {
     // Replace with your project's social card

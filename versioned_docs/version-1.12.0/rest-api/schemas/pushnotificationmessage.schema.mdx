@@ -1,0 +1,33 @@
+---
+id: pushnotificationmessage
+title: "PushNotificationMessage"
+description: ""
+sidebar_label: "PushNotificationMessage"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"type":"string","title":"string","body":"string","action":{"url":"string","data":{},"silent":true,"openInBrowser":true,"httpMethod":"string"},"buttons":[{"title":"string","action":{"url":"string","data":{},"silent":true,"openInBrowser":true,"httpMethod":"string"}}],"data":{},"priority":"NORMAL","targetType":"DEVICE","target":"string","expiration":0}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"PushNotificationMessage"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","allOf":[{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"},{"type":"object","properties":{"title":{"type":"string"},"body":{"type":"string"},"action":{"type":"object","properties":{"url":{"type":"string"},"data":{"type":"object"},"silent":{"type":"boolean"},"openInBrowser":{"type":"boolean"},"httpMethod":{"type":"string"}},"title":"PushNotificationAction"},"buttons":{"type":"array","items":{"type":"object","properties":{"title":{"type":"string"},"action":{"type":"object","properties":{"url":{"type":"string"},"data":{"type":"object"},"silent":{"type":"boolean"},"openInBrowser":{"type":"boolean"},"httpMethod":{"type":"string"}},"title":"PushNotificationAction"}},"title":"PushNotificationButton"}},"data":{"type":"object","additionalProperties":{"type":"object"}},"priority":{"type":"string","enum":["NORMAL","HIGH"]},"targetType":{"type":"string","enum":["DEVICE","TOPIC","CONDITION"]},"target":{"type":"string"},"expiration":{"type":"integer","format":"int64"}}}],"title":"PushNotificationMessage"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

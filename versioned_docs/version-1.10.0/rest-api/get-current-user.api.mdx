@@ -1,0 +1,70 @@
+---
+id: get-current-user
+title: "Retrieve the currently authenticated user"
+description: "Retrieve the currently authenticated user"
+sidebar_label: "Retrieve the currently authenticated user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVv9u2zYQfhWNy7akkyUjQf/R1nVB0LUBstZIE2CA5WAMdbbYUqR6PDl1Xe119h57suEo2bFjb0A2DNhftni/eMfv+8ilIDnzIhuLaw8oJrFwNaAk7ex5ITIxAzprEMFSsMeiligrIEAOWgorKxCZOG2odKg/hUARC21FJkqQRYjxqoRKimwpaFGzuyfUdibaNl5n+GXwk8M7iQUUgxE6cv86yyvn6RFJJrFA8LWzHjzbj4dD/inAK9R16CsTBUxlYyhaeYpYKGcJLLGvrGujVZhB+s5zwHK3oLt9B4o3ViOPmnRXDkGaas++4s7Ch7HHpvcvTzV6eh1Gssdq5N8YoZLa7LdYeWtgs+CtcwakZaNCkATFG7sbGoupw0oSj08SDEhXwCEeFALtLSWJUN821I3m4eBkUWiesTSjrRH2fhJRLvjgCSq/76RDbZxrBadKucbS/pYaD2j7MVXy4wXYGZUiO376NBaVtqvvE+YEESDj4+bw+bNxntfLc38hSdv2c/dx5qrK2Xby7cERe9x8/8PXufgmz32ez/O8PPjqiy+f//F7/F325Lc0z/P8882zPB/n+WTZHh79yjnOLKEJCZInByLe5YAgTYaXAlHbNvS5jd5LINQwh4hKiFRHa7OIZEMlWGLkQhE1Hc8roNL1ChBoz72KlK1p78JDXOlAg4ZpRlT7LE0LqFziarAIlSNItEtlrdNlgHKbiljMJWqG0zb2e3qJTFTSU9fGJCClQU2LUInTMuzHk03TW6ZZl23lcA8cbvCYcWjcXXBRRoOlM4SC+5amg4l7D/Y69JFyRBq25dNuK2nNoqScSbv8A+WsBUVpCBNM0ymCL/95Aq9c3XVQo5vqcJarf3yWclNjz1wRgLm1+Pja7Mpg+l+3HpCs7dSFU+pR/qYGexnQFf0srZwBRpcv3l5Fp6Nz8RD3V6X2kfYB9oVTTQWWwsCiqcOwuifbq6ur0TplEkUjA9JD5KGjz3gr0eRwDX2n/Db0j0KVyiFE3ETS3xlSBd3p9Tb09+NWXJBqrYCvmez+pn05uohOkqGIH3Du7u4umdkmcThL+zCfylltBifJMAGblFQZzsmc7ebChiEv1c5TJe1GmcdIxdaw16wj+EhpbaTuxBTDpdLJyFj0kU3/5ij5qs7GYrm8lR6u0bQtL39oAJn0k3u9CLyPV/c560GhfX8vTaXxsLOd9f0s7lVze2/vYfEXD5C5NA37C35i/BeF+jfKVp3O61QpqDdtO48Llr+1Sr98cSXa9k+euGb2
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the currently authenticated user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/user"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the currently authenticated user
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"realm":{"type":"string"},"realmId":{"type":"string"},"id":{"type":"string"},"firstName":{"type":"string"},"lastName":{"type":"string"},"email":{"type":"string"},"enabled":{"type":"boolean"},"createdOn":{"type":"string","format":"date-time"},"secret":{"type":"string"},"attributes":{"type":"object","additionalProperties":{"type":"array","items":{"type":"string"}}},"serviceAccount":{"type":"boolean"},"username":{"maxLength":255,"minLength":3,"pattern":"^(?=[\\p{IsLatin}|\\p{IsCommon}]+$)(?=[^<>&\"'\\s\\v\\h$%!#?§,;:*~/\\\\|^=\\[\\]{}()`\\p{Cntrl}]+$).*$","type":"string"}},"title":"User"}}}}}}
+>
+  
+</StatusCodes>
+
+

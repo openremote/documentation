@@ -1,0 +1,33 @@
+---
+id: arraypredicate
+title: "ArrayPredicate"
+description: ""
+sidebar_label: "ArrayPredicate"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"predicateType":"string","value":{},"index":0,"lengthEquals":0,"lengthGreaterThan":0,"lengthLessThan":0,"negated":true}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ArrayPredicate"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","allOf":[{"required":["predicateType"],"type":"object","properties":{"predicateType":{"type":"string"}},"discriminator":{"propertyName":"predicateType"},"title":"ValuePredicate"},{"type":"object","properties":{"value":{"type":"object"},"index":{"type":"integer","format":"int32"},"lengthEquals":{"type":"integer","format":"int32"},"lengthGreaterThan":{"type":"integer","format":"int32"},"lengthLessThan":{"type":"integer","format":"int32"},"negated":{"type":"boolean"}}}],"title":"ArrayPredicate"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

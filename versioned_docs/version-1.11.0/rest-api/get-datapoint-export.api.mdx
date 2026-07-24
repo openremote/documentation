@@ -1,0 +1,70 @@
+---
+id: get-datapoint-export
+title: "Retrieve a datapoint export of an asset attribute"
+description: "Retrieve a datapoint export of an asset attribute"
+sidebar_label: "Retrieve a datapoint export of an asset attribute"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVcGO3DYM/RWBpwZQrEFS9OBTF+kiCdCii83ktJgD16bHQiRRlejdbAb+90LyjLMzSNE26KEnGxTfE8UnPh1AcJ+hvYOrnEnULygY2QaBnQaOlFAsh/c9tLAnWVevP0dOAhoiJvQklArHAQJ6ghZQJNn7SeiWhgwabIAW/pgoPYGG3I3kEdoDyFMs2VmSDXuYZ70SDIn91nrKgj7+LYENQntKoGHg5FGW0E8/nlEK/yeEOw2JcuSQKRfEq82mfHrKXbKxNAta6GnAyYk6ZYKGjoNQkJKLMTrb1caaLzZCe5jnedYXHLckydIDKVT9qe2Kat8VDwqDwqrY2mvQ4ElGPmpVxZERWjA10awshk7qZUoPJ+mm5KCFUSTm1piePDccKSTyLNRYNhitOSRC52cDGh4wWbx3SxdqeOlDPTm04DELJZhryzJ1U7LyVHcqtLaH9m73fOlDEWFhOyWsejBOMr4qcjh+rCmdsxTkTaKeglh0NSj8icLHeg5TEKaWlc1SiomJhTt2ZuF/2XEI1ImpMCi6Dony+P0EueO4nCAmHqwrpZ/+isCFkpP9UqV/wz3V2/A8+O/3Lqmg/+dHr9fbhoGrSlbq8u+Rwm29Xeo3DLinpG6vP2zV1c17uByG7WizslnJSKrnbvIUpDZMDZxq9Bts77bbm5WyUerGEWZSmagi7s6Idj+sV5+7fH71X9RdPCdS5RDNcZyxq+NMHq2rDjHwz2c4mDU421FxgHY1oqu3N7+q180G9MXMPT4+NvswNZz25gjLBvfRvXzdbBoKzSjeFc4ys0tfysKmhCJn8RiebfM9/nHW9HX6hD6LiQ5tKDvVmg9Hb7mDSlKg68Oh4egvOw0jZylZh8M9ZvqY3DyX8GK8xQt6m4uJ9NAO6DJp+ERP33hAHtBNpRQohv4XmMs3459gzh+Fr4jdV3+rPqVhJOwp1ZoX6FXXUZRnqEtbLySrIb+93sI8/wmMjJma
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve a datapoint export of an asset attribute"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/asset/datapoint/export"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve a datapoint export of an asset attribute
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"attributeRefs","in":"query","schema":{"type":"string"}},{"name":"fromTimestamp","in":"query","schema":{"type":"integer","format":"int64"}},{"name":"toTimestamp","in":"query","schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/zip":{}}}}}
+>
+  
+</StatusCodes>
+
+

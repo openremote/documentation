@@ -1,0 +1,70 @@
+---
+id: remove-notification
+title: "Delete a sent notification"
+description: "Delete a sent notification"
+sidebar_label: "Delete a sent notification"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVd+P0zgQ/leseQKUjStAPOTpVrB3rMRBtXSlk6o+mGTSWDi2sSdblsj/OxqnLU3ZOwkQ0j01Hc988/ubEUhtI1RreOtIt7pWpJ2FTQHOY8h/rhuoIGDv7nCmU4BXQfVIGBhgBKt6hAouB+pc0F8OWtpCBR2qBgMUEOsOewXVCHTvWT1S0HYLKRVHhH8u/nRhp0KDzcUyOHK/jPLaRfopEHuS8XVzgPCKOigg4KdBB2ygojDgA4DaEm6zr9aFXtEkevEcUtqwefTORoxs8XSx4J8GYx20z6WroMFWDYbEQRMKqJ0ltMS6T+QTqMaUUirO7F6hQUKhRERLws671iN1rsnorJX7SB1UIE8V5ThPPXHBMNwdmj0Ew7Uk8rGSssHelc6j5TkhLLWTyms5BlSmTxIKuFNBqw9mSjaLp3RzglBBryJhgJQrE7Eegqb77IlhdQPVenP69J5rPaEdFI5ld2qg7ilX3bhdVqmNRksvAzZoSSuTheQ+or3NeUi2kDmsKKdQpOfJq52RE/5F7azFmmQ2y91vA8bu5wFi7fyUgQ+u1YZDP3xxT9XpIr10DbLqTPjjvlkViv956nmitW1d7pKm/PzOo73J0yX+VlZtMYibq/crcbm8hvP5X3U6Ch0FdSgaVw89WsoFE60LWfoA2uvVanmELIVYGlQRRUTMFusZ0ObRcfRdHeej/zh76V1AwUmU+61Vdd5a7JU2mQha98fMDlIBRtfIi159o9O/lm/Es3IBxdnO7Xa7cmuH0oWt3JtFqbbeXDwrFyXasqPeMCbv7FQXfliwyLtIvbInbv6TMmbVPa4Z4WeS3ihtGTIHN+65ZA1nCNUZkW4K6JiTqzWM4wcV8TaYlFj8acDAi7/5xhmZBhod+buBqlUm4ndBHYkRHt3sefmx4FF/KNi9UNn7TE1m4H9QwEe8/5700yYVh6vxY5H8m/vJzUNn7hgL36Df4Wh/CWd+Jq3LukZ/+sb3hSn3eDBeXb25Wl1BSl8BTjHY4w==
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a sent notification"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/notification/{notificationId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete a sent notification
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"notificationId","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+

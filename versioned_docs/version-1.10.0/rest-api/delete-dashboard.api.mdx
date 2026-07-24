@@ -1,0 +1,70 @@
+---
+id: delete-dashboard
+title: "Delete a dashboard"
+description: "Delete a dashboard"
+sidebar_label: "Delete a dashboard"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVd9r20gQ/lfEPDWgSKZ909OFJr0EepxJXSgYP0y0Y2uvq93t7qi+nND/XmZlK3KaQpNCuSfLszPf/P6mB8ZdhGoNlxibO4dBwSYH5ykga2dvFFSgyBDTg0IOHgO2xBTEtAeLLUEFFx03Luj/kiXkoC1U0BAqCpBDrBtqEaoe+N6LeuSg7Q6GIZ8QPp2/c2GPQZE6XwbH7pdRrl3kF4EEQtMeLT1yAzkE+tLpQAoqDh39HI46lu1GvRhtI8rROxspyvvrxUJ+FMU6aJ+qLV3aYmc4O2pCDrWzTJZFF703uk6dKf+JYtAPwzDkj0AuU6szzNSs2y1x4x4GIfWfG6ignLTKPtVrKPtZvoOUmsLX45h0wUgXmH2sylJR6wrnyQZqHVOhXYleT0CQw1cMGu/MmPPYj5R1yhMqaDEyBRhSgSLVXdB8nzwJrFZQrTfzpw9S4BHtqDDV2mHHzWvIYWvcPqnURpPlt4EUWdZokpDdZ7IfUx6lWJQprFiOoZReZrZ2phzxz2tnLdVcJrPU8m2g2LwcINbOjxn44LbaSOjHL+kmzlfwrVOUej8XPt+3qEL+P089zbK2W5e6pDk9/+3J3qbpyv5CizsK2e3Vh1V2sbyBx5O/anTMdMy4oUy5umvJcipYtnUhSZ9Au16tlhNkkWVLQxgpi0TJYn0CtHk1jb6r4+nonyUvrQuUSRLFYXmxTstLLWopmzz9cWIHQw5G1yT7Xj0Q8Z/L99mbYgH5o53b7/fFznaFC7vyYBZL3Hlz/qZYFGSLhlsjmLKzY13kYSEi7yK3aGduniSLk6pO68X0L5feoLYClYLqDyyyhrl5deTdak6cmxwaIfJqDX1/h5E+BjMMIv7SUZCd3zzQRWIApaN8K6i2aCJ9F9dEjfDq9sDDZ5lM+VPxHoRo7xMrmU7+QQ6f6X66FEL5v9HpvDrDZsiPx+15uf/I9+jjqWs8BfK8fH/e0eFgn/gZtS7qmvz87bubJmQ/HavLq/dXqysYhm8jpBJx
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a dashboard"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/dashboard/{realm}/{dashboardId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Delete a dashboard
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}},{"name":"dashboardId","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{}}}}}
+>
+  
+</StatusCodes>
+
+

@@ -1,0 +1,33 @@
+---
+id: alarm
+title: "Alarm"
+description: ""
+sidebar_label: "Alarm"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"title":"string","content":"string","severity":"LOW","assigneeId":"string","realm":"string","status":"OPEN","sourceId":"string","source":"MANUAL"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Alarm"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"required":["realm","severity","source","sourceId","status","title"],"type":"object","properties":{"title":{"type":"string"},"content":{"type":"string"},"severity":{"type":"string","enum":["LOW","MEDIUM","HIGH"]},"assigneeId":{"type":"string"},"realm":{"type":"string"},"status":{"type":"string","enum":["OPEN","ACKNOWLEDGED","IN_PROGRESS","RESOLVED","CLOSED"]},"sourceId":{"type":"string"},"source":{"type":"string","enum":["MANUAL","CLIENT","GLOBAL_RULESET","REALM_RULESET","ASSET_RULESET","AGENT"]}},"title":"Alarm"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

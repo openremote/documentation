@@ -1,0 +1,70 @@
+---
+id: update-asset-parent
+title: "Update the parent of assets"
+description: "Update the parent of assets"
+sidebar_label: "Update the parent of assets"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVVuP0zoQ/ivRPIHkjcvuClCeWKHDYaWDqJauhFT1YXCmjcGxje1sKVH+O7LdlKYsiIuQzlMiz8w38821h4AbD9USrrynACsGxpLDII2+rqGCztYYKAnn6EgHYGDRYUuBXDTsQWNLUMFVFxrj5OdkCwykhgoawpocMPCioRah6iHsbFT3wUm9gWFgB4S3Zy+M26KrqT6bOxPMH6O8ND78FohNXBPt63pEsBgaYODoYycd1VAF19HP4WFG8iPUx47cbhJLi5+uA7UeqvNHl08un148vnzCoJV6//qIjfDoHEZbmQXfuh1WMUhvjfaUFM5ns/ipyQsnbapPBTWtsVOhGDWBgTA6xBJXPaC1SopUS/7eR4N+GIaBnYDcpvYoQkNFTllh1kUiG6m2FBoTu8h2uW9CAxXwJOf9JMcDF41UMdWe3N3YWp1TsXIhWF9xXlNrSmNJO2pNoFIajlby3hGqduDA4A6dxHcqs07PmXdiChW06AO5fYo8ic7JsEueIqysoVqujkVvYnky2qhwSLfBLjTnwGCtzDapCCVJh+eOatJBosrFMR9I3yYePFrwFJbnORRuY58Lo3jGPxNGaxKBJ7PUbGtHvvl9AC+MzQysM2upUnfv/2I98Xhsn5uaUvWPH3/dd1QF9j+nnrpZ6rVJVZIhiV9b0jepu4pXqHFDrrj5582iuJpfw2nvLxrpC+lT89dGdC3pkBJWrI1Lr/egvVws5gfIsijmitBT4SkP0XICtHpwaH0j/LT1HyYvrXFURBLlfnxRpPGlFmVMWxQ9m9jBwEBJQXHiq6/L+9/5f8VFOQN2MnPb7bbc6K40bsP3Zp7jxqqzi3JWki6b0KqIGWc25yUKZvHJGh9a1EdufrwuJuk9zFmgT4FbhVJHzBRdv18ly7xXgUF1urDzNlkxaOIJqJbQ9+/Q061TwxCf8wKOk19LH1dGDdUalScGH2g33dh3qLoYCcTVMK6Y+21PKBwWKjy42V+NhwWw+6mN613vjn2O8UwJDquBjRft1wL5nvfs5b4T/JU++zuO9ld64idrXQlB9lj2zVmKJTmcmfntAobhC2amDTo=
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update the parent of assets"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/asset/{parentAssetId}/child"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update the parent of assets
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"parentAssetId","in":"path","required":true,"schema":{"type":"string"}},{"name":"assetIds","in":"query","schema":{"maxItems":2147483647,"minItems":1,"type":"array","items":{"type":"string"}}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{}}}}}
+>
+  
+</StatusCodes>
+
+

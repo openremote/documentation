@@ -1,0 +1,70 @@
+---
+id: deregister-service
+title: "Deregister an external service"
+description: "Deregister an external service"
+sidebar_label: "Deregister an external service"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUtv3DYQ/ivEnBJAFg07J50aJG5jIEUXiQMUWOyBEUcrIhRHIUfebAX992KofbppGjtA0NNqh/N9854Zgc06QbWE9xjvXY0JVgVQj9Gwo3BroQKLEdcuMcadDhTQm2g6ZIyCHSGYDqGClwO3FN1fGQsFuAAVtGgsRigg1S12BqoReNuLeuLowhqmqTgw/HnxK8WNiRbtxSIS0w+zvKHETyJJc7C3do/uDbdQQMTPg4tooeI44PdxuZDYhKeQucC4zj43FDvDs+j6CqZpJfDUU0iYBHF1+UJ+LKY6uj6XoNqXVR2LiFaloa4xpWbwfgtTAS++hdz7rgKxamgIVkJ7oPz6QK9MUPiFMQbjVTo0TIfc0txNHnluIW6hAr3T0eMh4ZMejwmbpFwY7/etNkQvlWTuU6W1xY5K6jFE7IixdKRN7/QY0fhu0lDAvYnOfPRzirJ4DrUxg5dsdka8hinnM2E9RMfbbElonYVquTp9ei8Vmtn2CodikRm4vZJaedpkldo7DPwqosXAzvgsZPqE4UOOQwtCZ7eSnl3RvfR9TV7P/Bc1hYA16wzLPdNETO3TCVJN/RxBH6lxXlzff0lpzekYvyKLonomfLxtUYXifx76JNG70FCukuP8/EeP4V3uLvW7CWaNUb25u1uol4tbeDgGd61LyiXFLSpL9dBh4Jww1VDM0m+wlUotPJqEKiFm5eUZx+rZoeupTudd/zwb6CjKvDZUQgE1BTY1SyjYGefz5mjolzOcTL93NYaUi7zf478t3qrr8hKKB+O22WzKdRhKimu9gyVt1r2/uC4vSwxly50XThnXOSXycCminhJ3JpyY+c+lcZbcw5QxfmHde+OC0GYHx902WcIRXJ0u8OpkA68KaOUoVEsYx48m4Yfop0nEnweMMvur49rIm8C6JN8Wqsb4hP9wTFKNQbbJs3e7hf5cSbd/zeGd0IRt3k5+kH9QwCfcnl0dOR8/0fBJgqbVVOxv5ePC/zfTs4mvHfeDH48L9/sN7e7/0c7q5Bi9vnl7c3cD0/Q3UF4hcA==
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Deregister an external service"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/service/{serviceId}/{instanceId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Deregister an external service
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"serviceId","in":"path","required":true,"schema":{"type":"string"}},{"name":"instanceId","in":"path","required":true,"schema":{"type":"integer","format":"int32"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"204":{"description":"Service deregistered successfully"},"404":{"description":"Service instance not found"}}}
+>
+  
+</StatusCodes>
+
+

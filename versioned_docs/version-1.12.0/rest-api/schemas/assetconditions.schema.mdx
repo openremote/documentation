@@ -1,0 +1,33 @@
+---
+id: assetconditions
+title: "AssetConditions"
+description: ""
+sidebar_label: "AssetConditions"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"access":["RESTRICTED"],"minAmount":"AT_LEAST_ONE","parents":[{"id":"string"}]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AssetConditions"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"type":"object","properties":{"access":{"type":"array","items":{"type":"string","enum":["RESTRICTED","LINKED","REALM"]}},"minAmount":{"type":"string","enum":["AT_LEAST_ONE","ALL","NONE"]},"parents":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"}},"title":"ParentPredicate"}}},"title":"AssetConditions"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            

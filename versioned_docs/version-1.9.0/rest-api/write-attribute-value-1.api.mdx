@@ -1,0 +1,70 @@
+---
+id: write-attribute-value-1
+title: "Write to a single attribute with a timestamp"
+description: "Write to a single attribute with a timestamp"
+sidebar_label: "Write to a single attribute with a timestamp"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVm1v20YM/isCsQ8tJltpWrSdPk1xlNaYY3u23HZzPeMiUda10p16d6qbCvrvA09+TbKtSYFi+eBIFPmQxyMfsgbDVhr8OQRao4GFC7JExQyXop+AD2vFDQbGKH5VGXzD8gqXT8CFkilWoEFFxjUIViD4EFQmk4p/tfbgAhfgQ4YsQQUu6DjDgoFfg7kuSV0bxcUKmsbdIbzrXEi1ZirBpDNW0sjvRnkttXkQCKOM9JOtbclMBi4o/FRxhQn4RlX4jUjb/A3p/fvxDC9QG1aU98XiwuDKJiCVqmCmFT1/Bk2zaM1RmzOZXJNNLIVBYeiRlWXOY3ur3gctBclugcurDxgbaJqmISxdSqFRk0KCKaty0z7qWPHS1ocPUYaOQl3lxpGpYzJ0bL05uxoE96FhuFAqgjG8jUFh2v7bpmjeZnPh/ochT+i3ZMagopj/mp90fgk6f7LO10V9etr8BO6Nq3LvOKUtJocnKAxPub0C/MKKMie7F2fm5eXT+F04fn72epy9VM9enP+RQuNuLryGgosBipXJwH/iHgbz/v3652+MYFuEjmircO8/l21SqcjAcGOFu6afoA0lZTyvFN6uTBdQVIXlkOk0jJbDUbS8GM2G5+BCEEWT/tksCo+k/eF0dnHR7/XDYbQMer1wOrXSN8Ggf758EwxmoX2PwkkvHEejyfIi6A9mE5JOoyAKl9NoNAlehVYeEmQvGJKH8WS0Qft9Fs7C5cVsMAAXZsPfhqO3QwrIhtg/X172p9P+8NVxjMFluPuwuDMZb6k+J7ZkbaU3N1NtFRwjHeZoLlb5YeLX3GQOcw7bt0CTSSLasrKlR43sg2fLxas3FNR4OwyvPiKTxqt3aA3xGqrPW06uVE6UZ0ypfc9LsJBdWaJQWEiDXS49VnKvVsjyovHAhc9McXaVb9uF5cVR70LBtEFFp16Qo7hS3FxbTwRLbTJfHH6aUme2aFuFfZOyymSnxEO5XFuVOOcoTE+hbRGWW6GRH1HM7Dk8svBsWNprQ/FKGhCxzL0WvxNLITA2njWzfJgq1NnDAXQsy/YEpZIpt6WwfaKrZ4fzricT2x1Hwvv7JlVq6P/10W3hEwVP9jMj3PJJ3dBYSqW9wU0DjUoUE1t5ziUTbIXKmYTTyAnG/TvYimuHazsPEhlXBQpjk+mkUlnpHWivo2i8g+w6zjhHptHRiNZifgS0eLRrCxnr47Z4bL0UUqFDh+huRhCL7QjCgvHcjs1U/npkRxyZ8xiFtlWw3YhejQfO0+4JuDf6cb1ed1ei6kq18jZm2mOrMu887Z50UXQzU+SESf3c5oU+nJColNoUTBy4uSfrHOV715QGvxivzBkX5MSGW28Yad5uQ+CCv1+Ldi6s+MaO4+/9LVzIaAnz51DXV0zjTOVNQ+JPFSqikMWefSyhJFzTcwJ+ynKNtwLe7QTwaLIZ6I+d/RQ8PshGyMS1Jbm8ojdw4SNeH2x5tF79SLdH6frBzvdX0ywad7sV3y/x/+S59XDXGr8L436n/XZHm03/yE+r1WvROhEB7TVu7ZN7iyCOsTT/qrs4mN7jWQQuXG0258JOAlBsTUzM1u0ppD1cO11JVkPOxKpiK9JtIenvb6Qro1k=
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Write to a single attribute with a timestamp"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/asset/{assetId}/attribute/{attributeName}/{timestamp}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Write to a single attribute with a timestamp
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"assetId","in":"path","required":true,"schema":{"type":"string"}},{"name":"attributeName","in":"path","required":true,"schema":{"type":"string"}},{"name":"timestamp","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"The result of the write operation","content":{"application/json":{"schema":{"type":"object","properties":{"ref":{"required":["name"],"type":"object","properties":{"id":{"pattern":"^[0-9A-Za-z]{22}$","type":"string","description":"The asset identifier","example":"7Bt8M3cXEP6BHPh8r47DYf"},"name":{"minLength":1,"pattern":"^\\w+$","type":"string","description":"The attribute name","example":"location"}},"title":"AttributeRef"},"failure":{"type":"string","enum":["ASSET_NOT_FOUND","ATTRIBUTE_NOT_FOUND","INSUFFICIENT_ACCESS","INVALID_VALUE","INTERCEPTOR_FAILURE","STATE_STORAGE_FAILED","CANNOT_PROCESS","QUEUE_FULL","UNKNOWN","ASSET_ID_MISSING","ATTRIBUTE_NAME_MISSING"]}},"title":"AttributeWriteResult"}}}}}}
+>
+  
+</StatusCodes>
+
+

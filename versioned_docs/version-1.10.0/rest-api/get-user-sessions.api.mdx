@@ -1,0 +1,70 @@
+---
+id: get-user-sessions
+title: "Retrieve sessions for a user in a realm"
+description: "Retrieve sessions for a user in a realm"
+sidebar_label: "Retrieve sessions for a user in a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVt9v2zYQ/leIe2oBRTLaYQ96WtB1bYAVMxIHKGD4gZHOFluKZI+neJ6h/304SnLsxAOSDBjmF0vk3Xe/vrvTHlhvIpRLuI1IsMrAByTNxrurGkrYIMvFDcZovIuQQdCkW2Qk0dqD0y1CCZcdN57MX0kTMjAOSmhQ10iQQawabDWUe+BdEPHIZNwG+j47IHy9+M3TVlON9cWcPPt/jfLZR34VCKG27aQZNDeQAeGPzhDWUDJ1+DycLiJd1a8GWolwDN5FjHL/bjaTvxpjRSakRJdQ41p3ltUkCRlU3jE6FlkdgjVVKkrxLYrC/qlBTaR34iVjG4/O/d03rCSDgYQUbAY3rn4942yWgh3iPnMZWRMvTItfjLXm2IhxjJtUmbWnVvNw9PNPokXYesbLuiaM8WyqgQ1bOToiKfTplz1K1DUyGbxHFUcuq7UnpZX4rYxTWk1lb5EbP5I/EZ4bKKEQwWKfhPr0MjVFsR8K3Qu9kO6n1ujICvOYQyyLosbW5z6gG6LKjS90MAdAyOBek9F3dsjy4EwqdyowlNDqyEgS3koMVR0Z3iVLAmtqKJer46sbKfSANgk81FZ33LyTrFu/TSKVNej4A2GNjo22Q8L9d3S3KY5CNIrkViwGV4ogfVp5Wwz4F5V3Disuklri+powNq8HiJUPQwSB/NqkUk9PUmJ9PHY++Dqx7+Tw5bZFFLL/eeiJ4MatfarS2AR/BHTXiV3qi3Z6g6SuP94s1OX8Ch63w6IxUZmouEFV+6pr0XFKWGoLOT2D9nmxmB8gc6XmFnWUjsKksTwBWr05UN9X8ZT6b5OV1hMqCSIfp5au0tTCVhubBsHa/3KiJ1PBmgpl0JUPy+fT/Hf1Pp9B9qjnttttvnFd7mlTjGqx0JtgL97nsxxd3nBrBVN6dsiLXMzkKPjIrXZHZp4/QU5Sfeg5xj+5CFYbl+aleLofp8syjU/IoJwgutOtW467ZJVBI2utXMJ+f6cj3pLtezn+0SHJNFg9DJI0G2oT5bmGcq1txCfOHbYFvLkeV9NbJfw/5/S0MdwuzSvbyRtk8B13h70pC/A/NDompl/12bTlXxb2P5kd4M99lhx8eFmozzc0frmc2BmkLqsKw/Hdkw0vG+CwwT59XEDf/w1ufWvw
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve sessions for a user in a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/{realm}/userSessions/{userId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve sessions for a user in a realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}},{"name":"userId","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"ID":{"type":"string"},"username":{"type":"string"},"startTimeMillis":{"type":"integer","format":"int64"},"remoteAddress":{"type":"string"}},"title":"UserSession"}}}}}}}
+>
+  
+</StatusCodes>
+
+

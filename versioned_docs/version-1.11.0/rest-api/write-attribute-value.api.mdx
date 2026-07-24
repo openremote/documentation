@@ -1,0 +1,70 @@
+---
+id: write-attribute-value
+title: "Write to a single attribute"
+description: "Write to a single attribute"
+sidebar_label: "Write to a single attribute"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVm1v20YM/isCsQ8tJltZOqydPk1xlNaYY3u2nHZzPeMi0da10p16d6qbCvrvA09+U5J1SQYM8wdbpsiHPB75kBUYttbgzyHQGg0sXJAFKma4FP0EfNgobjAwRvHr0uAVy0oEFwqmWI4GFZlWIFiO4ENQmlQq/tVagwtcgA8psgQVuKDjFHMGfgXmpiB1bRQXa6hrd4/wrnMh1YapBJPOWEkj/zXKG6nNk0AY5aOf7GwLZlJwQeGnkitMwDeqxAci7bI3pP9PxVs0yqjNmUxuSCOWwqAw9MiKIuOxzbv3QUtBsjtQ8voDxgbquq4JSxdSaNSkkOCKlZlpHnWseGFv0IcoRUehLjPjyJVjUnRsPTj7GgH3qWG4UCiCMbyJQeGq+dklZN7kb+H+gyFP6LtgxqCimP+cn3R+Djp/sM7XRXV6Wn8H7q1kuvec0l63wxMUhq+4rRL8wvIiI7uXZ+bV5Yv4XTj+6ezNOH2lfnx5/vsKand7xRXkXAxQrE0K/g/ucTDv32++f2AEuzJxRFMnB/+ZbJJKZQWGGyvcN+UEbSgrxrNS4d3acQFFmdsen07DaDkcRcuL0Wx4Di4EUTTpn82isCXtD6ezi4t+rx8Oo2XQ64XTqZVeBYP++fIqGMxC+z8KJ71wHI0my4ugP5hNSDqNgihcTqPRJHgdWnlIkL1gSB7Gk9EW7bdZOAuXF7PBAFyYDX8djt4OKSAbYv98edmfTvvD1+0Yg8tw/2JxbzLeUn1ObMnaSq9vp9oqOEY6zNFcrLOjxIMLOZpUEu8Vpa006lIfPFsdXrXlhNrbm3hVq7trIhdUn3fEWKqMeMeYQvuel2Auu7JAoTCXBrtceqzgXqWQZXntgQufmeLsOtt1BMvyVntCzrRBRQdbkKO4VNzcWE8ES50wXxy/mlLzNWg7hUMfstKkp+DCKpMbqxJnHIXpKbRdwDIrNPIjipk9h0cWng1Le00oXkEsHcvMa/A7sRQCY+NZM0twK4U6fTqAjmXRnKBQcsXtbe+e6HbZ8dDpycQ2QEv4eN+kSj37vz66rW1i2clhLIQ7yqhqmjMraW9w2yOjAsXEVp5zyQRbo3Im4TRygnH/HkLi2uHaUn4i4zJHYWwynZVUVnoP2psoGu8hu44zzpBpdDSitZi3gBbP9m0hY91ui+fWSy4VOnSI7nbKsNhOGcwZp5TSq19adkSDGY9RaFsFu7Xk9XjgvOiegHurHzebTXctyq5Ua29rpj22LrLOi+5JF0U3NXlGmNTPTV7oxQmJCqlNzsSRm28TSyu9+x40+MV4Rca4IEwbXbUlnXmzgYAL/mEVOUb023vFwoWUdh1/DlV1zTTOVFbXJP5UoiKSWBz4xVJGwjU9J+CvWKbxToz7wQ7PJtup/Nw5jLJ27FshEzeWxmhN9AFc+Ig3R8sUbUX/pdtWhupF7e52wMed/++8N17uW1r3oTzuxA93tN1rW34arV6D1okI6KBxZzc7WARxjIX5pu7iaDSOZxG4cL3dQnNLuaDYhiiPbZpTSHu4ZoyRrIKMiXXJ1qTbQNLnL+USRQU=
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Write to a single attribute"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/asset/{assetId}/attribute/{attributeName}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Write to a single attribute
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"assetId","in":"path","required":true,"schema":{"type":"string"}},{"name":"attributeName","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"default":{"description":"The result of the write operation","content":{"application/json":{"schema":{"type":"object","properties":{"ref":{"required":["name"],"type":"object","properties":{"id":{"pattern":"^[0-9A-Za-z]{22}$","type":"string","description":"The asset identifier","example":"7Bt8M3cXEP6BHPh8r47DYf"},"name":{"minLength":1,"pattern":"^\\w+$","type":"string","description":"The attribute name","example":"location"}},"title":"AttributeRef"},"failure":{"type":"string","enum":["ASSET_NOT_FOUND","ATTRIBUTE_NOT_FOUND","INSUFFICIENT_ACCESS","INVALID_VALUE","INTERCEPTOR_FAILURE","STATE_STORAGE_FAILED","CANNOT_PROCESS","QUEUE_FULL","UNKNOWN","ASSET_ID_MISSING","ATTRIBUTE_NAME_MISSING"]}},"title":"AttributeWriteResult"}}}}}}
+>
+  
+</StatusCodes>
+
+

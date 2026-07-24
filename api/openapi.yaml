@@ -1,8 +1,8 @@
 openapi: 3.0.1
 info:
-  title: OpenRemote Manager REST API
-  description: "This is the documentation for the OpenRemote Manager HTTP REST API.\
-    \  Please see the [documentation](https://docs.openremote.io) for more info."
+  title: OpenRemote Manager HTTP API
+  description: "This is the documentation for the OpenRemote Manager HTTP API.  Please\
+    \ see the [documentation](https://docs.openremote.io) for more info."
   contact:
     email: info@openremote.io
   license:
@@ -53,6 +53,8 @@ tags:
   description: Operations on realms
 - name: User
   description: Operations on users
+- name: Services
+  description: Registration and management of external services
 - name: Syslog
   description: Operations on syslog events
 - name: Status
@@ -414,7 +416,16 @@ paths:
     put:
       tags:
       - Alarm
-      summary: Set the asset links of an alarm
+      summary: Add asset links to a single alarm
+      description: |
+        Adds links between assets and one existing alarm.
+
+        The request body is a list for backward compatibility, but this operation now has single-alarm semantics:
+        every item must contain the same `id.realm` and the same `id.alarmId`. The alarm must exist in that realm,
+        every asset must exist in the same realm, and the authenticated user must have access to that realm.
+
+        Existing links are left unchanged; duplicate links in the request or links that already exist are ignored.
+        This operation does not remove existing links from the alarm.
       operationId: setAssetLinks
       parameters:
       - name: Authorization
@@ -429,11 +440,62 @@ paths:
         in: header
         schema:
           type: string
+      requestBody:
+        description: Alarm asset links to add. All items must use the same `id.realm`
+          and `id.alarmId`.
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: "#/components/schemas/AlarmAssetLink"
+            examples:
+              Single asset link:
+                summary: Link one asset to one alarm
+                description: Single asset link
+                value:
+                - id:
+                    realm: building
+                    alarmId: 1234
+                    assetId: 7A6p4AnLTkKxJUCQAAABAA
+              Multiple asset links:
+                summary: Link multiple assets to the same alarm
+                description: Multiple asset links
+                value:
+                - id:
+                    realm: building
+                    alarmId: 1234
+                    assetId: 7A6p4AnLTkKxJUCQAAABAA
+                - id:
+                    realm: building
+                    alarmId: 1234
+                    assetId: 2Qjr4AnLTkKxJUCQAAACAA
+              Invalid multiple alarms:
+                summary: Rejected because the request targets more than one alarm
+                description: Invalid multiple alarms
+                value:
+                - id:
+                    realm: building
+                    alarmId: 1234
+                    assetId: 7A6p4AnLTkKxJUCQAAABAA
+                - id:
+                    realm: building
+                    alarmId: 5678
+                    assetId: 2Qjr4AnLTkKxJUCQAAACAA
+        required: true
       responses:
-        "200":
-          description: default response
-          content:
-            '*/*': {}
+        "204":
+          description: "Asset links were added, or already existed"
+        "400":
+          description: "Invalid request body, multiple alarm IDs or realms were provided,\
+            \ or the alarm/assets are not all in the same realm"
+        "401":
+          description: Authentication is required
+        "403":
+          description: The authenticated user is not allowed to write alarms in the
+            requested realm
+        "404":
+          description: The alarm or one or more assets do not exist
   /configuration/manager/file:
     post:
       tags:
@@ -555,7 +617,11 @@ paths:
         "200":
           description: default response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: object
+                additionalProperties:
+                  type: object
   /apps:
     get:
       tags:
@@ -607,7 +673,9 @@ paths:
         "200":
           description: default response
           content:
-            application/json: {}
+            application/json:
+              schema:
+                type: object
   /model/assetDescriptors:
     get:
       tags:
@@ -747,6 +815,22 @@ paths:
                 type: object
                 additionalProperties:
                   $ref: "#/components/schemas/MetaItemDescriptorObject"
+  /model/getValueDescriptorSchema:
+    get:
+      tags:
+      - Asset Model
+      summary: Retrieve the JSON Schema of the specified value descriptor
+      operationId: getValueDescriptorSchema
+      parameters:
+      - name: name
+        in: query
+        schema:
+          type: string
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json: {}
   /model/valueDescriptors:
     get:
       tags:
@@ -1138,6 +1222,38 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/AssetObject"
+  /asset/tree:
+    post:
+      tags:
+      - Asset
+      summary: "Retrieve part of the asset tree using a query, returns an optimized\
+        \ structure for tree display"
+      operationId: queryAssetTree
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AssetQuery"
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssetTree"
   /asset/query:
     post:
       tags:
@@ -1171,6 +1287,38 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/AssetObject"
+  /asset/count:
+    post:
+      tags:
+      - Asset
+      summary: Counts the amount of assets using a query
+      operationId: queryCount
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AssetQuery"
+      responses:
+        "200":
+          description: default response
+          content:
+            application/json:
+              schema:
+                type: integer
+                format: int32
   /asset/parent:
     delete:
       tags:
@@ -1647,6 +1795,15 @@ paths:
         schema:
           type: integer
           format: int64
+      - name: format
+        in: query
+        schema:
+          type: string
+          default: CSV
+          enum:
+          - CSV
+          - CSV_CROSSTAB
+          - CSV_CROSSTAB_MINUTE
       responses:
         "200":
           description: default response
@@ -2196,7 +2353,7 @@ paths:
     get:
       tags:
       - Map
-      summary: Retrieve the style used for Mapbox GL
+      summary: Retrieve the style used for MapLibre GL
       operationId: getSettings
       parameters:
       - name: Authorization
@@ -2248,32 +2405,6 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/ObjectNode"
-  /map/js:
-    get:
-      tags:
-      - Map
-      summary: Retrieve the tileJSON object used for Mapbox GL
-      operationId: getSettingsJs
-      parameters:
-      - name: Authorization
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Proto
-        in: header
-        schema:
-          type: string
-      - name: X-Forwarded-Host
-        in: header
-        schema:
-          type: string
-      responses:
-        "200":
-          description: default response
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/ObjectNode"
   /map/tile/{zoom}/{column}/{row}:
     get:
       tags:
@@ -2303,10 +2434,7 @@ paths:
         "200":
           description: default response
           content:
-            application/vnd.mapbox-vector-tile:
-              schema:
-                type: string
-                format: byte
+            application/vnd.mapbox-vector-tile: {}
   /map/upload:
     post:
       tags:
@@ -4428,6 +4556,250 @@ paths:
           description: default response
           content:
             '*/*': {}
+  /service/{serviceId}/{instanceId}:
+    get:
+      tags:
+      - Services
+      summary: Retrieve a specific external service by its serviceId and instanceId
+      operationId: getService
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: serviceId
+        in: path
+        required: true
+        schema:
+          maxLength: 2147483647
+          minLength: 1
+          type: string
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: ExternalService retrieved successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalService"
+        "404":
+          description: ExternalService not found
+    put:
+      tags:
+      - Services
+      summary: Update the active registration lease for the specified external service
+      operationId: heartbeat
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: serviceId
+        in: path
+        required: true
+        schema:
+          maxLength: 2147483647
+          minLength: 1
+          type: string
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "204":
+          description: Heartbeat sent successfully
+        "404":
+          description: Service instance not found
+    delete:
+      tags:
+      - Services
+      summary: Deregister an external service
+      operationId: deregisterService
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: serviceId
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: instanceId
+        in: path
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "204":
+          description: Service deregistered successfully
+        "404":
+          description: Service instance not found
+  /service/global:
+    get:
+      tags:
+      - Services
+      summary: List all registered external services that are globally accessible
+        within the OpenRemote manager
+      operationId: getGlobalServices
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      responses:
+        "200":
+          description: List of registered external services
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ExternalService"
+    post:
+      tags:
+      - Services
+      summary: Register a global external service with the OpenRemote manager
+      operationId: registerGlobalService
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalService"
+        required: true
+      responses:
+        "200":
+          description: Service registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalService"
+        "400":
+          description: Invalid external service object
+        "409":
+          description: ExternalService instance already registered
+  /service:
+    get:
+      tags:
+      - Services
+      summary: List all registered external services for the given realm within the
+        OpenRemote manager
+      operationId: getServices
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      - name: realm
+        in: query
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: List of registered external services
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/ExternalService"
+    post:
+      tags:
+      - Services
+      summary: Register an external service with the OpenRemote manager
+      operationId: registerService
+      parameters:
+      - name: Authorization
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Proto
+        in: header
+        schema:
+          type: string
+      - name: X-Forwarded-Host
+        in: header
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ExternalService"
+        required: true
+      responses:
+        "200":
+          description: Service registered successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ExternalService"
+        "400":
+          description: Invalid external service object
+        "409":
+          description: ExternalService instance already registered
   /syslog/event:
     get:
       tags:
@@ -4627,6 +4999,9 @@ components:
             items:
               type: object
     AssetObject:
+      required:
+      - name
+      - realm
       type: object
       properties:
         id:
@@ -4688,6 +5063,8 @@ components:
       additionalProperties:
         $ref: "#/components/schemas/AttributeObject"
     AttributeObject:
+      required:
+      - name
       type: object
       properties:
         type:
@@ -4728,6 +5105,8 @@ components:
           max:
             type: number
     MetaItemObject:
+      required:
+      - name
       type: object
       properties:
         type:
@@ -5031,6 +5410,9 @@ components:
         binary:
           type: boolean
     AgentObjectObjectObject:
+      required:
+      - name
+      - realm
       type: object
       properties:
         id:
@@ -5292,11 +5674,6 @@ components:
           enum:
           - WEBSOCKET
           - POLLING
-        mapType:
-          type: string
-          enum:
-          - VECTOR
-          - RASTER
         configureTranslationsOptions:
           type: object
         basicLoginProvider:
@@ -5316,12 +5693,12 @@ components:
       - $ref: "#/components/schemas/AssetDescriptorObject"
       - type: object
         properties:
-          assetDiscovery:
-            type: boolean
           assetImport:
             type: boolean
           agentLinkType:
             type: string
+          assetDiscovery:
+            type: boolean
     AssetDescriptorObject:
       required:
       - descriptorType
@@ -5416,6 +5793,35 @@ components:
           type: string
         userFullName:
           type: string
+    AssetTree:
+      type: object
+      properties:
+        assets:
+          type: array
+          items:
+            $ref: "#/components/schemas/AssetTreeAsset"
+        hasMore:
+          type: boolean
+    AssetTreeAsset:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        type:
+          type: string
+        parentId:
+          type: string
+        path:
+          type: array
+          items:
+            type: string
+        hasChildren:
+          type: boolean
+        createdOn:
+          type: string
+          format: date-time
     ArrayPredicate:
       type: object
       allOf:
@@ -5484,6 +5890,9 @@ components:
         limit:
           type: integer
           format: int32
+        offset:
+          type: integer
+          format: int32
     AttributePredicate:
       type: object
       properties:
@@ -5542,6 +5951,16 @@ components:
             - LESS_EQUALS
             - BETWEEN
           negate:
+            type: boolean
+    GeoJSONGeofencePredicate:
+      type: object
+      allOf:
+      - $ref: "#/components/schemas/ValuePredicate"
+      - type: object
+        properties:
+          geoJSON:
+            type: string
+          negated:
             type: boolean
     LogicGroupAttributePredicate:
       type: object
@@ -5703,6 +6122,8 @@ components:
       discriminator:
         propertyName: predicateType
     AttributeRef:
+      required:
+      - name
       type: object
       properties:
         id:
@@ -5824,7 +6245,10 @@ components:
             type: object
     ConsoleRegistration:
       required:
+      - name
+      - platform
       - providers
+      - version
       type: object
       properties:
         id:
@@ -5850,6 +6274,8 @@ components:
             type: string
     Dashboard:
       required:
+      - displayName
+      - realm
       - template
       type: object
       properties:
@@ -5917,6 +6343,7 @@ components:
           type: boolean
     DashboardScreenPreset:
       required:
+      - displayName
       - scalingPreset
       type: object
       properties:
@@ -6149,6 +6576,8 @@ components:
           type: object
           additionalProperties:
             $ref: "#/components/schemas/MetaMap"
+        accessPublicRead:
+          type: boolean
     GatewayAttributeFilter:
       type: object
       properties:
@@ -6569,6 +6998,8 @@ components:
             - read:rules
             - read:insights
             - read:alarms
+            - read:services
+            - write:services
             - write:user
             - write:admin
             - write:logs
@@ -7091,6 +7522,46 @@ components:
           type: string
         temporary:
           type: boolean
+    ExternalService:
+      required:
+      - homepageUrl
+      - label
+      - serviceId
+      - status
+      type: object
+      properties:
+        realm:
+          type: string
+          readOnly: true
+        isGlobal:
+          type: boolean
+          readOnly: true
+        serviceId:
+          maxLength: 255
+          minLength: 3
+          type: string
+        instanceId:
+          type: integer
+          format: int32
+        version:
+          maxLength: 255
+          minLength: 3
+          type: string
+        icon:
+          type: string
+        label:
+          maxLength: 255
+          minLength: 1
+          type: string
+        homepageUrl:
+          maxLength: 512
+          minLength: 3
+          type: string
+        status:
+          type: string
+          enum:
+          - AVAILABLE
+          - UNAVAILABLE
     SyslogConfig:
       required:
       - storedCategories

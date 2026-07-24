@@ -1,0 +1,70 @@
+---
+id: send-notification
+title: "Send a notification to one or more targets"
+description: "Send a notification to one or more targets"
+sidebar_label: "Send a notification to one or more targets"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVktvGzcQ/iuLObUBrTWS256qukptVJYEPZAagg7j3ZHEhEuuSa4VRdB/L4ZcSStbbeAUBeqL1vP45sGZj9yBx5WDbA4D4+VS5uil0bAQYCqy4Z+7AjJwpIszCwEVWizJk2X3HWgsCTLo1n5trPx2sJIaMlgTFmRBgMvXVCJkO/Dbis2dt1KvYL8XR4Q/rz4au0FbUHE1ssabf41ya5x/A8hCgKWnmpz/1RRbtsiN9qQ9f2JVqaYH6WdnNMteQZnHz5RzyMpyG70kx9qY2quAAkpyDlf0fYSovVA3FNLlVpZSozeWTRrH7SD2I3jsBXjpVTinR+ct5r59qPdNGmyGdkW+FRPQWtxyFz2V7kczFUC6Lnncxr1u/x4EzCa9MQjoTia9KQi4mU2mw3tY7AXI4mKvlMlRXW4jKmU2VPSDRcii1vKppruYsrc1ie+V024p+guHum81cRq6FESWKkL/MQyOzrf/VHq3/6n7MAEBw8FNDwTcDmfj/gMI+K17F34/9Xp/hI/74WB6G766g8Gs2+8/hM7EWHfak31GdTn5Q4pnS7vfx1RdZbSLHXp/fc0/BfH4VMEqg4KWWCufHCxBtFfgXfoOsl3EOvebkC4STHQrZuJNYjQlxialsZQcBouH3q8Nc0sV17NCv4YM0rZ3ioosKx3Z5wPT1FbxIntfuSxNCypNx1SkLZXGU0eaFCuZ7iyhKvcpCHhGK/GxmYggjhWHGiGDEp0ny81ZcKC8ttJvQySG5TGcL9qqCa97RDsYnIYEa79+DwKWymyCSa4kaX9jqSDtJao4bOYL6VmoI2WPNKTl0phKWjHt5UalEf8qN1pT7tPgBnyCS0tu/eMALjdVrKCyZinDpBy++FixzeI3pgj7diZ8e2w2BfE/Lz0MNfP6+HQD9L5iWUXKaS6X40q/Ju4TGx0pdH5UHkhPFm2QA6OdJC+JbH5QLY6s1FxTL0jnxC0vOaKVmNRLEzJuKGJYkR6H5UnuUeOKbDLuTaZJd3QHLzd8upYukS7xa0oKk9claR/3fGlskF5Au51OR0fITpKMFKGjxBEFj/kZ0OKn42ab3J1v9s8hSuARLqLT8BLmgZeoRMmVsuqXM79wb8icmMpOp9j9fdRPPnSuQbyglM1m01npumPsKm3cXIqrSl196Fx3SHfWvlSMyZQU+8KKaxYxmZWoW2HeRIpn3T7OjaevPq0USs0hQrK7hi/noM+fZZExFwLWTKvZHHa7R3Q0s2q/Z/FTTZbZbXEixkBw4vA04nktpGNFAdkSlaNXeR1vAwBxOckvtP2bt9wzqprtgV9r/0Wg5rl3Fida3US0qykDnSxevelOHt08p6qNxpcfr97x9hoNJ/xweWyeimUgS7C44SXETczchILiBcSyHSjUqzpQB8SQ/PcXyaz51w==
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-rest-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Send a notification to one or more targets"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/notification/alert"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Send a notification to one or more targets
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"name":{"type":"string"},"message":{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"},"targets":{"type":"array","items":{"type":"object","properties":{"type":{"type":"string","enum":["REALM","USER","ASSET","CUSTOM"]},"id":{"type":"string"},"locale":{"type":"string"},"allowedLocales":{"uniqueItems":true,"type":"array","items":{"type":"string"}},"data":{"type":"object"}},"title":"Target"}},"repeatFrequency":{"type":"string","enum":["ALWAYS","ONCE","HOURLY","DAILY","WEEKLY","MONTHLY","ANNUALLY"]},"repeatInterval":{"type":"string"}},"title":"Notification"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"*/*":{}}}}}
+>
+  
+</StatusCodes>
+
+

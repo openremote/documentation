@@ -1,0 +1,33 @@
+---
+id: externalservice
+title: "ExternalService"
+description: ""
+sidebar_label: "ExternalService"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"realm":"string","isGlobal":true,"serviceId":"string","instanceId":0,"version":"string","icon":"string","label":"string","homepageUrl":"string","status":"AVAILABLE"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ExternalService"}
+>
+</Heading>
+
+
+
+
+
+<Schema
+  schema={{"required":["homepageUrl","label","serviceId","status"],"type":"object","properties":{"realm":{"type":"string","readOnly":true},"isGlobal":{"type":"boolean","readOnly":true},"serviceId":{"maxLength":255,"minLength":3,"type":"string"},"instanceId":{"type":"integer","format":"int32"},"version":{"maxLength":255,"minLength":3,"type":"string"},"icon":{"type":"string"},"label":{"maxLength":255,"minLength":1,"type":"string"},"homepageUrl":{"maxLength":512,"minLength":3,"type":"string"},"status":{"type":"string","enum":["AVAILABLE","UNAVAILABLE"]}},"title":"ExternalService"}}
+  schemaType={"response"}
+>
+  
+</Schema>
+            
