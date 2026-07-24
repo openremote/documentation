@@ -1,0 +1,70 @@
+---
+id: get-asset-geofences
+title: "Get the geofences of an asset"
+description: "Get the geofences of an asset"
+sidebar_label: "Get the geofences of an asset"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk1v2zgQ/SvCnFpAEY3kplODdpsG2GKNNAUKGD7Q1EhiS5EsOarXa+i/F0NZjpx4220XBeqLneF8z5s32QPJJkK5grveIKxzcB6DJO3sbQUlNEjXMSLdoKvRKoyQg5dBdkgY2G4PVnYIJVz31Lqg/0m2kIO2UEKLssIAOUTVYieh3APtPKtHCto2MAz50cOHi9cubGWosLpYBkfuf3t54yL9lBPJNd9Wk62X1EIOAT/3OmAFJYUev+VpzcrROxsx8vvlYsFfFUYVtE8dKqHCWvaGskkTclDOElpiXem90Sp1U3yMbLB/GlCGIHecJWEXZ3K3+YiKS/eB50l6TENXZ5LNwUiayW3fbVKjahc6foHK9RuDSdM2/1EzyEr385S0JWxOtbWlq0tWbon8W6TWnc+vD+bsuIA0GRZN6HyFtbY6tXdIn/xRy2+QMmoxayY4Z67OpM3SvCGH7pAE4z4hnVooQYTeYBRHI7E/4GNgOGH4Mq1CSjRVE0shKuxc4TzagJ0jLLQT0muxDyhNNwjI4YsMWm7MOJwkHlGScAEldDISBq5lzYFUHzTtUiR2y9NcredP7xgfo7dJ4QESsqf2kttv3DapKKPR0suAFVrS0ozTcp/Qvk91CLYQKa0oxlSE571UzojR/4Vy1qIikczSitQBY/vzDqJyfqzAB1frNN7pF89Tzmnmpasw7cpc+OOxWRXy37z0hGZta5emdAD+Xx7tXUJX9lZa2WDI3tzfL7Pr5S08xv59q2OmY8J/5VTfoaXUsKx2IUm/4a3IsqVBGTGLiEl5deJj/eyIeqfiKeqfpwCdC5hx/sWB56RKrIOd1CaRQe1enNglwtEKmRrLhztzs/wzuyoWkD9at+12WzS2L1xoxMEsCtl4c3FVLAq0RUudYZ+8rmNL+GHBIu8iddLOwnyPKU56e1wywr9JeCO1nfHWyCIrSCwCOTSzW1pOl2adQ8vXqlzBfr+REd8HMwws/txj4KVfP/BFooBKR/5dQVlLE/FJSsdbAs/uDofrecYwP5fqdE/sLtGS6fkvyOET7mbncFgzWY+H9MdS+Le4o/9zl/+YBJ/lXxHo8M/BSZxR61op9PO3J7eYSfd4K27+uIdh+AqsgzYz
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Get the geofences of an asset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rules/geofences/{assetId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Get the geofences of an asset
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"assetId","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"lat":{"type":"number","format":"double"},"lng":{"type":"number","format":"double"},"radius":{"type":"integer","format":"int32"},"httpMethod":{"type":"string"},"url":{"type":"string"}},"title":"GeofenceDefinition"}}}}}}}
+>
+  
+</StatusCodes>
+
+

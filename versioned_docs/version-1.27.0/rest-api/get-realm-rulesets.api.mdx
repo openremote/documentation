@@ -1,0 +1,70 @@
+---
+id: get-realm-rulesets
+title: "Retrieve the rules of a realm"
+description: "Retrieve the rules of a realm"
+sidebar_label: "Retrieve the rules of a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVktv2zgQ/ivCnFqAsYJkuwed6o3d1IVTCYqTTWAYxUQa2WwpUiWppF5D/31BSnLs1G3Tdg/riyly3vPNYwMWlwaiOaS1IFgwUBVptFzJSQ4RLMmmhKJ0r4asAQYVaizJknZsG5BYEkQwrO1Kaf6PZwUGXEIEK8KcNDAw2YpKhGgDdl05cmM1l0toGraVcHP0RukH1DnlR4lWVv22lLfK2F8Sop3LPWeFdgUMNH2uuaYcIqtrep4cgXJZ45J6UZ9r0utDNqDW6B64pdJ8LZMBybp0WXo3vB5enqWTZAYMztM4vr4FBu8u4/fA4M00/hsWza4FRS3EOlFVLdD+2Iw7pQShhKZZOIdNpaQhb8/J8bH7y8lkmlc+xxHkVGAtbNBTAoNMSUvSOlqsKsEzj4fwo3EMm2c4/hjmuQ8fsNaVBetZ1N1HylxeK+2wanlrIc93xHJpaenTXShdom2v/vwDGgb3pA1vzXkGdaYJLeWxPJSVLXmOlo4sL8mxCDT2QuW84JQ/n6tN2AZK/DIlubQriE5evWJQctl/n7KnWHPAwDuxp2ebRAbaVe0BiLI2tL+JMwYl2d1kbjODec5d3lEkeznap2saBsairb+L+HQ8HDndo3EyjW/HI2BwFl8kk+lwNonffxinaZwCg+vhdDKazG4/JON0Eo+29+Ob8dnVHuU0jpPtx2hyOfxr6qUmw6tLfxjfJJPUn9LxRXzd3l0ks1vvM2mt9MGYtl3j0AtmGRmT1HeCZynhwWw1DCy3wt3tdlxo/I89Kb2UrOZ0T4FdUeDTHKgiwKDvXCXZleoauO/ZDj8QesrQE4WF0uHGHxvXC0jf9y291sJ1TGsrE4VhTqUaqIqkplJZGnAVYsV71hAY3KPmDoVdAXdR6LoDRFCisaSdJwunKKs1t2uvyYl1hTtf7D5dui7RSusJHrGDtV2duCoS6sGTZIKTtGeacpKWo2jRpD6RvPJ+hI6j9dmErSlh5eZLpkTYyj/KlJSU2dCz+WZfaDKrXxdgMlW1HlRaFdyntT+5bOLuuDxTuS/9vcuf1+1Igf3PXfdY5rJQPksd4OOKZOrRFVygxCXp4O1slgTDZAJPkT9bcRNw44Gfq6wuSVofsKBQ2t9+R9ogCBJBaCgw1NbOfE/G4sUW9Soz+6h/6RWUSlPg7B900w4zP+2oRC784CjU6z0+3255Rm5ARo/70nkyDU4Hx8CelNvDw8NgKeuB0suwYzMhLitxdDo4HpAcrGwp9uYYuIdjd1UpY0uUO2p+1Cf2YrstMktfbFgJ5H6KePs2XQ+Zd0OFbZekQrnJGbWfCwYrt3VFc9hs7tDQlRZN467bpcMVfc5NN7MKFIYYfKL1/rJ0j6J2doDbZL5B/nSzeeRZPHakw/qeOL3dWeBF2m0fLwNgh4PR7y1yvauzN6oNQuPmRLdw/pwB39LaSj+0IX8/VP+Bom6J3tPTUg2zjKrdt682PpeK7SQ6H8+gaf4FQ4U1Zg==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the rules of a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rules/realm/for/{realm}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the rules of a realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}},{"name":"language","in":"query","schema":{"type":"array","items":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]}}},{"name":"fullyPopulate","in":"query","schema":{"type":"boolean"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"required":["lang","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"version":{"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":3,"type":"string"},"enabled":{"type":"boolean"},"rules":{"type":"string"},"lang":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]},"meta":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"string","enum":["READY","DEPLOYED","COMPILATION_ERROR","VALIDITY_PERIOD_ERROR","EXECUTION_ERROR","LOOP_ERROR","DISABLED","PAUSED","EXPIRED","REMOVED","EMPTY"]},"error":{"type":"string"},"realm":{"type":"string"},"accessPublicRead":{"type":"boolean"}},"title":"RealmRuleset"}}}}}}}
+>
+  
+</StatusCodes>
+
+

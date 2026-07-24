@@ -1,0 +1,70 @@
+---
+id: get-connection-status
+title: "Retrieve the gateway connection status of a realm"
+description: "Retrieve the gateway connection status of a realm"
+sidebar_label: "Retrieve the gateway connection status of a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVUuP2zgM/isCTy2gsYP25tNmM9lpgO5MkKTYBYIcVJuJtbUlVaInmw383wvKjybTB9BZFGgukSnyI0V+JM9A6hAg28KdIjyqE+wkWIdekbZmUUAGB6SZNQZzlqxJURNAglNe1Ujo2fgMRtUIGUwbKq3X/0VrkKANZFCiKtCDhJCXWCvIzkAnx+qBvDYHaFs5Ivx984f1R+ULLG6W3pL93yhvbKBngXhUVT1YOkUlSPD4sdEeC8jIN/g9nB0rB2dNwMD3ryYT/isw5F67mJ8MCtyrpiIxaIKE3BpCQ6yrnKt0HnOZ/hPY4PxNhxLQNDUX8naxnj3c389nm/ktSOjPi/s7kBd33fel4u1iPf39bTz+NV30CvPV6mEFEtabh+Vyfgu7ln/yyTNWSF7jIwoqURw6Iol8JI0IkTXC7oUSQ1ZrpNL2/Ip8ohIySHvrtDNJz1G95YqhfxzY1viKi0nkQpamBdY2sQ6Nx9oSJtqmyunBNAUJj8pr9b7qCtEFEEsRkw8Z1CoQemhj1QLmjdd0ip4YVheQbXeXV2suQoc2KIz1sKqh8hVI2Ff2GFXySqOhmccCDWlVRSHZD2jexXekbJHGsELahZI6pn5uq7TDv+mTmUazyMO9x1A+HyDk1nUvcN7udcWhDycusLrs5JktMBLyUvjjvlkV5C/+9EhvbfY2VklTvH5waFaRXeJPZdQBvXiz2SzFdLmAp82wKXUQOsReKGze1GgoJkzsrY/S76AlQiwrVAFFwK6dtlcYuxcj620erln/MjqorUfB8Sf9MFF5HCZYK80Z46vfruyglVDpHHn+ZJ9H+d3yrXidTEA+abfj8ZgcTJNYf0h7s5Cqg6tuXieTBE1SUl0xJrdrlxK+mLDI2UC1MhdunjM6rvI9Nh7hv5S6SmnDnmLM536sbKFH5uoPGyzr4HYSSt4Q2RbO5/cq4DtftS2LPzboeQrsPg+QOBMKHfhcQLZXVcAv4hknOLxY9evipWDefy3OXqjMKc6pquEvkPABT+MKanetHFbXjwXwLa8d+td27RgCL8Kf4ahfx1d+Oq1pnqO7vPti//EMHvfG3XwDbfsJvpUC0Q==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the gateway connection status of a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/gateway/status/{realm}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve the gateway connection status of a realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"string","enum":["DISCONNECTED","CONNECTING","DISCONNECTING","CONNECTED","DISABLED","WAITING","ERROR","STOPPED"]}}}}}}
+>
+  
+</StatusCodes>
+
+

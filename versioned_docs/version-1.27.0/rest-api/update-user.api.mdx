@@ -1,0 +1,70 @@
+---
+id: update-user
+title: "Update a user in a realm"
+description: "Update a user in a realm"
+sidebar_label: "Update a user in a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV+1uG0UUfZXlEiApa6/jEBUWShsioJECtYIjIbyOGO9ee6fdndnO3I1jXPM6vAdPhu6M7bVjE6lFSP3R/Innfpw7H2fOnZ0DiYmFeADXFg0MQ9AVGkFSq4sMYqirTBA6XwiVMKJEQsMJc1CiRIjhrKZcG/mHS4IQpIIYchSZy7FpjqWAeA40qzjckpFqAotFuEb4tfWDNlNhMsxaPaNJ/2eU59rSO4EYFEW5yqwE5RCCwde1NJhBTKbGh3CGPhgtfaezGUekWhEq4p+iqgqZul2KXlqt2LYDpUcvMeWpV4YPgiRa9vpp7VYMvYePao9P7jePpbH0s1vvHm8hHnBiKWSx36PEqMDNgiOtCxSKnalBQZi9ULupIYy1KQVBDMy0FskSOcViapD2lhJERo5q8ltzf+NElkneY1H0trZwGSeMETM+YMLS7jtDV9vcyhTP0lTXivYvqbZo1HKbSnF3iWpCOcTd09MQSqlW4xO+NURomE83h0+fDJKkml/YS0FSLd74wbkuS60Ww88Pjjji5ptvP03gsySxSXKbJPnBJx99/PTvv8Kv40d/RkmSJG9uniTJIEmG88Xh0e+Mca7IFA6g/egAwl2CA0kq2OSu8sIt06CttLJ+e7qdDv/L0KZGVu4qx5DhWNQFBatICD8Q+gOh31NCL8J77L12vSsQAS8tkCoQwUreS6Rcc3+rasdNFvoYIg6M5i5o4QYW/OatWl5tCu4oRJWNoyjDUrd1hcpgqQnbUkeikmsACOFWGMk02ub88lpBDKWw5Kc/dAypjaSZq8SwTPfBcNP1C18vj7YKaAgjasq7zL9CT11IWkhUdG4wQ0VSFJ4e+hWqa7eOiDMiNy0b+alEFfffVBeRx2+lWilMKXJprhmODdr83QFsqiu/gsrosXRnuPrFZyg2nxPnOnOE3DK+fW0OZRK910t3DGYdvWqeEN/fibIqcIM9jcyshbIxya3Rhiw2xkYNG9tSBDcMK+3zD54NtYNup/tFq/O41f2qf3wanx7H3S/bncfHv0GjcA3OlrDt0SEP3yjPptSrsXZ0XV7zFxWqK3fNgp+EEhM0wfN+vxec9S7g/sXv59IG0gaUY5DptC5RkWNOMNbGWR9AawdBr0BhMbCILniwhTE8XF9/ndrt63/kCpTaYMDzby/7pUid5q62mV3PtvJcm5IpcouNm4f1j73L4KTdgfCe7kyn0/ZE1W1tJtEyzUZiUhWtk3anjaqdU1kwJuuW3xJ2dNhUaUulUBtlHpDJrW1dCw3hHUVVIaTvG8b1Ty+hA3eYEEK8gvAqOgwh5yd5PID5fCQsXptisWDz6xoNK96wEUunf5m0Sw6ORWFxZy7rdwgcXi3f50dB0yi257hqlWrmNLmoeQQhvMLZ+s2/GC7C1bfC203g36p69H0fN+sp8JfH/1Fo+f2zVcdHnXu0Vp+Bmoidt1yTcZamWNGDscONjtq77kMIo+X3T+kEHIyYsmKJqV+FdovzTZFtcyiEmtRiwrEekv/+AY8gBBI=
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a user in a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/user/{realm}/users"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Update a user in a realm
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={{"content":{"application/json":{"schema":{"type":"object","properties":{"realm":{"type":"string"},"realmId":{"type":"string"},"id":{"type":"string"},"firstName":{"type":"string"},"lastName":{"type":"string"},"email":{"type":"string"},"enabled":{"type":"boolean"},"createdOn":{"type":"string","format":"date-time"},"secret":{"type":"string"},"attributes":{"type":"object","additionalProperties":{"type":"array","items":{"type":"string"}}},"serviceAccount":{"type":"boolean"},"username":{"maxLength":255,"minLength":3,"pattern":"^(?=[\\p{IsLatin}|\\p{IsCommon}]+$)(?=[^<>&\"'\\s\\v\\h$%!#?§,;:*~/\\\\|^=\\[\\]{}()`\\p{Cntrl}]+$).*$","type":"string"}},"title":"User"}}}}}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"realm":{"type":"string"},"realmId":{"type":"string"},"id":{"type":"string"},"firstName":{"type":"string"},"lastName":{"type":"string"},"email":{"type":"string"},"enabled":{"type":"boolean"},"createdOn":{"type":"string","format":"date-time"},"secret":{"type":"string"},"attributes":{"type":"object","additionalProperties":{"type":"array","items":{"type":"string"}}},"serviceAccount":{"type":"boolean"},"username":{"maxLength":255,"minLength":3,"pattern":"^(?=[\\p{IsLatin}|\\p{IsCommon}]+$)(?=[^<>&\"'\\s\\v\\h$%!#?§,;:*~/\\\\|^=\\[\\]{}()`\\p{Cntrl}]+$).*$","type":"string"}},"title":"User"}}}}}}
+>
+  
+</StatusCodes>
+
+

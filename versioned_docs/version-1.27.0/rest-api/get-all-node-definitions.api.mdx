@@ -1,0 +1,70 @@
+---
+id: get-all-node-definitions
+title: "Retrieve all node definitions"
+description: "Retrieve all node definitions"
+sidebar_label: "Retrieve all node definitions"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV0tv2zgQ/ivCnHYBxQqSm06rOGpirGMbtoymMIyAkcYWG4rUklRc19B/L4ayHTmPuml3gR72JGE4HA6/eX3cgGVLA+EMPgi1grkPqkTNLFeyl0EIS7SREAOV4SUuuOS0YMCHkmlWoEVNezcgWYEQQlTZXGn+1e0HH7iEEHJkGWrwwaQ5FgzCDdh1SerGai6XUNf+3sLtyQelV0xnmJ2MtLLql61cK2PfYWTug0ZTKmnQ0PrZ6Sl9MjSp5qW7VwgZLlglrLfTBB9SJS1KS7qsLAVPHQbBZ0MbNi8PZFqzNfllsTAtubr/jCk5XGqKhOWNGzx7xVl/K3i+4APKqqCg9gajaQI+jMbDbjyZDMfgw3CaNMLkOh7AvKajuNLcrluWuLS4dFAtlC6YbUTnZ3RoA/Ir3pTK8AahY9f50lKRVXF/eNJCKGbJ4PpH1AgGbgXpUJ6Odk7UPhj+FX8bZwhSLZkwP58FbyPP0wfUxw0cy5ckvqXMuJn2k16/N4jBh8H05iKmvLkcD0eXw48D+h1OL/rxXUvSvY67f18Mb8GHaDKJk7soSca9i2lCJrrDvsu8yyiJXcKpsukj/z4Qj0xUr4S8HZdhU8V1WzZq8PuOAR/uNbKH5AiAg/jj3Ra4ySjqxmOYP8+J3jYPnFNclpX9BSDe6Atv4nMsAfbRbn7uovE4+kSXSca9wRX4cDEc9uOIQp6Me1dXTncX32jwyYVX0i1fd4zLDL/8UJ95htpEpQ/YBFJV9n/Q3gtaxk0p2LqbM81Se9ArngbowWaqEFckh7NvjFZzfESPCeGR0152wAwKtLnaUgdHFGwOIQQLohc+GNSPO9JQaUEz2drShEGQYaE6qkSpsVAWO1wFrOTBRiMTRR0Alabm7F40MXTiZjK7WQwhFMzQxWo3xA2mVTPTZhviNJKCPpu3lyY0kxtrO4WnzGGVzc8IYaFWTiUVHKXtasxQWr5r4+oB5dTdI6AdgXPLBI0rQUkMJlUiaOyfpEpKTG3gtgExjYVGk/+8AZOqsrlBqdWCu9jt/ih0rE3IuhRU4idt4fvPJlXwf/Or101zXSgXpX3nRzl22eXdMMmWqL3rJBl50agHz9M8ybnxuPFsjl6m0qpAaR1g3kJpJ/2OtY7njQQyg55BdMqzAxvzP/ZZr1JzmPV/ugMKpdEj/ztbbslSxy2xYFy4el+ovw72UaMQPEWio+ETI78a9b3zzin4z8pttVp1lrLqKL0MtttMwJalODnvnHZQdnJbCDcQUZsGElo43fI8WzDZOuZYUzjAdl9kFr/YoBSMO37k/NtsG8bMFR69R3Li7+EMNpt7ZnCqRV2T+J8KNRX3/KkvuPr2dySf6j7jhhYyCBdMGHzhx560A/ivO/WA6zdeJVuiAEDvjv/ioO3D5eCcRitKUyzbay9eHNTm9o34Kk6grr8BSoaw7g==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve all node definitions"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/flow"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve all node definitions
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"type":{"type":"string","enum":["INPUT","PROCESSOR","OUTPUT","THEN"]},"priority":{"type":"integer","format":"int32"},"name":{"type":"string"},"position":{"type":"object","properties":{"x":{"type":"number","format":"float"},"y":{"type":"number","format":"float"}},"title":"NodePosition"},"size":{"type":"object","properties":{"x":{"type":"number","format":"float"},"y":{"type":"number","format":"float"}},"title":"NodePosition"},"internals":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"picker":{"type":"object","properties":{"type":{"type":"string","enum":["TEXT","MULTILINE","NUMBER","DROPDOWN","DOUBLE_DROPDOWN","CHECKBOX","ASSET_ATTRIBUTE","COLOR","DATE"]},"options":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"value":{"type":"object"}},"title":"Option"}}},"title":"Picker"},"value":{"type":"object"},"breakType":{"type":"string","enum":["NEW_LINE","SPACER"]}},"title":"NodeInternal"}},"inputs":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string","enum":["NUMBER","NUMBER_ARRAY","STRING","BOOLEAN","TRIGGER","COLOR","ANY"]},"nodeId":{"type":"string"},"index":{"type":"integer","format":"int32"}},"title":"NodeSocket"}},"outputs":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string","enum":["NUMBER","NUMBER_ARRAY","STRING","BOOLEAN","TRIGGER","COLOR","ANY"]},"nodeId":{"type":"string"},"index":{"type":"integer","format":"int32"}},"title":"NodeSocket"}},"displayCharacter":{"type":"string"}},"title":"Node"}}}}}}}
+>
+  
+</StatusCodes>
+
+

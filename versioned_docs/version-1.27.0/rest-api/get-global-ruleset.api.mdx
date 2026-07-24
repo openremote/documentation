@@ -1,0 +1,70 @@
+---
+id: get-global-ruleset
+title: "Retrieve a global ruleset"
+description: "Retrieve a global ruleset"
+sidebar_label: "Retrieve a global ruleset"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVt1v2zYQ/1eEe2oBxgqSdQ96qhe7qQunEhQnS2AYBSOdJbYUqZKnpJmh/30gJTtW4hVthwHzi8XjffE+fncbIF5YiJaQNhJhxUDXaDgJrWY5RFAgnUt9x6W7tkjAoOaGV0honNgGFK8QIhg3VGoj/vKiwEAoiKBEnqMBBjYrseIQbYAea8duyQhVQNuynYabo3faPHCTY36UGE36X2t5ry39khKRb8VqTiUwMPi1EQZziMg0eECJUISF17/WpuLUkX7/Ddp25cRtrZVF6yROjo/dX442M6L24YogxzVvJAVbTmCQaUWoyPHyupYi86ENP1snsNlz4cm5JUiuCmDdO1Zs652++4yZz51x6SXReSLyH3oBg3s0VnRmf4A7M8gJ81i9DPIee84Jj0hU6EQkt3Shc7EWmP+4VJetDVT82xxVQSVEJ2/eMKiE2p5P2fM0M0DF7+TAzp3WErlyl8bV+YHqYF1oD/iGqqlc6D+Mr8eXZ+ksWQCD8zSOr2+BwYfL+CMweDeP/4RVy6BC2q+bXWZ4nguXXy6TQY6GfG3LwBKn5oCLT56k0/HE2Z5Mk3l8O50Ag7P4IpnNx4tZ/PHTNE3jFBhcj+ezyWxx+ymZprN4sqNPb6ZnVwPOeRwnu8Nkdjn+Y+61JuOrS/8xvUlmqf9KpxfxdUe7SBa3/s1ojDYHOw5IkHSkIci07seetUiKZATeY8CDwnMHZodJFVKpe7zyEOVyD6FnCDcib13jo7nfglZjpMMEotpGYZhjpUe6RmWw0oQjoUNei3BjkMuqDYHBPTfCFY3t+o3Lqmth37QQQcUtoXF+r5yhrDGCHr0lp9b12XK1f3XpmrfTtmV4SjVvqDxxRS/1g2fJpEBFZwZzVCS47JKvv6C68u8InUTo3bJh50pYOwTNtAw7/UeZVgozCr2YR7S1QVv+ugKb6bp7QW30Wvgsbr9c8vj+QDjTue/UAfHnbTtWYP/zp/vSFWqtfZb6+o5rVKmvruCCK16gCd4vFkkwTmbwvNAXpbCBsAGVGOQ6aypU5AMWrLXx1O9oGwVBIpFbDCyiZ14OdKxe7apeZ3ZY9a+9gUobDJz/o34I8cwPIay4kB7n1/rtQM6jo8jQza3oaSM4T+bB6egY2LN2e3h4GBWqGWlThL2YDXlRy6PT0fEI1aikSg7GDriLY0eqtaWKqz0z34OFQVx3DUb4jcJacuEB3/u26SFj2eM/g0jkboCWboWIlrDZ3HGLV0a2rSN/bdC4/l49QYPv9lzYfrasubT4woPdTIdXaT+1XwfADnvWE7l69AgkG3cCBl/wsdtRWgeu/WLzc9b/yWSn+tAmtrPv1qT/wlC/rA3sdFzjLMN6/+7FOuSgdTcCzqcLaNu/AezSrcc=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve a global ruleset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rules/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve a global ruleset
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"id","in":"path","required":true,"schema":{"type":"integer","format":"int64"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"required":["lang","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"version":{"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":3,"type":"string"},"enabled":{"type":"boolean"},"rules":{"type":"string"},"lang":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]},"meta":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"string","enum":["READY","DEPLOYED","COMPILATION_ERROR","VALIDITY_PERIOD_ERROR","EXECUTION_ERROR","LOOP_ERROR","DISABLED","PAUSED","EXPIRED","REMOVED","EMPTY"]},"error":{"type":"string"}},"title":"GlobalRuleset"}}}}}}
+>
+  
+</StatusCodes>
+
+

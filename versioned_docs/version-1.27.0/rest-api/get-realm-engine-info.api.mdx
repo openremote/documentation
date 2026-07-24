@@ -1,0 +1,70 @@
+---
+id: get-realm-engine-info
+title: "Retrieve information about a realm rules engine"
+description: "Retrieve information about a realm rules engine"
+sidebar_label: "Retrieve information about a realm rules engine"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk1v4zYQ/SvEnHYBRjKSm04NUjcboE0MrQMUMHxgpLHEXYrkkqN4U0P/vRhKduxku0BSFKgvksmZN19vZrQDUk2EYgVlbxDWEpzHoEg7e1NDAQ1Sicp0c9toizd240CCV0F1SBhYcQdWdQgFXPbUuqD/SsogQVsooEVVYwAJsWqxU1DsgJ48i0cK2jYwDPKA8OfZby5sVaixPlsER+5fo3xykd4FEjjovaZX1IKEgN96HbCGgkKPP8NZs3D0zkaMfH8+m/GjxlgF7VN+Cqhxo3pDYi8JEipnCS2xrPLe6CrlMv8SWWH32qB7+IIVB+gDl430aC6Soj6+dkwC2r7jYn9e3i0W819BQnl/e3tzew0S5mV5V8J6YDc6r02yPQ/BhSvXj05NcNoSNimVGxc6RePRxTkMEvA7Vv07NAcJpMmwEDMxHhFu4J98kb0SKWh8RKHtCKWdFerB9SSUSNUTgXEEJiCQ0CG1buJ0IjG1UECepHJGyZNavkuPgYmC4XFP8j4Y5hCRj0We19i5zHm0ATtHmGmXK6/3qjlIeFRBqwczFmRkU2JAqjkU0KlIGDi2NRuq+qDpKVliWF1DsVofX33m2o9oe4FnGqie2nNOqnHbJFIZjZauAtZoSSszksF9RXuf4shZY4w35qMrueeOq5zJR/yzylmLFeVJLdF/EzC27weIlfNjBD64jU613r9xgdXxALlyNaY+OD58u20WBfk/Dz3RmxmYqjR1wZ1HWyZ2iT+UVQ0G8Wm5XIjLxQ28bIZlq6PQUVCLonZV36GlsSM2LqTTn6BlQiwMqogiIibh1QnG+sOB9a6Kp6z/mAx0Lox9mE0zTFWp6bFT2qQW37hfTvR4UhhdIY+94nmDXC9+FxfZDOSLdttut1lj+8yFJp/UYq4ab84uslmGNmupM4zJ7TqmhC9mfORdpE7ZIzNvHx0n2T60HeF3yr1R2rKd5PFuGisrSAgwlVUe9kkxvqwltLyaihXsdg8q4n0ww8DH33oMPAfWzyMkTYVaR36vodgoE/GVT4fVAR/KaU99FMz8H/k6HSr7lCaV6fkfSPiKT4fdN/AmmHbm2xz4J6sj+o+W/MEF3sD/haHpO+DEzih1WVXoj+9eLV6ewofdcT1fwjD8DffOMOU=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve information about a realm rules engine"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rules/info/realm/{realm}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Retrieve information about a realm rules engine
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+  children={"Request"}
+>
+</Heading>
+
+<ParamsDetails
+  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}}]}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  title={"Body"}
+  body={undefined}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  id={undefined}
+  label={undefined}
+  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"status":{"type":"string","enum":["STOPPED","RUNNING","ERROR"]},"compilationErrorCount":{"type":"integer","format":"int32"},"executionErrorCount":{"type":"integer","format":"int32"}},"title":"RulesEngineInfo"}}}}}}
+>
+  
+</StatusCodes>
+
+
