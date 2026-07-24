@@ -34,16 +34,7 @@ const config: Config = {
       removeLegacyPostBuildHeadAttribute: true,
       useCssCascadeLayers: true,
     },
-    experimental_faster: {
-      swcJsLoader: true,
-      swcJsMinimizer: true,
-      swcHtmlMinimizer: true,
-      lightningCssMinimizer: true,
-      rspackBundler: true,
-      rspackPersistentCache: true,
-      mdxCrossCompilerCache: true,
-      ssgWorkerThreads: true,
-    },
+    faster: true,
   },
 
   presets: [
@@ -91,7 +82,6 @@ const config: Config = {
               groupPathsBy: "tag",
               categoryLinkSource: "tag",
             },
-            template: "api.mustache", // Customize API MDX with mustache template
             downloadUrl: "https://demo.openremote.io/api/master/openapi.yaml",
             hideSendButton: false,
             showSchemas: true,
