@@ -1,11 +1,11 @@
 ---
 id: get-user-client-roles
-title: "Retrieve client roles for a user using a client ID in a realm"
-description: "Retrieve client roles for a user using a client ID in a realm"
-sidebar_label: "Retrieve client roles for a user using a client ID in a realm"
+title: "Retrieve a user's client roles"
+description: "Returns role names assigned to one user for the named client. Without read-admin permission, callers may retrieve only their own roles."
+sidebar_label: "Retrieve a user's client roles"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVt9v2zgM/lcEPm2AagXbm59WdLetwB0u6FpgQJAHzWZi3WRJo+Tmcob/94Fy7CVtb1jXYVheYovkxx8iP7qHpLcRyhXcRCRYS/ABSSfj3WUNJWwxseDCGnTpyluMICFo0i0mJDbswekWoYTzLjWezH/ZGCQYByU0qGskkBCrBlsNZQ9pH1g9JjJuC8MgZ4QPZ2887TTVWJ8tySf/ZJR3PqYfAiHUtp0sg04NSCD83BnCGspEHX4fTheRLuufAFTlG3gC1JqVY/AuYmT5i8WC/2qMFZmQ76yEGje6s0lMmiCh8i6hS6yrQ7Cmyver/ols0N93qIn0nqNM2MaHAuGfvOP3ChMZvEUxpimIO01sPAktuISii8ZthZ7kl6+FcUKL6ZpaTI0/9Gtu0NRACYpNVZ+VhvySO1j1460Mqp+qOnBbIN1OLd2R5Y5JKcRSqRpbX/iAjrD1CQvjlQ5mBgYJt5qM/mjHyo5B5drmakIJrY4JiZNfs6OqI5P22RPDmhrK1fpY9J6rOqJNCnMhve5S8wIkbKzfZZUxiwvCGl0y2o5l95/Q3eQ8FFuoHFZUYygq8HxV3qoR/6zyzmGVVDbLjbUhjM2PA8TKhzGDQH5jLIc+PXED6GO6uPA15g47Pny8b1YF+ZunntvfuI3Pt2RSFv8d0F3l7hJ/aae3SOLd9fVSnC8v4e6wXDcmChNFalDUvupadCkXLA8Mn34DrRBiaVFHFBExK69OMNbP5q73VTzt+ufZQesJBcdfHNhBV5kdsNWGK8aiVyd2MEiwpkImlPLrvni7/FO8LBYg74zbbrcrtq4rPG3VwSwqvQ327GWxKNAVTWotY/K4jiVhwYKPgo+p1e7IzVOp5aT28xAm/DepYLVx7DXH3x9oZ5VJHySUE8TMPHw4b4RypvS1hIYXVbmCvv+oI96QHQY+/twhMU+sv1JMZo3aRH6uodxoG/FelDNpw7Orw4Z4LngyHop+Im63z0xmO34DCZ9wP29C3kS/0OmhSL/Y63whw3qQ0/fC48r9f45HBw994MxRPC7Z73d0+AY68TNqnVcVhmPZvQXPO2nerW//uIZh+AKNGoOp
+api: eJzNVt9v2zYQ/lcOfFkLyFKSZv2hvSwohi7AhgZZgj0ERkuLJ4srRarkKa5r6H8fjpRsJ3WLNciAPlkmeXcfj3fffRuhMFRed6SdFaW4ROq9DeCdQbCyxQAyBL20qIAcOIvQB/RQOw/UpCMKKqPRUg5/a2pcT+BRqplUrbbQoW91CNrZDCppDPoArVyDR/IabxGcNWt2pT24lY2BQy4y4Tr0klGdK1GKJdJ1QP86BrrkMyITnfSyRUIfRHmzuXeTtx3aS2wdIcMxbYTKjvGTbDuDohSLXhul7VJkQrNJJ6kRmeCDohTRSmTC48dee1SiJN9jJkLVYCtFuRG07vhgIM9OhiG7j+FcoSVN61nn3a1W6FPydFyuNfq7eE7q4+r4Bf48e3GyeDk7VQucvapfqll1+gqfP69fnuDx0WGs7PZcPTbY9Kxfhes6tD5m+DCoZP6dsOZ8OHTOBgy8f3J0xD+Vs4SW+FN2ndFVLI3in8DQN1/6k97LNcMibMOhOMOQ3bv/VcOV8rHHQFA5viOhgtBXFYZQ98asxZCJ06Pje3gIP1HRGakPI9lFvB/wrKeGM5vuAjrAlCYYuyv0fFduMI/xEaQJID2CtrfSaJUAPXssQJwBuQOFKpWrchjAOoJG3uJeQzMhdOhr51ugRgfYtmzCdfqYuMaXQQUeg+t9hTtc+EkH4pIWAavea1pHPuD61EqUN3OuKpJLpgnBNCLmmWiRGjdSS+QSakQpCr5xsYm9P8Q/kWyKTeqwodhMVT0IDudvJ/bpvRGlaIi6UBaFwtbluwbJtStkp7eORSZupddyYVKVJ64puSVr2RsSpWhlIPScjvnuXn9x0pLJdLuNqI1bxSV+O+f15/gGr53CLxavI8iC14oYMxQpTtF5R65ypkh+Z5WzFiuKR2MD1x5D8/325D6g5VRVrkvAO+9qHQlk+hoyEY891PuQjVzzetcmKas/Mmh2kCrfsfFJXNG2dlPbyCq2DbZScwje+vVOSYkDnaIDEwmTh3JV36KlxC7TwN4bi39KK5fo4ferqws4uzjPgRvtfbzEe0i1DVOZQkCDFSXXE03Gozn7TH3Pu5IgNG4Vz71PN2dnqX4nhmNcYBEVSAtvmQjhBGRkWojp+WVHJgFWo6yIzvc9MD86TyCts+vW9WH0kYE0bLJsRrgsalCBkiShkhYCaWNggWB0qylpm65fGF1t6SXkcG0NA5J2B2abVV521KCHRGQZoPfOw3Z4MXeChMh3M6Y+WDi1zuHCoAycTozYbu480/zJlkBcFe4SyNP4hq2L9F87nsVGV2hDbPNx5p69ufgDnuUsE+4S0mq1ype2z51fFqNZKOSyM7Nn+VGONm+oNbGoNcU6/0ahMHuhD6nk2PyIDTsXqJV2D8zlpPFkHCQ/hUlR+FHA3SnevVnxA8nQsUX3ZtcwpnYzzoybqL5EJspJMW7HBi9upVm51UPzTDQuEJtuNgsZ8NqbYeDljz16Hl7z3XxI0lYH/lairKUJ+I3MPbkcNcRT+KoCPninSTjZdRxOpud/IhMfcL0Vw1E0PgTKfxLCD4A1JvcRcR3UvA9Atn3sYT5kokGp0MenTNtnVYUd7Rl+oWqHfY3y5rcrkcVRvieYxrGRTR/s/SCoaWRN2OJYi0k7ePwhk3KqEqU9VvSu9/r/8J/Y/Woau48SYRQ4Y4Cemm96vqOm3lWssSbbpZeW3kWrYT4Mw7+pVWmR
 sidebar_class_name: "get api-method"
 info_path: docs/rest-api/openremote-manager-http-api
 custom_edit_url: null
@@ -18,11 +18,12 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"Retrieve client roles for a user using a client ID in a realm"}
+  children={"Retrieve a user's client roles"}
 >
 </Heading>
 
@@ -36,35 +37,33 @@ import Heading from "@theme/Heading";
 
 
 
-Retrieve client roles for a user using a client ID in a realm
+Returns role names assigned to one user for the named client. Without read-admin permission, callers may retrieve only their own roles.
 
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}},{"name":"userId","in":"path","required":true,"schema":{"type":"string"}},{"name":"clientId","in":"path","required":true,"schema":{"type":"string"}}]}
+  {...require("./get-user-client-roles.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-user-client-roles.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"type":"string"}}}}}}}
+  {...require("./get-user-client-roles.StatusCodes.json")}
 >
   
 </StatusCodes>
 
 
+      

@@ -1,12 +1,12 @@
 ---
 id: assetdatapointlttbquery
 title: "AssetDatapointLTTBQuery"
-description: ""
+description: "Downsamples numeric or boolean datapoints from the inclusive range with the Largest-Triangle-Three-Buckets (LTTB) algorithm while preserving the series' visual shape. Use this to reduce a large series for charts. Results are chronological; boolean values are processed as 1 for true and 0 for false. Other attribute value types are rejected."
 sidebar_label: "AssetDatapointLTTBQuery"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"fromTimestamp":0,"toTimestamp":0,"fromTime":"2024-07-29T15:51:28.071Z","toTime":"2024-07-29T15:51:28.071Z","type":"string","amountOfPoints":0}
+sample: {"fromTime":"2026-01-01T00:00:00Z","fromTimestamp":1767225600000,"toTime":"2026-01-02T00:00:00Z","toTimestamp":1767312000000,"type":"string","amountOfPoints":500}
 custom_edit_url: null
 ---
 
@@ -22,11 +22,10 @@ import Heading from "@theme/Heading";
 
 
 
-
+Downsamples numeric or boolean datapoints from the inclusive range with the Largest-Triangle-Three-Buckets (LTTB) algorithm while preserving the series' visual shape. Use this to reduce a large series for charts. Results are chronological; boolean values are processed as 1 for true and 0 for false. Other attribute value types are rejected.
 
 <Schema
-  schema={{"type":"object","allOf":[{"required":["type"],"type":"object","properties":{"fromTimestamp":{"type":"integer","format":"int64"},"toTimestamp":{"type":"integer","format":"int64"},"fromTime":{"type":"string","format":"date-time"},"toTime":{"type":"string","format":"date-time"},"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AssetDatapointQuery"},{"type":"object","properties":{"amountOfPoints":{"type":"integer","format":"int32"}}}],"title":"AssetDatapointLTTBQuery"}}
-  schemaType={"response"}
+  {...require("./assetdatapointlttbquery.Schema.json")}
 >
   
 </Schema>

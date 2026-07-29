@@ -1,12 +1,12 @@
 ---
 id: realmpredicate
 title: "RealmPredicate"
-description: ""
+description: "Matches an exact realm name."
 sidebar_label: "RealmPredicate"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"name":"string"}
+sample: {"name":"building"}
 custom_edit_url: null
 ---
 
@@ -22,11 +22,10 @@ import Heading from "@theme/Heading";
 
 
 
-
+Matches an exact realm name.
 
 <Schema
-  schema={{"type":"object","properties":{"name":{"type":"string"}},"title":"RealmPredicate"}}
-  schemaType={"response"}
+  {...require("./realmpredicate.Schema.json")}
 >
   
 </Schema>

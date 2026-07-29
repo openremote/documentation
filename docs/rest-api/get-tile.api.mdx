@@ -1,11 +1,11 @@
 ---
 id: get-tile
-title: "Retrieve the vector tile data for Mapbox GL"
-description: "Retrieve the vector tile data for Mapbox GL"
-sidebar_label: "Retrieve the vector tile data for Mapbox GL"
+title: "Retrieve vector tile data for MapLibre GL"
+description: "Returns a pre-compressed Mapbox vector tile for the requested zoom, column, and row coordinates."
+sidebar_label: "Retrieve vector tile data for MapLibre GL"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVcFuGzkM/ZUBTy2gjIzkNqcNiiIt0GCDrHsKfFA0tEeoJKoSx246mH9fUOO4SbpYbBe7RU8eU+Qj9Ug+TcBmV6C7g2uTYKOAEmbDjuL7HjrYIa+dR1CQTDYBGbM4TxBNQOjgK1EABS5CB8nwAAoyfh5dxh46ziMqKHbAYKCbgB+SxLjIuMMMCraUg+HFdHEO86xOwJb8GOL/Ap3p8B/ibiS8JIoFi0Scr1by02Ox2SUhEjrocWtGz82jJyiwFBkji69JyTtbSdf72LfBpHv6crZHy5TPWPjvpnmeZ/UC9hY5O9xjwwM2i3sj7k1v2DRbys11hWquPoCCgDzQsam1oTxABzqYpCVIT9LMWU8L9bOeMh1mUFAw7x/bPmYPHQzMqXRa9xiopYQxYyDG1pE2yekpo/Fh1qBgb7Iz936hppoXciod0EEwhTHDXHksaMfs+KFmEljXQ3e3eXr0h3RmQXt0ODWJzMjDufTI06G6WO8w8puMPUZ2xlcj0yeMH+s9tEToWlbRSyk6ZWKy5PWCf2YpRrSsa1idlW3GMvx7gGIpLTdImba1uacvabFAUnZf6zy8oR7riDw1/nhucQX1i1+9DriLW6pdclyPf08Yb+t0Ndcmmh3m5t16fdNc3ryHl+uwHlxpXKnb0JMdA0auhNVVEOvfoLVNc+PRFGwKLgt19wxj8+o09WTL86l/XRMEythI/e1xvY2t643BOF8VY0u/PYuDWYF3FkURupM+XV7dfGgu2hWoF+t2OBzaXRxbyjt9DCva7JI/u2hXLcZ24OAFU9Z1oUQOVmJKVDiY+CTNj4nHM6ZPK8f4hXXyxkXJUaudjsJyB8Ekmbnl+eiOL0V3EvZOdHijYKDC4j5N96bgx+znWcyfR8yiBJtvIlJ1oXdFvnvotsYX/K6yk67Cq9ujrL9upI6/qvhoNPGhapUf5R8o+IQPj4+bPBw/MeeRnp+cVVoxb2YFA5oecyV6Obm0FhM/ifkHj5UI9umxuXq7hnn+E9AB53U=
+api: eJzNVm1v2zYQ/iuH+9QCspQl2bBqXxYURVagWYMswTYEwUpLZ4soxWNJyo5j6L8PRym2k7jB1m7DPkWh7+Xhw+de1lhTqLx2UbPFEi8odt4GUOA8TSpunacQqIYz5aZ8CwuqInuI2hDM5KMh8PSpoxCphjvmNoOKTdfaDJStwfMSKmZfa6sihRwzZEdeSbq3NZY4p3ipDWGGTnnVUiQfsLxeP8L1K03hjHylJLukAUMLMhKPblXrDGH5zXGGWoydig1maFVLWKJYY4aCUnuqsYy+owxD1VCrsFxjXDmx0zbSnDxmOGPfqjgcHR1i32fPwklk/LZzzQeovj96dbgX10DTv4/s988h+/b4u1d7kXlefiWsG3EPjm2gIB6HBwfyp2IbyUb5VM4ZXSUdFAtb523S12TQ10SAi9WTnCF6bee7KafaKr/Cvu+zR1Sc3mm3K+Ed7WKGDak6aW2NrwdYkze24lrCl49ZfWtrAUsBYqNiUn3idrqSM+UJlPGk6hVs8+Eeyjbw/yDbtVhe4/xOO7zpMwxxZZKJTq+T7nN4cPwUy8885KZbHWKAEc62CHfKDfsMj59QH+k2Fs4oefnPU7yH0MttHthWK7CHKderRIO2C2V0LcrEqOZSynimHN5k2FJseCz5VO6xwRKLVrlC7lOspVD7Yj3URV+sPS97IZH84r4pdN5giU2MLpRFUVPLOTuynlqOlGsulNPF2pMybV9ghgvltZqaQYTpeOBzpjoj4mlViOTlrjeSqOq8jqtfhJHBRYLrWr5mhpfpSHWxYa/vknRfc01PDq8SyELOipQzFEOewnmOXLEphriTiq2lKibTVHEzT6H5+/6RP5JNemM3AHeeZ6mGNl/yIGL2pdH7DCujycbXnmqyUSszsvp/Bi0BBlmzOKeWidrO+L4mVJVqglqlTWpgM/7xgaRwTxnoADqksqu56lqyMT38ZiK+d2QvUgA4U1bNycNPl5fncHL+Ngepog/pEh9g0DbcyxQCGapi2K1oSKa5xBzG5tiDQsPLZPdhuLkEG/QLY+cWXGCJalAW3p90sYFDUFVFIUCi5wfgbdCljg13cQi+GyF0zrGPoCzbVctdGGNkoIy4zJsRrmwOVEOtooJKWQhRGwNTAqNbLZ0pMrhuanQFngJ3vqKQw5U1AkjZLZgNq3LMsSEPQ5fKgLxnD5vZAl0g2VWkmU2kr6VOlMO5IRWETkrYrh88082LTQPhKjxsIC/TG7acWtmMZV4aXZENqczH+Xhyev4OjvIDzB41pOVymc9tl7OfF6NbKNTcmclRfpCTzZvYmiRqHZPOnxGKdC/yYZCcuB+Io+MQW2V3wFxQ9JoW9GA1S28gNzlT7p2eeoLTd/hIxzsz4b9Y+8Yy3Bk+/UjfepwF19gqJ5bDgC7Hxa3cLEqlLCY3GTYcopiv11MV6MqbvpfjTx35FZbXN9u+P2ySOsh3jeVMmUDP0PDiYtx5XsIzC+fem4yHyq7S2DGd/IcZfqTV/Q6alrWvxrJ32/wCSCOr/yCox4vmF4CSB+5lGxq2s/R8wy8nVUUu7vj8hQWy3906Tt9cYt//CeoXiFs=
 sidebar_class_name: "get api-method"
 info_path: docs/rest-api/openremote-manager-http-api
 custom_edit_url: null
@@ -18,11 +18,12 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"Retrieve the vector tile data for Mapbox GL"}
+  children={"Retrieve vector tile data for MapLibre GL"}
 >
 </Heading>
 
@@ -36,35 +37,33 @@ import Heading from "@theme/Heading";
 
 
 
-Retrieve the vector tile data for Mapbox GL
+Returns a pre-compressed Mapbox vector tile for the requested zoom, column, and row coordinates.
 
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"name":"zoom","in":"path","required":true,"schema":{"type":"integer","format":"int32"}},{"name":"column","in":"path","required":true,"schema":{"type":"integer","format":"int32"}},{"name":"row","in":"path","required":true,"schema":{"type":"integer","format":"int32"}}]}
+  {...require("./get-tile.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-tile.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"default response","content":{"application/vnd.mapbox-vector-tile":{}}}}}
+  {...require("./get-tile.StatusCodes.json")}
 >
   
 </StatusCodes>
 
 
+      

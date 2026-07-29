@@ -1,12 +1,12 @@
 ---
 id: alarm
 title: "Alarm"
-description: ""
+description: "Operational alarm submitted to or returned by the alarm service."
 sidebar_label: "Alarm"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"title":"string","content":"string","severity":"LOW","assigneeId":"string","realm":"string","status":"OPEN","sourceId":"string","source":"MANUAL"}
+sample: {"assigneeId":"2f1c17e5-72b8-4dbe-9f8d-c49e66f82e10","content":"Boiler room temperature reached 42 °C.","realm":"building","severity":"LOW","source":"MANUAL","sourceId":"string","status":"OPEN","title":"Temperature threshold exceeded"}
 custom_edit_url: null
 ---
 
@@ -22,11 +22,10 @@ import Heading from "@theme/Heading";
 
 
 
-
+Operational alarm submitted to or returned by the alarm service.
 
 <Schema
-  schema={{"required":["realm","severity","source","sourceId","status","title"],"type":"object","properties":{"title":{"type":"string"},"content":{"type":"string"},"severity":{"type":"string","enum":["LOW","MEDIUM","HIGH"]},"assigneeId":{"type":"string"},"realm":{"type":"string"},"status":{"type":"string","enum":["OPEN","ACKNOWLEDGED","IN_PROGRESS","RESOLVED","CLOSED"]},"sourceId":{"type":"string"},"source":{"type":"string","enum":["MANUAL","CLIENT","GLOBAL_RULESET","REALM_RULESET","ASSET_RULESET","AGENT"]}},"title":"Alarm"}}
-  schemaType={"response"}
+  {...require("./alarm.Schema.json")}
 >
   
 </Schema>

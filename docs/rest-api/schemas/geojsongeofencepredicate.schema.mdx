@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","allOf":[{"required":["predicateType"],"type":"object","properties":{"predicateType":{"type":"string"}},"discriminator":{"propertyName":"predicateType"},"title":"ValuePredicate"},{"type":"object","properties":{"geoJSON":{"type":"string"},"negated":{"type":"boolean"}}}],"title":"GeoJSONGeofencePredicate"}}
-  schemaType={"response"}
+  {...require("./geojsongeofencepredicate.Schema.json")}
 >
   
 </Schema>

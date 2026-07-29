@@ -6,7 +6,7 @@ sidebar_label: "MapSourceConfig"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"type":"string","url":"string","tiles":["string"],"bounds":[0],"scheme":"string","minzoom":0,"maxzoom":0,"attribution":"string","custom":true}
+sample: {"attribution":"string","bounds":[0],"custom":true,"maxzoom":0,"minzoom":0,"scheme":"string","tiles":["string"],"type":"string","url":"string"}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"type":{"type":"string"},"url":{"type":"string"},"tiles":{"type":"array","items":{"type":"string"}},"bounds":{"type":"array","items":{"type":"number","format":"float"}},"scheme":{"type":"string"},"minzoom":{"type":"integer","format":"int32"},"maxzoom":{"type":"integer","format":"int32"},"attribution":{"type":"string"},"custom":{"type":"boolean"}},"title":"MapSourceConfig"}}
-  schemaType={"response"}
+  {...require("./mapsourceconfig.Schema.json")}
 >
   
 </Schema>

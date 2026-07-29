@@ -1,12 +1,12 @@
 ---
 id: attributevaluepredicate
 title: "AttributeValuePredicate"
-description: ""
+description: "Predicate for matching an identity-provider user attribute by name and optional value."
 sidebar_label: "AttributeValuePredicate"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"negated":true,"name":{"match":"EXACT","caseSensitive":true,"value":"string","negate":true},"value":{"match":"EXACT","caseSensitive":true,"value":"string","negate":true}}
+sample: {"name":{"caseSensitive":true,"match":"EXACT","negate":true,"value":"string"},"negated":false,"value":{"caseSensitive":true,"match":"EXACT","negate":true,"value":"string"}}
 custom_edit_url: null
 ---
 
@@ -22,11 +22,10 @@ import Heading from "@theme/Heading";
 
 
 
-
+Predicate for matching an identity-provider user attribute by name and optional value.
 
 <Schema
-  schema={{"type":"object","properties":{"negated":{"type":"boolean"},"name":{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"},"value":{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"}},"title":"AttributeValuePredicate"}}
-  schemaType={"response"}
+  {...require("./attributevaluepredicate.Schema.json")}
 >
   
 </Schema>

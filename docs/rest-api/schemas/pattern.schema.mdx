@@ -6,7 +6,7 @@ sidebar_label: "Pattern"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"message":"string","type":"string","regexp":"string","flags":["UNIX_LINES"]}
+sample: {"message":"string","type":"string","flags":["UNIX_LINES"],"regexp":"string"}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","allOf":[{"required":["type"],"type":"object","properties":{"message":{"type":"string"},"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"ValueConstraint"},{"type":"object","properties":{"regexp":{"type":"string"},"flags":{"type":"array","items":{"type":"string","enum":["UNIX_LINES","CASE_INSENSITIVE","COMMENTS","MULTILINE","DOTALL","UNICODE_CASE","CANON_EQ"]}}}}],"title":"Pattern"}}
-  schemaType={"response"}
+  {...require("./pattern.Schema.json")}
 >
   
 </Schema>

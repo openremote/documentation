@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"access":{"type":"array","items":{"type":"string","enum":["RESTRICTED","LINKED","REALM"]}},"minAmount":{"type":"string","enum":["AT_LEAST_ONE","ALL","NONE"]},"parents":{"type":"array","items":{"type":"object","properties":{"id":{"type":"string"}},"title":"ParentPredicate"}}},"title":"AssetConditions"}}
-  schemaType={"response"}
+  {...require("./assetconditions.Schema.json")}
 >
   
 </Schema>

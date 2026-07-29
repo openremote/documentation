@@ -6,7 +6,7 @@ sidebar_label: "SyslogConfig"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"storedLevel":"INFO","storedCategories":["ASSET"],"storedMaxAgeMinutes":0}
+sample: {"storedCategories":["ASSET"],"storedLevel":"INFO","storedMaxAgeMinutes":0}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"required":["storedCategories","storedLevel","storedMaxAgeMinutes"],"type":"object","properties":{"storedLevel":{"type":"string","enum":["INFO","WARN","ERROR"]},"storedCategories":{"type":"array","items":{"type":"string","enum":["ASSET","AGENT","NOTIFICATION","ALARM","RULES","PROTOCOL","GATEWAY","MODEL_AND_VALUES","API","DATA"]}},"storedMaxAgeMinutes":{"type":"integer","format":"int32"}},"title":"SyslogConfig"}}
-  schemaType={"response"}
+  {...require("./syslogconfig.Schema.json")}
 >
   
 </Schema>

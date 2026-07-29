@@ -6,7 +6,7 @@ sidebar_label: "FileInfo"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"name":"string","contents":"string","binary":true}
+sample: {"binary":true,"contents":"string","name":"string"}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"name":{"type":"string"},"contents":{"type":"string"},"binary":{"type":"boolean"}},"title":"FileInfo"}}
-  schemaType={"response"}
+  {...require("./fileinfo.Schema.json")}
 >
   
 </Schema>

@@ -1,11 +1,11 @@
 ---
 id: get-info
 title: "Retrieve the system information"
-description: "Retrieve the system information"
+description: "Returns public bootstrap information, including the Manager version and identity-provider URL."
 sidebar_label: "Retrieve the system information"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVE1v2zAM/SsGTxvgWkF782lFMXQFNixo01OQgyrTsVpZ1CS6WWb4vw+U0490wIbtNF9sU+Qj+cTHEVhvE9RruGHNQ4JNCRQwarbkrxqoYYt85VuCEiKmQD5hgnqE08VCXg0mE20Qb6ihwVYPjosnTyjBkGf0LL46BGdNRlb3SQJGSKbDXssX7wNCDXR3j4ahBN00Vly1W0apiO2c+Nhvyk/5po5r5GjxEQvusEj7xNgX1rcU+5wdSuiROzq0ByUEzR3UoOzcacL4iFFoGWGIDmromEOqlWqwp4oC+og9MVaWlA5WjRG16ycFJTzqaPWdm4vN5pmnzAzU0OvEGKXwjSQyQ7S8z5kE1jZQrzevj26EoRntyeGFBD1wdwoltI522cU4i54vIjbo2Wo3U0YP6G9zH0oiVC4rqbkUFSIxGXJqxj8x5D0aVjks33sbMXX/DpAMhbmDEKm1Tkp/+pLLE0iK9ke+nAtqME/La+Pf5xZXKP/z1vPo5pmTW7Kcj78G9Nd5uoov2ustxuLTarUszpdX8HbQV51NhU15zhsyQ4+eM2FFSzFbf4NWFcXSoU5YJJylsj7C2Lx7nnoy6Xjq3+cEPUXMwqoOStcmKx17bYUxOfpwFAdTCc4alOVQj+B1Ly2fXy4/F2fVAso3ctvtdtXWDxXFrTqEJaW3wZ2cVYsKfdVx7wRT5DpTIgcLMQVK3Gv/Ks2f18IRu88yY/zOKjhtveDmCsfDyljP17cpoaPE8j+OdzrhbXTTJOZvA0aR9+ZlM2SFl9ChbjBm5T/gXlgwBgPnFeIGyfvLwpS98Ly5Lj+uYJp+AjTmB9A=
+api: eJzNVd9rJDcM/leEnlqYzITc2/Sl4SjXwJVbcslTCMTr0e74zmP5bDnb7TL/e5Fnk2xypdBCoU/r1Uiffn864EDZJhfFccAer0lKChliWXtnYc0sWZKJ4MKG02RUrQEXrC+DC1uQkeA3E8yWEjxSyo4DmDCAGyiIk/1ZTPzoBkpwe/2xxQY5UqooVwP2uCW5ChvGBhPlyCFTxv6AF+fn+mM5CAXRp4nRO1sNuy9ZQz1gtiNNRl+yj4Q98voLWcEGzTA4VTV+ldShuAX3td48z3PzJv+bkSDRt0JZwPIUPQkNkIu1lPOmeL9HNRKzzdjf4WcxUjLeNziRjHxMCRuMRkbssXNLdpmSVgf7uwOW5LHHUSTmvusGmrjlSCHRxEKt485E1x0SGT/NHTb4aJIza79kUMX6GGhjihfscTJZKGk29+rIluRk/1lrs5gouBv0tfG8qyJTZOTk/qj1fM8DfSe8rUF2Kuuqz9wtfrqYWNiy7xbcM8shkJWqWvu4SZTHf24v/JWClspyXAKPiTfOa8OeXlp5Vfu36HOD1jsK8j5RHVDjj1X9PwetAMfBVeOLKqmDddwRY+uO0GScutBPP78aKfyLOXcZXK77O7AtEwWpjYcNpyr9FClcV4DnBf/15mYFl6urFnRNHmoSD7DMNjyNKWTyZGWBflqlqtoq5rL8+tUI5JF3Ve9hyVzBlvmtli6RxgWBaAAT4NNlkREuwNRthFqen4BfQHdORi6ygJ8i5BIjJwETOOwnLvmI0YDxarIdj+Eq+9EAgxED1gTI4ryHNYF3k1MqEH7ixkSZS7KUW7gNXgMy4SWY56qqmGWkBAtfNUApcYJnwoOSCQxEb1w4E/pdYM3DvoWVJ5O1nFRju3vVpvsfngmEbX5NID/WHk6cqLK2sq53lkKuax7MpKN0+WH1Ed6159i8IaTdbtduQ2k5bbujWe7MNvqzd+15S6EdZfJ1qJ3UOf+bQVH2Wo4C9qjm52oYOctkwkkw1yTJ0eOSaN5noen04OCb6T25DP/9wTqunjamqz3SFGrJDkeWv1uW8b7BkbPo/8NhbTLdJj/PKv5WKO2xv7t/IXP9Nzc4khko1bPwlfbaFmspSmV9X9Tvd4dvPj02H365wXn+E8LzyIQ=
 sidebar_class_name: "get api-method"
 info_path: docs/rest-api/openremote-manager-http-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -36,27 +37,23 @@ import Heading from "@theme/Heading";
 
 
 
-Retrieve the system information
+Returns public bootstrap information, including the Manager version and identity-provider URL.
 
-<ParamsDetails
-  parameters={undefined}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-info.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"object","additionalProperties":{"type":"object"}}}}}}}
+  {...require("./get-info.StatusCodes.json")}
 >
   
 </StatusCodes>
 
 
+      

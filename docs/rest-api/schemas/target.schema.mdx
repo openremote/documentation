@@ -1,12 +1,12 @@
 ---
 id: target
 title: "Target"
-description: ""
+description: "Delivery target. The target type determines whether id refers to a user, asset, realm, or custom address."
 sidebar_label: "Target"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"type":"REALM","id":"string","locale":"string","allowedLocales":["string"],"data":{}}
+sample: {"allowedLocales":["string"],"data":{},"id":"string","locale":"string","type":"REALM"}
 custom_edit_url: null
 ---
 
@@ -22,11 +22,10 @@ import Heading from "@theme/Heading";
 
 
 
-
+Delivery target. The target type determines whether id refers to a user, asset, realm, or custom address.
 
 <Schema
-  schema={{"type":"object","properties":{"type":{"type":"string","enum":["REALM","USER","ASSET","CUSTOM"]},"id":{"type":"string"},"locale":{"type":"string"},"allowedLocales":{"uniqueItems":true,"type":"array","items":{"type":"string"}},"data":{"type":"object"}},"title":"Target"}}
-  schemaType={"response"}
+  {...require("./target.Schema.json")}
 >
   
 </Schema>

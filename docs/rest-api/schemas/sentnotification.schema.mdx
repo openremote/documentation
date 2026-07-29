@@ -1,12 +1,12 @@
 ---
 id: sentnotification
 title: "SentNotification"
-description: ""
+description: "One target-specific notification delivery record, including delivery and acknowledgement state."
 sidebar_label: "SentNotification"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"id":0,"name":"string","type":"string","target":"REALM","targetId":"string","source":"INTERNAL","sourceId":"string","message":{"type":"string"},"error":"string","sentOn":"2024-07-29T15:51:28.071Z","deliveredOn":"2024-07-29T15:51:28.071Z","acknowledgedOn":"2024-07-29T15:51:28.071Z","acknowledgement":"string"}
+sample: {"acknowledgedOn":"2024-07-29T15:51:28.071Z","acknowledgement":"string","deliveredOn":"2024-07-29T15:51:28.071Z","error":"string","id":42,"message":{"type":"string"},"name":"High temperature alert","realm":"building","sentOn":"2024-07-29T15:51:28.071Z","source":"INTERNAL","sourceId":"string","target":"REALM","targetId":"string","type":"push"}
 custom_edit_url: null
 ---
 
@@ -22,11 +22,10 @@ import Heading from "@theme/Heading";
 
 
 
-
+One target-specific notification delivery record, including delivery and acknowledgement state.
 
 <Schema
-  schema={{"required":["source","target","targetId","type"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"name":{"type":"string"},"type":{"type":"string"},"target":{"type":"string","enum":["REALM","USER","ASSET","CUSTOM"]},"targetId":{"type":"string"},"source":{"type":"string","enum":["INTERNAL","CLIENT","GLOBAL_RULESET","REALM_RULESET","ASSET_RULESET"]},"sourceId":{"type":"string"},"message":{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"},"error":{"type":"string"},"sentOn":{"type":"string","format":"date-time"},"deliveredOn":{"type":"string","format":"date-time"},"acknowledgedOn":{"type":"string","format":"date-time"},"acknowledgement":{"type":"string"}},"title":"SentNotification"}}
-  schemaType={"response"}
+  {...require("./sentnotification.Schema.json")}
 >
   
 </Schema>

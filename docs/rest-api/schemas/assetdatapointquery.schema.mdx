@@ -1,12 +1,12 @@
 ---
 id: assetdatapointquery
 title: "AssetDatapointQuery"
-description: ""
+description: "Polymorphic historical-datapoint query. Select `all` to return every value, `interval` to aggregate values into time buckets, `lttb` to downsample a numeric or boolean series, or `nearest` to retrieve the last value at or before a time."
 sidebar_label: "AssetDatapointQuery"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"fromTimestamp":0,"toTimestamp":0,"fromTime":"2024-07-29T15:51:28.071Z","toTime":"2024-07-29T15:51:28.071Z","type":"string"}
+sample: {"fromTime":"2026-01-01T00:00:00Z","fromTimestamp":1767225600000,"toTime":"2026-01-02T00:00:00Z","toTimestamp":1767312000000,"type":"string"}
 custom_edit_url: null
 ---
 
@@ -22,11 +22,10 @@ import Heading from "@theme/Heading";
 
 
 
-
+Polymorphic historical-datapoint query. Select `all` to return every value, `interval` to aggregate values into time buckets, `lttb` to downsample a numeric or boolean series, or `nearest` to retrieve the last value at or before a time.
 
 <Schema
-  schema={{"required":["type"],"type":"object","properties":{"fromTimestamp":{"type":"integer","format":"int64"},"toTimestamp":{"type":"integer","format":"int64"},"fromTime":{"type":"string","format":"date-time"},"toTime":{"type":"string","format":"date-time"},"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AssetDatapointQuery"}}
-  schemaType={"response"}
+  {...require("./assetdatapointquery.Schema.json")}
 >
   
 </Schema>

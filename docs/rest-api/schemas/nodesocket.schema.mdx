@@ -6,7 +6,7 @@ sidebar_label: "NodeSocket"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"id":"string","name":"string","type":"NUMBER","nodeId":"string","index":0}
+sample: {"id":"string","index":0,"name":"string","nodeId":"string","type":"NUMBER"}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"id":{"type":"string"},"name":{"type":"string"},"type":{"type":"string","enum":["NUMBER","NUMBER_ARRAY","STRING","BOOLEAN","TRIGGER","COLOR","ANY"]},"nodeId":{"type":"string"},"index":{"type":"integer","format":"int32"}},"title":"NodeSocket"}}
-  schemaType={"response"}
+  {...require("./nodesocket.Schema.json")}
 >
   
 </Schema>

@@ -6,7 +6,7 @@ sidebar_label: "ConsoleProvider"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"version":"string","requiresPermission":true,"hasPermission":true,"success":true,"enabled":true,"disabled":true,"data":{}}
+sample: {"data":{},"disabled":true,"enabled":true,"hasPermission":true,"requiresPermission":true,"success":true,"version":"string"}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"version":{"type":"string"},"requiresPermission":{"type":"boolean"},"hasPermission":{"type":"boolean"},"success":{"type":"boolean"},"enabled":{"type":"boolean"},"disabled":{"type":"boolean"},"data":{"type":"object","additionalProperties":{"type":"object"}}},"title":"ConsoleProvider"}}
-  schemaType={"response"}
+  {...require("./consoleprovider.Schema.json")}
 >
   
 </Schema>

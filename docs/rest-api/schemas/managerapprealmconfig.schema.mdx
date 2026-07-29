@@ -6,7 +6,7 @@ sidebar_label: "ManagerAppRealmConfig"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"appTitle":"string","styles":"string","logo":"string","logoMobile":"string","favicon":"string","language":"string","headers":["string"],"notifications":{"languages":["string"],"defaultLanguage":"string"}}
+sample: {"appTitle":"string","favicon":"string","headers":["string"],"language":"string","logo":"string","logoMobile":"string","notifications":{"defaultLanguage":"string","languages":["string"]},"styles":"string"}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"appTitle":{"type":"string"},"styles":{"type":"string"},"logo":{"type":"string"},"logoMobile":{"type":"string"},"favicon":{"type":"string"},"language":{"type":"string"},"headers":{"type":"array","items":{"type":"string"}},"notifications":{"type":"object","properties":{"languages":{"type":"array","items":{"type":"string"}},"defaultLanguage":{"type":"string"}},"title":"ManagerAppRealmNotificationConfig"}},"title":"ManagerAppRealmConfig"}}
-  schemaType={"response"}
+  {...require("./managerapprealmconfig.Schema.json")}
 >
   
 </Schema>

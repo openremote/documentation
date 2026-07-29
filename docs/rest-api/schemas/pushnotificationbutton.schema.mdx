@@ -6,7 +6,7 @@ sidebar_label: "PushNotificationButton"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"title":"string","action":{"url":"string","data":{},"silent":true,"openInBrowser":true,"httpMethod":"string"}}
+sample: {"action":{"data":{},"httpMethod":"string","openInBrowser":true,"silent":true,"url":"string"},"title":"string"}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"title":{"type":"string"},"action":{"type":"object","properties":{"url":{"type":"string"},"data":{"type":"object"},"silent":{"type":"boolean"},"openInBrowser":{"type":"boolean"},"httpMethod":{"type":"string"}},"title":"PushNotificationAction"}},"title":"PushNotificationButton"}}
-  schemaType={"response"}
+  {...require("./pushnotificationbutton.Schema.json")}
 >
   
 </Schema>

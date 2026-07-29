@@ -1,7 +1,7 @@
 ---
 id: pathpredicate
 title: "PathPredicate"
-description: ""
+description: "Matches an asset ancestry path represented as ordered asset identifiers."
 sidebar_label: "PathPredicate"
 hide_title: true
 hide_table_of_contents: true
@@ -22,11 +22,10 @@ import Heading from "@theme/Heading";
 
 
 
-
+Matches an asset ancestry path represented as ordered asset identifiers.
 
 <Schema
-  schema={{"type":"object","properties":{"path":{"type":"array","items":{"type":"string"}}},"title":"PathPredicate"}}
-  schemaType={"response"}
+  {...require("./pathpredicate.Schema.json")}
 >
   
 </Schema>

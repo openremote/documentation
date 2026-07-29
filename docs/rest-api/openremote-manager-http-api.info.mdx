@@ -1,7 +1,7 @@
 ---
 id: openremote-manager-http-api
 title: "OpenRemote Manager HTTP API"
-description: "This is the documentation for the OpenRemote Manager HTTP API.  Please see the [documentation](https://docs.openremote.io) for more info."
+description: "This is the documentation for the OpenRemote Manager HTTP API. The `realm` server variable selects the request realm. Operations that show the `openid` security requirement need an OAuth 2 access token; operations without that requirement support anonymous access, although the returned data can still be limited to public resources. Unless an operation documents another schema, error responses use a plain-text body. Please see the [documentation](https://docs.openremote.io) for more info."
 sidebar_label: Introduction
 sidebar_position: 0
 hide_title: true
@@ -22,7 +22,6 @@ import Export from "@theme/ApiExplorer/Export";
 
 <Export
   url={"https://demo.openremote.io/api/master/openapi.yaml"}
-  proxy={undefined}
 >
   
 </Export>
@@ -36,7 +35,7 @@ import Export from "@theme/ApiExplorer/Export";
 
 
 
-This is the documentation for the OpenRemote Manager HTTP API.  Please see the [documentation](https://docs.openremote.io) for more info.
+This is the documentation for the OpenRemote Manager HTTP API. The `realm` server variable selects the request realm. Operations that show the `openid` security requirement need an OAuth 2 access token; operations without that requirement support anonymous access, although the returned data can still be limited to public resources. Unless an operation documents another schema, error responses use a plain-text body. Please see the [documentation](https://docs.openremote.io) for more info.
 
 <div
   style={{"marginBottom":"2rem"}}
@@ -69,10 +68,12 @@ This is the documentation for the OpenRemote Manager HTTP API.  Please see the [
               </td>
             </tr><tr>
               <th>
-                OAuth Flow (clientCredentials):
+                OAuth Flow (authorizationCode):
               </th><td>
                 <div>
                   Token URL: /auth/realms/master/protocol/openid-connect/token
+                </div><div>
+                  Authorization URL: /auth/realms/master/protocol/openid-connect/auth
                 </div><div>
                   Refresh URL: /auth/realms/master/protocol/openid-connect/token
                 </div><span>
@@ -85,12 +86,10 @@ This is the documentation for the OpenRemote Manager HTTP API.  Please see the [
               </td>
             </tr><tr>
               <th>
-                OAuth Flow (authorizationCode):
+                OAuth Flow (clientCredentials):
               </th><td>
                 <div>
                   Token URL: /auth/realms/master/protocol/openid-connect/token
-                </div><div>
-                  Authorization URL: /auth/realms/master/protocol/openid-connect/auth
                 </div><div>
                   Refresh URL: /auth/realms/master/protocol/openid-connect/token
                 </div><span>
@@ -130,3 +129,4 @@ This is the documentation for the OpenRemote Manager HTTP API.  Please see the [
     AGPL 3.0
   </a>
 </div>
+      

@@ -1,12 +1,12 @@
 ---
 id: stringpredicate
 title: "StringPredicate"
-description: ""
+description: "String matcher supporting exact, prefix, suffix, or contains matching, case sensitivity, and negation."
 sidebar_label: "StringPredicate"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"match":"EXACT","caseSensitive":true,"value":"string","negate":true}
+sample: {"caseSensitive":true,"match":"EXACT","negate":true,"value":"string"}
 custom_edit_url: null
 ---
 
@@ -22,11 +22,10 @@ import Heading from "@theme/Heading";
 
 
 
-
+String matcher supporting exact, prefix, suffix, or contains matching, case sensitivity, and negation.
 
 <Schema
-  schema={{"type":"object","properties":{"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"caseSensitive":{"type":"boolean"},"value":{"type":"string"},"negate":{"type":"boolean"}},"title":"StringPredicate"}}
-  schemaType={"response"}
+  {...require("./stringpredicate.Schema.json")}
 >
   
 </Schema>

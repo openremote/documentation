@@ -1,7 +1,7 @@
 ---
 id: abstractnotificationmessage
 title: "AbstractNotificationMessage"
-description: ""
+description: "Typed notification message; its discriminator selects email, push, or another installed message subtype."
 sidebar_label: "AbstractNotificationMessage"
 hide_title: true
 hide_table_of_contents: true
@@ -22,11 +22,10 @@ import Heading from "@theme/Heading";
 
 
 
-
+Typed notification message; its discriminator selects email, push, or another installed message subtype.
 
 <Schema
-  schema={{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"}}
-  schemaType={"response"}
+  {...require("./abstractnotificationmessage.Schema.json")}
 >
   
 </Schema>

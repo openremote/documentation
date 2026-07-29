@@ -6,7 +6,7 @@ sidebar_label: "AgentDescriptor"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"name":"string","icon":"string","colour":"string","dynamic":true,"descriptorType":"string","assetImport":true,"agentLinkType":"string","assetDiscovery":true}
+sample: {"colour":"string","descriptorType":"string","dynamic":true,"icon":"string","name":"string","agentLinkType":"string","assetDiscovery":true,"assetImport":true}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","allOf":[{"required":["descriptorType"],"type":"object","properties":{"name":{"pattern":"^\\w+$","type":"string"},"icon":{"type":"string"},"colour":{"type":"string"},"dynamic":{"type":"boolean"},"descriptorType":{"type":"string"}},"discriminator":{"propertyName":"descriptorType"},"title":"AssetDescriptorObject"},{"type":"object","properties":{"assetImport":{"type":"boolean"},"agentLinkType":{"type":"string"},"assetDiscovery":{"type":"boolean"}}}],"title":"AgentDescriptor"}}
-  schemaType={"response"}
+  {...require("./agentdescriptor.Schema.json")}
 >
   
 </Schema>

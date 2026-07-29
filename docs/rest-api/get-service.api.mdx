@@ -1,11 +1,11 @@
 ---
 id: get-service
-title: "Retrieve a specific external service by its serviceId and instanceId"
-description: "Retrieve a specific external service by its serviceId and instanceId"
-sidebar_label: "Retrieve a specific external service by its serviceId and instanceId"
+title: "Retrieve an external service instance"
+description: "Returns one registered instance by stable service ID and numeric instance ID, after verifying access to the service's realm."
+sidebar_label: "Retrieve an external service instance"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVm1v2zYQ/ivEfWoBxnLe1kGf5hVZGiBbjTQdBgT+QFMniy1FsuQpiWfovw+kZEeKs7TphmGfLJP3/tw9xw2QWAXIb+AD+lslMcCCg3XoBSlrLgrIYYXUXwIHJ7yokdBHpQ0YUSPkMGuosl79mZSAgzKQQ4WiQA8cgqywFpBvgNYuigfyyqygbfnOwh8Hv1h/J3yBxcHcW7L/2Mo7G+i7jIQu2Ytiq+0EVcDB45dGeSwgJ9/g0FYt7i/RrKiC/Ojw5M3Jj8c/nLzhUCuzPT7kzzhUJpAwL/LYG1OGcJUSK62vBXVHx0fQtouoHpw1AUPUOJpO40+BQXrlEk45nN0TeiN0jy/zSF7hLRYsNFJiCGWj9Ro4SGsIDUULwjmtZEI6+xSimc0gsIeQb6CyNTqxwo9eAwctlhh/h+UNJKhJLdcnZJefUEbYnI9NSKoL3qPQ9T5qMUVRvDd63VWo5aDCubZLoQfCS2s1CvOU9EMsj1A8PR3Bd7wHHx+i9i2AcLhFH1RXr5e6kp3a3kVX0+cN7rceHyEz1j49PPpqOD1qT8CBpqkj8rPfZxeXs58vz4DDx98e/i3algMp0rjffNC28fZkevL1PjWWWGkbU8Q5eiR71fcwEyw4lKpUkmGvz3rA2XLNFAW2w58JU7DRHNZIle3pL/FerAZkvUa22am22eZBse0bfMuPTSwwVEQu5FlWYG0n1qHxWFvCibKZcCrbpPZuM+BwK7wSS/2o6wssRaNjM9UiEPpYqkV0JBuvaJ08RbMqjt1iePUhDmZnbSuwQ82Khqqj2Kra3iURqRUaeuuxQENK6A5j+xlNahTIokaWwgpZF0rmIllLq7PO/oG0xqCkLKmlmSs9hur7DQRpXZeB87ZUqXW2XxF9Mdw9b22BiaSGhy/3HUWB/89TT+OiTGkTSv1QvXdorlJ3sV+FESv07N319ZzN5hfweFKuKxWYCowqZIWVTY2GUsFYaX06fcbahLG5RhGQBcQkfDOysXi163orw7jrXycHtfXIYvyTfsEImRYM1kLpRJyl/WmklyhPSTQhgbx9fJzPL9nxZAr80bjd3d1NVqaZWL/KerWQiZXTB8eT6QTNpKJaj5gZ4sU0HjkbqBZm4OZf4pURBLtZJLynzGmhTHTedLTccc7NdksBh3y4PPOB3UXk9EBRerNZihCZvW3j8ZcGfWSIxQO5JL4oVIjfBeSl0AH3AtttfHh11e/01wz40wH3h8KsE4fpJv4DDp9xPXpQxUfPf+h4UKB2Edde9wx8Wfp/57pz8dS7dRfHy9L9dkf903bkp5OaSYlueLf3WovbYbfbzs+uoW3/An5pIu4=
+api: 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
 sidebar_class_name: "get api-method"
 info_path: docs/rest-api/openremote-manager-http-api
 custom_edit_url: null
@@ -18,11 +18,12 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"Retrieve a specific external service by its serviceId and instanceId"}
+  children={"Retrieve an external service instance"}
 >
 </Heading>
 
@@ -36,35 +37,33 @@ import Heading from "@theme/Heading";
 
 
 
-Retrieve a specific external service by its serviceId and instanceId
+Returns one registered instance by stable service ID and numeric instance ID, after verifying access to the service's realm.
 
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"serviceId","in":"path","required":true,"schema":{"maxLength":2147483647,"minLength":1,"type":"string"}},{"name":"instanceId","in":"path","required":true,"schema":{"type":"integer","format":"int32"}}]}
+  {...require("./get-service.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-service.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"ExternalService retrieved successfully","content":{"application/json":{"schema":{"required":["homepageUrl","label","serviceId","status"],"type":"object","properties":{"realm":{"type":"string","readOnly":true},"isGlobal":{"type":"boolean","readOnly":true},"serviceId":{"maxLength":255,"minLength":3,"type":"string"},"instanceId":{"type":"integer","format":"int32"},"version":{"maxLength":255,"minLength":3,"type":"string"},"icon":{"type":"string"},"label":{"maxLength":255,"minLength":1,"type":"string"},"homepageUrl":{"maxLength":512,"minLength":3,"type":"string"},"status":{"type":"string","enum":["AVAILABLE","UNAVAILABLE"]}},"title":"ExternalService"}}}},"404":{"description":"ExternalService not found"}}}
+  {...require("./get-service.StatusCodes.json")}
 >
   
 </StatusCodes>
 
 
+      

@@ -1,11 +1,11 @@
 ---
 id: get-datapoint-period
 title: "Retrieve a datapoint period of an asset attribute"
-description: "Retrieve a datapoint period of an asset attribute"
+description: "Returns the oldest and newest stored timestamps for one attribute. The asset and attribute must be readable by the authenticated user and configured for datapoint storage."
 sidebar_label: "Retrieve a datapoint period of an asset attribute"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVktv20YQ/iuLOTUAzRWSogeeaqRpYqAPIVWAAoIOY3IobrLc3e4OrboC/3sxS1GWZDdI3B6qi+XZb755z2gPjNsE1RquUyJWPyBj8MYxbArwgSKy8e6mgQq2xMfXJUXjGyggYMSemKJw7MFhT1DB9cCdj+avrAwFGAcVdIQNRSgg1R31CNUe+D4IPHE0bgvjWBwZfr/60ccdxoaaq2X07P81yzuf+FkkKIm5aWbdPwaK91+qyhzN7cD0i/z/xQSbAiKl4F2iJO8vFwv501Cqowk5pxU01OJgWc1IKKD2jsmxYDEEa+qcf/0xicL+sUF/+5FqSUqIUmo2k7k54MeeFRcRPYXwtqHEK9NTYuzDCcY4pm1Oe+tjjzyJvvtWtCzyV2uNBbBhK6DLxhzlU1xk7D1xNHRHClUz41XICsq3Cp3KkatjjFBAT9z5Q/fnducOKtAZqI8semJJUlWKd/M0DNFKszGHVGndUO9LH8hF6j1TabzGYPQ+Etp+1FDAHUaDt3aqQhZPZc+Fhgp6TExRgtuIoXqIhu+zJaE1DVTrzenTb1LwiW0GPNQeB+5eSlat32VIbQ05fh2pIccGbRay/0TuQ45Di4bObiU9uaKDjGbtrZ74r2rvHNWssxpIG7eRUvd8glT7MEUQom9NLvb8TSqMp5vmtW9yT54Jv962QKH4n4ee+9u41ucqHcbg10Dufe4u9TM63FJU71arpbpe3sDlNKw6k5RJijtSja+HnhznhKnWxyz9DFup1NISJlKJKIPXZxybb45d7+t03vUvsoHeR1Lif3lYXFjnxUU9GptnvPXfn+nlNWFqkl1XPZyat8uf1KtyAcXFuO12u3LrhtLHrT6oJY3bYK9elYuSXNlxb4VTxnVKiTwsRBR84h7diZnn7I6zfB8Hj+lP1sGicWIp+7w/7JX1tHpF9XiGC5h3y6aATm5YtYb9/hYTfYh2HEU8XRTZA41JskAaqFq0iQr4RPdnJ+wO7SBegFypf0JfXK0Hnc3Djsq7ppgv6ZO2L+I/XieQ4XoqGZP5p07/593+Dwwdfh2c2ZlQ13VN4fTt0WmVtBzvxNs3KxjHvwGE1T/h
+api: eJzVVt9v2zYQ/lcOfFoBxcrSoAO8l3nd0HXr1ixzngKjpcmTxZYiVfIUxzP0vw9HSrbjZAFStMD2ZFm6Hx+Pd999W6ExqmBaMt6JqbhE6oKLQDWCtxojgXQaHK75MZIPqIFMg5Fk00aofADvECRRMMuOcALzGkHGiNlz9wGaLhIsEQJKLZcWYblJaWRHNToyShJq6CKG5Ki8q8yq43ycREuSrTcug5ArnIhC+BaDZOSvtZiKFdJPo9UFBuO1KEQrg2yQMEQxvd4enfaV9Utp7QY6Zz51CGdnJ6qWQSpiEOkMRjO2ymDghHgrm9aimIrvZi/a85l7M//42+2vVy//nM1mP85mohCGA3/qMGxEIZxs2DiFes1wAn7qTEAtphQ6LERUNTZSTLeCNi2bRgrGrUTfF8dgZ7tKclSQETRWxqHeFTIBbrxGexcrYZMK1QX8N4Bj7D/4/1NgLtg4tt5FjPz97PSUf5R3hI74Ubat5cs13pUfIh9lez+eX35ARXxfgS+VTI42Fu5+4uII80MWVhJGmo/demBjHOEKgyhE5UMjKb96cc5eue2f5tUXggylYh+3YM8f794kTwhXmEdKeb4k7vzYKYUxVp21G8Zxfq+ShLdUtlaah2u4u5NHE+4HAnyApdcbkAHBuBtpjc6Jv/1SiWf72TbegYkwdhYn56aNHbcHalAB06hJG+8Dev4lK/EA4WiPEZwnqOUNQouhMTEyYvL8j68bqDYRdoyTcZ1/hRtCDQGj74LCPS68NZFSn0VUXTC0SXTmW3RGi+n1ggeR5IpZTswSEewaUSwK0SDVfiDJxIpUi6ko03yVO24t29SzUXCacDOSZhesmIqaqI3TstTY+AknDth4wonxpWxNuQ0obdOXohA3Mhhm+DTC6TU/aKxkZ3loGhkJA5dhsT/PX1ys7DKeaisq69eZCDqqfTB/p9q/9BrvvbxKIEt+V6acscx5yjZ48srbMsc9Ud45VJRME9dVAWP9dH/yH9FxqZRvM/A2+MokFhifmBjY7HOj94VQ1qCjl/vxyFX9L4PmAAOvs/NZemNc5cdxkSqNCzbS2MSilf/hTkuJBybERCYQJg3tVdego8wq1UAlb1t0lykA/C6dXGGAX+bzC5hdvM6q5H06xHvIvQ1jm0JEi4py6JEmk+mEY+Z556+SINZ+neze55NzsNy/I7MxLnCIGqSDt0yAcAYyUTuk8ny/J5EIa0O17ygHP4zAvOgDayjvNo3v4hCjAGnZZVUPcFmvoU76CJR0EMlYyzrLmsYwmTCFdUtr1I5W4gSunGVA0u3B7KrKrz3VGCATWAEYgg+w2/PMmSAh8dwJU15aIxO4sCgjlxMTtus717T4ZkcgXsW7BPIs3WHjE+1XntWLNQpdTGM+aJTZq4s38HxyKoojQlqv15OV6yY+rMrBLZZy1dqT55PTCbpJTY0VByv6kUZh9sIQc8ux+yk7tj5SI90BmEukYPCGy7BXppk9wVdc10ECjyJFHPXzwdr4n4nuYbIPVl0/3Mh22CvXWbfxkXc7qBDjblkUovaR2Gy7XcqIV8H2Pb/OojTJdBMZrRbTStqIj9Tum8tBUDyDJ6v5B0/yETd3FPuNtB1biaTIPwfXU4X7Y7COdPoe3GK/dpMcKESNUmNI5czOM6WwpQOve8q8P1QKr36eiyLt2EOdnvm8GB84+vBJus1B7HGXjMjTvkk1fND8c1ZYDhxQm4CK3nXBfI34mXbn4z78IhkG5TEk6Kh+NPIdmfNOsfgZfVdBOnqXvPpF3/f/ALHpmvE=
 sidebar_class_name: "get api-method"
 info_path: docs/rest-api/openremote-manager-http-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -36,35 +37,33 @@ import Heading from "@theme/Heading";
 
 
 
-Retrieve a datapoint period of an asset attribute
+Returns the oldest and newest stored timestamps for one attribute. The asset and attribute must be readable by the authenticated user and configured for datapoint storage.
 
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"assetId","in":"query","schema":{"type":"string"}},{"name":"attributeName","in":"query","schema":{"type":"string"}}]}
+  {...require("./get-datapoint-period.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-datapoint-period.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"assetId":{"type":"string"},"attributeName":{"type":"string"},"oldestTimestamp":{"type":"integer","format":"int64"},"latestTimestamp":{"type":"integer","format":"int64"}},"title":"DatapointPeriod"}}}}}}
+  {...require("./get-datapoint-period.StatusCodes.json")}
 >
   
 </StatusCodes>
 
 
+      

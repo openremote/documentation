@@ -1,11 +1,11 @@
 ---
 id: get-notifications
-title: "Retrieve all sent notifications by targets"
-description: "Retrieve all sent notifications by targets"
-sidebar_label: "Retrieve all sent notifications by targets"
+title: "Retrieve sent notifications matching filter criteria"
+description: "Returns sent-notification records filtered by identity, message type, time, realm, target, source, sorting, and pagination. Results are realm-scoped and sensitive target/source identifiers are redacted when the caller lacks user or asset read permission."
+sidebar_label: "Retrieve sent notifications matching filter criteria"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNV1tv4kYU/ivWeWolB0e7VR/8VBrRbCRyERCpUoSqiX2wZ3cu3jPjUIr836szNmACyZI0D+UF7PnOdy5zbqzBi8JB+gA31suFzISX1sA8BlshhYerHFIo0PcBDmKoBAmNHonF12CERkhhWPvSkvyn5YlBGkihRJEjQQwuK1ELSNfgVxXDnSdpCmiaeMvw59kflpaCcszP7sh6+59Zvljn30Ui843Y9xppdUxKGo9FIFxY0sK3r379ZY8nYH/EdET/gqz+IAvsx/AQCqWvfhyWI87UDul9ksI59G8RncdA6CprHDo+/3R+zl85uoxkFTIzhRwXolY+2iAhhswaj8YzVlSV6pI9+epYYH2oUBAJtkR61EER4fdaEuZcUM7WlDGrF1Sg3/4IjgSCebwhso9fMWNIRVx3XrZ2y/yk+4m7QB0EYsN/7KA16uAoBjS1Zvsno+H4GmK4n44mEMNwOh3NIIaL++ns9hrmTc+fYwo6919RcHUzG01uhmMmHV+Nbpj9cnz7+3D81+R+PGrVBSt6z8GM7fN8q+gFKzQ6J4q+GS+E+oVANTHkkrNGSyO8JYZ0gqubXnFzNKRXoQM+Ok8i2+uX150ZTQxI1NIcRgyNvzXHIra98Fx4PPNSB6YclXxCwvwtQiL7ZuxSYV68W053JXIYqk0Ipmj23IcmfOJnFThBTxKfMBJKRex9ZPozJnpcRW2K8bjR6EvbjaIwfXwJKSR9Ce4JSE+biVST4obvfeXSJMlR24Gt0BBq63EgbSIqmaxDR2sSiOFJkBSPCrtKFkq3TSO0CUhBC+eR2Jc5K8pqkn4VNDEt1+rDvH805XbRsm0AuywUtS8/cbSVXQZIpiQaf0GYo/FSqDYr7Tc098GPhCWSYJZLWlOSisdjZlXS8p9l1hjMfBLEgJvggtCV7ydwma1aDyqyCxkud/OL71P0p/2FzUMJ7b18u26Gcof8X7seslmahQ231KX9bYVmErIruhZGFEjRl9nsLhreXcHz3J+V0kXSRb7EKLdZzUUVAhYtLIW3r7ANouhOoXAYOcQAftjjmP+0zXqbuf2s/zko0JYwYvsH3dgTWahp1EKqMFkW9rc9OW4CSmbIkzLdrXuXd+Po8+Ac4mfltlwuB4WpB5aKpBNziSgqdfZ5cD5AMyi9VszJ5dqGhA/O+VVlndfC9NS8qVPsBXpbcR7/9kmlhDSsIhi77rrIA5hny2/JG2P6AOv1o3B4T6pp+HW7eXDF59Jxq8ghXQjlMIZvuNosjE9C1awReIV5AdhthKdAuyXwJFZ7InC3xp2C3m5up4B3y9oOPd8119Ak480afjSUz+5vu5QBxMcvs1V87H/D6wZ/gKLur8WenhY1zDKs+mcHGyWHZTvVLkczaJp/Afzrnq0=
+api: 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
 sidebar_class_name: "get api-method"
 info_path: docs/rest-api/openremote-manager-http-api
 custom_edit_url: null
@@ -18,11 +18,12 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"Retrieve all sent notifications by targets"}
+  children={"Retrieve sent notifications matching filter criteria"}
 >
 </Heading>
 
@@ -36,35 +37,33 @@ import Heading from "@theme/Heading";
 
 
 
-Retrieve all sent notifications by targets
+Returns sent-notification records filtered by identity, message type, time, realm, target, source, sorting, and pagination. Results are realm-scoped and sensitive target/source identifiers are redacted when the caller lacks user or asset read permission.
 
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"id","in":"query","schema":{"type":"integer","format":"int64"}},{"name":"type","in":"query","schema":{"type":"string"}},{"name":"from","in":"query","schema":{"type":"integer","format":"int64"}},{"name":"to","in":"query","schema":{"type":"integer","format":"int64"}},{"name":"realmId","in":"query","schema":{"type":"string"}},{"name":"userId","in":"query","schema":{"type":"string"}},{"name":"assetId","in":"query","schema":{"type":"string"}}]}
+  {...require("./get-notifications.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-notifications.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"required":["source","target","targetId","type"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"name":{"type":"string"},"type":{"type":"string"},"target":{"type":"string","enum":["REALM","USER","ASSET","CUSTOM"]},"targetId":{"type":"string"},"source":{"type":"string","enum":["INTERNAL","CLIENT","GLOBAL_RULESET","REALM_RULESET","ASSET_RULESET"]},"sourceId":{"type":"string"},"message":{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"},"error":{"type":"string"},"sentOn":{"type":"string","format":"date-time"},"deliveredOn":{"type":"string","format":"date-time"},"acknowledgedOn":{"type":"string","format":"date-time"},"acknowledgement":{"type":"string"}},"title":"SentNotification"}}}}}}}
+  {...require("./get-notifications.StatusCodes.json")}
 >
   
 </StatusCodes>
 
 
+      

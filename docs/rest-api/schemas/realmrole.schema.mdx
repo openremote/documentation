@@ -1,12 +1,12 @@
 ---
 id: realmrole
 title: "RealmRole"
-description: ""
+description: "Realm-level roles available for assignment."
 sidebar_label: "RealmRole"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"name":"string","description":"string"}
+sample: {"description":"string","name":"string"}
 custom_edit_url: null
 ---
 
@@ -22,11 +22,10 @@ import Heading from "@theme/Heading";
 
 
 
-
+Realm-level roles available for assignment.
 
 <Schema
-  schema={{"type":"object","properties":{"name":{"type":"string"},"description":{"type":"string"}},"title":"RealmRole"}}
-  schemaType={"response"}
+  {...require("./realmrole.Schema.json")}
 >
   
 </Schema>

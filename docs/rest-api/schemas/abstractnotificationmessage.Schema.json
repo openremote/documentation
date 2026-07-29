@@ -1,0 +1,1 @@
+{"schema":{"type":"object","description":"Typed notification message; its discriminator selects email, push, or another installed message subtype.","discriminator":{"propertyName":"type"},"properties":{"type":{"type":"string"}},"title":"AbstractNotificationMessage"},"schemaType":"response"}

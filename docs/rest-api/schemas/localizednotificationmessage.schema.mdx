@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","allOf":[{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"},{"type":"object","properties":{"defaultLanguage":{"type":"string"},"languages":{"type":"object","additionalProperties":{"type":"object","properties":{"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"AbstractNotificationMessage"}}}}],"title":"LocalizedNotificationMessage"}}
-  schemaType={"response"}
+  {...require("./localizednotificationmessage.Schema.json")}
 >
   
 </Schema>

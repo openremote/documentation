@@ -6,7 +6,7 @@ sidebar_label: "Picker"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"type":"TEXT","options":[{"name":"string","value":{}}]}
+sample: {"options":[{"name":"string","value":{}}],"type":"TEXT"}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"type":{"type":"string","enum":["TEXT","MULTILINE","NUMBER","DROPDOWN","DOUBLE_DROPDOWN","CHECKBOX","ASSET_ATTRIBUTE","COLOR","DATE"]},"options":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"value":{"type":"object"}},"title":"Option"}}},"title":"Picker"}}
-  schemaType={"response"}
+  {...require("./picker.Schema.json")}
 >
   
 </Schema>

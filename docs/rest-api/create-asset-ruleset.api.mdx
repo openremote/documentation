@@ -1,11 +1,11 @@
 ---
 id: create-asset-ruleset
 title: "Create an asset ruleset"
-description: "Create an asset ruleset"
+description: "Creates and deploys a ruleset for an accessible asset and returns its numeric ID. The assetId is taken from the request body."
 sidebar_label: "Create an asset ruleset"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNll9v2zYQwL+KcE8bQFuO06ydnuY6buvCqQTFyZIFRsFIZ5utRKokFScz/N2Ho2RbSpwu3TBgeYlM3j/eHX/HNVi+MBDcQFxmCDMGqkDNrVBynEIAiUZucWAMWhIwaIFBwTXP0aImxTVIniMEMCjtUmnxp1MGBkJCAEvkKWpgYJIl5hyCNdiHgsSN1UIuYLNhOwtXnXdKr7hOMe1EWln1r618UMb+gJEZA43fSjT2rUofSCJR0qK09MmLIhOJO53/xShJa3tTpCc0ppTKjMsFsCqeGdt6UbdfMHHp05RjK9CQokgbkQhpceGCnCudc1st/fIKNgzuUBtRuX2BdFW4NJRPz9kQT7nFjhU5kkrGjT1TqZgLTF+uVWV9DTm/n6Bc2CUE/ZMTBrmQ29/H7HGmGaDkt1nLz61SGXJJm5pa7UCBWJXaA7GhLHNK/cfB5eB8GI+jKTB4H4fh5TUw+HgefgIG7ybh7zDbMMjRNuu/qwxPU0H15VnUqlFbbrNhYCy35YEQ95HEo8Ep+T4dRZPwenQKDIbhWTSeDKbj8NPnURyHMTC4HEzGp+Pp9edoFI/D09366Go0vGhJTsIw2v04HZ8P3k6c1Whwce4+RlfROHZf8egsvKzWzqLptTszaq30wZxyut3jAyWnvSRBY6LyNhNJjPy5eiHP8oO3EqywmaNDEyGbzcZpmUJJU6W43+vRvxRNokXhEBJAinNeZtbbSgJ7+YX82ztSBdF2OHS3xuPSc0nx9I55OdqlIiIWFVIKTp0NvpPwnTShBfXdFoulzog61hYm8P0Uc9VVBUqNubLYFcrnhfDXLnUbHxjccS3oTpgKJ3VG6xRAADk3FjXFPSNHSamFfXCeyCxh5GbW3DqnVFTWtgL7TualXfYpKZlaOZEkEyjtUGOK0gqeVb2tvqK8cOfwScN3YRm/CsUviNGJyvzKfidRUmJifacGVOC5RrP85wZMoorqBIVWc+EaaftFxePNkTNUqQNRa/HHfZMosP/50V3rUs/H+3E1uud5keF2pvQaE6PXmgfQ7/VfdXqvO/1fp0cnwclR0H/T7b0++gMez4DvSdbTtsG9GuhWl7hD+H6/Incb0DWHGzzdYbPG1V5/R6nG0hM41b6ry9PAmJBz5Rq6plFYoIzdRfTOuOQL1N6H6TTyBtEYHjNhuhTGE8azS/RSlZQ5Sut6y5sr7Va/Y63reVGG3KBnEJ3wTcvG7KcdIFRi2oD42TnIlUaP4u/W9OOJox/mXGSOZnP1W0vPzUmRIAEz2D/P3kcT77jbA/aITKvVqruQZVfphV+rGZ8viqxz3O11UXaXNs9aDxCgjR4tEQxzLhtunidoK6s7Elm8t36RceEGiYtsXcP1pm6iuvb0lFoSfIMbWK9vucELnW02tPytRE0onO0p6mjIto8+omQqTN2hc54ZfBLQbrIAsMPRfcWHZ16pdzwrSR7oHfpfOKofsi0/ldSwstaZkqG9xJPhuNcYJAkW9ruys8bAi8Jzuqu39Ys4d5gFzVeEOb6qjqHc6arRRWtrd99LviDZyib9/QXmVDLY
+api: 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
 sidebar_class_name: "post api-method"
 info_path: docs/rest-api/openremote-manager-http-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -36,35 +37,31 @@ import Heading from "@theme/Heading";
 
 
 
-Create an asset ruleset
+Creates and deploys a ruleset for an accessible asset and returns its numeric ID. The assetId is taken from the request body.
 
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
-<ParamsDetails
-  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}}]}
->
+<ParamsDetails>
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={{"content":{"application/json":{"schema":{"required":["lang","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"version":{"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":3,"type":"string"},"enabled":{"type":"boolean"},"rules":{"type":"string"},"lang":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]},"meta":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"string","enum":["READY","DEPLOYED","COMPILATION_ERROR","VALIDITY_PERIOD_ERROR","EXECUTION_ERROR","LOOP_ERROR","DISABLED","PAUSED","EXPIRED","REMOVED","EMPTY"]},"error":{"type":"string"},"assetId":{"type":"string"},"accessPublicRead":{"type":"boolean"},"realm":{"type":"string"}},"title":"AssetRuleset"}}}}}
+  {...require("./create-asset-ruleset.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"integer","format":"int64"}}}}}}
+  {...require("./create-asset-ruleset.StatusCodes.json")}
 >
   
 </StatusCodes>
 
 
+      

@@ -6,7 +6,7 @@ sidebar_label: "GeoJsonConfig"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"source":{},"layers":[{}]}
+sample: {"layers":[{}],"source":{}}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"source":{"type":"object"},"layers":{"type":"array","items":{"type":"object"}}},"title":"GeoJsonConfig"}}
-  schemaType={"response"}
+  {...require("./geojsonconfig.Schema.json")}
 >
   
 </Schema>

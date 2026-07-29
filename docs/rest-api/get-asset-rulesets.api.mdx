@@ -1,11 +1,11 @@
 ---
 id: get-asset-rulesets
-title: "Retrieve the rules of an asset"
-description: "Retrieve the rules of an asset"
-sidebar_label: "Retrieve the rules of an asset"
+title: "Retrieve rulesets for an asset"
+description: "Returns asset rulesets filtered by language. Callers without full access receive public rulesets only; a nonexistent asset produces an empty array."
+sidebar_label: "Retrieve rulesets for an asset"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVk1v2zgQ/SvCnFqAsYJkuwed6o3d1IVTCYqTTWAYBSONJLYUqZJUUq+h/74gJTmW66Rpu4fNJTI5n5w3b2YDhuYagiXENUdYEZAVKmqYFLMUAsjRjLVGY281Gg0EKqpoiQaVVduAoCVCAOPaFFKxf5wqEGACAiiQpqiAgE4KLCkEGzDryopro5jIoWnI1sLN0TupHqhKMT2KlDTyt628l9r8khFqU56lvW5FTQEEFH6tmcIUAqNqfJklTkVe0xx7U19rVOtDUVClqL1gBkv9vU0CKOrS1unD+Hp8eRbPogUQOI/D8PoWCHy4DD8CgXfz8G9YNbsRZDXn60hWNafmx2HcScmRCmialU1YV1JodPGcHB/bfynqRLHKVTmAFDNac+P1kkAgkcKgMFaWVhVniUOE/1lbhc0LEn985qV7PiBtKivSq8i7z5jYylbKotWwNkKW7phlwmDuCp5JVVLTHv35BzQE7lFp1obzAulEITWYhuJQVbbiKTV4ZFiJVoVTbS5kyjKG6cu12oJtoKTf5ihyU0Bw8uYNgZKJ/vcp2ceaBQa94wM/2yISULZvD0CUtE/7mzgjUKLZLea2MjRNma075dGgRkO5piGgDTX1s4iPp+OJ9T2ZRvPwdjoBAmfhRTSbjxez8OOnaRyHMRC4Hs9nk9ni9lM0jWfhZHs+vZmeXQ0k52EYbX9MZpfjv+bOajS+unQf05toFruveHoRXrdnF9Hi1uWMSkl18E173jh4lySodVTfcZbESJ+qF1JeHqQUMMxwx7Q7fAyN+yN7bRmjUQzv0TMFeg4Cnsw8KjwXILiyFbLjd0fpFlzgO1HfCfmZVP6mS6ixVIHqvuf8WnFLqcZUOvD9FEs5khUKhaU0OGLSpxXzNy6XxgcC91QxC9Kuv7sUO/KAAEqqDSqbzMo6SmrFzNp5smZtXy9Xu1eXlkRaa73AI7RobYoT22RcPjiRhDMU5kxhisIwyluwyS8orlwevtXwXVjab0PxKzuAEsn91v5RIoXAxPhOzc2CTKEuft2ATmTVZlApmTFX2f7LFpTuztMzmTpmGBz+vG8rCuR/nrqDMxOZdFXqMB9WKGKHLu+CCpqj8t4vFpE3jmawD/5FwbTHtMN+KpO6RGHcg3mZVO70GWsjz4s4Uo2exrZ9lgMbq1db1MtED1H/2jkopULPxj/qhiFN3DDEkjLu5kom3w70HBuzBO38DB4XqvNo7p2OjoHstdvDw8MoF/VIqtzv1LRP84ofnY6ORyhGhSn5YMyBvTi2R5XUpqRix80PqWLwuNsuM/jN+BWnzLGWC3DT0ciyGzodHbbjDggEPTuuCBR2MwuWsNncUY1XijeNPW7XEtv3KdPdVMso10jgC66H69Q95bWNBOyu84T4/u7zqLN6JKXD/vbS3m418Cru9pPXHpDDz9FvNmK967MPqn+Gxs6Sbi39uRCe8tvaP7RHP/9Y/4GjbtUe+GmlxkmC1e7dd1uhLcZ2IJ1PF9A0/wL3IkMW
+api: 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
 sidebar_class_name: "get api-method"
 info_path: docs/rest-api/openremote-manager-http-api
 custom_edit_url: null
@@ -18,11 +18,12 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
   className={"openapi__heading"}
-  children={"Retrieve the rules of an asset"}
+  children={"Retrieve rulesets for an asset"}
 >
 </Heading>
 
@@ -36,35 +37,33 @@ import Heading from "@theme/Heading";
 
 
 
-Retrieve the rules of an asset
+Returns asset rulesets filtered by language. Callers without full access receive public rulesets only; a nonexistent asset produces an empty array.
 
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"assetId","in":"path","required":true,"schema":{"type":"string"}},{"name":"language","in":"query","schema":{"type":"array","items":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]}}},{"name":"fullyPopulate","in":"query","schema":{"type":"boolean"}}]}
+  {...require("./get-asset-rulesets.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-asset-rulesets.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"array","items":{"required":["lang","name"],"type":"object","properties":{"id":{"type":"integer","format":"int64"},"version":{"type":"integer","format":"int64"},"createdOn":{"type":"string","format":"date-time"},"lastModified":{"type":"string","format":"date-time"},"name":{"maxLength":255,"minLength":3,"type":"string"},"enabled":{"type":"boolean"},"rules":{"type":"string"},"lang":{"type":"string","enum":["JAVASCRIPT","GROOVY","JSON","FLOW"]},"meta":{"type":"object","additionalProperties":{"type":"object"}},"status":{"type":"string","enum":["READY","DEPLOYED","COMPILATION_ERROR","VALIDITY_PERIOD_ERROR","EXECUTION_ERROR","LOOP_ERROR","DISABLED","PAUSED","EXPIRED","REMOVED","EMPTY"]},"error":{"type":"string"},"assetId":{"type":"string"},"accessPublicRead":{"type":"boolean"},"realm":{"type":"string"}},"title":"AssetRuleset"}}}}}}}
+  {...require("./get-asset-rulesets.StatusCodes.json")}
 >
   
 </StatusCodes>
 
 
+      

@@ -6,7 +6,7 @@ sidebar_label: "Select"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"basic":true}
+sample: {"metadata":true,"template":true}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","properties":{"basic":{"type":"boolean"}},"title":"Select"}}
-  schemaType={"response"}
+  {...require("./select.Schema.json")}
 >
   
 </Schema>

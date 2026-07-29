@@ -6,7 +6,7 @@ sidebar_label: "Size"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"message":"string","type":"string","min":0,"max":0}
+sample: {"message":"string","type":"string","max":0,"min":0}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","allOf":[{"required":["type"],"type":"object","properties":{"message":{"type":"string"},"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"ValueConstraint"},{"type":"object","properties":{"min":{"type":"integer","format":"int32"},"max":{"type":"integer","format":"int32"}}}],"title":"Size"}}
-  schemaType={"response"}
+  {...require("./size.Schema.json")}
 >
   
 </Schema>

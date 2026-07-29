@@ -1,11 +1,11 @@
 ---
 id: get-user
 title: "Retrieve a user in a realm"
-description: "Retrieve a user in a realm"
+description: "Returns one user when it belongs to the requested accessible realm. Without read-admin permission, callers may retrieve only their own user."
 sidebar_label: "Retrieve a user in a realm"
 hide_title: true
 hide_table_of_contents: true
-api: eJzNVu9u3EQQfxUzBEiKY0eJ+sVQShRBGynQU0gkpPNFTOy587brXXd3nDRczevwHjwZmrXvkssdURMkxKc77/zbmf3Nb2YOjDMP2RjOPTmYxGAbcsjKmuMSMpgRB0EMDTqsicmJ9hwM1gQZHLZcWad+DxYQgzKQQUVYBhtfVFQjZHPgm0bUPTtlZtB18dLDr7s/WneNrqRyd+Qs23/t5bX1/CQnjlDXC8sGuYIYHL1vlaMSMnYtfZqf1pM7Lp/saCLKvrHGkxf5/t6e/JTkC6eaUOgMSppiqzlaaEIMhTVMhkUXm0arIjxK+taLwXw9oL18S4VUqnHy6Kz6cH0V1u8V9xKBxQaZ2nw8Vc7zz6EsG6QaHxBSjUpvlhi81HQ34KW1mtCIsHCETOUbs24aw9S6GlnKh0y7rGoSE0+FI94YCpmdumy5L839wmFZKqkx6tFKCQc9dA5vBAZMtd/00iG2u1IFHRaFbQ1vTknwZIYy1fjhhMyMK8j2nz+PoVZm8X0gTcpMTvBxsf3yxTjPm/mxP0FWpvvYfxzZuramm3y9tSMaF99+92UOX+W5z/OrPK+2vvjs85d//Rl/kz37I83zPP948SLPx3k+mXfbO7+JjyPDTgcHybMtiNf7AFixlqPAHF0X8lxF7ymxU3RFEUaSXKRMhNGi/Wriyg7kE4hHkoNUFNN5UOrSed9jHfQVXLBS67Q0PXPjszQtqbaJbcg4qi1TomyKjVr6gBiu0CnB0irwh96CDGr03OcwCTBpneKbEEncCubHk7uiX6THem8LhVvUYMvVvoBQ2+ugUmhFho8clWRYoe4xYt+ROQ95pGKRhmv5tL9K2ghFFlanvf/dwhpDBafBLNDM1JGvnu7AF7bpM2icnarwkIt/8pB4l/GPbBlQuXL4+NiiKkj6X6ceYKzM1IZXGiD+piFzGtAV/YQGZ+Si12dno+hwdAz3QX9WKR8pH3FFUWmLtibDoWDR1Lpw+oC3JIpGmtBT5ImC8njFx2R7iXpb+FXU74QAtXUUyf2TYVZgEfhm4NmQ2vcrdoGiVUEyXrLbkf9qdBIdJHsQ32u36+vrZGbaxLpZOpj5FGeN3j1I9hIyScW1Fp/Srn1JRLAnR431XKO5E+ZBilgp7LLDmD5w2mhUPWu6MD16+hgHEoUYsoWLbJjSkxgqWRiyMcznl+jp3Omuk+P3LTlp9sktT4TWL5Uf5s8Utae12yznMGyfDkN/J7olytVbLkaFuQl0pFv5ghje0c1yI5HV4j8MOhSmm3TxYn96XNr/FLZ3v2nhW97hcal+eqBhJ1yJ02sdFgU1d2Vru5MQ/HImvfrhDLrub5md23w=
+api: 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
 sidebar_class_name: "get api-method"
 info_path: docs/rest-api/openremote-manager-http-api
 custom_edit_url: null
@@ -18,6 +18,7 @@ import StatusCodes from "@theme/StatusCodes";
 import OperationTabs from "@theme/OperationTabs";
 import TabItem from "@theme/TabItem";
 import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
 
 <Heading
   as={"h1"}
@@ -36,35 +37,33 @@ import Heading from "@theme/Heading";
 
 
 
-Retrieve a user in a realm
+Returns one user when it belongs to the requested accessible realm. Without read-admin permission, callers may retrieve only their own user.
 
 <Heading
   id={"request"}
   as={"h2"}
   className={"openapi-tabs__heading"}
-  children={"Request"}
 >
+  <Translate id="theme.openapi.request.title">Request</Translate>
 </Heading>
 
 <ParamsDetails
-  parameters={[{"name":"Authorization","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Proto","in":"header","schema":{"type":"string"}},{"name":"X-Forwarded-Host","in":"header","schema":{"type":"string"}},{"name":"realm","in":"path","required":true,"schema":{"type":"string"}},{"name":"userId","in":"path","required":true,"schema":{"type":"string"}}]}
+  {...require("./get-user.ParamsDetails.json")}
 >
   
 </ParamsDetails>
 
 <RequestSchema
-  title={"Body"}
-  body={undefined}
+  {...require("./get-user.RequestSchema.json")}
 >
   
 </RequestSchema>
 
 <StatusCodes
-  id={undefined}
-  label={undefined}
-  responses={{"200":{"description":"default response","content":{"application/json":{"schema":{"type":"object","properties":{"realm":{"type":"string"},"realmId":{"type":"string"},"id":{"type":"string"},"firstName":{"type":"string"},"lastName":{"type":"string"},"email":{"type":"string"},"enabled":{"type":"boolean"},"createdOn":{"type":"string","format":"date-time"},"secret":{"type":"string"},"attributes":{"type":"object","additionalProperties":{"type":"array","items":{"type":"string"}}},"serviceAccount":{"type":"boolean"},"username":{"maxLength":255,"minLength":3,"pattern":"^(?=[\\p{IsLatin}|\\p{IsCommon}]+$)(?=[^<>&\"'\\s\\v\\h$%!#?§,;:*~/\\\\|^=\\[\\]{}()`\\p{Cntrl}]+$).*$","type":"string"}},"title":"User"}}}}}}
+  {...require("./get-user.StatusCodes.json")}
 >
   
 </StatusCodes>
 
 
+      

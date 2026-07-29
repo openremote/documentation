@@ -6,7 +6,7 @@ sidebar_label: "RectangularGeofencePredicate"
 hide_title: true
 hide_table_of_contents: true
 schema: true
-sample: {"predicateType":"string","latMin":0,"lngMin":0,"latMax":0,"lngMax":0,"negated":true}
+sample: {"predicateType":"string","latMax":0,"latMin":0,"lngMax":0,"lngMin":0,"negated":true}
 custom_edit_url: null
 ---
 
@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","allOf":[{"required":["predicateType"],"type":"object","properties":{"predicateType":{"type":"string"}},"discriminator":{"propertyName":"predicateType"},"title":"ValuePredicate"},{"type":"object","properties":{"latMin":{"type":"number","format":"double"},"lngMin":{"type":"number","format":"double"},"latMax":{"type":"number","format":"double"},"lngMax":{"type":"number","format":"double"},"negated":{"type":"boolean"}}}],"title":"RectangularGeofencePredicate"}}
-  schemaType={"response"}
+  {...require("./rectangulargeofencepredicate.Schema.json")}
 >
   
 </Schema>

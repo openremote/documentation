@@ -25,8 +25,7 @@ import Heading from "@theme/Heading";
 
 
 <Schema
-  schema={{"type":"object","allOf":[{"required":["type"],"type":"object","properties":{"message":{"type":"string"},"type":{"type":"string"}},"discriminator":{"propertyName":"type"},"title":"ValueConstraint"},{"type":"object","properties":{"min":{"type":"number"}}}],"title":"Min"}}
-  schemaType={"response"}
+  {...require("./min.Schema.json")}
 >
   
 </Schema>
