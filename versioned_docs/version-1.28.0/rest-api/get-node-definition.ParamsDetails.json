@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Exact model name of the flow node definition.","example":"Attribute","in":"path","name":"name","required":true,"schema":{"type":"string"}}]}

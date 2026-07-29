@@ -1,0 +1,69 @@
+---
+id: heartbeat
+title: "Renew an external service registration lease"
+description: "Extends the lease of one service instance. The caller must be the service account that registered it; global-service heartbeats additionally require a super user."
+sidebar_label: "Renew an external service registration lease"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVV9tuGzcQ/ZUBnxJgrfUNTaG81AiKJkDaGIn9ZAgJxZ3VEuGSG86sZVXYfy+G3JVkxw1aNwXaJ0v03C9njraqQjLRdmyDV3P18x2jrwi4QXCoCSHUEDwCYby1BsF6Yu0NzuCqQTDaOYzQ9sSwxKQ1CWpjQu8ZuNEMEVeWGCNWYPklrFxYanc0iTaoIy9RM4GuKiuhaOc2EPFLbyOCBuo7jNATxpkqVOgwapF6U6m52mmrQnU66hYZI6n5zfZBbh9YL90+QN50CLZCz7a2GME0gdDDcnOYhrjDO912DtVcrVFzg1EVyorBTnOjCuV1K/8cNd5UqlBj5JWac+yxUGQabLWab5V4FWGO1q9UoVp99xb9ihs1Pz05f3H+49kP5y8K1Vo/PZ8MQ/Ewld/6FqM1u24c5qGJ7MpjBVUvPsba54LdS+fk0TQmk38tD+sZV6kidYit5vx0dqqGYSHq1AVPSKJxenwuf+4n8npqHhB6BuqNQaK6d26jhkKdHx+Ljgme0XPyi3dcdk5L5Ns/reswDMUDTzKukg4Sw35MIERYhmoDOsps32pnq+z45Hs5vui5keaY1AGwNM11Jc7TrPVd5yxWYCKmPmpHXwd09j0rofdBYZUWC6qABD4wNPoWocPYWiKJmIN8k/4CN5Zgt345rke6+uEBWCSzdeh9pSQcQtNHy5u0o6FDbys1v1nIxLBeyepOFkgtCtUiN0E2vevzjstWqHLct3K7W7yh3O6nd1BFWskJC/roBCyYO5qXZYVtmInriG1gnNlQ6s6W24jatUOpCnWroxW8SLObnnOete6djHmrBdCkvot9Rh+kC1llymurahfW6UmKHqL9PRXvVajwq8frFGQpb2XySWX2U3YxcDDBldnukQneo+Ekmha1jkjN39fn8Bm9lMqELgfexVDbBHfTp6FQSeyp1odCGWfR86v9fOeq/peDFgN5lYIon6YX6+sw7aE2aQ+x1dYl3KvDT/dGSj2yepYEAWTrq2D6Fj1nWKhHLHjXoX+fDMCv2usVRnh9dXUJF5dv8sn9lJL4BHm2YRpTIHRoOJuecC6JzsRmXljK15iasE5yn3LmYizP7wRNEhd4xAq0h3eCYHAqFx2JIJXn5R4FCNaWm9DvTv3eggBbiAzaB79pQ0+jjQK0E5VVM4bLfUwXS7MGoz0QW+eEUTjbWkEowaB+6ayBiBT6aJBmcO2dBKT9PphdVeU5yLGGjIwFYIwhwu4kCeiBhgSgR4Kl6Q7M4DLTHsJMZ27utWnxbAcgwdB9AHmeetiGhNt1kFPrrEFPac3H63rxy+VbOJsdq+IBIK3X69nK97MQV+WoRqVede7obHY8Qz9ruHVpqC2nOf/GoAh6YaQ8cqJ+LIpdIG61PwjmPXpcS/nwjjF67Xbc6JAzZB6oHozywSn6f5DGcZcPruYw9mA7npSbicKpQs0P2dz8gBMtCtUEYpHebpea8Dq6YZDnLz1GOWmL/e3IJNSSfK7UvNaO8Bt1fPZ+JAbP4alc9dEsx0ftN+muuV6+qUJ9xs093pp45lOi/Sd09AkRH7RjWAyF/AKoMKZiZ4ELY7DjA9VD64eM4vL6ShXpBB8wpxHui+mD2H00oOnU7Cop5yhV8VHxp1y4bDhiZSMa/thH+2/Yz6h8NZ3L7+JhJCajg56bb1q+x4I+GuFGk+4qas8fk9awGIbhD2MRNSY=
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Renew an external service registration lease"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/service/{serviceId}/{instanceId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Extends the lease of one service instance. The caller must be the service account that registered it; global-service heartbeats additionally require a super user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./heartbeat.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./heartbeat.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./heartbeat.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

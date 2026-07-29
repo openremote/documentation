@@ -1,0 +1,69 @@
+---
+id: get-asset
+title: "Retrieve an asset"
+description: "Returns a fully loaded asset including its path and attributes. Access is constrained to the caller's realm and, for restricted users, linked assets."
+sidebar_label: "Retrieve an asset"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve an asset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/asset/{assetId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a fully loaded asset including its path and attributes. Access is constrained to the caller's realm and, for restricted users, linked assets.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-asset.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-asset.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-asset.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

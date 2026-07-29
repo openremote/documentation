@@ -1,0 +1,69 @@
+---
+id: update-user-client-roles
+title: "Update a user's client roles"
+description: "Replaces the user's assigned role names for the named client in an administered realm."
+sidebar_label: "Update a user's client roles"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNV99v2zYQ/lcOfFkLyFKSZv2hviwLhi3AhgZZ8hQYLU2eLK4UqZJUXNfQ/z4cKVl24hZrkAJ7ik3z7r473n3fZcMkeuFUG5Q1rGRX2Gou0EOoETqP7icP3Hu1NCjBWY1geIMeKuviFfomQWiFJoAywA1w2SijfEBHJsh1k7OM2RYdpyAXkpWsayUPeOPRnUfTK6vRs4y13PEGAzrPytvNPWzvWjRX2NiAyW0MTr7xM29ajaxki05pqcySZUyRSctDzTJGF1nJohXLmMNPnXIoWRlchxnzosaGs3LDwrqliz44ctL32X0MFxJNUGE9a529UxJdLBKoeFwpdPt4TqpjcfwKf569Olm8np3KBc7eVK/lTJy+wZcvq9cneHx0GCu5vZBPDXZ8qK/AtS0aFyt8GFQy/05Y83QZffjVyjXdENYENIE+8rbVSsTGKP7xhHrz0BV3jq8JUcDGHwrR99m91M8tpRQQJHqCCR4D2GoowOxBJysfHzJ/kFlPB761xmMMfXJ0Sn/2o13X1JIxRxBDZAm+EwK9rzqt12/BWBgdwcLKNSgPDkPnDErWZ+z06OhebQJ+DkWruTpclSn7+8nvwpkmCqxLgblDUOaOazUEPn6qwGddqKmz0oOmDFMxYeAL39GDE2U4jE3ItX8I6MVTVoJPoFCmcZUWPRgboOZ3CC26RnlPiIOlb5V1TeqJLWslXKc/4IUiSXrbOYETLvysfKCRZh5F51RYRz6k+VSSlbdzmqrAl0STjGiUzTPWYKgtsWvbhciloWYlKyjjYhO5r49fItkWm8QwfbEZp7pnFM7djezbOc1KVofQ+rIoJDY2nwgiV7bgrdo6Zhm7407xhU5zkrg2TkrFOx1YyRpOokDlmE95/U1FSyZjdhtWabuKR/R21qkv8Q3OrcQHhzcRZEFnRYzpixSnaJ0NVlhdJL8zYY1BEeLVOOaVQ19/v32wH9FQqYRtE/DW2UpFAh0/9RmL1x7rvc8Grj2fxiRV9f8MmhykzrdkfBJPiNWvJv7/bRSb23E85iQ1lR1Hi4s4WthwRTDop1/22o4dmCbliWyIYKQVXYMmJAYa15Sd1eEvbvgSHfxxfX0JZ5cXOdAwfoiJfoDU/zC2MnjUKEJyPVJq2mnIZ+IG+pUH8LVdxXsfUnXIWerxkQUJFxhESWvSOyJLOAEeRQJiCd9OhONhpUJtu5Cc73ogDrUuADfWrBvb+cFHBlyTybIe4CZxAckDB8EN+KC0hgWCVo0i4iG66xZaiS0F+RxujCZA3ExgtlWlYxtqdJDILgN0zrqtskUVBQ6RE2dEj1FycrjUyD2VEyO2271nmj/bkowVfp9knsc3bGyUiMqSQGsl0PhIBcNecvb75Z/wIqdVap+0VqtVvjRdbt2yGMx8wZetnr3Ij3I0eR0aHRtfhTgL32gUYjh0PrUcmR+RYWt9aLjZAXMTd1vg4/o87FxuWHH3WndHTX7c6j3M5I5Y9UOdNoNI3MZ1k2WsHFfkrU7Q4XYXLbcL4DxjtfWBTDebBfd443Tf0/GnDh2p1XwShLTLK0+fJSsrrj1+oxDProal4Tl8deU/mNO4Lpp1VCPd0TeWsY+43m7/cUt+DJT/tPk/AtZQ3CfEdXDJfwSy7WP38z5jNXKJLj5l+vk8oZldk5PJ/MFGT5klizMhsA07d3fR7C4wlzfXLGOL4d+FJuo+c3xFss1XCaONZUmqSGcbprlZdnxJd1Ngkp+o9tNKNghTNn6gdA5WYRTFsRhROGMuB68/RovHtpTKoQjvO6d+hP+kDdejsD9JhGGFGgJ0of6m57197b2g1xxtl46b8D5a9fO+7/8FXoLTMw==
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a user's client roles"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/user/{realm}/userRoles/{userId}/{clientId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Replaces the user's assigned role names for the named client in an administered realm.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./update-user-client-roles.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./update-user-client-roles.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./update-user-client-roles.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

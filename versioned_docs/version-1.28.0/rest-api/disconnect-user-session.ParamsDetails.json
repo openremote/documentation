@@ -1,0 +1,1 @@
+{"parameters":[{"description":"OpenRemote realm name.","example":"building","in":"path","name":"realm","required":true,"schema":{"type":"string"}},{"description":"Active MQTT connection identifier returned by getUserSessions.","example":"mqtt-connection-7","in":"path","name":"sessionID","required":true,"schema":{"type":"string"}}]}
