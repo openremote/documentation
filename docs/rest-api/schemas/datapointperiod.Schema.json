@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"assetId":{"type":"string"},"attributeName":{"type":"string"},"latestTimestamp":{"type":"integer","format":"int64"},"oldestTimestamp":{"type":"integer","format":"int64"}},"title":"DatapointPeriod"},"schemaType":"response"}

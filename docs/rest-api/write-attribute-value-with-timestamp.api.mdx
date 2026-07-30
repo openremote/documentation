@@ -1,0 +1,69 @@
+---
+id: write-attribute-value-with-timestamp
+title: "Write a timestamped value to one asset attribute"
+description: "Submits an asynchronous attribute write using the supplied Unix timestamp in milliseconds. The result reports acceptance only; anonymous writes require public-write metadata."
+sidebar_label: "Write a timestamped value to one asset attribute"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Write a timestamped value to one asset attribute"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/asset/{assetId}/attribute/{attributeName}/{timestamp}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Submits an asynchronous attribute write using the supplied Unix timestamp in milliseconds. The result reports acceptance only; anonymous writes require public-write metadata.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./write-attribute-value-with-timestamp.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./write-attribute-value-with-timestamp.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./write-attribute-value-with-timestamp.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

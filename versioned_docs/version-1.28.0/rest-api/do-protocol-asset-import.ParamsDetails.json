@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Agent asset that performs the import.","example":"7A6p4AnLTkKxJUCQAAABAA","in":"path","name":"agentId","required":true,"schema":{"type":"string"}},{"description":"OpenRemote realm name. Non-super users are always restricted to their authenticated realm.","example":"building","in":"query","name":"realm","schema":{"type":"string"}}]}
