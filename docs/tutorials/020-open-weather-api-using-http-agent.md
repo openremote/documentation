@@ -1,9 +1,9 @@
 # Using HTTP Agent for weather service
 
-This tutorial explains how to use the generic [HTTP Agent](../user-guide/agents-protocols/http) with an example to connect to the [OpenWeatherMap](https://openweathermap.org/) API.
+This tutorial explains how to use the generic [HTTP Agent](../user-guide/040-agents-protocols/050-http.md) with an example to connect to the [OpenWeatherMap](https://openweathermap.org/) API.
 
 :::note
-If you specifically want to connect to OpenWeatherMap, you can use the dedicated [OpenWeatherMap Agent](../user-guide/agents-protocols/openweathermap).
+If you specifically want to connect to OpenWeatherMap, you can use the dedicated [OpenWeatherMap Agent](../user-guide/040-agents-protocols/190-openweathermap.md).
 :::
 
 ## Prerequisites

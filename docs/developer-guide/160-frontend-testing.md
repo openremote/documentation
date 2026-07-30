@@ -71,7 +71,7 @@ The component tests are used to test individual Lit web components.
 
 ### Prerequisites
 
-Assuming you have set up your [development tooling](preparing-the-environment#development-tooling).
+Assuming you have set up your [development tooling](010-preparing-the-environment.md#development-tooling).
 
 1. Create a playwright configuration file `playwright.config.ts` in your component / app directory.
 

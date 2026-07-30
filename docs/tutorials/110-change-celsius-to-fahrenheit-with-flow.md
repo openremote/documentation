@@ -4,7 +4,7 @@ This tutorial offers an example for converting an attribute value, using the Flo
 
 ## Prerequisites
 
-- A running OpenRemote instance - see the [Quick Start](../quick-start).
+- A running OpenRemote instance - see the [Quick Start](../20-quick-start.md).
 
 ## Step 1 - Create a new attribute
 

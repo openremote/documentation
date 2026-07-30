@@ -8,15 +8,15 @@ Industry-standard identity is built into the open-source core: Keycloak-based au
 
 ## Prerequisites
 
-- A running OpenRemote instance - see the [Quick Start](../quick-start).
-- Superuser access; ideally a [tenant realm already created](white-label-multi-tenant-iot-platform).
+- A running OpenRemote instance - see the [Quick Start](../20-quick-start.md).
+- Superuser access; ideally a [tenant realm already created](./010-white-label-multi-tenant-iot-platform.md).
 - For SSO/AD: access to your identity provider (Microsoft Entra ID/AD, Google, Okta, or any OIDC/SAML IdP).
 
 ## Step 1 - Understand the access model
 
 OpenRemote separates concerns into:
 
-- **Realms** - isolated tenants (see the [white-label tutorial](white-label-multi-tenant-iot-platform)).
+- **Realms** - isolated tenants (see the [white-label tutorial](./010-white-label-multi-tenant-iot-platform.md)).
 - **Roles** - what a user can do (read, write, configure, manage users, etc.).
 - **Restricted users** - users who can only see the specific assets linked to them (device- or customer-level access control).
 
@@ -34,7 +34,7 @@ Because identity is managed by Keycloak, you can federate to an external Identit
 2. Add an **Identity Provider** (OIDC or SAML) for your IdP and map claims/roles.
 3. Users now sign in with corporate credentials; access maps to OpenRemote roles automatically.
 
-To synchronise users/groups from a directory, follow [Linking to Active Directory](../user-guide/identity-and-security/linking-to-active-directory).
+To synchronise users/groups from a directory, follow [Linking to Active Directory](../user-guide/070-identity-and-security/30-linking-to-active-directory.md).
 
 ## Step 4 - Create OAuth2 service users for devices and integrations
 
@@ -52,9 +52,9 @@ Give each device or integration its own service user with a narrow role, so you 
 
 1. Sign in via your IdP and confirm the SSO flow and resulting roles.
 2. Log in as a restricted user and confirm they see only their linked assets.
-3. Obtain a token for the service user and call a [REST API](../category/rest-api) endpoint.
+3. Obtain a token for the service user and call a [REST API](/docs/category/rest-api) endpoint.
 
 ## Next steps
 
-- Use these service users in the [MQTT/auto-provisioning](auto-provision-devices-at-scale) flow.
-- Apply per-tenant branding in the [white-label, multi-tenant tutorial](white-label-multi-tenant-iot-platform).
+- Use these service users in the [MQTT/auto-provisioning](./080-auto-provision-devices-at-scale.md) flow.
+- Apply per-tenant branding in the [white-label, multi-tenant tutorial](./010-white-label-multi-tenant-iot-platform.md).
