@@ -37,6 +37,8 @@ You can download the [IntelliJ Community Edition](https://www.jetbrains.com/idea
 - [Grep Console](https://plugins.jetbrains.com/plugin/7125-grep-console)
 - [Markdown Navigator](https://plugins.jetbrains.com/plugin/7896-markdown-navigator)
 
+For formatter plugins and IDE settings, see [Code formatting with Spotless](./025-code-formatting.md#intellij-idea).
+
 ##### Grep Console Styling
 
 The log messages of the running application can be colour-highlighted with the [GrepConsole plugin](https://plugins.jetbrains.com/plugin/7125-grep-console) and our [configuration](https://github.com/openremote/openremote/tree/master/tools/intellij).

@@ -56,6 +56,8 @@ Yarn workspaces are used to symlink the OpenRemote packages into a root `node_mo
 
 NPM scripts are used for build and development purposes (the main build tool for the entire code base is `gradle` so there are `gradle` tasks that launch NPM scripts - these `gradle` tasks have the prefix `npm` followed by the NPM script name e.g. `npmBuild`).
 
+See [UI linting and formatting](./025-code-formatting.md#ui-linting-and-formatting-with-yarn) for the Yarn, ESLint, Prettier, and Spotless commands used by OpenRemote.
+
 The following standard NPM scripts are used throughout the components and apps for consistency:
 
 * `clean` - Cleans up any build artefacts (typically uses the [`shx`](https://www.npmjs.com/package/shx) package)

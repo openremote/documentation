@@ -67,6 +67,8 @@ We follow the [GitHub Flow](https://docs.github.com/en/get-started/quickstart/gi
 
 When your changes are complete then create a Pull Request ensuring that your branch is up-to-date with the source branch and that code changes are covered by tests and that the full test suite passes.
 
+Before opening the pull request, [check and apply the repository's code-formatting rules](./developer-guide/025-code-formatting.md).
+
 ## Discuss OpenRemote
 
 Join us on the [community forum](https://forum.openremote.io/).
