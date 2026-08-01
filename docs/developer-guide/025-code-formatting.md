@@ -407,6 +407,73 @@ When applying a large formatting change:
 
 A dedicated formatting commit makes the change easier to review and allows it to be excluded from blame history.
 
+## Updating an existing pull request after the initial formatting change
+
+Pull requests created before the repository-wide formatting commit can produce many merge conflicts, even when their functional changes do not overlap.
+
+For `openremote/openremote`, the relevant commits are:
+
+| Commit                                     | Description                                              |
+| ------------------------------------------ | -------------------------------------------------------- |
+| `d6941d97c96ad70e7a6b764a4a4a7682aa906c8a` | Last commit before the repository-wide formatting change |
+| `e3a066dcf739efe08d3d0e51e477d2d652dd28f8` | Apply Spotless across the repository                     |
+
+The `master` branch can be merged into the pull request in stages so that functional changes are handled separately from the generated formatting changes.
+
+1. Fetch the latest repository history:
+
+   ```shell
+   git fetch origin
+   ```
+
+2. Merge the commit immediately before the Spotless formatting commit:
+
+   ```shell
+   git merge d6941d97c96ad70e7a6b764a4a4a7682aa906c8a
+   ```
+
+   Resolve any functional conflicts and complete the merge normally.
+
+3. Start merging the repository-wide formatting commit without completing the merge:
+
+   ```shell
+   git merge --no-commit e3a066dcf739efe08d3d0e51e477d2d652dd28f8
+   ```
+
+   Git may report many conflicts. Do not resolve them individually.
+
+4. Restore the files to their state immediately before this merge while keeping the merge in progress:
+
+   ```shell
+   git restore --source=HEAD --staged --worktree -- .
+   ```
+
+5. Apply Spotless and complete the merge:
+
+   ```shell
+   ./gradlew spotlessApply
+   git add --all
+   git commit
+   ```
+
+6. Merge the latest `master` branch as usual:
+
+   ```shell
+   git merge origin/master
+   ```
+
+   Resolve any remaining functional conflicts normally. Run `spotlessApply` again if resolving a conflict required manual source-code changes.
+
+7. Verify the final result:
+
+   ```shell
+   ./gradlew spotlessCheck
+   ```
+
+Do not use the `-X ours` merge option for the repository-wide formatting commit. It operates on individual conflicting hunks and can combine formatted and unformatted code into invalid source files.
+
+Do not use the `-s ours` merge strategy either. It would record the formatting commit as merged without applying or regenerating its formatting changes.
+
 ## Ignoring formatting commits in Git blame
 
 For large formatting-only commits, add the final commit hash to a [`.git-blame-ignore-revs`](https://docs.github.com/en/repositories/working-with-files/using-files/viewing-and-understanding-files#ignore-commits-in-the-blame-view) file in the root of the repository.
