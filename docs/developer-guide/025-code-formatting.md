@@ -393,122 +393,6 @@ EditorConfig should normally manage whitespace settings. When explicit Visual St
 
 These should be fallback settings rather than replacements for `.editorconfig`.
 
-## Applying large formatting changes
-
-A repository-wide `spotlessApply` can modify many files without changing their behavior. Mixing these changes with functional modifications makes pull requests difficult to review and makes later `git blame` results less useful.
-
-When applying a large formatting change:
-
-1. update and review the Spotless configuration first;
-2. apply formatting across the repository;
-3. keep the generated formatting changes separate from functional changes;
-4. commit the formatting changes in a dedicated commit;
-5. avoid making manual or behavioral changes in that commit.
-
-A dedicated formatting commit makes the change easier to review and allows it to be excluded from blame history.
-
-## Updating an existing pull request after the initial formatting change
-
-Pull requests created before the repository-wide formatting commit can produce many merge conflicts, even when their functional changes do not overlap.
-
-For `openremote/openremote`, the relevant commits are:
-
-| Commit                                     | Description                                              |
-| ------------------------------------------ | -------------------------------------------------------- |
-| `d6941d97c96ad70e7a6b764a4a4a7682aa906c8a` | Last commit before the repository-wide formatting change |
-| `e3a066dcf739efe08d3d0e51e477d2d652dd28f8` | Apply Spotless across the repository                     |
-
-The `master` branch can be merged into the pull request in stages so that functional changes are handled separately from the generated formatting changes.
-
-1. Fetch the latest repository history:
-
-   ```shell
-   git fetch origin
-   ```
-
-2. Merge the commit immediately before the Spotless formatting commit:
-
-   ```shell
-   git merge d6941d97c96ad70e7a6b764a4a4a7682aa906c8a
-   ```
-
-   Resolve any functional conflicts and complete the merge normally.
-
-3. Start merging the repository-wide formatting commit without completing the merge:
-
-   ```shell
-   git merge --no-commit e3a066dcf739efe08d3d0e51e477d2d652dd28f8
-   ```
-
-   Git may report many conflicts. Do not resolve them individually.
-
-4. Restore the files to their state immediately before this merge while keeping the merge in progress:
-
-   ```shell
-   git restore --source=HEAD --staged --worktree -- .
-   ```
-
-5. Apply Spotless and complete the merge:
-
-   ```shell
-   ./gradlew spotlessApply
-   git add --all
-   git commit
-   ```
-
-6. Merge the latest `master` branch as usual:
-
-   ```shell
-   git merge origin/master
-   ```
-
-   Resolve any remaining functional conflicts normally. Run `spotlessApply` again if resolving a conflict required manual source-code changes.
-
-7. Verify the final result:
-
-   ```shell
-   ./gradlew spotlessCheck
-   ```
-
-Do not use the `-X ours` merge option for the repository-wide formatting commit. It operates on individual conflicting hunks and can combine formatted and unformatted code into invalid source files.
-
-Do not use the `-s ours` merge strategy either. It would record the formatting commit as merged without applying or regenerating its formatting changes.
-
-## Ignoring formatting commits in Git blame
-
-For large formatting-only commits, add the final commit hash to a [`.git-blame-ignore-revs`](https://docs.github.com/en/repositories/working-with-files/using-files/viewing-and-understanding-files#ignore-commits-in-the-blame-view) file in the root of the repository.
-
-For example:
-
-```text
-# Applied the initial repository-wide Spotless formatting
-0123456789abcdef0123456789abcdef01234567
-```
-
-Use the full commit hash and include a comment explaining what the commit changed.
-
-The formatting commit must already exist before its hash can be added. Add the hash to `.git-blame-ignore-revs` in a separate follow-up commit.
-
-When a pull request is squash-merged, use the final commit hash created on the target branch rather than the hash of an intermediate commit from the pull-request branch.
-
-GitHub automatically uses a root-level `.git-blame-ignore-revs` file in its blame view.
-
-To use the file explicitly from the command line, run:
-
-```shell
-git blame --ignore-revs-file .git-blame-ignore-revs <file>
-```
-
-You can also configure the local repository to use it by default:
-
-```shell
-git config blame.ignoreRevsFile .git-blame-ignore-revs
-```
-
-This configuration applies to the current repository. Add `--global` only when you intentionally want to use the same ignore-file path for all local repositories.
-
-Only add commits that are overwhelmingly mechanical, such as repository-wide formatting or line-ending changes. Do not ignore commits that contain meaningful functional changes because that would hide useful authorship and history information.
-
 ## IDE formatting remains optional
 
 IDE integration provides faster feedback but does not replace the repository commands.
@@ -585,3 +469,268 @@ package.json
 ```
 
 Changes to formatting configuration affect the entire repository and should preferably be reviewed separately from ordinary source-code changes.
+
+## Repository-wide formatting workflows
+
+### Applying large formatting changes
+
+A repository-wide `spotlessApply` can modify many files without changing their behavior. Mixing these changes with functional modifications makes pull requests difficult to review and makes later `git blame` results less useful.
+
+When applying a large formatting change:
+
+1. update and review the Spotless configuration first;
+2. apply formatting across the repository;
+3. keep the generated formatting changes separate from functional changes;
+4. commit the formatting changes in a dedicated commit;
+5. avoid making manual or behavioral changes in that commit.
+
+A dedicated formatting commit makes the change easier to review and allows it to be excluded from blame history.
+
+### Ignoring formatting commits in Git blame
+
+For large formatting-only commits, add the final commit hash to a [`.git-blame-ignore-revs`](https://docs.github.com/en/repositories/working-with-files/using-files/viewing-and-understanding-files#ignore-commits-in-the-blame-view) file in the root of the repository.
+
+For example:
+
+```text
+# Applied the initial repository-wide Spotless formatting
+0123456789abcdef0123456789abcdef01234567
+```
+
+Use the full commit hash and include a comment explaining what the commit changed.
+
+The formatting commit must already exist before its hash can be added. Add the hash to `.git-blame-ignore-revs` in a separate follow-up commit.
+
+When a pull request is squash-merged, use the final commit hash created on the target branch rather than the hash of an intermediate commit from the pull-request branch.
+
+GitHub automatically uses a root-level `.git-blame-ignore-revs` file in its blame view.
+
+To use the file explicitly from the command line, run:
+
+```shell
+git blame --ignore-revs-file .git-blame-ignore-revs <file>
+```
+
+You can also configure the local repository to use it by default:
+
+```shell
+git config blame.ignoreRevsFile .git-blame-ignore-revs
+```
+
+This configuration applies to the current repository. Add `--global` only when you intentionally want to use the same ignore-file path for all local repositories.
+
+Only add commits that are overwhelmingly mechanical, such as repository-wide formatting or line-ending changes. Do not ignore commits that contain meaningful functional changes because that would hide useful authorship and history information.
+
+### Updating an existing pull request after the initial formatting change
+
+Pull requests created before the repository-wide formatting commit can produce many merge conflicts, even when their functional changes do not overlap.
+
+For `openremote/openremote`, the relevant commits are:
+
+| Commit                                     | Description                                              |
+| ------------------------------------------ | -------------------------------------------------------- |
+| `d6941d97c96ad70e7a6b764a4a4a7682aa906c8a` | Last commit before the repository-wide formatting change |
+| `e3a066dcf739efe08d3d0e51e477d2d652dd28f8` | Apply Spotless across the repository                     |
+
+The `master` branch can be merged into the pull request in stages so that functional changes are handled separately from the generated formatting changes.
+
+1. Fetch the latest repository history:
+
+   ```shell
+   git fetch origin
+   ```
+
+2. Merge the commit immediately before the Spotless formatting commit:
+
+   ```shell
+   git merge d6941d97c96ad70e7a6b764a4a4a7682aa906c8a
+   ```
+
+   Resolve any functional conflicts and complete the merge normally.
+
+3. Start merging the repository-wide formatting commit without completing the merge:
+
+   ```shell
+   git merge --no-commit e3a066dcf739efe08d3d0e51e477d2d652dd28f8
+   ```
+
+   Git may report many conflicts. Do not resolve them individually.
+
+4. Restore the files to their state immediately before this merge while keeping the merge in progress:
+
+   ```shell
+   git restore --source=HEAD --staged --worktree -- .
+   ```
+
+5. Apply Spotless and complete the merge:
+
+   ```shell
+   ./gradlew spotlessApply
+   git add --all
+   git commit
+   ```
+
+6. Merge the latest `master` branch as usual:
+
+   ```shell
+   git merge origin/master
+   ```
+
+   Resolve any remaining functional conflicts normally. Run `spotlessApply` again if resolving a conflict required manual source-code changes.
+
+7. Verify the final result:
+
+   ```shell
+   ./gradlew spotlessCheck
+   ```
+
+Do not use the `-X ours` merge option for the repository-wide formatting commit. It operates on individual conflicting hunks and can combine formatted and unformatted code into invalid source files.
+
+Do not use the `-s ours` merge strategy either. It would record the formatting commit as merged without applying or regenerating its formatting changes.
+
+### Upgrading an existing custom project to Spotless
+
+Custom projects commonly use the reusable CI/CD workflow from the `master` branch of `openremote/openremote`:
+
+```yaml
+uses: openremote/openremote/.github/workflows/ci_cd.yml@master
+```
+
+Because this follows `master`, new workflow behaviour is inherited automatically. This includes the Spotless formatting checks.
+
+#### Temporarily pinning the workflow
+
+When there is not yet time to upgrade a custom project, temporarily pin the reusable workflow to a commit from before the Spotless checks were added:
+
+```yaml
+uses: openremote/openremote/.github/workflows/ci_cd.yml@51f4c3c0c8edd429a65237268d47d615617d4008
+```
+
+Pinning the workflow also prevents the project from receiving other workflow changes made after that commit. Use this only as a temporary measure.
+
+#### Pull request 1: Add Spotless and apply formatting
+
+The first pull request adds the Spotless configuration and applies the initial repository-wide formatting.
+
+##### Synchronizing the Spotless configuration
+
+The Spotless configuration was added to the custom-project template in commit:
+
+```text
+3aa39cc8e2134db446d7258d429315fc5615f6e9
+```
+
+Check out the template at this commit:
+
+```shell
+git clone https://github.com/openremote/custom-project.git custom-project-template
+cd custom-project-template
+git checkout 3aa39cc8e2134db446d7258d429315fc5615f6e9
+```
+
+Use a directory comparison tool such as [Meld](https://meldmerge.org/) to compare the checked-out template with the existing custom project:
+
+```text
+custom-project-template
+<existing-custom-project>
+```
+
+Synchronize the Spotless-related changes from the template while preserving project-specific configuration. Carefully merge changes to existing files instead of replacing them wholesale.
+
+The exact changes introduced by the Spotless configuration commit can be inspected with:
+
+```shell
+git show 3aa39cc8e2134db446d7258d429315fc5615f6e9
+```
+
+When other custom-project template updates are also required, compare the existing project with the desired newer template commit and merge those changes in the same way.
+
+##### Commit 1: Add the configuration
+
+Ensure the reusable workflow reference points to `master` before creating the first commit:
+
+```yaml
+uses: openremote/openremote/.github/workflows/ci_cd.yml@master
+```
+
+Commit the synchronized configuration and workflow change:
+
+```shell
+git add --all
+git commit -m "Add Spotless configuration"
+```
+
+##### Commit 2: Apply the formatting
+
+Apply Spotless:
+
+```shell
+./gradlew spotlessApply
+```
+
+Verify that the formatted project passes the Spotless checks before committing the generated changes:
+
+```shell
+./gradlew spotlessCheck
+```
+
+Commit the formatting:
+
+```shell
+git add --all
+git commit -m "Apply Spotless"
+```
+
+Keep the mechanical formatting commit separate from configuration, workflow, and functional changes.
+
+##### Merging pull request 1
+
+Merge the first pull request using **rebase and merge**, not **squash and merge**, so the two commits remain separate on the target branch.
+
+At the bottom of the pull request:
+
+1. Click the dropdown arrow next to the merge button.
+2. Select **Rebase and merge**.
+3. Click **Rebase and merge**.
+4. Confirm the merge when prompted.
+
+GitHub creates new commit hashes when rebasing the commits onto the target branch. The final hash of the `Apply Spotless` commit must therefore be retrieved after the pull request has been merged.
+
+#### Pull request 2: Ignore the formatting commit in Git blame
+
+Fetch the latest target branch and find the full hash of the final `Apply Spotless` commit:
+
+```shell
+git fetch origin
+git log origin/main --format="%H %s" --grep="^Apply Spotless$" -n 1
+```
+
+This prints the complete commit hash followed by its subject. The full hash can also be copied from the commit page on GitHub.
+
+Add the hash to `.git-blame-ignore-revs`:
+
+```text
+# Applied the initial repository-wide Spotless formatting
+<final-apply-spotless-commit-hash>
+```
+
+Commit this change on a new branch and create a separate follow-up pull request:
+
+```shell
+git add .git-blame-ignore-revs
+git commit -m "Ignore Spotless formatting commit in Git blame"
+```
+
+##### Merging pull request 2
+
+Use the normal **squash and merge** method for the second pull request.
+
+At the bottom of the pull request:
+
+1. Click the dropdown arrow next to the merge button.
+2. Select **Squash and merge**.
+3. Click **Squash and merge**.
+4. Confirm the merge when prompted.
+
+Selecting **Squash and merge** for this pull request switches the merge button back to the method normally used for subsequent pull requests.
+
