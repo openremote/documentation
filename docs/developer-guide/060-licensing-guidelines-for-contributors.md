@@ -6,6 +6,8 @@ The `LICENSE.txt` file contains the whole text of the AGPL/GPL (or whatever lice
 
 Tip: use `./gradlew dependencies` on projects that use gradle as build tool.
 
+[Spotless](./025-code-formatting.md) applies and verifies license headers for supported source files.
+
 In all source files (except where not appropriate such as property files or test fixtures), include a copyright header:
 
 ```
