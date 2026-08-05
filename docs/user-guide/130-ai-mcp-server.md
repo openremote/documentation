@@ -1,4 +1,4 @@
-# AI Assistant Integration (MCP Server)
+# AI Integration (MCP Server)
 
 The OpenRemote MCP Server lets AI assistants talk to your OpenRemote instance. It implements the [Model Context Protocol](https://modelcontextprotocol.io/) (MCP), an open standard that AI clients such as Claude Desktop and Claude Code use to call external tools. Once connected, you can ask the assistant to query and manage your assets, attributes, users and realms in plain language, and it will call the OpenRemote REST API on your behalf.
 
