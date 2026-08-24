@@ -1,0 +1,67 @@
+---
+id: query-users
+title: "Query users based on criteria"
+description: "Executes a UserQuery. Non-super users are forced into their authenticated realm and cannot see system accounts; callers with read-users but not read-admin receive basic fields only."
+sidebar_label: "Query users based on criteria"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Query users based on criteria"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/user/query"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Executes a UserQuery. Non-super users are forced into their authenticated realm and cannot see system accounts; callers with read-users but not read-admin receive basic fields only.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./query-users.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./query-users.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

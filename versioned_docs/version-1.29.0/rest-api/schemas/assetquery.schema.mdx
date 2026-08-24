@@ -1,0 +1,32 @@
+---
+id: assetquery
+title: "AssetQuery"
+description: "Composable asset search request. Populated filters are combined to restrict results; limit and offset provide pagination."
+sidebar_label: "AssetQuery"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"access":"PRIVATE","attributes":{"groups":[null],"items":[{"meta":[{"name":{"caseSensitive":true,"match":"EXACT","negate":true,"value":"string"},"negated":true,"path":[{}],"value":{"predicateType":"string"}}],"name":{"caseSensitive":true,"match":"EXACT","negate":true,"value":"string"},"negated":true,"path":[{}],"previousValue":{"predicateType":"string"},"timestampOlderThan":"string","value":{"predicateType":"string"}}],"operator":"AND"},"ids":["string"],"limit":100,"names":[{"caseSensitive":true,"match":"EXACT","negate":true,"value":"string"}],"offset":0,"orderBy":{"descending":false,"property":"NAME"},"parents":[{"id":"string"}],"paths":[{"path":["string"]}],"realm":{"name":"building"},"recursive":true,"select":{"attributes":["temperature","humidity"]},"types":["ThingAsset"],"userIds":["string"]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AssetQuery"}
+>
+</Heading>
+
+
+
+Composable asset search request. Populated filters are combined to restrict results; limit and offset provide pagination.
+
+<Schema
+  {...require("./assetquery.Schema.json")}
+>
+  
+</Schema>
+            

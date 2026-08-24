@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"assetName":{"type":"string"},"createdOn":{"type":"string","format":"date-time"},"id":{"type":"object","properties":{"assetId":{"type":"string"},"realm":{"type":"string"},"userId":{"type":"string"}},"title":"Id"},"parentAssetName":{"type":"string"},"userFullName":{"type":"string"}},"title":"UserAssetLink"},"schemaType":"response"}
