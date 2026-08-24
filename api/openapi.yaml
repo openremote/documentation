@@ -9181,20 +9181,15 @@ components:
           type: string
           enum:
           - KEYCLOAK
-          - BASIC
           - NONE
         autoLogin:
           type: boolean
-        basicLoginProvider:
-          type: object
         clientId:
           type: string
         configureTranslationsOptions:
           type: object
         consoleAutoEnable:
           type: boolean
-        credentials:
-          $ref: "#/components/schemas/UsernamePassword"
         defaultLanguage:
           type: string
         eventProviderType:
@@ -9219,8 +9214,6 @@ components:
           format: int32
         realm:
           type: string
-        skipFallbackToBasicAuth:
-          type: boolean
         translationsLoadPath:
           type: string
     MapConfig:
@@ -10405,13 +10398,6 @@ components:
         startTimeMillis:
           type: integer
           format: int64
-        username:
-          type: string
-    UsernamePassword:
-      type: object
-      properties:
-        password:
-          type: string
         username:
           type: string
     ValueAnyPredicate:

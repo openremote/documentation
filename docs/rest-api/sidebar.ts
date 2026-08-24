@@ -1842,12 +1842,6 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "rest-api/schemas/usernamepassword",
-          label: "UsernamePassword",
-          className: "schema",
-        },
-        {
-          type: "doc",
           id: "rest-api/schemas/valueanypredicate",
           label: "ValueAnyPredicate",
           className: "schema",
