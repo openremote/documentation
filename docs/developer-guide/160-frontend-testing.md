@@ -210,24 +210,25 @@ test("My app test", async ({ assetsPage }) => {
 
 ### Running the test
 
-The best way to run and debug your tests in Playwright is by using the [Playwright UI mode](https://playwright.dev/docs/test-ui-mode) feature.
-
-You may consider adding a Gradle task to the `build.gradle` file in the component / app directory to open it:
-
-```groovy
-tasks.register('npmTestUI', Exec) {
-    dependsOn getYarnInstallTask()
-    commandLine npmCommand("yarn"), "run", "test", "--ui"
-}
-```
-
-Then run it with:
+The `npmTest` task runs in every package that registers it, so the directory you point Gradle at decides which tests run:
 
 ```sh
-gradle ui:component:or-<my-component>:npmTestUI
+./gradlew npmTest                    # every frontend test
+./gradlew -p ui/component npmTest    # all component tests
+./gradlew -p ui/app npmTest          # all app tests
 ```
 
-Or simply run `npm test -- --ui` in the component / app directory.
+App packages forward extra Playwright arguments through the `args` property, which is how CI shards the app test run:
+
+```sh
+./gradlew -p ui/app/manager npmTest -Pargs="--shard=1/4"
+```
+
+While writing or debugging a test, run Playwright directly from the component / app directory instead. [UI mode](https://playwright.dev/docs/test-ui-mode) gives you the watch mode, trace viewer and time travel debugging that the Gradle tasks do not:
+
+```sh
+npm test -- --ui
+```
 
 ### Best practices
 
