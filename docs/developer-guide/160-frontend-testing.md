@@ -167,7 +167,9 @@ ct("My component test", async ({ mount }) => {
 ```
 
 :::note
+
 You must import a component by its alias `@openremote/*`. Relative paths will cause issues. The downside of alias imports is that they refer to the transpiled TypeScript (in the `lib` directory), which is why the component test script includes `npx tsc -b` and needs manual rebuilding. However you can still live reload the component changes indirectly by running `npm run serve` on the manager app.
+
 :::
 
 Playwright uses [`locators`](https://playwright.dev/docs/locators) to find elements in the DOM. It's crucial to know the different types of locators to be able to write tests that are robust and to avoid flaky behavior.
@@ -193,7 +195,9 @@ export class AssetsPage implements BasePage {
 ```
 
 :::note
+
 In case you want to reuse certain non-project specific fixtures across multiple projects you can add your fixture to the `shared` fixtures in the `@openremote/test` package under `ui/test/fixtures/shared.ts`. If you want to reuse component specific fixtures in tests for a parent component or an app, simply import the fixtures and add them through the `extend` method.
+
 :::
 
 Finally extend the `test` function:
@@ -270,15 +274,21 @@ Please read the [Playwright Best practices](https://playwright.dev/docs/best-pra
 The most useful feature Playwright provides when it comes to writing frontend tests is [UI mode](https://playwright.dev/docs/test-ui-mode). Once the Playwright UI is launched you can select which projects you want to see and run.
 
 :::tip
+
 The UI includes a locator tab, which allows you to click an element in the test preview to easily get a locator of an element.
+
 :::
 
 :::warning
+
 Sometimes the locators Playwright provides are susceptible to flaky behavior, it is important to understand the DOM structure of the UI to get the most effective locators.
+
 :::
 
 :::tip
+
 In some cases you may face a situation where the UI needs to load first, before you can run an action. You can use `await selector.waitFor()` to ensure the element you want to interact with is visible.
+
 :::
 
 In case you want to see how Playwright runs in a headed browser you can add the `--headed` argument.
