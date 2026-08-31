@@ -12,7 +12,7 @@ All frontend testing code is situated under the `ui` directory.
 
 We use different Playwright configurations for `app` and `component` testing.
 
-- `ui/test/app.config.ts`: App test configuration
+- `ui/test/app.config.cts`: App test configuration
 - `ui/test/component.config.ts`: Component test configuration
 
 We do this because we modify the base configuration that comes with Playwright so that component testing works, however this configuration is incompatible with app testing thus we use 2 configurations.
@@ -21,7 +21,7 @@ We do this because we modify the base configuration that comes with Playwright s
 
 Both the `app` and `component` tests depend on the `@openremote/test` package which includes shared fixtures, configurations and our Playwright component testing plugin.
 
-The `shared` fixtures in the test package are meant for general test utilities like intercepting requests. Besides this there are also shared component only test fixtures under `CtShared`.
+The `shared` fixture is available to every test. Apps get a `Shared` instance with general test utilities like intercepting requests. Components get a `CtShared` instance, which adds utilities for the component test page, such as serving the icon fonts and translations that the manager provides in a running app.
 
 Each project that needs testing should configure its own Playwright configuration file which must reuse the above-mentioned configurations.
 
@@ -34,7 +34,7 @@ The app tests are used to test the app UI (End-to-End).
 #### Configuration
 
 - **Target:** Any app in the `ui/app/*` directory.
-- **Worker Scope:** Single worker (to avoid tests interfering with one-another).
+- **Worker Scope:** A single worker for the whole app config (to avoid tests interfering with one-another).
 - **Code reuse:** Apps may include a `fixtures` directory with test and data fixtures, and reuse fixtures from components they depend on.
 - **Setup & Teardown:** App test projects should depend on `*.setup.ts` and `*.cleanup.ts` project files to provision realm(s), user(s) and collect authentication states for more robust and performant tests.
 
@@ -45,12 +45,10 @@ function createAppSetupAndTeardown(app) {
       name: `setup ${app}`,
       testMatch: "**/*.setup.ts",
       teardown: `cleanup ${app}`,
-      worker: 1,
     },
     {
       name: `cleanup ${app}`,
       testMatch: "**/*.cleanup.ts",
-      worker: 1,
     },
   ];
 }
@@ -75,13 +73,23 @@ Assuming you have set up your [development tooling](010-preparing-the-environmen
 
 1. Create a playwright configuration file `playwright.config.ts` in your component / app directory.
 
-Playwright configuration file contents:
+Playwright configuration file contents for an app:
 
 ```ts
-import defineConfig from "@openremote/test/<app|component>.config";
+import { defineAppConfig } from "@openremote/test/app.config";
 
-export default defineConfig(__dirname);
+export default defineAppConfig(__dirname);
 ```
+
+Or for a component:
+
+```ts
+import { defineCtConfig } from "@openremote/test/component.config";
+
+export default defineCtConfig(__dirname);
+```
+
+Both derive the project name from the directory you pass, so the argument is always `__dirname`.
 
 2. Add the corresponding `test` script to the `package.json` file in your component / app directory.
 
@@ -92,10 +100,22 @@ export default defineConfig(__dirname);
 
 3. Add the `npmTest` Gradle task to the `build.gradle` file in the component / app directory so that the CI/CD pipeline knows to run your tests.
 
+For a component:
+
 ```groovy
 tasks.register('npmTest', Exec) {
     dependsOn getYarnInstallTask()
     commandLine npmCommand("yarn"), "run", "test"
+}
+```
+
+For an app, which installs only the workspaces the test run needs and forwards extra Playwright arguments through the `args` property:
+
+```groovy
+tasks.register('npmTest', Exec) {
+    dependsOn ":ui:test:installTestDeps", ":ui:test:clean"
+    commandLine npmCommand("yarn"), "run", "test"
+    args((findProperty('args')?.toString()?.tokenize()) ?: [])
 }
 ```
 
@@ -124,9 +144,11 @@ Then include the following boilerplate for app tests:
 ```ts
 import { test } from "@openremote/test";
 
-test("My app test", async ({ myApp }) => {
+test("My app test", async ({ page, shared }) => {
 })
 ```
+
+The `test` function from `@openremote/test` only provides Playwright's own fixtures plus `shared`. App specific fixtures like `myApp` come from extending it, see [Reusing test code](#reusing-test-code).
 
 Or the following for component tests:
 
