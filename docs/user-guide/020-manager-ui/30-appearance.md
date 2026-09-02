@@ -559,9 +559,10 @@ You can set the attributes to exclude (or include) on the top right card of the 
 
 #### Marker Configuration
 
-This configures how map markers behave. Markers can change colour based on an attribute value, show an attribute value as a label with or without units, and optionally hide the asset direction.
-
+This configures how map markers behave.
+Markers can change colour based on an attribute value, show an attribute value as a label with or without units, and optionally hide the asset direction.
 Marker colours can be configured using numeric ranges, string values, or boolean values.
+Note that this part of the config is not yet configured in the manager_config of the manager demo.
 
 ```json
 {
