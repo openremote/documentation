@@ -556,9 +556,14 @@ You can set the attributes to exclude (or include) on the top right card of the 
   }
 }
 ```
+
 #### Marker Configuration
 
-This configures how the markers behave. They can either change their colour based on an attribute value (number, boolean, or string), show a label with or without units, and/or show the direction an asset is facing. Note that this part of the config is not yet configured in the manager_config of the manager demo.
+This configures how map markers behave.
+Markers can change colour based on an attribute value, show an attribute value as a label with or without units, and optionally hide the asset direction.
+Marker colours can be configured using numeric ranges, string values, or boolean values.
+Note that this part of the config is not yet configured in the manager_config of the manager demo.
+
 ```json
 {
   "pages": {
@@ -585,12 +590,44 @@ This configures how the markers behave. They can either change their colour base
               }
             ]
           }
+        },
+        "GatewayAsset": {
+          "attributeName": "status",
+          "showLabel": true,
+          "colours": {
+            "type": "string",
+            "CONNECTED": "39B54A",
+            "DISCONNECTED": "C1272D"
+          }
+        },
+        "PresenceSensorAsset": {
+          "attributeName": "presence",
+          "colours": {
+            "type": "boolean",
+            "true": "39B54A",
+            "false": "C1272D"
+          }
         }
       }
     }
   }
 }
 ```
+
+The `attributeName` property specifies the asset attribute used by the marker configuration.
+
+When `showLabel` is `true`, the current attribute value is shown next to the marker. By default, units are included when available. Set `showUnits` to `false` to hide them.
+
+The `colours` property changes the marker colour based on the current attribute value:
+
+* `range` selects a colour based on the configured numeric ranges.
+* `string` selects the colour whose key exactly matches the string representation of the attribute value.
+* `boolean` selects either the `"true"` or `"false"` colour.
+
+Set `hideDirection` to `true` to hide the direction indicator for assets that have a direction attribute.
+
+Colours are specified as hexadecimal RGB values without the `#` prefix.
+
 #### Clustering Configuration
 
 This configures how clustering behaves. Clustering ensures the map page can render assets smoothly even with 40-50 thousand assets. The clustering option can be disabled, or changed to cluster markers in a smaller radius showing more clusters and changed to start clustering at a certain zoom level. Note that reducing cluster radius or cluster max zoom can have performance impacts. The recommended cluster max zoom level is Maximum realm zoom level - 2.
@@ -699,7 +736,7 @@ If you want to adjust the map styling. You can change the map under Map Settings
 | Method                   | Description                                                                                                                                                                                                                                                                           | When to use?                                                                                |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
 | Tile server           | Configure a tile server (note that this get's priority over the custom map tiles). | If you want to use an external map tile server.                                           |
-| Custom Map Tiles           | The uploaded map will be used instead of the default (see [working on maps](../../developer-guide/working-on-maps#uploading-mbtiles) for more).                                                                                                                                       | If you happen to have an `.mbtiles` file and  want to view a different part of the world.   |
+| Custom Map Tiles           | The uploaded map will be used instead of the default (see [working on maps](../../developer-guide/130-working-on-maps.md#uploading-mbtiles) for more).                                                                                                                                       | If you happen to have an `.mbtiles` file and  want to view a different part of the world.   |
 | Style JSON URL           | Override the default map settings with a `style.json` URL (e.g. `https://api.example.com/maps/streets/style.json?key=your_key`) from a Map/Tile provider that supports MapLibre (see [providers](https://github.com/maplibre/awesome-maplibre?tab=readme-ov-file#maptile-providers)). | If you want to configure a different map quickly.                                           |
 | Map Layers    | After configuring a Style JSON URL you can import it to include the layers allowing you to adjust the map styling. You may optionally configure a Tile server URL (to see more of a map).                                                                                             | If you want to be able to edit the map styling in OpenRemote, but also use an external map. |
 | Realm Map Setting        | You can set boundaries, zoom levels and center points, as well as add GeoJSON based points, lines and shapes from GeoJSON files. For creating GeoJSON files, you can use e.g. https://geojson.io/. For searching existing GeoJSON map layers, you can use https://overpass-turbo.eu/.                                                           | If you want to change focus of the map or add map layers per realm.                                                    |

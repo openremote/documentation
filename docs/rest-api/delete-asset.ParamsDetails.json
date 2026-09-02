@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Asset IDs to delete. Repeat the query parameter for multiple assets.","example":"7A6p4AnLTkKxJUCQAAABAA","explode":true,"in":"query","name":"assetId","required":true,"schema":{"type":"array","items":{"type":"string"}},"style":"form"}]}

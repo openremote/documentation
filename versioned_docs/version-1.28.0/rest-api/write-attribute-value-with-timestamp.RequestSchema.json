@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"examples":{"Timestamped numeric value":{"description":"Timestamped numeric value","summary":"Write a number with the path timestamp","value":21.5}},"schema":{"type":"string","nullable":true}}},"description":"Any JSON value accepted by the attribute's value descriptor. JSON null clears the value.","required":true}}

@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"assigned":{"type":"boolean"},"composite":{"type":"boolean"},"compositeRoleIds":{"type":"array","items":{"type":"string"}},"description":{"type":"string"},"id":{"type":"string"},"name":{"type":"string"}},"title":"Role"},"schemaType":"response"}
