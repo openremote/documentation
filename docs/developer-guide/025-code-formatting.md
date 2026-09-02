@@ -521,16 +521,18 @@ This configuration applies to the current repository. Add `--global` only when y
 
 Only add commits that are overwhelmingly mechanical, such as repository-wide formatting or line-ending changes. Do not ignore commits that contain meaningful functional changes because that would hide useful authorship and history information.
 
-### Updating an existing pull request after the initial formatting change
+### Updating an existing pull request after repository-wide formatting changes
 
-Pull requests created before the repository-wide formatting commit can produce many merge conflicts, even when their functional changes do not overlap.
+Pull requests created before the repository-wide formatting commits can produce many merge conflicts, even when their functional changes do not overlap.
 
 For `openremote/openremote`, the relevant commits are:
 
-| Commit                                     | Description                                              |
-| ------------------------------------------ | -------------------------------------------------------- |
-| `d6941d97c96ad70e7a6b764a4a4a7682aa906c8a` | Last commit before the repository-wide formatting change |
-| `e3a066dcf739efe08d3d0e51e477d2d652dd28f8` | Apply Spotless across the repository                     |
+| Commit                                     | Description                                                    |
+| ------------------------------------------ | -------------------------------------------------------------- |
+| `d6941d97c96ad70e7a6b764a4a4a7682aa906c8a` | Last commit before the repository-wide formatting change       |
+| `e3a066dcf739efe08d3d0e51e477d2d652dd28f8` | Apply Spotless across the repository                           |
+| `5312a1199b0e1cc6daaa46c9b20f2d71a6755246` | Enable Spotless formatting for Groovy files                    |
+| `db6a1ef6c7bee92ffd6d1855d0aa057f56a028c2` | Apply repository-wide Spotless formatting to Groovy files      |
 
 The `master` branch can be merged into the pull request in stages so that functional changes are handled separately from the generated formatting changes.
 
@@ -570,7 +572,30 @@ The `master` branch can be merged into the pull request in stages so that functi
    git commit
    ```
 
-6. Merge the latest `master` branch as usual:
+6. Merge the commit that enables Spotless formatting for Groovy files:
+
+   ```shell
+   git merge 5312a1199b0e1cc6daaa46c9b20f2d71a6755246
+   ```
+
+   Resolve any functional conflicts and complete the merge normally. This commit also updates Groovy tests to use syntax supported by the formatter.
+
+7. Start merging the repository-wide Groovy formatting commit without completing the merge:
+
+   ```shell
+   git merge --no-commit db6a1ef6c7bee92ffd6d1855d0aa057f56a028c2
+   ```
+
+   As with the initial formatting commit, restore the pre-merge file state, regenerate the formatting, and complete the merge:
+
+   ```shell
+   git restore --source=HEAD --staged --worktree -- .
+   ./gradlew spotlessApply
+   git add --all
+   git commit
+   ```
+
+8. Merge the latest `master` branch as usual:
 
    ```shell
    git merge origin/master
@@ -578,15 +603,15 @@ The `master` branch can be merged into the pull request in stages so that functi
 
    Resolve any remaining functional conflicts normally. Run `spotlessApply` again if resolving a conflict required manual source-code changes.
 
-7. Verify the final result:
+9. Verify the final result:
 
    ```shell
    ./gradlew spotlessCheck
    ```
 
-Do not use the `-X ours` merge option for the repository-wide formatting commit. It operates on individual conflicting hunks and can combine formatted and unformatted code into invalid source files.
+Do not use the `-X ours` merge option for either repository-wide formatting commit. It operates on individual conflicting hunks and can combine formatted and unformatted code into invalid source files.
 
-Do not use the `-s ours` merge strategy either. It would record the formatting commit as merged without applying or regenerating its formatting changes.
+Do not use the `-s ours` merge strategy either. It would record a formatting commit as merged without applying or regenerating its formatting changes.
 
 ### Upgrading an existing custom project to Spotless
 
@@ -733,4 +758,3 @@ At the bottom of the pull request:
 4. Confirm the merge when prompted.
 
 Selecting **Squash and merge** for this pull request switches the merge button back to the method normally used for subsequent pull requests.
-
