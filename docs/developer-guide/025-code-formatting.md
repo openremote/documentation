@@ -521,16 +521,18 @@ This configuration applies to the current repository. Add `--global` only when y
 
 Only add commits that are overwhelmingly mechanical, such as repository-wide formatting or line-ending changes. Do not ignore commits that contain meaningful functional changes because that would hide useful authorship and history information.
 
-### Updating an existing pull request after the initial formatting change
+### Updating an existing pull request after repository-wide formatting changes
 
-Pull requests created before the repository-wide formatting commit can produce many merge conflicts, even when their functional changes do not overlap.
+Pull requests created before the repository-wide formatting commits can produce many merge conflicts, even when their functional changes do not overlap.
 
 For `openremote/openremote`, the relevant commits are:
 
-| Commit                                     | Description                                              |
-| ------------------------------------------ | -------------------------------------------------------- |
-| `d6941d97c96ad70e7a6b764a4a4a7682aa906c8a` | Last commit before the repository-wide formatting change |
-| `e3a066dcf739efe08d3d0e51e477d2d652dd28f8` | Apply Spotless across the repository                     |
+| Commit                                                                                                                                 | Description                                               |
+|----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| [`d6941d97c96ad70e7a6b764a4a4a7682aa906c8a`](https://github.com/openremote/openremote/commit/d6941d97c96ad70e7a6b764a4a4a7682aa906c8a) | Last commit before the repository-wide formatting change  |
+| [`e3a066dcf739efe08d3d0e51e477d2d652dd28f8`](https://github.com/openremote/openremote/commit/e3a066dcf739efe08d3d0e51e477d2d652dd28f8) | Apply Spotless across the repository                      |
+| [`5312a1199b0e1cc6daaa46c9b20f2d71a6755246`](https://github.com/openremote/openremote/commit/5312a1199b0e1cc6daaa46c9b20f2d71a6755246) | Enable Spotless formatting for Groovy files               |
+| [`db6a1ef6c7bee92ffd6d1855d0aa057f56a028c2`](https://github.com/openremote/openremote/commit/db6a1ef6c7bee92ffd6d1855d0aa057f56a028c2) | Apply repository-wide Spotless formatting to Groovy files |
 
 The `master` branch can be merged into the pull request in stages so that functional changes are handled separately from the generated formatting changes.
 
@@ -570,7 +572,30 @@ The `master` branch can be merged into the pull request in stages so that functi
    git commit
    ```
 
-6. Merge the latest `master` branch as usual:
+6. Merge the commit that enables Spotless formatting for Groovy files:
+
+   ```shell
+   git merge 5312a1199b0e1cc6daaa46c9b20f2d71a6755246
+   ```
+
+   Resolve any functional conflicts and complete the merge normally. This commit also updates Groovy tests to use syntax supported by the formatter.
+
+7. Start merging the repository-wide Groovy formatting commit without completing the merge:
+
+   ```shell
+   git merge --no-commit db6a1ef6c7bee92ffd6d1855d0aa057f56a028c2
+   ```
+
+   As with the initial formatting commit, restore the pre-merge file state, regenerate the formatting, and complete the merge:
+
+   ```shell
+   git restore --source=HEAD --staged --worktree -- .
+   ./gradlew spotlessApply
+   git add --all
+   git commit
+   ```
+
+8. Merge the latest `master` branch as usual:
 
    ```shell
    git merge origin/master
@@ -578,15 +603,15 @@ The `master` branch can be merged into the pull request in stages so that functi
 
    Resolve any remaining functional conflicts normally. Run `spotlessApply` again if resolving a conflict required manual source-code changes.
 
-7. Verify the final result:
+9. Verify the final result:
 
    ```shell
    ./gradlew spotlessCheck
    ```
 
-Do not use the `-X ours` merge option for the repository-wide formatting commit. It operates on individual conflicting hunks and can combine formatted and unformatted code into invalid source files.
+Do not use the `-X ours` merge option for either repository-wide formatting commit. It operates on individual conflicting hunks and can combine formatted and unformatted code into invalid source files.
 
-Do not use the `-s ours` merge strategy either. It would record the formatting commit as merged without applying or regenerating its formatting changes.
+Do not use the `-s ours` merge strategy either. It would record a formatting commit as merged without applying or regenerating its formatting changes.
 
 ### Upgrading an existing custom project to Spotless
 
@@ -608,24 +633,29 @@ uses: openremote/openremote/.github/workflows/ci_cd.yml@51f4c3c0c8edd429a6523726
 
 Pinning the workflow also prevents the project from receiving other workflow changes made after that commit. Use this only as a temporary measure.
 
+The pinned SHA is the [`51f4c3c0c8edd429a65237268d47d615617d4008`](https://github.com/openremote/openremote/commit/51f4c3c0c8edd429a65237268d47d615617d4008) commit in `openremote/openremote`.
+
 #### Pull request 1: Add Spotless and apply formatting
 
 The first pull request adds the Spotless configuration and applies the initial repository-wide formatting.
 
 ##### Synchronizing the Spotless configuration
 
-The Spotless configuration was added to the custom-project template in commit:
+The required Spotless configuration was added to the custom-project template in two commits:
 
-```text
-3aa39cc8e2134db446d7258d429315fc5615f6e9
-```
+| Commit                                                                                                                                     | Description                                 |
+|--------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------|
+| [`3aa39cc8e2134db446d7258d429315fc5615f6e9`](https://github.com/openremote/custom-project/commit/3aa39cc8e2134db446d7258d429315fc5615f6e9) | Add Spotless Gradle plugin configuration    |
+| [`ae2e2fb146accfbcacabbdfb7d7909b23711a284`](https://github.com/openremote/custom-project/commit/ae2e2fb146accfbcacabbdfb7d7909b23711a284) | Enable Spotless formatting for Groovy files |
+
+Use the second commit as the reference point because it includes both configuration changes.
 
 Check out the template at this commit:
 
 ```shell
 git clone https://github.com/openremote/custom-project.git custom-project-template
 cd custom-project-template
-git checkout 3aa39cc8e2134db446d7258d429315fc5615f6e9
+git checkout ae2e2fb146accfbcacabbdfb7d7909b23711a284
 ```
 
 Use a directory comparison tool such as [Meld](https://meldmerge.org/) to compare the checked-out template with the existing custom project:
@@ -637,10 +667,11 @@ custom-project-template
 
 Synchronize the Spotless-related changes from the template while preserving project-specific configuration. Carefully merge changes to existing files instead of replacing them wholesale.
 
-The exact changes introduced by the Spotless configuration commit can be inspected with:
+The exact changes introduced by both Spotless configuration commits can be inspected with:
 
 ```shell
 git show 3aa39cc8e2134db446d7258d429315fc5615f6e9
+git show ae2e2fb146accfbcacabbdfb7d7909b23711a284
 ```
 
 When other custom-project template updates are also required, compare the existing project with the desired newer template commit and merge those changes in the same way.
@@ -733,4 +764,3 @@ At the bottom of the pull request:
 4. Confirm the merge when prompted.
 
 Selecting **Squash and merge** for this pull request switches the merge button back to the method normally used for subsequent pull requests.
-
