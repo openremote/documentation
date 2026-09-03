@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"action":{"type":"object","properties":{"data":{"type":"object"},"httpMethod":{"type":"string"},"openInBrowser":{"type":"boolean"},"silent":{"type":"boolean"},"url":{"type":"string"}},"title":"PushNotificationAction"},"title":{"type":"string"}},"title":"PushNotificationButton"},"schemaType":"response"}

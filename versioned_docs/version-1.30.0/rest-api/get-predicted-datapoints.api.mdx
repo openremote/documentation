@@ -1,0 +1,69 @@
+---
+id: get-predicted-datapoints
+title: "Retrieve the predicted datapoints of an asset attribute"
+description: "Queries predicted values for one attribute using the supplied time-range and aggregation criteria. Anonymous access requires public-read access on both asset and attribute."
+sidebar_label: "Retrieve the predicted datapoints of an asset attribute"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the predicted datapoints of an asset attribute"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/asset/predicted/{assetId}/{attributeName}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Queries predicted values for one attribute using the supplied time-range and aggregation criteria. Anonymous access requires public-read access on both asset and attribute.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-predicted-datapoints.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-predicted-datapoints.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-predicted-datapoints.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

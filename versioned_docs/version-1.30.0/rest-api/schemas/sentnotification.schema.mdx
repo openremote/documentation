@@ -1,0 +1,32 @@
+---
+id: sentnotification
+title: "SentNotification"
+description: "One target-specific notification delivery record, including delivery and acknowledgement state."
+sidebar_label: "SentNotification"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"acknowledgedOn":"2024-07-29T15:51:28.071Z","acknowledgement":"string","deliveredOn":"2024-07-29T15:51:28.071Z","error":"string","id":42,"message":{"type":"string"},"name":"High temperature alert","realm":"building","sentOn":"2024-07-29T15:51:28.071Z","source":"INTERNAL","sourceId":"string","target":"REALM","targetId":"string","type":"push"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"SentNotification"}
+>
+</Heading>
+
+
+
+One target-specific notification delivery record, including delivery and acknowledgement state.
+
+<Schema
+  {...require("./sentnotification.Schema.json")}
+>
+  
+</Schema>
+            

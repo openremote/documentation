@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"id":{"type":"string"},"index":{"type":"integer","format":"int32"},"name":{"type":"string"},"nodeId":{"type":"string"},"type":{"type":"string","enum":["NUMBER","NUMBER_ARRAY","STRING","BOOLEAN","TRIGGER","COLOR","ANY"]}},"title":"NodeSocket"},"schemaType":"response"}

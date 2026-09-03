@@ -1,0 +1,1 @@
+{"schema":{"type":"object","allOf":[{"type":"object","discriminator":{"propertyName":"type"},"properties":{"message":{"type":"string"},"type":{"type":"string"}},"required":["type"],"title":"ValueConstraint"},{"type":"object","properties":{"max":{"type":"integer","format":"int32"},"min":{"type":"integer","format":"int32"}}}],"title":"Size"},"schemaType":"response"}

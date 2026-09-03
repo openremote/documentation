@@ -1,0 +1,300 @@
+# Frontend Testing
+
+OpenRemote uses [Playwright](https://playwright.dev/) for frontend testing. Playwright was originally created for end-to-end testing i.e. testing through a browser just like how users would interact with an application. This usually requires the backend to run, making end-to-end tests considerably slower than unit- or component tests. Playwright has added an experimental feature for component testing. This allows you to use the same Playwright APIs on individual components for better test isolation and easier parallelization.
+
+## Test Organization
+
+The frontend tests are organized under `app` (end-to-end) and `component` tests.
+
+### General setup
+
+All frontend testing code is situated under the `ui` directory.
+
+We use different Playwright configurations for `app` and `component` testing.
+
+- `ui/test/app.config.cts`: App test configuration
+- `ui/test/component.config.ts`: Component test configuration
+
+We do this because we modify the base configuration that comes with Playwright so that component testing works, however this configuration is incompatible with app testing thus we use 2 configurations.
+
+#### Shared test package
+
+Both the `app` and `component` tests depend on the `@openremote/test` package which includes shared fixtures, configurations and our Playwright component testing plugin.
+
+The `shared` fixture is available to every test. Apps get a `Shared` instance with general test utilities like intercepting requests. Components get a `CtShared` instance, which adds utilities for the component test page, such as serving the icon fonts and translations that the manager provides in a running app.
+
+Each project that needs testing should configure its own Playwright configuration file which must reuse the above-mentioned configurations.
+
+The plugin for component testing mimics Playwright’s component testing plugin, which normally comes with Vite, but this is incompatible with the `commonjs` imports used in some components. Playwright uses Vite to bundle and mount components to an empty HTML document for testing. Our Playwright plugin mimics the Vite based plugin using Rspack so we can mount our components to the document without import issues.
+
+### App test setup
+
+The app tests are used to test the app UI (End-to-End).
+
+#### Configuration
+
+- **Target:** Any app in the `ui/app/*` directory.
+- **Worker Scope:** A single worker for the whole app config (to avoid tests interfering with one-another).
+- **Code reuse:** Apps may include a `fixtures` directory with test and data fixtures, and reuse fixtures from components they depend on.
+- **Setup & Teardown:** App test projects should depend on `*.setup.ts` and `*.cleanup.ts` project files to provision realm(s), user(s) and collect authentication states for more robust and performant tests.
+
+```ts
+function createAppSetupAndTeardown(app) {
+  return [
+    {
+      name: `setup ${app}`,
+      testMatch: "**/*.setup.ts",
+      teardown: `cleanup ${app}`,
+    },
+    {
+      name: `cleanup ${app}`,
+      testMatch: "**/*.cleanup.ts",
+    },
+  ];
+}
+```
+
+### Component test setup
+
+The component tests are used to test individual Lit web components.
+
+#### Configuration
+
+- **Target:** Any component in the `ui/component/**` directory.
+- **Worker Scope:** Each component runs its own tests in parallel.
+- **Code reuse:** Components may include a `fixtures` directory with test and data fixtures, and reuse fixtures from other components they depend on.
+- **Setup:** The component test setup includes a dedicated app at `ui/test/playwright` (used to display components and serve static files).
+
+## Writing tests
+
+### Prerequisites
+
+Assuming you have set up your [development tooling](010-preparing-the-environment.md#development-tooling).
+
+1. Create a playwright configuration file `playwright.config.ts` in your component / app directory.
+
+Playwright configuration file contents for an app:
+
+```ts
+import { defineAppConfig } from "@openremote/test/app.config";
+
+export default defineAppConfig(__dirname);
+```
+
+Or for a component:
+
+```ts
+import { defineCtConfig } from "@openremote/test/component.config";
+
+export default defineCtConfig(__dirname);
+```
+
+Both derive the project name from the directory you pass, so the argument is always `__dirname`.
+
+2. Add the corresponding `test` script to the `package.json` file in your component / app directory.
+
+|           | test script (in package.json)                                        |
+| --------- | -------------------------------------------------------------------- |
+| app       | `npx playwright test`                                                |
+| component | `npx tsc -b && npx playwright test`                                  |
+
+3. Add the `npmTest` Gradle task to the `build.gradle` file in the component / app directory so that the CI/CD pipeline knows to run your tests.
+
+For a component:
+
+```groovy
+tasks.register('npmTest', Exec) {
+    dependsOn getYarnInstallTask()
+    commandLine npmCommand("yarn"), "run", "test"
+}
+```
+
+For an app, which installs only the workspaces the test run needs and forwards extra Playwright arguments through the `args` property:
+
+```groovy
+tasks.register('npmTest', Exec) {
+    dependsOn ":ui:test:installTestDeps", ":ui:test:clean"
+    commandLine npmCommand("yarn"), "run", "test"
+    args((findProperty('args')?.toString()?.tokenize()) ?: [])
+}
+```
+
+4. Install the required Playwright browser(s):
+
+```sh
+npx playwright install --with-deps chromium
+```
+
+See the [Playwright Intro](https://playwright.dev/docs/intro) for more.
+
+5. (Only for apps) The manager app or any app that you would want to test must first be running. When you start app tests they'll automatically start the manager, so ensure the required containers are up using:
+
+```sh
+docker compose -p openremote -f profile/dev-testing.yml up -d
+```
+
+> Info: Having the frontend be served by the manager is much faster than serving the frontend using Rspack.
+
+### Writing your first test
+
+To start writing tests using Playwright add a test file ending in `*.test.ts` under your `test` directory.
+
+Then include the following boilerplate for app tests:
+
+```ts
+import { test } from "@openremote/test";
+
+test("My app test", async ({ page, shared }) => {
+})
+```
+
+The `test` function from `@openremote/test` only provides Playwright's own fixtures plus `shared`. App specific fixtures like `myApp` come from extending it, see [Reusing test code](#reusing-test-code).
+
+Or the following for component tests:
+
+```ts
+import { ct } from "@openremote/test";
+
+import { MyComponent } from "@openremote/or-<my-component>";
+
+ct("My component test", async ({ mount }) => {
+  const component = await mount(MyComponent, {
+    props: { value: "test" },
+    // slots: {},
+    // on: {},
+  });
+})
+```
+
+:::note
+
+You must import a component by its alias `@openremote/*`. Relative paths will cause issues. The downside of alias imports is that they refer to the transpiled TypeScript (in the `lib` directory), which is why the component test script includes `npx tsc -b` and needs manual rebuilding. However you can still live reload the component changes indirectly by running `npm run serve` on the manager app.
+
+:::
+
+Playwright uses [`locators`](https://playwright.dev/docs/locators) to find elements in the DOM. It's crucial to know the different types of locators to be able to write tests that are robust and to avoid flaky behavior.
+
+From here on out you can decide to use any of the Playwright provided web first assertions (e.g. `await expect(component).toHaveText("test")`) and perform actions like clicking a button.
+
+See [First test](https://playwright.dev/docs/writing-tests#first-test) for more.
+
+### Reusing test code
+
+You may want to reuse certain `locators` or other test code between your tests, or with other projects. By convention Playwright enables you to configure the environment (besides common test hooks like `beforeEach` and `beforeAll`) using [Test Fixtures](https://playwright.dev/docs/test-fixtures). These can be defined by extending the `test` function with your own objects related to their environment like a specific page or component in your application you are writing the test around.
+
+To write a test fixture add a `fixtures` directory under your `test` directory. Then add a TypeScript file usually named after the application, a page in your application or component you're writing the fixtures for. Then create a class for the app, page or component with the common actions you might take, e.g. going to a page.
+
+```ts
+export class AssetsPage implements BasePage {
+  constructor(private readonly page: Page, private readonly shared: Shared, private readonly myApp: MyApp) {}
+
+  async goto() {
+    this.myApp.navigateToTab("Assets");
+  }
+}
+```
+
+:::note
+
+In case you want to reuse certain non-project specific fixtures across multiple projects you can add your fixture to the `shared` fixtures in the `@openremote/test` package under `ui/test/fixtures/shared.ts`. If you want to reuse component specific fixtures in tests for a parent component or an app, simply import the fixtures and add them through the `extend` method.
+
+:::
+
+Finally extend the `test` function:
+
+```ts
+import { test as base, type Page, type SharedComponentTestFixtures } from "@openremote/test";
+
+interface PageFixtures {
+  assetsPage: AssetsPage;
+}
+
+interface ComponentFixtures extends SharedComponentTestFixtures {
+  ...
+}
+
+interface Fixtures extends PageFixtures, ComponentFixtures {
+  myApp: MyApp;
+}
+
+export const test = base.extend<Fixtures>({
+  // App
+  myApp: async ({ page, baseURL }, use) => await use(new MyApp(page, baseURL)),
+  // Pages
+  assetsPage: async ({ page, shared, myApp }, use) => await use(new AssetsPage(page, shared, myApp)),
+  ...
+```
+
+And make sure to import the extended `test` function in your test file.
+
+```ts
+import { test } from "./fixtures/myApp";
+
+test("My app test", async ({ assetsPage }) => {
+})
+```
+
+### Running the test
+
+The `npmTest` task runs in every package that registers it, so the directory you point Gradle at decides which tests run:
+
+```sh
+./gradlew npmTest                    # every frontend test
+./gradlew -p ui/component npmTest    # all component tests
+./gradlew -p ui/app npmTest          # all app tests
+```
+
+App packages forward extra Playwright arguments through the `args` property, which is how CI shards the app test run:
+
+```sh
+./gradlew -p ui/app/manager npmTest -Pargs="--shard=1/4"
+```
+
+While writing or debugging a test, run Playwright directly from the component / app directory instead. [UI mode](https://playwright.dev/docs/test-ui-mode) gives you the watch mode, trace viewer and time travel debugging that the Gradle tasks do not:
+
+```sh
+npm test -- --ui
+```
+
+### Best practices
+
+Please read the [Playwright Best practices](https://playwright.dev/docs/best-practices).
+
+**TL;DR**
+- Avoid `xpath` and `css` selectors. Relying too heavily on classes and filler elements makes you more prone to breaking tests when a CSS class is renamed or removed, or when nested elements are removed.
+- Do not use `waitForTimeout` outside of debugging. Tests don't always take the same amount of time which can cause flaky behavior, rather use something like `locator.waitFor()` or even better `page.waitForURL()`.
+- Isolate tests, so you can rerun them without relying on external factors such as other tests.
+- Use [web first assertions](https://playwright.dev/docs/test-assertions) e.g. `toBeVisible`, `toBeHidden`, `toBeChecked` etc. which use a retry mechanism to avoid flakiness.
+- Reuse locators and compose actions through test fixtures to standardize how to locate specific elements on screen and avoid code duplication in tests.
+- Use the Playwright UI mode, test reports, trace viewer and debugger features.
+<!-- - Enable multiple browsers (see playwright UI checkboxes) -->
+
+### Tips
+
+The most useful feature Playwright provides when it comes to writing frontend tests is [UI mode](https://playwright.dev/docs/test-ui-mode). Once the Playwright UI is launched you can select which projects you want to see and run.
+
+:::tip
+
+The UI includes a locator tab, which allows you to click an element in the test preview to easily get a locator of an element.
+
+:::
+
+:::warning
+
+Sometimes the locators Playwright provides are susceptible to flaky behavior, it is important to understand the DOM structure of the UI to get the most effective locators.
+
+:::
+
+:::tip
+
+In some cases you may face a situation where the UI needs to load first, before you can run an action. You can use `await selector.waitFor()` to ensure the element you want to interact with is visible.
+
+:::
+
+In case you want to see how Playwright runs in a headed browser you can add the `--headed` argument.
+
+```sh
+npm run test -- --headed
+```
+
+See https://playwright.dev/docs/test-cli#reference for more CLI arguments.

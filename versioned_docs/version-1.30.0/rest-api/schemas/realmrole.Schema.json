@@ -1,0 +1,1 @@
+{"schema":{"type":"object","description":"Realm-level roles available for assignment.","properties":{"description":{"type":"string"},"name":{"type":"string"}},"title":"RealmRole"},"schemaType":"response"}
