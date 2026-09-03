@@ -1,0 +1,69 @@
+---
+id: delete-realm
+title: "Delete a realm"
+description: "Permanently deletes a realm from the identity provider. The master realm cannot be deleted; related Manager data is not automatically removed."
+sidebar_label: "Delete a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVt9P3DgQ/ldG89RKIeGAewkvh1p0V6mnIg6e0AqMM7ux6tipPQH2VvnfT2Mn7MJRpKs4qU+btT2fv/n1jTfYUNTB9Gy8wxrPKHTKkWO7hoYsMUVQEEjZDpbBd8AtgWnIseE19MHfmYZCCRctQaciU5gOa+WcZ7ilCaY5hkBWMTXwp3JqRQEaxQpMBDmnBvadYqOVtWsI1Pk7akos0PcUlJD71GCNGetcbsACexVUR0whYn21eebJl57cOXWeaWLkVEeCSA+q6y1hjbeDsY1xKyzQiEmvuMUC5SDW+afAQN8GE6jBmsNABUbdUqew3iCvezkXOQjGOC7kcOy9ixRl/2D/SH6e0pJACSRFBu2FiIQkDlpTjMvB2vUxOA8zENz6Zi1BCsRDcNTgWODR/i8CrL1jcpyo0ANXvVXixuYVimPxjM7JwK0kU6cY54uyv+BDSnYc+t4aakAHSnlXNoIKBMbdKWsmQodvRUjio7akqIEhSq14yoXSqjuCnkJnYhTG7OXf0gcpTRPhsV4yr6O35DXljRpJjx+Cpi0vejCR852/vpz119sD5cpIegiG16mcfU/ONFhfLaSyWK2kyjHX/qLAjrj1255I7cAt1lilG6qN1O+IAhru5hYZgsUaW+Y+1lXVUOdLuSakPimNr1Rvqk0CGCss8E4Fo25true0nH1bqsEy1ph9kngttuz/kqhmk9mHDS6tv09LklwfzN8pSR98Q/9avEwkK1nLvsQq31P1wbPX3lYZd09750hzOppadRkotv/dnv1XchIq7ftMvA9+aZJIzF9jgenYj6KPBWpryPGHbR/lqP7MpAUgt4YX44O0YtzSz32ldOor6pSRK2TrtyclhS+0komiNKIujddDR46z/CwnzdnR7nlY/HFxcQYnZ5/yqLlJTtxArm2YyxQiWdKcoWeVTUdLwczCILuKIbb+Pp27yZ4LWK7fWQKFFziiBpSDL6KUcAAqCTWk8Bxv1SbCveHWD5zBdxFEQH1gUM67deeHOGEUoKyYrNqJbhb4PBa1chDZWCsSYU1nRHVE64Zba/Sj/sQSLp0VQsptyTxGVZY9txQgK10BFIIPj9MliriCgiSIe6KNad6UcGZJRQknJW5XT9K0ePcoIF7HpwLyPuWw82k+LL3MW2s0uZjafJqsJ7+ffYbDch+LZ4J0f39frtxQ+rCqJrNYqVVv9w7L/ZJc2XJnU1EbTnX+SqGIelGIueTEfF8Mex+5U26HzMckn/MjB58V687w+PneRlNn7sy0cYroZhoGVzh7VSd3FwW2PrJsbDa3KtJlsOMoy98GCjJ3FlvRz48qE+W7wXqpbKRXwvPufHo5vIfvvr1eZDwtKrdOE8cO8g8L/Err+Rk2LsYCW1INhcQqb51oTT3vGO3i7o7Ij6efTy9OsUhzZmfcT5pWzB8C/SKbWU9nUklzcSy+c/xHZDwDB2pMIM3XQzD/B36Wnot5JrzJDdP0nS4YuH0V+cmov9byAJhtV0E5vk5W42Icx38Af6x3UQ==
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/realm/{name}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Permanently deletes a realm from the identity provider. The master realm cannot be deleted; related Manager data is not automatically removed.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./delete-realm.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./delete-realm.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./delete-realm.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

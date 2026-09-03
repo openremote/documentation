@@ -1,0 +1,69 @@
+---
+id: get-value-descriptors
+title: "Retrieve the available value descriptors"
+description: "Returns attribute value descriptors keyed by descriptor name, using a gateway model when parentId resolves below a gateway."
+sidebar_label: "Retrieve the available value descriptors"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNWFlz2zYQ/isYTB+SKS06TiftqA+tYjep0yR2ffShtjtZkSsRNQ4GWEhmNfrvnQUpW5alNEc17RM5wN7YXXyLmSwxFF7VpJyVfXmCFL0NAoi8GkZCMQEdUSyonA/iGhssxbBZWhQWDGYiBmXHAsQYCKfQCONK1GJaoRU1eLR0WAqPwekJBjFE7aZ3xD2ZSVejB7bksJR9OUb6jZUf3OmWmazBg0FCH2T/YrZi/lH6Ad2pExACkogBS0FOBNRYkKAKhXYFaOH8fVNlJvEGTK1R9uW3g2f1NwP7+uz6l5tX5/u/DgaD54OBzKRiTe8j+kZmkh2XfblwT2YyFBUakP2ZpKbmvUBe2bGcz68y6THUzgYMvL+3u8ufwllCS/wLda1VkUKQ/xnYpdlDeW74JxYkMwllqVp/jz2HjlQrd5WuvrcL3kNzoAzaoJxdZlCWcIxeZnLkvAFql57uyXnGRgbyoCwtcyRZHBJCs1Z1qfh4jLJAzjNBZ0vzto1bop+vmmgwBBjjmhhm3cLD4HJs30flsZT9i3b3KpOkKB1mSqT9Wx8S/cLJfwxYeO6cRrBLpMNuZZ5JCAdAuGnvjTNoCXyzieBtNEP0m3aP7NFotHGzRruvXWCX11McewwByxPUCB8gO9Wq3GRDCYSn1Og1Qc8k2mg43DYa9KqQmdzbKdVYcRBHUXNBaZcoDZYqGi6PynlKheO9m8qrpKLZqvBj9MqV21OBfk25/1vCRx6KtshPsXC2PGAJH1u1lYt+e6ax9Cd769NGBffds90n6zcN3CgTzYvOtU9yqeM9VWOrRqoAS5/Gruznq255D1uSz2H9AqsjbbECTepSr8KL1ZZ413eNs1Rt0YKoSWllNzTShBpie8vf7tu2dc4zGVJpbM86UmbbTZBV/O4sthfjtrTEgC+9izXLXBvoKeL19tSz9K12+wZhaw1vvgInumKZZ5Kh2tl6XMICCc4DHlm9AQPYDSdeAxF6Bpt/XF5Ov350eXlxeXn1+IevmCla9VFI7BYfrVp/h6qPWtgzTzT38fRZhYJhFQYShWNgTFiKEIsCQ+C4NQlJEYwZjctBgttvEpS+Sp5XrkPyrT+V7Ms8Qe188hDaB/STBa6PXsu+rIjq0M/zEo3ruRqtR+MIe8rlUKt85hG0mecykxPwCoa6RWxpmX9KHEHU3EoNBOJekVB4wCJ6Rc0pQ+uWhYWr1EFG2k1b3Bepcl79leD4vivxweJ5MjLntTzpDHmrJ6+9I1c4nbdydwpnLRaUSCW3s5HHUH06P7lrtGnIcHVreO3dSKVjXfzxgTDZ50pntK8VWtr3WKIlBbqL6v/Z6NvRQDpm3ksryo7cYsSCIl1saEDpdLeO3I/3UkquSX8VhAppYixdEROU5z0xcj6tMgQ/SQLEG7AwRi9+Pjs7FoPjw57g6nmXnHgn2twWizTtZtFW9KLCEmmPZbZTMO8CiVC5aaJ713rOwtr8Fd3Iw3YJi1gKsOJoEKkSewJSkYoUnu+FuxM6VVS5SK3wZQkh1rXzJMA62xgXQycjE6CZZVx15vIbAZaiBAJRgBWBlNZiiEIro6gdtus41KpI4370BYaeOLeaDQJ7Z8xtVHnZUYVetONuJtB758XtvMxDvABRa1B2h/CGxNCVTU8cp8lGBMRk28W9Y7p6dNtAXBHuN5DH6QyN8yg4Ffj5QasCbUhl3o31g5fHr8XT3q7MVhrSdDrtjW3sOT/OO7aQw7jWO097uz20vYqMlks99wOJwt0LfWhTjtl300TsApl25uyMOUHyCietozABpVMmPXigkStpvPTC8B+/73QFyseXp5NMNxkHdtbdDhdy8RDz4H644oEjENPMZkMIeO71fM7L7VtMeg1SgWNSyv4IdMAPBOLLX4rWOnONzf3XoOSG7EvJ986i+mX/Is1PCGnsvph1fIOiwJqWuB68B82Xr9WXP53J+fxvxCfZhQ==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the available value descriptors"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/model/valueDescriptors"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns attribute value descriptors keyed by descriptor name, using a gateway model when parentId resolves below a gateway.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-value-descriptors.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-value-descriptors.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-value-descriptors.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

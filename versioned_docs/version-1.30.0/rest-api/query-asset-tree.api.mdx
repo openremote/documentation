@@ -1,0 +1,67 @@
+---
+id: query-asset-tree
+title: "Retrieve an optimized asset tree using a query"
+description: "Applies the same authorization and selection rules as queryAssets, then returns a hierarchy optimized for tree display rather than a flat asset array."
+sidebar_label: "Retrieve an optimized asset tree using a query"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve an optimized asset tree using a query"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/asset/tree"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Applies the same authorization and selection rules as queryAssets, then returns a hierarchy optimized for tree display rather than a flat asset array.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./query-asset-tree.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./query-asset-tree.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

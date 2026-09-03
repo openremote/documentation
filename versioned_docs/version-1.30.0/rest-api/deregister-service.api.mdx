@@ -1,0 +1,69 @@
+---
+id: deregister-service
+title: "Deregister an external service"
+description: "Removes an active service registration. The caller must be the service account that registered it; global-service removal additionally requires a super user."
+sidebar_label: "Deregister an external service"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVsFuGzcQ/ZUBTwmw1jp2TsqlRhK0AdLGSOyTISQUOdIS4ZIbcihFFfbfiyF3tZJrGK2bAjl5RXMeH4cz781eaIwqmI6Md2IuPmLrNxhBOpCKzAYhYtgYhRBwbSIFyRtncNMgKGktBmhTJFgiUDNtlkr55AiokTREYkANhl7B2vqltGcTbus30oLU2jC2tHYHAb8lE5gHxNRhgBQxzEQlfIeFwjst5kLjiP2poIlKdDLIFglDFPO7/b3rfSK5tBNN2nUIRqMjszIYQDU+ooPl7vgyfCx+l21nUczFFiU1GEQlDAN2khpRCSdb/ucQ8U6LSgxX0GJOIWElomqwlWK+F3wqb6Zg3Fr0fXWf5R+pxWAUGBdJOnVCUcZo1g416MThp89yzPTFgwxHyH9G0TjCdb7syodWUlm6vBB9v+Dw2HkXMXLExflL/nMv3UOep3dCDTEphTGukrU70Vfi5fkLjlTeETrKp+N3qjsrmf/+kcT11b3zrhI1nCmV0wEmjoWkwYfypqnrrEENKmBOqrQRZEAwbiOt0YXQ5Y8ixG0iJ1KocyGD9hjBeYJGbhA6DK2JkRmT51+cbKDGRDiUe+H1SIoPtcKwK5+c5soSEVUKhna5F3yHzmgxv1vw85Fcc4uMCFEsKtEiNb50lkUq7USNmIt6KO16f6jxvt5P1dSLKlf/2HYpWDEXDVEX53WtsfUzPp2bnXBmfC07U+8DStv2tajERgbDrZlrKS+Xq65kslx2reTq4RQvpkt94ocoIePV9mJl/TYvcd59MH/m/L32Gv+2eJtJ1rxW5zNjXc6pu+DJK2/rgnumvHOoKG/NjbMKGJt/H0/+KzpOlfJdId4FvzJZWcavvhJ521PR+0ooa9DR66nES1Z/ZtIMULrJc/BFXjFu5cdWlCq3IrbS2KxDK//LSUmJB7rPRBYBbnztVWrRUVGG1SAHHzp0HzMA/C6dXGOA325uruHq+l3xuC/5El+g1DaMZQoRLSoq0KwxGNnnpG1njFl6Nhb7i43f5n1fys0ZrNTvqE7MCxyiZtv9wCIGF2yhGCPk9LyahCDC1lDj08FbJwTWNh8IpPNu1/oUB4wKpOWQdTPQpRSyg0iSoKSDSMZatnBrWsMixTKUltYoCBh9CgrjDG6dZULSTWQOWeVlz74IRRwrwBB8gINFsO6BhKyhZyynsPR6N4NrizJyOsv8cHfyTItnBwHxKp4KyPP8hq3P0r3ybH3WKHQxt/ngdle/Xr+Hy9m5qO4J0na7na1dmvmwroewWMt1Z88uZ+czdLOGWpuL2lCu80cKhdULQywlx+HnHNj5SK10R2TeHEyQc4jfCYOTdpwyxL3iPfKfn34oGxr3yCX7IeH7wT/uxHTN+fGUND8aSBaVaHwk3r3fL2XE22D7npe/JQxsYYvJKMpwZyJ/azFfSRvxkRQ++zgMAs/hqTPgg7ccFqXbZROziX+JSnzF3ck8mIe8p7D9L7PgExgfPUe/6CvRoNQYcrLLhiulsKOj0GP04wnizdv3b2/eiipb7tGwNMh7NX4w9IOcRms5JJPtJyfywe1PcbQCHFCbgIo+p2D+D/yiwjejPf6QE4ZBZDggUfMo8snU81nxLDTGroN09DlH9Yu+7/8CZWr/cA==
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Deregister an external service"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/service/{serviceId}/{instanceId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes an active service registration. The caller must be the service account that registered it; global-service removal additionally requires a super user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./deregister-service.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./deregister-service.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./deregister-service.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

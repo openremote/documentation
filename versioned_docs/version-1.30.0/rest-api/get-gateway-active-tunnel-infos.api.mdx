@@ -1,0 +1,69 @@
+---
+id: get-gateway-active-tunnel-infos
+title: "Retrieve the active tunnels of a gateway"
+description: "Returns active tunnels for one gateway asset. Restricted users may query only a linked gateway."
+sidebar_label: "Retrieve the active tunnels of a gateway"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFvGzcM/isEn1rg6suSYgO8l3nBkHXr0Cx1ngKjVXS0T41Oukq8pJ5x/32gdGc7iRegQTfsyWeJFD9SHz9xgxVFHUzLxjuc4gVxF1wEpdncEnDnHNkISx/AO4KVYrpTa1AxEk/ggiIHo5kq6CKFCI1aw+eOwhq8s2tQYI27oWr0m2CBvqWgJNqbCqe4Ij7Le7MUcZ4CvnFLH7HAVgXVEFOIOL3aPID6riV3QY1ngkDKNuBUQxKBvqimtYRTvO6MrYxbYYFGXFrFNRYohjjF5IUFBvrcmUAVTjl0VGDUNTUKpxvkdSuGkqRbYd8XDzGc7dcDTEWOzdJQuA/jh9n37euZezu/+f3Lb5enf85ms59ns8OgTPVViBZiHFvvIkXZPz46kh/tHZNj+VRta41OFS8/RUG9eXyeCkGtBRBTE/fW/fUn0iw3EeTe2OQoKkazclSd+8B71sYxrShggUsfGsV56eQY+wJVx/7U+khzI3k+zGTPpVJMr1is+gIH4ghXHiVfYO0j57od2DSHffKtH9phFVbET2x9RbrZ5HGW5LoGp1f463x+/h6L9IsFzk/PcdGLn+FEmYFYu3bAvpf9+/Sb18L9zx1FBu2FbdKKsdOaYlx21q4Fy+tHnGD6wmVrlTnMhi27ngy4a07wAa59tQYVCIy7VdZUOfB33yrwrONamisTGUyEsUckONcEsROiUwU6UOpDZeNjQCffshJqB2pQQKg8RXCeoVa3BC2FxsQoiNnLPyEKcG0ibGVQZAUj6S4YXieZ8y05Ie/VQtqb1UrUb2QELgpsiGs/qGdSSa5xiuXQK2UW7XKTmN6XG1P1KCHC7SikXbA4xZq5jdOyrKjxEwkakppOjC9Va7b+WOCtCkZd29z82waqaKk6K7RvVGQKUqbFLpf3UszsMma0waX1d1lCOq59MH+lGpz6ih4tXiaQpayVKWYsc5yyDZ699rbM577S3jnSnEyTei4Dxfrr/dnfkJNSad9m4G3wS5MacvySHhWz557eF6itIcenO5rmqv6fQW8VDb04H6cVI7I0tJPSqZ2oUcYmHVz6n+5RCg90kInSyNK8ldddQ45zdy+Hlt574f9QTq0ogOglzM7fTEAa8GNK4iNkbsNIU4hkSXM+epSrZDqRM3Pfya5iiLW/S3Yfc+ZyWObvqDCCCxxRBcrBOxEiOAaVJBZSeX7cNXOEO8O17zgfvn+C6JMPDMp5t258F4czClBWXFb1AFcGMKqgUqxAKweRjbVwTWBNY0RoREq6a2s0BIq+C5riBC6dFUDK7cBsqyrLnmsKkAWuAArBB9hODqJdoCDp4CuRxCTnEzi3pKKUkxK2q3vXtHixFRCv430BeZnusPFJfpdexiFrNLmY2nwYdWZn52/hZHKExQNBuru7m6xcN/FhVQ5usVSr1r46mRxNyE1qbizuvZZPEEXUi0LMlBP3I3FsfeRGuT0wF8TB0G1O9MH065egxhEWH9B47zX5D4bnoQn3Xq1+KN5meAaucAc0A8ACp+OoOzWVPCAyN4npZnOtIl0G2/eynILLu7NT/Dx3myjfFU6XykZ6ogIvLoZX+SX843h+MIdxDnXr9NzYTv5hgTe03k7qafx+DpSnpvRnoJFZYiHTJ6mKQqpQ3phpTS3vuTyavfv91/vslzmmwbjen7izvhbjh5x+EM6o7SOqpP+pRgfNn/OkjMWvTCDNH7pg/o3zswzOx/fpm0QYJoEhQMf1kyffGzs+aBlGRt9VUI4/JK9+0ff93y3wVfQ=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the active tunnels of a gateway"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/gateway/tunnel/{realm}/{id}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns active tunnels for one gateway asset. Restricted users may query only a linked gateway.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-gateway-active-tunnel-infos.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-gateway-active-tunnel-infos.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-gateway-active-tunnel-infos.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

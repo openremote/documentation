@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"compilationErrorCount":{"type":"integer","format":"int32"},"executionErrorCount":{"type":"integer","format":"int32"},"status":{"type":"string","enum":["STOPPED","RUNNING","ERROR"]}},"title":"RulesEngineInfo"},"schemaType":"response"}

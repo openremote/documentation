@@ -1,0 +1,32 @@
+---
+id: notification
+title: "Notification"
+description: "Notification submission containing a typed message, one or more targets, and optional repeat scheduling."
+sidebar_label: "Notification"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"message":{"type":"string"},"name":"High temperature alert","repeatFrequency":"ALWAYS","repeatInterval":"string","targets":[{"allowedLocales":["string"],"data":{},"id":"string","locale":"string","type":"REALM"}]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Notification"}
+>
+</Heading>
+
+
+
+Notification submission containing a typed message, one or more targets, and optional repeat scheduling.
+
+<Schema
+  {...require("./notification.Schema.json")}
+>
+  
+</Schema>
+            
