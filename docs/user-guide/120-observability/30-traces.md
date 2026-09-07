@@ -52,3 +52,12 @@ or:
 This uses Alloy's OTLP/HTTP receiver on port `4318`.  
 Additional OpenTelemetry Java agent settings, such as sampling, can be supplied through
 `or.env`.
+
+### Data safety
+
+The default agent instrumentation does not capture HTTP request or response bodies, and HTTP header and servlet
+request-parameter capture are opt-in. Do not enable those capture settings without a separate data review. Database
+statement sanitization is enabled by default and must remain enabled. The traces still contain operational metadata
+such as route and URL information, database operation and table names, remote addresses, exception details, and
+messaging destinations. Do not put credentials or sensitive values in URLs, destination names, exception messages,
+resource attributes, or custom OpenTelemetry configuration.
