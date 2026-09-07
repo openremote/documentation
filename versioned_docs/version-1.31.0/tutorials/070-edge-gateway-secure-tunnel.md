@@ -30,7 +30,7 @@ Configure the edge instance with the central instance's address and the gateway 
 Open the gateway's local UI from the central instance through the **secure tunnel**, so field engineers can configure and troubleshoot a site without a site visit or a public inbound port. Follow the tunnel setup in [OpenRemote as Edge Gateway](../user-guide/080-gateways-and-devices/10-edge-gateway.md).
 
 :::caution
-Restrict who can open tunnels and access gateway UIs using [roles and restricted users](./060-enterprise-identity-sso-rbac.md); remote access to field equipment should be tightly scoped.
+Remote access to field equipment should be tightly scoped. Opening a tunnel needs the `write:tunnels` role, which is not granted by default - see [who can open and view tunnels](../user-guide/080-gateways-and-devices/10-edge-gateway.md#who-can-open-and-view-tunnels). Combine it with [roles and restricted users](./060-enterprise-identity-sso-rbac.md) to limit which gateways each person can reach.
 :::
 
 ## Step 5 - Decide what runs where
