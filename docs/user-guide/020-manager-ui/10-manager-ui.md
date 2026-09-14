@@ -190,13 +190,12 @@ _Figure 13. The alarms page with an overview of all alarms._
 
 ## Notifications
 
-The notifications page (top right, under the dots menu) shows all email and push notifications sent within the selected realm, and lets you send new ones. Reading requires the 'read notifications' role, sending the 'write notifications' role. These features are supported:
-* Overview of sent notifications: title, content, status, source, recipient, and the moment of sending and delivery.
-* Status: `Sent` when the notification left the platform, `Delivered` when a console confirmed receipt (push only), or `Error` with the reason of failure.
-* Source: shows what triggered the notification, being a When-Then rule (global, realm, or asset ruleset), the platform itself (internal), or a client using the [Manager APIs](#manager-apis).
-* Recipients: users, users linked to assets, or all users in a realm. The recipient links to the respective user or asset.
-* Send a notification: compose an email (subject and body) or a push notification (title, body, priority, a URL to open, and confirm/decline buttons) and send it to the selected recipients.
-* Filtering by source and by period (today by default), ordering by column, and paging.
+The notifications page (top right, under the dots menu) shows all email and push notifications sent within the selected realm, and lets you send new ones. These features are supported:
+* Overview of sent notifications: see what was sent by rules, the platform itself, or clients using the [Manager APIs](#manager-apis), and whether it was sent or failed.
+* Filtering by source and by period, ordering by column, and paging.
+* Send a notification: write an email or push notification and send it to users, users linked to assets, or all users in a realm.
+
+Viewing notifications requires the `read:notifications` role, sending them the `write:notifications` role. See [Notifications](./50-notifications.md) for more details.
 
 ![](img/notifications-overview.png)
 _Figure 14. The notifications page with an overview of all sent notifications._
