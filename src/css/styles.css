@@ -7,13 +7,18 @@
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2e8555;
+  --ifm-color-primary-rgb: 46, 133, 85;
   --ifm-color-primary-dark: #29784c;
   --ifm-color-primary-darker: #277148;
   --ifm-color-primary-darkest: #205d3b;
   --ifm-color-primary-light: #33925d;
   --ifm-color-primary-lighter: #359962;
   --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-secondary-lightest: rgb(246, 248, 250);
   --ifm-code-font-size: 95%;
+  --ifm-color-info-dark: var(--ifm-color-primary);
+  --ifm-color-info-contrast-foreground: var(--ifm-color-content);
+  --ifm-color-info-contrast-background: var(--ifm-color-secondary-lightest); /*rgba(var(--ifm-color-primary-rgb), 0.07);*/
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
 
@@ -26,6 +31,14 @@
   --ifm-color-primary-light: #29d5b0;
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-secondary: rgb(40, 42, 54);
+  --ifm-color-secondary-dark: #242631;
+  --ifm-color-secondary-darker: #20222b;
+  --ifm-color-secondary-darkest: #1c1d26;
+  --ifm-color-secondary-light: #3e3f4a;
+  --ifm-color-secondary-lighter: #53555e;
+  --ifm-color-secondary-lightest: #696a72;
+  --ifm-color-info-contrast-background: var(--ifm-color-secondary) !important;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
 
