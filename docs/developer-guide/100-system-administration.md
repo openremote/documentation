@@ -3,7 +3,7 @@
 ## Monitoring
 
 Use `docker stats` to show CPU, memory, network read/writes, and total disk read/writes for running containers.
-Also use prometheus metrics to monitor individual container health (see: [Metrics](../user-guide/120-metrics.md)).
+Also use prometheus metrics to monitor individual container health (see: [Metrics](../user-guide/120-observability/20-metrics.md)).
 
 ## JVM
 
