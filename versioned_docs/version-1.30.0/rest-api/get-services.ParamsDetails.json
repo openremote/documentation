@@ -1,0 +1,1 @@
+{"parameters":[{"description":"OpenRemote realm name.","example":"building","in":"query","name":"realm","required":true,"schema":{"type":"string"}}]}

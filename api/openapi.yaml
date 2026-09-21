@@ -8937,6 +8937,8 @@ components:
           type: boolean
           description: Use TLS for the remote connection; defaults to true.
           example: true
+        tokenEndpointURI:
+          type: string
       required:
       - clientId
       - clientSecret

@@ -1,0 +1,69 @@
+---
+id: get-user-sessions
+title: "Retrieve live sessions for a user"
+description: "Returns active MQTT sessions for one user, including connection ID, creation time, and remote address. Without read-admin permission, callers may inspect only themselves."
+sidebar_label: "Retrieve live sessions for a user"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVm1v2zYQ/isHfmoB2UrSrC/alwXt0AVY0TR1sA+B0dLUyWJLkSp5cuoZ+u/DkZJjJ16xBh2wfZJE8Y4P7+W5ZyNKDMrrlrSzohCXSJ23AaQivUJ48242g4AhaGcDVM6DswhdQJ+Btsp0pbZLUM5aVOwBzl9loDzK+EG6wQykLcFj4whBlqXHEKbwh6badQQeZTmRZaMttOgbHQ/KQElj0Ado5Bq0DS0qAmfNGqjGJqBZYZiKTLgWfTzpvBSFWCJdBfTvB7QiE630skFCH0Rxvblz07ct2ssEy6M0DVjZIHvFr7JpDYpCLDpt+IIiE5pNWkm1yARvFIWIViITHr902mMpCvIdZiKoGhspio2gdcsbA3l20vfZXQznJVrStJ603q10iT6GFnRcrjT6fTwn1bE6foY/TZ6dLJ5PTssFTl5Uz8uJOn2BT59Wz0/w+OgwVnZ7Xn4X2DlvDq2zAQP/Pzk64odyltASv8q2NVrFBOSfAl9oc9+f9F6uGRRhE3bW3eITKuIkeU4j6XTK+asDWBgJJ+oslc/BHYGkp5lu8I02Ru/u0ZZwiV5konK+kZSWnp6yFcclhehAtgRpinHfKSvR9/xnP42zmmvoS4eBQDlOFmEJoVMKQ6g6Y9Z81unR8Z0AEn6lvDVSHw7dFsm9A886qrlEUvBBBxjzCs5zk0DoODlYcjPGapImgPQI2q6k0WUC9ORHAeIIyFtQWKZCLh0GsI6glivc6XAgx1+cD6BaB9h2csJ1+iNxDZlBZqHgOq/wFhd+1YFirgOqzmtaR6ZwLVpdiuJ6zm1AcskEEstAzDPRINVuYJzIMlSLQuR843wTWaGPHyMT5ZvUfr3gY/xq5KPOG1GImqgNRZ6X2LgpH5xqfapdLlu9dSgysZJey4VJjZLYp2BGqWRnuKobGQg9h2F+e5/3HKxkMt5qIyrjbuIS58x5/WeM/UtX4r3Fqwgy57U8nhnydE7eekdOOZMnv5NhCsStkWkqj6H+fntyn9FyqJRrE/DWu0rHThzfuDl520O995lQRqOll7ftkaL6XwbNDgb2ZOOTuKJt5cZ2kSq2CzZSm0hzlftlr6TEgQ7RgQmESaN0qmvQUmKVaqCSnUH5Rlq5RA+/zWYXcHZxPgVusI/xEh8h1TaMZQoBDSpKrkd6jFun7DP1O/+VBKF2N3Hfx3Rzdpbqd2Q2xgUWsQRp4S0TIJyAjAwLMTw/35JIgJtBX0Tnux6YF50nkNbZdeO6MPjIQBo2WdYDXJZBWEIpSYKSFgJpY2CBYHSjmUyYwrqF0WpLK2EKV9YwIGlvwWyjysuOavSQCCwD9N552E5Z5kyQEHluwpQHC1eup3BhUAYOJ0Zs13tpmj/aEohTYZ9AHsccNi7SfuVYTBit0IbY5oM0OHt98Ts8mbJw2Cekm5ub6dJ2U+eX+WAWcrlszeTJ9GiKdlpTY8TOmPxGoTB7oQ+p5Nj8iA1bF6iRdgfMJZLXuOIor3BfeMo4UsSd+t0ZE/8v7To08s5k64cEbIaJci2GCxej0uz25W0xqLp5JmoXiC02m4UMeOVN3/Pylw49T7T57fBISlgHfi9FUUkT8BsxfXQ5CIvH8LeC+eBVRvln13FymY6/RCY+43qrnaMgfgiUf6SbHwBrCGg/7zNRoyzRx3Cln2dKYUs7Zvf0b78rDl7/OhNZnKW7qjfxdja+sPeDkMaZMSKLcyUG7OD2h4yqMROl9qjoQ+f1v+E/0etsnHs/5IRBYQwHdFR/0/OenPmgWOSMtksvLX2IVv287/u/AJg7UDw=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve live sessions for a user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/{realm}/userSessions/{userId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns active MQTT sessions for one user, including connection ID, creation time, and remote address. Without read-admin permission, callers may inspect only themselves.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-user-sessions.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-user-sessions.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-user-sessions.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,69 @@
+---
+id: get-realm-engine-info
+title: "Retrieve information about a realm rules engine"
+description: "Returns runtime status and error counts for an accessible realm engine, or null when that engine is not running. Restricted users cannot inspect realm engines."
+sidebar_label: "Retrieve information about a realm rules engine"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVt1v2zYQ/1eIe1oBVfKSPmkvC7qgC7A1gZs8BUZLU2eJLUWq5DGuZ+h/H46UHOejBVZ0wPZkmro7/u7jd3d7aDAorwfSzkINS6TobRA+WtI9ikCSYhDSNgK9d14oFy0FsXFeSCukUhiCXhsUHqXpBdpWWyyE88JGY8S2QyuokzR9EToI64jtW23bUiwxkNeKsBExoA9CScsC2oYBFT0wG0oowA3oJaO9aKCGFmnJEudJ4MJuHBQwSC97JPQB6tv9Iw8vB7RL7B3NkK3skQ3jF9kPBqGGddSm0baFAjSrDJI6KIAFoYakBQV4/By1xwZq8hELCKrDXkK9B9oNLMiO2RbGccXCYXA2YODvJ4sF/yhnCS3xUQ6D0Sq5VX0MjHP/1J5bf0RF7J/nIJDO1pTrB22S7jmn6DVn6EhNW8IWPRSwcb6XlK9OT2Bkn1HF79LMhfHU2wLQxh7qW3h3fXl1df4bFLC8efv24u0bKOB8ubxcwmocCyBNKdjLaDAcpW/kjw9Tdt1xrj5HDCTYW4NcLiGm4ttEY3aM6GTxiuF8VRWbKeGeX3y+HtnOq8XPj7JD+IWqwUj9fF4OeX4C/CxSh5amzPJbc9EwQahDESJnHhuhPDYsKk0Q0qPQ9k4a3WRApz8KEIdD3oOaSCcahzkMnbxDMaDvdQiMmBz/4+wL6nQQB/IB2w6oote0SyxzA1rdQH274non2TL5UnZhVUCP1LmJsImh1EENVUpFpe3GVSk31T79jMDG/d3M4OgN1NARDaGuqgZ7V/JzPtG41K6Sg55VKyjgTnot1ybzI/M1VcZGRsNV3MtA6DlAq3sv3nEYs8rsyx42xm3TFUfNef1X8v61a/DJ5U0CWfFddiZU+Z1q8I6ccqbKdl8qZy0qSqKpkWw8hu6f65P7hJZDpdyQgQ/ebXSi1XxiprHY91ofC1BGo6XX9wWao/pfBs0GpqbJyifphstsJpJUiUjYS21SW9u4Xx+UFDzDHR2YwkzbxqnYo6XM681E5qPR8qe0skUvfr++vhJnVxelYOp9SE58ELm2xVymIqBBRdn03OiSaMk2M+NCHqOhc9sk9yF7zsZy/c69hXEJi9jwgL7kFiROpkEtUnh+uadxEFtNnYuUjR9b4M7kPAlpnd31jpeAZKMQ0rBK201weWHARjSSJA9vEUgbI9YojO41txhuInFttBIeg4teYSjFjTUMSNp7MIeo8rWjDr3Ira2Ydo/DEOWuJaRIHfAlN0Oxds2uFFcGZeBwYsJ2+yBNq58ODcSp8LCBvEg57F1qvBvH64DRCm1INJ8G/9mbqz/EabmA4lFD2m63ZWtj6XxbTWqhku1gXp6WixJt2VFv4GjmfaNQuHuhD7nkWH3BioML1Et7BGaJ5DXeZbw8nDmAcs2plM/MOXhUzUfj5H+w801cPhp745SD/TRKbiF5CxPLi8OWVufDqoDOBWLB/X4tA954M458/Tmi5wm2uh8beWvUgc8N1BtpAn4jfj8tp6H+Qnx1uXzWg+lS2l2aWSbyPyjgE+4Oe+a4GgvoUDboE6z87UwpHOhI68kCOR4P3Tfn11CkaXW8TubOWMwHtv4sorkrz8BS54ax+Ir49wyD2eNGe1T0Pnr9b9jPlXs9T5Yf8sI0w6cHInXftPxgYXiveI2YdVsvLb1PWuNqHMe/AfhF0NY=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve information about a realm rules engine"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rules/info/realm/{realm}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns runtime status and error counts for an accessible realm engine, or null when that engine is not running. Restricted users cannot inspect realm engines.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-realm-engine-info.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-realm-engine-info.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-realm-engine-info.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

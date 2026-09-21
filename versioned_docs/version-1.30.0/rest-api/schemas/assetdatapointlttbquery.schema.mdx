@@ -1,0 +1,32 @@
+---
+id: assetdatapointlttbquery
+title: "AssetDatapointLTTBQuery"
+description: "Downsamples numeric or boolean datapoints from the inclusive range with the Largest-Triangle-Three-Buckets (LTTB) algorithm while preserving the series' visual shape. Use this to reduce a large series for charts. Results are chronological; boolean values are processed as 1 for true and 0 for false. Other attribute value types are rejected."
+sidebar_label: "AssetDatapointLTTBQuery"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"fromTime":"2026-01-01T00:00:00Z","fromTimestamp":1767225600000,"toTime":"2026-01-02T00:00:00Z","toTimestamp":1767312000000,"type":"string","amountOfPoints":500}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AssetDatapointLTTBQuery"}
+>
+</Heading>
+
+
+
+Downsamples numeric or boolean datapoints from the inclusive range with the Largest-Triangle-Three-Buckets (LTTB) algorithm while preserving the series' visual shape. Use this to reduce a large series for charts. Results are chronological; boolean values are processed as 1 for true and 0 for false. Other attribute value types are rejected.
+
+<Schema
+  {...require("./assetdatapointlttbquery.Schema.json")}
+>
+  
+</Schema>
+            

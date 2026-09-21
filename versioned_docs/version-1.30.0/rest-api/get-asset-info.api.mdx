@@ -1,0 +1,69 @@
+---
+id: get-asset-info
+title: "Retrieve the asset type information of an asset type"
+description: "Returns metadata for one asset type from this Manager or, when parentId is below a gateway, from that gateway's model. An unknown or gateway-provided type that is not locally available returns no content."
+sidebar_label: "Retrieve the asset type information of an asset type"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the asset type information of an asset type"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/model/assetInfo/{assetType}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns metadata for one asset type from this Manager or, when parentId is below a gateway, from that gateway's model. An unknown or gateway-provided type that is not locally available returns no content.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-asset-info.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-asset-info.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-asset-info.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

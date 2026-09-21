@@ -1,0 +1,1 @@
+{"responses":{"200":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"string"}}}},"description":"The request completed successfully"},"500":{"content":{"text/plain":{"schema":{"type":"string"}}},"description":"The operation failed because of an unexpected server error"}}}

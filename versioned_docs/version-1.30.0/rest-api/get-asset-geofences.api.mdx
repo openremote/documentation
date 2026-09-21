@@ -1,0 +1,69 @@
+---
+id: get-asset-geofences
+title: "Retrieve geofences for an asset"
+description: "Extracts geofence definitions relevant to the asset. Anonymous access requires a public-readable asset; authenticated restricted users require an asset link."
+sidebar_label: "Retrieve geofences for an asset"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVt9v3DYM/lcEPrWAYwdJsQHXl3ldkXVr0SxLnoIDqpPpsxpZUiUqyfXg/32g7Ls4yaFYhz306XwUSX2kPv7YQoNRBe1JOwsLeHtPQSqKYo2uRatQNNhqq/k4ioAGb6UlQU5Qh0LGiFSK2jq76V2KQiqFkfW+JB0wCil8WhmtjgLKRq7MZPJayEQdWtJKEjYiYKSgFX+miGHvQEg7Ggij7U0JBTiPQTKYdw0sYI1U8/HZBDZCAV4G2SNhiLC43j4J78y4lTRmI5LVXxKKk5Mj1UmOGMN0k24YV6sx8H14L3tvEBbwc/2Tf1Xb95c3f97/cfXmr7quf61rKECzYy+pgwKs7Fk3e3rXQAFTIA0sKCQsIKoOewmLLdDGsyoHbtcwDEtWjt7ZiJHPT46P+Uc5S2iJP6X3hhOmna0+R45n+9yfDEFuGBVhH2dyt/qMijg/gXNIerylI/IfkDrXHMBUgD4sNpJmcpv6FQYooHWh5xNoXFoZzJp2/S81g2x0miPWlnD9WFtbOj1h5RTMoRwWQJrya+0Y8duevTAMrPCYD5cdZq5hJKEcvzRzMKZM4zYZs+HbXh2fPnkKwnuqvJH68CPsAR28UEljMIjGYRTWkejkLQqPodcxame5uKY6ogd4Y5W4FBSOkF79n5CeX/IAD+91pDG5cs1FBRfJICwL6CficB3myqMOFlCFZDBWuwYSq+1UDgMUEDHc7kozP2JmYFxUVYO9K51HG7B3hKV2lfS62gaUph8qKOBWBs09JJMki/mjwVYmw+zoZSQMHOKSL1IpaNr8zYkYTdj5SOjWuLss4jbkgv6ai+qNa/CZ8CqDrFhW5TtjNd5T+eDIKWeq0e+RctaioqyaK78NGLvvtyd3g5ZTpZwfgfvgWp1pvfvix2C1/+p9KEAZjZbeBMz9Tpopqz8yaHYwdTM2PskSbVu3KwWpcilgL7XJ7aJ1vzyiFBxgv45Cj6XWOJV6tJQfXrQuZOlHj/YiOxAfpJVrDOL3y8tzUZ+/KwUXz6ccxCcxclvsaCoiGuRROqtikVVL9jmOMT6VJGLn7rLepzFydjbydzcKGZewiA3PxI91ok6c7NsEp+e1cA9O7zR1LtHofO4hJu9dICGfjOxCSMMm626CSylYbEQjSQolrYikjRErFEb3mhsFuWm271tGLMWVNQxI2gcw+6yy2FGHQYzNqRAYggtiP/V49vPGwD3siNuZWLlmU4pzgzJyOjFju370TMsX+wbiVHzcQF7mN+xdQMFU4HlutEIbc5lPs7o+O38vTstjKJ40pLu7u3JtU+nCuprMYiXX3hydlscl2rKj3sBs5nyDKNy9MMSRcmx+zIbeReqlnYG5QAoab3G/fsUcwm4NgifsnQ2AH35zmyp3NqYe5vg4Oa4hTw4oYD3b5xa7ZWpZQOcisd52u5IRr4IZBhZ/SRg2sLhePsyIcffTkb8bWLTSRPxG8l5cTHvaS/HdK+LBwHbbmN3kwWUS/4MCbnAz2w+H5VBAh7LBkAGPp7VS6Glm92zxG+bD9+ztJQzDP9erLfY=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve geofences for an asset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rules/geofences/{assetId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Extracts geofence definitions relevant to the asset. Anonymous access requires a public-readable asset; authenticated restricted users require an asset link.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-asset-geofences.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-asset-geofences.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-asset-geofences.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

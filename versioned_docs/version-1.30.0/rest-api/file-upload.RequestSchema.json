@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"object","properties":{"binary":{"type":"boolean"},"contents":{"type":"string"},"name":{"type":"string"}},"title":"FileInfo"}}},"description":"File metadata and Base64 or text contents to store.","required":true}}

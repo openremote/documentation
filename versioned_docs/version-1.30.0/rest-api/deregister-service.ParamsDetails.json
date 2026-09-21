@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Stable service type identifier chosen by the service.","example":"weather","in":"path","name":"serviceId","required":true,"schema":{"type":"string"}},{"description":"Numeric instance identifier assigned during registration.","example":1,"in":"path","name":"instanceId","required":true,"schema":{"type":"integer","format":"int32"}}]}
