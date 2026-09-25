@@ -1,0 +1,69 @@
+---
+id: get-user-realm-roles
+title: "Retrieve a user's realm roles"
+description: "Returns realm-level role names assigned to one user. Without read-admin permission, callers may retrieve only their own roles. The target realm must be active unless the caller is a superuser."
+sidebar_label: "Retrieve a user's realm roles"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVt9v2zYQ/lcOfFkLyFaSZv2hvSwohi7AhgZZgj0ERkuTZ4srRarkKa5n6H8fjpRsx/WKNeiAYU+WKd7dd6f77r6N0BhVMC0Z70QlrpG64CIElLaZWLxHC8FbBCcbjCBjNEuHGsiDdwhdxDCF3w3VviM20hOpG+OgxdCYGI13BShpLYYIjVxDQAoG7xG8s2ugGk0Av3IpRpzCTY1AMiyRMgJoukgwR5CKzD1C5yzGyHaDVzARJMSuxZCwiEL4FoPkdC61qMQS6TZiuGZv1xxEFKKVQTZIGKKo7jYHFXjborvGxhMOEDhz9oufZNNaFJWYd8Zq45aiEIZNWkm1KARfFJVIVqIQAT92JqAWFYUOCxFVjY0U1UbQuuWLkQI76fviEMOlRkeG1pM2+HujMaRCg0nHC5Pz3OE5W5yq0xf4/eTF2fzl5FzPcfJq8VJP1PkrfP588fIMT0+OY2W3l/qrwM74cmy9ixj5/dnJCf8o7wgd8aNsW2tU+gTlH5ET2nzuT4Yg1wyKsInH4vR9cVAVbg7GiZFAec6dUEPslMIYF521a9EX4vzk9AAP4ScqWyvNcSS7iIcBLzqqueI5F261sUzgQ2rC2HGuqEEFTB9H2ggyIBh3L63RGdCzbwXoZtf3VqoPmQhbTDvOxWIE+IBMJoJxA5Ok0wc0cp72qZShn39L6MPHQw0Bo++CQtAec2T8ZCIxF0RE1QVD68RN36IzWlR3M248kkumrGBGi1khGqTaDyxPvKZaVKJk+OUm5dynPzv2l5vc8r3gQOF+nAFdsKISNVEbq7LU2Pgphw5pEEyNL2Vrti5FIe5lMHJuMwUy4ytm8UJ2lkQlGhmJa5j4Mmb0G5crm4x5bcTC+lU6kh3VPpg/U7O99ho/O7xNIEs+K1PMWOY4ZRs8eeVtmf1OlHcOFaWrid2LgLH+envyH9BxqZRvM/A2+IVJU2d86guRrj3We18IZQ06er3jUK7qfxk0O8g979n4LJ0Yt/AjYaRKhMFGGg7Br3580FLiCEeYoZnV2quuQUd59CwGOu8tp1+lk0sM8PPNzRVcXF3m5fk+JfEecm/D2KYQ0aKi3cDgGZquTtln3pf8VhLE2q/Svfc5c3aW+3ccNYwLHKIG6eAtT0k4A5nGMKTy/AB+53Q1qIPkfN8DD08fCKTzbt34Lg4+CpCWTZb1AJclCWrQkiQo6SCSsZZVgTWNoaxG2m5ujdoOljiF26wVpNuB2VaVjz3VGCCPsAIwBB9gu9l44YKENOkmPPRg7vV6ClcWZeRyYsJ29+AzzZ5sB4hX8eEAeZq+YePTblh4XuDWKHQx0XxYxxdvrn6BZ1Ne1g8H0mq1mi5dN/VhWQ5msZTL1k6eTU+m6KY1NTY1taHU519oFJ5eGGJuOTY/YcPWR2qk2wNzPUo1mdTHd4MozFJNHPTu3pL4P2jIgdp7264fPslm2DJ3STuJQlSj3usOZWY1qKtZIWofiW02m7mMeBts3/Pxxw4D77nZbqFkRWoiP2tRLaSN+IVaP7ketv9T+FvhejSZUYa5ddpmtuN/ohAfcL3VsEmYPgbKP9Kvj4A1FLSf9YWoUWoMqVz55YVS2NKe2Wc6tN+XDG9+uhFF2q97+mWY5cX4wN6PQhr3yIgs7ZpUsKPXH7O+xi+hTUBF77pg/g3/eeTejLvwm0QYVMcQoKP6i54fSJx3ioXPaLsM0tG7ZNXP+r7/C4WOL5s=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve a user's realm roles"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/{realm}/userRealmRoles/{userId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns realm-level role names assigned to one user. Without read-admin permission, callers may retrieve only their own roles. The target realm must be active unless the caller is a superuser.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-user-realm-roles.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-user-realm-roles.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-user-realm-roles.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

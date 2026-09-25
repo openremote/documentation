@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"options":{"type":"array","items":{"type":"object","properties":{"name":{"type":"string"},"value":{"type":"object"}},"title":"Option"}},"type":{"type":"string","enum":["TEXT","MULTILINE","NUMBER","DROPDOWN","DOUBLE_DROPDOWN","CHECKBOX","ASSET_ATTRIBUTE","COLOR","DATE"]}},"title":"Picker"},"schemaType":"response"}

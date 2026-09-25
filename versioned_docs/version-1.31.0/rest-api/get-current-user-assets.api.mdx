@@ -1,0 +1,59 @@
+---
+id: get-current-user-assets
+title: "Retrieve assets accessible to the current user"
+description: "Returns partial linked assets for a restricted user, root assets for an unrestricted realm user, and an empty array for a super user. Attributes and paths are omitted; use getAsset for full details."
+sidebar_label: "Retrieve assets accessible to the current user"
+hide_title: true
+hide_table_of_contents: true
+api: eJztXFlvGzkS/isEMQ8z2NZhJXF25YddxZnJJJvEHh/7ENubUN0lNcc8OjwiK4b++6LI1tGW5BxjYQcDBgGisMliVbGOr7qJuqUF2NzwynGtaJ+egPNGWVIx4zgTRHB1DQVh1oKzZKQNYcSAdYbnDgriLZiMGK1dY4oiXq3MMsCErOcyVeBzkJWbEmYMm9ZUra/AhEltMnDO8KF3YMP8irnSEmaAaMmdg+IA55ExuAFuGgiMvBCkAMe4sG2aUV2BYSjUy4L26RjcoTcGlDu3YMIqSzNqwFZaWbC0f0t73S7+k2vlQDn8yapK8DxQ6fxuUT+31OYlSIa/3LQC2qdBBppR7kDalXE9/B1yR7M7Cj7WYiq1qUqek6MK1AlI7SBqr03OSiC4nhQcF0mumNOGWBCQOxt0P+bWgZmfCbF+iAsOCFvRmQFyDVMoyHC6HCeKSUDVNGgjx5VBbbnpWyaR8yDALJsP86geludg7bEfCp6fACtWRB1qLYCpNVkHQugJHqFWU6m9JTkTAowlTqNNFMSV3NZyTEowECxDFZXmCiWrKm2cJVXYk0QGUAC4YbISQPsjJizMMrqUfdMBsKLgyBETxw2J7j8oVEYRDmOu6k9MeFgxTvLq9Ogt4SoXvgAb1JuFBVmcmhFdxX3JueI3LcmF4BZyrQriuATrmKyiRywmSnCsYI6hmE3945M/Il2TmgpHvZiFrqrGazp4w/KSK2jhYbGhWJrQ4gSoAxk8zRugGZVcvQY1diXt72W0Ys6BQUL/vbyc/O0HNKq44ZfYC071nEtQlmu1Kg9XDsZgaEZH2kjm4tCjHtLOtbLOMK6c/SYH/S5/kGAtG29Q4rqQ8wczjDgfPTdQ0P5FfHqVUcddUOV/0GgOFzKE+XMhv6gw+6x2wnW3RAexz5mDbc/eaAnKMTPdNuGtl0Mw254eqaPRaOvDCtSh0BY2BYww49iAtVCcgAB2z7RTwYttPBTMwambio0mDcpLVLfyEgzPaUZ7rYKPOSoRswbNqNBhpoSCe0kzaktt8LFixugJvQpbTHdK/BgM18XutgDDdkd8ZFgeY9BpCG/PkcLXem2pvdkda0h9r7fZbLjVf9/v7m1+KNkNl17+Uov2TSLVa0/5WPERz5ly37acq+/fOq59Gad8z9I/wLV3O/RAGaLUK/vL3ZC4jLtSK0w9O+PAC8cFV1sCqQGrhY+pc/FcxdA5y2jM/LvjDiHFjoMgbvFOK3i7BT08zC7ewgujfYU0Nyp6AnC9u+2R+k6j/RTYzgLe7A6cqJ1lllEsYM4245IsgMtzC0dKbMEA2/DiHYj34+XlxeXl1U//DFjPK/5VSGyBj+5y/7xGo9ocRdgzy2iA1l+G72cBuAeEHlYcEO4ssSWrgHCLlSIYyVWskULJhThcsikZAlFeCIS5+C/iXtp3xkNGJ4a7Wkk4cBfQBSWtALo34NhLB3LJfBO0FSBg3MRlCdYnWJ9gfYL1CdYnWJ9gfYL1CdYnWJ9g/Z8b1gcB/3/Ie/4l4YvxfP/xGj/hOJYfIwhX4VMFWflUYQ/IZzCaSGDKEqUJ3OBXMe5Wlk2YDZ9rBIeiIc3e0/2nvd6T/S7+SWVCKhNSmZDKhFQmpDIhlQmpTEhlQioT/sJlwuKe0JL7O9ejlje2tt3WIj+zvCSgnJkSvJjGuLLNK0bffpHoIb46pKtS6ZtKKpZSsZSKpVQspWIpFUupWErFUiqWUrGUrkolWJ9gfYL1CdYnWJ9gfYL1CdYnWJ9gfYL16apUuiqVyoRUJqQyIZUJqUxIZUIqE1KZkMqEVCZsuyoVJMwNMAfFkdqkz0VYRUjTQn9bk+wUzCcwLWYtH6vF1aRAlWsVMHmznuh1e/ut7l6ru3fW7fbD33ehSxgrVmTJKN8YnO5s7kLR0uu18pJhfgJTM8ALUI6PODY6O5I8tL5SNVtqjC2wYjOwBmtPB/vV44F6fXb975tX54e/DQaDZ4NB064uuq1/DFrvWOvz1W2vN/vhPnNsMvurl0wtK63I53q99UxzAQbbvUliQVmN+U2ym0XZ1e09atZhWAwwbLv28itUdhxmbtNS3Xtu0Wquydreu+mLp8+kPfutl7+QQ8/eWN79Cv1ga7kNjnfnop7KwWIftiVTloyMlsSVEFlypdF+XIaBKHF7u/8+GP01y9w0IOSXOTgJHfpcyRzRE7xiWNZWcEC4lD7aMhuhEc/9p6n/oeeiiJRXDKL35MmaPWwu+dYZ2tznrtkYr8nDWcnVOPT2C+EPjG0ijK8u9Y8qxyW3juctofNrUpO6111jo0IDFoNO0J9gDmx9FTIu8lURF/Gm9T5aQEra726MlfODXI2ZuGsjXt6J62g68NEjD7nGjbAVo/Whix5mySlq6fFa00MHN65TCcY3tztcTUHbN6yYYRIzhyXakKEupqEpIVefmOBF3HjvoTYeeFei38ROjZi05vrDzfEo5i9c8NiCizFh1xl69JCaYEum6j6ZpNB49VU7UrJPQCpMq9aGTKTxf2iUsSPiondleLNhIfeGuyntX9xiW0uF6efiaoa2wMYWbSQa/VWAJ6WuG17SeXSjnWChHWSik8c2mAiJQnq0gaw3gvZp6Vxl+51OAVK3cScTmlO2ue6windugw3OOhSxheEYE0JwW8SYAkbMC/QrydB5UTdXSwFOUYNxyVyMWzrCFpHhxYx3pTb8cxD8UBewNngemOzgWCfsaTtxn05ltNO5Fp1It5VrpSB3YWrwnZEBW377eqevAdta2lxXkfHK6BEP/jf/hSENp30vdQQ6goNyh0vbjFr9MzO9CORU4+JeGOFqpOc+xPLgQyAZFyHQjvS/Gia1fh/+DG2fx+RT6NyHd23BpUe1H680TH3DFBuDIb+enR2TwfHL2Dv1QxDiA4m2TeZmumig6lZiVJjaRprR2WzMf7bUkzDvQ5QciUX7nYcV5IsogNDI9gijD+nV3UlJUM/B0oMtmXBXau8i8VUKdX/TlfaokUZGmMAldbY3oSMvFATvupOcKWIdFwLRt+CSY3TB+BF7pGJl7U0Otk3OlUCGmFoys9Bq6MnqSjAkRrWMgDHakEU/3NBfl5EQ/FoYB0MMb5Pj8OqRWIgp7qJxTFc/LgKIzm0zgPwUzlDqEHNHGtOf4DkoG9w8olQ6eHH8mjxqd2l2JyBNJpP2WPm2NuNOvcx22LgSrUftbhtUu3RS0JWi6B5DoSvQgOLybsCB2joZXwrXzJyAMxw+wbyxcTwcjtbkdJC+DqUhuN/FECuJ5K/TU7n2+JW8OKtP6rZONRc0sEzDuwlUyjzdXOELRutwxu3tkFk4N2I2w+GPHvB9+sXVMquE9JbRElh4kX1xS69hivaR51A5uiht1xs0z1Zz4Iufz/B2mG8g/DpcZfMfSH0O/tV0hfY8VGb15iGc0lm2Zfr3ROhI2EDBDeTuvTd8F/Sj4Z7Nw/2D7FAn1noD78p7KTey+Pscc/t87dgw5d7HD0dXs9nsf7WEm3Y=
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve assets accessible to the current user"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/asset/user/current"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns partial linked assets for a restricted user, root assets for an unrestricted realm user, and an empty array for a super user. Attributes and paths are omitted; use getAsset for full details.
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-current-user-assets.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-current-user-assets.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"createdOn":{"type":"string","format":"date-time"},"hasChildren":{"type":"boolean"},"id":{"type":"string"},"name":{"type":"string"},"parentId":{"type":"string"},"path":{"type":"array","items":{"type":"string"}},"type":{"type":"string"}},"title":"AssetTreeAsset"},"schemaType":"response"}

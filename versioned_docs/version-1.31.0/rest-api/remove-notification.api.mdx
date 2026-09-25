@@ -1,0 +1,69 @@
+---
+id: remove-notification
+title: "Delete a sent notification"
+description: "Permanently removes one sent-notification record. This operation is restricted to a super user and is idempotent when the ID does not exist."
+sidebar_label: "Delete a sent notification"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFv3DYM/isEn1bAsbM02IP7sqAttgBdG3TpU3BoFZl3FipLrkTnejv4vw+U7MSXZMFWdECf4mNE8hP18SP32FDUwfRsvMMaLyh0ypFju4NAnb+hCN4RRHJ85DybtdFKzkIg7UNTwmVrIvieQjabCIEiB6OZGmAPCuLQU4AhUgDlGjlhGup6z+QYti054Jbg/BU0niI4z0BfTeQSC7yNe95gjRnQ2wUKLLBXQXXEFCLWV/t713k7dBSMfgS+acjJTwqSh76qrreE9elJgUY8e8UtFuhUR1jj0vW8wQIDfRlMoAZrDgMVGHVLncJ6j7zrxcM4pg0FLHDtQ6c4m345xXFciXvsvYsUxePk+FT+HCK/bAkkCUUG7QWc1DMOWlOM68Ha3QtwHuZAcO2bXS4+D8FRg2OBp8fHElh7J6VO4OgrV71VcsX9Q9Dybm6D4zgWT8C5qzj4kBOrQGDcjbJmSvzz90p8NnArL6UX9Mqll+RCnDj0vTXUgA6UHlXZ+BDQ8+9ZCXUHiprM7FvutuqGoKfQmRgFMXv5JSQAPmgVlNiR9BAM7xJ3fU/ONFhfrYQjrDZCaTzg+6rAjrj10g4NCSlSC3CLNVZLllb7Q86OKMnCzdwnQ7BYY8vcx7qqGup8KemlxZhK4yvVm2ofSNlurLDAGxWMuraZscmcObtWgxVydyoyBSnY6u5Wf0pZs8t8tz2urd8mk1TRB/NXQvjSN/TA+CGBrMRWpZyxynmqPnj22tsqxz3S3jnSnI6m9lwHiu1/92f/mURVovZ9Bt4HvzYiDbdfY4Hp2LdGHwvU1pDjl3eEzVX9kUFLgNwbXpxPksW4tZ8bS+nUWNQpY5Parf2vB5TCR3pJhkFMbdx4PXTkOPf5emrudz259ykA/KGc2lCA3y8vL+Ds4lxGD8GndIlPkLkNM00hkiXNOfQsXOloKTFzB8p/FUNs/Tad+5RvLsEyf2etEVzgiBpQDt6JJMEJqCTFkMrz4q6tI2wNt37gHHwZQZTKBwblvNt1fohTjAKUFZdNO8HNEg6NYgVaOYhsrIVrAms6M83Vfri2RssA8EPQFEv44KwAUm4xjueqitlzSwGy1BVAIfhwOz+iqBgoSIp4JOKYhL2EC0sqSjkpYbs6eKbVT7cC4nU8FJBn6Q07n4R47WXKWqPJxdTm01w9++3iDTwvj7G4J0jb7bbcuKH0YVNNbrFSm94ePS+PS3Jly51NpDaceP4EUUS9KMRMOXE/FsfeR+6UW4B5lfRUFpb03IdrxgFxF5PkR9uYph5djLdxqu1+mhNXeO9q9b3tZlVg6yPLyf3+WkX6EOw4ivnLQEFG1epuHuSly0T5brBeKxvpiWr99H6a3s/g3+5mj95oMiq3S7PJDvILC/xMu4fr2rgaC2xJNRQS3HzoTGvqeeG+zLCcs69ev3l9+RqLNJsWO8Kkg8X8IaEfxTVr8Awv6TSOxT8c/xbpz4EDNSaQ5o9DMP9H/CxXl/Mc+S4Zpok9JRi4fTLywXrwUcvSMPtugnL8MXmNq3Ec/wZrTZNx
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete a sent notification"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/notification/{notificationId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Permanently removes one sent-notification record. This operation is restricted to a super user and is idempotent when the ID does not exist.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./remove-notification.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./remove-notification.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./remove-notification.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

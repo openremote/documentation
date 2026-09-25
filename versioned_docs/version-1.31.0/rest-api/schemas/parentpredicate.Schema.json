@@ -1,0 +1,1 @@
+{"schema":{"type":"object","description":"Matches assets by direct parent identifier; a null id represents root assets.","properties":{"id":{"type":"string","description":"Direct parent asset identifier; null selects root assets.","nullable":true}},"title":"ParentPredicate"},"schemaType":"response"}

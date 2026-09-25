@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Flow node category to filter by.","example":"INPUT","in":"path","name":"type","required":true,"schema":{"type":"string","enum":["INPUT","PROCESSOR","OUTPUT","THEN"]}}]}

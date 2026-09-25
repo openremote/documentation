@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"x":{"type":"number","format":"float"},"y":{"type":"number","format":"float"}},"title":"NodePosition"},"schemaType":"response"}

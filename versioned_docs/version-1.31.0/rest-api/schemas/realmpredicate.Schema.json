@@ -1,0 +1,1 @@
+{"schema":{"type":"object","description":"Matches an exact realm name.","properties":{"name":{"type":"string","description":"Realm name.","example":"building"}},"title":"RealmPredicate"},"schemaType":"response"}

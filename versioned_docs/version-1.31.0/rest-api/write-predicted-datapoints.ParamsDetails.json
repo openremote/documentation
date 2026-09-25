@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Globally unique 22-character asset identifier.","example":"7A6p4AnLTkKxJUCQAAABAA","in":"path","name":"assetId","required":true,"schema":{"type":"string"}},{"description":"Attribute name as defined by the asset model.","example":"temperature","in":"path","name":"attributeName","required":true,"schema":{"type":"string"}}]}

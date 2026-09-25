@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Value descriptor name","example":"number","in":"query","name":"name","required":true,"schema":{"type":"string"}}]}
