@@ -65,7 +65,9 @@ tags:
 - description: Discover accessible realms and administer identity-provider realms
   name: Realm
 - description: "Query and manage identity-provider users, roles, credentials, locale,\
-    \ and live sessions"
+    \ and live sessions. An active realm is enabled and its activation time has been\
+    \ reached. Superusers bypass realm activity and cross-realm restrictions; endpoint-specific\
+    \ role requirements still apply."
   name: User
 - description: "Register, discover, renew, and deregister leased external-service\
     \ instances"
@@ -3291,6 +3293,12 @@ paths:
                 type: string
           description: The authenticated user does not have permission to perform
             this operation
+        "404":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The requested resource does not exist
       security:
       - openid: []
       summary: Retrieve all active gateway tunnels in a realm
@@ -3345,6 +3353,12 @@ paths:
                 type: string
           description: The authenticated user does not have permission to perform
             this operation
+        "404":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The requested resource does not exist
       security:
       - openid: []
       summary: Retrieve the active tunnels of a gateway
@@ -3414,6 +3428,12 @@ paths:
                 type: string
           description: The authenticated user does not have permission to perform
             this operation
+        "404":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The requested resource does not exist
       security:
       - openid: []
       summary: Retrieve one active gateway tunnel
@@ -6280,7 +6300,7 @@ paths:
   /user/locale:
     put:
       description: Stores the supplied non-empty locale string as the caller's identity-provider
-        locale attribute.
+        locale attribute. The target realm must be active unless the caller is a superuser.
       operationId: updateCurrentUserLocale
       requestBody:
         content:
@@ -6311,8 +6331,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -6328,7 +6348,8 @@ paths:
     post:
       description: Executes a UserQuery. Non-super users are forced into their authenticated
         realm and cannot see system accounts; callers with read-users but not read-admin
-        receive basic fields only.
+        receive basic fields only. The target realm must be active unless the caller
+        is a superuser.
       operationId: queryUsers
       requestBody:
         content:
@@ -6384,8 +6405,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
       security:
       - openid: []
       summary: Query users based on criteria
@@ -6394,7 +6415,8 @@ paths:
   /user/request-password-reset:
     put:
       description: Initiates the identity provider's configured password-reset action
-        for the caller's own account.
+        for the caller's own account. The target realm must be active unless the caller
+        is a superuser.
       operationId: requestPasswordReset
       responses:
         "204":
@@ -6417,8 +6439,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
       security:
       - openid: []
       summary: Request a password reset for the current user
@@ -6427,7 +6449,8 @@ paths:
   /user/reset-password:
     put:
       description: Replaces the caller's own identity-provider credential using the
-        supplied credential representation.
+        supplied credential representation. The target realm must be active unless
+        the caller is a superuser.
       operationId: updateOwnPassword
       requestBody:
         content:
@@ -6457,8 +6480,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
       security:
       - openid: []
       summary: Update the current user's password
@@ -6468,6 +6491,7 @@ paths:
     put:
       description: Updates the caller's own profile. A supplied user ID must match
         the access token; role and realm administration are not provided by this endpoint.
+        The target realm must be active unless the caller is a superuser.
       operationId: updateSelf
       requestBody:
         content:
@@ -6501,8 +6525,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -6517,7 +6541,7 @@ paths:
   /user/user:
     get:
       description: Returns the identity-provider record corresponding to the current
-        access token.
+        access token. The target realm must be active unless the caller is a superuser.
       operationId: getCurrentUser
       responses:
         "200":
@@ -6538,8 +6562,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -6553,7 +6577,8 @@ paths:
       - User
   /user/userRealmRoles:
     get:
-      description: Returns realm-level role names assigned to the caller.
+      description: Returns realm-level role names assigned to the caller. The target
+        realm must be active unless the caller is a superuser.
       operationId: getCurrentUserRealmRoles
       responses:
         "200":
@@ -6576,8 +6601,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -6592,7 +6617,7 @@ paths:
   /user/userRoles/{clientId}:
     get:
       description: Returns role names assigned to the caller for the named identity-provider
-        client.
+        client. The target realm must be active unless the caller is a superuser.
       operationId: getCurrentUserClientRoles
       parameters:
       - description: Identity-provider client identifier.
@@ -6623,8 +6648,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -6637,11 +6662,17 @@ paths:
       tags:
       - User
   /user/{realm}/disconnect/{sessionID}:
-    get:
-      description: Terminates the active MQTT connection identified by sessionID.
+    delete:
+      description: "Terminates the active MQTT connection identified by sessionID.\
+        \ The realm must match the session owner's realm. Authenticated users may\
+        \ disconnect their own sessions without an additional client role. Disconnecting\
+        \ another user's session requires the openremote client role write:admin or\
+        \ superuser status. Non-superusers are limited to their own active realm;\
+        \ superusers may disconnect sessions across realms, including inactive realms."
       operationId: disconnectUserSession
       parameters:
-      - description: OpenRemote realm name.
+      - description: Realm of the session owner; must match even when the caller is
+          a superuser.
         example: building
         in: path
         name: realm
@@ -6670,14 +6701,21 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The realm is inactive for a non-superuser, or the caller is\
+            \ neither the session owner, a user with write:admin, nor a superuser"
         "404":
           content:
             text/plain:
               schema:
                 type: string
-          description: The requested resource does not exist
+          description: "The session or its owning user does not exist, or the session\
+            \ does not belong to the specified realm"
+        "405":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: A non-superuser cannot access the session owner's realm
       security:
       - openid: []
       summary: Disconnect a user session
@@ -6686,7 +6724,8 @@ paths:
   /user/{realm}/request-password-reset/{userId}:
     put:
       description: Asks the identity provider to send or initiate its configured password-reset
-        action for the specified user.
+        action for the specified user. The target realm must be active unless the
+        caller is a superuser.
       operationId: requestUserPasswordReset
       parameters:
       - description: OpenRemote realm name.
@@ -6724,8 +6763,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -6742,7 +6781,8 @@ paths:
   /user/{realm}/reset-password/{userId}:
     put:
       description: Replaces a user's credential in an administered realm using the
-        supplied credential representation.
+        supplied credential representation. The target realm must be active unless
+        the caller is a superuser.
       operationId: updatePassword
       parameters:
       - description: OpenRemote realm name.
@@ -6787,8 +6827,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -6805,7 +6845,8 @@ paths:
   /user/{realm}/reset-secret/{userId}:
     get:
       description: Generates and returns a new client secret for a service user in
-        an administered realm.
+        an administered realm. The target realm must be active unless the caller is
+        a superuser.
       operationId: resetSecret
       parameters:
       - description: OpenRemote realm name.
@@ -6847,8 +6888,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -6863,7 +6904,8 @@ paths:
   /user/{realm}/roles:
     put:
       description: "Creates, updates, or removes role definitions for the default\
-        \ OpenRemote client in the requested realm."
+        \ OpenRemote client in the requested realm. The target realm must be active\
+        \ unless the caller is a superuser."
       operationId: updateRoles
       parameters:
       - description: OpenRemote realm name.
@@ -6904,8 +6946,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -6920,7 +6962,8 @@ paths:
   /user/{realm}/userRealmRoles/{userId}:
     get:
       description: "Returns realm-level role names assigned to one user. Without read-admin\
-        \ permission, callers may retrieve only their own roles."
+        \ permission, callers may retrieve only their own roles. The target realm\
+        \ must be active unless the caller is a superuser."
       operationId: getUserRealmRoles
       parameters:
       - description: OpenRemote realm name.
@@ -6958,8 +7001,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -6973,7 +7016,7 @@ paths:
       - User
     put:
       description: Replaces the user's assigned realm-level role names in an administered
-        realm.
+        realm. The target realm must be active unless the caller is a superuser.
       operationId: updateUserRealmRoles
       parameters:
       - description: OpenRemote realm name.
@@ -7020,8 +7063,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -7036,7 +7079,8 @@ paths:
   /user/{realm}/userRoles/{userId}/{clientId}:
     get:
       description: "Returns role names assigned to one user for the named client.\
-        \ Without read-admin permission, callers may retrieve only their own roles."
+        \ Without read-admin permission, callers may retrieve only their own roles.\
+        \ The target realm must be active unless the caller is a superuser."
       operationId: getUserClientRoles
       parameters:
       - description: OpenRemote realm name.
@@ -7081,8 +7125,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -7096,7 +7140,8 @@ paths:
       - User
     put:
       description: Replaces the user's assigned role names for the named client in
-        an administered realm.
+        an administered realm. The target realm must be active unless the caller is
+        a superuser.
       operationId: updateUserClientRoles
       parameters:
       - description: OpenRemote realm name.
@@ -7150,8 +7195,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -7167,7 +7212,8 @@ paths:
     get:
       description: "Returns active MQTT sessions for one user, including connection\
         \ ID, creation time, and remote address. Without read-admin permission, callers\
-        \ may inspect only themselves."
+        \ may inspect only themselves. The target realm must be active unless the\
+        \ caller is a superuser."
       operationId: getUserSessions
       parameters:
       - description: OpenRemote realm name.
@@ -7205,8 +7251,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -7221,7 +7267,8 @@ paths:
   /user/{realm}/users:
     post:
       description: Creates an identity-provider user in a realm administered by the
-        caller and returns the resulting user record.
+        caller and returns the resulting user record. The target realm must be active
+        unless the caller is a superuser.
       operationId: createUser
       parameters:
       - description: OpenRemote realm name.
@@ -7277,8 +7324,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "409":
           content:
             text/plain:
@@ -7292,7 +7339,8 @@ paths:
       - User
     put:
       description: Updates an existing identity-provider user in an administered realm.
-        The master administrator cannot be disabled.
+        The master administrator cannot be disabled. The target realm must be active
+        unless the caller is a superuser.
       operationId: updateUser
       parameters:
       - description: OpenRemote realm name.
@@ -7335,8 +7383,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -7354,7 +7402,8 @@ paths:
   /user/{realm}/users/{userId}:
     delete:
       description: Permanently deletes a user from an administered realm. The master-realm
-        administrator cannot be deleted.
+        administrator cannot be deleted. The target realm must be active unless the
+        caller is a superuser.
       operationId: deleteUser
       parameters:
       - description: OpenRemote realm name.
@@ -7386,8 +7435,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -7404,7 +7453,8 @@ paths:
   /user/{realm}/{clientId}/roles:
     get:
       description: Returns all role definitions exposed by the named identity-provider
-        client. Realm-administrator access is required.
+        client. Realm-administrator access is required. The target realm must be active
+        unless the caller is a superuser.
       operationId: getClientRoles
       parameters:
       - description: OpenRemote realm name.
@@ -7442,8 +7492,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -7457,7 +7507,7 @@ paths:
       - User
     put:
       description: "Creates, updates, or removes role definitions for a named identity-provider\
-        \ client."
+        \ client. The target realm must be active unless the caller is a superuser."
       operationId: updateClientRoles
       parameters:
       - description: OpenRemote realm name.
@@ -7505,8 +7555,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -7521,7 +7571,8 @@ paths:
   /user/{realm}/{userId}:
     get:
       description: "Returns one user when it belongs to the requested accessible realm.\
-        \ Without read-admin permission, callers may retrieve only their own user."
+        \ Without read-admin permission, callers may retrieve only their own user.\
+        \ The target realm must be active unless the caller is a superuser."
       operationId: getUser
       parameters:
       - description: OpenRemote realm name.
@@ -7557,8 +7608,8 @@ paths:
             text/plain:
               schema:
                 type: string
-          description: The authenticated user does not have permission to perform
-            this operation
+          description: "The caller lacks the required permissions, or the target realm\
+            \ is inactive and the caller is not a superuser"
         "404":
           content:
             text/plain:
@@ -9655,6 +9706,7 @@ components:
             - read:alarms
             - read:notifications
             - read:services
+            - read:tunnels
             - write:services
             - write:user
             - write:admin
@@ -9665,6 +9717,7 @@ components:
             - write:insights
             - write:alarms
             - write:notifications
+            - write:tunnels
             - read
             - write
       required:

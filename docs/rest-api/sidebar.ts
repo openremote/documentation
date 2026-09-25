@@ -908,7 +908,7 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "rest-api/disconnect-user-session",
           label: "Disconnect a user session",
-          className: "api-method get",
+          className: "api-method delete",
         },
         {
           type: "doc",
