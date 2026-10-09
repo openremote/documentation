@@ -41,7 +41,7 @@ For formatter plugins and IDE settings, see [Code formatting with Spotless](./02
 
 ##### Grep Console Styling
 
-The log messages of the running application can be colour-highlighted with the [GrepConsole plugin](https://plugins.jetbrains.com/plugin/7125-grep-console) and our [configuration](https://github.com/openremote/openremote/tree/master/tools/intellij).
+The log messages of the running application can be colour-highlighted with the [GrepConsole plugin](https://plugins.jetbrains.com/plugin/7125-grep-console) and our [configuration](https://github.com/openremote/core/tree/main/tools/intellij).
 
 - Locate XML style config for Grep Console in openremote/tools/intellij
 - Choice the default or dark styling config

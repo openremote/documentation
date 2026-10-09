@@ -6,7 +6,7 @@
 
 :::
 
-The example below describes interactively linking asset attributes to Artnet Servers using the [ArtnetClientProtocol](https://github.com/openremote/openremote/blob/master/agent/src/main/java/org/openremote/agent/protocol/dmx/artnet/ArtnetClientProtocol.java). The following examples assume that you are running the [Demo Docker Compose profile](../../../developer-guide/docker-compose-profiles#demo-docker-composeyml).
+The example below describes interactively linking asset attributes to Artnet Servers using the [ArtnetClientProtocol](https://github.com/openremote/core/blob/main/agent/src/main/java/org/openremote/agent/protocol/dmx/artnet/ArtnetClientProtocol.java). The following examples assume that you are running the [Demo Docker Compose profile](../../../developer-guide/docker-compose-profiles#demo-docker-composeyml).
 
 ## Setup the basic Artnet connection
 The following examples assume that the DMX controller is bound to the loopback address `127.0.0.1` on port `6454`:
@@ -112,7 +112,7 @@ The structure of the import JSON will directly be translated to the structure of
 ## See also
 
 - [Agent overview](../010-overview.md)
-- [Quick Start](https://github.com/openremote/openremote/blob/master/README.md)
+- [Quick Start](https://github.com/openremote/core/blob/main/README.md)
 - [Manager UI Guide](../../020-manager-ui/10-manager-ui.md)
 - [Custom Deployment](../../010-deploying/10-custom-deployment.md)
 - [Setting up an IDE](../../../developer-guide/020-setting-up-an-ide.md)

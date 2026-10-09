@@ -38,19 +38,19 @@ Most of the changes made in the manager_config.json will not be visible to the d
 :::
 
 ### Asset type (/model)
-Create your own asset type that fits your product. In the asset type you define its name, icon, and colour, and set its attributes with configuration items (called meta items in the code). If you need some inspiration, you can look at OpenRemote's [default asset types](https://github.com/openremote/openremote/tree/master/model/src/main/java/org/openremote/model/asset/impl).
+Create your own asset type that fits your product. In the asset type you define its name, icon, and colour, and set its attributes with configuration items (called meta items in the code). If you need some inspiration, you can look at OpenRemote's [default asset types](https://github.com/openremote/core/tree/main/model/src/main/java/org/openremote/model/asset/impl).
 
 ### Agents & Protocols (/agent)
 Protocols are a main extension point of OpenRemote, they translate the messages from and to external systems into reads and writes of the assets and attribute values used by OpenRemote. When creating an [agent asset](../../developer-guide/050-agent-protocol-spi.md), you can create protocol configurations, which are a special type of attribute. Each agent attribute that is a protocol configuration then automatically gets its own instance of the protocol you have selected.
 
 ### Setup code (/setup)
 Define which assets and rules should be present when you deploy your project. You can set attribute values and their configuration items, add realms and users, and create a structure of assets.\
-The keycloaksetup is used to prepare realms and users. For inspiration see the [keycloak setup](https://github.com/openremote/openremote/blob/master/setup/src/demo/java/org/openremote/setup/demo/KeycloakDemoSetup.java) of the demo.\
-The managersetup is used to prepare assets and attributes. For inspiration see the [manager setup](https://github.com/openremote/openremote/blob/master/setup/src/demo/java/org/openremote/setup/demo/ManagerDemoSetup.java) of the demo.
+The keycloaksetup is used to prepare realms and users. For inspiration see the [keycloak setup](https://github.com/openremote/core/blob/main/setup/src/demo/java/org/openremote/setup/demo/KeycloakDemoSetup.java) of the demo.\
+The managersetup is used to prepare assets and attributes. For inspiration see the [manager setup](https://github.com/openremote/core/blob/main/setup/src/demo/java/org/openremote/setup/demo/ManagerDemoSetup.java) of the demo.
 
 ### Map (/deployment/map)
 You can set your own map and its styling by adding them to the deployment directory. Read more about setting up your map: [Working on maps](../../developer-guide/130-working-on-maps.md). \
-Once you have the map file, you can download and customize [mapsettings.json](https://github.com/openremote/openremote/blob/master/manager/src/map/mapsettings.json) to adjust the centerpoint, boundaries, zoomlevel and styling or you can change these directly in the manager app, under 'settings/appearance'. \
+Once you have the map file, you can download and customize [mapsettings.json](https://github.com/openremote/core/blob/main/manager/src/map/mapsettings.json) to adjust the centerpoint, boundaries, zoomlevel and styling or you can change these directly in the manager app, under 'settings/appearance'. \
 If you want to fully customize styling, you can use [Mapbox Studio](https://www.mapbox.com/mapbox-studio) to create your style and copy it into mapsettings.
 
 ### Apps (/ui/app)
@@ -58,7 +58,7 @@ Here you can add your own custom applications. You can use the Manager app as a 
 
 ### Setting environment variables and Docker volume mappings for services
 The following Docker Compose file details all of the environment variables (e.g. for e-mail or push notifications) and common volume mappings that you may want to use:
-https://github.com/openremote/openremote/blob/master/profile/deploy.yml
+https://github.com/openremote/core/blob/main/profile/deploy.yml
 
 ### Custom domain
 If you want to deploy the OpenRemote stack on a custom domain then all that is needed is to ensure that the Docker host where the stack is running is reachable using the custom domain name on the following ports:

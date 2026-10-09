@@ -57,7 +57,7 @@ Review the resulting changes before committing them. Depending on the file type,
 
 ## Backend and UI tasks
 
-Repositories that separate backend and UI sources, such as `openremote/openremote` and OpenRemote custom projects, provide additional task groups.
+Repositories that separate backend and UI sources, such as `openremote/core` and OpenRemote custom projects, provide additional task groups.
 
 To check only backend or UI sources, run:
 
@@ -148,7 +148,7 @@ The hook provides a useful local safeguard, but it does not replace the formatti
 
 ## UI linting and formatting with Yarn
 
-Projects with a UI and corresponding scripts in their root `package.json`, such as `openremote/openremote` and OpenRemote custom projects, can also run [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) directly with [Yarn](https://yarnpkg.com/).
+Projects with a UI and corresponding scripts in their root `package.json`, such as `openremote/core` and OpenRemote custom projects, can also run [ESLint](https://eslint.org/) and [Prettier](https://prettier.io/) directly with [Yarn](https://yarnpkg.com/).
 
 Run these commands from the repository root.
 
@@ -525,16 +525,16 @@ Only add commits that are overwhelmingly mechanical, such as repository-wide for
 
 Pull requests created before the repository-wide formatting commits can produce many merge conflicts, even when their functional changes do not overlap.
 
-For `openremote/openremote`, the relevant commits are:
+For `openremote/core`, the relevant commits are:
 
 | Commit                                                                                                                                 | Description                                               |
 |----------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
-| [`d6941d97c96ad70e7a6b764a4a4a7682aa906c8a`](https://github.com/openremote/openremote/commit/d6941d97c96ad70e7a6b764a4a4a7682aa906c8a) | Last commit before the repository-wide formatting change  |
-| [`e3a066dcf739efe08d3d0e51e477d2d652dd28f8`](https://github.com/openremote/openremote/commit/e3a066dcf739efe08d3d0e51e477d2d652dd28f8) | Apply Spotless across the repository                      |
-| [`5312a1199b0e1cc6daaa46c9b20f2d71a6755246`](https://github.com/openremote/openremote/commit/5312a1199b0e1cc6daaa46c9b20f2d71a6755246) | Enable Spotless formatting for Groovy files               |
-| [`db6a1ef6c7bee92ffd6d1855d0aa057f56a028c2`](https://github.com/openremote/openremote/commit/db6a1ef6c7bee92ffd6d1855d0aa057f56a028c2) | Apply repository-wide Spotless formatting to Groovy files |
+| [`d6941d97c96ad70e7a6b764a4a4a7682aa906c8a`](https://github.com/openremote/core/commit/d6941d97c96ad70e7a6b764a4a4a7682aa906c8a) | Last commit before the repository-wide formatting change  |
+| [`e3a066dcf739efe08d3d0e51e477d2d652dd28f8`](https://github.com/openremote/core/commit/e3a066dcf739efe08d3d0e51e477d2d652dd28f8) | Apply Spotless across the repository                      |
+| [`5312a1199b0e1cc6daaa46c9b20f2d71a6755246`](https://github.com/openremote/core/commit/5312a1199b0e1cc6daaa46c9b20f2d71a6755246) | Enable Spotless formatting for Groovy files               |
+| [`db6a1ef6c7bee92ffd6d1855d0aa057f56a028c2`](https://github.com/openremote/core/commit/db6a1ef6c7bee92ffd6d1855d0aa057f56a028c2) | Apply repository-wide Spotless formatting to Groovy files |
 
-The `master` branch can be merged into the pull request in stages so that functional changes are handled separately from the generated formatting changes.
+The `main` branch can be merged into the pull request in stages so that functional changes are handled separately from the generated formatting changes.
 
 1. Fetch the latest repository history:
 
@@ -595,7 +595,7 @@ The `master` branch can be merged into the pull request in stages so that functi
    git commit
    ```
 
-8. Merge the latest `master` branch as usual:
+8. Merge the latest `main` branch as usual:
 
    ```shell
    git merge origin/master
@@ -615,10 +615,10 @@ Do not use the `-s ours` merge strategy either. It would record a formatting com
 
 ### Upgrading an existing custom project to Spotless
 
-Custom projects commonly use the reusable CI/CD workflow from the `master` branch of `openremote/openremote`:
+Custom projects commonly use the reusable CI/CD workflow from the `main` branch of `openremote/core`:
 
 ```yaml
-uses: openremote/openremote/.github/workflows/ci_cd.yml@master
+uses: openremote/core/.github/workflows/ci_cd.yml@main)
 ```
 
 Because this follows `master`, new workflow behaviour is inherited automatically. This includes the Spotless formatting checks.
@@ -628,12 +628,12 @@ Because this follows `master`, new workflow behaviour is inherited automatically
 When there is not yet time to upgrade a custom project, temporarily pin the reusable workflow to a commit from before the Spotless checks were added:
 
 ```yaml
-uses: openremote/openremote/.github/workflows/ci_cd.yml@51f4c3c0c8edd429a65237268d47d615617d4008
+uses: openremote/core/.github/workflows/ci_cd.yml@51f4c3c0c8edd429a65237268d47d615617d4008
 ```
 
 Pinning the workflow also prevents the project from receiving other workflow changes made after that commit. Use this only as a temporary measure.
 
-The pinned SHA is the [`51f4c3c0c8edd429a65237268d47d615617d4008`](https://github.com/openremote/openremote/commit/51f4c3c0c8edd429a65237268d47d615617d4008) commit in `openremote/openremote`.
+The pinned SHA is the [`51f4c3c0c8edd429a65237268d47d615617d4008`](https://github.com/openremote/core/commit/51f4c3c0c8edd429a65237268d47d615617d4008) commit in `openremote/core`.
 
 #### Pull request 1: Add Spotless and apply formatting
 
@@ -681,7 +681,7 @@ When other custom-project template updates are also required, compare the existi
 Ensure the reusable workflow reference points to `master` before creating the first commit:
 
 ```yaml
-uses: openremote/openremote/.github/workflows/ci_cd.yml@master
+uses: openremote/core/.github/workflows/ci_cd.yml@main)
 ```
 
 Commit the synchronized configuration and workflow change:

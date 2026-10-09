@@ -20,7 +20,7 @@ Agents are a special type of asset which link external services/devices with you
 Assets can be structured in a hierarchical tree to define some logical hierarchy for a particular use case (e.g. A city has buildings, which has floors, which have presence sensors).
 
 ## Asset Type Model
-Our asset type model is configurable which allows it to be modelled on the domain objects relevant for the specific use case (energy domain, smart city, etc.). At present it is only possible to configure the asset model in Java code with the long term aim of allowing configuration via the `Manager UI`. You can [find the default asset type models here](https://github.com/openremote/openremote/tree/master/model/src/main/java/org/openremote/model/asset/impl) and use them as examples to create your own.
+Our asset type model is configurable which allows it to be modelled on the domain objects relevant for the specific use case (energy domain, smart city, etc.). At present it is only possible to configure the asset model in Java code with the long term aim of allowing configuration via the `Manager UI`. You can [find the default asset type models here](https://github.com/openremote/core/tree/main/model/src/main/java/org/openremote/model/asset/impl) and use them as examples to create your own.
 
 The asset model available for a given OpenRemote instance can be interrogated using the [Asset Model HTTP API](https://demo.openremote.io/swagger/#/Asset%20Model).
 
@@ -49,7 +49,7 @@ An attribute descriptor has a name which refers to the name of the attribute and
 * `type` - name of the value type descriptor that describes the data type of the attribute
 * `constraints` - value constraints that must be applied to the value (size/length, regex, not empty, etc.)
 * `format` - Formatting rules to be applied when converting the value to string representation for UI purposes (number of decimal places, boolean as on/off etc.)
-* `units` - array of strings that compose the units for this attribute based on the [HTML5 Intl API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) but with broader unit support (e.g. `["kilo", "metre", "per", "hour"]` → `km/h`) (see [here](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/Constants.java#L73) for a full list of standard unit types that our system supports - additional ones can be used but UI translations must be provided to support these). Currency symbols are also supported by providing an upper case currency code as defined in `ISO 4217 currency codes`, depending on your chosen language the system then takes care of either prepending the currency symbol (`£0.15/kWh`) or appending it (`0.15€/kWh`)
+* `units` - array of strings that compose the units for this attribute based on the [HTML5 Intl API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl) but with broader unit support (e.g. `["kilo", "metre", "per", "hour"]` → `km/h`) (see [here](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/Constants.java#L73) for a full list of standard unit types that our system supports - additional ones can be used but UI translations must be provided to support these). Currency symbols are also supported by providing an upper case currency code as defined in `ISO 4217 currency codes`, depending on your chosen language the system then takes care of either prepending the currency symbol (`£0.15/kWh`) or appending it (`0.15€/kWh`)
 * `meta` - List of default meta items (configuration items) that should be added when this attribute is first created
 * `optional` - boolean flag indicating if the attribute must be present (this doesn't control whether or not it must have a value - that is handled by constraints)
 
@@ -61,7 +61,7 @@ A meta item descriptor has a name which refers to the name of the meta item and 
 * `format` - same as attribute descriptor above
 * `units` - same as attribute descriptor above
 
-For details on the built-in meta item descriptors available see [here](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/MetaItemType.java),
+For details on the built-in meta item descriptors available see [here](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/MetaItemType.java),
 for asset/agent specific configuration items check their documentation pages and/or Javadoc.
 
 ### Value descriptors
@@ -74,4 +74,4 @@ A value descriptor has a name which must be unique within the OpenRemote instanc
 * `format` - same as attribute descriptor above
 * `units` - same as attribute descriptor above
 
-For details on the built-in value descriptors available see [here](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/ValueType.java).
+For details on the built-in value descriptors available see [here](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java).

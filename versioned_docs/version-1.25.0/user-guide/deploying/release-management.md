@@ -9,16 +9,16 @@ All the OpenRemote code is open-source and available on GitHub in repositories i
 
 ## Manager
 
-The Manager UI and backend is versioned in the [openremote/openremote](https://github.com/openremote/openremote) repository on GitHub. 
+The Manager UI and backend is versioned in the [openremote/core](https://github.com/openremote/core) repository on GitHub. 
 The code in this repository is used for building the [openremote/manager](https://hub.docker.com/r/openremote/manager) Docker image which is available on Docker Hub.
-You can find the release notes of each version on the [Releases](https://github.com/openremote/openremote/releases) page on GitHub.
+You can find the release notes of each version on the [Releases](https://github.com/openremote/core/releases) page on GitHub.
 
 When using the `openremote/manager` Docker image in production, it is recommended to always use a version tag (e.g. 1.2.0) so you know exactly what version is deployed.
 
 Besides the version tags you can also use the "latest" and "develop" tags which are convenient during testing:
 
 * **latest**: this tag is updated to always contain the most recent release.
-* **develop**: this tag is used during development for testing changes before an actual release is created. A new "develop" image is built for every commit pushed to the "master" branch. It is not recommended to use this tag in production because it can be unstable.
+* **develop**: this tag is used during development for testing changes before an actual release is created. A new "develop" image is built for every commit pushed to the "main" branch. It is not recommended to use this tag in production because it can be unstable.
 
 ## Custom Projects
 
@@ -30,13 +30,13 @@ A custom project always depends on the following versioned OpenRemote Manager ar
 * Java code (packaged as JARs, published to [Maven Central](https://search.maven.org/search?q=g:io.openremote))
 * TypeScript code (packaged as NPMs, published to [npmjs.com](https://www.npmjs.com/settings/openremote/packages))
 
-All these artifacts share the same version number as they are all created by the [openremote/openremote](https://github.com/openremote/openremote) repository.
+All these artifacts share the same version number as they are all created by the [openremote/core](https://github.com/openremote/core) repository.
 
 ### Updating to new a release
 
 When updating a custom project to a new OpenRemote release, you can follow the steps below:
 
-1. Read the [release notes](https://github.com/openremote/openremote/releases) to get familiar with the changes
+1. Read the [release notes](https://github.com/openremote/core/releases) to get familiar with the changes
 2. Update the code to use the new version:
    1. Docker images: Update the `openremote/manager` image tag in the `docker-compose.yml` file (or environment variable) [NOTE: The OpenRemote CI/CD will auto set `MANAGER_VERSION` env variable based on what is found for `openremoteVersion` in `gradle.properties` so this may not be needed]
    2. Java code: Update the `openremoteVersion` in the `gradle.properties` file
@@ -120,6 +120,6 @@ When the release workflow is started it will:
 
 Most of the release process is now automated but after a release some versions still need to be manually updated:
 
-* openremote/openremote: The "version" in the `package.json` files of all modules in the 'ui' directory
+* openremote/core: The "version" in the `package.json` files of all modules in the 'ui' directory
 
 For the iOS ORLib, the `Marketing Version` Build Setting of the ORLib target must be manually updated PRIOR to running the release workflow.

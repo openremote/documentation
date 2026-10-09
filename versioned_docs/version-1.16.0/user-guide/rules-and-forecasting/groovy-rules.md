@@ -16,21 +16,21 @@ List of objects:
 
 * `LOG` provides basic logging functionality using `java.util.logging.Logger`
 
-* `rules` provides access to the ruleset. This is how individual rules are added to the ruleset. [Relevant class in source](https://github.com/openremote/openremote/blob/master/manager/src/main/java/org/openremote/manager/rules/RulesBuilder.java)
+* `rules` provides access to the ruleset. This is how individual rules are added to the ruleset. [Relevant class in source](https://github.com/openremote/core/blob/main/manager/src/main/java/org/openremote/manager/rules/RulesBuilder.java)
 
-* `assets` provides access to relevant assets. [Relevant class in source](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/rules/Assets.java)
+* `assets` provides access to relevant assets. [Relevant class in source](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/rules/Assets.java)
 
-* `users` provides access to relevant users. [Relevant class in source](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/rules/Users.java)
+* `users` provides access to relevant users. [Relevant class in source](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/rules/Users.java)
 
-* `notifications` provides the ability to send notifications. [Relevant class in source](https://github.com/openremote/openremote/blob/master/manager/src/main/java/org/openremote/manager/rules/facade/NotificationsFacade.java)
+* `notifications` provides the ability to send notifications. [Relevant class in source](https://github.com/openremote/core/blob/main/manager/src/main/java/org/openremote/manager/rules/facade/NotificationsFacade.java)
 
 
 ## Example Groovy Rules
 In this section you can find code templates and corresponding examples on how to use Groovy Rules.
 
 ### Groovy Rule templates:
-* [Group Control Rule](https://github.com/openremote/openremote/blob/master/test/src/test/resources/org/openremote/test/rules/ChildAssetControl.groovy)
-* [Group Summation Rule](https://github.com/openremote/openremote/blob/master/test/src/test/resources/org/openremote/test/rules/GroupSummationRule.groovy)
+* [Group Control Rule](https://github.com/openremote/core/blob/main/test/src/test/resources/org/openremote/test/rules/ChildAssetControl.groovy)
+* [Group Summation Rule](https://github.com/openremote/core/blob/main/test/src/test/resources/org/openremote/test/rules/GroupSummationRule.groovy)
 ### Example: Group Control
 ![OpenRemote groovy group control example figure](img/groovy-group-control.png)
 _Example: Group Control. The asset group along with the attributes and configuration items used in this example._
@@ -63,7 +63,7 @@ This example demonstrates how to control multiple child assets (lights) by the p
 4. Create rule:
    * Select the **Lights Controller** asset and note down its asset ID (the last part of the URL, see above figure)
    * Go to the `Rules` page, click the `+` icon, and select `Groovy`. A basic Groovy Rule example will appear in the code editor, remove this example
-   * Copy the [Group Control Rule](https://github.com/openremote/openremote/blob/master/test/src/test/resources/org/openremote/test/rules/ChildAssetControl.groovy) into the code editor
+   * Copy the [Group Control Rule](https://github.com/openremote/core/blob/main/test/src/test/resources/org/openremote/test/rules/ChildAssetControl.groovy) into the code editor
    * In the code editor, replace the asset ID of the `parentAssetId` variable with your **Lights Controller** asset ID
    * Name the rule **Lights Controller rule** and click `SAVE`
 
@@ -101,7 +101,7 @@ This example demonstrates how to sum attribute values from child assets to the p
 4. Create rule:
    * Select the **Solar Farm** asset and note down its asset ID (the last part of the URL, see above figure)
    * Go to the `Rules` page, click the `+` icon, and select `Groovy`. A basic Groovy Rule example will appear in the code editor, remove this example
-   * Copy the [Group Summation Rule](https://github.com/openremote/openremote/blob/master/test/src/test/resources/org/openremote/test/rules/GroupSummationRule.groovy) into the code editor
+   * Copy the [Group Summation Rule](https://github.com/openremote/core/blob/main/test/src/test/resources/org/openremote/test/rules/GroupSummationRule.groovy) into the code editor
    * In the code editor, replace the asset ID of the `parentAssetId` variable with your **Solar Farm** asset ID
    * Name the rule **Solar Power Summation rule** and click `SAVE`
 

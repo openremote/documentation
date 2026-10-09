@@ -5,7 +5,7 @@ sidebar_position: 5
 # Working on UI and apps
 
 ## Overview
-Front end applications are [webcomponent](https://www.webcomponents.org/) based using the [lit](https://lit.dev/) library and [Material Design](https://material.io/components?platform=web) for styling. We use a combination of Polymer LIT, Material Design and our own OpenRemote elements. The UI components are [published on NPM](https://www.npmjs.com/org/openremote). The applications themselves are composed of our re-usable modular UI components which can be found in the code base in the [ui/component](https://github.com/openremote/openremote/tree/master/ui/component) folder, these are also published to [NPM](https://www.npmjs.com/org/openremote).
+Front end applications are [webcomponent](https://www.webcomponents.org/) based using the [lit](https://lit.dev/) library and [Material Design](https://material.io/components?platform=web) for styling. We use a combination of Polymer LIT, Material Design and our own OpenRemote elements. The UI components are [published on NPM](https://www.npmjs.com/org/openremote). The applications themselves are composed of our re-usable modular UI components which can be found in the code base in the [ui/component](https://github.com/openremote/core/tree/main/ui/component) folder, these are also published to [NPM](https://www.npmjs.com/org/openremote).
 
 ## Working on an app (e.g. Manager UI)
 To work on an app for example the `Manager UI` :
@@ -53,9 +53,9 @@ If you want to create a new `component` or `app` then simply copy an existing on
 
 ### UI Components & Apps (`/ui`)
 All UI components and apps are located in the `ui` directory; here you can find the standard OpenRemote web UI components and apps using a monorepo architecture. The code is divided into categories by directory:
-* [`component`](https://github.com/openremote/openremote/tree/master/ui/component) - Base OpenRemote JS modules and web components (built using Polymer) these are written as ES6 modules
-* [`app`](https://github.com/openremote/openremote/tree/master/ui/app) - Built-in OpenRemote web applications (applications can be built with whatever frameworks/libraries are desired)
-* [`demo`](https://github.com/openremote/openremote/tree/master/ui/demo) - Demos of each web component (provides a development harness for developers working on the components)
+* [`component`](https://github.com/openremote/core/tree/main/ui/component) - Base OpenRemote JS modules and web components (built using Polymer) these are written as ES6 modules
+* [`app`](https://github.com/openremote/core/tree/main/ui/app) - Built-in OpenRemote web applications (applications can be built with whatever frameworks/libraries are desired)
+* [`demo`](https://github.com/openremote/core/tree/main/ui/demo) - Demos of each web component (provides a development harness for developers working on the components)
 
 Typescript is used to provide static typing with the OpenRemote model available in the `@openremote/model` component package; the components are published to `npm` under the `@openremote` scope; see the README in each component for information about each specific component.
 

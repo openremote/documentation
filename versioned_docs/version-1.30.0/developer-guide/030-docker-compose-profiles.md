@@ -10,7 +10,7 @@ The following services are used by the main OpenRemote code base:
 * map - tileserver-gl service that is used for serving map tiles (not required)
 
 ## Docker Compose profiles
-Docker Compose profiles (Docker Compose `.yml` files) are used to configure and start required services; the standard profiles are located in the profile folder of the main [OpenRemote repository](https://github.com/openremote/openremote/tree/master/profile) although the `demo` profile is in the root of the repo.
+Docker Compose profiles (Docker Compose `.yml` files) are used to configure and start required services; the standard profiles are located in the profile folder of the main [OpenRemote repository](https://github.com/openremote/core/tree/main/profile) although the `demo` profile is in the root of the repo.
 
 The standard profiles are:
 
