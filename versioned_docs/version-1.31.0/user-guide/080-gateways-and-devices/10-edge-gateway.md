@@ -177,6 +177,21 @@ On top of the Interaction via the Gateway, you can remotely access the full Mana
 ![](img/create-gateway-tunnel.png)
 _Creating a gateway tunnel and opening the manager UI of the remote instance which is connected as a gateway._
 
+### Who can open and view tunnels
+
+A tunnel reaches a host and port on the network the gateway sits on, so tunnel access has its own roles rather than following the general admin roles:
+
+| Role | Grants |
+| --- | --- |
+| `read:tunnels` | See which tunnels are open |
+| `write:tunnels` | Open and close tunnels |
+
+Both are part of the `read` and `write` composite roles, but neither is given to new users by default. Assign them explicitly to anyone who needs the 'Gateway Tunnels' settings page, a 'Gateway Widget' on a dashboard, or who opens tunnels through the REST API. Users who were given individual roles rather than a composite will not have them.
+
+A restricted user only sees and controls tunnels for the gateway assets linked to them, on top of the roles above.
+
+The gateway's own service user does not need either role. An edge gateway is told about its open tunnels over its connection to the central instance, not through the API.
+
 ## Requirements
 ### Central Manager
 - Must be running the Keycloak identity provider
