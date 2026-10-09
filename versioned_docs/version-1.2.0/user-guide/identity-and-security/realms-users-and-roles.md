@@ -19,7 +19,7 @@ These are users that login interactively by filling in their username and passwo
 These are users that login programmatically using a client ID and secret and is designed for confidential clients to connect to the [Manager APIs](../manager-apis.md) (i.e. MQTT, WebSockets and/or HTTP) without user interaction, in OAuth 2.0 terminology this is the `client_credentials` grant type.
 
 ## Roles
-Roles (technically composite roles or role groups) can be defined by selecting the various 'read' and 'write' access rights for the various functions of the system. Each realm has its own set of roles and a user can be assigned zero or more of these roles within their realm and they are composite as they combine to form the overall authorization/permissions for a user. Roles used by OpenRemote are defined in [ClientRole](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/security/ClientRole.java).
+Roles (technically composite roles or role groups) can be defined by selecting the various 'read' and 'write' access rights for the various functions of the system. Each realm has its own set of roles and a user can be assigned zero or more of these roles within their realm and they are composite as they combine to form the overall authorization/permissions for a user. Roles used by OpenRemote are defined in [ClientRole](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/security/ClientRole.java).
 
 ## Realm roles
 There are two additional realm roles for users within OpenRemote.

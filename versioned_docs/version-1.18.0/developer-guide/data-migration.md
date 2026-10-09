@@ -13,7 +13,7 @@ There are several DB functions included in the system to help with this task:
 ## DB Functions
 The DB functions and their arguments can be found in the code at:
 
-https://github.com/openremote/openremote/blob/master/manager/src/main/resources/org/openremote/manager/setup/database
+https://github.com/openremote/core/blob/main/manager/src/main/resources/org/openremote/manager/setup/database
 
 ## Examples
 

@@ -42,4 +42,4 @@ This means extensions cannot yet be installed, enabled, or disabled dynamically 
 We are also working on moving more reusable and domain-specific code out of the main OpenRemote repository and into the [extensions repository](https://github.com/openremote/extensions/).
 Over time, this should make the main repository leaner while making optional functionality easier to package, maintain, and reuse.
 
-You can follow the ongoing work in the [extensions epic](https://github.com/openremote/openremote/issues/2598).
+You can follow the ongoing work in the [extensions epic](https://github.com/openremote/core/issues/2598).

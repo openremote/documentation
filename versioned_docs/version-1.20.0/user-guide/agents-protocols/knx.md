@@ -11,8 +11,8 @@ The following describes the supported agent configuration attributes:
 
 | Attribute | Description | Value type | Required |
 | ------------- | ------------- | ------------- | ------------- |
-| `host` | IP Interface/Router hostname or IP address | [Hostname or IP address](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/ValueType.java#L153) | Y |
-| `port` | IP Interface/Router port | [Port number](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/ValueType.java#L148) | N |
+| `host` | IP Interface/Router hostname or IP address | [Hostname or IP address](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java#L153) | Y |
+| `port` | IP Interface/Router port | [Port number](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java#L148) | N |
 | `NATMode` | Enable NAT mode | Boolean | N (Default = `false`) |
 | `routingMode` | Enable Routing mode | Boolean | N (Default = `false`) |
 | `messageSourceAddress` | Source group address | Text (KNX Group Address e.g. `1.1.1`) | N (Default = `0.0.0`) |

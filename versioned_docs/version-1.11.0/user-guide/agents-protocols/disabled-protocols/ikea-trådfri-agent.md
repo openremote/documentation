@@ -58,7 +58,7 @@ The protocol connection status changes to `CONNECTED` as soon as an IKEA TRÅDFR
 ## See also
 
 - [Agent overview](../overview.md)
-- [Quick Start](https://github.com/openremote/openremote/blob/master/README.md)
+- [Quick Start](https://github.com/openremote/core/blob/main/README.md)
 - [Manager UI Guide](../../manager-ui/manager-ui.md)
 - [Custom Deployment](../../deploying/custom-deployment.md)
 - [Setting up an IDE](../../../developer-guide/setting-up-an-ide.md)

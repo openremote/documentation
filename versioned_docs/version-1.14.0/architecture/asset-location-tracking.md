@@ -64,7 +64,7 @@ When a geofence is triggered on an asset then the asset should update its own lo
 **By using geofence triggers in this way the handling of all location tracked assets can be processed in the same way i.e. the manager rules can compare location asset state changes irrespective of how the asset provides the location data.**
 
 ## Geofence Asset Adapters
-Refer to the source code for details of the [GeofenceAssetAdapter](https://github.com/openremote/openremote/blob/location/manager/src/main/java/org/openremote/manager/rules/geofence/GeofenceAssetAdapter.java) and how it is used. Currently there is one implementation:
+Refer to the source code for details of the [GeofenceAssetAdapter](https://github.com/openremote/core/blob/location/manager/src/main/java/org/openremote/manager/rules/geofence/GeofenceAssetAdapter.java) and how it is used. Currently there is one implementation:
 
 ### ORConsoleGeofenceAssetAdapter (Android and iOS consoles)
 An asset will use this adapter if it matches the following criteria:

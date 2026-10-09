@@ -11,9 +11,9 @@ For attributes linked to this agent, the following describes the supported agent
 
 | Field | Description | Value type | Required |
 | ------------- | ------------- | ------------- | ------------- |
-| `replayData` | A dataset of values that should be replayed (i.e. written to the linked attribute) in a continuous loop | [SimulatorReplayDatapoint[]](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/simulator/SimulatorReplayDatapoint.java) | N |
-| `schedule` | When defined overwrites the default 24h dataset length and how it is replayed. | [SimulatorProtocol.Schedule](https://github.com/openremote/openremote/blob/master/agent/src/main/java/org/openremote/agent/protocol/simulator/SimulatorProtocol.java) | N |
-| `timezone` | The timezone the Simulator should follow when replaying the dataset. | [TimeZone](https://github.com/openremote/openremote/blob/master/agent/src/main/java/org/openremote/agent/protocol/simulator/SimulatorAgentLink.java) | N |
+| `replayData` | A dataset of values that should be replayed (i.e. written to the linked attribute) in a continuous loop | [SimulatorReplayDatapoint[]](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/simulator/SimulatorReplayDatapoint.java) | N |
+| `schedule` | When defined overwrites the default 24h dataset length and how it is replayed. | [SimulatorProtocol.Schedule](https://github.com/openremote/core/blob/main/agent/src/main/java/org/openremote/agent/protocol/simulator/SimulatorProtocol.java) | N |
+| `timezone` | The timezone the Simulator should follow when replaying the dataset. | [TimeZone](https://github.com/openremote/core/blob/main/agent/src/main/java/org/openremote/agent/protocol/simulator/SimulatorAgentLink.java) | N |
 
 ## Additional info
 Attributes linked to this agent that are written to will follow a route through the system as if it came from a remote service.
