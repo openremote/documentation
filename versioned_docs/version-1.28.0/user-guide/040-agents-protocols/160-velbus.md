@@ -2,8 +2,8 @@
 
 Connect to a [Velbus](https://www.velbus.eu/) network using either of the following implementations:
 
-* Direct RS232/Serial using `VMBRSUSB` or `VMB1USB` - [Velbus Serial Agent](https://github.com/openremote/openremote/blob/master/agent/src/main/java/org/openremote/agent/protocol/velbus/VelbusSerialAgent.java) (Requires a `device` mapping for `manager` Docker container)
-* TCP/IP using [VelServ](https://github.com/jeroends/velserv) or similar - [Velbus TCP Agent](https://github.com/openremote/openremote/blob/master/agent/src/main/java/org/openremote/agent/protocol/velbus/VelbusTCPAgent.java)
+* Direct RS232/Serial using `VMBRSUSB` or `VMB1USB` - [Velbus Serial Agent](https://github.com/openremote/core/blob/main/agent/src/main/java/org/openremote/agent/protocol/velbus/VelbusSerialAgent.java) (Requires a `device` mapping for `manager` Docker container)
+* TCP/IP using [VelServ](https://github.com/jeroends/velserv) or similar - [Velbus TCP Agent](https://github.com/openremote/core/blob/main/agent/src/main/java/org/openremote/agent/protocol/velbus/VelbusTCPAgent.java)
 
 
 ## Agent configuration
@@ -12,8 +12,8 @@ The following describes the supported agent configuration attributes:
 ### TCP
 | Attribute | Description | Value type | Required |
 | ------------- | ------------- | ------------- | ------------- |
-| `host` | TCP server hostname or IP address | [Hostname or IP address](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/ValueType.java#L153) | Y |
-| `port` | TCP server port | [Port number](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/ValueType.java#L148) | Y |
+| `host` | TCP server hostname or IP address | [Hostname or IP address](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java#L153) | Y |
+| `port` | TCP server port | [Port number](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java#L148) | Y |
 
 ### Serial
 | Attribute | Description | Value type | Required |
@@ -24,7 +24,7 @@ The following describes the supported agent configuration attributes:
 ### TCP & Serial
 | Attribute | Description | Value type | Required |
 | ------------- | ------------- | ------------- | ------------- |
-| `timeInjectionInterval` | Time injection interval (s) - as Velbus doesn't have RTC or support daylight saving time so this should be set to about 1hr | [Positive Integer](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/ValueType.java#L83) | Y |
+| `timeInjectionInterval` | Time injection interval (s) - as Velbus doesn't have RTC or support daylight saving time so this should be set to about 1hr | [Positive Integer](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java#L83) | Y |
 
 ## Agent link
 For attributes linked to this agent, the following describes the supported agent link fields which are in addition to the standard [Agent Link](./010-overview.md#agent-links) fields:

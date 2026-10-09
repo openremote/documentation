@@ -7,9 +7,9 @@ sidebar_position: 5
 In addition to being deployed with docker compose, the containers making up an OpenRemote stack can also be deployed under kubernetes.
 
 To make the deployment as easy as possible, we provide Helm charts.  
-You can find them, as well as all the required files, in the [openremote](https://github.com/openremote/openremote) repository,
-under the [kubernetes](https://github.com/openremote/openremote/tree/master/kubernetes) folder.  
-The folder also includes a [README.md](https://github.com/openremote/openremote/tree/master/kubernetes/README.md) file with detailed information on configuration and deployment.
+You can find them, as well as all the required files, in the [OpenRemote Core](https://github.com/openremote/core) repository,
+under the [kubernetes](https://github.com/openremote/core/tree/main/kubernetes) folder.  
+The folder also includes a [README.md](https://github.com/openremote/core/tree/main/kubernetes/README.md) file with detailed information on configuration and deployment.
 
 At this stage, the helm charts are not published in an OCI registry.
 

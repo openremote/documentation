@@ -72,7 +72,7 @@ More information about getting (custom) map tiles can be found [here](https://do
 Before the system can use your custom map, it needs to know what the boundaries (coordinates) are and where the center of the map is.
 You must change these details in the `mapsettings.json` file. After that, you can provide a publicly accessible URL where the system can download this file.
 
-An example file can be found [here](https://github.com/openremote/openremote/blob/master/manager/src/map/mapsettings.json).
+An example file can be found [here](https://github.com/openremote/core/blob/main/manager/src/map/mapsettings.json).
 
 ## E-mail Configuration
 

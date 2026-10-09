@@ -38,7 +38,7 @@ Just create a new Asset of type Gateway and the manager will provision a Keycloa
 
 ![image](img/manager-interconnect-rate.png)
 
-You can set advanced per-attribute synchronisation using the JSON editor. See [GatewayAttributeFilter](https://github.com/openremote/openremote/blob/a321ea3e972d2e88e79225cf2459a5a026878e54/model/src/main/java/org/openremote/model/gateway/GatewayAttributeFilter.java)
+You can set advanced per-attribute synchronisation using the JSON editor. See [GatewayAttributeFilter](https://github.com/openremote/core/blob/a321ea3e972d2e88e79225cf2459a5a026878e54/model/src/main/java/org/openremote/model/gateway/GatewayAttributeFilter.java)
 ```
 [
   {

@@ -23,7 +23,7 @@ They are all provided after accessing that thing's dashboard and creating a new 
 Download the Device Certificate and activate it, download the private key file, and the Amazon Trust Services endpoint RSA 2048 bit key.
 
 :::warning
-The password of the keystore and the password of each keypair within the keystore should be the same, and it should be set to `OR_KEYSTORE_PASSWORD`. Otherwise, you may see errors like `Get Key failed: Given final block not properly padded`. You can find a more detailed explanation in [this GitHub issue](https://github.com/openremote/openremote/issues/2093).
+The password of the keystore and the password of each keypair within the keystore should be the same, and it should be set to `OR_KEYSTORE_PASSWORD`. Otherwise, you may see errors like `Get Key failed: Given final block not properly padded`. You can find a more detailed explanation in [this GitHub issue](https://github.com/openremote/core/issues/2093).
 :::
 
 The password of everything keystore-related is `OR_KEYSTORE_PASSWORD`, for when it is requested. If it is not set as an environment variable before starting OpenRemote for the first time, it will default to `<empty string>`. If you want to change the password later, you will need to change it in both the keystore and the truststore, as well as the passwords of each keypair within the keystore and truststore, and make sure to set `OR_KEYSTORE_PASSWORD` as that password.
@@ -62,7 +62,7 @@ The agent attempts to connect, and it successfully authenticates and connects to
 
 - [Agent overview](./010-overview.md)
 - [MQTT Broker](../050-manager-apis.md#mqtt-api-mqtt-broker)
-- [Quick Start](https://github.com/openremote/openremote/blob/master/README.md)
+- [Quick Start](https://github.com/openremote/core/blob/main/README.md)
 - [Manager UI Guide](../020-manager-ui/10-manager-ui.md)
 - [Custom Deployment](../010-deploying/10-custom-deployment.md)
 - [Setting up an IDE](../../developer-guide/020-setting-up-an-ide.md)

@@ -7,8 +7,8 @@ The following describes the supported agent configuration attributes:
 
 | Attribute | Description | Value type | Required |
 | ------------- | ------------- | ------------- | ------------- |
-| `bindHost` | Bind hostname or IP address | [Hostname or IP address](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/ValueType.java#L153) | Y |
-| `bindPort` | Bind port | [Port number](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/ValueType.java#L148) | N (Default = `162`) |
+| `bindHost` | Bind hostname or IP address | [Hostname or IP address](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java#L153) | Y |
+| `bindPort` | Bind port | [Port number](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java#L148) | N (Default = `162`) |
 | `SNMPVersionValue` | SNMP Version | Text (`V1`, `V2c`, `V3c`) | N |
 
 

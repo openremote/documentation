@@ -5,7 +5,7 @@ unlisted: true
 # MQTT Gateway API
 :::warning
 
-This feature is currently under development and is a work in progress. It has not been merged into the main branch and is subject to change. You can find the branch [here](https://github.com/openremote/openremote/tree/feature/mqtt-gateway-api).
+This feature is currently under development and is a work in progress. It has not been merged into the main branch and is subject to change. You can find the branch [here](https://github.com/openremote/core/tree/feature/mqtt-gateway-api).
 
 :::
 
@@ -57,50 +57,50 @@ Operations are publish topics that provide asset management functionality. Each 
 > `{realm}/{clientId}/operations/assets/{responseIdentifier}/create/response`
 
 
-#### [Assets](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/asset/Asset.java)
+#### [Assets](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/asset/Asset.java)
 
 - **Create Asset**  
   Topic: `{realm}/{clientId}/operations/assets/{responseIdentifier}/create`  
   Description: Creates an asset. Requires a valid [asset template](#asset-templates) as the payload. The response identifier is used to correlate the response to the request. Requires a subscription to the response topic to receive the response.  
-  Response: [AssetEvent](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/asset/AssetEvent.java)
+  Response: [AssetEvent](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/asset/AssetEvent.java)
 
 - **Get Asset**  
   Topic: `{realm}/{clientId}/operations/assets/{assetId}/get`  
   Description: Requests the data of the specified assetId. Requires a subscription to the response topic to receive the data.  
-  Response: [Asset](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/asset/Asset.java)
+  Response: [Asset](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/asset/Asset.java)
 
 - **Update Asset**  
   Topic: `{realm}/{clientId}/operations/assets/{assetId}/update`  
   Description: Updates the specified asset. Requires a valid [asset template](#asset-templates) as the payload.  
-  Response: [AssetEvent](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/asset/AssetEvent.java)
+  Response: [AssetEvent](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/asset/AssetEvent.java)
 
 - **Delete Asset**  
   Topic: `{realm}/{clientId}/operations/assets/{assetId}/delete`  
   Description: Deletes the specified asset.  
-  Response: [AssetEvent](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/asset/AssetEvent.java)
+  Response: [AssetEvent](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/asset/AssetEvent.java)
 
-#### [Attributes](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/attribute/Attribute.java)
+#### [Attributes](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/attribute/Attribute.java)
 
 - **Update Attribute**  
   Topic: `{realm}/{clientId}/operations/assets/{assetId}/attributes/{attributeName}/update`  
   Description: Updates the specified attribute of the specified asset.  
-  Response: [AttributeEvent](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/attribute/AttributeEvent.java)
+  Response: [AttributeEvent](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/attribute/AttributeEvent.java)
 
 - **Update Multiple Attributes**  
   Topic: `{realm}/{clientId}/operations/assets/{assetId}/attributes/update`  
   Description: Updates the attributes of the specified asset based on the payload, allowing for multi-attribute updating.  
   Example: [multi-attribute payload](#multi-attribute-update-payload)  
-  Response: [AttributeEvent](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/attribute/AttributeEvent.java) objects.
+  Response: [AttributeEvent](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/attribute/AttributeEvent.java) objects.
 
 - **Get Attributes**  
   Topic: `{realm}/{clientId}/operations/assets/{assetId}/attributes/get`  
   Description: Requests the attribute data of the specified asset.  
-  Response: [Attribute](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/attribute/Attribute.java) objects.
+  Response: [Attribute](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/attribute/Attribute.java) objects.
 
 - **Get Specific Attribute**  
   Topic: `{realm}/{clientId}/operations/assets/{assetId}/attributes/{attributeName}/get`  
   Description: Requests the specified attribute data of the specified asset. The attribute data contains the full attribute object.  
-  Response: [Attribute](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/attribute/Attribute.java) object.
+  Response: [Attribute](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/attribute/Attribute.java) object.
 
 - **Get Attribute Value**  
   Topic: `{realm}/{clientId}/operations/assets/{assetId}/attributes/{attributeName}/get-value`  
@@ -116,7 +116,7 @@ Events are subscription topics that allow for subscribing to various events, suc
 
 
 
-#### [AssetEvent](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/asset/AssetEvent.java)
+#### [AssetEvent](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/asset/AssetEvent.java)
 
 - **All Asset Events of the Realm**  
   Topic: `{realm}/{clientId}/events/assets/#`
@@ -133,7 +133,7 @@ Events are subscription topics that allow for subscribing to various events, suc
 - **All Asset Events for the Direct Children of the Specified Asset**  
   Topic: `{realm}/{clientId}/events/assets/{assetId}/+`
 
-#### [AttributeEvent](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/attribute/AttributeEvent.java)
+#### [AttributeEvent](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/attribute/AttributeEvent.java)
 
 - **All Attribute Events of the Realm**  
   Topic: `{realm}/{clientId}/events/assets/+/attributes/#`
@@ -161,7 +161,7 @@ Events are subscription topics that allow for subscribing to various events, suc
 
 :::note
 
-`attributes-value` topic prefix can be used in place of `attributes` to only return the value of the [AttributeEvent](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/attribute/AttributeEvent.java) rather than the entire event.
+`attributes-value` topic prefix can be used in place of `attributes` to only return the value of the [AttributeEvent](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/attribute/AttributeEvent.java) rather than the entire event.
 
 :::
 

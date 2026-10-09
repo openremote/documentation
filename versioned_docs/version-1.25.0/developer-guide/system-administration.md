@@ -282,7 +282,7 @@ rm -r data/new data/old
 - [PostgreSQL Bloat Detection](https://wiki.postgresql.org/wiki/Show_database_bloat)
 
 ### Useful queries
-Refer to the [Query Exporter configuration file](https://github.com/openremote/openremote/blob/master/deployment/query-exporter/config.yaml) for useful DB monitoring queries.
+Refer to the [Query Exporter configuration file](https://github.com/openremote/core/blob/main/deployment/query-exporter/config.yaml) for useful DB monitoring queries.
 
 #### Adjust asset table fillfactor
 ```sql
@@ -416,7 +416,7 @@ There are several DB functions included in the system to help with this task:
 #### DB Functions
 The DB functions and their arguments can be found in the code at:
 
-https://github.com/openremote/openremote/blob/master/manager/src/main/resources/org/openremote/manager/setup/database
+https://github.com/openremote/core/blob/main/manager/src/main/resources/org/openremote/manager/setup/database
 
 #### Examples
 
