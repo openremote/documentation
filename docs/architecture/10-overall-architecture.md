@@ -1,7 +1,7 @@
 # Overall architecture
 
 At the heart of the manager, is the [Container](https://www.javadoc.io/doc/io.openremote/openremote-container/latest/org/openremote/container/Container.html) class that manages the life cycle of all the services, including loading and starting them at launch.  
-Those services are defined in [manager/src/main/resources/META-INF/services/org.openremote.model.ContainerService](https://github.com/openremote/openremote/blob/master/manager/src/main/resources/META-INF/services/org.openremote.model.ContainerService)
+Those services are defined in [manager/src/main/resources/META-INF/services/org.openremote.model.ContainerService](https://github.com/openremote/core/blob/main/manager/src/main/resources/META-INF/services/org.openremote.model.ContainerService)
 
 A service is a component whose lifecycle is managed by the Container, and that provides some functionality. All services implement the [ContainerService](https://www.javadoc.io/doc/io.openremote/openremote-model/latest/org/openremote/model/ContainerService.html) interface.
 
@@ -47,7 +47,7 @@ See [Manager APIs](https://docs.openremote.io/docs/user-guide/manager-apis/) for
 ##### Via publishing on MQTT topics
 
 Clients can post on `writeattributevalue` or `writeattribute` topics.
-This is handled in [DefaultMQTTHandler.onPublish()](https://github.com/openremote/openremote/blob/151af17d0e502f0fa7a377cd34b8416350bc1794/manager/src/main/java/org/openremote/manager/mqtt/DefaultMQTTHandler.java#L342).
+This is handled in [DefaultMQTTHandler.onPublish()](https://github.com/openremote/core/blob/151af17d0e502f0fa7a377cd34b8416350bc1794/manager/src/main/java/org/openremote/manager/mqtt/DefaultMQTTHandler.java#L342).
 
 ##### Via REST API
 
@@ -58,7 +58,7 @@ Several endpoints allow to add or update one or more attributes.
 [Update attribute values](https://docs.openremote.io/docs/rest-api/write-attribute-values) - `PUT attributes`  
 [Update attribute values with timestamps](https://docs.openremote.io/docs/rest-api/write-attribute-events) - `PUT attributes/timestamp`  
 
-All above end up being handled by [AssetResourceImpl.doAttributeWrite()](https://github.com/openremote/openremote/blob/151af17d0e502f0fa7a377cd34b8416350bc1794/manager/src/main/java/org/openremote/manager/asset/AssetResourceImpl.java#L580).
+All above end up being handled by [AssetResourceImpl.doAttributeWrite()](https://github.com/openremote/core/blob/151af17d0e502f0fa7a377cd34b8416350bc1794/manager/src/main/java/org/openremote/manager/asset/AssetResourceImpl.java#L580).
 
 ##### Via WebSocket API
 
@@ -66,14 +66,14 @@ All above end up being handled by [AssetResourceImpl.doAttributeWrite()](https:/
 
 #### From inside the system
 
-[AssetProcessingService.sendAttributeEvent()](https://github.com/openremote/openremote/blob/151af17d0e502f0fa7a377cd34b8416350bc1794/manager/src/main/java/org/openremote/manager/asset/AssetProcessingService.java#L317) can be used by any component in the system to post an [AttributeEvent](https://www.javadoc.io/doc/io.openremote/openremote-model/latest/org/openremote/model/attribute/AttributeEvent.html) for processing.
+[AssetProcessingService.sendAttributeEvent()](https://github.com/openremote/core/blob/151af17d0e502f0fa7a377cd34b8416350bc1794/manager/src/main/java/org/openremote/manager/asset/AssetProcessingService.java#L317) can be used by any component in the system to post an [AttributeEvent](https://www.javadoc.io/doc/io.openremote/openremote-model/latest/org/openremote/model/attribute/AttributeEvent.html) for processing.
 
 ### Events processing
 
 Regardless of how events enter the system, they are handled through a Camel Direct component with URI "direct://AttributeEventProcessor".  
 This is wired to the [AssetProcessingService](https://www.javadoc.io/doc/io.openremote/openremote-manager/latest/org/openremote/manager/asset/AssetProcessingService.html), that manages the processing chain all those events go through.
 
-[AssetProcessingService.processAttributeEvent()](https://github.com/openremote/openremote/blob/151af17d0e502f0fa7a377cd34b8416350bc1794/manager/src/main/java/org/openremote/manager/asset/AssetProcessingService.java#L341) is really where all processing happens.
+[AssetProcessingService.processAttributeEvent()](https://github.com/openremote/core/blob/151af17d0e502f0fa7a377cd34b8416350bc1794/manager/src/main/java/org/openremote/manager/asset/AssetProcessingService.java#L341) is really where all processing happens.
 
 A lock is immediately taken on the asset (assetId based) and during this lock:
 - [Asset](https://www.javadoc.io/doc/io.openremote/openremote-model/latest/org/openremote/model/asset/Asset.html) is retrieved from DB

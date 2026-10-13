@@ -11,10 +11,10 @@ The following describes the supported agent configuration attributes:
 
 | Attribute | Description | Value type | Required |
 | ------------- | ------------- | ------------- | ------------- |
-| `baseURL` | Server base HTTP(S) URL; this is used as the base URL for all requests that go through this agent | [HTTP URL](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/ValueType.java#L192) | Y |
+| `baseURL` | Server base HTTP(S) URL; this is used as the base URL for all requests that go through this agent | [HTTP URL](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java#L192) | Y |
 | `followRedirects` | Should the agent follow any redirect responses (e.g. HTTP status code 3xx) | Boolean | N |
-| `requestHeaders` | Headers to be added to all requests that go through this agent | [Multivalued Text Map](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/ValueType.java#L80) | N |
-| `requestQueryParameters` | Query parameters to be added to all requests that go through this agent | [Multivalued Text Map](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/ValueType.java#L80) | N |
+| `requestHeaders` | Headers to be added to all requests that go through this agent | [Multivalued Text Map](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java#L80) | N |
+| `requestQueryParameters` | Query parameters to be added to all requests that go through this agent | [Multivalued Text Map](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java#L80) | N |
 | `requestTimeoutMillis` | Request timeout for all requests that go through this agent (ms) | Integer | N (Default = `10000` |
 
 ### Example multivalued Text Map
@@ -41,8 +41,8 @@ For attributes linked to this agent, the following describes the supported agent
 | `type` | Agent type | Text (Must be `HTTPAgentLink`) | Y |
 | `path` | The request path (appended to the `baseURL` defined on the agent) | Text | N |
 | `method` | The HTTP method used for the request | Text | N (Default = `GET`) |
-| `headers` | Headers to be added to this specific request (in addition to any `requestHeaders` defined on the agent) | [Multivalued Text Map](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/ValueType.java#L192) | N |
-| `queryParameters` | Query parameters to be added to this specific request (in addition to any `requestQueryParameters` defined on the agent) | [Multivalued Text Map](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/value/ValueType.java#L192) | N |
+| `headers` | Headers to be added to this specific request (in addition to any `requestHeaders` defined on the agent) | [Multivalued Text Map](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java#L192) | N |
+| `queryParameters` | Query parameters to be added to this specific request (in addition to any `requestQueryParameters` defined on the agent) | [Multivalued Text Map](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java#L192) | N |
 | `pollingMillis` | Indicates that a polling request should be made every (ms) to populate the attribute with the response | Integer | N |
 | `pagingMode` | Enables support for `Link` header for pagination see [here](https://docs.github.com/en/rest/guides/traversing-with-pagination) for details; if this is enabled and the `Link` header is found then all pages are requested and combined before pushing through to the attribute | Boolean | N |
 | `contentType` | Sets the `Content-Type` header (convenient alternative to using `headers` | Text | N (Default = `text/plain`) |

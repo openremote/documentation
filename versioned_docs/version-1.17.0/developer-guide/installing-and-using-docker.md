@@ -133,7 +133,7 @@ you can install a virtual machine as follows:
 - Install [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
 - Install [Vagrant](https://developer.hashicorp.com/vagrant/install)
 - Install [Docker Toolbox](https://www.docker.com/products/overview#/docker_toolbox)
-- Check out the [OpenRemote project](https://github.com/openremote/openremote) and change to `$PROJECT_DIRECTORY/platform/`
+- Check out [OpenRemote Core](https://github.com/openremote/core) and change to `$PROJECT_DIRECTORY/platform/`
 - Execute `vagrant up` to start a virtual machine
 
 Configure the virtual machine as a Docker host machine with:

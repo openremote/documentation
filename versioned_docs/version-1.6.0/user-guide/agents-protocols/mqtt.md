@@ -63,7 +63,7 @@ The agent attempts to connect, and it successfully authenticates and connects to
 
 - [Agent overview](overview.md)
 - [MQTT Broker](../manager-apis.md#mqtt-api-mqtt-broker)
-- [Quick Start](https://github.com/openremote/openremote/blob/master/README.md)
+- [Quick Start](https://github.com/openremote/core/blob/main/README.md)
 - [Manager UI Guide](../manager-ui/manager-ui.md)
 - [Custom Deployment](../deploying/custom-deployment.md)
 - [Setting up an IDE](../../developer-guide/setting-up-an-ide.md)

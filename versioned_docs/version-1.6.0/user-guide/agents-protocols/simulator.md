@@ -17,7 +17,7 @@ For attributes linked to this agent, the following describes the supported agent
 | Field | Description | Value type | Required |
 | ------------- | ------------- | ------------- | ------------- |
 | `type` | Agent type | Text (Must be `SimulatorAgentLink`) | Y |
-| `replayData` | 24h dataset of values that should be replayed (i.e. written to the linked attribute) in a continuous loop | [SimulatorReplayDatapoint[]](https://github.com/openremote/openremote/blob/master/model/src/main/java/org/openremote/model/simulator/SimulatorReplayDatapoint.java) | N |
+| `replayData` | 24h dataset of values that should be replayed (i.e. written to the linked attribute) in a continuous loop | [SimulatorReplayDatapoint[]](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/simulator/SimulatorReplayDatapoint.java) | N |
 
 ## Additional info
 Attributes linked to this agent that are written to will follow a route through the system as if it came from a remote service.
