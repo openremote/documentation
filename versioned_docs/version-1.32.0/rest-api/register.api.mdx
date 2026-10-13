@@ -1,0 +1,67 @@
+---
+id: register
+title: "Create or update the registration for a console"
+description: "Creates an anonymous console registration when id is absent, or updates an existing registration when id is present. Authenticated new registrations are linked to the caller; updates require that link. The returned registration contains the durable asset ID for later calls."
+sidebar_label: "Create or update the registration for a console"
+hide_title: true
+hide_table_of_contents: true
+api: eJztWN1v2zYQ/1cOfNoARcravcx9WZYNW4EOMbr0yQjQM3W22FKkSp7ieob+9+FI2ZYTN+uGDRiw+skm74v38bs771RNUQfTsfFOzdR1IGSKgA7QebdtfR9Bexe9JQi0NpEDCi1sGnJgajARcBnJcQE+QN/Ve376aCIbt/4kWxdI+Eq46rkhx0YjUw2ONicsETAQWOPeUw3sgRsCjdZSeHFQF+hDbwIBN8iJtITbRgzmPjiqT03Q3jEaF5Okug+4tAQYIzG8/BFWPoBFppCUxFIVyneUWV/WaqayLAqqUKKWIv/g662a7ZQIJsfyFbvOynuMd9W7KK7dqagbalG+8bYjNVN++Y40q0J1QVSwoTjyxgkVhoBbVSjD1E7PIwfj1moYCmXqM+eFan1N9uyNw5YeXxSqNe4VuTU3avbNUKjOIq98aD+HNPh7U1OI596HdW3EFWjnJy992g818llvfZ408UttogR36p2l95bQiRPIPXHZYJxTaE2MJkfvMcmYdH9KF3utKcbzl/cUHnBO4sqGrRxd5wKcjz5Od59kfBCao6G1mi1y5CeRnUbuKPTuke7XkwpSQ3LuKXCMGLEXXMAoq4DaxM7iFkR1AehqcJ7NaiyPi73+06Iv4aY1LEjBHnRCJcATkhdgnLZ9TamOD6WeOTIwgOFSTd/PoafkkNh5F3PaPLu8/FK8X4r3/1y8uVemXgbat50lacTj01e9tVt57bePCoXpI1edRXO+RA7OeFJhhwFbYgpRBoilr7ep4Rt3j9bUWfHzf1JxHh6g9hQFiaDBe4LukAcCH5hePgJLMjMNEdH3QVM26bt/wxfau5U1miNsDDd51OlDIMcQWQDNr0aj9qZIouE6SnaMwZb4t8SNl2Gl8zHVJko+qWqc5KrJDBMp3KfKX+xUH6yaqYa5i7Oqqqn1pe/IBWo9U2l8hZ2pdoHQtkMlGYfBSBmm8kjHqfRphb1lNVMtJiXDMNyJIt0Hw9vfxDWZRYRn+FtZv8n42XPjg/k95eq1r+nR4ZtkZCVnVdIZq6yn6oJnr72tstwL7Z0jzYk0tYFVoNj8dX7278mJq7TvsuFd8CuTKmz/TeIgZH9X+lAobQ05vg5UyzCMdvTqf9loETACtzA/SyfSMl8fJ+OfPqIgyrE5LvbFcJeb3wT7cs87HuRWd/x97GmTs0nzmkLrpGMat/L7ckWdypVaNKJKrr4/SXJ1pkJNlIUl7Qte9y05zquELAtyetORe50EwK/ocE0Bfrm9ncPV/GXeRN4mt76FXG2wLxyIZEnKfYI0kEhLkblfgNJaExu/SXRvcyxEWK6o/fojdoEjqmX9upGtCp4doEwC9gL8UaggjO85C59KiH3X+cCTBTDLKACtsKyb04lLWj1odBDZWAtLWdZaw3lb6/qlNfoAWLGEN86KQeiOxhy8KseeGwqQAbQACsHLaDgObNBHmQMTzl4I5KaGUcLcEkZxZ54GFydhuvvqAGlex1NI+zrFsPWp46y8jIvWaHIxJeyYf1c/z1/B8/JSFQ8gcrPZlGvXlz6sq5EtVrju7MXz8rIkVzbcWjUZBp5IFDXNXWG/FEYB8BbdxJi8oh+X7TEYkwVXXoT7rV09yOZJ0/qy7Z/b9kdAm/TzYQz7buyjC3X07aGT3hWqkWY7W6jdbomR3gQ7DHL8oaewVbPF3bFhyi+ZUwllIpTW+562eV6T0Fzcig1Cbvu0RTxcSIZiz3GlNXX8JO10Hpjf/HarCrUc/7FoU4NVATfyFNyomUr/d6RIpPYjZztl0a17XAttlimfPwAEH3nf
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create or update the registration for a console"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/console/register"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates an anonymous console registration when id is absent, or updates an existing registration when id is present. Authenticated new registrations are linked to the caller; updates require that link. The returned registration contains the durable asset ID for later calls.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./register.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./register.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Identity-provider client identifier.","example":"openremote","in":"path","name":"clientId","required":true,"schema":{"type":"string"}}]}

@@ -1,0 +1,69 @@
+---
+id: update-alarm
+title: "Update an alarm"
+description: "Updates the mutable state of an existing alarm after verifying access to its current realm."
+sidebar_label: "Update an alarm"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update an alarm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/alarm/{alarmId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Updates the mutable state of an existing alarm after verifying access to its current realm.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./update-alarm.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./update-alarm.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./update-alarm.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

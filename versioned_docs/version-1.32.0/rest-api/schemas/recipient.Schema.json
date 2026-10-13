@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"address":{"type":"string"},"name":{"type":"string"}},"title":"Recipient"},"schemaType":"response"}

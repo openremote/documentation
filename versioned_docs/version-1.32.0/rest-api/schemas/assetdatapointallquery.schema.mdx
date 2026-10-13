@@ -1,0 +1,32 @@
+---
+id: assetdatapointallquery
+title: "AssetDatapointAllQuery"
+description: "Returns every stored datapoint in the inclusive range, ordered from newest to oldest. Use this when the complete series is needed without aggregation or downsampling. Supports numeric, boolean, text, and JSON-compatible complex attribute values."
+sidebar_label: "AssetDatapointAllQuery"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"fromTime":"2026-01-01T00:00:00Z","fromTimestamp":1767225600000,"toTime":"2026-01-02T00:00:00Z","toTimestamp":1767312000000,"type":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AssetDatapointAllQuery"}
+>
+</Heading>
+
+
+
+Returns every stored datapoint in the inclusive range, ordered from newest to oldest. Use this when the complete series is needed without aggregation or downsampling. Supports numeric, boolean, text, and JSON-compatible complex attribute values.
+
+<Schema
+  {...require("./assetdatapointallquery.Schema.json")}
+>
+  
+</Schema>
+            

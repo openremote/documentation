@@ -1,0 +1,69 @@
+---
+id: create-user
+title: "Create a new user in a realm"
+description: "Creates an identity-provider user in a realm administered by the caller and returns the resulting user record. The target realm must be active unless the caller is a superuser."
+sidebar_label: "Create a new user in a realm"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a new user in a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/user/{realm}/users"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates an identity-provider user in a realm administered by the caller and returns the resulting user record. The target realm must be active unless the caller is a superuser.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./create-user.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./create-user.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./create-user.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

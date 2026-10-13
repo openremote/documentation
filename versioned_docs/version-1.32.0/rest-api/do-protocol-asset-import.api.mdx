@@ -1,0 +1,69 @@
+---
+id: do-protocol-asset-import
+title: "Import assets through an agent"
+description: "Decodes the supplied FileInfo, asks the agent protocol to import it, persists the returned asset tree below the agent, and returns that tree."
+sidebar_label: "Import assets through an agent"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Import assets through an agent"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/agent/assetImport/{agentId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Decodes the supplied FileInfo, asks the agent protocol to import it, persists the returned asset tree below the agent, and returns that tree.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./do-protocol-asset-import.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./do-protocol-asset-import.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./do-protocol-asset-import.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

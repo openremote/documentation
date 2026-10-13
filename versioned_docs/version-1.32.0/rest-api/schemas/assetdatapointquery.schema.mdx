@@ -1,0 +1,32 @@
+---
+id: assetdatapointquery
+title: "AssetDatapointQuery"
+description: "Polymorphic historical-datapoint query. Select `all` to return every value, `interval` to aggregate values into time buckets, `lttb` to downsample a numeric or boolean series, or `nearest` to retrieve the last value at or before a time."
+sidebar_label: "AssetDatapointQuery"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"fromTime":"2026-01-01T00:00:00Z","fromTimestamp":1767225600000,"toTime":"2026-01-02T00:00:00Z","toTimestamp":1767312000000,"type":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AssetDatapointQuery"}
+>
+</Heading>
+
+
+
+Polymorphic historical-datapoint query. Select `all` to return every value, `interval` to aggregate values into time buckets, `lttb` to downsample a numeric or boolean series, or `nearest` to retrieve the last value at or before a time.
+
+<Schema
+  {...require("./assetdatapointquery.Schema.json")}
+>
+  
+</Schema>
+            

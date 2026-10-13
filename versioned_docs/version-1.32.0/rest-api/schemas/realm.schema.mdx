@@ -1,0 +1,32 @@
+---
+id: realm
+title: "Realm"
+description: "Identity-provider realm and its authentication, registration, theme, token, and role settings."
+sidebar_label: "Realm"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"accessTokenLifespan":300,"accountTheme":"string","adminTheme":"string","displayName":"Building Management","duplicateEmailsAllowed":true,"emailTheme":"string","enabled":true,"id":"string","loginTheme":"string","loginWithEmail":true,"name":"building","notBefore":0,"passwordPolicy":["string"],"realmRoles":[{"description":"string","name":"string"}],"registrationAllowed":true,"registrationEmailAsUsername":true,"rememberMe":true,"resetPasswordAllowed":true,"verifyEmail":true}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Realm"}
+>
+</Heading>
+
+
+
+Identity-provider realm and its authentication, registration, theme, token, and role settings.
+
+<Schema
+  {...require("./realm.Schema.json")}
+>
+  
+</Schema>
+            

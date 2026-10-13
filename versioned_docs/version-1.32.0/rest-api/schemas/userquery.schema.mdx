@@ -1,0 +1,32 @@
+---
+id: userquery
+title: "UserQuery"
+description: "Composable identity-provider user search request. Populated restrictions are combined, except role arrays which match any supplied role."
+sidebar_label: "UserQuery"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"assets":["string"],"attributes":[{"name":{"caseSensitive":true,"match":"EXACT","negate":true,"value":"string"},"negated":false,"value":{"caseSensitive":true,"match":"EXACT","negate":true,"value":"string"}}],"clientRoles":[{"caseSensitive":true,"match":"EXACT","negate":true,"value":"string"}],"ids":["string"],"limit":100,"offset":0,"orderBy":{"descending":false,"property":"USERNAME"},"pathPredicate":{"path":["string"]},"realmPredicate":{"name":"building"},"realmRoles":[{"caseSensitive":true,"match":"EXACT","negate":true,"value":"string"}],"select":{"basic":true},"serviceUsers":true,"usernames":[{"caseSensitive":true,"match":"EXACT","negate":true,"value":"string"}]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"UserQuery"}
+>
+</Heading>
+
+
+
+Composable identity-provider user search request. Populated restrictions are combined, except role arrays which match any supplied role.
+
+<Schema
+  {...require("./userquery.Schema.json")}
+>
+  
+</Schema>
+            

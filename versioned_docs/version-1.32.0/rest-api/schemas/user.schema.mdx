@@ -1,0 +1,32 @@
+---
+id: user
+title: "User"
+description: "Identity-provider user or service account. Administrative fields may be omitted according to caller permissions."
+sidebar_label: "User"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"attributes":{},"createdOn":"2026-01-01T00:00:00Z","email":"alex@example.com","enabled":true,"firstName":"Alex","id":"2f1c17e5-72b8-4dbe-9f8d-c49e66f82e10","lastName":"Morgan","realm":"building","realmId":"string","secret":"string","serviceAccount":true,"username":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"User"}
+>
+</Heading>
+
+
+
+Identity-provider user or service account. Administrative fields may be omitted according to caller permissions.
+
+<Schema
+  {...require("./user.Schema.json")}
+>
+  
+</Schema>
+            

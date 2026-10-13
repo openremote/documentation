@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Realm names whose gateway connections should be removed. Repeat the query parameter for multiple realms.","example":"building","explode":true,"in":"query","name":"realm","required":true,"schema":{"type":"array","items":{"type":"string"}},"style":"form"}]}

@@ -1,0 +1,69 @@
+---
+id: get-all-active-tunnel-infos
+title: "Retrieve all active gateway tunnels in a realm"
+description: "Returns active tunnels for all gateway assets in the requested realm. Restricted users cannot list an entire realm."
+sidebar_label: "Retrieve all active gateway tunnels in a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVlFv2zgM/isCnzbAjXvtnnIvK4rDbsAdVnTZUxFsiszY2mTJE+l2ucD//UDJTtIlK7Bhw91THJmkPtLkx28LFZKJtmMbPMzhFrmPnpQ2bO9Rce89OlLrEJV2TtWa8UFvlCZCJmW94gZVxM89EmOlImrXztQtEkdr5KQnjKSM9j6wcpZYaa/Qs404WkMBocOoBcHrCuZQI185d5UQLBKA134dCArodNQtMkaC+d32K+hvOvS32AYeAyuvW5To+EW3nUOYw6q3rrK+hgKsuHSaGyhADGEOyQsKkHRsxArmHHssgEyDrYb5FnjTiaEk52sYhqUYUxc8Icn7i/Nz+THBM3qWR911zpqUW/mRBOf2OJ6OUW8EE2NLB+dh9RENS95RKsQ236KJbO2xugmRD6ytZ6wxQgHrEFvN+ejyAoYCdM/h2gXChZVUv87kwKXSjGcsVkMB4+eWr3KUfAFNIM6lO/HSnvbJNT71hnWskZ949R3pZpPjLNH3Lczv4M/F4uYtFOkXClhc38ByED/LqU9e5bz3zQfDIO8fN9xi3/rKBGkxaXjqjUGide/cRrC8OOoJxi9cdk7b092w664nL9yPggpRrUK1UTqisv5eO1vli3/7WRdf9dzIzOZGVpbUNCNyuVAA9dLoWCkTsRJT7egY0OXPrITegxp5RlUBSQnRNPoeVYextUSCmIP8k0ZR3FhSO8LJuF78gi+U2JBCHw3uceEXSwziR2j6aHmTiCx06GVg7pZCKaxr4bepC2FZQIvchJEbEw9yA3Mox/ksM02X2zRdA0j0eD+xZB8dzKFh7mhelhW2YSb3xUSVMxtK3dnJtYQC7nW0euUy1+zmtcK17p1MWauJMUr2y30ab6VG2WVKZgtrFx4yY/XchGj/SSW/DhUeHb5LIEs5K9OdVOZ7yi4GDia4Msc9M8F7NJxME1mvI1Lz/f4cPqGXUpnQZeBdDGub5n96EkoQsx+NPhRgnEXP1/upyFX9P4PeESgEcb5IJ1ZYcJwSbdKUYKutS7S7Di8ftRScGAxLwhvCFVUwfYueM5msRwY5WN9/a69rjEroWV3dvJ4pmasPKYkPKve2mtpUETo0TIdKZNIhb6Yxl7eaFTXhIdl9yJlLsNy/E6EJLuURK5Epb4T31IXSidFVKs/ve+4g9WC5CT3n4IcRhA5DFK0T/KYNPY0xCqWduNTNCFfUFlaq0qxFJCli65xaoXK2tcIhwlz9ylmzYxOaqXfeCSDt92B2VZXjwA1GlXmrUBhjiGonVIQqlVaJ3s6E6dL2mKkbh5qknJiw3T36TMtnOwIJhh4TyPP0DduQ2H4dRHI5a9BTGvNRXF29uvlLXc7OofiKkB4eHma172ch1uXoRqWuO3d2OTufoZ813Do4WM5PNIqwF0bKLSfu5+LYBeJW+wMwt8jR4j0mTTtK3UnaTpLXeqXVJAkfNfPBqviP9PI4ngdrahjLuh13w92k3cQ6gYIC5jmdZZZuYrTdrjThu+iGQY4/9xhlIy33WyALbUvyXMF8rR3hE/V4djsKg+fqm3r8JPpJCvtNWkGul39QwCfc7KT5sBTVibrCmGDld1fGYMcHXkeaezjcoK/+WEASxM2h0s5EV0wPEv0koolkJ2CJiGEovmH+I9w+ZVzZiIbf99H+iviZjxbTovgpN4wrebyg5+bJyI/2/3sjqmDyraP2/D55DcthGP4FHUorjQ==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve all active gateway tunnels in a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/gateway/tunnel/{realm}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns active tunnels for all gateway assets in the requested realm. Restricted users cannot list an entire realm.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-all-active-tunnel-infos.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-all-active-tunnel-infos.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-all-active-tunnel-infos.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

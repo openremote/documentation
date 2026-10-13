@@ -1,0 +1,69 @@
+---
+id: write-attribute-value
+title: "Write a value to one asset attribute"
+description: "Submits an asynchronous attribute write using the current server time. The result reports whether the event was accepted, not whether downstream processing ultimately succeeded. Anonymous writes require public-write metadata."
+sidebar_label: "Write a value to one asset attribute"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Write a value to one asset attribute"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/asset/{assetId}/attribute/{attributeName}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Submits an asynchronous attribute write using the current server time. The result reports whether the event was accepted, not whether downstream processing ultimately succeeded. Anonymous writes require public-write metadata.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./write-attribute-value.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./write-attribute-value.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./write-attribute-value.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

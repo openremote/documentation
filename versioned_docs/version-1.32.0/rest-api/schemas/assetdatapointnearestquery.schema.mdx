@@ -1,0 +1,32 @@
+---
+id: assetdatapointnearestquery
+title: "AssetDatapointNearestQuery"
+description: "Returns at most one numeric datapoint: the closest value at or before the requested time. Use `fromTimestamp` as a Unix-seconds timestamp at the HTTP API boundary. `toTimestamp`, `fromTime`, and `toTime` are ignored. The equality boundary is inclusive."
+sidebar_label: "AssetDatapointNearestQuery"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"fromTime":"2026-01-01T00:00:00Z","fromTimestamp":1767225600000,"toTime":"2026-01-02T00:00:00Z","toTimestamp":1767312000000,"type":"string"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"AssetDatapointNearestQuery"}
+>
+</Heading>
+
+
+
+Returns at most one numeric datapoint: the closest value at or before the requested time. Use `fromTimestamp` as a Unix-seconds timestamp at the HTTP API boundary. `toTimestamp`, `fromTime`, and `toTime` are ignored. The equality boundary is inclusive.
+
+<Schema
+  {...require("./assetdatapointnearestquery.Schema.json")}
+>
+  
+</Schema>
+            

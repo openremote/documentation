@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"data":{"type":"object","additionalProperties":{"type":"object"}},"disabled":{"type":"boolean"},"enabled":{"type":"boolean"},"hasPermission":{"type":"boolean"},"requiresPermission":{"type":"boolean"},"success":{"type":"boolean"},"version":{"type":"string"}},"title":"ConsoleProvider"},"schemaType":"response"}
