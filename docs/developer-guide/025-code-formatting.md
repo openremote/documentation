@@ -598,7 +598,7 @@ The `main` branch can be merged into the pull request in stages so that function
 8. Merge the latest `main` branch as usual:
 
    ```shell
-   git merge origin/master
+   git merge origin/main
    ```
 
    Resolve any remaining functional conflicts normally. Run `spotlessApply` again if resolving a conflict required manual source-code changes.
@@ -618,10 +618,10 @@ Do not use the `-s ours` merge strategy either. It would record a formatting com
 Custom projects commonly use the reusable CI/CD workflow from the `main` branch of `openremote/core`:
 
 ```yaml
-uses: openremote/core/.github/workflows/ci_cd.yml@main)
+uses: openremote/core/.github/workflows/ci_cd.yml@main
 ```
 
-Because this follows `master`, new workflow behaviour is inherited automatically. This includes the Spotless formatting checks.
+Because this follows `main`, new workflow behaviour is inherited automatically. This includes the Spotless formatting checks.
 
 #### Temporarily pinning the workflow
 
@@ -678,10 +678,10 @@ When other custom-project template updates are also required, compare the existi
 
 ##### Commit 1: Add the configuration
 
-Ensure the reusable workflow reference points to `master` before creating the first commit:
+Ensure the reusable workflow reference points to `main` before creating the first commit:
 
 ```yaml
-uses: openremote/core/.github/workflows/ci_cd.yml@main)
+uses: openremote/core/.github/workflows/ci_cd.yml@main
 ```
 
 Commit the synchronized configuration and workflow change:
