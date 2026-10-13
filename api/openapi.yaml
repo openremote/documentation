@@ -1049,7 +1049,8 @@ paths:
                 type: string
           description: The caller does not have permission to access the requested
             resource
-      summary: Count assets using a query
+      summary: Count assets using a query (can also be used to count assets pending
+        deletion)
       tags:
       - Asset
   /asset/datapoint/export:
@@ -4742,6 +4743,8 @@ paths:
           description: The requested resource does not exist
         "405":
           description: The master realm cannot be deleted
+        "409":
+          description: Realm cannot be deleted while it still contains assets
       security:
       - openid: []
       summary: Delete a realm
@@ -8083,6 +8086,8 @@ components:
           items:
             type: string
             description: Match these exact asset identifiers.
+        includeDeletePending:
+          type: boolean
         limit:
           type: integer
           format: int32

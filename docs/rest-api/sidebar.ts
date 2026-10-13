@@ -173,7 +173,7 @@ const sidebar: SidebarsConfig = {
         {
           type: "doc",
           id: "rest-api/query-count",
-          label: "Count assets using a query",
+          label: "Count assets using a query (can also be used to count assets pending deletion)",
           className: "api-method post",
         },
         {
