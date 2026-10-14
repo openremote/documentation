@@ -45,7 +45,7 @@ administrator from the CLI/from the BalenaCloud dashboard.
 To create a new release, you can push this directory to the fleet using the included shell file in `balena/run_balena_build.sh`.
 
 ## Parameters:
-* `--dry-run`: This flag enables the dry-run mode. When this mode is enabled, the script will build the Docker images and bring up the containers locally using docker-compose instead of pushing to the Balena fleet.
+* `--dry-run`: This flag enables the dry-run mode. When this mode is enabled, the script will build the Docker images and bring up the containers locally using `docker compose` instead of pushing to the Balena fleet.
 * `--skip-build`: This flag skips the build process. When enabled, the script will not remove the existing manager-build directory or rebuild the project.
 * `<balena_fleet_slug>`: This is a required argument specifying the Balena fleet slug to which the application will be pushed.
 
@@ -63,7 +63,7 @@ To create a new release, you can push this directory to the fleet using the incl
   *	It then returns to the balena directory.
   * Copy New Builds: If the manager-build directory does not exist, the script copies the new build files from Gradle's build output to ./manager-build.
   * Push to Balena or Run Docker Compose:
-    *	If DRY_RUN is true, the script builds the Docker images without using the cache and starts the containers locally using docker-compose with the --force-recreate option.
+    *	If DRY_RUN is true, the script builds the Docker images without using the cache and starts the containers locally using `docker compose` with the --force-recreate option.
     *	If DRY_RUN is false, the script pushes the application to the specified Balena fleet using the balena push command with the --nocache option.
 
 # Quirks you should be aware of
@@ -71,14 +71,14 @@ To create a new release, you can push this directory to the fleet using the incl
 In general, Balena CLI/Balena API/BalenaCloud do things their own way. Some examples:
 
 * You cannot set a `docker-compose.yml` file to be used specifically for balena, it NEEDS to use `docker-compose.yml`.
-* `balena push` **does not** build the image locally. All folders/files referenced in the Dockerfiles/docker-compose
+* `balena push` **does not** build the image locally. All folders/files referenced in the Dockerfiles or Docker Compose
   files are uploaded to their own builder platform and are built on their premises. This is done to allow building
   the images in all of the different architectures that you might use the release in.
 * You cannot use environment variables in the way you usually do. Using default/error values in environment variables
   does not work.
 * For the above point, the concept of environment variables in a `docker-compose.yml` file doesn't quite exist;
   environment variables in Balena environments are set using the CLI or the dashboard, and there are fleet-level and
-  device-level variables. You would set an environment variable in the docker-compose file specifically when it's an
+  device-level variables. You would set an environment variable in the Docker Compose file specifically when it's an
   environment variable that applies for ALL devices that may run this in BalenaOS (or for debugging locally of course).
   All environment variables of a device/fleet are included in ALL services. So `OR_MAIN_THREAD_WAIT_MS` WILL end up on
   the proxy container, and Keycloak, and the manager, etc.

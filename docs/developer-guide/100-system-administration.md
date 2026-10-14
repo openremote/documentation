@@ -131,7 +131,7 @@ This document summarises the database performance, storage footprint, and system
 
 Use the following docker command to access the database on the docker host:
 ```shell
-docker exec -it openremote_postgresql_1 psql -U postgres
+docker exec -it openremote-postgresql-1 psql -U postgres
 ```
 
 ### Storage & compression
@@ -354,7 +354,7 @@ delete from asset_datapoint where timestamp < now() - INTERVAL '7 days';
 
 #### Accessing the exported CSV file
 ```shell
-docker cp <PROJECT_NAME>_postgresql_1:/deployment/datapoints.csv ./
+docker cp <PROJECT_NAME>-postgresql-1:/deployment/datapoints.csv ./
 ```
 
 #### Importing asset data points
@@ -506,16 +506,16 @@ ssh -L 8404:localhost:8404 <HOST>
 ## OpenRemote Manager
 ### Insert a different manager_config.json file
 ```shell
-docker exec <PROJECT_NAME>_manager_1 mkdir -p /deployment/manager/app
-docker cp ./manager_config.json <PROJECT_NAME>_manager_1:/deployment/manager/app/manager_config.json
+docker exec <PROJECT_NAME>-manager-1 mkdir -p /deployment/manager/app
+docker cp ./manager_config.json <PROJECT_NAME>-manager-1:/deployment/manager/app/manager_config.json
 
 # Make sure to restart the containers for applying the changes
 ```
 
 ### Insert an .mbtiles file for applying a different map
 ```shell
-docker exec <PROJECT_NAME>_manager_1 mkdir -p /deployment/map
-docker cp ./<FILE_NAME>.mbtiles <PROJECT_NAME>_manager_1:/deployment/map/mapdata.mbtiles
+docker exec <PROJECT_NAME>-manager-1 mkdir -p /deployment/map
+docker cp ./<FILE_NAME>.mbtiles <PROJECT_NAME>-manager-1:/deployment/map/mapdata.mbtiles
 
 # Make sure to restart the containers for applying the changes
 ```
@@ -530,14 +530,14 @@ docker volume prune -a
 docker image prune -a
 ```
 
-### Restart exited containers (without using `docker-compose up`)
+### Restart exited containers (without using `docker compose up`)
 If the containers are exited then they can be restarted using the `docker` command, the startup order is important:
 
-* docker start `<PROJECT_NAME>_postgresql_1`
-* docker start `<PROJECT_NAME>_keycloak_1`
-* docker start `<PROJECT_NAME>_map_1` (only if there is a map container)
-* docker start `<PROJECT_NAME>_manager_1`
-* docker start `<PROJECT_NAME>_proxy_1`
+* docker start `<PROJECT_NAME>-postgresql-1`
+* docker start `<PROJECT_NAME>-keycloak-1`
+* docker start `<PROJECT_NAME>-map-1` (only if there is a map container)
+* docker start `<PROJECT_NAME>-manager-1`
+* docker start `<PROJECT_NAME>-proxy-1`
 
 
 ### Using Docker Compose
@@ -548,16 +548,16 @@ Service images will be built automatically when they do not exist in the Docker 
 
 Here are a few useful Docker Compose commands:
 
-* `docker-compose -f <PROFILE> pull <SERVICE> <SERVICE>...` - Force pull requested services from Docker Hub, if no services specified then all services will be pulled (e.g. docker-compose -f profile/manager.yml pull to pull all services)
-* `docker-compose -f <PROFILE> build <SERVICE> <SERVICE>...` - Build/Rebuild requested services, if no services specified then all services will be built
-* `docker-compose -f <PROFILE> up <SERVICE> <SERVICE>...` - Creates and starts requested services, if no services specified then all services will be created and started (also auto attaches to console output from each service use `-d` to not attach to the console output)
-* `docker-compose -f <PROFILE> up --build <SERVICE> <SERVICE>...` - Creates and starts requested services but also forces building the services first (useful if the source code has changed as docker-compose will not be aware of this change and you would otherwise end up deploying 'stale' services)
-* `docker-compose -f <PROFILE> down <SERVICE> <SERVICE>...` - Stops and removes requested services, if no services specified then all services will be stopped and removed. Sometimes the shutdown doesn't work properly and you have to run `down` again to completely remove all containers and networks.
+* `docker compose -f <PROFILE> pull <SERVICE> <SERVICE>...` - Force pull requested services from Docker Hub, if no services specified then all services will be pulled (e.g. docker compose -f profile/manager.yml pull to pull all services)
+* `docker compose -f <PROFILE> build <SERVICE> <SERVICE>...` - Build/Rebuild requested services, if no services specified then all services will be built
+* `docker compose -f <PROFILE> up <SERVICE> <SERVICE>...` - Creates and starts requested services, if no services specified then all services will be created and started (also auto attaches to console output from each service use `-d` to not attach to the console output)
+* `docker compose -f <PROFILE> up --build <SERVICE> <SERVICE>...` - Creates and starts requested services but also forces building the services first (useful if the source code has changed as Docker Compose will not be aware of this change and you would otherwise end up deploying 'stale' services)
+* `docker compose -f <PROFILE> down <SERVICE> <SERVICE>...` - Stops and removes requested services, if no services specified then all services will be stopped and removed. Sometimes the shutdown doesn't work properly and you have to run `down` again to completely remove all containers and networks.
 
 * When deploying profiles you can provide a project name to prefix the container names (by default Docker Compose will use the configuration profile's folder name); the project name can be specified with the -p argument using the CLI:
 
 ```shell
-docker-compose -p <your_project_name> -f <profile> -f <profile_override> up -d <service1> <service2> ...
+docker compose -p <your_project_name> -f <profile> -f <profile_override> up -d <service1> <service2> ...
 ```
 
 

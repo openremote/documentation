@@ -5,15 +5,17 @@ To build OpenRemote projects, you have to first prepare the environment on your 
 Ensure you have installed and configured the following tools:
 
 ## Runtime tooling
-OpenRemote is primarily packaged as Docker images and deployed using docker compose, you will need a docker compatible runtime:
+OpenRemote is primarily packaged as Docker images and deployed using Docker Compose, you will need a docker compatible runtime:
 * [Docker](https://docs.docker.com/engine/install/)
-* [Docker compose](https://docs.docker.com/compose/install/)
+* [Docker Compose](https://docs.docker.com/compose/install/)
+
+Docker Desktop includes Docker Compose. If you install Docker Engine separately, also install the [Docker Compose plug-in](https://docs.docker.com/compose/install/linux/).
 
 Ensure the following commands execute successfully:
 
 ```shell
 docker -v
-docker-compose -v
+docker compose version
 ```
 
 ## Development tooling

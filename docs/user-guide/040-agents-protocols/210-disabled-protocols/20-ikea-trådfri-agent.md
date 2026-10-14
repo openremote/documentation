@@ -10,7 +10,7 @@ You can connect an IKEA TRÅDFRI Gateway to the manager. The manager will import
 
 ## Docker configuration
 
-If you are using Docker (and docker-compose) to run OpenRemote, you need to change the configuration of docker-compose in order to use the IKEA TRÅDFRI protocol.
+If you are using Docker Compose to run OpenRemote, you need to change the Docker Compose configuration in order to use the IKEA TRÅDFRI protocol.
 In the `profile/deploy.yml` file, uncomment the lines below the following line: "# Uncomment to support the IKEA TRÅDFRI protocol. USE AT YOUR OWN RISK.".
 This line occurs 6 times in the `profile/deploy.yml` file. Make sure to find all of them.
 
