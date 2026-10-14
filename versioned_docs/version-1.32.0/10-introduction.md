@@ -4,7 +4,7 @@
 
 **OpenRemote is the only 100% open source IoT platform that simplifies connecting networked assets to mobile and web applications.**
 
-![image](img/architecture.jpg)
+![image](img/architecture.png)
 
 The core of the OpenRemote system is the [Manager](https://github.com/openremote/core/tree/main/manager), a headless Java application that forms an IoT context broker which captures the current asset state of the system. You can create a dynamic schema of your assets and their attributes in the manager, modelling the problem domain. For example, you would create Building, Vehicle, Battery, Streetlight, and Sensor assets to model an IoT system for a smart city, an energy management system, or fleet telematics.
 
