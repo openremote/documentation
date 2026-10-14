@@ -1,5 +1,9 @@
 # Energy Management
 
+:::caution
+For Energy Management Systems we offer a new Extension which includes elaborate optimisation methods, taking into account both capacity requests and dynamic pricing. This extension is applied and ruggedised in several real life applications. See the [EMS Extension documentation](https://github.com/openremote/extensions/tree/main/ems). The overhere described Energy Management System will be depreciated over time.
+:::
+
 ## Introduction
 
 OpenRemote can be used as an Energy Management System (EMS) for your own microgrid. The EMS schedules the power setpoints of energy consuming devices and storage devices, taking into account renewable energy production (including forecasts), energy consumption (including forecasts), agile tariffs from your energy provider and required charge schedules for your electric vehicles. The optimisation routine targets lowest costs or lowest carbon exhaust. Figure 1 gives an overview of all the pieces of an EMS.
