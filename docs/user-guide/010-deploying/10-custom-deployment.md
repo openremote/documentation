@@ -11,7 +11,7 @@ In this guide we will go through the first time setting up your [custom project]
 2. Clone your repository from the [custom-project template](https://github.com/openremote/custom-project).\
 This is easiest if you have an [SSH-key in your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
 3. [Set up your IDE](../../developer-guide/020-setting-up-an-ide.md). Note that Application run configurations are already prepared when using this template. \
-Use `docker-compose -f profile\dev-testing.yml up --build -d` and run the 'Custom Deployment' configuration. You should have two containers running in Docker, and the manager through your IDE.
+Use `docker compose -f profile\dev-testing.yml up --build -d` and run the 'Custom Deployment' configuration. You should have two containers running in Docker, and the manager through your IDE.
 4. Run the modelWatch gradle task to build the typescript model `./gradlew modelWatch`
 5. Next we serve the Manager UI from the `/openremote/ui/app/manager` directory with `npm run serve "--" --env config=..\..\..\..\deployment\manager\app`.
 

@@ -42,19 +42,19 @@ services:
 #### Fetch OpenVPN Docker image
 
 ```shell
-docker-compose run --rm openvpn ovpn_genconfig -u udp://aws
+docker compose run --rm openvpn ovpn_genconfig -u udp://aws
 ```
 
 #### Generate certificates
 
 ```shell
-docker-compose run --rm openvpn ovpn_initpki
+docker compose run --rm openvpn ovpn_initpki
 ```
 
 #### Start OpenVPN container
 
 ```shell
-$ docker-compose up -d openvpn
+$ docker compose up -d openvpn
 $ docker ps
 CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                    NAMES
 09934f3f52b2        kylemanna/openvpn   "ovpn_run"          6 seconds ago       Up 4 seconds        0.0.0.0:1194->1194/udp   openvpn
@@ -63,13 +63,13 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 #### Generate certificate for a client
 
 ```shell
-docker-compose run --rm openvpn easyrsa build-client-full client nopass
+docker compose run --rm openvpn easyrsa build-client-full client nopass
 ```
 
 #### Get config to local machine
 
 ```shell
-docker-compose run --rm openvpn ovpn_getclient client > aws.ovpn
+docker compose run --rm openvpn ovpn_getclient client > aws.ovpn
 ```
 
 #### Import config to your OpenVPN client (Tunnelblick on Mac)

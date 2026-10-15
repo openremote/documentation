@@ -18,7 +18,7 @@ cd chirpstack-docker
 ```
 2. Start ChirpStack
 ```shell
-docker-compose up
+docker compose up
 ```
 3. Login to the ChirpStack UI (`http://localhost:8080/` `admin/admin`)
 ## Create the ChirpStack LoRaWAN Gateway

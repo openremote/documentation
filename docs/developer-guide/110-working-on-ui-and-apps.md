@@ -7,7 +7,7 @@ Front end applications are [webcomponent](https://www.webcomponents.org/) based 
 To work on an app for example the `Manager UI` :
 - From the main directory, start the required containers, use dev-ui.yml for example:
   ```shell
-  docker-compose -f profile/dev-ui.yml up -d
+  docker compose -f profile/dev-ui.yml up -d
    ```
   By default, this makes the manager container serve the apps present in the latest docker image on port 8080 e.g. `http://localhost:8080/manager/` . While these apps are not necessary for this case, the included manager container webservice is.
   

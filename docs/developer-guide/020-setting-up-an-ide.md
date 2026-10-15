@@ -9,13 +9,13 @@ If you have successfully cloned the OpenRemote repo or a custom project repo, yo
 ### Without SSL and proxy
 
 ```shell
-docker-compose -p openremote -f profile/dev-testing.yml up --build -d
+docker compose -p openremote -f profile/dev-testing.yml up --build -d
 ```
 
 ### With SSL and proxy
 
 ```shell
-docker-compose -p openremote -f profile/dev-proxy.yml up --build -d
+docker compose -p openremote -f profile/dev-proxy.yml up --build -d
 ```
 
 ## Importing a project in an IDE
