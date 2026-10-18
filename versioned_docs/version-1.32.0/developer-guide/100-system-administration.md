@@ -134,6 +134,15 @@ Use the following docker command to access the database on the docker host:
 docker exec -it openremote_postgresql_1 psql -U postgres
 ```
 
+### Datapoint retention
+Asset datapoints are kept indefinitely by default. To purge older datapoints, set the `OR_DATA_POINTS_MAX_AGE_WEEKS` environment variable on the manager to the number of weeks to keep; a value of `0` or less disables purging.
+
+The purge runs weekly (first at around 03:00 after startup) and uses TimescaleDB's `drop_chunks()` to remove whole chunks of the `asset_datapoint` table. Chunks cover 7 days, so a chunk is only removed once all of its data is older than the retention period; datapoints can therefore be kept somewhat longer than configured.
+
+Deprecated settings:
+* `OR_DATA_POINTS_MAX_AGE_DAYS` is still used when `OR_DATA_POINTS_MAX_AGE_WEEKS` is not set; the value is rounded up to whole weeks and a warning is logged.
+* The `dataPointsMaxAgeDays` attribute meta item no longer sets retention for individual attributes. If it is present on any attribute, its largest value (rounded up to whole weeks) is used as the minimum retention period for **all** datapoints. It can therefore only increase retention, and has no effect when purging is disabled. Remove it from attributes if you do not want it to extend retention.
+
 ### Storage & compression
 Enabling Hypercore compression drastically reduced the database storage footprint by converting uncompressed historical row-data into highly compressed columnar structures.
 
@@ -350,6 +359,10 @@ copy (select ad.timestamp, a.name, ad.attribute_name, value from asset_datapoint
 #### Delete all asset datapoints older than N days
 ```sql
 delete from asset_datapoint where timestamp < now() - INTERVAL '7 days';
+```
+On compressed chunks a `delete` is slow because the affected chunks must be decompressed. Dropping whole chunks is much faster, but only removes chunks whose data is entirely older than the given interval:
+```sql
+select drop_chunks('asset_datapoint', older_than => now() - INTERVAL '4 weeks');
 ```
 
 #### Accessing the exported CSV file
