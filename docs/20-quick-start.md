@@ -53,7 +53,7 @@ Try creating assets, agents, rules, users, realms, etc. using the Manager UI, so
 
 ## Where's the data stored?
 Persistent data is stored in a PostgreSQL DB which is stored in the `openremote_postgresql-data` Docker volume which is durably stored independently of the running containers (see all with `docker volume ls`).
-Note that historical attribute data is purged daily based on value of `OR_DATA_POINTS_MAX_AGE_DAYS`; this value can also be overridden for individual attributes by using the `dataPointsMaxAgeDays` configuration item.
+Note that historical attribute data (datapoints) is kept indefinitely by default; set `OR_DATA_POINTS_MAX_AGE_WEEKS` to purge datapoints older than the given number of weeks (see [Datapoint retention](developer-guide/100-system-administration.md#datapoint-retention)).
 See the [Developer Guide](developer-guide/100-system-administration.md#backuprestore) for details on making backups of the database.
 
 
