@@ -362,7 +362,7 @@ delete from asset_datapoint where timestamp < now() - INTERVAL '7 days';
 ```
 On compressed chunks a `delete` is slow because the affected chunks must be decompressed. Dropping whole chunks is much faster, but only removes chunks whose data is entirely older than the given interval:
 ```sql
-select drop_chunks('asset_datapoint', older_than => now() - INTERVAL '4 weeks');
+select drop_chunks('asset_datapoint', older_than => INTERVAL '4 weeks');
 ```
 
 #### Accessing the exported CSV file
