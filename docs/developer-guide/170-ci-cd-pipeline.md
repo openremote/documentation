@@ -212,7 +212,7 @@ If you reference a commit on `main` instead, Dependabot considers the reference 
 
 :::
 
-Dependabot also updates the actions used inside our composite actions. When it does, add a commit to the Dependabot PR that updates the references in the workflows to the SHA of the Dependabot commit, which won't be part of the `main` history either (see [#3301](https://github.com/openremote/core/pull/3301)).
+Dependabot also updates the actions used inside our composite actions. When it does, add a commit to the Dependabot PR as described above (see [#3301](https://github.com/openremote/core/pull/3301)).
 
 ### Special Conditions
 
