@@ -34,19 +34,19 @@ We use a "detect changes" job early in the workflow to determine which files hav
 - `backend_any_modified`: Unit and integration tests only run when backend code changed.
 - `ui_any_modified`: UI component tests only run when UI code changed.
 - `any_modified`: The build, the manager image and the UI app tests run for any backend or UI change, because the UI app tests run against the whole stack.
-- `backend_spotless_any_modified` and `ui_spotless_any_modified`: Linting only runs when files checked by Spotless changed.
+- `backend_spotless_any_modified` and `ui_spotless_any_modified`: The Spotless checks only run when files checked by Spotless changed.
 
 For example:
 
 - A PR that only touches backend Java code skips the UI component tests, but still runs the UI app tests.
 - A PR that only touches UI code skips the backend unit and integration tests, so only the build and the UI related jobs run.
-- A PR that only changes Markdown files skips the build and all tests.
+- A PR that only changes Markdown files skips the build and all tests, but still runs the Spotless checks.
 
 ### Handling skipped jobs
 
-If the calling job is skipped, GitHub only reports a check for the calling job (e.g. `Test`), so required checks like `Test / Unit Tests` are never reported and the PR waits for them indefinitely. A skipped check does satisfy branch protection, so you need to handle skipping _inside_ the reusable workflow itself rather than skipping the entire `workflow_call`.
+If the calling job is skipped, GitHub only reports a check for the calling job (e.g. `Test`), so required checks like `Test / Unit Tests` are never reported and the PR waits for them indefinitely. A required check that is reported as skipped does satisfy branch protection, so you need to handle skipping _inside_ the reusable workflow itself rather than skipping the entire `workflow_call`.
 
-Each job workflow therefore has a `skip` input that its job checks, and the environment workflow passes the skip condition:
+Each job workflow that can be skipped therefore has a `skip` input that its job checks, and the environment workflow passes the skip condition:
 
 ```yaml
 # review.yml
@@ -93,7 +93,7 @@ A matrix job reports a check for each shard, but when the job is skipped it repo
 
 ### Deployments
 
-Deployments are done by the reusable `deployment.yml` workflow. It builds the deployment, determines which environments to deploy to and runs the `.ci_cd/deploy.sh` script for each of them. By default, it checks the type of event that triggered the workflow (for example a `push` to a specific branch) and deploys to the environments configured for that event in the `deploy` configuration in `.ci_cd/ci_cd.json`. When you dispatch a deployment manually, you choose the environment with the `ENVIRONMENT` input instead.
+Deployments are done by the reusable `deployment.yml` workflow. It builds the deployment, determines which environments to deploy to and runs the `.ci_cd/deploy.sh` script for each of them. By default, it checks the type of event that triggered the workflow (for example a `push` to a specific branch) and deploys to the environments configured for that event in the `deploy` configuration in `.ci_cd/ci_cd.json`. When you dispatch a deployment manually on a branch, you choose the environment with the `ENVIRONMENT` input instead. When you dispatch it on a tag, the `workflow_dispatch` deploy entry in `.ci_cd/ci_cd.json` is used instead of the `ENVIRONMENT` and `MANAGER_TAG` inputs.
 
 In the core repository, `staging.yml` does not deploy. Deployments, for example to test servers, are triggered manually with the `deploy.yml` dispatch workflow. To reduce the deployment time significantly, it only runs the jobs a deployment requires (`install-dist` and `deployment`) and skips the tests.
 
@@ -110,6 +110,8 @@ Custom projects deploy with `custom-staging.yml` and `custom-deploy.yml`, see [C
 | `custom-deploy.yml`  | Manual (`workflow_dispatch`)  | A deployment using `deployment.yml`.                                                                                     |
 
 Reference the core workflows by commit SHA rather than a branch like `main`, so changes to the core pipeline don't unexpectedly break custom projects.
+
+The core workflows use `${{ github.workflow }}-${{ github.ref }}` as their concurrency group, and in a called workflow `github.workflow` is the name of the calling workflow. Don't use the same concurrency group in the calling workflow, because GitHub cancels the run as a deadlock.
 
 ### Differences from the core workflows
 
@@ -151,6 +153,8 @@ jobs:
     secrets: inherit
 ```
 
+The calling workflow must be on the default branch before you can trigger it from the GitHub UI.
+
 ## Making changes to the pipeline
 
 ### Testing changes
@@ -186,9 +190,9 @@ Don't reference actions with a local path like `./.github/actions/your-action-na
 
 :::warning
 
-After changing a composite action, update the commit SHA in the workflows that use it to the SHA of **the commit that changed the action** on your PR branch. Because PRs are squash merged, this SHA differs from the SHA of the commit that ends up in the history of the `main` branch, so it points to a dangling commit. This could become an issue if the repository is ever garbage collected. However, it is less cumbersome than waiting for the PR to be merged and then creating a follow-up PR to update the commit SHAs, or changing the merge rules to allow merging individual commits.
+After changing a composite action, update the commit SHA in the workflows that use it to the SHA of **the commit that changed the action** on your PR branch. Because PRs are squash merged, this SHA differs from the SHA of the commit that ends up in the history of the `main` branch, so it points to a dangling commit. This could become an issue if the repository is ever garbage collected, also for the custom projects that call these workflows. We accept this risk, because it is less cumbersome than waiting for the PR to be merged and then creating a follow-up PR to update the commit SHAs, or changing the merge rules to allow merging individual commits.
 
-If you reference a commit on `main` instead, Dependabot considers the reference to follow the `main` branch. Every time a new commit is merged, it opens a PR to update the SHA to the latest commit on `main`, even though the action didn't change (see [#3067](https://github.com/openremote/core/pull/3067), [#3081](https://github.com/openremote/core/pull/3081) and [#3087](https://github.com/openremote/core/pull/3087), fixed in [#3093](https://github.com/openremote/core/pull/3093)).
+If you reference a commit on `main` instead, Dependabot considers the reference to follow the `main` branch. Every time a new commit is merged, it opens a PR to update the SHA to the latest commit on `main`, even though the action didn't change (see [#3067](https://github.com/openremote/core/pull/3067), [#3081](https://github.com/openremote/core/pull/3081) and [#3087](https://github.com/openremote/core/pull/3087)). [#3093](https://github.com/openremote/core/pull/3093) stopped these PRs by pointing the references to a commit that is not part of the `main` history.
 
 :::
 
