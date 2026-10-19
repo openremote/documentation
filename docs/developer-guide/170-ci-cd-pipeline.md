@@ -72,13 +72,13 @@ The `!failure() && !cancelled()` condition on the calling job is explained in [S
 
 ### Sharding UI App Tests
 
-To speed up the UI app tests, `ui-app-tests.yml` splits them into four shards using a matrix job. Each shard runs a part of the tests in parallel using the Playwright `--shard` option and uploads its own test report. `fail-fast: false` lets the other shards finish when one fails, so you see all failing tests at once.
+To speed up the UI app tests, `ui-app-tests.yml` splits them into shards using a matrix job (`shardIndex` and `shardCount`). Each shard runs a part of the tests in parallel using the Playwright `--shard` option and uploads its own test report. `fail-fast: false` lets the other shards finish when one fails, so you see all failing tests at once.
 
 A matrix job reports a check for each shard, but when the job is skipped it reports a single check without the matrix values. The checks of the individual shards therefore can't be required by branch protection. Instead, the `UI App Tests Status` job runs after the shards with `if: always()` and combines their results: it fails when a shard failed or was cancelled, and succeeds when the shards succeeded or were skipped. Branch protection requires this check instead of the shard checks.
 
 ## Deployments
 
-Deployments are done by the reusable `deployment.yml` workflow. It builds the deployment, determines which environments to deploy to and runs the `.ci_cd/deploy.sh` script for each of them. When the workflow is triggered manually, it deploys to the environment given in the `ENVIRONMENT` input. Otherwise, it uses the `deploy` configuration in `.ci_cd/ci_cd.json`.
+Deployments are done by the reusable `deployment.yml` workflow. It builds the deployment, determines which environments to deploy to and runs the `.ci_cd/deploy.sh` script for each of them. By default, it checks the type of event that triggered the workflow (for example a `push` to a specific branch) and deploys to the environments configured for that event in the `deploy` configuration in `.ci_cd/ci_cd.json`. When you dispatch a deployment manually, you choose the environment with the `ENVIRONMENT` input instead.
 
 In the core repository, `staging.yml` does not deploy. Deployments, for example to test servers, are triggered manually with the `deploy.yml` dispatch workflow. To reduce the deployment time significantly, it only runs the jobs a deployment requires (`install-dist` and `deployment`) and skips the tests.
 
@@ -99,8 +99,8 @@ The custom project workflows differ from the core workflows in the following way
 - **Build:** They build with `custom-install-dist.yml`, which only runs `./gradlew installDist`. The archive steps in `install-dist.yml` assume the layout of the core repository (e.g. `ui/util`), and no custom project job downloads those artifacts. The build includes the deployment, so a broken deployment build already fails in review.
 - **Code coverage:** Not run yet, because `code-coverage.yml` requires JaCoCo outputs and the `combinedCoverageReport` Gradle task.
 - **Manager version:** Deployments use the manager Docker image matching the `openremote` version in `gradle/libs.versions.toml`. Snapshot versions are not supported.
-- **Deploy script:** When a custom project has no `.ci_cd/deploy.sh`, `deployment.yml` uses the script of the core repository at the same version. Up to 1.32.0, this script reads the `IS_MAIN_REPO` environment variable and the `openremote/.ci_cd` directory, so `deployment.yml` provides both.
-- **Manual deployments:** Custom projects call `custom-deploy.yml` instead of `deploy.yml` or `deployment.yml`, so they don't depend on the inputs of `deployment.yml`, which we plan to change. It must be called from a `workflow_dispatch` workflow:
+- **Deploy script:** `deployment.yml` runs the `.ci_cd/deploy.sh` script of the core repository at the same `openremote` version. Up to 1.32.0, this script reads the `IS_MAIN_REPO` environment variable and the `openremote/.ci_cd` directory, so `deployment.yml` provides both.
+- **Manual deployments:** Custom projects call `custom-deploy.yml` instead of `deploy.yml` or `deployment.yml`, so they don't depend on the inputs of `deployment.yml`. It must be called from a `workflow_dispatch` workflow:
 
 ```yaml
 name: Deploy
@@ -144,19 +144,24 @@ We use a "detect changes" job early in the workflow to determine which files hav
 - `any_modified`: The build, the manager image and the UI app tests run for any backend or UI change, because the UI app tests run against the whole stack.
 - `backend_spotless_any_modified` and `ui_spotless_any_modified`: Linting only runs when files checked by Spotless changed.
 
-For example, a PR that only touches backend Java code skips the UI component tests but still runs the UI app tests, and a PR that only changes Markdown files skips the build and all tests.
+For example:
+- A PR that only touches backend Java code skips the UI component tests, but still runs the UI app tests.
+- A PR that only touches UI code skips the backend unit and integration tests, so only the build and the UI related jobs run.
+- A PR that only changes Markdown files skips the build and all tests.
 
 ### Minimal Dependency Installation
 
-Jobs should only install what they need. For example, `install-browsers.yml` installs just the `chromium-headless-shell` Playwright browser, at the Playwright version from `ui/test/package.json`, and shares it with the UI test jobs as an artifact. Likewise, jobs download the build outputs of `install-dist` instead of building them again.
+Installing fewer dependencies is an optimization in itself, because every dependency a job installs adds download and setup time. Jobs should therefore only install what they need. For example, `install-browsers.yml` only installs the `chromium-headless-shell` Playwright browser (at the Playwright version from `ui/test/package.json`) instead of all Playwright browsers.
+
+Install shared dependencies once, early in the pipeline. `install-browsers.yml` downloads the Playwright browser once and runs in parallel with the build, before the UI component tests and the UI app test shards start. These jobs then get the browser from an artifact instead of each downloading it themselves. The download time of the Playwright browser differed a lot per shard, so downloading only once also made the pipeline more stable. Likewise, jobs download the build outputs of `install-dist` instead of building them again.
 
 ### Checking out with Git LFS
 
-Only use `lfs: true` in the `actions/checkout` step if the job actually requires files stored in Git LFS (like the `*.mbtiles` map tiles). Checking out LFS files adds significant time and bandwidth overhead, so it is omitted where unnecessary.
+Only use `lfs: true` in the `actions/checkout` step if the job actually requires files stored in Git LFS (like the `*.mbtiles` map tiles). Checking out LFS files adds significant time and bandwidth overhead, so it is omitted where possible.
 
 ### File Modified Metadata Tricks
 
-To avoid rebuilding components when passing artifacts between jobs, we update file modified metadata after downloading artifacts. For example, jobs that use the downloaded UI component build run `find . -name "*.tsbuildinfo" -exec touch {} +`. This makes the TypeScript compiler recognize that the downloaded build output is up to date, preventing unnecessary compilations. Run `npx tsc -b --verbose` to see why TypeScript considers a build out of date.
+To avoid rebuilding components when passing artifacts between jobs, we update file modified metadata after downloading artifacts. For example, jobs that use the downloaded UI component build run `find . -name "*.tsbuildinfo" -exec touch {} +`. This makes the TypeScript compiler recognize that the downloaded build output is up-to-date, preventing unnecessary compilations. Run `npx tsc -b --verbose` to see why TypeScript considers a build out of date.
 
 ## Artifacts: When and What to Include
 
@@ -192,7 +197,17 @@ To write or update a composite action:
 2. Define `runs: using: "composite"`.
 3. Reference the action in a workflow using `uses: openremote/core/.github/actions/your-action-name@<commit-sha>`.
 
-Don't reference actions with a local path like `./.github/actions/your-action-name` in workflows that custom projects also use. A local path is resolved in the checked-out repository, which is the custom project in that case. Because the reference contains a commit SHA, update it in the workflows after changing an action.
+Don't reference actions with a local path like `./.github/actions/your-action-name` in workflows that custom projects also use. A local path is resolved in the checked-out repository, which is the custom project in that case.
+
+:::warning
+
+After changing a composite action, update the commit SHA in the workflows that use it to the SHA of **the commit that changed the action** on your PR branch. Because PRs are squash merged, this SHA differs from the SHA of the commit that ends up in the history of the `main` branch, so it points to a dangling commit. This could become an issue if the repository is ever garbage collected. However, it is less cumbersome than waiting for the PR to be merged and then creating a follow-up PR to update the commit SHAs, or changing the merge rules to allow merging individual commits.
+
+If you reference a commit on `main` instead, Dependabot considers the reference to follow the `main` branch. Every time a new commit is merged, it opens a PR to update the SHA to the latest commit on `main`, even though the action didn't change (see [#3067](https://github.com/openremote/core/pull/3067), [#3081](https://github.com/openremote/core/pull/3081) and [#3087](https://github.com/openremote/core/pull/3087), fixed in [#3093](https://github.com/openremote/core/pull/3093)).
+
+:::
+
+Dependabot also updates the actions used inside our composite actions. When it does, add a commit to the Dependabot PR that updates the references in the workflows to the SHA of the Dependabot commit, which won't be part of the `main` history either (see [#3301](https://github.com/openremote/core/pull/3301)).
 
 ### Special Conditions
 
