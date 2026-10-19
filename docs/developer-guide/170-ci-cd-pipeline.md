@@ -1,12 +1,12 @@
 # CI/CD pipeline
 
-This document describes the continuous integration and continuous deployment (CI/CD) pipeline of the [core repository](https://github.com/openremote/core), introducing the concepts and workflows added in our pipeline migration (introduced in PR [#2696](https://github.com/openremote/core/pull/2696)). The pipeline runs on GitHub Actions and its workflows are in the [`.github/workflows`](https://github.com/openremote/core/tree/main/.github/workflows) directory.
+This document describes the continuous integration and continuous deployment (CI/CD) pipeline of the [core repository](https://github.com/openremote/core), introducing the concepts and workflows added in our pipeline migration ([#2696](https://github.com/openremote/core/pull/2696)). The pipeline runs on GitHub Actions and its workflows are in the [`.github/workflows`](https://github.com/openremote/core/tree/main/.github/workflows) directory.
 
 ## Overview of the workflows
 
 The pipeline is structured using a separation of concerns between environments and jobs:
 
-- **Environment Workflows**: These are entry points that handle specific contexts. They act as the orchestrator for different triggers:
+- **Environment Workflows**: These are context specific workflows that act as the orchestrator for different triggers:
   - `review.yml` for Pull Requests and the merge queue.
   - `staging.yml` for pushes to `main` and release tags. It builds, tests and publishes the Docker images, Maven artifacts and npm packages.
   - `deploy.yml` for manual [deployments](#deployments).
@@ -17,7 +17,7 @@ The previous pipeline, `ci_cd.yml`, is kept for custom projects that have not mi
 
 ### How reusable workflows work
 
-Job workflows are configured as reusable workflows. This allows them to be shared across multiple environment orchestrators.
+Job workflows are configured as reusable workflows. This allows them to be shared across multiple environments.
 
 A job that calls a reusable workflow reports a status check for each job in that workflow, named `<calling job> / <job>`. For example, the `unit-tests` job in `review.yml` is named `Test` and calls `unit-tests.yml`, whose job is named `Unit Tests`, so the check is `Test / Unit Tests`. Branch protection on `main` requires these checks by name.
 
@@ -37,13 +37,14 @@ We use a "detect changes" job early in the workflow to determine which files hav
 - `backend_spotless_any_modified` and `ui_spotless_any_modified`: Linting only runs when files checked by Spotless changed.
 
 For example:
+
 - A PR that only touches backend Java code skips the UI component tests, but still runs the UI app tests.
 - A PR that only touches UI code skips the backend unit and integration tests, so only the build and the UI related jobs run.
 - A PR that only changes Markdown files skips the build and all tests.
 
 ### Handling skipped jobs
 
-If the calling job is skipped, GitHub only reports a check for the calling job (e.g. `Test`), so required checks like `Test / Unit Tests` are never reported and the PR waits for them indefinitely. A skipped check does satisfy branch protection, so you need to handle skipping *inside* the reusable workflow itself rather than skipping the entire `workflow_call`.
+If the calling job is skipped, GitHub only reports a check for the calling job (e.g. `Test`), so required checks like `Test / Unit Tests` are never reported and the PR waits for them indefinitely. A skipped check does satisfy branch protection, so you need to handle skipping _inside_ the reusable workflow itself rather than skipping the entire `workflow_call`.
 
 Each job workflow therefore has a `skip` input that its job checks, and the environment workflow passes the skip condition:
 
@@ -79,6 +80,7 @@ The `!failure() && !cancelled()` condition on the calling job is explained in [S
 ### Special conditions
 
 You will often see special conditionals used in the pipeline:
+
 - `if: ${{ !failure() && !cancelled() }}`: Used on most jobs in the environment workflows. By default, a job is skipped when a job it needs was skipped. This condition lets it run anyway, unless a job it needs failed or the workflow run was cancelled.
 - `if: always()`: Ensures a step or job runs regardless of whether previous steps or jobs failed. This is typically used to ensure test results and coverage reports are uploaded even when tests fail, and for the `UI App Tests Status` job.
 - `if: failure()`: Runs a step only when a previous step in the job failed, or a job only when a job it needs failed. Use it to clean up environments or post error notifications.
@@ -101,11 +103,11 @@ Custom projects deploy with `custom-staging.yml` and `custom-deploy.yml`, see [C
 
 [Custom projects](./040-creating-a-custom-project.md) reuse the pipeline by calling the following workflows of the core repository from their own workflows:
 
-| Workflow             | Trigger in the custom project | Jobs                                                                                                                      |
-|----------------------|-------------------------------|---------------------------------------------------------------------------------------------------------------------------|
-| `custom-review.yml`  | Pull Requests                 | Lint, build, unit tests and integration tests.                                                                            |
-| `custom-staging.yml` | Pushes                        | The same jobs as `custom-review.yml`, followed by a deployment when `.ci_cd/ci_cd.json` configures one for the pushed branch. |
-| `custom-deploy.yml`  | Manual (`workflow_dispatch`)  | A deployment using `deployment.yml`.                                                                                      |
+| Workflow             | Trigger in the custom project | Stages                                                                                                                   |
+| -------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `custom-review.yml`  | Pull Requests                 | Lint, build, and test.                                                                                                   |
+| `custom-staging.yml` | Pushes                        | The same as `custom-review.yml`, followed by a deployment when `.ci_cd/ci_cd.json` configures one for the pushed branch. |
+| `custom-deploy.yml`  | Manual (`workflow_dispatch`)  | A deployment using `deployment.yml`.                                                                                     |
 
 Reference the core workflows by commit SHA rather than a branch like `main`, so changes to the core pipeline don't unexpectedly break custom projects.
 
@@ -158,8 +160,10 @@ When modifying the pipeline, you should generally branch off `main` and test you
 Changes to `.yml` files do not count as code changes when [detecting changes](#detect-changes), so a PR that only changes workflows skips the build and test jobs. To run the jobs you changed, temporarily include a change to a source file in your PR.
 
 To test changes without polluting the main repository, you can:
+
 1. Push to your own fork and test against custom branches.
 2. Test dispatchable workflows manually. Note that if a workflow file has not been merged to `main` yet, you cannot trigger it from the GitHub Actions UI. Instead, you must use the [GitHub CLI](https://cli.github.com/) to trigger it on your feature branch:
+
    ```bash
    gh workflow run <workflow-name.yml> --ref <your-feature-branch>
    ```
@@ -173,6 +177,7 @@ To test changes without polluting the main repository, you can:
 ### Writing and updating composite actions
 
 To write or update a composite action:
+
 1. Create an `action.yml` file in a dedicated folder under `.github/actions/`.
 2. Define `runs: using: "composite"`.
 3. Reference the action in a workflow using `uses: openremote/core/.github/actions/your-action-name@<commit-sha>`.
@@ -194,6 +199,7 @@ Dependabot also updates the actions used inside our composite actions. When it d
 ### Gradle vs. workflows
 
 A good rule of thumb is:
+
 - **Use Gradle** to manage the internal build lifecycle, task graphs, dependencies, and code compilation.
 - **Use Workflows** for orchestration, conditional job execution (e.g., detect changes), environment provisioning, and deployment.
 
@@ -226,6 +232,7 @@ To avoid rebuilding components when passing artifacts between jobs, we update fi
 ### Caching
 
 We implement several caching strategies to speed up builds:
+
 - **Gradle:** `actions/setup-java` with `cache: "gradle"` restores the Gradle dependencies and wrapper at the beginning of jobs, to skip downloading them again.
 - **Docker Images:** Docker layer caching is used to avoid rebuilding unmodified layers. We utilize the GitHub Actions cache backend for Docker buildx (`type=gha`).
 
