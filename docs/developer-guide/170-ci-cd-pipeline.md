@@ -14,7 +14,12 @@ To test changes without polluting the main repository, you can:
    ```bash
    gh workflow run <workflow-name.yml> --ref <your-feature-branch>
    ```
-   * **Note on new dispatchable workflows:** If you are adding a completely new workflow file, it won't be recognized by GitHub at all until it is registered. A common workaround is to temporarily add an `on: [push]` event to the workflow, push your branch so it runs once, and then remove the `push` event. After this, it will be available to trigger via the CLI.
+
+   :::note
+
+   If you are adding a completely new dispatchable workflow file, it won't be recognized by GitHub at all until it is registered. A common workaround is to temporarily add an `on: [push]` event to the workflow, push your branch so it runs once, and then remove the `push` event. After this, it will be available to trigger via the CLI.
+
+   :::
 
 ## "Environment" and "Job" Workflows
 
