@@ -103,13 +103,19 @@ Custom projects deploy with `custom-staging.yml` and `custom-deploy.yml`, see [C
 
 [Custom projects](./040-creating-a-custom-project.md) reuse the pipeline by calling the following workflows of the core repository from their own workflows:
 
-| Workflow             | Trigger in the custom project | Stages                                                                                                                   |
-| -------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
-| `custom-review.yml`  | Pull Requests                 | Lint, build, and test.                                                                                                   |
-| `custom-staging.yml` | Pushes                        | The same as `custom-review.yml`, followed by a deployment when `.ci_cd/ci_cd.json` configures one for the pushed branch. |
-| `custom-deploy.yml`  | Manual (`workflow_dispatch`)  | A deployment using `deployment.yml`.                                                                                     |
+| Workflow             | Trigger in the custom project | Stages                                                                                                                                     |
+| -------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| `custom-review.yml`  | Pull Requests                 | Lint, build, and test.                                                                                                                     |
+| `custom-staging.yml` | Pushes                        | The same as `custom-review.yml`, followed by a deployment when no job failed and `.ci_cd/ci_cd.json` configures one for the pushed branch. |
+| `custom-deploy.yml`  | Manual (`workflow_dispatch`)  | A deployment using `deployment.yml`.                                                                                                       |
 
-Reference the core workflows by commit SHA rather than a branch like `main`, so changes to the core pipeline don't unexpectedly break custom projects.
+Reference the core workflows by release version rather than a branch like `main`, so changes to the core pipeline don't unexpectedly break custom projects. When no release includes the workflow changes you need, reference a commit SHA instead, with a comment naming the closest release (`git describe --tags --abbrev=0 <commit-sha>`). For example, releases up to 1.32.2 don't include these workflows, so you reference the merge commit of [#3441](https://github.com/openremote/core/pull/3441) or later:
+
+```yaml
+uses: openremote/core/.github/workflows/custom-review.yml@b5e84f1b83b64c7808b59823dfd0a9cd3cee1c8f # 1.32.2
+```
+
+The exception is `custom-project-test`, which references `main` on purpose to catch issues with changes to the core pipeline early.
 
 The core workflows use `${{ github.workflow }}-${{ github.ref }}` as their concurrency group, and in a called workflow `github.workflow` is the name of the calling workflow. Don't use the same concurrency group in the calling workflow, because GitHub cancels the run as a deadlock.
 
@@ -117,7 +123,7 @@ The core workflows use `${{ github.workflow }}-${{ github.ref }}` as their concu
 
 The custom project workflows differ from the core workflows in the following ways:
 
-- **Build:** They build with `custom-install-dist.yml`, which only runs `./gradlew installDist`. The archive steps in `install-dist.yml` assume the layout of the core repository (e.g. `ui/util`), and no custom project job downloads those artifacts. The build includes the deployment, so a broken deployment build already fails in review.
+- **Build:** They build with `custom-install-dist.yml`, which only runs `./gradlew installDist`. The archive steps in `install-dist.yml` assume the layout of the core repository (e.g. `ui/util`), and no custom project job downloads those artifacts. The build includes the deployment, and changes to the `deployment` directory count as code changes, so a broken deployment build already fails in review.
 - **Code coverage:** Not run yet, because `code-coverage.yml` requires JaCoCo outputs and the `combinedCoverageReport` Gradle task.
 - **Manager version:** Deployments use the manager Docker image matching the `openremote` version in `gradle/libs.versions.toml`. Snapshot versions are not supported.
 - **Deploy script:** `deployment.yml` runs the `.ci_cd/deploy.sh` script of the core repository at the same `openremote` version. Up to 1.32.0, this script reads the `IS_MAIN_REPO` environment variable and the `openremote/.ci_cd` directory, so `deployment.yml` provides both.
@@ -147,7 +153,7 @@ on:
 jobs:
   deploy:
     name: Deploy
-    uses: openremote/core/.github/workflows/custom-deploy.yml@<commit-sha>
+    uses: openremote/core/.github/workflows/custom-deploy.yml@<version>
     with:
       INPUTS: ${{ toJSON(inputs) }}
     secrets: inherit
