@@ -161,6 +161,17 @@ jobs:
 
 The calling workflow must be on the default branch before you can trigger it from the GitHub UI.
 
+### Migrating from `ci_cd.yml`
+
+The new workflows report different status checks than `ci_cd.yml`. When you migrate a custom project, remove the `CI/CD / CI/CD` check from the required checks in its branch protection and add the checks of `custom-review.yml` instead. Their names start with the name of the job that calls `custom-review.yml` (see [How reusable workflows work](#how-reusable-workflows-work)):
+
+- `<calling job> / Detect whether code changed`
+- `<calling job> / Lint / Backend Check Spotless`
+- `<calling job> / Lint / UI Check Spotless`
+- `<calling job> / Build / Install Dist`
+- `<calling job> / Test / Unit Tests`
+- `<calling job> / Test / Integration Tests`
+
 ## Making changes to the pipeline
 
 ### Testing changes
