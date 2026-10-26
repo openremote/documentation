@@ -615,25 +615,27 @@ Do not use the `-s ours` merge strategy either. It would record a formatting com
 
 ### Upgrading an existing custom project to Spotless
 
-Custom projects commonly use the reusable CI/CD workflow from the `main` branch of `openremote/core`:
+Custom projects reuse the CI/CD workflows of `openremote/core` (see [Custom projects](./170-ci-cd-pipeline.md#custom-projects)). The `custom-review.yml` and `custom-staging.yml` workflows include the Spotless formatting checks, so add Spotless to a project before you migrate it to these workflows.
+
+Projects that still use the previous `ci_cd.yml` workflow commonly reference it from the `main` branch:
 
 ```yaml
 uses: openremote/core/.github/workflows/ci_cd.yml@main
 ```
 
-Because this follows `main`, new workflow behaviour is inherited automatically. This includes the Spotless formatting checks.
+Because this follows `main`, new workflow behaviour is inherited automatically. This includes the Spotless formatting checks, which `ci_cd.yml` runs from release 1.29.0 onwards.
 
 #### Temporarily pinning the workflow
 
-When there is not yet time to upgrade a custom project, temporarily pin the reusable workflow to a commit from before the Spotless checks were added:
+When there is not yet time to upgrade a custom project, temporarily pin `ci_cd.yml` to release 1.28.1, the last release before the Spotless checks were added:
 
 ```yaml
-uses: openremote/core/.github/workflows/ci_cd.yml@51f4c3c0c8edd429a65237268d47d615617d4008
+uses: openremote/core/.github/workflows/ci_cd.yml@1.28.1
 ```
 
-Pinning the workflow also prevents the project from receiving other workflow changes made after that commit. Use this only as a temporary measure.
+Pinning the workflow also prevents the project from receiving other workflow changes made after that release. Use this only as a temporary measure.
 
-The pinned SHA is the [`51f4c3c0c8edd429a65237268d47d615617d4008`](https://github.com/openremote/core/commit/51f4c3c0c8edd429a65237268d47d615617d4008) commit in `openremote/core`.
+Release 1.28.1 is the [`51f4c3c0c8edd429a65237268d47d615617d4008`](https://github.com/openremote/core/commit/51f4c3c0c8edd429a65237268d47d615617d4008) commit, so projects pinned to this SHA use the same workflow.
 
 #### Pull request 1: Add Spotless and apply formatting
 
@@ -678,13 +680,13 @@ When other custom-project template updates are also required, compare the existi
 
 ##### Commit 1: Add the configuration
 
-Ensure the reusable workflow reference points to `main` before creating the first commit:
+If you pinned `ci_cd.yml`, point it back to `main` before creating the first commit:
 
 ```yaml
 uses: openremote/core/.github/workflows/ci_cd.yml@main
 ```
 
-Commit the synchronized configuration and workflow change:
+Commit the synchronized configuration, including any workflow change:
 
 ```shell
 git add --all
