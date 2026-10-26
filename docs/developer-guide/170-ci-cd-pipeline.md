@@ -7,7 +7,7 @@ This document describes the continuous integration and continuous deployment (CI
 The pipeline is structured using a separation of concerns between environments and jobs:
 
 - **Environment Workflows**: These are context specific workflows that act as the orchestrator for different triggers:
-  - `review.yml` for Pull Requests and the merge queue.
+  - `review.yml` for pull requests and the merge queue.
   - `staging.yml` for pushes to `main` and release tags. It builds, tests and publishes the Docker images, Maven artifacts and npm packages.
   - `deploy.yml` for manual [deployments](#deployments).
   - `custom-review.yml`, `custom-staging.yml` and `custom-deploy.yml`, which [custom projects](#custom-projects) call from their own workflows.
@@ -23,7 +23,7 @@ A job that calls a reusable workflow reports a status check for each job in that
 
 ### Composite actions
 
-Composite actions are defined under `.github/actions/` and act as reusable steps (unlike reusable workflows, which act as reusable jobs). We use them to keep things DRY.
+Composite actions are defined under `.github/actions` and act as reusable steps (unlike reusable workflows, which act as reusable jobs). We use them to keep the workflows DRY (Don't Repeat Yourself), so the same steps aren't duplicated across workflows.
 
 ## How the pipeline works
 
@@ -105,7 +105,7 @@ Custom projects deploy with `custom-staging.yml` and `custom-deploy.yml`, see [C
 
 | Workflow             | Trigger in the custom project | Stages                                                                                                                                     |
 | -------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| `custom-review.yml`  | Pull Requests                 | Lint, build, and test.                                                                                                                     |
+| `custom-review.yml`  | Pull requests                 | Lint, build, and test.                                                                                                                     |
 | `custom-staging.yml` | Pushes                        | The same as `custom-review.yml`, followed by a deployment when no job failed and `.ci_cd/ci_cd.json` configures one for the pushed branch. |
 | `custom-deploy.yml`  | Manual (`workflow_dispatch`)  | A deployment using `deployment.yml`.                                                                                                       |
 
@@ -176,7 +176,7 @@ The new workflows report different status checks than `ci_cd.yml`. When you migr
 
 ### Testing changes
 
-When modifying the pipeline, you should generally branch off `main` and test your changes by opening a Pull Request. Since the workflows run automatically for PRs, you can iterate on pipeline changes within the PR itself.
+When modifying the pipeline, you should generally branch off `main` and test your changes by opening a pull request. Since the workflows run automatically for PRs, you can iterate on pipeline changes within the PR itself.
 
 Changes to `.yml` files do not count as code changes when [detecting changes](#detect-changes), so a PR that only changes workflows skips the build and test jobs. To run the jobs you changed, temporarily include a change to a source file in your PR.
 
@@ -199,7 +199,7 @@ To test changes without polluting the main repository, you can:
 
 To write or update a composite action:
 
-1. Create an `action.yml` file in a dedicated folder under `.github/actions/`.
+1. Create an `action.yml` file in a dedicated folder under `.github/actions`.
 2. Define `runs: using: "composite"`.
 3. Reference the action in a workflow using `uses: openremote/core/.github/actions/your-action-name@<commit-sha>`.
 
