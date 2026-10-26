@@ -10,7 +10,7 @@ Each asset can have one or more attributes that hold a value; a value can be of 
 
 In addition to its current value, an attribute can store historical datapoints.  
 You enable this by setting the `storeDataPoints` meta item on the attribute.
-By default, the history is kept for one month but this can be configured using the `dataPointsMaxAgeDays` meta item.  
+By default, the history is kept indefinitely; retention is configured for the whole system rather than per attribute (see [Datapoint retention](../developer-guide/100-system-administration.md#datapoint-retention)).  
 Once enabled, on the asset page in the manager UI, you'll see a History panel, and you'll be able to select this attribute from a dropdown menu.
 This displays a line graph of the attribute values over a configurable period of time.  
 This also allows you to use that attribute in graphs in [Insights](./020-manager-ui/10-manager-ui.md#insights) dashboards.
