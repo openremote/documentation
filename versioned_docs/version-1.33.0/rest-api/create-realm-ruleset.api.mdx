@@ -1,0 +1,67 @@
+---
+id: create-realm-ruleset
+title: "Create a realm ruleset"
+description: "Creates and deploys a ruleset in its body realm and returns its numeric ID. Restricted users cannot create realm rulesets; legacy JavaScript is not accepted."
+sidebar_label: "Create a realm ruleset"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create a realm ruleset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/rules/realm"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates and deploys a ruleset in its body realm and returns its numeric ID. Restricted users cannot create realm rulesets; legacy JavaScript is not accepted.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./create-realm-ruleset.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./create-realm-ruleset.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

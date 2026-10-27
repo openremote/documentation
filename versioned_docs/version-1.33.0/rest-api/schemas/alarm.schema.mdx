@@ -1,0 +1,32 @@
+---
+id: alarm
+title: "Alarm"
+description: "Operational alarm submitted to or returned by the alarm service."
+sidebar_label: "Alarm"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"assigneeId":"2f1c17e5-72b8-4dbe-9f8d-c49e66f82e10","content":"Boiler room temperature reached 42 °C.","realm":"building","severity":"LOW","source":"MANUAL","sourceId":"string","status":"OPEN","title":"Temperature threshold exceeded"}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Alarm"}
+>
+</Heading>
+
+
+
+Operational alarm submitted to or returned by the alarm service.
+
+<Schema
+  {...require("./alarm.Schema.json")}
+>
+  
+</Schema>
+            

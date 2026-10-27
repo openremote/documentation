@@ -1,0 +1,69 @@
+---
+id: get-predicted-datapoints
+title: "Retrieve the predicted datapoints of an asset attribute"
+description: "Queries predicted values for one attribute using the supplied time-range and aggregation criteria. Anonymous access requires public-read access on both asset and attribute."
+sidebar_label: "Retrieve the predicted datapoints of an asset attribute"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the predicted datapoints of an asset attribute"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/asset/predicted/{assetId}/{attributeName}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Queries predicted values for one attribute using the supplied time-range and aggregation criteria. Anonymous access requires public-read access on both asset and attribute.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-predicted-datapoints.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-predicted-datapoints.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-predicted-datapoints.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

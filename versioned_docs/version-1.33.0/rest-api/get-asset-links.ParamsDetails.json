@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Numeric alarm identifier.","example":1234,"in":"path","name":"alarmId","required":true,"schema":{"type":"integer","format":"int64"}},{"description":"OpenRemote realm name.","example":"building","in":"query","name":"realm","required":true,"schema":{"type":"string"}}]}

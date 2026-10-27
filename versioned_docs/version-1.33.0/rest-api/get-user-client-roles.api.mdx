@@ -1,0 +1,69 @@
+---
+id: get-user-client-roles
+title: "Retrieve a user's client roles"
+description: "Returns role names assigned to one user for the named client. Without read-admin permission, callers may retrieve only their own roles. The target realm must be active unless the caller is a superuser."
+sidebar_label: "Retrieve a user's client roles"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVt9v2zYQ/lcOfFkLyFaSZv2hvSwohi7AhgZZgj0ERkuTZ4srRarkKa5r6H8fjpRsJ3WLNciAYU+WKd7dd6e7776N0BhVMC0Z70QlLpG64CIEbxGcbDCCjNEsHWogD94hdBEDLHwAqvMVDcoadDSFPw3VviMIKPVE6sY4aDE0JkbjXQFKWoshQiPXEJCCwVsE7+yaXZkAfuVS4DiFqxqBZFhicmYbaLpIMEeQiswtQucsxpggZK9gIkiIXYuBAU5FIXyLQXJe51pUYol0HTG8TlAvOYooRCuDbJAwRFHdbO7V4m2L7hIbTzhg4GTZMX6STWtRVGLeGauNW4pCGDZpJdWiEHxRVCJZiUIE/NiZgFpUFDosRFQ1NlJUG0Hrli9GCuyk74v7GM41OjK0nrTB3xqNIZffpOOFyYnu8JwsjtXxC/xx8uJk/nJyquc4ebV4qSfq9BU+f754eYLHR4exsttz/dhgc2N8Fa5v0YVU4cOgsvl3wprx5dh6FzHy+5OjI/5R3hE64kfZttao1BrlX5Ghb770J0OQa4ZF2MRDcfq+uJc/Ny3jxEigPOdIqCF2SmGMi87ategLcXp0fA8P4ScqWyvNYSS7iPcDnnVUc2VzLjwCY5lgmM/Yca48ogHTR5A2ggwIxt1Ka3QG9OyxAF3t5tFK9SEP6BbTjgtiMQK8M+QmgnHDhEun742387Q/4hn66WNCHz4eaggYfRcUgvaYI+MnE4m7XkRUXTC0TpTBLWy0qG5m3Hgkl8wkgplGzArRINV+YJ9EN1SLSpQMv9yknPv0J/FRuclD2JebsfF7weHC7UhQXbCiEjVRG6uy1Nj46W6GpsaXsjVbx6IQtzIYObd5EDIdVTy1C9lZEpVoZCSuZJqaMa8/uGjZZMxuIxbWr9KR7Kj2wXxOLffaa/zi8DqBLPmsTDFjmeOUbfDklbdl9jtR3jlUlK6mGV8EjPX325P/gI5LpXybgbfBL0zimPGpL0S69lDvfTHQ0evdJOWq/pdBs4Pc+Z6NT9KJcQs/jo1UaWywkYZD8Kuf77SUODApPKd5trVXXYOOMgGNqmBvc/4unVxigF+vri7g7OI8r/b3KYn3kHsbxjaFiBYV7WiDmTRdnbLPvM35rSSItV+le+9z5uws9+9IOIwLHKIG6eAtcyWcgExkDKk8P4HfOV0N2iU53/fAFOoDgXTerRvfxcFHAdKyybIe4LJyQg1akgQlHUQy1rJmsaYxlAVU282tUVt6iVO4zkpGuh2YbVX52FONATKRFYAh+ADb/cZqACQkvpsw9cHc6/UULizKyOXEhO3mzmeaPdkSiFfxLoE8Td+w8WlDLDyva2sUupjGfFjLZ28ufoNnU1YSdwlptVpNl66b+rAsB7NYymVrJ8+mR1N005oam5raUOrzbzQKsxeGmFuOzY/YsPWRGun2wFyOQlImafRDHEVHGDTenebd2xX/K607DPne9uuHj7MZts5NkniiENUoS7eLhw+3+q/aiq5ZIWofiU03m7mMeB1s3/Pxxw4Dr7/ZbsNk/WwiP2tRLaSN+I3aP7kcRMFT+KrMPpjTqM7cOq032/E/UYgPuN4q7qRMHwLlH6ntB8AaivuIuA4K6wcg237sftYXokapMaRPmV+fKYUt7Rl+IZ37fZXz5pcrUSQxsCe5hsVTjA/s/SCocemN2NJiTEU7eP0hu3bsEm0CKnrXBfNv+M/74Wpc3I8SYZBIQ4CO6m96vqPH3ilWaaPtMkhH75JVP+v7/m/0J6VO
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve a user's client roles"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/{realm}/userRoles/{userId}/{clientId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns role names assigned to one user for the named client. Without read-admin permission, callers may retrieve only their own roles. The target realm must be active unless the caller is a superuser.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-user-client-roles.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-user-client-roles.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-user-client-roles.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      
