@@ -1,7 +1,7 @@
 ---
 id: assetdatapointlttbquery
 title: "AssetDatapointLTTBQuery"
-description: "Downsamples numeric or boolean datapoints from the inclusive range with the Largest-Triangle-Three-Buckets (LTTB) algorithm while preserving the series' visual shape. Use this to reduce a large series for charts. Results are chronological; boolean values are processed as 1 for true and 0 for false. Other attribute value types are rejected."
+description: "Downsamples numeric or boolean datapoints from the inclusive range with the Largest-Triangle-Three-Buckets (LTTB) algorithm while preserving the series' visual shape. Use this to reduce a large series for charts. Results are chronological; boolean values are processed as 1 for true and 0 for false. Null-valued observations are omitted before downsampling, so their timestamps are not returned as gap markers. A range with no available values returns no points. Other attribute value types are rejected."
 sidebar_label: "AssetDatapointLTTBQuery"
 hide_title: true
 hide_table_of_contents: true
@@ -22,7 +22,7 @@ import Heading from "@theme/Heading";
 
 
 
-Downsamples numeric or boolean datapoints from the inclusive range with the Largest-Triangle-Three-Buckets (LTTB) algorithm while preserving the series' visual shape. Use this to reduce a large series for charts. Results are chronological; boolean values are processed as 1 for true and 0 for false. Other attribute value types are rejected.
+Downsamples numeric or boolean datapoints from the inclusive range with the Largest-Triangle-Three-Buckets (LTTB) algorithm while preserving the series' visual shape. Use this to reduce a large series for charts. Results are chronological; boolean values are processed as 1 for true and 0 for false. Null-valued observations are omitted before downsampling, so their timestamps are not returned as gap markers. A range with no available values returns no points. Other attribute value types are rejected.
 
 <Schema
   {...require("./assetdatapointlttbquery.Schema.json")}

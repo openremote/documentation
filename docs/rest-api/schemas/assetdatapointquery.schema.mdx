@@ -1,7 +1,7 @@
 ---
 id: assetdatapointquery
 title: "AssetDatapointQuery"
-description: "Polymorphic historical-datapoint query. Select `all` to return every value, `interval` to aggregate values into time buckets, `lttb` to downsample a numeric or boolean series, or `nearest` to retrieve the last value at or before a time."
+description: "Polymorphic historical or predicted datapoint query. Select `all` to return every value, `interval` to aggregate values into time buckets, `lttb` to downsample a numeric or boolean series, or `nearest` to retrieve the last numeric value at or before a time. Returned datapoints use x for the timestamp and y for the value. When a query retains an unavailable datapoint, its JSON representation contains x but omits y."
 sidebar_label: "AssetDatapointQuery"
 hide_title: true
 hide_table_of_contents: true
@@ -22,7 +22,7 @@ import Heading from "@theme/Heading";
 
 
 
-Polymorphic historical-datapoint query. Select `all` to return every value, `interval` to aggregate values into time buckets, `lttb` to downsample a numeric or boolean series, or `nearest` to retrieve the last value at or before a time.
+Polymorphic historical or predicted datapoint query. Select `all` to return every value, `interval` to aggregate values into time buckets, `lttb` to downsample a numeric or boolean series, or `nearest` to retrieve the last numeric value at or before a time. Returned datapoints use x for the timestamp and y for the value. When a query retains an unavailable datapoint, its JSON representation contains x but omits y.
 
 <Schema
   {...require("./assetdatapointquery.Schema.json")}

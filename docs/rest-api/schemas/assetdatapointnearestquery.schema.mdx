@@ -1,7 +1,7 @@
 ---
 id: assetdatapointnearestquery
 title: "AssetDatapointNearestQuery"
-description: "Returns at most one numeric datapoint: the closest value at or before the requested time. Use `fromTimestamp` as a Unix-seconds timestamp at the HTTP API boundary. `toTimestamp`, `fromTime`, and `toTime` are ignored. The equality boundary is inclusive."
+description: "Returns at most one numeric datapoint: the closest value at or before the requested time. Use `fromTimestamp` as a Unix-seconds timestamp at the HTTP API boundary. `toTimestamp`, `fromTime`, and `toTime` are ignored. The equality boundary is inclusive. If the nearest datapoint has a null value, its timestamp and null value are returned."
 sidebar_label: "AssetDatapointNearestQuery"
 hide_title: true
 hide_table_of_contents: true
@@ -22,7 +22,7 @@ import Heading from "@theme/Heading";
 
 
 
-Returns at most one numeric datapoint: the closest value at or before the requested time. Use `fromTimestamp` as a Unix-seconds timestamp at the HTTP API boundary. `toTimestamp`, `fromTime`, and `toTime` are ignored. The equality boundary is inclusive.
+Returns at most one numeric datapoint: the closest value at or before the requested time. Use `fromTimestamp` as a Unix-seconds timestamp at the HTTP API boundary. `toTimestamp`, `fromTime`, and `toTime` are ignored. The equality boundary is inclusive. If the nearest datapoint has a null value, its timestamp and null value are returned.
 
 <Schema
   {...require("./assetdatapointnearestquery.Schema.json")}

@@ -506,7 +506,7 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
-          id: "rest-api/file-upload",
+          id: "rest-api/image-upload",
           label: "Upload a Manager configuration image",
           className: "api-method post",
         },
