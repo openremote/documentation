@@ -4,6 +4,15 @@ OpenRemote offers functionality for automatic client and asset provisioning. If 
 
 When the auto provisioning is configured, an authorised device will first create a service user in OpenRemote, if it not already exists. Secondly it will create an asset in the specified OpenRemote Realm, with the attributes, using the 'Asset template'. Based on the 'Roles' the device can now communicate with this asset.
 
+:::warning Breaking change in 1.34.0
+
+From version 1.34.0 the X.509 provisioning flow is a two-step challenge exchange (see
+[Connect flow](#connect-flow)). Devices that only send their certificate receive an
+`UNAUTHORIZED` error and must be updated to sign the challenge. There is no compatibility mode,
+including for devices that were provisioned before the upgrade.
+
+:::
+
 #### Terminology
 * Client: Refers to the initiator in communication with OpenRemote; the same meaning as in authentication terminology.
 * Asset: Any asset within the OpenRemote system.
@@ -15,7 +24,9 @@ There are two basic mechanisms for client provisioning.
 
 ### X.509 Client Certificate
 
-Supports the industry standard X.509 certificate authentication mechanism where each client has a unique client certificate that is signed by a CA certificate that must also be registered within OpenRemote, the certificate must contain a unique ID within the CN attribute of the certificate. OpenRemote then verifies the certificate and CN attribute presented during provisioning. 
+Supports the industry standard X.509 certificate authentication mechanism where each client has a unique client certificate that is signed by a CA certificate that must also be registered within OpenRemote, the certificate must contain a unique ID within the CN attribute of the certificate. OpenRemote then verifies the certificate and CN attribute presented during provisioning.
+
+The certificate itself is public, so presenting it is not enough: during provisioning the client must also prove it holds the certificate's private key by signing a one-time challenge issued by OpenRemote. The private key never leaves the device.
 
 This is the most secure authentication mechanism but adds complexity to the manufacturing/flashing process.
 
@@ -37,9 +48,31 @@ Jump to:
 ## Implementation
 ### Connect flow
 
-The following illustrates the connect process (through [MQTT topics](../050-manager-apis.md#mqtt-api-mqtt-broker)) which clients can use to auto provision a service user and optionally an asset whose ID is generated using a UNIQUE_ID provided by the client; the client is then authenticated and the asset is then returned to the client.
+Clients auto provision a service user, and optionally an asset whose ID is generated from the client's `UNIQUE_ID`, through the [MQTT API](../050-manager-apis.md#mqtt-api-mqtt-broker) using a pair of topics per device, where `UNIQUE_ID` is the CN of the client certificate:
 
-![Auto provisioning Connect flow](img/auto-provisioning-connect-flow.png)
+1. Subscribe to `provisioning/UNIQUE_ID/response` and wait for the SUBACK. Only the connection that holds this subscription may publish to `provisioning/UNIQUE_ID/request`, and a connection may only hold one provisioning response subscription.
+2. Publish a [challenge request](#x509-challenge-request-message) containing the certificate.
+3. Receive a [challenge](#x509-challenge-message), check it, and sign it with the certificate's private key.
+4. Publish a [provisioning request](#x509-provisioning-request-message) containing the certificate and the signature.
+5. Receive a [success](#success-response-message) or [error](#error-response-message) response. On success the connection is authenticated as the device's service user and the asset is returned, so the client can use the standard MQTT topics straight away.
+
+```mermaid
+sequenceDiagram
+    participant C as Client
+    participant O as OpenRemote
+    C->>O: SUBSCRIBE provisioning/UNIQUE_ID/response
+    O-->>C: SUBACK
+    C->>O: PUBLISH provisioning/UNIQUE_ID/request<br/>{"type":"x509-challenge-request","cert":"..."}
+    Note over O: Validate certificate, find realm config,<br/>check config enabled, check CN = UNIQUE_ID
+    O-->>C: {"type":"x509-challenge","challenge":"...","algorithm":"..."}
+    Note over C: Check challenge prefix and topic,<br/>sign with private key
+    C->>O: PUBLISH provisioning/UNIQUE_ID/request<br/>{"type":"x509","cert":"...","signature":"..."}
+    Note over O: Verify signature (challenge is consumed),<br/>get/create service user, get/create asset
+    O-->>C: {"type":"success","realm":"...","asset":{...}}
+    Note over C: Use standard MQTT topics
+```
+
+Any validation step can instead respond with an [error](#error-response-message), and the client must then start again from step 2. A publish from a connection that does not hold the response subscription is rejected by the broker and is never answered.
 
 **NOTE THAT THE 'WHITELIST/BLACKLIST FAILURE', IS NOT YET IMPLEMENTED. THIS FUNCTION ENHANCES SECURITY AS ONLY SPECIFIED DEVICES CAN CONNECT (WHITELIST) OR CAN BE EXCLUDED (BLACKLIST)**
 
@@ -49,6 +82,7 @@ The following illustrates the connect process (through [MQTT topics](../050-mana
 2. Check client certificate has been signed by the CA
 3. Extract client certificate subject ‘CN’ value
 4. Check it matches UNIQUE_ID
+5. Verify the signature of the challenge issued to this connection against the certificate's public key
 
 #### Symmetric Key Validation
 
@@ -59,17 +93,52 @@ The following illustrates the connect process (through [MQTT topics](../050-mana
 
 ### Message Schema
 
-### X.509 Provisioning Request Message
-The provisioning message format for X.509 is as follows:
+#### X.509 Challenge Request Message
 
 ```json
     {
-      "type": "x509",
+      "type": "x509-challenge-request",
       "cert": "..."
     }
 ```
 
 The cert field should be in PEM format and must contain the certificate chain up to and including the CA certificate registered within OpenRemote.
+
+#### X.509 Challenge Message
+
+```json
+    {
+      "type": "x509-challenge",
+      "challenge": "OpenRemote MQTT X509 provisioning v1\nprovisioning/UNIQUE_ID/request\n<nonce>",
+      "algorithm": "SHA256withRSA"
+    }
+```
+
+Before signing, the client must check that `challenge` starts with `OpenRemote MQTT X509 provisioning v1\n` followed by its own request topic, and only sign a challenge received in response to its own request on the same connection. Otherwise a device signs whatever it is sent, which matters all the more if the same key is used for TLS client authentication.
+
+Sign the exact UTF-8 bytes of the `challenge` string: do not Base64 decode it or sign its JSON representation. The `algorithm` is chosen from the certificate's public key:
+
+| Key type | Algorithm | Signature format |
+|---|---|---|
+| RSA | `SHA256withRSA` | PKCS#1 v1.5 |
+| EC (any curve) | `SHA256withECDSA` | ASN.1 DER |
+| Ed25519 / Ed448 | `Ed25519` / `Ed448` | raw |
+
+RSASSA-PSS keys are not supported and are rejected with `UNAUTHORIZED`.
+
+A challenge is valid for 60 seconds, can only be used once, and is bound to the connection, topic and certificate it was issued for. Requesting a new challenge replaces the previous one. Reconnecting, an expired challenge or a failed signature all require a new challenge request.
+
+#### X.509 Provisioning Request Message
+
+```json
+    {
+      "type": "x509",
+      "cert": "...",
+      "signature": "..."
+    }
+```
+
+`cert` must be the same certificate sent in the challenge request, and `signature` is the Base64 encoded signature of the challenge. A message without a valid signature is rejected with `UNAUTHORIZED`.
 
 #### Symmetric Key Provisioning Request Message
 
@@ -109,7 +178,7 @@ The code field should be the base64 encoded HMAC specific to this client.
 
 * MESSAGE_INVALID - Failed to parse the request message
 * CERTIFICATE_INVALID - The X.509 certificate is not valid
-* UNAUTHORIZED - No matching config found
+* UNAUTHORIZED - No matching config found, the signature is missing or invalid, the challenge has expired or was already used, or the certificate's key type is not supported
 * FORBIDDEN - Unique ID fails whitelist/blacklist
 * UNIQUE_ID_MISMATCH - Unique ID used in subscription does not match credentials
 * CONFIG_DISABLED - Matched realm config is marked as disabled
@@ -125,7 +194,9 @@ Client certificate generation is done using standard tooling e.g. openssl:
 1. The certificate should then be signed by an intermediate CA (can be self-signed or signed by a CA)
 1. The intermediate CA certificate is then uploaded into OpenRemote within a Realm config instance
 
-When the client publishes its certificate to OpenRemote it must be in the PEM format. Client certificate generation can take place within the manufacturing environment without any external dependencies.
+When the client sends its certificate to OpenRemote it must be in the PEM format. Client certificate generation can take place within the manufacturing environment without any external dependencies.
+
+The device's private key is needed on the device at provisioning time to sign the challenge, but it is never sent to OpenRemote. Where the hardware allows, generate and keep the key in a secure element or HSM (e.g. an ATECC608 with an EC P-256 key, which uses `SHA256withECDSA`) so that it cannot be extracted from the device.
 
 :::note
 
@@ -148,6 +219,8 @@ Generate signed cert for device:
 openssl x509 -req -in deviceN.csr -CA ca.pem -CAkey ca.key -CAcreateserial -out deviceN.pem -days 500 -sha256
 ```
 
+Keep `deviceN.key` on the device; it is required to sign the provisioning challenge.
+
 ### Asset provisioning
 When a client (device) successfully authenticates it is possible to auto provision an asset that can represent the client within OpenRemote; this is done by providing an asset template (an asset in `JSON` representation) that will be hydrated, stored and returned to the client within the success message payload. The ID of the created asset is derived from the `UNIQUE_ID` so on future authentications the previously created asset can be found and just returned rather than re-created. The following placeholder can be used in the asset template to allow for automatic substitution of the authenticated client's `UNIQUE_ID`:
 
@@ -161,6 +234,8 @@ The type of the asset generated must be an asset type that exists in the system;
 
 ## Configuration
 Configuration of auto provisioning is done via the `Manager UI` -> Auto Provisioning (top right menu); the menu item is only present for superusers.
+
+Devices must provision over TLS (MQTT port 8883) and verify the server's certificate. The challenge proves the device holds its private key, but it does not replace transport security.
 
 
 ### Provisioning Configuration

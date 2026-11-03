@@ -27,11 +27,11 @@ See [Auto provisioning devices and users](../user-guide/080-gateways-and-devices
 
 ## Step 3 - Flash devices with a unique certificate
 
-Each unit ships with a unique client certificate signed by your CA. The device's unique ID (for example a serial number embedded in the certificate's common name) becomes the identity OpenRemote uses to create and name the asset.
+Each unit ships with a unique client certificate signed by your CA. The device's unique ID (for example a serial number embedded in the certificate's common name) becomes the identity OpenRemote uses to create and name the asset. Keep the matching private key on the device, ideally in a secure element, because it signs the provisioning challenge.
 
 ## Step 4 - Let the device provision itself
 
-On first connection the device publishes a provisioning request to the provisioning topic. OpenRemote validates the certificate against your CA, then:
+On first connection the device subscribes to its provisioning response topic, requests a challenge, and signs it with the private key that matches its certificate. OpenRemote validates the certificate against your CA and checks the signature, then:
 
 1. Creates the asset of your chosen type (if it does not already exist).
 2. Links its attributes to the device's publish/subscribe topics.
