@@ -110,7 +110,7 @@ These files may be read and referenced when verifying technical documentation.
 - Avoid modifying Docusaurus configuration, sidebars, dependencies, or build tooling unless required by the task.
 - Do not modify generated build output or dependency directories such as `build/`, `.docusaurus/`, or `node_modules/`.
 - Use the Yarn version configured in `package.json`.
-- Do not modify dependency lockfiles unless dependencies actually change.
+- Do not modify `yarn.lock` manually. Use Yarn to update dependencies and the lockfile when dependency changes are explicitly requested.
 
 ## Validation
 
