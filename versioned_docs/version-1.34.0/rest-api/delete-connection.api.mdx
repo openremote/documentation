@@ -1,0 +1,69 @@
+---
+id: delete-connection
+title: "Delete the gateway connection of a realm"
+description: "Removes the central-manager connection for one realm. Realm administrators can remove their own connection; super users can remove any connection."
+sidebar_label: "Delete the gateway connection of a realm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVk1v2zgQ/SuDObWAImXTntRLgzToFuiiQTY5BUbCUGOLKEUq5Ciu19B/Xwwl2XKbBtgiC/RkmZqPN6M3b7jFiqIOpmXjHZZ4SY1/pAhcE2hyHJQ9apRTKwqgvXOkxRCWPoB3BIGUbXK4lB9QVWOciRwU+xBBKwchhZNoJoBfu1mMdxC7lgJ0kQ6NldvMzHLM0LcUlPz5VGGJFVliOttZYIatCqohphCxvNl+V9KXlpyUxSNccKohCUvfVNNawhLvO2Mr41aYoRGXVnGNGYohlpi8MMNAD50JVGHJoaMMo66pUVhukTetGEYOEqTvF2IcW+8iRXl/cvxWfg5xXdUC6KGjyKC9IGGqIHZaU4zLztrNO3AepkBw76sNmAiBuAuOKuwzfHt8LIG1d0yOExT6xkVrldSxfQZinz0DZ99P8GFIrAKBcY/KmjHxHy+V+LTjmhwbnT7xUOHQaEkuRIxd21pDFehAlZgqG38E9OYlO6H2oKhKHIXKUwTnGWr1SNBSaEyMgpi9/Fv60ADXJsKOriixI+kuGN4kZvqWnKmwvFkIR1ithLD4UTGt1QYXGTbEtd+zPHGbayyxWA1GxX40im1iZo+SJDxO7O+CxRJr5jaWRVFR43NJG9II5MYXqjWTa4EZPqpg1L0dmDpwPXF1qTrLWGKjIlOQRi321fwt7Rxcppq2uLR+nY6kez6Yf1IXznxFPxxeJ5CFnBUpZyyGPEUbPHvtbTHEPRrrTaZpCJeBYv3f/dl/JdGKqH07AG+DX5o0/9NTn2Ey+9XofYbaGnJ8tifq0NXfGbQEGGbCi/NJOjFu6aeBUjoNFDXKSAp59f6AUvjEDJkooyzjW3ndNeRY7VaHnM5k+a9xwfx5dXUBpxefcpARvEtF3MHAbZhoCpEsaR5CT4I17qEv0+TJW8UQa79OdndD5RJs4O+kMYILHFEFysEXkSI4AZUkGFJ73u3HOcLacO07HoLPI4hC+cCgnHebxndxjJGBsuKyqke4g3RDpVilnRfZWAv3BNY0RqRGxKS7t0aL8PsuaIo5XDsrgJTbg9l1VY491xRgkLgMKAQfdnsjinqBgqSERyKKSdBzuLCkorQz7We4OfhMi1c7AfE6HgrI6/QNG58EeOlllVqjycU05uPSPP148Rne5MeYfSdI6/U6X7ku92FVjG6xUKvWHr3Jj3Nyec2NTaQ2nHj+DFFEvSjEgXLifiyOrY/cKDcD8yGJaSpzlNH5ZcYvQcG05A9oPNsnv+fNaJzb2arrx35vx8Vxg2PFmKGe35nKoeJFhrWPLIbb7b2KdB1s38vxQ0dBttZivyKG25WJ8lxhuVQ20jMte3U5LvLX8NNL2JMVjIfKbdJ+sp38wwy/0mZ3H+sXfYY1qYpCgjW8O9WaWp55zQPP9+uH88/nV+eYpbU0uxaMEphNDxL6STiT/E6okkRjn/3E/FdUfyq3MoE033bB/B/xB6W6mlbIi2QYl/WYoOP62cgHN4NbLfeFyXcVlOPb5NUv+r7/F5S6gog=
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Delete the gateway connection of a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/gateway/connection/{realm}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Removes the central-manager connection for one realm. Realm administrators can remove their own connection; super users can remove any connection.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./delete-connection.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./delete-connection.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./delete-connection.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

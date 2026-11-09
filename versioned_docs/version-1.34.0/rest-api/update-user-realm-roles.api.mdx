@@ -1,0 +1,69 @@
+---
+id: update-user-realm-roles
+title: "Update a user's realm roles"
+description: "Replaces the user's assigned realm-level role names in an administered realm. The target realm must be active unless the caller is a superuser."
+sidebar_label: "Update a user's realm roles"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVm1v3DYM/iuEvqwFfOckzfriflkWDFuADQ2y5FNwaHUyfdYqS55E53o7+L8PlOx7y61Ygxbopzg6kXxIkc/DtSgxKK9b0s6KQtxga6TCAFQjdAH9DwFkCHphsQSP0jQTgw9owDuDYGWDAbQFaUGWjbY6EPrx5hRuawSSfoGUTqDpAsEcQSrSDwidNRhSLCWNQQ86gITQteg5+FRkwrXoJaO7KkUhuraUhHcB/Q07vHEGg8hEK71skNAHUdyvD3J616K9wcYRDigYNrvGT7JpDYpCzDttSm0XIhOaTVpJtcgEXxSFiFYiEx7/7rTHUhTkO8xEUDU2UhRrQauWLwby7KTvs0MMVyVa0rSatN496BJ9LC7oeFzplOoWz1l1qk5f4Y+TV2fz15Pzco6TN9XrcqLO3+DLl9XrMzw9OY6V3V6VXwR2li5joJ9dueIbyllCS/wp29ZoFR8g/ytwLuvHrqT3csV4CJtwLETfZwcFuXScKiGUGBgmBCRw1dBjO91VOQ9U6wBjQ+wn1vNBaJ0NGCOfnZzzn/1g3IdDiqCGwCWETikMoeqMWb0F62B0BHNXrrgVPVLnLZaiz8T5yclBaQg/Ud4aqY8XZZv8Ye67cLadC86nwNIjaPsgjR4Cn36twBcd1dxw6T1ThqmYEKuMPHqt0ViC8hh7U5rwGNCLr1mJYfKNVB8TFWwwtegbHYJ2NmQjwD060Uw+A5dIWx4QiXW0SyYJ+vk3eMRIeMF1XiGUDlNk/KQDMRWIgKrzmlaRmlyLVpeiuJ/x3JFcMGMJJjQxy0SDVDvmubajSGtUi0LkDD9fx5z7+M+W/PJ1mvhecCD/MFJg540oRE3UhiLPS2zclEP7yINT7XLZ6o1LkYkH6bWcmzREifDiGFWyMyQK0Uimdi7EbJvRn1yuZDLmtRaVcct4JDuqndf/xGa7dCU+OryLIHM+y2PMkKc4eesdOeVMnvxOlLMWFcWrkQMqj6H+cntyH9FyqZRrE/DWu0pH0h2/+kzEa0/13mdCGY2WLrczlKr6PYNmB6nnHRufxRNm/JutNvwyCtT9OBgzFqHKjUMlVRwqbKRmGPzTT3ttJ47MEU9xmvzSqa5BS4meqmHkd/T7D2nlAj38dnt7DRfXV2nF+BAT/QCp/2FsZQhoUNGWVJhvh83k3bhV8K+SINRuGe99SNVhZ6nHRzpiXGARS1523jGTwhnIqCAQS/gW3NbpUlPtOkrOdz0wwTpPIK2zq8Z1YfCRgTRssqgHuEl5oJQkQUkLgbQxvDsZ3WimHHLQdnOj1YZ8whTu0kYl7RbMpqp87KhGD4nmMkDvnd/IXpRYkBDZcMLEGPVoCtcGZeByYsR2v/dMs2cbknEq7JPM8/iGjYv6UTlWb6MV2hCpYNhYLn69/h1eTHmf2Set5XI5Xdhu6vwiH8xCLhetmbyYnkzRTmtqTGx8TXEWPtMozHDoQ2o5Nj9hw9YFaqTdAXMX90uQ4+6bdMYPa+Ze5+7IyHe4Ng+zvCNv/VDf9SAr93FXFJkoxv22O1yri2GbnGWidoHYZr2ey4B33vQ9H//doWdhm20VJG3gOvB3KYpKmoCfKd2zm0Hun8N/LupHkxl3T7uK8mU6/k9k4iOuNjt7XMSfAuV/7etPgDUUtJ/1mahRluhjudKPlwnJ5JZdbI0freCcVbK4UApb2rm7i2V3n7i+uxWZmA/7fRPFWHi5ZC2Vy4TQxZIkqeKztTDSLjq54LspMGtClODthjSoRTZ+cDpHazAq1ViKqGYxl6PXnyKQ49OX2qOi953X38J/IuzbUW2/SoRhrxkCdFR/1vPeEvVe8WuOtgsvLb2PVv2s7/t/ATZkmM8=
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update a user's realm roles"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/user/{realm}/userRealmRoles/{userId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Replaces the user's assigned realm-level role names in an administered realm. The target realm must be active unless the caller is a superuser.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./update-user-realm-roles.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./update-user-realm-roles.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./update-user-realm-roles.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

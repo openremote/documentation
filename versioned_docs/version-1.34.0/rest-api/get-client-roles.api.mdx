@@ -1,0 +1,69 @@
+---
+id: get-client-roles
+title: "Retrieve client roles for a realm and client"
+description: "Returns all role definitions exposed by the named identity-provider client. Realm-administrator access is required. The target realm must be active unless the caller is a superuser."
+sidebar_label: "Retrieve client roles for a realm and client"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVk1vGzcQ/SsDnhJgrXWTnLaXGkGRGmgRw7VPhuBQ5EjLhEtuyKFtVdj/Xgy5K8mWkiZGCrQnrUjOzJuvN7MRGqMKpifjnWjEJVIKLoK0FoK3CBqXxhm+jYAPvY+oYbEGahGc7FCD0ejI0PqkD/7OaAygrEFHM7hEabsTqTvjTKQgyQeQSmGMYCIE/JxMQD2DqxaBZFghQWAR6FIkWCBIReYOITnLMmxSSWsxsLiEmHoMKWKYiUr4HoNklOdaNGKF9DaDuPQWo6hEL4PskDBE0dxsnvj8vkd3iZ0nHO2zY6wUH2TXWxSNWCRjtXErUQnDIr2kVlSCH4pGZClRickl0VBIWImoWuykaDaC1j0/jBRYyTBUTzGcfyGKY3iXpri5Q+R7dCGDPo6piJ/r74I158ex9y5i5PtXp6f8o7wjdMSfsu+tUTnS9cfI0DeH+mQIcs2wCLu4d+4XH1ERpyNwvsgUKzJGs3KMb/ty4b1F6cRQCeW73kdD+A/XnOpzHb8Bxi4Lj5Nw8KASRh89LjE+ppAM5fQwGjEMBzYEFzsnBCMBY7dIqCGm3BfLZO2aDbw5/elJ4AkfqO6tNMdDvoVwYPAsUcslVJK233ngQ26qmDipqEEFzNUmbQQZEIy7k9boAuj1jwJ0tetjK9Wn0thbTD2GzsTIfFNNAB+Rg4lg3MgM0ukntOA87VNDgf7mR0Ifk4caAkafgkLQHotlfDCRch1EVCkYWme64V7lSrqZc4eRXDELiWvGN69Eh9T6kbUyVVErGlEz/HqTfR7qzdTOQx1GSosY7iY+S8GKRrREfWzqWmPnZzt+mBlfy95sdYlK3Mlg5MKW9ivs1TAjLWWyJBrRyUgcvMwIkyt/cpyKyOTQRiytvy9NnKj1wfyVq+yt13hweJ1B1nxWZ5uxLnbqPnjyytu66D1R3jlUlJ9m/loGjO33y5P/hI5DpXxfgPfBL01u0OmLe5afPVc7U1DOzdtd85So/pdBs4KRk1n4VT4xbumnTpEqdwp20rAJvvrlUUmJI81h8mDnhtRepQ4dFc5Zjn28N2j/kE6uMMBvV1cXcHZxXraAD9mJD1BqG6YyhYgWFe2YgskzP52xzjL4+VYSxNbf53cfiuesrNTvxDGMCxyiBungPdMjvJr2khyen8HvlN4ban2ionxfA7OmDwTSebfufIqjjgqkZZFVO8LlhQo1aEkSlHQQyVjL6401nWEeIQ99WlijtowSZ3Bdlh7pdmC2UeVjTy0GKNxVAYbgA2xnN6SIICFT3AmzHSy8Xs/gwqKMHE7M2G4epWn+YksgXsXHBPIy57DzeSgsPa8i1ih0Mbf5uHKcvbv4HV7PTkX1hJDu7+9nK5dmPqzqUSzWctXbk9ez0xm6WUudFXvT8yuFwuyFIZaSY/FTFux9pE66PTCXSMHgHU57VKbN7IUcBwkPj3IpDhaB7bD43y7EY3vvjbphTMtmHDE3Ik/ISjTT/trsL415zMwr0fpI/HizWciI18EOAx9/Thh4us1306Ss1ibytxbNUtqIX4nsi8vR4ZfwxQ38qBfTeufWeZTZxP9EJT7heruM5w37OVC+cRF/BrBtcIf5UIkWpcaQQ1auz5TCnvYED1btYX9ZePfrlajygN1fsAuZV9MHaz8KahokE7Y8bHLQjj5/zvyasqFNQEW3KZh/Q39pn6tpGP4QC+PaMRpI1H5V86Md51bx5jPJroJ0dJulhvkwDH8DyG11LQ==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve client roles for a realm and client"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/{realm}/{clientId}/roles"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns all role definitions exposed by the named identity-provider client. Realm-administrator access is required. The target realm must be active unless the caller is a superuser.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-client-roles.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-client-roles.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-client-roles.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

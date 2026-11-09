@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Original MBTiles filename used for validation and storage.","example":"building.mbtiles","in":"query","name":"filename","required":true,"schema":{"type":"string"}}]}

@@ -1,0 +1,67 @@
+---
+id: create-asset
+title: "Create an asset"
+description: "Creates an asset in an accessible realm and returns the persisted representation. The server generates an ID when absent; supplied IDs must be globally unique and 22 characters long."
+sidebar_label: "Create an asset"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Create an asset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/asset"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Creates an asset in an accessible realm and returns the persisted representation. The server generates an ID when absent; supplied IDs must be globally unique and 22 characters long.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./create-asset.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./create-asset.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

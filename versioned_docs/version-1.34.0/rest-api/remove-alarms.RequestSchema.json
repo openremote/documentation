@@ -1,0 +1,1 @@
+{"title":"Body","body":{"content":{"application/json":{"schema":{"type":"array","items":{"type":"integer","format":"int64"}}}},"description":"Numeric IDs of the alarms to remove.","required":true}}

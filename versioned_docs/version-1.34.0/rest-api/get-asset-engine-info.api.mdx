@@ -1,0 +1,69 @@
+---
+id: get-asset-engine-info
+title: "Retrieve information about an asset rules engine"
+description: "Returns runtime status and error counts for an accessible asset engine. Returns null when the asset or its engine does not exist."
+sidebar_label: "Retrieve information about an asset rules engine"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVm1vGzcM/isEP7XAxZclxQZ4X+ZlQZatazI3+RQYrayjfWp10lWiknjG/feBurvEeVmBFh3QTz5LJPXw5SG5xYqiDqZl4x1OcU6cgosQkmPTEERWnCIoVwGF4ANonxxHWPkAyoHSmmI0S0ugYiQGcmvjaAKjHZeshZuaHHA9yvgAhuMgCpWnCM4z0K2JPMECfUtBCZ7TCqe4Jp6J2nEWP3UrjwW2KqiGmELE6dX2kQ8n1i+VtRtIznxKBAcHe7pWQWmmMEAwFTk2K0NBHqRb1bSWcIo/zX5sX83c64uPf97+cXn092w2+3U2wwKNGG4V11igU43IZkunFRYY6FMygSqcckhUYNQ1NQqnW+RNK6KRg3Fr7LqFCMfWu0hR7g/29+VHe8fkWD5V21qjs/vlhyj+bJ/a88sPpFniECRYbHpr2jetsVn3WJJ1JLnaUTOOaU0BC1z50Cjujw4PsJMYkE5fpdmXyFNvCySXGpxe4duLs/Pz49+wwPnlmzenb06wwOP5/GyOi64rkA3n4M+TpbiT5k4uH6b2oiaQaFNkEG8tMVUQUy7DVbJ2I4gO9l8JnKeqD+ovyHPPV6EYebX/w6PUMN1y2Vplnk/KXZKfoJ4lrqXe+rSCiTBWjGARYsQkaacKdKBcmspGUIHAuGtlTdUDOvxWgHIs7kFRBSlSuA9Cra4JWgqNiVEQs5d/knrg2kS4YyiK7Ug6BcObTEXfkjMVTq8WUuys1sLQnFpcFNgQ135gdaYx1zjFMqeiNG7ly5yicjuQq0MxH65HoqdgcYo1cxunZVlR4yfyYKDGM02ML1Vrym0gZZuuxAKvVTBqaXt65OO+MFYqWSniRkWmICFa3PvxVgLZq4zebHFl/U0+krj5YP7J/h/5ip4cXmaQpZyV+c1Y9u+UbfDstbdlb3dPe+dIcxbNfWQVKNZfrs/+IzkJlfZtD7wNfmUyq8YvIZqIfa31rkBtDTk+ui/RPqrfM2gxMPRMUT7IJ1JoI5WUzlSiRhmbu9rK//KgpPAZ9pgoJBbiVl6nhhz3zF4NdD5ryc2zAfhLObWmAL9fXJzD7Px0AkK+99mJ99DXNoxlCpEsae5Nj30ui07EZs85uVUMsfY3We5977kY6+t37C6CCxxRJZP6TJoQHAwTG3J4fr4ncoQbw7VP3BvftSC9yQcG5bzbNF62gWyjAGVFZV0PcGXiUwWVYgVaOYhsrIUlgTWNkSYjbSQtrdEQKPoUNMUJXDorgJS7B3MXVTn2XFOAvrkVwxJyN0Olb4GC3AP3pB3C0lebCZxbUlHCSRnb1YM0LV7cNRCv48MG8jLnsPG59a68bAfWaHIx03yY/LOT89dwONnH4lFDurm5maxdmviwLge1WKp1a/cOJ/sTcpOaG4s7I+8zhSLdi0LsS07U90Wx9ZEb5XbAzImDoeser8xmCaBaSiplQcsTb3fU4aNy3pko38X2N9B1Z7Z1Q5i3w7y4wuwPDkQu+k0MC5yOK9miwNpHFtHtdqkiXQbbdXL8KVGQQbW4nw39BmmifFc4XSkb6TMxejEfZvdL+OJF81nfhkPlNnlg2ST/sMCPtNnZMrtFV2BNqqKQAfe3M62p5R29J+tjtzt1T44vJFwybXaWyb4xFuOHWH8W09iUR2i5cWNX/If418yC3nCgygTS/C4F83/Y7+v2Yhws3+SFYYQPDySuP2v5wb7wTssWMequg3L8Lmt1i67r/gW2mdFW
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve information about an asset rules engine"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/rules/info/asset/{assetId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns runtime status and error counts for an accessible asset engine. Returns null when the asset or its engine does not exist.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-asset-engine-info.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-asset-engine-info.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-asset-engine-info.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

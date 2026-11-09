@@ -1,0 +1,67 @@
+---
+id: query-users
+title: "Query users based on criteria"
+description: "Executes a UserQuery. Non-super users are forced into their authenticated realm and cannot see system accounts; callers with read-users but not read-admin receive basic fields only. The target realm must be active unless the caller is a superuser."
+sidebar_label: "Query users based on criteria"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Query users based on criteria"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/user/query"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Executes a UserQuery. Non-super users are forced into their authenticated realm and cannot see system accounts; callers with read-users but not read-admin receive basic fields only. The target realm must be active unless the caller is a superuser.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./query-users.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./query-users.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"httpMethod":{"type":"string"},"id":{"type":"string"},"lat":{"type":"number","format":"double"},"lng":{"type":"number","format":"double"},"radius":{"type":"integer","format":"int32"},"url":{"type":"string"}},"title":"GeofenceDefinition"},"schemaType":"response"}
