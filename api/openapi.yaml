@@ -7912,9 +7912,8 @@ components:
             type: boolean
             description: "When true, returns empty buckets across the requested range\
               \ using time-bucket gap filling; their aggregate is generally null.\
-              \ When false, only buckets containing datapoints are returned. MODE\
-              \ currently returns only buckets containing datapoints regardless of\
-              \ this flag. Defaults to false."
+              \ When false, only buckets containing datapoints are returned. Empty\
+              \ buckets count toward the datapoint query limit. Defaults to false."
             example: true
           interval:
             type: string
