@@ -21,7 +21,7 @@ Decide what each device is in your model (e.g. a `Thing`, or a custom `Environme
 1. Go to the Provisioning configuration for your realm (Manager UI).
 2. Create an X.509 provisioning config and paste the CA certificate that signed your device certificates.
 3. Select the asset type to create per device and set the realm.
-4. Choose whether to auto-link attributes to standard MQTT topics and whether newly provisioned assets are **disabled until approved** (useful for a manufacturing QA gate).
+4. Choose whether to auto-link attributes to standard MQTT topics and whether newly provisioned assets are disabled until approved (useful for a manufacturing QA gate).
 
 See [Auto provisioning devices and users](../user-guide/080-gateways-and-devices/20-auto-provisioning.md) for the message format and the full configuration reference.
 
