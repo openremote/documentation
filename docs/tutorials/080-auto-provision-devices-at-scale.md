@@ -1,6 +1,6 @@
 # Auto-provision and onboard OEM devices at scale
 
-If you build and distribute your own hardware, you do not want to register every unit by hand. This tutorial shows how auto-provisioning lets a device self-register the first time it connects: OpenRemote authenticates it, creates an **asset** of the type you defined, and links its **attributes** to the right MQTT topics - true **zero-touch device onboarding**.
+If you build and distribute your own hardware, you do not want to register every unit by hand. This tutorial shows how auto-provisioning lets a device self-register the first time it connects: OpenRemote authenticates it, creates an asset of the type you defined, and links its attributes to the right MQTT topics - true zero-touch device onboarding.
 
 :::tip Why this matters for OEMs and integrators
 Provisioning in OpenRemote creates the client credentials and the digital asset and the attribute links in a single flow, included in the open-source core. That means a freshly flashed device becomes a fully modeled, queryable asset the moment it powers on in the field.
