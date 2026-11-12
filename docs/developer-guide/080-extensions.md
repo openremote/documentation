@@ -29,7 +29,7 @@ The current extensions are available in the [extensions repository](https://gith
 
 * [EMS](https://github.com/openremote/extensions/tree/main/ems): A new extension-based implementation of the Energy Management System with GOPACS support.
 * [ENTSO-E](https://github.com/openremote/extensions/tree/main/entsoe/): Agent for retrieving ENTSO-E energy price data and storing it as predicted datapoints.
-* [OTA Firmware Updateing](https://github.com/openremote/extensions/tree/main/hawkbit/): Hawkbit integration for managing firmware updates.
+* [OTA Firmware Updating](https://github.com/openremote/extensions/tree/main/hawkbit/): Hawkbit integration for managing firmware updates.
 
 ## Current status
 
