@@ -1,0 +1,1 @@
+{"schema":{"type":"object","description":"Matches an asset ancestry path represented as ordered asset identifiers.","properties":{"path":{"type":"array","description":"Ordered asset identifiers in the ancestry path.","items":{"type":"string","description":"Ordered asset identifiers in the ancestry path."}}},"title":"PathPredicate"},"schemaType":"response"}

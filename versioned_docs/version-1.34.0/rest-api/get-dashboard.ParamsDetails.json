@@ -1,0 +1,1 @@
+{"parameters":[{"description":"OpenRemote realm name.","example":"building","in":"path","name":"realm","required":true,"schema":{"type":"string"}},{"description":"Dashboard identifier.","example":"operations-overview","in":"path","name":"dashboardId","required":true,"schema":{"type":"string"}}]}

@@ -1,7 +1,7 @@
 # Energy Management
 
 :::caution
-For Energy Management Systems we offer a new Extension which includes elaborate optimisation methods, taking into account both capacity requests and dynamic pricing. This extension is applied and ruggedised in several real life applications. See the [EMS Extension documentation](https://github.com/openremote/extensions/tree/main/ems). The overhere described Energy Management System will be depreciated over time.
+For Energy Management Systems we offer a new Extension which includes elaborate optimisation methods, taking into account both capacity requests and dynamic pricing. This extension is applied and ruggedised in several real life applications. See the [EMS Extension documentation](https://github.com/openremote/extensions/tree/main/ems). The overhere described Energy Management System will be deprecated over time.
 :::
 
 ## Introduction

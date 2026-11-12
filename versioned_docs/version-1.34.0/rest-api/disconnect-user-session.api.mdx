@@ -1,0 +1,69 @@
+---
+id: disconnect-user-session
+title: "Disconnect a user session"
+description: "Terminates the active MQTT connection identified by sessionID. The realm must match the session owner's realm. Authenticated users may disconnect their own sessions without an additional client role. Disconnecting another user's session requires the openremote client role write:admin or superuser status. Non-superusers are limited to their own active realm; superusers may disconnect sessions across realms, including inactive realms."
+sidebar_label: "Disconnect a user session"
+hide_title: true
+hide_table_of_contents: true
+api: eJztV99v3DYM/lcIvawFHDtrOwy4vCxoi61Au3bt5Sk4tDqZdxYqS44o53o7+H8fKPnXpVmGZhmwAXvKRRY/faTIj9RBlEjK6yZoZ8VCLNHX2sqABKFCkCroa4Q3vy2XoJy1qHgf6BJt0BuNJaz3QEiknX31IodlheBRmhrqlgLUMqgqAvV7wO0s+u8obcrhvA0VQykZsISW0BPUcg+lpv44ttae7QYMgp0OlWsDSAuyLDVTkgaU0WgDeGcwhxcjgLZbkNaFCn084DsayXi8arXvXXUNWo+1CzhHgp3XAReyrLUF54HaBj3DAAUZWsrhV2dPxlUC6RGMrjX7E9yMfR/K6PgZzCxu+Dt6KZV31EeKMtBWmbZkb7SdY1EuMuEa9JLj8KoUCzGhXRD6DwlQZKKRXtYY0JNYXB5u3Pz7eG1u8/V1nc0vE6/Rwq5CG/cpaQx60ARycokJ4RdZNwbFQqxbbZi2yITmcxoZKpEJK2v+Gl0QmeivohSL4FvMBKkKaykWBxH2DW+k4Bmk67KbxM//Ikc9eAyttylZtzgPCh1zra9COJkwTn68nfSY8N9EfMWbqXGWkPj7k9Nn/OdG/cUCumqRAijHtDiRqFUKiTatMfszsA4GIFi7cs/hH1wUXSaenX7PwMrZgDZEKvglFI2R7MvhDopddjO2U33GmNJQMyUXQ8yUtmkMC4HyGCMuTSoCba+l0T2hpw9FaBIYTVMhbJwHCXZeidlAcEpRizqqwFcJnoGM0hCFZV7xGdiIPKImb549pDcjEw86EBPiGo90SocE1gXAL5rC6NFgMX5eo3F228sNUIMqaXMqrkj5hwfLiOMwg5KWKciYoH8u9Vy4glC1Xod9VB/WW12KxeWKKyPILYuS4NoUq0zUGCoXtQy5BKJ4hUosRMGnFocI2hWT0hWHsSo7wUf560HnWm/EQlQhNLQoihJrl09in2tXyEaPiCIT19JruTapShP7WKcb2ZrAKiEpcCrEkh58+sAhTCaDZwexMW4Xl2QbKuf177GMnrsSv1q8iCQLXiuSrhfpnKLxLjjlTJFwB32KW6MAbTxS9e32wX1G7gqkXJOIN95tdBTC4VeXibjtvuhdJlIzfT6pQ4rqv5k0A6Q6cGz8JK5ou3FDEUkViwhrqfkI/vTTUUqJW0qdBStVSOlUW6MNSVQ3fVm/bdC+TwPIG2nlFj38sly+g/N3r9Jg9Sk68QlSbsOQpkBoUIUEPfSOfr56O8wF/FUGoMrt4r5PyXMGS/k7CDvzAotY8nT1lvUfnozVzeE5AzeBDpNYBJ8jcFtwnkc0Z/e1a6nHyEAaNtlWPd2+M5cySNYSoKCNgfXRENW0a6MVNz3XeoWUw4U1TEjaicwYVRrHvSRrGaD3zo89k1hcQUJUvxMWwthFc3hnUBKHEyO3y6NrWj0aBcQpOhaQx/EOaxe73sbxTGG0QkuxzPuh4fznd6/haX4qshuCtNvt8q1tc+e3RW9Ghdw25uRpfpqjzatQm5jUOsQ8vyNRWL3QU0o5Nj9lw8ZRqKWdkZnG46H10TglHuXtrGn8/zb4b74NeimbdfyuT8FD31QvRZxtMrEYxvHpTF6d5t1VJipHgU0Oh7UkvPCm63j5qkXPjX019c/0yNDEv0ux2EhDeEd6PXrfj5aP4WHfIrcGoF+Udh87vmn5P5GJz7gfnyXxrXEf/n/7SXIPytMldasuExXKEn28gvT9XClswsxyDj6fuF68fP1y+VJkcT6ZzYR9L8yGHwx9K6WhD4/MuFfHYN66/T7tf7ilUntU4WPr9T+Bn1rWcpglHuSEfmrrD2hDdSfy0Yj4UfHgONhuvbThY7TqVl3X/QH9Tlwr
+sidebar_class_name: "delete api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Disconnect a user session"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"delete"}
+  path={"/user/{realm}/disconnect/{sessionID}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Terminates the active MQTT connection identified by sessionID. The realm must match the session owner's realm. Authenticated users may disconnect their own sessions without an additional client role. Disconnecting another user's session requires the openremote client role write:admin or superuser status. Non-superusers are limited to their own active realm; superusers may disconnect sessions across realms, including inactive realms.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./disconnect-user-session.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./disconnect-user-session.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./disconnect-user-session.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

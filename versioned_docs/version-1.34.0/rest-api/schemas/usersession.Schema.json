@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"ID":{"type":"string"},"remoteAddress":{"type":"string"},"startTimeMillis":{"type":"integer","format":"int64"},"username":{"type":"string"}},"title":"UserSession"},"schemaType":"response"}

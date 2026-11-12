@@ -1,0 +1,69 @@
+---
+id: get-alarms
+title: "Retrieve all alarms or a subset using filter criteria"
+description: "Returns alarms in the requested accessible realm, optionally filtered by status, linked asset, or assignee. When realm is omitted, the authenticated realm is used."
+sidebar_label: "Retrieve all alarms or a subset using filter criteria"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve all alarms or a subset using filter criteria"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/alarm"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns alarms in the requested accessible realm, optionally filtered by status, linked asset, or assignee. When realm is omitted, the authenticated realm is used.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-alarms.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-alarms.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-alarms.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

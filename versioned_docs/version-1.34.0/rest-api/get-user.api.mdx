@@ -1,0 +1,69 @@
+---
+id: get-user
+title: "Retrieve a user in a realm"
+description: "Returns one user when it belongs to the requested accessible realm. Without read-admin permission, callers may retrieve only their own user. The target realm must be active unless the caller is a superuser."
+sidebar_label: "Retrieve a user in a realm"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve a user in a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/user/{realm}/{userId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns one user when it belongs to the requested accessible realm. Without read-admin permission, callers may retrieve only their own user. The target realm must be active unless the caller is a superuser.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-user.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-user.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-user.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

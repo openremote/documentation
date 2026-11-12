@@ -1,0 +1,69 @@
+---
+id: get-alarm
+title: "Retrieve an alarm"
+description: "Returns one alarm when its realm is active and accessible to the authenticated user."
+sidebar_label: "Retrieve an alarm"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve an alarm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/alarm/{alarmId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns one alarm when its realm is active and accessible to the authenticated user.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-alarm.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-alarm.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-alarm.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      
