@@ -25,7 +25,7 @@ This is a publish subscribe API that is event based, where events are of type [S
 e.g. `wss://localhost:8080/websocket/events?Realm=smartcity&Authorization=Bearer%20eye2238f3a-e43c-3f54-a05a-dd2e4bd4631f`
 
 ### Subscriptions
-A subscription is created by sending an [EventSubscription](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/event/shared/EventSubscription.java) as `JSON` prefixed with `SUBSCRIBE:`. When a subscribe message is sent then the server will determine if the requesting user is authorised to make such a subscription and if so then the manager will reply with the same subscription `JSON` object but prefixed with `SUBSCRIBED:`, if the user is not authorised then the subscription `JSON` object will be returned but prefixed with `UNAUTHORIZED:`.
+A subscription is created by sending an [EventSubscription](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/event/shared/EventSubscription.java) as `JSON` prefixed with `SUBSCRIBE:`. When a subscribe message is sent then the server will determine if the requesting user is authorized to make such a subscription and if so then the manager will reply with the same subscription `JSON` object but prefixed with `SUBSCRIBED:`, if the user is not authorized then the subscription `JSON` object will be returned but prefixed with `UNAUTHORIZED:`.
 
 When an event occurs in the manager that matches an existing subscription then a [TriggeredEventSubscription](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/event/TriggeredEventSubscription.java) as `JSON` prefixed with `TRIGGERED:` will be sent to the client.
 

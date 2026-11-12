@@ -29,7 +29,7 @@ Now you can make customizations to your custom deployment. Each section will hav
 - [Custom domain](#custom-domain)
 
 ### Manager app configuration (/deployment/manager/app)
-The manager app can be customised to fit your brand. You can for example change the colours and logos (white labeling), exclude asset types from the Add asset dialog and Rules page, make map markers react to attribute changes, and rearrange attributes in separate panels on the Assets page. These settings are also available directly in the manager app, under 'settings/appearance'. For more details view ['Configuring the Manager UI'](./20-configuring-the-manager-ui.md).
+The manager app can be customized to fit your brand. You can for example change the colors and logos (white labeling), exclude asset types from the Add asset dialog and Rules page, make map markers react to attribute changes, and rearrange attributes in separate panels on the Assets page. These settings are also available directly in the manager app, under 'settings/appearance'. For more details view ['Configuring the Manager UI'](./20-configuring-the-manager-ui.md).
 
 :::note
 
@@ -38,7 +38,7 @@ Most of the changes made in the manager_config.json will not be visible to the d
 :::
 
 ### Asset type (/model)
-Create your own asset type that fits your product. In the asset type you define its name, icon, and colour, and set its attributes with configuration items (called meta items in the code). If you need some inspiration, you can look at OpenRemote's [default asset types](https://github.com/openremote/core/tree/main/model/src/main/java/org/openremote/model/asset/impl).
+Create your own asset type that fits your product. In the asset type you define its name, icon, and color, and set its attributes with configuration items (called meta items in the code). If you need some inspiration, you can look at OpenRemote's [default asset types](https://github.com/openremote/core/tree/main/model/src/main/java/org/openremote/model/asset/impl).
 
 ### Agents & Protocols (/agent)
 Protocols are a main extension point of OpenRemote, they translate the messages from and to external systems into reads and writes of the assets and attribute values used by OpenRemote. When creating an [agent asset](../../developer-guide/050-agent-protocol-spi.md), you can create protocol configurations, which are a special type of attribute. Each agent attribute that is a protocol configuration then automatically gets its own instance of the protocol you have selected.

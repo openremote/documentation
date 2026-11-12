@@ -2,7 +2,7 @@
 
 The CloudFormation template can be found at [cloudformation-create-vpc.yml](https://github.com/openremote/core/blob/main/.ci_cd/aws/cloudformation-create-vpc.yml).
 
-At OpenRemote we use AWS for hosting our deployments, this guide explains how to create and configure AWS EC2 hosts using CloudFormation for running the OpenRemote started with Docker Compose; it is written from the OpenRemote organisation perspective but can be used to assist in setting up your own AWS hosted infrastructure. Please refer to the AWS documentation for more details on the services/tools mentioned (we don't generally offer AWS support but some kind person may be able to help on the [forum](https://forum.openremote.io)).
+At OpenRemote we use AWS for hosting our deployments, this guide explains how to create and configure AWS EC2 hosts using CloudFormation for running the OpenRemote started with Docker Compose; it is written from the OpenRemote organization perspective but can be used to assist in setting up your own AWS hosted infrastructure. Please refer to the AWS documentation for more details on the services/tools mentioned (we don't generally offer AWS support but some kind person may be able to help on the [forum](https://forum.openremote.io)).
 
 ## AWS services/tools used
 To manage the OpenRemote deployments we use the following AWS services/tools:
@@ -15,10 +15,10 @@ To manage the OpenRemote deployments we use the following AWS services/tools:
 * S3 - For backups
 
 ## AWS management console vs CLI
-Interaction with AWS can be done either through the management console UI or using the CLI tool; the UI can be convenient for visualising data or for beginners but the CLI can be more efficient; this guide only discusses the use of the UI to cater for all user levels, it is assumed more advanced users know how to use the CLI to perform the same tasks.
+Interaction with AWS can be done either through the management console UI or using the CLI tool; the UI can be convenient for visualizing data or for beginners but the CLI can be more efficient; this guide only discusses the use of the UI to cater for all user levels, it is assumed more advanced users know how to use the CLI to perform the same tasks.
 
 ## AWS Signing In
-For interactive (UI login) it is recommended to use the [single sign on portal](https://openremote.awsapps.com/start#/), root users should not be used and user accounts should be configured for UI login with the minimal permissions to fulfil their tasks.
+For interactive (UI login) it is recommended to use the [single sign on portal](https://openremote.awsapps.com/start#/), root users should not be used and user accounts should be configured for UI login with the minimal permissions to fulfill their tasks.
 
 For CLI login then an AWS access key ID and secret is needed.
 

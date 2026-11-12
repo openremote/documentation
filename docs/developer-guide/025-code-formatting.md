@@ -623,7 +623,7 @@ Projects that still use the previous `ci_cd.yml` workflow commonly reference it 
 uses: openremote/core/.github/workflows/ci_cd.yml@main
 ```
 
-Because this follows `main`, new workflow behaviour is inherited automatically. This includes the Spotless formatting checks, which `ci_cd.yml` runs from release 1.29.0 onwards.
+Because this follows `main`, new workflow behavior is inherited automatically. This includes the Spotless formatting checks, which `ci_cd.yml` runs from release 1.29.0 onwards.
 
 #### Temporarily pinning the workflow
 

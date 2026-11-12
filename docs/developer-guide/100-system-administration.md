@@ -125,7 +125,7 @@ You can then explore the thread dump with an IDE or other tool.
 
 
 ## Database
-This document summarises the database performance, storage footprint, and system efficiency of the OpenRemote instance before and after enabling **TimescaleDB Hypercore** compression features. It serves as a reference for System Administrators to understand the expected baselines, trade-offs, and critical maintenance thresholds.
+This document summarizes the database performance, storage footprint, and system efficiency of the OpenRemote instance before and after enabling **TimescaleDB Hypercore** compression features. It serves as a reference for System Administrators to understand the expected baselines, trade-offs, and critical maintenance thresholds.
 
 ---
 
@@ -170,7 +170,7 @@ Prior to compression, the database footprint vastly exceeded the allocated Docke
 ---
 
 ### Query performance benchmarks
-Query execution times were fundamentally transformed. Heavy historical aggregations that previously choked the database are now highly optimised, with a minor architectural trade-off for ultra-fast, single-point queries.
+Query execution times were fundamentally transformed. Heavy historical aggregations that previously choked the database are now highly optimized, with a minor architectural trade-off for ultra-fast, single-point queries.
 
 | Query Type | Example | Before (ms) | After (ms) | Change |
 | :--- | :--- | :--- | :--- | :--- |
@@ -245,7 +245,7 @@ services:
 * **The 25% Rule:** The largest uncompressed chunk should never exceed 25% of the total Docker container RAM limit.
 * For a 2GB container limit, the `pg_datapoint_largest_uncompressed_chunk` metric must stay below **512 MB**.
 * If chunks grow too large, the background compression worker will exhaust RAM during the sorting phase and trigger the Linux OOM killer. If this occurs, reduce the hypertable's `chunk_time_interval` via `set_chunk_time_interval()`.
-* The asset table is constantly being updated (whenever an attribute event is written to the attributes JSONB column) this can cause excessive autovacuum executions and can be a significant bottleneck for large asset tables due to the way row updates are handled by PostgreSQL; HOT updates is an optimisation PostgreSQL uses to minimise this overhead and the asset table `fillfactor` can be tweaked to optimise this (default: 90%)
+* The asset table is constantly being updated (whenever an attribute event is written to the attributes JSONB column) this can cause excessive autovacuum executions and can be a significant bottleneck for large asset tables due to the way row updates are handled by PostgreSQL; HOT updates is an optimization PostgreSQL uses to minimize this overhead and the asset table `fillfactor` can be tweaked to optimize this (default: 90%)
 
 ### Backup/Restore
 * Create backup: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak`
@@ -270,7 +270,7 @@ For more details related to TimescaleDB backup/restore see [here](https://docs.t
 The `openremote/postgresql` container should handle automatic updates to the latest TimescaleDB version in the image and also auto migration
 to the major version of PostgreSQL in the image (note: you must incrementally go through each major version of the `openremote/postgresql` images i.e. you cannot go from 14.x to 17.x but must go `14.x` -> `15.x` -> `17.x` \[there is no `16.x` image so this can be skipped\]).
 
-The PostgreSQL auto migration process will move `PGDATA` to a sub directory called `old` and create a `new` directory for the initialisation of the new major version DB, if the upgrade fails then you will need to manually handle the issue and move files back to the `PGDATA` folder like so:
+The PostgreSQL auto migration process will move `PGDATA` to a sub directory called `old` and create a `new` directory for the initialization of the new major version DB, if the upgrade fails then you will need to manually handle the issue and move files back to the `PGDATA` folder like so:
 ```bash
 docker exec --rm -it -v or_postgresql-data:/var/lib/postgresql/data --entrypoint=bash openremote/postgresql:latest-slim
 mv -v data/old/* $PGDATA
@@ -317,7 +317,7 @@ When executing the automation, AWS will perform several actions under the hood.
       openremote/postgresql:latest
     ```
 7. Wait for the DB to be ready. When starting from a large snapshot, this can take a while; check the Docker container logs for the DB-ready message.
-8. Extract/Analyse the data as required either by:
+8. Extract/Analyze the data as required either by:
    * Exec'ing into the container `docker exec -it temp_recovery_db psql -U postgres -d openremote`
    * Modifying the Manager and Keycloak DB settings to connect to the temporary DB on port 5433.
 

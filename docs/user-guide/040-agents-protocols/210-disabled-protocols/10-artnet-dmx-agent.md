@@ -98,7 +98,7 @@ Finally the JSON can be imported by making use of the "Upload & import links fro
 The imported file must suffix with a ".json" file extension.  
 The filename doesn't matter to the import and will accept as long as the contents are correctly formatted.
 
-### Import behaviour
+### Import behavior
 Lights aren't blindly appended to the asset tree upon import.  
 Light assets are actually synced to the import JSON.  
 This means that:

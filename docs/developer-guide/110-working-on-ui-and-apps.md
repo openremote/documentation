@@ -91,7 +91,7 @@ backend webpack_backend
 * Start the webpack dev server in the `ui/app/manager`: `npm run serve "--" --env managerUrl=https://demo.openremote.app` 
 
 ### Components
-Components can be developed and tested in isolation (with dependencies on other components and/or public npm modules as required). Some components have no visuals and provide standard OpenRemote functionality e.g. `@openremote/core`, whilst others provide visuals that allow interaction with the Manager backend.
+Components can be developed and tested in isolation (with dependencies on other components and/or public npm modules as required). Some components have no visuals and provide standard OpenRemote functionality e.g. `@openremote/core`, while others provide visuals that allow interaction with the Manager backend.
 
 ### Maps
 If you are working on a map component then please refer to the [working on maps](./130-working-on-maps.md).

@@ -1,6 +1,6 @@
 # Simulating data in attribute
 
-If you don't have a data connection running yet or want to simulate the behaviour of an attribute, you can use the Simulator Agent to replay data. To do that, take the following steps:
+If you don't have a data connection running yet or want to simulate the behavior of an attribute, you can use the Simulator Agent to replay data. To do that, take the following steps:
 1. Add the 'Simulator Agent' to your system.
 2. Add the configuration 'Agent link' to the attribute you want to replay data for.
 3. Select the 'SimulatorAgentLink'.

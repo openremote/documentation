@@ -45,9 +45,9 @@ To understand discovery and import refer to [Agent and Asset Discovery/Import](.
 
 ## Hardware compatibility table
 
-'x' indicates a colour option that does not affect the capability of the module.
+'x' indicates a color option that does not affect the capability of the module.
 
-Modules are queried for their module type during initialisation, non-compatible modules will **not work in any way**.
+Modules are queried for their module type during initialization, non-compatible modules will **not work in any way**.
 
 <table>
   <thead>
