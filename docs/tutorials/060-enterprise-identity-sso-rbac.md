@@ -34,7 +34,7 @@ Because identity is managed by Keycloak, you can federate to an external Identit
 2. Add an **Identity Provider** (OIDC or SAML) for your IdP and map claims/roles.
 3. Users now sign in with corporate credentials; access maps to OpenRemote roles automatically.
 
-To synchronise users/groups from a directory, follow [Linking to Active Directory](../user-guide/070-identity-and-security/30-linking-to-active-directory.md).
+To synchronize users/groups from a directory, follow [Linking to Active Directory](../user-guide/070-identity-and-security/30-linking-to-active-directory.md).
 
 ## Step 4 - Create OAuth2 service users for devices and integrations
 

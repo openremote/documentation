@@ -30,4 +30,4 @@ As part of building your own app, using our library of web components, you can u
 ## See Also
 - [Working on the mobile consoles](../../developer-guide/140-working-on-the-mobile-consoles.md)
 - [Architecture: Apps and consoles](../../architecture/60-apps-and-consoles.md)
-- [Configure the mobile app behaviour](../../tutorials/120-configure-mobile-app-behaviour.md)
+- [Configure the mobile app behavior](../../tutorials/120-configure-mobile-app-behavior.md)

@@ -24,7 +24,7 @@ Predicted datapoints are automatically removed when their time has passed (clean
 If in addition, you set the `applyPredictedDataPoints` meta item on the attribute, then the predicted value is automatically applied as the current value when the time matches.
 
 ## Configuration items
-As well as having a value an attribute can have configuration items (called 'meta items' in the code) which control the behaviour of the attribute (link it to an agent for read/write from/to external systems, link to another attribute, configure historical value storage, and much more). Each attribute can have one or more meta items which is essentially a well known named value (metadata) that can be used in various parts of the system to control behaviour of the associated attribute (e.g. an `agentLink` meta item is used to connect an attribute to an agent/protocol).
+As well as having a value an attribute can have configuration items (called 'meta items' in the code) which control the behavior of the attribute (link it to an agent for read/write from/to external systems, link to another attribute, configure historical value storage, and much more). Each attribute can have one or more meta items which is essentially a well known named value (metadata) that can be used in various parts of the system to control behavior of the associated attribute (e.g. an `agentLink` meta item is used to connect an attribute to an agent/protocol).
 
 ## Agents
 Agents are a special type of asset which link external services/devices with your OpenRemote system via protocols (HTTP/TCP/...). The agent itself holds the configuration parameters as attributes and this configuration is passed to an instance of the corresponding protocol; there is a one-to-one relationship between an agent and a protocol instance. [Read more about agents](./040-agents-protocols/010-overview.md)
@@ -33,7 +33,7 @@ Agents are a special type of asset which link external services/devices with you
 Assets can be structured in a hierarchical tree to define some logical hierarchy for a particular use case (e.g. A city has buildings, which has floors, which have presence sensors).
 
 ## Asset Type Model
-Our asset type model is configurable which allows it to be modelled on the domain objects relevant for the specific use case (energy domain, smart city, etc.). At present it is only possible to configure the asset model in Java code with the long term aim of allowing configuration via the `Manager UI`. You can [find the default asset type models here](https://github.com/openremote/core/tree/main/model/src/main/java/org/openremote/model/asset/impl) and use them as examples to create your own.
+Our asset type model is configurable which allows it to be modeled on the domain objects relevant for the specific use case (energy domain, smart city, etc.). At present it is only possible to configure the asset model in Java code with the long term aim of allowing configuration via the `Manager UI`. You can [find the default asset type models here](https://github.com/openremote/core/tree/main/model/src/main/java/org/openremote/model/asset/impl) and use them as examples to create your own.
 
 The asset model available for a given OpenRemote instance can be interrogated using the [Asset Model HTTP API](https://demo.openremote.io/swagger/#/Asset%20Model).
 
@@ -54,7 +54,7 @@ An asset descriptor defines the following information for a specific asset type:
 
 * `name` - this must be unique within a given OpenRemote instance and should be the simple Java class name
 * `icon` - an optional icon that can be used by frontend UI to represent assets of this type on maps etc.
-* `colour` - an optional colour that can be used by frontend UI to represent assets of this type on maps etc.
+* `colour` - an optional color that can be used by frontend UI to represent assets of this type on maps etc.
 
 ### Attribute descriptor
 An attribute descriptor has a name which refers to the name of the attribute and this must be unique within the asset type hierarchy, it also contains the following information:
@@ -78,7 +78,7 @@ For details on the built-in meta item descriptors available see [here](https://g
 for asset/agent specific configuration items check their documentation pages and/or Javadoc.
 
 ### Value descriptors
-A value descriptor has a name which must be unique within the OpenRemote instance, it ultimately describes the shape of the data for serialisation/deserialisation purposes and it also contains the following information:
+A value descriptor has a name which must be unique within the OpenRemote instance, it ultimately describes the shape of the data for serialization/deserialization purposes and it also contains the following information:
 
 * `type` - the simple class name of the data type this value descriptor describes
 * `jsonType` - the `JSON` type of data type

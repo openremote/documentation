@@ -81,7 +81,7 @@ The `!failure() && !cancelled()` condition on the calling job is explained in [S
 
 You will often see special conditionals used in the pipeline:
 
-- `if: ${{ !failure() && !cancelled() }}`: Used on most jobs in the environment workflows. By default, a job is skipped when a job it needs was skipped. This condition lets it run anyway, unless a job it needs failed or the workflow run was cancelled.
+- `if: ${{ !failure() && !cancelled() }}`: Used on most jobs in the environment workflows. By default, a job is skipped when a job it needs was skipped. This condition lets it run anyway, unless a job it needs failed or the workflow run was canceled.
 - `if: always()`: Ensures a step or job runs regardless of whether previous steps or jobs failed. This is typically used to ensure test results and coverage reports are uploaded even when tests fail, and for the `UI App Tests Status` job.
 - `if: failure()`: Runs a step only when a previous step in the job failed, or a job only when a job it needs failed. Use it to clean up environments or post error notifications.
 
@@ -89,7 +89,7 @@ You will often see special conditionals used in the pipeline:
 
 To speed up the UI app tests, `ui-app-tests.yml` splits them into shards using a matrix job (`shardIndex` and `shardCount`). Each shard runs a part of the tests in parallel using the Playwright `--shard` option and uploads its own test report. `fail-fast: false` lets the other shards finish when one fails, so you see all failing tests at once.
 
-A matrix job reports a check for each shard, but when the job is skipped it reports a single check without the matrix values. The checks of the individual shards therefore can't be required by branch protection. Instead, the `UI App Tests Status` job runs after the shards with `if: always()` and combines their results: it fails when a shard failed or was cancelled, and succeeds when the shards succeeded or were skipped. Branch protection requires this check instead of the shard checks.
+A matrix job reports a check for each shard, but when the job is skipped it reports a single check without the matrix values. The checks of the individual shards therefore can't be required by branch protection. Instead, the `UI App Tests Status` job runs after the shards with `if: always()` and combines their results: it fails when a shard failed or was canceled, and succeeds when the shards succeeded or were skipped. Branch protection requires this check instead of the shard checks.
 
 ### Deployments
 

@@ -2,7 +2,7 @@
 
 OpenRemote offers functionality for automatic client and asset provisioning. If you build and distribute your own hardware devices, you can use this mechanism to have your devices automatically register and connect to OpenRemote.
 
-When the auto provisioning is configured, an authorised device will first create a service user in OpenRemote, if it not already exists. Secondly it will create an asset in the specified OpenRemote Realm, with the attributes, using the 'Asset template'. Based on the 'Roles' the device can now communicate with this asset.
+When the auto provisioning is configured, an authorized device will first create a service user in OpenRemote, if it not already exists. Secondly it will create an asset in the specified OpenRemote Realm, with the attributes, using the 'Asset template'. Based on the 'Roles' the device can now communicate with this asset.
 
 :::warning Breaking change in 1.34.0
 
@@ -254,7 +254,7 @@ A provisioning configuration contains the following data:
 * Realm - The realm that the provisioning config applies to [REQUIRED]
 * Roles - The roles to apply to each auto provisioned service user (default: `none`) [OPTIONAL]
 * Create restricted user - Should the auto provisioned service user be made restricted (default: `false`) [OPTIONAL]
-* Disabled - Is this provisioning config disabled (no clients will be able to authenticate through it whilst disabled) (default: `false`) [OPTIONAL]
+* Disabled - Is this provisioning config disabled (no clients will be able to authenticate through it while disabled) (default: `false`) [OPTIONAL]
 * Asset template - If specified an instance of this asset will be auto provisioned upon successful authentication; only provisioned if an asset matching the client's `UNIQUE_ID` does not already exist (default: `none`) [OPTIONAL]
 
 <details>
