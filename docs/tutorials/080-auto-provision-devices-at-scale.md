@@ -1,9 +1,9 @@
 # Auto-provision and onboard OEM devices at scale
 
-If you build and distribute your own hardware, you do not want to register every unit by hand. This tutorial shows how **auto-provisioning** lets a device **self-register** the first time it connects: OpenRemote authenticates it, creates an **asset** of the type you defined, and links its **attributes** to the right MQTT topics - true **zero-touch device onboarding**.
+If you build and distribute your own hardware, you do not want to register every unit by hand. This tutorial shows how auto-provisioning lets a device self-register the first time it connects: OpenRemote authenticates it, creates an **asset** of the type you defined, and links its **attributes** to the right MQTT topics - true **zero-touch device onboarding**.
 
 :::tip Why this matters for OEMs and integrators
-Provisioning in OpenRemote creates the client credentials **and** the digital asset **and** the attribute links in a single flow, included in the open-source core. That means a freshly flashed device becomes a fully modelled, queryable asset the moment it powers on in the field.
+Provisioning in OpenRemote creates the client credentials and the digital asset and the attribute links in a single flow, included in the open-source core. That means a freshly flashed device becomes a fully modeled, queryable asset the moment it powers on in the field.
 :::
 
 ## Prerequisites
@@ -14,14 +14,14 @@ Provisioning in OpenRemote creates the client credentials **and** the digital as
 
 ## Step 1 - Define the asset type your device represents
 
-Decide what each device *is* in your model (e.g. a `Thing`, or a custom `EnvironmentSensor` asset type from a custom project). The provisioning flow will create one asset of this type per device, so model the attributes you want populated (temperature, humidity, battery, etc.).
+Decide what each device is in your model (e.g. a `Thing`, or a custom `EnvironmentSensor` asset type from a custom project). The provisioning flow will create one asset of this type per device, so model the attributes you want populated (temperature, humidity, battery, etc.).
 
 ## Step 2 - Create a provisioning configuration
 
-1. Go to the **Provisioning** configuration for your realm (Manager UI).
-2. Create an **X.509 provisioning config** and paste the **CA certificate** that signed your device certificates.
-3. Select the **asset type** to create per device and set the realm.
-4. Choose whether to **auto-link attributes** to standard MQTT topics and whether newly provisioned assets are **disabled until approved** (useful for a manufacturing QA gate).
+1. Go to the Provisioning configuration for your realm (Manager UI).
+2. Create an X.509 provisioning config and paste the CA certificate that signed your device certificates.
+3. Select the asset type to create per device and set the realm.
+4. Choose whether to auto-link attributes to standard MQTT topics and whether newly provisioned assets are **disabled until approved** (useful for a manufacturing QA gate).
 
 See [Auto provisioning devices and users](../user-guide/080-gateways-and-devices/20-auto-provisioning.md) for the message format and the full configuration reference.
 
