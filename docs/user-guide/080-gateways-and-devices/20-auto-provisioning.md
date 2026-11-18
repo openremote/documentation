@@ -5,12 +5,14 @@ OpenRemote offers functionality for automatic client and asset provisioning. If 
 When the auto provisioning is configured, an authorised device will first create a service user in OpenRemote, if it not already exists. Secondly it will create an asset in the specified OpenRemote Realm, with the attributes, using the 'Asset template'. Based on the 'Roles' the device can now communicate with this asset.
 
 :::warning Breaking change in 1.34.0
-
 From version 1.34.0 the X.509 provisioning flow is a two-step challenge exchange (see
 [Connect flow](#connect-flow)). Devices that only send their certificate receive an
 `UNAUTHORIZED` error and must be updated to sign the challenge. There is no compatibility mode,
 including for devices that were provisioned before the upgrade.
+:::
 
+:::warning Breaking change in 1.35.0
+From version 1.35.0 the X.509 provisioning topic prefix is now `provisioningv2` instead of `provisioning`.
 :::
 
 #### Terminology
@@ -50,7 +52,7 @@ Jump to:
 
 Clients auto provision a service user, and optionally an asset whose ID is generated from the client's `UNIQUE_ID`, through the [MQTT API](../050-manager-apis.md#mqtt-api-mqtt-broker) using a pair of topics per device, where `UNIQUE_ID` is the CN of the client certificate:
 
-1. Subscribe to `provisioning/UNIQUE_ID/response` and wait for the SUBACK. Only the connection that holds this subscription may publish to `provisioning/UNIQUE_ID/request`, and a connection may only hold one provisioning response subscription.
+1. Subscribe to `provisioningv2/UNIQUE_ID/response` and wait for the SUBACK. Only the connection that holds this subscription may publish to `provisioning/UNIQUE_ID/request`, and a connection may only hold one provisioning response subscription.
 2. Publish a [challenge request](#x509-challenge-request-message) containing the certificate.
 3. Receive a [challenge](#x509-challenge-message), check it, and sign it with the certificate's private key.
 4. Publish a [provisioning request](#x509-provisioning-request-message) containing the certificate and the signature.
@@ -60,13 +62,13 @@ Clients auto provision a service user, and optionally an asset whose ID is gener
 sequenceDiagram
     participant C as Client
     participant O as OpenRemote
-    C->>O: SUBSCRIBE provisioning/UNIQUE_ID/response
+    C->>O: SUBSCRIBE provisioningv2/UNIQUE_ID/response
     O-->>C: SUBACK
-    C->>O: PUBLISH provisioning/UNIQUE_ID/request<br/>{"type":"x509-challenge-request","cert":"..."}
+    C->>O: PUBLISH provisioningv2/UNIQUE_ID/request<br/>{"type":"x509-challenge-request","cert":"..."}
     Note over O: Validate certificate, find realm config,<br/>check config enabled, check CN = UNIQUE_ID
     O-->>C: {"type":"x509-challenge","challenge":"...","algorithm":"..."}
     Note over C: Check challenge prefix and topic,<br/>sign with private key
-    C->>O: PUBLISH provisioning/UNIQUE_ID/request<br/>{"type":"x509","cert":"...","signature":"..."}
+    C->>O: PUBLISH provisioningv2/UNIQUE_ID/request<br/>{"type":"x509","cert":"...","signature":"..."}
     Note over O: Verify signature (challenge is consumed),<br/>get/create service user, get/create asset
     O-->>C: {"type":"success","realm":"...","asset":{...}}
     Note over C: Use standard MQTT topics
@@ -109,7 +111,7 @@ The cert field should be in PEM format and must contain the certificate chain up
 ```json
     {
       "type": "x509-challenge",
-      "challenge": "OpenRemote MQTT X509 provisioning v1\nprovisioning/UNIQUE_ID/request\n<nonce>",
+      "challenge": "OpenRemote MQTT X509 Challenge\nprovisioningv2/UNIQUE_ID/request\n<nonce>", 
       "algorithm": "SHA256withRSA"
     }
 ```
