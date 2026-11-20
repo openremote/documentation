@@ -2,7 +2,7 @@
 
 [Agents](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/asset/agent/Agent.java) are a special type of asset which link external services/devices with your OpenRemote system via protocols; agents can be put into the following categories:
 
-* Specialised agents (Velbus, Z-Wave, KNX, etc.)
+* Specialized agents (Velbus, Z-Wave, KNX, etc.)
 * Generic agents (HTTP, TCP, UDP, WS, MQTT, etc.)
 
 ## Agent &lt;-&gt; Protocol relationship
@@ -14,8 +14,8 @@ Each agent type has a corresponding [Protocol](https://github.com/openremote/cor
 | `agentStatus` | The current status of the agent | [Connection Status](https://github.com/openremote/core/blob/main/model/src/main/java/org/openremote/model/value/ValueType.java#L174) |
 
 
-## Specialised agents
-Specialised agents are ones that understand the message structure of the underlying devices/service and therefore generally require much less configuration in order to link attributes to them.
+## Specialized agents
+Specialized agents are ones that understand the message structure of the underlying devices/service and therefore generally require much less configuration in order to link attributes to them.
 
 ## Generic agents (IO Agents)
 Generic agents  understand nothing about the underlying devices/service and therefore generally require more configuration in order to use them. This gives a lot of flexibility in terms of what devices/services you can communicate with and the `Agent` attributes and `Agent Link` configuration options make it possible to easily configure generic inbound/outbound value processing (convert data type, insert value into bigger message payload etc.), the following attributes can be used on generic IO agents:

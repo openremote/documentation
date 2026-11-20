@@ -8,7 +8,7 @@ The edge gateway establishes the connection to the central manager using the Web
 An edge gateway connection is defined per edge gateway realm and only a single connection can be made to a central manager per realm.
 
 ## Interaction via the Gateway asset
-The edge gateway is the master and the central manager is a slave; when an edge gateway is not connected to the central manager then any attempt to interact with the edge gateway assets on the central manager will result in an error, when an edge gateway connects to a central manager the edge gateway assets are synchronised (uni-directional synchronisation from edge gateway to central manager), any change to an edge gateway asset is then also sent to the central manager to maintain synchronisation. When interacting with an edge gateway asset via the central manager the request is forwarded to the edge gateway and the edge gateway handles the request and any resulting asset changes are then also forwarded to the central manager.
+The edge gateway is the master and the central manager is a slave; when an edge gateway is not connected to the central manager then any attempt to interact with the edge gateway assets on the central manager will result in an error, when an edge gateway connects to a central manager the edge gateway assets are synchronized (uni-directional synchronization from edge gateway to central manager), any change to an edge gateway asset is then also sent to the central manager to maintain synchronization. When interacting with an edge gateway asset via the central manager the request is forwarded to the edge gateway and the edge gateway handles the request and any resulting asset changes are then also forwarded to the central manager.
 
 Depending on network connection there can be a delay between interacting with an edge gateway asset via the central manager and the interaction being completed and relayed back to the central manager.
 
@@ -32,13 +32,13 @@ Just create a new Asset of type Gateway and the manager will provision a Keycloa
       1. Click Save
       1. In the top right of the dialog the status should change to `CONNECTED`
 
-### 3. Limit data rate at which edge gateway synchronises (Data sharing)
-   1. Select the asset type and attributes which you want to synchronise with the central instance
+### 3. Limit data rate at which edge gateway synchronizes (Data sharing)
+   1. Select the asset type and attributes which you want to synchronize with the central instance
    1. Select whether you want to limit the data rate and set the time interval
 
 ![image](img/manager-interconnect-rate.png)
 
-You can set advanced per-attribute synchronisation using the JSON editor. See [GatewayAttributeFilter](https://github.com/openremote/core/blob/a321ea3e972d2e88e79225cf2459a5a026878e54/model/src/main/java/org/openremote/model/gateway/GatewayAttributeFilter.java)
+You can set advanced per-attribute synchronization using the JSON editor. See [GatewayAttributeFilter](https://github.com/openremote/core/blob/a321ea3e972d2e88e79225cf2459a5a026878e54/model/src/main/java/org/openremote/model/gateway/GatewayAttributeFilter.java)
 ```
 [
   {
@@ -143,8 +143,8 @@ You can set advanced per-attribute synchronisation using the JSON editor. See [G
 ]
 ```
 
-### 4. Add/remove attributes and/or configuration items during synchronisation (Asset synchronization)
-   1. Allows customisation of the attributes and/or configuration items that are sent to the central instance on a per asset & attribute basis (wildcards can also be used)
+### 4. Add/remove attributes and/or configuration items during synchronization (Asset synchronization)
+   1. Allows customization of the attributes and/or configuration items that are sent to the central instance on a per asset & attribute basis (wildcards can also be used)
    1. Until we have a UI to do this configuration you will need to write/copy/paste JSON into the textarea using the following schema:
 ```
    {
@@ -168,7 +168,7 @@ You can set advanced per-attribute synchronisation using the JSON editor. See [G
    3. If a definition exists for a specific asset type or attribute then that should be used instead of any * wildcard definition
    4. If a definition exists for a specific attribute within `excludeMetaItems` then that should be used instead of any * wildcard definition
 
-![image](img/manager-asset-synchronisation.png)
+![image](img/manager-asset-synchronization.png)
 
 ## Interaction with Gateway Manager UI via Gateway tunnels
 

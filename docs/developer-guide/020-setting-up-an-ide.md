@@ -41,7 +41,7 @@ For formatter plugins and IDE settings, see [Code formatting with Spotless](./02
 
 ##### Grep Console Styling
 
-The log messages of the running application can be colour-highlighted with the [GrepConsole plugin](https://plugins.jetbrains.com/plugin/7125-grep-console) and our [configuration](https://github.com/openremote/core/tree/main/tools/intellij).
+The log messages of the running application can be color-highlighted with the [GrepConsole plugin](https://plugins.jetbrains.com/plugin/7125-grep-console) and our [configuration](https://github.com/openremote/core/tree/main/tools/intellij).
 
 - Locate XML style config for Grep Console in openremote/tools/intellij
 - Choice the default or dark styling config
@@ -114,7 +114,7 @@ If you are using the custom project repository as starting point the run configu
 - Module/Classpath: `custom-project.setup.main` for custom projects
 - Working directory: *Must be set to OpenRemote main project directory!*
 - Main class: `org.openremote.manager.Main`
-- Any environment variables that customise deployment (usually custom projects have some)
+- Any environment variables that customize deployment (usually custom projects have some)
 
 ### Accessing the Manager UI
 

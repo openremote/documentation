@@ -22,12 +22,12 @@ openremote.init(...).then(()=> {
 Apps should be built and deployed within the OR manager web server using the standard tooling e.g. `gradle clean installDist` (refer to the developer guide).
 Console build and deployment will depend on the specific tools and platform used but where possible the standard tooling and deployment process should be used.
 
-## Runtime behaviour
+## Runtime behavior
 1. Console is 'launched' (e.g. typing URL in browser or opening the app)
 1. Console then displays a splash screen indicating that the client is loading
 1. App is loaded and the URL should include query parameters to instruct the `@openremote/core` component what functionality they wish to provide to the client (see the Console/app API below)
-1. The app will initialise the console and the console must reply to the app as required by the API (see the Console/app API below)
-1. If the app has set `consoleAutoEnable: false` when initialising the `@openremote/core` component then the console must listen for the `OREvent.CONSOLE_INIT` event and then it can enable each `provider` that it is providing to the app; once all `providers` are enabled (excluding those that have been explicitly `disabled` by the user or some other mechanism) then the `OREvent.CONSOLE_READY` event is raised
+1. The app will initialize the console and the console must reply to the app as required by the API (see the Console/app API below)
+1. If the app has set `consoleAutoEnable: false` when initializing the `@openremote/core` component then the console must listen for the `OREvent.CONSOLE_INIT` event and then it can enable each `provider` that it is providing to the app; once all `providers` are enabled (excluding those that have been explicitly `disabled` by the user or some other mechanism) then the `OREvent.CONSOLE_READY` event is raised
 
 Once the console is ready it is automatically registered with the manager backend by sending a `ConsoleRegistration` object, for example:
 ```json
@@ -73,15 +73,15 @@ Console loads app with the following query parameters in the URL to override des
 * consoleProviders [string] - Space delimited list of providers that this console supports (see below for currently supported/standard providers)
 * consoleAutoEnable [boolean] - Whether `@openremote/core` should try and auto enable each provider (note that auto enabling cannot send any custom data to each provider during enabling and it also cannot do any processing on the responses received), for this reason it only really works on providers that don't require data during enabling.
 
-#### Initialise
-For each provider the `@openremote/core` component sends a message asking the console to initialise the provider:
+#### Initialize
+For each provider the `@openremote/core` component sends a message asking the console to initialize the provider:
 ```json
 {
    action: "PROVIDER_INIT",
    provider: "PROVIDER_NAME"
 }
 ```
-The console then does any required initialisation and sends a message back to the app:
+The console then does any required initialization and sends a message back to the app:
 ```json
 {
    action: "PROVIDER_INIT",
@@ -94,10 +94,10 @@ The console then does any required initialisation and sends a message back to th
    success: true|false [true=init success; false=init failure]
 }
 ```
-If a provider initialisation call returns `success: false` then it is automatically marked as `disabled`, once all `providers` are initialised the `OREvent.CONSOLE_INIT` event is raised. The app can retrieve the `console` instance as described above and it can check the status of each `provider` and take appropriate action if desired.
+If a provider initialization call returns `success: false` then it is automatically marked as `disabled`, once all `providers` are initialized the `OREvent.CONSOLE_INIT` event is raised. The app can retrieve the `console` instance as described above and it can check the status of each `provider` and take appropriate action if desired.
 
 #### Enable
-Once all providers are initialised then the app is free to decide when to enable each provider (if `consoleAutoEnable: false` otherwise they will be auto enabled); where a provider returned `requiresPermission=true && hasPermission=false` then the client is best placed to decide when and how to ask for permissions and should use good UX principles to avoid users denying such permission requests (see [permission-ux](https://developers.google.com/web/fundamentals/push-notifications/permission-ux)). Providers that don't require permissions or already have permissions could be enabled immediately. The enable message structure is:
+Once all providers are initialized then the app is free to decide when to enable each provider (if `consoleAutoEnable: false` otherwise they will be auto enabled); where a provider returned `requiresPermission=true && hasPermission=false` then the client is best placed to decide when and how to ask for permissions and should use good UX principles to avoid users denying such permission requests (see [permission-ux](https://developers.google.com/web/fundamentals/push-notifications/permission-ux)). Providers that don't require permissions or already have permissions could be enabled immediately. The enable message structure is:
 ```json
 {
    action: "PROVIDER_ENABLE",
@@ -196,7 +196,7 @@ Called for both types when a push notification is received:
 ```
 
 ### Geofence Provider (provider: "geofence")
-Use platform geofence APIs (Android and iOS); the provider expects a public endpoint on the OR manager at `rules/geofences/{consoleId}` which it can call to get the geofences for this console. The geofence definitions returned by this endpoint and the behaviour of this provider should match the definitions in the asset location tracking documentation.
+Use platform geofence APIs (Android and iOS); the provider expects a public endpoint on the OR manager at `rules/geofences/{consoleId}` which it can call to get the geofences for this console. The geofence definitions returned by this endpoint and the behavior of this provider should match the definitions in the asset location tracking documentation.
 
 #### Enabled message request data (App-> Console)
 ```

@@ -560,8 +560,8 @@ You can set the attributes to exclude (or include) on the top right card of the 
 #### Marker Configuration
 
 This configures how map markers behave.
-Markers can change colour based on an attribute value, show an attribute value as a label with or without units, and optionally hide the asset direction.
-Marker colours can be configured using numeric ranges, string values, or boolean values.
+Markers can change color based on an attribute value, show an attribute value as a label with or without units, and optionally hide the asset direction.
+Marker colors can be configured using numeric ranges, string values, or boolean values.
 Note that this part of the config is not yet configured in the manager_config of the manager demo.
 
 ```json
@@ -618,15 +618,15 @@ The `attributeName` property specifies the asset attribute used by the marker co
 
 When `showLabel` is `true`, the current attribute value is shown next to the marker. By default, units are included when available. Set `showUnits` to `false` to hide them.
 
-The `colours` property changes the marker colour based on the current attribute value:
+The `colours` property changes the marker color based on the current attribute value:
 
-* `range` selects a colour based on the configured numeric ranges.
-* `string` selects the colour whose key exactly matches the string representation of the attribute value.
-* `boolean` selects either the `"true"` or `"false"` colour.
+* `range` selects a color based on the configured numeric ranges.
+* `string` selects the color whose key exactly matches the string representation of the attribute value.
+* `boolean` selects either the `"true"` or `"false"` color.
 
 Set `hideDirection` to `true` to hide the direction indicator for assets that have a direction attribute.
 
-Colours are specified as hexadecimal RGB values without the `#` prefix.
+Colors are specified as hexadecimal RGB values without the `#` prefix.
 
 #### Clustering Configuration
 
