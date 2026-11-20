@@ -292,11 +292,21 @@ WHERE state = 'idle in transaction';
 ```
 
 Terminate any long-lived idle transactions with `SELECT pg_terminate_backend(<PID>);`.
-To prevent them, set a timeout so PostgreSQL ends sessions that stay idle in a transaction, e.g.:
+To prevent them, PostgreSQL can end sessions that stay idle in a transaction for longer than a timeout.
+The `openremote/postgresql` image sets this timeout using the `POSTGRES_IDLE_IN_TRANSACTION_SESSION_TIMEOUT` environment variable on the `postgresql` service (default `10min`, set to `0` to disable), which `profile/deploy.yml` passes through:
+```yaml
+services:
+  postgresql:
+    environment:
+      POSTGRES_IDLE_IN_TRANSACTION_SESSION_TIMEOUT: ${POSTGRES_IDLE_IN_TRANSACTION_SESSION_TIMEOUT:-10min}
+```
+
+Older images ignore this environment variable; for those, set the timeout on the database instead:
 ```sql
 ALTER DATABASE openremote SET idle_in_transaction_session_timeout = '10min';
 ```
-The setting applies to new connections only, so restart the manager and Keycloak containers to apply it to their connection pools.
+This only applies to new connections, so restart the manager and Keycloak containers to apply it to their connection pools.
+The setting is not included in a `pg_dump` of the `openremote` database, so it must be set again after a restore.
 
 Compact the table with `VACUUM FULL`:
 ```shell
