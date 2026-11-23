@@ -1,16 +1,16 @@
 # White-label your IoT platform with multi-tenant realms
 
-This tutorial shows how to turn OpenRemote into a **white-label, multi-tenant IoT platform**: you will brand the Manager with your own logo and colours, give each customer (or distributor) their own isolated **realm**, and optionally serve it on a custom URL. This is exactly what device manufacturers (OEMs) and system integrators need when they want to resell an IoT solution under their own brand.
+This tutorial shows how to turn OpenRemote into a **white-label, multi-tenant IoT platform**: you will brand the Manager with your own logo and colors, give each customer (or distributor) their own isolated **realm**, and optionally serve it on a custom URL. This is exactly what device manufacturers (OEMs) and system integrators need when they want to resell an IoT solution under their own brand.
 
 :::tip Why this matters for OEMs and integrators
-White-labeling and multi-tenancy are part of the open-source core of OpenRemote - there is no separate "enterprise" edition or paid add-on to unlock branding, custom realms or role-based access. You can ship a fully branded, multi-customer platform without a per-feature licence.
+White-labeling and multi-tenancy are part of the open-source core of OpenRemote - there is no separate "enterprise" edition or paid add-on to unlock branding, custom realms or role-based access. You can ship a fully branded, multi-customer platform without a per-feature license.
 :::
 
 ## Prerequisites
 
 - A running OpenRemote instance - see the [Quick Start](../20-quick-start.md).
 - Superuser (`admin`) access to the **master** realm.
-- Your brand assets: a `logo.png`, a `logo-mobile.png`, a `favicon.png`, and your brand colour hex codes.
+- Your brand assets: a `logo.png`, a `logo-mobile.png`, a `favicon.png`, and your brand color hex codes.
 
 ## Step 1 - Create a realm per customer
 
@@ -30,7 +30,7 @@ You can brand each realm independently from the UI.
 
 1. Switch to the realm you want to brand (realm picker, top-right).
 2. Go to **Settings → Appearance**.
-3. Upload your **logo**, **mobile logo** and **favicon**, set the **app title** (e.g. `ACME IoT`), and configure the colour variables to match your brand.
+3. Upload your **logo**, **mobile logo** and **favicon**, set the **app title** (e.g. `ACME IoT`), and configure the color variables to match your brand.
 4. Configure map defaults, navigation items and default language for that realm.
 5. Save the configuration
 
@@ -65,7 +65,7 @@ Your customer's realm is now available at its own URL (e.g. `iot.acme.com/manage
 ## Step 4 - Verify isolation
 
 1. Create a test user in the `acme` realm and log in as that user in a separate browser session.
-2. Confirm the branded login page, logo and colours appear.
+2. Confirm the branded login page, logo and colors appear.
 3. Confirm the user can only see `acme` assets - not those of other realms.
 
 ## Next steps

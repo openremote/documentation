@@ -51,10 +51,10 @@ How geofences are 'pushed' to assets is handled by GeofenceAdapters that are loa
 ### Unsupported assets/rules
 If there are rules with location predicates but they cannot be implemented using geofence APIs on the asset and/or the asset doesn't support geofence APIs then the location attribute is expected to be updated using some other mechanism (asset pushes location, protocol polling, manual, etc.)
 
-### Geofence trigger behaviour
+### Geofence trigger behavior
 When a geofence is triggered on an asset then the asset should update its own location by posting to the public endpoint `asset/public/{assetId}/updateLocation`, the location value sent should be as follows:
 
-* Geofence Enter - Send geofence centre point as location (centre point should have been provided in the geofence definition retrieved from the backend)
+* Geofence Enter - Send geofence center point as location (center point should have been provided in the geofence definition retrieved from the backend)
 * Geofence Exit - Send null (this will clear the devices location and indicate that the asset has left the geofence)
 
 **By using geofence triggers in this way the handling of all location tracked assets can be processed in the same way i.e. the manager rules can compare location asset state changes irrespective of how the asset provides the location data.**

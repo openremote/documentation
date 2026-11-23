@@ -23,7 +23,7 @@ The guide consists of the following sections and you will need to have a working
 
 ## Project Structure
 
-It is recommended to put custom project code in directory/module called `deployment` this can then be built as a Docker image and used as a Docker volume to map into our `manager` and `keycloak` containers to override/enhance their behaviour; if there is a large amount of code then multiple directories/modules might be desired to logically separate the code, in this case it is advised to follow the same naming convention as the main OpenRemote repo and to ensure the `gradle` build `installDist` task is configured in order to copy the compiled code into the `deployment` `build` directory in preparation for building the `deployment` Docker image.
+It is recommended to put custom project code in directory/module called `deployment` this can then be built as a Docker image and used as a Docker volume to map into our `manager` and `keycloak` containers to override/enhance their behavior; if there is a large amount of code then multiple directories/modules might be desired to logically separate the code, in this case it is advised to follow the same naming convention as the main OpenRemote repo and to ensure the `gradle` build `installDist` task is configured in order to copy the compiled code into the `deployment` `build` directory in preparation for building the `deployment` Docker image.
 
 ## OpenRemote Dependencies
 
@@ -52,7 +52,7 @@ The [custom-project](https://github.com/openremote/custom-project) repo acts as 
 
 ### Deployment directory/module
 
-This module is used to generate a `deployment` Docker image which can be volume mapped into the manager and/or Keycloak containers to customize their behaviour. The `installDist` Gradle task of this module will generate output in the `/deployment/build` directory in particular:
+This module is used to generate a `deployment` Docker image which can be volume mapped into the manager and/or Keycloak containers to customize their behavior. The `installDist` Gradle task of this module will generate output in the `/deployment/build` directory in particular:
 
 * `/deployment/build/image` - Content to be added to the deployment Docker image at `/deployment`
 * `/deployment/build/Dockerfile` - Docker build file used to build `deployment` Docker image (copied from `/deployment` during `installDist`) 

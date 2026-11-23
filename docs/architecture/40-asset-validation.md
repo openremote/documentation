@@ -1,6 +1,6 @@
 # Asset Validation
 
-This document summarises how asset validation is performed and how it relates to the asset type model.
+This document summarizes how asset validation is performed and how it relates to the asset type model.
 
 ## AssetTypeInfo Model Structure
 

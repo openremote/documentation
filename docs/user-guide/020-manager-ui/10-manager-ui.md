@@ -14,7 +14,7 @@ If you open the application you will get four main pages: [Map](#map), [Assets](
 
 The `Map` page will show your map. You can pan, zoom, and tilt the map. On the map all assets are shown which have a location (disable it by setting the configuration item `show on dashboard` to `false`). Assets can have static or dynamic locations (e.g. a car, boat or plane). You will see the direction an asset is facing or moving to if the asset includes an attribute called 'direction'. When selecting an asset, a panel will show its attributes and values. The `Asset details` button in this panel will bring you to the respective Asset page.
 
-As part of the [configuring the manager UI](../010-deploying/20-configuring-the-manager-ui.md) you can also configure assets to change their colour based on an attribute value (number, boolean, or string) and show a label with or without units.
+As part of the [configuring the manager UI](../010-deploying/20-configuring-the-manager-ui.md) you can also configure assets to change their color based on an attribute value (number, boolean, or string) and show a label with or without units.
 
 ![OpenRemote Map](img/map-page.png)
 _Figure 1. The Map view, here with the Demo Smart City, showing the map with different assets across the city as well as an additional map layer showing primary and secondary highways (GeoJSON). The ship is also showing its direction_
@@ -162,7 +162,7 @@ OpenRemote includes a [ML forecasting service](../100-services/20-service-ml-for
 ## Insights
 
 The Insights page (see figure 11) allows you to create multiple dashboards within the manager UI. You can:
-* Define the dashboard behaviour for different screen sizes and optimise the design for a specific screen.
+* Define the dashboard behavior for different screen sizes and optimize the design for a specific screen.
 * Share dashboards with other users even as standalone app, or keep your dashboard private.
 * Make dashboards public. Note this requires assets to be set as 'public' and attributes as 'public read'.
 * Share via the [iOS or Android console](./20-on-mobile.md) and benefit push notifications (see figure 12).
@@ -206,7 +206,7 @@ Admin users of the 'Master' realm see the Realm selector on the top right to swi
 
 ### Manager interconnect
 
-You can link multiple instances of OpenRemote (as Gateways) to a single Central instance of OpenRemote by creating a Gateway asset in the central instance and linking the Gateway instance of OpenRemote, using the 'Manager interconnect' function. The Gateway in the central instances will show the assets of the linked Gateway instance of OpenRemote, as children of the Gateway asset and will enable bidirectional communication with its attributes. Moreover, to limit traffic, you can select and limit the attributes shown as well as the rate at which they are synchronised with the Central instance.
+You can link multiple instances of OpenRemote (as Gateways) to a single Central instance of OpenRemote by creating a Gateway asset in the central instance and linking the Gateway instance of OpenRemote, using the 'Manager interconnect' function. The Gateway in the central instances will show the assets of the linked Gateway instance of OpenRemote, as children of the Gateway asset and will enable bidirectional communication with its attributes. Moreover, to limit traffic, you can select and limit the attributes shown as well as the rate at which they are synchronized with the Central instance.
 See the [Edge Gateway documentation](../080-gateways-and-devices/10-edge-gateway.md) for more details.
 
 ![](img/manager-interconnect.png)
@@ -228,10 +228,10 @@ OpenRemote currently supports 9 languages: English, German, French, Spanish, Por
 
 ### Logs
 
-The logs page shows information, warnings and errors of the different activities of OpenRemote. You can use it to understand the behaviour of the whole platform or debug issues, e.g. errors connecting agent with device.
+The logs page shows information, warnings and errors of the different activities of OpenRemote. You can use it to understand the behavior of the whole platform or debug issues, e.g. errors connecting agent with device.
 
 ![](img/logs-page.png)
-_Figure 18. The Logs page to evaluate system behaviour._
+_Figure 18. The Logs page to evaluate system behavior._
 
 ### Account
 
@@ -284,7 +284,7 @@ _Figure 23. Auto provisioning of devices_
 
 You can restyle any realm in OpenRemote as well as adjust the map views (go to settings/appearance).
 
-You can change the logo's, use different colours, change the title and default language, set and change the menu items, and use multiple languages for notifications to support personal language preferences.
+You can change the logo's, use different colors, change the title and default language, set and change the menu items, and use multiple languages for notifications to support personal language preferences.
 
 For adding map layers you can add GeoJSON files (created e.g. with https://geojson.io/). More advanced settings like visible asset and agent types on the asset and rules page, can be configured directly in a JSON file. For the options available in the JSON file and an example, check out [Configuring the Manager UI](../010-deploying/20-configuring-the-manager-ui.md). For the maps you can set the center point, zoom levels and boundaries.
 

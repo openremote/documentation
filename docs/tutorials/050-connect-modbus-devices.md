@@ -31,7 +31,7 @@ For each attribute, add the **Agent Link** configuration item and select your Mo
 - the **register type** (coil, discrete input, input register, holding register),
 - the **address**,
 - the **data type** (e.g. `INT16`, `UINT32`, `FLOAT32`),
-- the **read/write** behaviour and a **polling interval**,
+- the **read/write** behavior and a **polling interval**,
 - the **unit ID**
 
 :::note

@@ -1,4 +1,4 @@
-# Configure mobile app behaviour
+# Configure mobile app behavior
 
 Here we will explain how to configure your apps to be used in the OpenRemote mobile app.
 
