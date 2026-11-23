@@ -125,7 +125,7 @@ You can then explore the thread dump with an IDE or other tool.
 
 
 ## Database
-This document summarizes the database performance, storage footprint, and system efficiency of the OpenRemote instance before and after enabling **TimescaleDB Hypercore** compression features. It serves as a reference for System Administrators to understand the expected baselines, trade-offs, and critical maintenance thresholds.
+This document summarizes the database performance, storage footprint, and system efficiency of the OpenRemote instance before and after enabling TimescaleDB Hypercore compression features. It serves as a reference for System Administrators to understand the expected baselines, trade-offs, and critical maintenance thresholds.
 
 ---
 
@@ -191,14 +191,14 @@ Here's a summary of critical PostgreSQL memory settings:
 
 ### PostgreSQL & Docker Memory Summary
 
-| Setting / Limit         | Scope | Primary Purpose | How it relates to Hypercore & Docker                                                                                                 |
-|:------------------------| :--- | :--- |:-------------------------------------------------------------------------------------------------------------------------------------|
-| **Total Container RAM** | Docker Limit | The absolute physical ceiling. | If the combined database footprint exceeds this, the Linux OOM killer crashes the container.                                         |
-| `shm_size`              | Docker Limit | Sets the maximum allowed size for the shared memory file system (`/dev/shm`). | Must be set ~10-20% higher than `shared_buffers` so the database has permission to allocate its global cache.                        |
-| `shared_buffers`        | Global Postgres Cache | The main memory pool where PostgreSQL caches active data. | Holds the highly compressed Hypercore columnar blocks. Needs to fit entirely inside Docker's `shm_size`.                             |
-| `maintenance_work_mem`  | Local Postgres Memory | A dedicated workspace for heavy background maintenance tasks. | Critical for compression. Used to sort raw data before compressing it into chunks. If set too high, it causes an OOM crash.          |
-| `work_mem`              | Local Postgres Memory | Workspace for everyday query operations (sorting, joining, grouping). | Multiplies rapidly. It is allocated *per operation*. Used to temporarily decompress columnar chunks back into rows for user queries. |
-| `effective_cache_size`  | Query Planner Hint | Estimates how much RAM the Linux OS has left over for caching files. | Does not allocate RAM. Helps the query planner decide the fastest way to scan compressed Hypercore blocks.                           |
+| Setting / Limit        | Scope | Primary Purpose | How it relates to Hypercore & Docker                                                                                                 |
+|:-----------------------| :--- | :--- |:-------------------------------------------------------------------------------------------------------------------------------------|
+| Total Container RAM    | Docker Limit | The absolute physical ceiling. | If the combined database footprint exceeds this, the Linux OOM killer crashes the container.                                         |
+| `shm_size`             | Docker Limit | Sets the maximum allowed size for the shared memory file system (`/dev/shm`). | Must be set ~10-20% higher than `shared_buffers` so the database has permission to allocate its global cache.                        |
+| `shared_buffers`       | Global Postgres Cache | The main memory pool where PostgreSQL caches active data. | Holds the highly compressed Hypercore columnar blocks. Needs to fit entirely inside Docker's `shm_size`.                             |
+| `maintenance_work_mem` | Local Postgres Memory | A dedicated workspace for heavy background maintenance tasks. | Critical for compression. Used to sort raw data before compressing it into chunks. If set too high, it causes an OOM crash.          |
+| `work_mem`             | Local Postgres Memory | Workspace for everyday query operations (sorting, joining, grouping). | Multiplies rapidly. It is allocated *per operation*. Used to temporarily decompress columnar chunks back into rows for user queries. |
+| `effective_cache_size` | Query Planner Hint | Estimates how much RAM the Linux OS has left over for caching files. | Does not allocate RAM. Helps the query planner decide the fastest way to scan compressed Hypercore blocks.                           |
 
 The Golden Rule: `shared_buffers` (Fixed) + `maintenance_work_mem` (Spiky) + `work_mem` (Highly Spiky) must never exceed the Total Container RAM.
 Note that `maintenance_work_mem` can be allocated by each autovacuum worker (see `autovacuum_max_workers`, default `3`) and `work_mem` by each sort or hash operation of each active query, so a single query can use several multiples of `work_mem`.
