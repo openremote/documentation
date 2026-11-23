@@ -109,7 +109,15 @@ Custom projects deploy with `custom-staging.yml` and `custom-deploy.yml`, see [C
 | `custom-staging.yml` | Pushes                        | The same as `custom-review.yml`, followed by a deployment when no job failed and `.ci_cd/ci_cd.json` configures one for the pushed branch. |
 | `custom-deploy.yml`  | Manual (`workflow_dispatch`)  | A deployment using `deployment.yml`.                                                                                                       |
 
-Reference the core workflows by release version rather than a branch like `main`, so changes to the core pipeline don't unexpectedly break custom projects. When no release includes the workflow changes you need, reference a commit SHA instead, with a comment naming the closest release (`git describe --tags --abbrev=0 <commit-sha>`). For example, releases up to 1.32.2 don't include these workflows, so you reference the merge commit of [#3441](https://github.com/openremote/core/pull/3441) or later:
+Reference the core workflows by the commit of a release rather than a branch like `main`, so changes to the core pipeline don't unexpectedly break custom projects, and name the release in a comment. Get the commit with `git rev-parse <version>^{commit}`:
+
+```yaml
+uses: openremote/core/.github/workflows/custom-review.yml@21b00ff203723de4cef704578a43eb1c7e6dbbd2 # 1.34.0
+```
+
+The release tag itself does not work. The core workflows call other core workflows by relative path (`./.github/workflows/...`), and GitHub resolves those from the SHA of an annotated tag instead of its commit, so the run fails with `workflow was not found` ([GitHub community discussion](https://github.com/orgs/community/discussions/206746#discussioncomment-18554604)).
+
+When no release includes the workflow changes you need, reference a later commit instead, with a comment naming the closest release (`git describe --tags --abbrev=0 <commit-sha>`). For example, releases up to 1.32.2 don't include these workflows, so you reference the merge commit of [#3441](https://github.com/openremote/core/pull/3441) or later:
 
 ```yaml
 uses: openremote/core/.github/workflows/custom-review.yml@b5e84f1b83b64c7808b59823dfd0a9cd3cee1c8f # 1.32.2
@@ -153,7 +161,7 @@ on:
 jobs:
   deploy:
     name: Deploy
-    uses: openremote/core/.github/workflows/custom-deploy.yml@<version>
+    uses: openremote/core/.github/workflows/custom-deploy.yml@<commit-sha> # <version>
     with:
       INPUTS: ${{ toJSON(inputs) }}
     secrets: inherit
