@@ -125,13 +125,13 @@ You can then explore the thread dump with an IDE or other tool.
 
 
 ## Database
-This document summarises the database performance, storage footprint, and system efficiency of the OpenRemote instance before and after enabling **TimescaleDB Hypercore** compression features. It serves as a reference for System Administrators to understand the expected baselines, trade-offs, and critical maintenance thresholds.
+This document summarizes the database performance, storage footprint, and system efficiency of the OpenRemote instance before and after enabling TimescaleDB Hypercore compression features. It serves as a reference for System Administrators to understand the expected baselines, trade-offs, and critical maintenance thresholds.
 
 ---
 
 Use the following docker command to access the database on the docker host:
 ```shell
-docker exec -it openremote-postgresql-1 psql -U postgres
+docker exec -it or-postgresql-1 psql -U postgres -d openremote
 ```
 
 ### Datapoint retention
@@ -141,48 +141,47 @@ The purge runs weekly (first at around 03:00 after startup) and uses TimescaleDB
 
 Deprecated settings:
 * `OR_DATA_POINTS_MAX_AGE_DAYS` is still used when `OR_DATA_POINTS_MAX_AGE_WEEKS` is not set; the value is rounded up to whole weeks and a warning is logged.
-* The `dataPointsMaxAgeDays` attribute meta item no longer sets retention for individual attributes. If it is present on any attribute, its largest value (rounded up to whole weeks) is used as the minimum retention period for **all** datapoints. It can therefore only increase retention, and has no effect when purging is disabled. Remove it from attributes if you do not want it to extend retention.
+* The `dataPointsMaxAgeDays` attribute meta item no longer sets retention for individual attributes. If it is present on any attribute, its largest value (rounded up to whole weeks) is used as the minimum retention period for all datapoints. It can therefore only increase retention, and has no effect when purging is disabled. Remove it from attributes if you do not want it to extend retention.
 
 ### Storage & compression
 Enabling Hypercore compression drastically reduced the database storage footprint by converting uncompressed historical row-data into highly compressed columnar structures.
 
-| Metric | Before Hypercore | After Hypercore | Improvement |
-| :--- | :--- | :--- | :--- |
-| **Total DB Disk Size** | 225.5 GB | 16.1 GB | **~93% Reduction** |
-| **Datapoint Table Size** | 219.6 GB | 10.0 GB | **~95% Reduction** |
-| **Index Size** | 130.8 GB | 3.4 GB | **~97% Reduction** |
-| **Compression Ratio** | N/A | ~61.8x | - |
+| Metric               | Before Hypercore | After Hypercore | Improvement    |
+|:---------------------| :--- | :--- |:---------------|
+| Total DB Disk Size   | 225.5 GB | 16.1 GB | ~93% Reduction |
+| Datapoint Table Size | 219.6 GB | 10.0 GB | ~95% Reduction |
+| Index Size           | 130.8 GB | 3.4 GB | ~97% Reduction |
+| Compression Ratio    | N/A | ~61.8x | -              |
 
-**SysAdmin Note:** The massive reduction in index size occurs because TimescaleDB discards traditional B-Tree indexes on compressed chunks, relying instead on lightweight columnar metadata.
+The massive reduction in index size occurs because TimescaleDB discards traditional B-Tree indexes on compressed chunks, relying instead on lightweight columnar metadata.
 
 ---
 
 ### Memory & cache efficiency
 Prior to compression, the database footprint vastly exceeded the allocated Docker memory, resulting in severe disk thrashing and Out-Of-Memory (OOM) risks. Post-compression, the active data easily fits within PostgreSQL's `shared_buffers`.
 
-| Metric | Before Hypercore | After Hypercore |
-| :--- | :--- | :--- |
-| **Overall Cache Hit Ratio** | 5.6% | **95.3%** |
-| **Uncompressed Cache Hit Ratio** | 0.5% | **91.9%** |
+| Metric                       | Before Hypercore | After Hypercore |
+|:-----------------------------| :--- |:----------------|
+| Overall Cache Hit Ratio      | 5.6% | 95.3%           |
+| Uncompressed Cache Hit Ratio | 0.5% | 91.9%           |
 
-**SysAdmin Note:** A >95% cache hit ratio means PostgreSQL is serving almost all queries instantly from RAM. To maintain this efficiency, ensure that the Docker `shm_size` (Shared Memory) is appropriately configured to be slightly larger (e.g., +10-20%) than the PostgreSQL `shared_buffers` setting to prevent startup crashes.
+A >95% cache hit ratio means PostgreSQL is serving almost all queries instantly from RAM. To maintain this efficiency, ensure that the Docker `shm_size` (Shared Memory) is appropriately configured to be slightly larger (e.g., +10-20%) than the PostgreSQL `shared_buffers` setting to prevent startup crashes.
 
 ---
 
 ### Query performance benchmarks
 Query execution times were fundamentally transformed. Heavy historical aggregations that previously choked the database are now highly optimised, with a minor architectural trade-off for ultra-fast, single-point queries.
 
-| Query Type | Example | Before (ms) | After (ms) | Change |
-| :--- | :--- | :--- | :--- | :--- |
-| **Overall Average** | All Queries | ~4,359 ms | ~436 ms | **~90% Faster** |
-| **Heavy Aggregation** | `4hOF-kwMax_Daily_MinMaxAvg_30d` | 44,442.0 ms | 583.9 ms | **98.6% Faster** |
-| **Heavy Aggregation** | `2pPI-power_Daily_MinMaxAvg_30d` | 9,951.1 ms | 284.2 ms | **97.1% Faster** |
-| **Heavy Aggregation** | `4jp8-power_Daily_MinMaxAvg_30d` | 7,815.3 ms | 158.4 ms | **97.9% Faster** |
-| **Light Micro-Query** | `4hOF-kwMin_Hourly_Avg_7d` | 4.4 ms | 157.1 ms | *(Expected Trade-off)* |
+| Query Type        | Example | Before (ms) | After (ms) | Change               |
+|:------------------| :--- | :--- | :--- |:---------------------|
+| Overall Average   | All Queries | ~4,359 ms | ~436 ms | ~90% Faster          |
+| Heavy Aggregation | `4hOF-kwMax_Daily_MinMaxAvg_30d` | 44,442.0 ms | 583.9 ms | 98.6% Faster         |
+| Heavy Aggregation | `2pPI-power_Daily_MinMaxAvg_30d` | 9,951.1 ms | 284.2 ms | 97.1% Faster         |
+| Heavy Aggregation | `4jp8-power_Daily_MinMaxAvg_30d` | 7,815.3 ms | 158.4 ms | 97.9% Faster         |
+| Light Micro-Query | `4hOF-kwMin_Hourly_Avg_7d` | 4.4 ms | 157.1 ms | (Expected Trade-off) |
 
-**SysAdmin Note:**
-* **The Win:** Complex, multi-day historical aggregations improved by 97-98%, eliminating 40+ second query timeouts.
-* **The Trade-off:** Micro-queries taking \<10ms previously will now take ~50-150ms. This is expected behavior; querying compressed chunks requires on-the-fly decompression CPU overhead to unpack the columnar data back into rows.
+* The Win: Complex, multi-day historical aggregations improved by 97-98%, eliminating 40+ second query timeouts.
+* The Trade-off: Micro-queries taking \<10ms previously will now take ~50-150ms. This is expected behavior; querying compressed chunks requires on-the-fly decompression CPU overhead to unpack the columnar data back into rows.
 
 ---
 
@@ -192,16 +191,19 @@ Here's a summary of critical PostgreSQL memory settings:
 
 ### PostgreSQL & Docker Memory Summary
 
-| Setting / Limit | Scope | Primary Purpose | How it relates to Hypercore & Docker |
-| :--- | :--- | :--- | :--- |
-| **Total Container RAM** | Docker Limit | The absolute physical ceiling. | If the combined database footprint exceeds this, the Linux OOM killer crashes the container. |
-| **`shm_size`** | Docker Limit | Sets the maximum allowed size for the shared memory file system (`/dev/shm`). | Must be set ~10-20% higher than `shared_buffers` so the database has permission to allocate its global cache. |
-| **`shared_buffers`** | Global Postgres Cache | The main memory pool where PostgreSQL caches active data. | Holds the highly compressed Hypercore columnar blocks. Needs to fit entirely inside Docker's `shm_size`. |
-| **`maintenance_work_mem`** | Local Postgres Memory | A dedicated workspace for heavy background maintenance tasks. | **Critical for compression.** Used to sort raw data before compressing it into chunks. If set too high, it causes an OOM crash. |
-| **`work_mem`** | Local Postgres Memory | Workspace for everyday query operations (sorting, joining, grouping). | **Multiplies rapidly.** It is allocated *per operation*. Used to temporarily decompress columnar chunks back into rows for user queries. |
-| **`effective_cache_size`** | Query Planner Hint | Estimates how much RAM the Linux OS has left over for caching files. | **Does not allocate RAM.** Helps the query planner decide the fastest way to scan compressed Hypercore blocks. |
+| Setting / Limit        | Scope | Primary Purpose | How it relates to Hypercore & Docker                                                                                                 |
+|:-----------------------| :--- | :--- |:-------------------------------------------------------------------------------------------------------------------------------------|
+| Total Container RAM    | Docker Limit | The absolute physical ceiling. | If the combined database footprint exceeds this, the Linux OOM killer crashes the container.                                         |
+| `shm_size`             | Docker Limit | Sets the maximum allowed size for the shared memory file system (`/dev/shm`). | Must be set ~10-20% higher than `shared_buffers` so the database has permission to allocate its global cache.                        |
+| `shared_buffers`       | Global Postgres Cache | The main memory pool where PostgreSQL caches active data. | Holds the highly compressed Hypercore columnar blocks. Needs to fit entirely inside Docker's `shm_size`.                             |
+| `maintenance_work_mem` | Local Postgres Memory | A dedicated workspace for heavy background maintenance tasks. | Critical for compression. Used to sort raw data before compressing it into chunks. If set too high, it causes an OOM crash.          |
+| `work_mem`             | Local Postgres Memory | Workspace for everyday query operations (sorting, joining, grouping). | Multiplies rapidly. It is allocated *per operation*. Used to temporarily decompress columnar chunks back into rows for user queries. |
+| `effective_cache_size` | Query Planner Hint | Estimates how much RAM the Linux OS has left over for caching files. | Does not allocate RAM. Helps the query planner decide the fastest way to scan compressed Hypercore blocks.                           |
 
-**The Golden Rule:** `shared_buffers` (Fixed) + `maintenance_work_mem` (Spiky) + `work_mem` (Highly Spiky) must **never** exceed the **Total Container RAM**.
+The Golden Rule: `shared_buffers` (Fixed) + `maintenance_work_mem` (Spiky) + `work_mem` (Highly Spiky) must never exceed the Total Container RAM.
+Note that `maintenance_work_mem` can be allocated by each autovacuum worker (see `autovacuum_max_workers`, default `3`) and `work_mem` by each sort or hash operation of each active query, so a single query can use several multiples of `work_mem`.
+A more realistic worst case is therefore `shared_buffers` + (`autovacuum_max_workers` x `maintenance_work_mem`) + (active connections x `work_mem` x a few operations per query).
+The manager and Keycloak connection pools can hold dozens of connections, so keep `work_mem` modest.
 
 To keep the instance healthy and prevent Docker crashes, you can follow these guidelines:
 
@@ -212,9 +214,10 @@ To keep the instance healthy and prevent Docker crashes, you can follow these gu
 5. Set `maintenance_work_mem` (0.125 x P) = 250MB (Round up to a clean number 256MB)
 6. Set `work_mem` (1% x P) = 16MB (or larger if there are few concurrent connections)
 7. Set `effective_cache_size` (P - `shared_buffers`) = 1.5GB
-8. Actively monitor `pg_hot_update_percent` metric to attain a >90% HOT update percentage; tweak the asset table `fillfactor` to achieve this (default is set to: 90% as asset table is not significantly large)
+8. Actively monitor `pg_hot_update_percent` metric to attain a >90% HOT update percentage; tweak the asset table `fillfactor` to achieve this (OpenRemote sets the asset table `fillfactor` to 90% in a DB migration; the PostgreSQL default is 100%). If the HOT update percentage is already above 90%, `fillfactor` does not need further tuning.
 
-Apply this config in docker compose yaml as follows (use environment variables for convenience:
+Apply this config in Docker Compose yaml as follows (use environment variables for convenience).
+The default values shown are the minimal values used in `profile/deploy.yml` and are only suitable for small instances; override them with the environment variables for larger instances, e.g. for the 2GB example above set `OR_DB_RAM=2G`, `OR_DB_SHM=1gb`, `OR_DB_SHARED_BUFFERS=512MB`, `OR_DB_CACHE_SIZE=1536MB`, `OR_DB_MAINTENANCE_WORK_MEM=256MB` and `OR_DB_WORK_MEM=16MB`:
 ```yaml
 services:
   postgresql:
@@ -239,13 +242,83 @@ services:
 ```
 
 #### Some simple guidelines
-* Docker's `shm_size` must be sized appropriately. A simple rule of thumb is to take PostgreSQL `shared_buffers` and add a margin (10% or a flat 256MB); the `shared_buffers` must fit inside this size (**NOTE: Docker sets this very low by default and this will cause problems for any reasonable size DB**)
-* **Do not** run `timescaledb-tune` automatically on container startup. It may miscalculate limits if Docker's cgroup namespaces are restricted.
-* **Best Practice:** Run `timescaledb-tune` with explicit CPU and memory values to avoid known issues with the script not being able to figure out docker aware values itself `timescaledb-tune --memory="2GB" --cpus="2" --dry-run`, the `dry-run` setting ensures no changes are made to the configuration file and instead hardcode the tuned `shared_buffers`, `effective_cache_size`, `maintenance_work_mem` and `work_mem` directly into the `docker-compose.yml` command args.
-* **The 25% Rule:** The largest uncompressed chunk should never exceed 25% of the total Docker container RAM limit.
-* For a 2GB container limit, the `pg_datapoint_largest_uncompressed_chunk` metric must stay below **512 MB**.
+* Docker's `shm_size` must be sized appropriately. A simple rule of thumb is to take PostgreSQL `shared_buffers` and add a margin of 10-20%; the `shared_buffers` must fit inside this size (**NOTE: Docker sets this very low by default and this will cause problems for any reasonable size DB)
+* Do not run `timescaledb-tune` automatically on container startup. It may miscalculate limits if Docker's cgroup namespaces are restricted.
+* Best Practice: Run `timescaledb-tune` with explicit CPU and memory values to avoid known issues with the script not being able to figure out docker aware values itself `timescaledb-tune --memory="2GB" --cpus="2" --dry-run`, the `dry-run` setting ensures no changes are made to the configuration file and instead hardcode the tuned `shared_buffers`, `effective_cache_size`, `maintenance_work_mem` and `work_mem` directly into the `docker-compose.yml` command args.
+* The 25% Rule: The largest uncompressed chunk should never exceed 25% of the total Docker container RAM limit.
+* For a 2GB container limit, the `pg_datapoint_largest_uncompressed_chunk` metric must stay below 512 MB.
 * If chunks grow too large, the background compression worker will exhaust RAM during the sorting phase and trigger the Linux OOM killer. If this occurs, reduce the hypertable's `chunk_time_interval` via `set_chunk_time_interval()`.
 * The asset table is constantly being updated (whenever an attribute event is written to the attributes JSONB column) this can cause excessive autovacuum executions and can be a significant bottleneck for large asset tables due to the way row updates are handled by PostgreSQL; HOT updates is an optimisation PostgreSQL uses to minimise this overhead and the asset table `fillfactor` can be tweaked to optimise this (default: 90%)
+
+#### Monitoring metrics
+The [Query Exporter configuration file](https://github.com/openremote/core/blob/main/deployment/query-exporter/config.yaml) exports PostgreSQL metrics for Prometheus.
+Most values are point-in-time samples, so some fluctuate with normal database activity:
+
+| Metric                                                   | Healthy value                              | Notes                                                                                                                                                                                               |
+| :------------------------------------------------------- | :----------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `pg_cache_hit_percentage`                                | >95%                                       | Lower values mean data is regularly read from disk instead of RAM.                                                                                                                                  |
+| `pg_connections_stuck`                                   | `0`                                        | Connections idle in a transaction for more than 1 minute. These prevent autovacuum from removing dead rows and cause table bloat.                                                                   |
+| `pg_hot_update_percent`                                  | >90% for the `asset` table                 | See step 8 above.                                                                                                                                                                                   |
+| `pg_dead_tuple_percent`                                  | Below the autovacuum trigger (about 20%)   | Rises and falls with each autovacuum run on frequently updated tables such as `asset`.                                                                                                              |
+| `pg_table_bloat_count`                                   | `0` sustained                              | Tables over 5MB with dead rows above 30% of live rows. Busy tables can briefly cross this threshold between autovacuum runs, so occasional `1` values are expected.                                 |
+| `pg_asset_raw_data_size`                                 | A few MB per few thousand assets           | Asset table heap size. Growth without a matching increase in the number of assets indicates bloat, see [Asset table bloat](#asset-table-bloat).                                                     |
+| `pg_datapoint_largest_uncompressed_chunk`                | Below 25% of the container RAM limit       | See the 25% rule above.                                                                                                                                                                             |
+
+Alert on sustained values rather than single samples, e.g. `min_over_time(pg_table_bloat_count[30m]) > 0` or an alert rule with `for: 30m`.
+
+#### Asset table bloat
+The asset table is updated on every attribute event, so autovacuum runs on it frequently.
+If autovacuum cannot remove dead rows for a period of time, e.g. because a connection was left idle in a transaction, the table grows and PostgreSQL does not return the space to the operating system after it has been cleaned up.
+Every subsequent autovacuum then has to scan the larger table, which makes each run slower.
+A high HOT update percentage does not prevent this.
+
+Compare the size of the asset table heap with its number of rows:
+```sql
+SELECT count(*) AS assets,
+       pg_size_pretty(pg_relation_size('openremote.asset')) AS heap,
+       pg_size_pretty(pg_total_relation_size('openremote.asset')) AS total
+FROM openremote.asset;
+```
+
+PostgreSQL compresses or moves large rows (over about 2kB) to the TOAST table, so the heap should hold at most a few kB per asset.
+A heap that is many times larger than that is bloated.
+
+Before compacting the table, check that nothing is holding back cleanup:
+```sql
+SELECT pid, application_name, client_addr, now() - xact_start AS xact_age, now() - state_change AS idle_for, backend_xmin, left(query, 200) AS last_query
+FROM pg_stat_activity
+WHERE state = 'idle in transaction';
+```
+
+Terminate any long-lived idle transactions with `SELECT pg_terminate_backend(<PID>);`.
+To prevent them, PostgreSQL can end sessions that stay idle in a transaction for longer than a timeout.
+The `openremote/postgresql` image sets this timeout using the `POSTGRES_IDLE_IN_TRANSACTION_SESSION_TIMEOUT` environment variable on the `postgresql` service (default `10min`, set to `0` to disable), which `profile/deploy.yml` passes through:
+```yaml
+services:
+  postgresql:
+    environment:
+      POSTGRES_IDLE_IN_TRANSACTION_SESSION_TIMEOUT: ${POSTGRES_IDLE_IN_TRANSACTION_SESSION_TIMEOUT:-10min}
+```
+
+Older images ignore this environment variable; for those, set the timeout on the database instead:
+```sql
+ALTER DATABASE openremote SET idle_in_transaction_session_timeout = '10min';
+```
+This only applies to new connections, so restart the manager and Keycloak containers to apply it to their connection pools.
+The setting is not included in a `pg_dump` of the `openremote` database, so it must be set again after a restore.
+
+Compact the table with `VACUUM FULL`:
+```shell
+docker exec or-postgresql-1 psql -U postgres -d openremote -c "VACUUM (FULL, VERBOSE, ANALYZE) openremote.asset;"
+```
+
+:::warning
+
+`VACUUM FULL` rewrites the table and holds an exclusive lock on it until it completes, which blocks all asset reads and writes. For an asset table of a few thousand rows this takes well under a second, but run it during a quiet period.
+
+:::
+
+The `VERBOSE` output reports how many pages the table occupied before compaction and how many dead row versions could not be removed; if dead row versions cannot be removed, a transaction is still holding back cleanup.
 
 ### Backup/Restore
 * Create backup: `docker exec or-postgresql-1 pg_dump -Fc openremote -f /tmp/db.bak`
