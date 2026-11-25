@@ -552,7 +552,7 @@ following is based on the default configuration found in `/deployment/query-expo
       <td>pg_datapoint_chunks_needing_compression</td>
       <td>gauge</td>
       <td>(none)</td>
-      <td>Asset datapoint table hypertable chunks needing compression count</td>
+      <td>Asset datapoint table hypertable chunks the columnstore policy should already have compressed (over 0 indicates the policy is failing or behind)</td>
     </tr>
     <tr>
       <td>pg_datapoint_chunk_start_weeks</td>
@@ -567,6 +567,12 @@ following is based on the default configuration found in `/deployment/query-expo
       <td>Asset datapoint table newest hypertable chunk in weeks</td>
     </tr>
     <tr>
+      <td>pg_datapoint_chunk_interval_days</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint table hypertable chunk interval in days used for new chunks (set with OR_DATA_POINTS_CHUNK_INTERVAL_DAYS)</td>
+    </tr>
+    <tr>
       <td>pg_datapoint_chunks_not_analyzed</td>
       <td>gauge</td>
       <td>(none)</td>
@@ -577,6 +583,24 @@ following is based on the default configuration found in `/deployment/query-expo
       <td>gauge</td>
       <td>(none)</td>
       <td>Asset datapoint table largest uncompressed hypertable chunk in MB</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_write_rate_per_day</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint data written per day in MB (including indexes), estimated from the current chunk</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_projected_chunk_size</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint projected size in MB of the current chunk once full (including indexes)</td>
+    </tr>
+    <tr>
+      <td>pg_datapoint_chunk_memory_ratio</td>
+      <td>gauge</td>
+      <td>(none)</td>
+      <td>Asset datapoint projected current chunk size to shared_buffers ratio (over 1 indicates the chunk interval should be reduced)</td>
     </tr>
     <tr>
       <td>pg_datapoint_uncompressed_cache_hit_ratio</td>
