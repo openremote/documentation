@@ -85,7 +85,7 @@ See the documentation page [explaining all available configuration item options 
 To set up similar assets the same way, use `Export` and `Import` in the header of the Attributes panel while in `Modify` mode.
 Export saves the configuration items of the selected attributes as a configuration template file, and import applies such a file to another asset, on this instance or another one.
 On import you see which attributes match, and you pick the **Agent ID** of each agent link.
-Exporting requires the `read:assets` role, importing the `write:assets` role.
+`Modify` mode requires the `write:assets` role, and exporting also requires `read:assets`.
 See [Configuration templates](./60-configuration-templates.md) for more details.
 
 ### Create an agent

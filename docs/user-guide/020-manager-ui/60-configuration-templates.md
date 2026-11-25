@@ -38,10 +38,13 @@ Store template files securely and do not share them with untrusted people.
 
 You can assign these roles on the [Roles](./10-manager-ui.md#roles) page:
 
-| Role           | Description                                              |
-| :------------- | :------------------------------------------------------- |
-| `read:assets`  | Export a configuration template                          |
-| `write:assets` | Import a configuration template and save the asset after |
+| Role           | Description                                                                   |
+| :------------- | :---------------------------------------------------------------------------- |
+| `read:assets`  | Export a configuration template                                               |
+| `write:assets` | Enter `Modify` mode, import a configuration template and save the asset after |
+
+`Import` and `Export` are part of `Modify` mode, so exporting from the Manager UI also requires `write:assets`.
+Through the [API](#using-the-api), `read:assets` is enough to export.
 
 A [restricted user](../070-identity-and-security/10-realms-users-and-roles.md#restricted-user-realm-role) can only export and import on the assets they are linked to.
 Their export only holds the attributes they can read, which are the attributes with `Access restricted read`.
@@ -72,7 +75,7 @@ It applies the template to the asset as you are editing it, and you save or disc
 2. Click `Import` in the header of the Attributes panel.
 3. Click `Select file`, choose a template file, and click `Next`.
 4. Check the preview: the **Matched attributes** are imported, and the attributes listed under **Attribute name or type not found** are skipped. See [How attributes are matched](#how-attributes-are-matched).
-5. Click `Import`. If the template holds agent links, click `Next` instead and fill in the [parameters](#template-parameters), then click `Import`.
+5. If the preview shows `Next`, click it, fill in the [parameters](#template-parameters) for the matched attributes, and click `Import`. Otherwise, click `Import` directly.
 6. Check the imported configuration items in the Attributes panel and click `Save`.
 
 Click `Back` to return to the previous step, or close the dialog to cancel the import without changing the asset.
@@ -83,6 +86,9 @@ Import replaces all configuration items of each matched attribute with those in 
 Configuration items that a matched attribute holds but the template does not are removed.
 Only access configuration items and attribute links keep their current values.
 Attributes that are not in the template are not changed.
+
+When a [restricted user](../070-identity-and-security/10-realms-users-and-roles.md#restricted-user-realm-role) saves, only attributes with `Access restricted write` are updated, and their configuration items are added or replaced but never removed.
+Imported changes to other attributes are not saved.
 
 :::
 
@@ -106,6 +112,7 @@ If no attribute can be imported, the import is rejected and the skipped attribut
 
 Some fields of an agent link differ per asset or per instance, such as the agent it links to.
 These fields are template parameters: on import you confirm or replace their values before the template is applied.
+Only the agent links of matched attributes have parameters, so the parameter step is left out when none of them holds an agent link.
 
 | Parameter    | Agent links                                                                       | Input                                                                               |
 | :----------- | :-------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------- |
@@ -228,7 +235,7 @@ When you import this template, attributes that are not in it keep their configur
 ## Using the API
 
 You can also export and import configuration templates through the HTTP API, for example to set up many assets from a script.
-Both endpoints are on the asset resource and require the same roles as the Manager UI:
+Both endpoints are on the asset resource, and export does not require `write:assets` as it does in the Manager UI:
 
 | Operation                    | Endpoint                                                         | Required role  |
 | :--------------------------- | :--------------------------------------------------------------- | :------------- |
