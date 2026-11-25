@@ -11,8 +11,8 @@ From version 1.34.0 the X.509 provisioning flow is a two-step challenge exchange
 including for devices that were provisioned before the upgrade.
 :::
 
-:::warning Breaking change in 1.35.0
-From version 1.35.0 the X.509 provisioning topic prefix is now `provisioningv2` instead of `provisioning`.
+:::warning Breaking change in 1.36.0
+From version 1.36.0 the X.509 provisioning topic prefix is now `provisioningv2` instead of `provisioning`.
 :::
 
 #### Terminology
