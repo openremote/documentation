@@ -80,6 +80,14 @@ While in `Edit asset` mode you can expand each attribute, which gives you the op
 
 See the documentation page [explaining all available configuration item options for assets and attributes, and references](../030-assets-agents-and-attributes.md#asset-type-model). Don't forget to save the asset after making changes.
 
+### Reuse attribute configuration
+
+To set up similar assets the same way, use `Export` and `Import` in the header of the Attributes panel while in `Modify` mode.
+Export saves the configuration items of the selected attributes as a configuration template file, and import applies such a file to another asset, on this instance or another one.
+On import you see which attributes match, and you pick the **Agent ID** of each agent link.
+`Modify` mode requires the `write:assets` role, and exporting also requires `read:assets`.
+See [Configuration templates](./60-configuration-templates.md) for more details.
+
 ### Create an agent
 
 Agents are a specific type of asset used to connect to external sensors, actuators, gateways, or services using protocols. They are added in the same manner as assets by clicking the `+` in the header of the asset tree. This will open a modal that shows the available agent types at the top of the list. You will see the generic ones: [HTTP](../040-agents-protocols/050-http.md), [WebSocket](../040-agents-protocols/170-websocket-agent.md), [MQTT](../040-agents-protocols/090-mqtt.md), [TCP](../040-agents-protocols/130-tcp.md), [UDP](../040-agents-protocols/150-udp.md) and [SNMP](../040-agents-protocols/110-snmp.md); as well as more specific ones like [Z-Wave](../040-agents-protocols/180-z-wave.md), [KNX](../040-agents-protocols/060-knx.md) or [Velbus](../040-agents-protocols/160-velbus.md).
