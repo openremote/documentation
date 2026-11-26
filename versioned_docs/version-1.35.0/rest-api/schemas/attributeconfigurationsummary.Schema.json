@@ -1,0 +1,1 @@
+{"schema":{"type":"object","description":"Name and type of an attribute within an imported document.","properties":{"name":{"type":"string","description":"Attribute name."},"type":{"type":"string","description":"Value descriptor name of the attribute, e.g. number."}},"title":"AttributeConfigurationSummary"},"schemaType":"response"}

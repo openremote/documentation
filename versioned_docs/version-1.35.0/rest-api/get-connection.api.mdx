@@ -1,0 +1,69 @@
+---
+id: get-connection
+title: "Retrieve the gateway connection of a realm"
+description: "Returns the central-manager connection configured for a realm, or null when none exists. Realm administrators can read their own realm; super users can read any realm."
+sidebar_label: "Retrieve the gateway connection of a realm"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the gateway connection of a realm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/gateway/connection/{realm}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the central-manager connection configured for a realm, or null when none exists. Realm administrators can read their own realm; super users can read any realm.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-connection.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-connection.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-connection.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

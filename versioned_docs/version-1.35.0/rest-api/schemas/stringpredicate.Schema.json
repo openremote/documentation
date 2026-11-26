@@ -1,0 +1,1 @@
+{"schema":{"type":"object","description":"String matcher supporting exact, prefix, suffix, or contains matching, case sensitivity, and negation.","properties":{"caseSensitive":{"type":"boolean"},"match":{"type":"string","enum":["EXACT","BEGIN","END","CONTAINS"]},"negate":{"type":"boolean"},"value":{"type":"string"}},"title":"StringPredicate"},"schemaType":"response"}

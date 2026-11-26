@@ -1,0 +1,69 @@
+---
+id: get-asset-links
+title: "Retrieve the asset links of an alarm"
+description: "Returns links from the alarm to assets in the explicitly supplied accessible realm."
+sidebar_label: "Retrieve the asset links of an alarm"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNV91P3DgQ/1dGfmqlsKGA7mHv5VB16iH1WsTBE1q1XnuycXHsYE+AvVX+92rsZDfAFvWqVrongj0fP8/Hb2Y3QmNUwbRkvBNzcYHUBRfBGncToQq+AaoRpJWhAfIgY0SKYFw6xofWGmXIriF2bWsNapBKYYxmaRECStvMRCF8i0GyhzMt5mKFdMpm3rMPUYhWBtkgYYhifr15AuhD12AwakBgNDoylcHAZvFBNq1FMX9zdHxSCMPyraRaFMLJBsVcJK0zLQoR8LYzAbWYU+iwEFHV2Egx3whatyxqHOEKgyhE5UMjKR/9diL6vngK6mOL7gIbT8Mbgd09QiSWnbHauJUYcN12GNY7YEnte2BFCmyl7xcsHFvvIka+Pzo85D/KO0JH/Ck5AyrFufwSGejmuT0ZgmQchrCJk3O//IKKOBuBs0Ume0n5/pAwP4NUCBVQEuqP7vntJIxaEh6QaZBVjP5Op2d6r8scuH03XcSwV6kvBBlKWTnTLNnKgC7X4DeeNlE55RLa1qvoe758XA6XNdfBbYeRQHkuAEINsUudUHXWrtnryeGbJwkjfKCytdLsT9UWzDOHpx3V3Ag52WAijHUEPqTO3LajCph6RtoIMiAYdyet0RnQ8c8CxBGQO1CogbMB2mME5wlqeYfQYmhMjIyYPP/HFQJUmwhbgsi4Tn4mriEzqCFg9F1QuMOFDyZSSndE1QVD60RBvkXHhXq94LYjuWJmypUgFoVokGo/MFniL6rFXJSJbMrNwDl9mblSsO1wN7JbF6yYi5qojfOy1Nj4GXsLiU1mxpeyNeUmVXlfikLcyWDk0ubG2Ba/xkp2lpurkZEw8NsXu0f8wxHKKuNTNqKy/j63V0e1D+bfFPC3XuOzw6sEsuSzMvmMZfZTtsGTV96W2e6B8s6hoiSa6KwKGOv/rk/+Bh2HSvk2A2+Dr0zqwPGLm5LFftQ6E5Y16OjtridyVP/PoNnAwJasfJROjKv82CNSpR7BRhqbhlbl/3hUUmJPW5jIrMFMob3qGnSUqaQa+GMy4f6WTq4wwF+Xl+dwen42A+6qz+kRnyHXNoxlChEtKsqmR07MewDbzE3Ot5Ig1v4+yX3OL2djuX5HOmNc4JC3CgcfmfXgaFgwIIXn9x1zRLg3VPuOsvGpBSZDHwik827d+C4ONgqQllVW9QCXdx/UoCVJUNJBJGMtLBGsaQwzCPNWt7RGbbkkzuDKWQYk3Q7MNqp87KnGAJm1CsAQfIDtKGeiBAmJ3A6Y52Dp9XoG5xZl5HBiwnb9KE2LV1sC8So+JpDXKYeNT1xfed5KrFHoYmrzYf04fXf+Ho5nh6J4Qkj39/ezletmPqzKQS2WctXag+PZ4QzdrKbGisl4fKFQmL0wxFxyrH6Yhq+P1Eg3AXOBFAze5Ycm0hzWT19xUBOfiiclPBkPv2hnHZpuMnr6IVibgfGvxQhtvtszB9JfFKL2kVhos1nKiFfB9j0f50UwLbomcstoMa+kjfjCC19dDOP9NXxz9dyL9wbXk2XzTtqOZQTPirFjfxzKS6v5XjTjCurWUzAjyjGG/aIvRI1SY0jY8u2pUtjSRO/ZtttPJ/O7Py85GTyVJutmJtBi/GDrezGN5D1CSwQv+HfAXvEfmRljZrQJqOhTF8yvsJ8L+3IcQD/FwzDqBwcd1S9afrRXfFK8bYy6qyAdfUpa/aLv+6+TIR9o
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the asset links of an alarm"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/alarm/{alarmId}/assets"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns links from the alarm to assets in the explicitly supplied accessible realm.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-asset-links.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-asset-links.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-asset-links.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

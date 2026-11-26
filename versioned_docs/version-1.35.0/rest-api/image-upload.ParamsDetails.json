@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Relative storage path and filename for the image.","example":"images/logo.svg","in":"query","name":"path","required":true,"schema":{"type":"string"}}]}

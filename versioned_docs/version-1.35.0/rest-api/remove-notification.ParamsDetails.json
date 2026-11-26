@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Numeric sent-notification identifier.","example":42,"in":"path","name":"notificationId","required":true,"schema":{"type":"integer","format":"int64"}}]}

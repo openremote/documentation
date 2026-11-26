@@ -1,0 +1,69 @@
+---
+id: get-manager-config-image
+title: "Retrieve a Manager configuration image"
+description: "Streams a configuration image using a fixed media type determined by its filename extension. Only png, jpg, jpeg, ico, and svg extensions are served, ignoring case; unsupported extensions return 404."
+sidebar_label: "Retrieve a Manager configuration image"
+hide_title: true
+hide_table_of_contents: true
+api: eJzdVl9v2zYQ/yqHe2pRRTLa7EV9aRAMXYENCdL0KQgQmjxLXClSJU+OPUPffThKdpy0DdBuD8NebOrI+3+/u9uhoaSj7dkGjzV+5EiqS6BAB7+yzRCV3IDtVEMwJOsbULCyGzLQkbEKeNsTGGKKnfVkYLkFywlW1pFXHQFtmHyywZdw4d0Wet8U8Geff6gpwOpQgPIG0rp5eJxARYJEcU2mANv4EEW1VonewuDT0PchMpljjkg8RA+ni9MSCww9TbZ/MFhjQ/yH8qqheJ79+iD+YIG9iqoT4xPWN7snwbgip9iuafa+V9zCkly4B24JZnnfDJSxkTSHuBVLaKO63hHWmC9T5UITyrRusEArekQwFijhwhr3kcMCI30ZbCSDNceBCky6pU5hvUOJOtaYWMKS/WCmKMLKVziOt8Kb+uATJXn+erGQPx08k2c5ZlMqSYF8fV/wKsROMda4tF7FLY5jMfP2/qdZ07p5tencz7KvvSk7q2NIYcWl1ZKsH5M0Fk9Sfd3usyzhx7HA08Xpk5AxbbjqnbLPqvuOcEklJanYSCkMUROYQAl8YKCNTSw6f/kqTf9I5wECsFLWCTZJqyERhBUoD4OnTU9abMpAi0AxhpgDzaoRROD5cXHjbYEdcRtmRE1112KN1SMQVN0EjWpK125f0SMWOGma0DZEhzW2zH2qq8pQF8rQk4/UBabShkr1ttpFUq4bKyxwraJVSzeVdCbLwdBKDU7S26nEJPZL/SfSQ7S8/Sgxm1hEuDVyWrlwn0lq4DZE+1e2+zwY+or4KRtZCa3KOlM16an6GDjo4KpJ7okO3pPm/DSDdxUptT/Oz+EzeQmVDv1keB9DLsv6cJIUybOflT4WqJ0lz+eRDHm2ys1R/S8bLQKmwg/C/HrqCX4V9qhROqOGOmVFhVy9e1RS+A2g2AQ25ZZugh468jyDJsRMvejJX2UBh57/2/X1JZxdfihBcHaXnbjbo2hfppDIkeZJ9Ix/yE9LkTlhRW4VQ2rnqXI3eS7CpvqFeQiIXeCJjED34mzgFl6D0ppSghyetw94T3BvuQ0DT8KPJcyTE5QPftuFIc0yClBOWJp2NldmKRkwihVo5SGxdQ6WBM52VnoGB+iHpbP60NFSCZ+8E4OUP2o++6gKOXBLEaY+Vkz9Bg6TCqQ3Kcjt7kQ6HyyD2ZZw6UglCSdl224epen2xaGBBJ0eN5CXOYddiARSCjKMndXkU4b5PG/P3l/+Dm/KBRZPGtL9/X3Z+KEMsalmtlSppncnb8pFSb5suXO5qC3nOn+mUKR7UUxTyQn7Qhj7kLhT/siYK+JoaS1heGa/wCdFfDQy/kcb3Az1oxE4zinazXPnBh/5iAXOkwfnVQELrA/71G2BbUgsbLvdUiX6FN04CvnLQHGL9c3tw4yZ1kGb5GywXimX6Jmov7iaV7WX8C9tjd/0fiYqv83j0A3yhQV+pu3x5jjejgW2pAzF7Md0faY19XzEeLQDjsej/f2v1ziOfwMCE0tG
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve a Manager configuration image"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/configuration/manager/image/{filename}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Streams a configuration image using a fixed media type determined by its filename extension. Only png, jpg, jpeg, ico, and svg extensions are served, ignoring case; unsupported extensions return 404.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-manager-config-image.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-manager-config-image.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-manager-config-image.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

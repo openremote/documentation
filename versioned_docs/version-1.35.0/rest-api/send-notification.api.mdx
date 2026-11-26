@@ -1,0 +1,67 @@
+---
+id: send-notification
+title: "Send a notification to one or more targets"
+description: "Queues a notification for delivery. Authorization is checked for every target; if any target is inaccessible, the complete request fails rather than sending a partial set."
+sidebar_label: "Send a notification to one or more targets"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "post api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Send a notification to one or more targets"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"post"}
+  path={"/notification/alert"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Queues a notification for delivery. Authorization is checked for every target; if any target is inaccessible, the complete request fails rather than sending a partial set.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./send-notification.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./send-notification.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

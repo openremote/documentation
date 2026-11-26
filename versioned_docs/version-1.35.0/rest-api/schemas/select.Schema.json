@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"metadata":{"type":"boolean"},"template":{"type":"boolean"}},"title":"Select"},"schemaType":"response"}

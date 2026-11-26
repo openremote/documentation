@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"x":{"type":"integer","format":"int64"},"y":{"type":"object"}},"title":"ValueDatapointObject"},"schemaType":"response"}

@@ -1,0 +1,69 @@
+---
+id: update-asset-parent
+title: "Move assets below a new parent"
+description: "Sets parentAssetId as the parent of every asset listed in repeated assetIds query parameters. Parent and children must satisfy realm, access, and hierarchy constraints."
+sidebar_label: "Move assets below a new parent"
+hide_title: true
+hide_table_of_contents: true
+api: eJzVVlFv20YM/ivEPbWAaqVJ0A7uy7wM2LK1aNYmT4HRXk60dejpTj1SdjxD/33gnRTbWRB0RQZsT5ZPR/Ijxe8jt6pCMtG2bINXU/URmaDVET3PiJDPK9AEXONwCGEBuMK4AS2vwVlirMB6iNiilmed7Qi+dnKv1VE3yBhpAhfZh/YVmNq6KqKHpiMG0mxpsYGI2jUFaGOQqEgXa4tRR1NvwARPHLX1TBNVqNBi1AL7vFJT1bWVZkyYcxRVqF1oNb3e3ss0XQWuNcPaOgc3aEKDKVWP6yFdiYO3umkdqql6PXvVns7828svv9/+dnX2x2w2+2k2U4Wy4rDVXKtCed1g+rdXQ1WoiF87G7FSU44dFopMjY1W063iTSsGxNH6per74j7SMynVUO/znwk4QBNWOIEPqeQJ8r1awyJEaDrHtnWYTekbc8Hb1oUKR5wpteR9l9v4hb8lLR2jFlPL2NAD6Raq0bfn+eXxy9PXpz+cvDp9XajG+uH0ZV8o4k1CvQixUf1c4lIbPGFyeXx0Kj+HVbusEQQdEoMJkrU0J3WptRadc5s34AOMjuAmVBuwBBG5ix4rgXZ6dCSOTfAsHSXo8ZbL1mkpy/aRj9gXj8DZ9SWEmAPriGD9Sjs7BH75VIFnHdfo2ZrElZxh/mYSXHqHurZ1FiswESu5qh39HdDJU1ZC70BhBR1hhCoggQ8MtV4htBgbSySIOcg/+fLAtSW4471wRRGaLlreJIaHFr2t1PR6Lj3CeinEz0xX80I1yHUQsWi7LA9cq6kqUzuX2wPG9mUSKCUB4mpUkC46NVU1c0vTsqywCRMJGbEJjBMbSt3acptErC9VoVY6Wn3jcpem49ynC905VlPVaGKMUqT5LpOPUspsMuazVQsX1ulIKhei/TNV4CwR9d7hVQJZylmZYlKZ45RtDBxMcGX2+8IE79Fwupq4vIhI9T+35/AFvZTKhDYDb2NY2MTY8akvVLr2vd77Qhln0fPZrklzVf/LoMVB5kMQ4+N0Yv0ijGTSJpEJG20lhLz68aCl1AP8sSQ0FupWwXQNes7cXgyEft+i/5AcwDvt9RIj/Hp5eQGzi/MJCP0+pyQ+Q+5tGNsUCB0azq5HsUpXJ+Izs47yzKQ6rNO9zzlzcZb7d9QXwQUeZSPw8F5kCI6HyQ6pPG92VCZYW65DNwzkfQ+iTiHK0hD8pgkd7bYDJybLeoCbZRsqzRqM9kCcxzo421iRGRGS7sZZI6IfumiQJnDlnQDSfgfmrqpyHLjGCFneCsAYQ7ybGSTKBRqSCr4QQUxiPoELh5qknHmfuD74TPNndwISDB0KyPM8uEMS30WQke2sQU+J5sP4nf1y8RZOJkequCdI6/V6svTdJMRlOZhRqZete3EyOZqgn9TcuNTUllOfP9Iool4YKbecmB+JYRuIG+33wLwLq3HBgBt0YQ16b39S95p3b4L8n1bNgcN7I68far8dpsh1XopUoab3N788SOaFqgOx3NxubzThVXR9L8d5uUoLqiWhYaWmC+0IH6ndsw/DDH8OT7gdPpjmF9wcrnwr7Tq5lvawUTq+H/837+EPohu3TL/ZRzaiPvwU/bwvVI26wpjg5jszY7DlPev9APtLw8XVpSrSqN1bcwZZL8YH8fsgpnGkjNDS2FGy7D94/XsmWXYcsbIRDX/qov03/GfCXI5j8UkiDAvIEKDj+lHPB9vOJyM70Gi7jNrzp2TVz/u+/wuVSj/L
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Move assets below a new parent"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/asset/{parentAssetId}/child"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Sets parentAssetId as the parent of every asset listed in repeated assetIds query parameters. Parent and children must satisfy realm, access, and hierarchy constraints.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./update-asset-parent.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./update-asset-parent.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./update-asset-parent.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

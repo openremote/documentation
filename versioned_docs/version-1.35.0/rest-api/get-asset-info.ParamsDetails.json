@@ -1,0 +1,1 @@
+{"parameters":[{"description":"Optional parent asset used to select the local or gateway model","example":"7A6p4AnLTkKxJUCQAAABAA","in":"query","name":"parentId","schema":{"type":"string"}},{"description":"Asset type name","example":"ThingAsset","in":"path","name":"assetType","required":true,"schema":{"type":"string"}}]}

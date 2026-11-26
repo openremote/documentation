@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"assetId":{"type":"string"},"realm":{"type":"string"},"userId":{"type":"string"}},"title":"Id"},"schemaType":"response"}

@@ -1,0 +1,1 @@
+{"parameters":[{"description":"OpenRemote realm name.","example":"building","in":"path","name":"realm","required":true,"schema":{"type":"string"}},{"description":"Identity-provider client identifier.","example":"openremote","in":"path","name":"clientId","required":true,"schema":{"type":"string"}}]}

@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"access":{"type":"array","items":{"type":"string","enum":["PUBLIC","SHARED","PRIVATE"]}}},"title":"DashboardConditions"},"schemaType":"response"}

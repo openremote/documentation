@@ -1,0 +1,1 @@
+{"schema":{"type":"object","properties":{"CACertPEM":{"type":"string"},"ignoreExpiryDate":{"type":"boolean"}},"title":"X509ProvisioningData"},"schemaType":"response"}

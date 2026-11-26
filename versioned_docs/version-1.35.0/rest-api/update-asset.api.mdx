@@ -1,0 +1,69 @@
+---
+id: update-asset
+title: "Update an asset"
+description: "Replaces mutable asset data while preserving the path identifier. Realm, parent, restricted-user, and private-metadata rules are validated; disallowed restricted-user fields may be ignored."
+sidebar_label: "Update an asset"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "put api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Update an asset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"put"}
+  path={"/asset/{assetId}"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Replaces mutable asset data while preserving the path identifier. Realm, parent, restricted-user, and private-metadata rules are validated; disallowed restricted-user fields may be ignored.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./update-asset.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./update-asset.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./update-asset.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

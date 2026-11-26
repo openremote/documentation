@@ -1,0 +1,69 @@
+---
+id: export-configuration-template
+title: "Export a configuration template of an asset"
+description: "Returns a versioned document holding the type and metadata of each attribute that has metadata, limited to the requested attribute names when any are given. Metadata that grants access or links attributes stays with the asset, and attributes without other metadata are never included. Exporting nothing is rejected."
+sidebar_label: "Export a configuration template of an asset"
+hide_title: true
+hide_table_of_contents: true
+api: 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
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Export a configuration template of an asset"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/asset/{assetId}/configurationTemplate"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns a versioned document holding the type and metadata of each attribute that has metadata, limited to the requested attribute names when any are given. Metadata that grants access or links attributes stays with the asset, and attributes without other metadata are never included. Exporting nothing is rejected.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./export-configuration-template.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./export-configuration-template.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./export-configuration-template.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      

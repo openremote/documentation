@@ -1,0 +1,69 @@
+---
+id: get-value-descriptor-schema
+title: "Retrieve the JSON Schema of the specified value descriptor"
+description: "Returns the JSON Schema and a weak ETag for the named value descriptor. Send If-None-Match on later requests to receive 304 when the schema has not changed."
+sidebar_label: "Retrieve the JSON Schema of the specified value descriptor"
+hide_title: true
+hide_table_of_contents: true
+api: eJzNVt1v2zYQ/1cO99QCiuQlBVZoLwu6ouuwtkGatg9pgNLU2WJDkSp5iuMa+t+HI2XH+Wiw7alPlsm74+/ufvexwYaiDqZn4x3WeEo8BBeBW4K/3r97C+91S50C5RpQsCJ1CS/P1BIWPiQZpzpq4ErZgWBryYcS3pNr4PXi4K13dPBGsW7BO7CKKUCgbwNFjsAeAmkyVwRHs2ewasklozG/2aoIzjPoVrklNSUW6HsKSqC+brDGJfFHefmP3cMZLRbYq6A6YgoR6/PNHSc/3oGbvMAC6Vp1vSWs0Q3dnAIWaET+20BhjQUmsRonaXHDBGqw5jBQgRk11hvkdS9ykYNxSxzHCxGOvXeRotwfzmbyo71jciyfqu+t0cmz6msUkJv79vz8K2nGcRyLOw6dtQR6CIEc72cNC2xJNSkIG5S8ye9t1U+SUnJseA2slmAa+bNYG7cEbk3cJuOKQhSNH/u5H79P1Wf85Ve1eD4/fP4ZcSww8jrdRJNEkhNHs2f3AYkvcZB4UJO5FtlYuwVmKJNz6278156+vHFyZ3++zsaskUQ8ksOHHXiWHdhLJNM1V71V5uEU7ijxYAqnwqAGAkU/BE3QeMpFQNcmSu4LZLUUUuNxjMTwxjdk8aLAjrj1U1WkAuAWa6w6ua8eqZRI4WpbJkOwWGPL3Me6qhrqfOl7coE6z1QaX6neVJtAynZjhQVeqWDU3GZWp+Mc9oUaLGONnYpMQdy9kIf0EAyv08tZRYybRr4W1q/SkRq49cF8T7Xwwjd07/BDAlnJWZXejFV+p+qDZ6+9rbLdA+2dI81JNBXsIlBs/7s++0vKzPd9Bt4HvzCJDtsvSYyI/V/rY4GZhS8CJaYrO0X1ZwYtBqbmJMqH6cS4hd+WhdKpLKhTRp6Qq99vUQofqAQTweQqb7weOnKcEr8bOu96cqfJALxRTi0pwJ9nZydwfPK6BCmkL8mJL5C5DVuaQiRLmrPpqdggiZZiM08WuVUMsfWrJPcley7GMn9havyCCxxRA8rBu+OBWzgEpTVFmWyX5H4Df2N0Zbj1A2fj+xakF/nAoJx3684PcbJRgLKismwnuDKYqYFGsQKt3NQW5wTWdEaaBnvoh7k1etc+YgkfnBVAyt2A2UVVjj23FKYuWgCF4GVAT8MKhkigIPWzA2ltMPfNuoQTSypKOClhO7+VposnuwbidbzdQJ6mHHY+EAgVZKRbo8nFVObTfD1+dfI3HJUzLO40pNVqVS7dUPqwrCa1WKllbw+OyllJrmy5s4nUhhPPHyGKdK9ppNUo6jNR7H3kTrk9MKfEwdAV3duI/CLvKj1pmUr3lyC8Q+y9OfGzr1lTTe8Ns3HKxWYaLOeYBgsWP17CLgpsfWSR3WzmKtKHYMdRjvM+lfYyE6UwG6wXykZ6JGJPTqd16yn8aH17EPUlrW9WthRArBFlHm27AtbnF+N2f0ioss6x1tTznta9JW3cH7uvXp7hOP4DaBP9hg==
+sidebar_class_name: "get api-method"
+info_path: docs/rest-api/openremote-manager-http-api
+custom_edit_url: null
+---
+
+import MethodEndpoint from "@theme/ApiExplorer/MethodEndpoint";
+import ParamsDetails from "@theme/ParamsDetails";
+import RequestSchema from "@theme/RequestSchema";
+import StatusCodes from "@theme/StatusCodes";
+import OperationTabs from "@theme/OperationTabs";
+import TabItem from "@theme/TabItem";
+import Heading from "@theme/Heading";
+import Translate from "@docusaurus/Translate";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"Retrieve the JSON Schema of the specified value descriptor"}
+>
+</Heading>
+
+<MethodEndpoint
+  method={"get"}
+  path={"/model/getValueDescriptorSchema"}
+  context={"endpoint"}
+>
+  
+</MethodEndpoint>
+
+
+
+Returns the JSON Schema and a weak ETag for the named value descriptor. Send If-None-Match on later requests to receive 304 when the schema has not changed.
+
+<Heading
+  id={"request"}
+  as={"h2"}
+  className={"openapi-tabs__heading"}
+>
+  <Translate id="theme.openapi.request.title">Request</Translate>
+</Heading>
+
+<ParamsDetails
+  {...require("./get-value-descriptor-schema.ParamsDetails.json")}
+>
+  
+</ParamsDetails>
+
+<RequestSchema
+  {...require("./get-value-descriptor-schema.RequestSchema.json")}
+>
+  
+</RequestSchema>
+
+<StatusCodes
+  {...require("./get-value-descriptor-schema.StatusCodes.json")}
+>
+  
+</StatusCodes>
+
+
+      
