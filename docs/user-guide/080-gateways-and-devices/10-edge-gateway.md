@@ -14,6 +14,24 @@ Depending on network connection there can be a delay between interacting with an
 
 **The central manager must be using the Keycloak identity provider**
 
+## Upgrading the central manager to 1.36.0
+
+Gateways registered after the central manager first runs 1.36.0 or later use V2 asset IDs.
+Existing registrations keep their original asset IDs and central history.
+
+If two existing registrations already have conflicting asset IDs, the central manager blocks writes to assets owned by the other gateway.
+The affected gateway may repeatedly fail to synchronize.
+To migrate it to V2, back up any central history you need, remove the affected registration, and provision a new Gateway asset on the central manager.
+Update the edge gateway connection with the new credentials and reconnect it.
+The central manager creates new descendant assets with new IDs, so their existing central history does not carry over.
+
+:::warning
+
+Back up the central database before rolling back to a release earlier than 1.36.0.
+An older manager uses the original mapping for all registrations and can replace synchronized assets created with V2 IDs, along with their central history.
+
+:::
+
 ## Edge gateway setup
 
 ### 1. Provisioning in the central manager
