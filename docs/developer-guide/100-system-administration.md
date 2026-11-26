@@ -137,11 +137,23 @@ docker exec -it or-postgresql-1 psql -U postgres -d openremote
 ### Datapoint retention
 Asset datapoints are kept indefinitely by default. To purge older datapoints, set the `OR_DATA_POINTS_MAX_AGE_WEEKS` environment variable on the manager to the number of weeks to keep; a value of `0` or less disables purging.
 
-The purge runs weekly (first at around 03:00 after startup) and uses TimescaleDB's `drop_chunks()` to remove whole chunks of the `asset_datapoint` table. Chunks cover 7 days, so a chunk is only removed once all of its data is older than the retention period; datapoints can therefore be kept somewhat longer than configured.
+The purge runs daily (first at around 03:00 after startup) and uses TimescaleDB's `drop_chunks()` to remove whole chunks of the `asset_datapoint` table. Chunks cover 7 days by default (see [Chunk interval](#chunk-interval)), so a chunk is only removed once all of its data is older than the retention period; datapoints can therefore be kept up to one chunk interval longer than configured.
 
 Deprecated settings:
 * `OR_DATA_POINTS_MAX_AGE_DAYS` is still used when `OR_DATA_POINTS_MAX_AGE_WEEKS` is not set; the value is rounded up to whole weeks and a warning is logged.
 * The `dataPointsMaxAgeDays` attribute meta item no longer sets retention for individual attributes. If it is present on any attribute, its largest value (rounded up to whole weeks) is used as the minimum retention period for all datapoints. It can therefore only increase retention, and has no effect when purging is disabled. Remove it from attributes if you do not want it to extend retention.
+
+### Chunk interval
+The `asset_datapoint` table is a TimescaleDB hypertable split into chunks by time. The chunk currently being written is kept uncompressed (in the rowstore), where the rows of every attribute are interleaved in the order they arrive. A columnstore policy compresses each chunk 1 day after it ends; compressed rows are grouped by asset and attribute, so a query for one attribute only reads that attribute's data. Reading one attribute from an uncompressed chunk that is not cached in memory reads most of the chunk from disk, which can make a chart query over recent data take tens of seconds.
+
+Chunks cover 7 days by default. Set the `OR_DATA_POINTS_CHUNK_INTERVAL_DAYS` environment variable on the manager to change this; it is applied on startup to chunks created from then on, and existing chunks keep their range. When it is not set, the interval in the database is left as it is. Guidelines:
+* The chunk being written, including its indexes, should fit in `shared_buffers` (about 25% of the database RAM, see the 25% rule below). For example, a system writing 1.7GB of datapoints a day should use 1 day chunks unless `shared_buffers` is well over 12GB.
+* Every query that filters relative to the current time (as chart and export queries do) pays a planning cost for every chunk in the table, and a query over a long time range takes a lock for every chunk it reads (see `max_locks_per_transaction`). Only reduce the interval when the size guideline requires it, and combine small chunks with a retention period (`OR_DATA_POINTS_MAX_AGE_WEEKS`).
+* Small chunks on a low volume system compress less well, as each attribute only has a few rows per chunk.
+
+The `pg_datapoint_chunk_memory_ratio` metric (the projected size of the chunk being written divided by `shared_buffers`) shows when the interval should be reduced; it should stay below `1`.
+
+On systems upgraded from a version that compressed chunks 7 days after they ended, the first run of the columnstore policy after the upgrade compresses the previous chunk, which can take a while and use a lot of memory on a busy system.
 
 ### Storage & compression
 Enabling Hypercore compression drastically reduced the database storage footprint by converting uncompressed historical row-data into highly compressed columnar structures.
@@ -207,7 +219,7 @@ The manager and Keycloak connection pools can hold dozens of connections, so kee
 
 To keep the instance healthy and prevent Docker crashes, you can follow these guidelines:
 
-1. Calculate largest uncompressed chunk size N (see `pg_datapoint_largest_uncompressed_chunk` metric or query or use approximate calculation ~1 million datapoints / week = 300MB)
+1. Calculate the size N of the chunk being written once it is full (see the `pg_datapoint_projected_chunk_size` metric, or multiply `pg_datapoint_write_rate_per_day` by the chunk interval in days, or use the approximate calculation ~1 million datapoints = 300MB); if this needs more RAM than is available, reduce the chunk interval (see [Chunk interval](#chunk-interval))
 2. Calculate minimum RAM size P = (4 x N) = 1.2GB (Round up to 2GB here)
 3. Set `shared_buffers` at 25% RAM (0.25 x P) = 512MB
 4. Set `shm_size` (`shared_buffers` + ~20%) = ~614MB (Round up to a clean number 1GB)
@@ -245,9 +257,9 @@ services:
 * Docker's `shm_size` must be sized appropriately. A simple rule of thumb is to take PostgreSQL `shared_buffers` and add a margin of 10-20%; the `shared_buffers` must fit inside this size (**NOTE: Docker sets this very low by default and this will cause problems for any reasonable size DB)
 * Do not run `timescaledb-tune` automatically on container startup. It may miscalculate limits if Docker's cgroup namespaces are restricted.
 * Best Practice: Run `timescaledb-tune` with explicit CPU and memory values to avoid known issues with the script not being able to figure out docker aware values itself `timescaledb-tune --memory="2GB" --cpus="2" --dry-run`, the `dry-run` setting ensures no changes are made to the configuration file and instead hardcode the tuned `shared_buffers`, `effective_cache_size`, `maintenance_work_mem` and `work_mem` directly into the `docker-compose.yml` command args.
-* The 25% Rule: The largest uncompressed chunk should never exceed 25% of the total Docker container RAM limit.
-* For a 2GB container limit, the `pg_datapoint_largest_uncompressed_chunk` metric must stay below 512 MB.
-* If chunks grow too large, the background compression worker will exhaust RAM during the sorting phase and trigger the Linux OOM killer. If this occurs, reduce the hypertable's `chunk_time_interval` via `set_chunk_time_interval()`.
+* The 25% Rule: The chunk being written should never exceed 25% of the total Docker container RAM limit.
+* For a 2GB container limit, the `pg_datapoint_projected_chunk_size` metric must stay below 512 MB (`pg_datapoint_chunk_memory_ratio` below `1`).
+* If chunks grow too large, queries for recent data are read from disk, and the background compression worker can exhaust RAM during the sorting phase and trigger the Linux OOM killer. Reduce the chunk interval with `OR_DATA_POINTS_CHUNK_INTERVAL_DAYS` (see [Chunk interval](#chunk-interval)); an interval set directly with `set_chunk_time_interval()` is replaced on the next startup when that variable is set.
 * The asset table is constantly being updated (whenever an attribute event is written to the attributes JSONB column) this can cause excessive autovacuum executions and can be a significant bottleneck for large asset tables due to the way row updates are handled by PostgreSQL; HOT updates is an optimization PostgreSQL uses to minimize this overhead and the asset table `fillfactor` can be tweaked to optimize this (default: 90%)
 
 #### Monitoring metrics
@@ -262,7 +274,11 @@ Most values are point-in-time samples, so some fluctuate with normal database ac
 | `pg_dead_tuple_percent`                                  | Below the autovacuum trigger (about 20%)   | Rises and falls with each autovacuum run on frequently updated tables such as `asset`.                                                                                                              |
 | `pg_table_bloat_count`                                   | `0` sustained                              | Tables over 5MB with dead rows above 30% of live rows. Busy tables can briefly cross this threshold between autovacuum runs, so occasional `1` values are expected.                                 |
 | `pg_asset_raw_data_size`                                 | A few MB per few thousand assets           | Asset table heap size. Growth without a matching increase in the number of assets indicates bloat, see [Asset table bloat](#asset-table-bloat).                                                     |
-| `pg_datapoint_largest_uncompressed_chunk`                | Below 25% of the container RAM limit       | See the 25% rule above.                                                                                                                                                                             |
+| `pg_datapoint_chunk_memory_ratio`                        | Below `1`                                  | Projected size of the chunk being written divided by `shared_buffers`, computed every 12 hours once the chunk is 6 hours old. Above `1`, reduce the chunk interval, see [Chunk interval](#chunk-interval). |
+| `pg_datapoint_chunks_needing_compression`                | `0`                                        | Uncompressed chunks that ended longer ago than the columnstore policy `compress_after` plus its schedule interval. Above `0` means the policy is failing or behind; check `pg_background_errors` and `timescaledb_information.job_stats`. |
+| `pg_datapoint_uncompressed_chunk_count`                  | `1` or `2`                                 | The chunk being written, plus the previous chunk until the policy compresses it (up to about 1.5 days after each chunk boundary), so with 1 day chunks it is usually `2`. |
+| `pg_datapoint_chunk_count`                               | Below about 1,000                          | Every chunk adds query planning time; use a retention period or, if the chunk size allows it, a larger chunk interval. |
+| `pg_datapoint_largest_uncompressed_chunk`                | Below 25% of the container RAM limit       | See the 25% rule above. Includes the previous chunk until it is compressed, so `pg_datapoint_projected_chunk_size` is a better guide. |
 
 Alert on sustained values rather than single samples, e.g. `min_over_time(pg_table_bloat_count[30m]) > 0` or an alert rule with `for: 30m`.
 
