@@ -2212,6 +2212,145 @@ paths:
       summary: Write a timestamped value to one asset attribute
       tags:
       - Asset
+  /asset/{assetId}/configurationTemplate:
+    get:
+      description: "Returns a versioned document holding the type and metadata of\
+        \ each attribute that has metadata, limited to the requested attribute names\
+        \ when any are given. Metadata that grants access or links attributes stays\
+        \ with the asset, and attributes without other metadata are never included.\
+        \ Exporting nothing is rejected."
+      operationId: exportConfigurationTemplate
+      parameters:
+      - description: Globally unique 22-character asset identifier.
+        example: 7A6p4AnLTkKxJUCQAAABAA
+        in: path
+        name: assetId
+        required: true
+        schema:
+          type: string
+      - description: "Attribute names to export. Repeat the query parameter for multiple\
+          \ attributes, omit it to export all attributes that have metadata."
+        explode: true
+        in: query
+        name: attributeName
+        schema:
+          type: array
+          items:
+            type: string
+        style: form
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConfigurationTemplate"
+          description: The request completed successfully
+        "400":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The request parameters or body are invalid
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Authentication is required or the supplied credentials are
+            invalid
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The authenticated user does not have permission to perform
+            this operation
+        "404":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The requested resource does not exist
+      security:
+      - openid: []
+      summary: Export a configuration template of an asset
+      tags:
+      - Asset
+  /asset/{assetId}/configurationTemplate/import:
+    post:
+      description: "Validates the document, matches its attributes against the draft\
+        \ by name and type, and returns the compatibility report together with the\
+        \ draft attributes holding the imported metadata. Metadata that grants access\
+        \ or links attributes is ignored, and the draft keeps its own. Nothing is\
+        \ stored; the client applies the patch after the user confirms."
+      operationId: previewConfigurationTemplateImport
+      parameters:
+      - description: Globally unique 22-character asset identifier.
+        example: 7A6p4AnLTkKxJUCQAAABAA
+        in: path
+        name: assetId
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/ConfigurationTemplateImportRequest"
+        description: The asset draft being edited and the contents of the selected
+          configuration file.
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConfigurationTemplateImportPreview"
+          description: The request completed successfully
+        "400":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConfigurationTemplateImportPreview"
+            text/plain:
+              schema:
+                type: string
+          description: "The draft is missing, or the document cannot be imported;\
+            \ a rejected document is answered with the preview, whose failure names\
+            \ the reason and failureLocation, where known, the attribute, metadata\
+            \ item and parameter"
+        "401":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: Authentication is required or the supplied credentials are
+            invalid
+        "403":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The authenticated user does not have permission to perform
+            this operation
+        "404":
+          content:
+            text/plain:
+              schema:
+                type: string
+          description: The requested resource does not exist
+        "409":
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ConfigurationTemplateImportPreview"
+          description: The draft no longer identifies the persisted asset; the preview
+            failure is DRAFT_MISMATCH
+      security:
+      - openid: []
+      summary: Preview a configuration template import
+      tags:
+      - Asset
   /asset/{parentAssetId}/child:
     put:
       description: "Sets parentAssetId as the parent of every asset listed in repeated\
@@ -8346,6 +8485,48 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/ValueDescriptorObject"
+    AttributeConfiguration:
+      type: object
+      description: Configuration of a single attribute; the attribute name is the
+        key within the document.
+      properties:
+        meta:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/MetaItemObject"
+          description: "Metadata keyed by meta-item name, exactly as stored on the\
+            \ attribute."
+          properties:
+            delegate:
+              type: object
+              additionalProperties:
+                $ref: "#/components/schemas/MetaItemObject"
+        type:
+          type: string
+          description: "Value descriptor name of the attribute, e.g. number."
+    AttributeConfigurationSummary:
+      type: object
+      description: Name and type of an attribute within an imported document.
+      properties:
+        name:
+          type: string
+          description: Attribute name.
+        type:
+          type: string
+          description: "Value descriptor name of the attribute, e.g. number."
+    AttributeConfigurationTypeMismatch:
+      type: object
+      description: Attribute skipped on import because the target type differs.
+      properties:
+        importedType:
+          type: string
+          description: Value descriptor name within the imported document.
+        name:
+          type: string
+          description: Attribute name.
+        targetType:
+          type: string
+          description: Value descriptor name of the target attribute.
     AttributeDescriptorObject:
       type: object
       properties:
@@ -8559,6 +8740,107 @@ components:
           $ref: "#/components/schemas/AssetConditions"
         dashboard:
           $ref: "#/components/schemas/DashboardConditions"
+    ConfigurationTemplate:
+      type: object
+      description: "Versioned configuration template holding the attribute configuration\
+        \ of an asset, keyed by attribute name."
+      properties:
+        assetType:
+          type: string
+          description: Asset type the template was exported from.
+        attributes:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/AttributeConfiguration"
+          description: Attribute configuration keyed by attribute name.
+        version:
+          type: integer
+          format: int32
+          description: Document format version.
+          example: 1
+    ConfigurationTemplateImportFailureLocation:
+      type: object
+      description: Where a configuration template cannot be imported; a part is absent
+        when the failure lies above it.
+      properties:
+        attribute:
+          type: string
+          description: Attribute name of the entry.
+          example: temperature
+        metaItem:
+          type: string
+          description: Name of the metadata item within the entry.
+          example: forecast
+        parameter:
+          type: string
+          description: "Path of the parameter within the metadata item, or of the\
+            \ field within the entry or the document."
+          example: pastCount
+    ConfigurationTemplateImportPreview:
+      type: object
+      description: "Outcome of validating a configuration template against an asset\
+        \ draft, with the patched attributes to apply on confirmation."
+      properties:
+        customAttributes:
+          type: array
+          description: Attributes skipped because they were added to the target asset
+            rather than defined by its asset type.
+          items:
+            $ref: "#/components/schemas/AttributeConfigurationSummary"
+        failure:
+          type: string
+          description: Why the document cannot be imported; absent when it can.
+          enum:
+          - INVALID_JSON
+          - UNSUPPORTED_VERSION
+          - MISSING_REQUIRED_FIELD
+          - MALFORMED_ATTRIBUTE_ENTRY
+          - INVALID_META_ITEM
+          - VALUE_VIOLATES_CONSTRAINTS
+          - NO_IMPORTABLE_ATTRIBUTES
+          - DRAFT_MISMATCH
+        failureLocation:
+          $ref: "#/components/schemas/ConfigurationTemplateImportFailureLocation"
+        importableAttributes:
+          type: array
+          description: Attributes whose metadata will be replaced.
+          items:
+            $ref: "#/components/schemas/AttributeConfigurationSummary"
+        missingAttributes:
+          type: array
+          description: Attributes skipped because the target asset does not have them.
+          items:
+            $ref: "#/components/schemas/AttributeConfigurationSummary"
+        patchedAttributes:
+          type: object
+          additionalProperties:
+            $ref: "#/components/schemas/AttributeObject"
+          description: "The submitted draft attributes with the metadata of every\
+            \ importable attribute replaced, keyed by attribute name."
+          properties:
+            delegate:
+              type: object
+              additionalProperties:
+                $ref: "#/components/schemas/AttributeObject"
+        typeMismatches:
+          type: array
+          description: Attributes skipped because the target attribute has a different
+            type.
+          items:
+            $ref: "#/components/schemas/AttributeConfigurationTypeMismatch"
+    ConfigurationTemplateImportRequest:
+      type: object
+      description: "A configuration template to validate against an asset draft, as\
+        \ file text."
+      properties:
+        document:
+          type: string
+          description: Contents of the selected configuration template file.
+        draft:
+          $ref: "#/components/schemas/AssetObject"
+      required:
+      - document
+      - draft
     ConsoleProvider:
       type: object
       properties:

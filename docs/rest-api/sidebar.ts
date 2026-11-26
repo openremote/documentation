@@ -262,6 +262,18 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "rest-api/export-configuration-template",
+          label: "Export a configuration template of an asset",
+          className: "api-method get",
+        },
+        {
+          type: "doc",
+          id: "rest-api/preview-configuration-template-import",
+          label: "Preview a configuration template import",
+          className: "api-method post",
+        },
+        {
+          type: "doc",
           id: "rest-api/update-asset-parent",
           label: "Move assets below a new parent",
           className: "api-method put",
@@ -1254,6 +1266,24 @@ const sidebar: SidebarsConfig = {
         },
         {
           type: "doc",
+          id: "rest-api/schemas/attributeconfiguration",
+          label: "AttributeConfiguration",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/attributeconfigurationsummary",
+          label: "AttributeConfigurationSummary",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/attributeconfigurationtypemismatch",
+          label: "AttributeConfigurationTypeMismatch",
+          className: "schema",
+        },
+        {
+          type: "doc",
           id: "rest-api/schemas/attributedescriptorobject",
           label: "AttributeDescriptorObject",
           className: "schema",
@@ -1322,6 +1352,30 @@ const sidebar: SidebarsConfig = {
           type: "doc",
           id: "rest-api/schemas/conditions",
           label: "Conditions",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/configurationtemplate",
+          label: "ConfigurationTemplate",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/configurationtemplateimportfailurelocation",
+          label: "ConfigurationTemplateImportFailureLocation",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/configurationtemplateimportpreview",
+          label: "ConfigurationTemplateImportPreview",
+          className: "schema",
+        },
+        {
+          type: "doc",
+          id: "rest-api/schemas/configurationtemplateimportrequest",
+          label: "ConfigurationTemplateImportRequest",
           className: "schema",
         },
         {

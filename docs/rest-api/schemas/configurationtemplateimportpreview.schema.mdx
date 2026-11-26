@@ -1,0 +1,32 @@
+---
+id: configurationtemplateimportpreview
+title: "ConfigurationTemplateImportPreview"
+description: "Outcome of validating a configuration template against an asset draft, with the patched attributes to apply on confirmation."
+sidebar_label: "ConfigurationTemplateImportPreview"
+hide_title: true
+hide_table_of_contents: true
+schema: true
+sample: {"customAttributes":[{"name":"string","type":"string"}],"failure":"INVALID_JSON","failureLocation":{"attribute":"temperature","metaItem":"forecast","parameter":"pastCount"},"importableAttributes":[{"name":"string","type":"string"}],"missingAttributes":[{"name":"string","type":"string"}],"patchedAttributes":{"delegate":{}},"typeMismatches":[{"importedType":"string","name":"string","targetType":"string"}]}
+custom_edit_url: null
+---
+
+import Schema from "@theme/Schema";
+import Heading from "@theme/Heading";
+
+<Heading
+  as={"h1"}
+  className={"openapi__heading"}
+  children={"ConfigurationTemplateImportPreview"}
+>
+</Heading>
+
+
+
+Outcome of validating a configuration template against an asset draft, with the patched attributes to apply on confirmation.
+
+<Schema
+  {...require("./configurationtemplateimportpreview.Schema.json")}
+>
+  
+</Schema>
+            
