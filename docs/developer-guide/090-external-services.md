@@ -191,7 +191,7 @@ sequenceDiagram
 
 ### Docker Compose Setup
 
-External services can be deployed alongside the OpenRemote stack using Docker Compose. The easiest approach is to add your service to an existing Docker Compose profile or create a custom one. For the instructions below, we will use the [ML Forecast Service](https://github.com/openremote/service-ml-forecast) as an example.
+External services can be deployed alongside the OpenRemote stack using Docker Compose. The easiest approach is to add your service to an existing Docker Compose profile or create a custom one. For the instructions below, we will use the [Forecasting Service](https://github.com/openremote/service-ml-forecast) as an example.
 
 **Example service (service-ml-forecast) configuration:**
 
@@ -215,7 +215,7 @@ services:
     volumes:
       - service-ml-forecast-data:/app/deployment/data
 ```
-For more information on the service configuration, refer to the [ML Forecast Service](https://github.com/openremote/service-ml-forecast) repository.
+For more information on the service configuration, refer to the [Forecasting Service](https://github.com/openremote/service-ml-forecast) repository.
 
 
 
@@ -268,7 +268,7 @@ External services can be used to extend OpenRemote in many ways:
 
 ### Reference Implementation
 
-We provide the [ML Forecast Service](https://github.com/openremote/service-ml-forecast) which can serve as a reference implementation. This service connects to OpenRemote, retrieves historical data, and provides forecasting capabilities using machine learning/statistical models.
+We provide the [Forecasting Service](https://github.com/openremote/service-ml-forecast) which can serve as a reference implementation. This service connects to OpenRemote, retrieves historical data, and provides forecasting capabilities using machine learning/statistical models.
 
 It demonstrates how to implement:
 

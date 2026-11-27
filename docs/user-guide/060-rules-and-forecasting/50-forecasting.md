@@ -45,7 +45,7 @@ For "forecastPeriod" the representation for
 
 ## Time series with non-linear regeression model
 
-For more advanced time series forecasting where you expect a seasonal effect as well as (non) linear relations with other attributes. You can use the ML Forecasting service. An example is the amount of energy required for heating a building, as you would expect a dependancy on the outdor temperature and even the windspeed. For more information about this service, check the [ML Forecasting Service](../100-services/20-service-ml-forecast.md)
+For more advanced time series forecasting where you expect a seasonal effect as well as (non) linear relations with other attributes. You can use the Forecasting Service. An example is the amount of energy required for heating a building, as you would expect a dependancy on the outdor temperature and even the windspeed. For more information about this service, check the [Forecasting Service](../100-services/20-service-ml-forecast.md)
 
 ## See Also
 - [Tutorial: Create your Energy Management System](../090-domains/10-create-your-energy-management-system.md)
