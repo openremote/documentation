@@ -43,11 +43,13 @@ The form is divided into collapsible groups.
 The available parameters and regressor groups depend on the selected model.
 
 The form contains defaults for forecast generation, training data, and model parameters.
+New configurations use XGBoost by default.
+Existing configurations retain their saved model type and settings.
 Start with these defaults and adjust them based on comparisons with actual readings.
 
 | Section | Field | Description |
 |---------|-------|-------------|
-| **Properties** | `Model name` | The name of the forecast configuration |
+| **Properties** | `Configuration name` | The name of the forecast configuration |
 | | `Enabled` | Whether the configuration is scheduled for training and forecasting |
 | **Model configuration** | `Model type` | The model to use for forecasting |
 | **Forecast generation** | `Generate new forecast every` | How often to train the model and generate new predictions |
