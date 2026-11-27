@@ -42,5 +42,5 @@ Monitor update progress and firmware version on the device assets in the Manager
 
 ## Next steps
 
-- Trigger update alerts and escalation with [ML Forecasting Service](../user-guide/100-services/20-service-ml-forecast.md).
+- Trigger update alerts and escalation with [Forecasting Service](../user-guide/100-services/20-service-ml-forecast.md).
 - Manage on-site devices behind an [edge gateway with a secure tunnel](../user-guide/080-gateways-and-devices/10-edge-gateway.md).

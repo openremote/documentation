@@ -96,7 +96,7 @@ To connect electricity consuming devices. You can connect several energy meters 
 
 ##### Forecast service
 
-For the electricity consuming devices you also need the forecasted power. You can enable this in two ways. The simple one is by adding the configuration item 'Forecast'. This service will take an exponential weighted moving average, based on your preferences. See [Time series forecasting](../060-rules-and-forecasting/50-forecasting.md) for configuration. For more advanced forecasting you can use the ML forecasting service, which can take into account the influence of other attributes, e.g. weather. See [ML Forecasting](../100-services/20-service-ml-forecast.md).
+For the electricity consuming devices you also need the forecasted power. You can enable this in two ways. The simple one is by adding the configuration item 'Forecast'. This service will take an exponential weighted moving average, based on your preferences. See [Time series forecasting](../060-rules-and-forecasting/50-forecasting.md) for configuration. For more advanced forecasting you can use the Forecasting Service, which can take into account the influence of other attributes, e.g. weather. See [Forecasting Service](../100-services/20-service-ml-forecast.md).
 
 ### Electricity Battery
 
@@ -171,7 +171,7 @@ _Figure 8. An example for the 'Replay data' for the Export tariff you want to us
 
 ##### Forecast service with ML forecasting
 
-In case you need forecasted electricity tariffs beyond the time window of the published data by EPEX, you can use the ML forecasting service, which can take into account the historical time series data as well as the influence of forecasted wind speed and solar/cloud coverage. See [ML Forecasting](../100-services/20-service-ml-forecast.md) and the [Open WeatherMap Agent](../040-agents-protocols/190-openweathermap.md).
+In case you need forecasted electricity tariffs beyond the time window of the published data by EPEX, you can use the Forecasting Service, which can take into account the historical time series data as well as the influence of forecasted wind speed and solar/cloud coverage. See [Forecasting Service](../100-services/20-service-ml-forecast.md) and the [Open WeatherMap Agent](../040-agents-protocols/190-openweathermap.md).
 
 ## Optimization
 
